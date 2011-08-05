@@ -6,7 +6,7 @@
 		
 		Usage: Used to define the look and feel of the website. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.
 		
-		Last Update: June 23, 2011 by Mal Jones
+		Last Update: Aug 05, 2011 by Mal Jones
 	====
 */
 
@@ -45,7 +45,7 @@ h2 {
 	color: #262727;
 	font: 1.6em "ITC Avant Garde", "avant garde", "Century Gothic", Arial, Helvetica, sans-serif;
 	font-weight: 900;
-	padding-bottom: 18px;
+	padding-bottom: 12px;
 }
 	h2 a {
 		text-decoration: none;
@@ -115,6 +115,10 @@ table {
 	padding: 0;
 }
 
+.genSiteContentColumn #genSlotBody img {
+	margin: 8px;
+}
+
 img.right {
 	float: right;
 	margin: 0 0 8px 8px;
@@ -126,10 +130,6 @@ img.left {
 img.center {
 	margin: 0 auto 8px auto;
 	text-align: center;
-}
-
-.genSiteContentColumn img {
-	border: 1px solid #b2b2b2;
 }
 
 /***
@@ -221,6 +221,12 @@ img.center {
 				vertical-align: middle;
 				width: 66px;
 			}
+			/* Results */
+			
+			ol li.genSearchItem h4 {
+				padding-bottom: 0;
+			}
+
 		
 		
 	/**
@@ -502,6 +508,7 @@ img.center {
 		.genSiteMainColumn {
 			background-color: #fff;
 			border-left: 1px solid #b2b2b2;
+			min-height: 400px;
 			width: 799px;
 		}
 			/* Removes styling for full width column */
@@ -553,6 +560,7 @@ img.center {
 				width: 570px;
 			}			
 				.genSiteContentColumn .slot-item {
+					overflow: hidden;
 					padding: 0 20px 0 20px;
 				}
 			
@@ -987,8 +995,9 @@ ol.genAggroWidget {
 		height: 44px;
 		width: 60px;	
 	}
-		p.genListItemThumbnail img {
-			border: 1px solid #b2b2b2;
+		p.genListItemThumbnail img,
+		.genSiteContentColumn #genSlotBody p.genListItemThumbnail img {
+			margin: 0;
 		}
 		ul.genList li div.genListItemInfo,
 		ol.genList li div.genListItemInfo,
@@ -1080,13 +1089,18 @@ ol.genAggroWidget {
 			Pagination used on Page Level Aggro Widgets and Search Results
 		**/
 
+					
 		ul.genSitePagination {
 			border-top: 1px solid #B2B2B2;
 			margin: 0 20px 0 0;
 			padding: 18px 0 20px 0;
 		}
+		#ct108_spPager {
+			border-top: 1px solid #b2b2b2;
+			padding: 18px 0 0 0;
+		}
 			ul.genSitePagination li {
-				margin-right: 8px;
+				margin-right: 4px;
 			}
 			
 			
@@ -1116,7 +1130,6 @@ ol.genAggroWidget {
 		}	
 			#news-slider .ui-tabs-panel-x img {
 				float: left;
-				border: 1px solid #b2b2b2;
 				margin: 18px 18px 0 18px;
 			}	
 			#news-slider .ui-tabs-panel-x p,
@@ -1190,7 +1203,8 @@ ol.genAggroWidget {
 	
 	#news-slider ul.news-slider-tabs {
 		overflow: hidden;
-	
+		margin: 0;
+		padding: 0;
 	}
 		#news-slider ul.news-slider-tabs li.news-slider-tabs-item {
 			/* Background Gradient */
@@ -1210,6 +1224,7 @@ ol.genAggroWidget {
 			list-style: none;
 			list-style-type: none;
 			margin: 0;
+			padding:0;
 			width: 205px;
 		}
 		#news-slider ul.news-slider-tabs li.last {
@@ -1240,8 +1255,6 @@ ol.genAggroWidget {
 			/* link used inside of list items */
 			
 			#news-slider li.news-slider-tabs-item a { /*On Hover Style*/
-				border-right: 1px solid #fff;
-				border-left: 1px solid #fff;
 				display: block;
 				overflow: hidden;
 				font-weight: bold;
@@ -1255,9 +1268,9 @@ ol.genAggroWidget {
 			}
 			/* thumbnail images in tabs */
 			#news-slider li.news-slider-tabs-item img {
-				border: 1px solid #b2b2b2;
 				float: left;
 				margin: 0 8px 0 0;
+				padding: 0;
 			}
 			/* container for individual list items image and text on hover */
 			#news-slider li.news-slider-tabs-item a:hover {

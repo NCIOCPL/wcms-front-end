@@ -6,7 +6,7 @@
 		
 		Usage: Elements specifically used for proteomics.cancer.gov
 		
-		Last Update: July 19, 2011 by Mal Jones
+		Last Update: Aug 05, 2011 by Mal Jones
 	====
 */
 
@@ -30,7 +30,7 @@ h1.genSiteLogo {
 		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader('/publishedcontent/images/images/global/cptc-logo.png');
 		display: block;
 		height: 85px;
-		width: 300px;
+		width: 320px;
 	}
 	
 /**
