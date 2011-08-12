@@ -6,7 +6,7 @@
 		
 		Usage: Used to define the look and feel of the website. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.
 		
-		Last Update: June 23, 2011 by Mal Jones
+		Last Update: August 12, 2011 by Mal Jones
 	====
 */
 
@@ -721,6 +721,10 @@ li.genListItemFundingOpp p.genListItemSource {
 li.genListItemFundingOpp h4 {
 	padding-bottom: 18px;
 }
+ul.genListItemFundingOppDates li p {
+	padding-bottom: 0;
+}
+
 	
 /**
 	Aggregation Widget
