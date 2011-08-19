@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
-    TagPrefix="NCI" %>
-    
+    TagPrefix="NCI" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="header" runat="server">
@@ -24,38 +23,15 @@
     </div>
     <!-- Main Area -->
         <!-- Left Navigation and Content Area -->
-    <div id="mainContainer">
-        <table width="751" cellspacing="0" cellpadding="0" border="0">
-            <tr>                        
-                <!-- Main Content Area -->
-                <td id="contentzone" valign="top" width="752">
+    <div id="mainContainer">             
+                <!-- Main Content Area -->              
                     <a name="skiptocontent"></a>
                     <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
-                    <NCI:TemplateSlot ID="cgvRightNav" runat="server">
-                        <HeaderHtml>
-                        <table cellspacing="0" cellpadding="0" border="0" align="right" width="167">
-                            <tbody>
-                                <tr>
-                                    <td valign="top"><img height="1" border="0" width="8" alt="" src="/images/spacer.gif"/></td>
-                                    <td width="159" valign="top">
-                        </HeaderHtml>
-                        <FooterHtml>
-                                    </td>
-                                </tr> 
-                                <tr>
-		                            <td valign="top" colspan="2"><img height="8" border="0" width="1" alt="" src="/images/spacer.gif"/></td>
-	                            </tr>                                
-                            </tbody>
-                        </table>                        
-                        </FooterHtml>
-                    </NCI:TemplateSlot>
+                    <NCI:TemplateSlot ID="cgvRightNav" runat="server" />                    
                     <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
                     <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-                    <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
-                </td>
+                    <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />               
                 <!-- End Content Area -->
-                          </tr>
-        </table>
         </div>
     <!-- End Left Navigation and Content Area -->
     <!-- End Main Area -->

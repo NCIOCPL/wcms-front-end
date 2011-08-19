@@ -26,148 +26,25 @@
     <!-- Main Area -->
     <!-- Left Navigation and Content Area -->
     <div id="mainContainer">
-        <table width="751" cellspacing="0" cellpadding="0" border="0">
-            <tr>
                 <!-- Left Nav Column -->
-                <td id="leftzone" valign="top">
-                    <table border="0" cellspacing="0" cellpadding="0" width="164">
-                        <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot">
-                            <HeaderHtml>
-                                <tr>
-                                    <td valign="top" align="left">                            
-                            </HeaderHtml>
-                            <FooterHtml>
-                </td>
-                <td valign="top">
-                    <img src="/images/spacer.gif" border="0" alt="" width="16" height="1" />
-                </td>
-            </tr>
-            </FooterHtml> </NCI:TemplateSlot>
-            <tr>
-                <td valign="top" align="left" width="164">
-                    <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />
-                </td>
-                <!-- So... there should be 6px rendered after each item. -->
-                <td valign="top">
-                    <img src="/images/spacer.gif" border="0" alt="" width="16" height="1" />
-                </td>
-            </tr>
-        </table>
-        </td>
+         <div id="leftzone">                      
+                    <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot" />                    
+                    <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />              
+       </div>
         <!-- End Left Nav -->
         <!-- Main Content Area -->
-        <td id="contentzone" valign="top" width="571">
+          <div class="contentzone">      
         <a name="skiptocontent"></a>
-            <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" />
-            <table width="571" border="0" cellspacing="0" cellpadding="0">
-                <tr>                   
-                    <td valign="top">
-                        <img height="16" border="0" width="8" alt="" src="/images/spacer.gif" />
-                    </td>                    
-                </tr>
-                <tr>
-                
-                    <td valign="top">
-                        <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="LeftNavSlot">
-                            <HeaderHtml>
-                            <table cellspacing="0" cellpadding="0" border="0" align="right" width="167">
-                                <tbody>                                
-                                    <tr>
-                                       <%--<td valign="top"><img height="1" border="0" width="8" alt="" src="/images/spacer.gif"/></td>--%>
-                                        <td  valign="top" align="right">
-                            </HeaderHtml>
-                            <FooterHtml>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td valign="top" colspan="2">
-                        <img height="8" border="0" width="1" alt="" src="/images/spacer.gif" />
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            </FooterHtml> </NCI:TemplateSlot>
-
-            <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server">
-            <HeaderHtml>
-                </HeaderHtml>
-                <FooterHtml>
-                        <img height="5" border="0" width="1" alt="" src="/images/spacer.gif" />
-                </FooterHtml>
-                <%--<HeaderHtml>
-                        <table cellspacing="0" cellpadding="0" border="0">
-                            <tbody>
-                                <tr>                                                                 
-                                    <td valign="top">
-                </HeaderHtml>
-                <FooterHtml>
-        </td>
-        </tr>
-        <tr>
-            <td>
-                <td valign="top">
-                    <img height="13" border="0" width="1" alt="" src="/images/spacer.gif" />
-                </td>
-            </td>
-        </tr>
-        <tr>
-        <td><hr /></td>
-<%--            <td valign="top" bgcolor="#999999">
-                <img border="0" alt="" src="/images/spacer.gif" height="1" border="0">
-            </td>comment
-        </tr>
-        <tr>
-            <td>
-                <td valign="top">
-                    <img height="1" border="0" width="1" alt="" src="/images/spacer.gif" />
-                </td>
-            </td>
-        </tr>
-        </tbody> </table> </FooterHtml>--%> </NCI:TemplateSlot>
-        
+        <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" />
+        <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="LeftNavSlot" />   
+         <div class="cancertypecontent">                     
+        <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server" />           
         <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-        <NCI:TemplateSlot ID="cgvBodyLeft" runat="server">
-            <HeaderHtml>
-                        <table cellspacing="0" cellpadding="0" border="0" align="left" width="202">
-                            <tbody> 
-                                <tr>
-                                    <td valign="top">
-            </HeaderHtml>
-            <FooterHtml>
-                                    </td>
-                                </tr> 
-                                <tr>
-		                            <td valign="top" colspan="2"><img height="8" border="0" width="1" alt="" src="/images/spacer.gif"/></td>
-	                            </tr>                                
-                            </tbody>
-                        </table>                        
-            </FooterHtml>
-        </NCI:TemplateSlot>
-        <NCI:TemplateSlot ID="cgvBodyRight" runat="server">
-            <HeaderHtml>
-                        <table cellspacing="0" cellpadding="0" border="0" align="left" width="202">
-                            <tbody>
-                                <tr>
-                                    <td valign="top"><img height="1" border="0" width="8" alt="" src="/images/spacer.gif"/></td>
-                                    <td  valign="top">
-            </HeaderHtml>
-            <FooterHtml>
-                                    </td>
-                                </tr> 
-                                <tr>
-		                            <td valign="top" colspan="2"><img height="8" border="0" width="1" alt="" src="/images/spacer.gif"/></td>
-	                            </tr>                                
-                            </tbody>
-                        </table>                        
-            </FooterHtml>
-        </NCI:TemplateSlot>
-        </td> </tr> <a name="skiptocontent"></a>
-        <NCI:TemplateSlot ID="cgvMpToc" runat="server" />
-        <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
-        </table> </td>
+        <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" />         
+        <NCI:TemplateSlot ID="cgvBodyRight" runat="server" />
+        </div>
+        </div>        
         <!-- End Content Area -->      
-        </tr> </table>   
     <!-- End Main Area -->
     </div>
     <!-- End Left Navigation and Content Area -->

@@ -17,7 +17,8 @@
     <div id="cgovContainer">
 	<!-- Site Banner -->
 <div class="skip">
-        <a title="Skip to content" href="#skiptocontent">Skip to content</a></div>  
+        <a title="Skip to content" href="#skiptocontent">Skip to content</a>
+        </div>  
 	
     <div id="bannerDiv">
         <NCI:TemplateSlot ID="cgvSiteBannerPrint" runat="server" />
@@ -26,53 +27,16 @@
 
 	<!-- Content Header --> 
     <div id="headerzone">
- <table cellspacing="0" cellpadding="0" border="0" width="1">
-            <tbody>
-                <tr>
-                    <td>
-                        <img height="10" border="0" width="1" alt="" src="/images/spacer.gif" />
-                    </td>
-                </tr>
-            </tbody>
-        </table>
         <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
         <NCI:TemplateSlot ID="cgvLanguageDate" runat="server" />
     </div>
     <!-- Main Area -->
     <!-- Left Navigation and Content Area -->
-    <div id="mainContainer">
-		<table width="751" cellspacing="0" cellpadding="0" border="0">
-			<tr>		
-			    
-				<!-- Left Nav Column -->
-				<td id="leftzone" valign="top"></td>
-				
-				
-				<!-- Red line -->
-				
+    <div id="mainContainer">	
 				<!-- Main Content Area -->
-				<td id="contentzone" valign="top" width="100%"><a name="skiptocontent"></a><table width="650" cellspacing="0" cellpadding="0" border="0">
-	<tr>
-		<td valign="top">
+				<a name="skiptocontent"></a>
             <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
-                <NCI:TemplateSlot ID="cgvRightNav" runat="server">
-                    <HeaderHtml>
-                        <table cellspacing="0" cellpadding="0" border="0" align="right" width="167">
-                            <tbody>
-                                <tr>
-                                    <td valign="top"><img height="1" border="0" width="8" alt="" src="/images/spacer.gif"/></td>
-                                    <td width="159" valign="top">
-                    </HeaderHtml>
-                    <FooterHtml>
-                                    </td>
-                                </tr> 
-                                <tr>
-		                            <td valign="top" colspan="2"><img height="8" border="0" width="1" alt="" src="/images/spacer.gif"/></td>
-	                            </tr>                                
-                            </tbody>
-                        </table>                        
-                    </FooterHtml>
-                </NCI:TemplateSlot>
+                <NCI:TemplateSlot ID="cgvRightNav" runat="server" />                
             <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
                     <NCI:TemplateSlot ID="cgvBody" runat="server"  />
 			<!-- Glossary of Terms -->
@@ -80,16 +44,10 @@
                    
 			<!-- Link Extraction -->
 		    <uc1:TableofLinks ID="TableofLinks1" runat="server" />
-		</td>
-							
-
-			</tr>
-		</table>
 	<!-- End Main Area -->
          </div>
     <!-- End Left Navigation and Content Area -->
 	<!-- Footer -->
-	<div id="footerzone"></div>
 	     </div>
     <!-- End CGovContainer--> 
     <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 

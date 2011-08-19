@@ -27,39 +27,15 @@
     </div>
     <!-- Main Area -->
     <!-- Left Navigation and Content Area -->
-    <div id="mainContainer">
-        <table width="751" cellspacing="0" cellpadding="0" border="0">
-            <tr>                            
+    <div id="mainContainer">               
                 <!-- Left Nav Column -->
-                <td id="leftzone" valign="top">
-                    <table border="0" cellspacing="0" cellpadding="0" width="164">
-                         <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot">
-                            <HeaderHtml>
-                                <tr>
-                                    <td valign="top" align="left">                            
-                            </HeaderHtml>
-                            <FooterHtml>
-                                    </td>
-                                    <td valign="top">
-                                        <img src="/images/spacer.gif" border="0" alt="" width="16" height="1" />
-                                    </td>
-                                </tr>                            
-                            </FooterHtml>
-                         </NCI:TemplateSlot>
-                        <tr>
-                            <td valign="top" align="left" width="164">
-                                <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />
-                            </td>
-                            <!-- So... there should be 6px rendered after each item.  -->
-                            <td valign="top">
-                                <img src="/images/spacer.gif" border="0" alt="" width="16" height="1" />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+  <div id="leftzone">                      
+                    <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot" />                    
+                    <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />              
+       </div>
                 <!-- End Left Nav -->                
                 <!-- Main Content Area -->
-                <td id="contentzone" valign="top" width="100%">
+                     <div class="contentzone"> 
                     <a name="skiptocontent"></a>                 
                     <!-- Parent container for content and timely content zone column -->
                     <div id="portalPageContentContainer">                       
@@ -71,10 +47,8 @@
                     <NCI:TemplateSlot ID="cgvBody" CssClass="BodySlotPortal" runat="server"  />                                     
                     </div>
                     <!-- End Parent container for content and timely content zone column -->
-                </td>
-                <!-- End Content Area -->               
-            </tr>
-        </table>
+                </div>
+                <!-- End Content Area -->            
         </div>
     <!-- End Left Navigation and Content Area -->
     <!-- End Main Area -->
