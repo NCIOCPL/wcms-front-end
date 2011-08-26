@@ -27,15 +27,16 @@
   <div id="mainContainer"> 
     <!-- Main Content Area --> 
     <a name="skiptocontent"></a>
-    <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
-    <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
-    <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
-    <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-    <!-- Glossary of Terms -->
-    <uc2:GlossaryTerms ID="GlossaryTerms1" runat="server" />
-    
-    <!-- Link Extraction -->
-    <uc1:TableofLinks ID="TableofLinks1" runat="server" />
+    <div class="contentzone-noleftnav">
+      <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
+      <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
+      <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
+      <NCI:TemplateSlot ID="cgvBody" runat="server"  />
+      <!-- Glossary of Terms -->
+      <uc2:GlossaryTerms ID="GlossaryTerms1" runat="server" />
+      <!-- Link Extraction -->
+      <uc1:TableofLinks ID="TableofLinks1" runat="server" />
+    </div>
     <!-- End Main Area --> 
   </div>
   <!-- End Left Navigation and Content Area --> 
