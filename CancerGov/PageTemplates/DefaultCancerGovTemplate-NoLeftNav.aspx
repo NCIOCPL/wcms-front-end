@@ -23,11 +23,13 @@
   <div id="mainContainer"> 
     <!-- Main Content Area --> 
     <a name="skiptocontent"></a>
-    <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
-    <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
-    <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
-    <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-    <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+    <div class="contentzone-noleftnav">
+      <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
+      <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
+      <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
+      <NCI:TemplateSlot ID="cgvBody" runat="server"  />
+      <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+    </div>
     <!-- End Content Area --> 
   </div>
   <!-- End Left Navigation and Content Area --> 

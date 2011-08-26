@@ -32,13 +32,15 @@
     <div class="contentzone"> 
     <a name="skiptocontent"></a>
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" />
-      <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="LeftNavSlot" />
       <div class="cancertypecontent">
         <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server" />
         <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-        <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" />
-        <NCI:TemplateSlot ID="cgvBodyRight" runat="server" />
+        <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" CssClass="cancertypecontentleft" />
+        <NCI:TemplateSlot ID="cgvBodyRight" runat="server" CssClass="cancertypecontentright" />
       </div>
+      <div class="cancertyperightcolumn">
+      	<NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="LeftNavSlot" />
+      </div>  
     </div>
     <!-- End Content Area --> 
     <!-- End Main Area --> 
