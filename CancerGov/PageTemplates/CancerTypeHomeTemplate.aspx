@@ -13,6 +13,7 @@
   <!-- Site Banner and main navigation -->
   <div class="skip"><a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
   <NCI:TemplateSlot ID="cgvSiteBanner" runat="server" />
+  <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
   <!-- End Site Banner and main navigation --> 
   <!-- Content Header -->
   <div id="headerzone">
@@ -24,6 +25,7 @@
   <div id="mainContainer"> 
     <!-- Left Nav Column -->
     <div id="leftzone">
+      <NCI:TemplateSlot ID="cgvFindACancerTypeSlot" runat="server" CssClass="LeftNavSlot" />
       <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot" />
       <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />
     </div>

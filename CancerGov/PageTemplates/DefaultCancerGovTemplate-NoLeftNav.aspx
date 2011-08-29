@@ -13,6 +13,7 @@
   <!-- Site Banner -->
   <div class="skip"><a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
   <NCI:TemplateSlot ID="cgvSiteBanner" runat="server" />
+  <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
   <!-- Content Header -->
   <div id="headerzone">
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />

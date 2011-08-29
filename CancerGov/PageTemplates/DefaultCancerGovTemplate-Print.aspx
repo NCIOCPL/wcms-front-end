@@ -15,8 +15,7 @@
 <div id="cgovContainer"> 
   <!-- Site Banner -->
   <div class="skip"> <a title="Skip to content" href="#skiptocontent">Skip to content</a> </div>
-  <NCI:TemplateSlot ID="cgvSiteBannerPrint" runat="server" />
-  
+  <NCI:TemplateSlot ID="cgvSiteBannerPrint" runat="server" />  
   <!-- Content Header -->
   <div id="headerzone">
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
