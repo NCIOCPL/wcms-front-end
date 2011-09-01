@@ -1,13 +1,11 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
-
 <!DOCTYPE html>
 <html>
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
-
 <body class="genHome">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) // TODO: Color class on slot determined by Content Type field value  -->
 	<!-- <div class="clearFix red" id="genSlotBrandingBar"> -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix" />
@@ -15,7 +13,6 @@
 	<!-- END Branding Bar Slot (#genSlotBrandingBar) -->
 	<div class="genSiteContainer">
 		<!-- Site Banner Slot (#genSlotSiteBanner) -->
-
 		<!-- <div id="genSlotSiteBanner" class="clearFix"> -->
 			<!-- Site Banner Content // From Content Type in Slot -->
 			<NCI:TemplateSlot ID="genSlotSiteBanner" runat="server"  class="clearFix"/>
@@ -25,8 +22,7 @@
 			<NCI:TemplateSlot ID="genSlotMainNav" runat="server"  class="clearFix"/>
 		<!-- </div> -->
 		<!-- END Main Navigation Slot (#genSlotMainNav) -->
-		<div class="genSiteContentContainer clearFix"><a name="skiptocontent" id="skiptocontent "></a> 
-		
+		<div class="genSiteContentContainer clearFix"><a name="skiptocontent" id="skiptocontent "></a> 		
 				<div class="genSiteContentColumn">
 					<!-- Timely Content Slot (#genSlotTC) -->
 					<!-- <div id="genSlotTC">  -->
@@ -47,7 +43,6 @@
 					<NCI:TemplateSlot ID="genSlotHighlight3" runat="server" />
 					</div>
 				</div>
-
 				<div class="genSiteRightColumn">
 					<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
 				</div><!-- END Right Content Column (#genSiteRightColumn) -->

@@ -1,12 +1,11 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
-    TagPrefix="NCI" %>
-	
+    TagPrefix="NCI" %>	
 <!DOCTYPE html>
 <html>
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
 <body class="genGeneral">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix" />
 	<!-- END Branding Bar Slot (#genSlotBrandingBar) -->
@@ -18,7 +17,6 @@
 		<NCI:TemplateSlot ID="genSlotMainNav" runat="server"  class="clearFix"/>
 		<!-- END Main Navigation Slot (#genSlotMainNav) -->
 		<div class="genSiteContentContainer clearFix">
-
 			<div class="genSiteLeftColumn">
 				<!-- Section Navigation Slot (#genSlotSectionNav) -->
 				<NCI:TemplateSlot ID="genSlotSectionNav" runat="server"/>
@@ -45,7 +43,6 @@
 					<NCI:TemplateSlot ID="genSlotRelatedLinks" runat="server"/>
 					<!-- END Related Links Slot (#genSlotRelatedLinks) -->
 				</div>
-
 				<div class="genSiteRightColumn">
 					<!-- Additional Section Navigation Slot -->
 					<NCI:TemplateSlot ID="genSlotRightNav" runat="server"  />

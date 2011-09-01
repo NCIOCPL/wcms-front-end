@@ -4,9 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
-
 <body class="genGeneral">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) // Color class on slot determined by Content Type field value  -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix red" />
 	<!-- END Branding Bar Slot (#genSlotBrandingBar) -->
@@ -18,7 +17,6 @@
 		<NCI:TemplateSlot ID="genSlotMainNav" runat="server"  class="clearFix"/>
 		<!-- END Main Navigation Slot (#genSlotMainNav) -->
 		<div class="genSiteContentContainer clearFix">
-
 			<div class="genSiteLeftColumn">
 				<!-- Section Navigation Slot (#genSlotSectionNav) -->
 				<NCI:TemplateSlot ID="genSlotSectionNav" runat="server"/>
@@ -28,7 +26,7 @@
 				<!-- END Left Sidebar Slot (#genSlotLeftSidebar) -->
 			</div>
 			<!-- END Left Content Column (#genSiteLeftColumn) -->
-			<div id="genSiteContent" class="genSiteMainColumn clearFix"><a name="skiptocontent" id="skiptocontent "></a> 
+			<div id="genSiteContent" class="genSiteMainColumn clearFix"><a name="skiptocontent" id="skiptocontent"></a> 
 				<!-- Section Banner Slot -->
 				<NCI:TemplateSlot ID="genSlotSectionBanner" runat="server"/>
 				<!-- END Section Banner Slot (#genSlotContentHeader) -->
@@ -47,7 +45,6 @@
 					<NCI:TemplateSlot ID="genSlotRelatedLinks" runat="server"  />
 					<!-- END Related Links Slot (#genSlotRelatedLinks) -->
 				</div>
-
 			</div><!-- END Main Content Column (#genSiteMainColumn) -->
 		</div>
 		<!-- Site Footer Slot (#genSlotSiteFooter) -->
@@ -59,6 +56,5 @@
 	    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
     control else Web analytics scripts will not show up in the HTML-->
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
-
 </body>
 </html>

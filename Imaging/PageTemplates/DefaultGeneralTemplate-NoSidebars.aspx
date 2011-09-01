@@ -4,9 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
-
 <body class="genGeneral">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) // Color class on slot determined by Content Type field value  -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix red" />
 	<!-- END Branding Bar Slot (#genSlotBrandingBar) -->
@@ -47,6 +46,5 @@
 	    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
     control else Web analytics scripts will not show up in the HTML-->
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
-
 </body>
 </html>
