@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="/publishedcontent/files/shareditems/favicon/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
 <body class="genHome">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to Content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) // TODO: Color class on slot determined by Content Type field value  -->
 	<!-- <div class="clearFix red" id="genSlotBrandingBar"> -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix" />

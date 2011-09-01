@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="/publishedcontent/files/shareditems/favicon/favicon.ico" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
 <body class="genGeneral">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to Content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix" />
 	<!-- END Branding Bar Slot (#genSlotBrandingBar) -->
@@ -21,7 +21,6 @@
 		<NCI:TemplateSlot ID="genSlotMainNav" runat="server"  class="clearFix"/>
 		<!-- END Main Navigation Slot (#genSlotMainNav) -->
 		<div class="genSiteContentContainer clearFix">
-
 			<div class="genSiteLeftColumn">
 				<!-- Section Navigation Slot (#genSlotSectionNav) -->
 				<NCI:TemplateSlot ID="genSlotSectionNav" runat="server"/>
@@ -48,7 +47,6 @@
 					<NCI:TemplateSlot ID="genSlotRelatedLinks" runat="server"/>
 					<!-- END Related Links Slot (#genSlotRelatedLinks) -->
 				</div>
-
 				<div class="genSiteRightColumn">
 					<!-- Additional Section Navigation Slot -->
 					<NCI:TemplateSlot ID="genSlotRightNav" runat="server"  />

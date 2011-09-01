@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
 
 <body class="genLanding">
-	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
+	<div class="genSiteSkipToContent"><a title="Skip to Content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) // Color class on slot determined by Content Type field value  -->
 	<NCI:TemplateSlot ID="genSlotBrandingBar" runat="server" class="clearFix" />
 	<!-- END Branding Bar Slot (#genSlotBrandingBar) -->
