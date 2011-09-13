@@ -554,12 +554,12 @@
             if (option.generateNextPrev) {
                 var urlstring=document.location.href;
 								if (urlstring.search("espanol") == -1) {
-                $('.' + option.container, elem).after('<a href="#" class="' + option.prev + '"><img src="/sysimages/tile-slider-english-previous.gif" alt="View Previous Tile" border="0" width="81" height="15" /></a>');
-                $('.' + option.prev, elem).after('<a href="#" class="' + option.next + '"><img src="/sysimages/tile-slider-english-next.gif" alt="View Next Tile" border="0" width="78" height="15" /></a>');
+                $('.' + option.container, elem).after('<a href="#" class="' + option.prev + '"><img src="/PublishedContent/images/images/tile-slider-english-previous.gif" alt="View Previous Tile" border="0" width="110" height="15" /></a>');
+                $('.' + option.prev, elem).after('<a href="#" class="' + option.next + '"><img src="/PublishedContent/images/images/tile-slider-english-next.gif" alt="View Next Tile" border="0" width="110" height="15" /></a>');
                 }
                 else {
-                	$('.' + option.container, elem).after('<a href="#" class="' + option.prev + '"><img src="/sysimages/tile-slider-spanish-previous.gif" alt="View Previous Tile" border="0" width="81" height="15" /></a>');
-                $('.' + option.prev, elem).after('<a href="#" class="' + option.next + '"><img src="/sysimages/tile-slider-spanish-next.gif" alt="View Next Tile" border="0" width="78" height="15" /></a>');
+                	$('.' + option.container, elem).after('<a href="#" class="' + option.prev + '"><img src="/PublishedContent/images/images/tile-slider-spanish-previous.gif" alt="View Previous Tile" border="0" width="110" height="15" /></a>');
+                $('.' + option.prev, elem).after('<a href="#" class="' + option.next + '"><img src="/PublishedContent/images/images/tile-slider-spanish-next.gif" alt="View Next Tile" border="0" width="110" height="15" /></a>');
                 }
                 
                 
