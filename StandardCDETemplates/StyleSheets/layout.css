@@ -112,13 +112,13 @@ body {
 			color: #fff;
 		}
 			.white ul li.nciLogo a {
-				background-image: url('../images/banners/white-ncilogo.gif');
+				background-image: url('/publishedcontent/images/images/banners/white-ncilogo.gif');
 			}
 			.white ul li.nihText a {
-				background-image: url('../images/banners/white-nihtext.gif');
+				background-image: url('/publishedcontent/images/images/banners/white-nihtext.gif');
 			}
 			.white ul li.nciURL a {
-				background-image: url('../images/banners/white-nciurl.gif');
+				background-image: url('/publishedcontent/images/images/banners/white-nciurl.gif');
 			}
 			
 		/**
@@ -130,13 +130,13 @@ body {
 			color: #fff;
 		}
 			.red ul li.nciLogo a {
-				background-image: url('../images/banners/red-ncilogo.gif');
+				background-image: url('/publishedcontent/images/images/banners/red-ncilogo.gif');
 			}
 			.red ul  li.nihText a {
-				background-image: url('../images/banners/red-nihtext.gif');
+				background-image: url('/publishedcontent/images/images/banners/red-nihtext.gif');
 			}
 			.red ul li.nciURL a {
-				background-image: url('../images/banners/red-nciurl.gif');
+				background-image: url('/publishedcontent/images/images/banners/red-nciurl.gif');
 			}
 	
 		/**
@@ -148,13 +148,13 @@ body {
 			color: #fff;
 		}
 			.gray ul li.nciLogo a {
-				background-image: url('../images/banners/gray-ncilogo.gif');
+				background-image: url('/publishedcontent/images/images/banners/gray-ncilogo.gif');
 			}
 			.gray ul li.nihText a {
-				background-image: url('../images/banners/gray-nihtext.gif');
+				background-image: url('/publishedcontent/images/images/banners/gray-nihtext.gif');
 			}
 			.gray ul li.nciURL a {
-				background-image: url('../images/banners/gray-nciurl.gif');
+				background-image: url('/publishedcontent/images/images/banners/gray-nciurl.gif');
 			}
 		
 
