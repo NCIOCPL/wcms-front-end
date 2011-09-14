@@ -41,7 +41,7 @@
         <NCI:TemplateSlot ID="cgvBodyRight" runat="server" CssClass="cancertypecontentright" />
       </div>
       <div class="cancertyperightcolumn">
-      	<NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="LeftNavSlot" />
+      	<NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
       </div>  
     </div>
     <!-- End Content Area --> 
