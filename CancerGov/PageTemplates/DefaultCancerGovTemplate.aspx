@@ -38,6 +38,7 @@
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
+      <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server" />
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
     </div>
