@@ -516,6 +516,13 @@ way to fit your requirements.
 	background: #fef9f1;
 	border-top: 1px solid #c3c3c3;
 }
+#content .image-sidebox img {
+	max-height: 200px;
+	max-width: 222px;
+}
+#content .image-sidebox .caption {
+	max-width: 222px;
+}
 #content .image-sidebox-enlarge {
 	position: absolute;
 	top: 11px;
@@ -575,7 +582,7 @@ sub {
 }
 #content .content-sidebox {
 	float:right;
-	width: 250px;
+	/* width: 250px; */
 	margin: 0 0 10px 15px;
 }
 #content .icon-graphic {
