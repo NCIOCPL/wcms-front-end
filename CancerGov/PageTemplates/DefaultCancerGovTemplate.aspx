@@ -33,7 +33,7 @@
     </div>
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
-    <div class="contentzone"> 
+    <div class="contentzone defaultTemplateContentContainer"> 
     	<a name="skiptocontent"></a>
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
