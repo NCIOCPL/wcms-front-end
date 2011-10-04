@@ -9,6 +9,9 @@ body {
 	color: #000;
 	font-family: Georgia, "Times New Roman", arial, verdana, sans-serif;
 }
+.defaultTemplateContentContainer {
+	width: 100%;
+}
 #logoandsearchcontainer {
 	background: none;
 	border-top: none;
@@ -68,5 +71,94 @@ p a.backtotop-link,
     letter-spacing: 2px;
     margin: 0 0 15px;
     padding: 10px 0;
+}
+.bulletin-header-bottom-right {
+	display: none;
+}
+.bulletin-header-left {
+	width: 390px;
+}
+.cancer-bulletin-inside-page h1 {
+	height: 77px;
+	text-indent: 0;
+	font-size: 24px;
+}
+h1.cancer-bulletin-conversation-with {
+	background: none;
+}
+h1.cancer-bulletin-cancer-center-profile {
+	background: none;
+}
+h1.cancer-bulletin-cancer-gov-update {
+	background: none;
+}
+h1.cancer-bulletin-cancer-research-highlights {
+	background: none;
+}
+h1.cancer-bulletin-cdc-update {
+	background: none;
+}
+h1.cancer-bulletin-closer-look {
+	background: none;
+}
+h1.cancer-bulletin-cms-update {
+	background: none;
+}
+h1.cancer-bulletin-community-update {
+	background: none;
+}
+h1.cancer-bulletin-directors-update {
+	background: none;
+}
+h1.cancer-bulletin-fda-update {
+	background: none;
+}
+h1.cancer-bulletin-featured-article {
+	background: none;
+}
+h1.cancer-bulletin-featured-clinical-trial {
+	background: none;
+}
+h1.cancer-bulletin-guest-commentary {
+	background: none;
+}
+h1.cancer-bulletin-guest-directors-update {
+	background: none;
+}
+h1.cancer-bulletin-hhs-update {
+	background: none;
+}
+h1.cancer-bulletin-legislative-update {
+	background: none;
+}
+h1.cancer-bulletin-nih-update {
+	background: none;
+}
+h1.cancer-bulletin-notes {
+	background: none;
+}
+h1.cancer-bulletin-profiles-cancer-research {
+	background: none;
+}
+h1.cancer-bulletin-sr-adolescent {
+	background: none;
+}
+h1.cancer-bulletin-sr-bioinformatics {
+	background: none;
+}
+h1.cancer-bulletin-sr-crt {
+	background: none;
+}
+h1.cancer-bulletin-sr-gc {
+	background: none;
+}
+h1.cancer-bulletin-sr-cte {
+	background: none;
+}
+h1.cancer-bulletin-special-report {
+	background: none;
+}
+h1.cancer-bulletin-spotlight {
+	background: none;
 }
  
