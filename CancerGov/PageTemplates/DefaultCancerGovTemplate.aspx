@@ -8,6 +8,19 @@
 <head id="header" runat="server">
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- This is to make content width follow different rules for IE7 and below -->
+<!--[if lt IE 8]>
+<style type="text/css">
+.contentzone-defaultTemplateContentContainer{
+	width: 630px !important;
+	padding-right: 70px !important;
+}
+.cgvBody-defaultTemplateContentContainer {
+	padding-right: 0 !important;
+  width: auto !important;
+}
+</style>
+<![endif]-->
 </head>
 <body runat="server">
 <!-- CGov Container -->
@@ -33,12 +46,12 @@
     </div>
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
-    <div class="contentzone defaultTemplateContentContainer"> 
+    <div class="contentzone contentzone-defaultTemplateContentContainer"> 
     	<a name="skiptocontent"></a>
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
-      <NCI:TemplateSlot ID="cgvBody" runat="server"  />
+      <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
     </div>
     <!-- End Content Area --> 
