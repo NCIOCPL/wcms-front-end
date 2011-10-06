@@ -12,8 +12,8 @@
 <!--[if lt IE 8]>
 <style type="text/css">
 .contentzone-defaultTemplateContentContainer{
-	width: 630px !important;
-	padding-right: 70px !important;
+	width: 650px !important;
+	padding-right: 50px !important;
 }
 .cgvBody-defaultTemplateContentContainer {
 	padding-right: 0 !important;
