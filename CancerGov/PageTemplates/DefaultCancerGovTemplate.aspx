@@ -19,6 +19,9 @@
 	padding-right: 0 !important;
   width: auto !important;
 }
+ul.ctpListPageList {
+	width: 400px !important;
+}
 </style>
 <![endif]-->
 </head>
