@@ -69,6 +69,16 @@ a.Summary-GlossaryTermRef, a.Summary-GlossaryTermRef:visited, a.Summary-Glossary
 .contentzone {
 	width: 100%; margin: 0; float: none;
 }
+
+.contentzone ul.no-bullets{
+	padding:0;
+}
+
+.contentzone ul.no-bullets li {
+	background: none;
+	padding:0;
+}
+
 ul li {
 	background: none;
 	list-style-type: disc;
