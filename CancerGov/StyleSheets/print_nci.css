@@ -51,6 +51,9 @@ p a.backtotop-link,
 	display: none;
 }
 
+a.Summary-GlossaryTermRef, a.Summary-GlossaryTermRef:visited, a.Summary-GlossaryTermRef:active{
+	color:#333333;}
+
 .document-title-block {
 	background: none !important;
 	padding: 0;
