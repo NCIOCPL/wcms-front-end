@@ -59,6 +59,10 @@ a.Summary-GlossaryTermRef, a.Summary-GlossaryTermRef:visited, a.Summary-Glossary
 	padding: 0;
 }
 
+.document-dates li {
+	list-style:none;
+	}
+
 #cgovContainer {
 	background: none;
 }
