@@ -74,6 +74,10 @@ ul.no-bullets{
 	padding:0;
 }
 
+.right-content-box li{
+	list-style:none;
+	}
+
 ul li {
 	background: none;
 	list-style-type: disc;
