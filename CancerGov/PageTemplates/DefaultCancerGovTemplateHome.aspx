@@ -10,6 +10,22 @@
 <script type="text/javascript" language="JavaScript" src="/scripts/imgEvents.js"></script>
 <script type="text/javascript" language="JavaScript" src="/JS/NetTracker/ntpagetag.js"></script>
 <script src="/JS/popEvents.js" type="text/javascript"></script>
+<!-- This is to make content width follow different rules for IE7 and below -->
+<!--[if lt IE 8]>
+<style type="text/css">
+.contentzone-defaultTemplateContentContainer{
+	width: 650px !important;
+	padding-right: 50px !important;
+}
+.cgvBody-defaultTemplateContentContainer {
+	padding-right: 0 !important;
+  width: auto !important;
+}
+ul.ctpListPageList {
+	width: 400px !important;
+}
+</style>
+<![endif]-->
 </head>
 <body runat="server">
 <!-- CGov Container -->
