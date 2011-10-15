@@ -28,9 +28,9 @@
     <a name="skiptocontent"></a>
     <div class="contentzone-noleftnav">
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
-      <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
+      <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
       <!-- Glossary of Terms -->
       <uc2:GlossaryTerms ID="GlossaryTerms1" runat="server" />
       <!-- Link Extraction -->
