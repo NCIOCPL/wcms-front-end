@@ -13,8 +13,7 @@
 <style type="text/css">
 .contentzone-defaultTemplateContentContainer{
 	width: 650px !important;
-	padding-right: 50px !important;
-    float:left;
+	padding-right: 10px !important;
 }
 .cgvBody-defaultTemplateContentContainer {
 	padding-right: 0 !important;
