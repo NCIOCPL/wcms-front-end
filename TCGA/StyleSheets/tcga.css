@@ -549,6 +549,7 @@ sub {
 #content div.multimedia-sidebox {
 	border-top: 1px solid #c3c3c3;
 	background: #fef9f1;
+	width: 246px;
 }
 #content div.multimedia-sidebox table,
 #content div.multimedia-sidebox table tr td{
