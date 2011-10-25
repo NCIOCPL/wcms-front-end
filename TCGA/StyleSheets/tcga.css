@@ -550,6 +550,7 @@ sub {
 	border-top: 1px solid #c3c3c3;
 	background: #fef9f1;
 	width: 246px;
+	position: relative;
 }
 #content div.multimedia-sidebox table,
 #content div.multimedia-sidebox table tr td{
