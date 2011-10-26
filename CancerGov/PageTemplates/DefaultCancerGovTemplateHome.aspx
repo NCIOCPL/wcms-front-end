@@ -6,6 +6,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="header" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- This is to make content width follow different rules for IE7 and below -->
+<!--[if lt IE 8]>
+<style type="text/css">
+.BodySlotPortal {
+	padding-right: 0 !important;
+  width: auto !important;
+}
+</style>
+<![endif]-->
 <title></title>
 <script type="text/javascript" language="JavaScript" src="/scripts/imgEvents.js"></script>
 <script type="text/javascript" language="JavaScript" src="/JS/NetTracker/ntpagetag.js"></script>
