@@ -587,6 +587,11 @@ sub {
 	/* width: 250px; */
 	margin: 0 0 10px 15px;
 }
+#content .content-sidebox-type {
+	float:right;
+	width: 250px;
+	margin: 0 0 10px 15px;
+}
 #content .icon-graphic {
 	background: url(/images/general/graphic-icon.gif) no-repeat;
 	padding-left: 20px;
