@@ -22,7 +22,7 @@
   <!-- Main Area --> 
   
     <!-- Main Content Area -->
-	<div data-role="content" class="content">
+	<div data-role="content" class="content-general">
       <div class="languageToggle"><NCI:TemplateSlot ID="languageToggle" runat="server" /></div>
 	  <NCI:TemplateSlot ID="cgvMobileTitleSlot" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
