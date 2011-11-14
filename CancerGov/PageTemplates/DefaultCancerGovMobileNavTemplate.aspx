@@ -23,7 +23,7 @@
   
     <!-- Main Content Area -->
 	<div data-role="content" class="content">
-      <div class="languageToggle"><NCI:TemplateSlot ID="languageToggle" runat="server" /></div>
+		<NCI:TemplateSlot ID="languageToggle" runat="server" />
 	  <NCI:TemplateSlot ID="cgvMobileTitleSlot" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileNav" runat="server" />
