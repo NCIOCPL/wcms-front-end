@@ -26,6 +26,7 @@
     <NCI:TemplateSlot ID="languageToggle" runat="server" />
 	  <NCI:TemplateSlot ID="cgvMobileTitleSlot" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
+      <NCI:TemplateSlot ID="cgvMobileNav" runat="server" />
     </div>
     <!-- End Content Area --> 
 
