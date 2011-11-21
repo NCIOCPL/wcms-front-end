@@ -14,7 +14,7 @@
 	</head> 
 <body runat="server">
 <!-- CGov Mobile Container -->
-<div data-role="page">
+<div data-role="page" id="searchPage">
   <!-- Site Banner -->
   <NCI:TemplateSlot ID="cgvMobileSiteBanner" runat="server" />  
   <!-- Site Banner End-->
