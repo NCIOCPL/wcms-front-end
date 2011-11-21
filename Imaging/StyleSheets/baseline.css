@@ -6,7 +6,7 @@
 		
 		Usage: Used to define the look and feel of the website. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.
 		
-		Last Update: August 12, 2011 by Mal Jones
+		Last Update: November 21, 2011
 	====
 */
 
@@ -626,6 +626,7 @@ table {
 	Home page
 **/
 
+
 body.genHome .genSiteContentColumn {
 	margin-right: 5%;
 	width: 73%;
@@ -641,8 +642,26 @@ body.genHome .genSiteRightColumn {
 		background-color: transparent;
 		padding: 0;
 	}
+/* home page two columns */
+.home-page-column-container {
+	width: 100%;
+	overflow: auto;
+	border-top: 1px solid #bdbdbd;
+	padding: 10px 0 0 0;
+}
 
-
+.homepage-left-column {
+	float: left;
+	width: 46%
+}
+.homepage-right-column {
+	float: right;
+	width: 46%;
+}
+h2 a {
+	text-decoration: none;
+}
+/* end home page two columns */
 
 	/**
 		Column and Highlight areas used on Home page and Landing pages
