@@ -58,8 +58,8 @@ p {
 }
 ul {
 	list-style-type: disc;
-	margin-left: 36px;
-	padding-bottom: 18px;
+	margin: 0 0 0 36px;
+	padding: 0 0 18px 0;
 }
 	ul li {
 	}
@@ -615,6 +615,34 @@ table {
 			#genSlotSiteFooter a:hover {
 				text-decoration: underline;
 			}
+			
+		.footer-imaging {
+			text-align: center;	
+		}
+		ul.footerUtilityLinks {
+			width: 80%;
+			margin: 0 auto 5px auto; padding: 0;
+		}
+		ul.footerAgencyLinks {
+			width: 100%;
+			margin: 0; padding: 0 0 15px 0;
+		}
+		ul.footerUtilityLinks li, ul.footerAgencyLinks li {
+			list-style-type: none;
+			display: inline;
+			margin: 0; padding: 0;
+		}
+		ul.footerUtilityLinks li {
+			border-right: 1px solid gray;
+			padding-right: 5px; margin-right: 5px;
+			line-height: 15px;
+		}
+		ul.footerUtilityLinks li.last {
+			border-right: none;
+		}
+		ul.footerAgencyLinks li {
+			padding: 0 8px;
+		}
 		
 /***
 	===
