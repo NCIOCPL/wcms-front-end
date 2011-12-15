@@ -18,6 +18,5 @@ if (!path){
 	if( lang == "en"){path = $('meta[name="english-linking-policy"]').attr('content');}
 	else{ path = $('meta[name="espanol-linking-policy"]').attr('content');}
 }
-$("a").filter(function () {return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0; }).after(' <a href=' + path + '><img title="Exit Disclaimer" alt="Exit Disclaimer" src="/publishedcontent/images/images/exit_small.png" /></a>');
+$("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a href=' + path + '><img title="Exit Disclaimer" alt="Exit Disclaimer" src="/publishedcontent/images/images/exit_small.png" /></a>');
 });
-
