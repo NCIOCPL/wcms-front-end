@@ -33,6 +33,7 @@
     <!-- Main Content Area -->
     <div class="contentzone"> 
     <a name="skiptocontent"></a>
+      <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" />
       <div class="cancertypecontent">
         <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server" />
