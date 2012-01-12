@@ -161,7 +161,7 @@ span.ui-btn-text p{margin:0;display:inline;}
 
 .slidingDiv {
 	margin: 50px 0 0 0;
-	display: none;
+/*	display: none;*/
 }
 
 .header {
@@ -276,13 +276,13 @@ li.line{
 	}
 	
 .callBtn a:hover{
-	color:#FFF;
+	color:#FFF !important;
 	text-decoration:none;
 	}
 	
-.emailBtn{	
+div.emailBtn{	
 	  font-family: "Helvetica Neue", Helvetica, sans-serif;
-      
+   
       font-weight: bold;
       border: 1px solid #4d4d4d;
 	  margin-top:15px;
@@ -300,23 +300,23 @@ li.line{
       -webkit-border-radius: 8px;
 }
 
-.emailBtn a:link{
+div.emailBtn a:link{
 	color:#FFF;
 	text-decoration:none;
 	}
 	
-.emailBtn a:active{
+div.emailBtn a:active{
 	color:#FFF;
 	text-decoration:none;
 	}
 
-.emailBtn a:visited{
+div.emailBtn a:visited{
 	color:#FFF;
 	text-decoration:none;
 	}
 	
-.emailBtn a:hover{
-	color:#FFF;
+div.emailBtn a:hover{
+	color:#FFF !important;
 	text-decoration:none;
 	}
 	
@@ -402,6 +402,17 @@ a.white:hover{
 }
 
 /* Search Results Page*/
-.searchResults ul{ list-style-type:none; margin:0px;}
+.searchResults ul{ list-style-type:none; margin:0px; padding:0px;}
 
 .searchResults li{margin-bottom:15px;}
+
+/* Table Styling */
+table.table-default {
+    border: 1px solid #BDBDBD;
+    border-collapse: collapse;
+}
+
+table.table-default td {
+    border: 1px solid #BDBDBD;
+    padding: 4px;
+}
