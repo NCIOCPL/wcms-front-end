@@ -1,20 +1,30 @@
-function toggle() {
-	
-	var imgTag = "<img src='/publishedcontent/images/images/icon-search.png' height='35'>";
+jQuery(document).ready(function($) {
+		
+		var urlParams = {};
+		(function () {
+ 		   var e,
+      		  a = /\+/g,  // Regex for replacing addition symbol with a space
+      		  r = /([^&=]+)=?([^&]*)/g,
+      		  d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+    		  q = window.location.search.substring(1);
 
-    if ($('meta[name="content-language"]').attr("content") == "es") {
-	
-	var imgTag = "<img src='/publishedcontent/images/images/icon-search-es.png' height='35'>";
-    }
-	
-	var ele = document.getElementById("toggleText");
-	var text = document.getElementById("displayText");
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-		text.innerHTML = imgTag;
-  	}
-	else {
-		ele.style.display = "block";
-		text.innerHTML = imgTag;
-	}
-} 
+    		while (e = r.exec(q))
+    		   urlParams[d(e[1])] = d(e[2]);
+		})();
+		
+		if("swKeyword" in urlParams){
+			
+			$("#swKeyword").val(urlParams["swKeyword"]);   		
+		}
+		
+		else {
+		
+		$("#toggleText").toggle();
+		
+		}
+		
+		$("#displayText").click(function(){
+			$("#toggleText").toggle();
+		});
+		
+});
