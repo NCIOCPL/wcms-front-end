@@ -1,7 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
-
+<%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.Configuration"
+    TagPrefix="Config" %>
 
 <!DOCTYPE html> 
 <html> 
@@ -23,7 +24,18 @@
   
     <!-- Main Content Area -->
 	<div data-role="content" class="content">
-		<NCI:TemplateSlot ID="languageToggle" runat="server" />
+	
+<NCI:MobileLanguageToggleControl ID="langtoggle" runat="server">
+	<MobileLanguageToggles>
+		<Config:MobileLanguageToggle Language="en">
+		<Template><div class="languageToggle"><a href="{0}" class="ui-link">Espa&#241;ol</a></div></Template>
+		</Config:MobileLanguageToggle>
+		<Config:MobileLanguageToggle Language="es">
+		<Template><div class="languageToggle"><a href="{0}" class="ui-link">English</a></div></Template>
+		</Config:MobileLanguageToggle>
+	</MobileLanguageToggles>
+</NCI:MobileLanguageToggleControl>
+		
 	  <NCI:TemplateSlot ID="cgvMobileTitleSlot" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileNav" runat="server" />
