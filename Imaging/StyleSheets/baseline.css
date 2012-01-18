@@ -34,11 +34,13 @@ h1 {
 	line-height: 1.1em;
 }
 h2 {
-	color: #000;
-	font-size: 1.3em;
-	font-weight: normal;
-	padding-bottom: 18px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: normal;
+    padding-bottom: 15px;
+    padding-top: 20px;
 }
+
 h3 {
 	color: #000;
 	font-size: 1.2em;
@@ -420,6 +422,37 @@ table {
 							color: #000;
 						}
 							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection  a {
+								color: #000;
+							}		
+							
+							
+							/* Fourth Level of Section Navigation */
+						
+						#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul {
+							font-size: 1.1em;
+							margin-top: 0;
+						}
+							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul li a {
+								padding-top: 3px;
+								padding-bottom: 3px;
+								padding-left: 62px;
+							}
+							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul li a,
+							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul li a:hover {
+								color: #1482b5;
+							}
+							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul li.currentSection a span:before {
+								font-weight: 900;
+							content: "\2022 \0020 ";
+							}							
+							
+						/* Current Section Identification */
+							
+						#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul li.currentSection {
+							background-color: #f7f7f7;
+							color: #000;
+						}
+							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection ul li.currentSection  a {
 								color: #000;
 							}		
 			
