@@ -49,12 +49,16 @@
 				<NCI:AddThisButtonItem Service="compact" />
 			</ButtonsCollection>
 		</NCI:AddThisButtonLanguageItem>
-		<NCI:AddThisButtonLanguageItem Language="es" Compact="print" Expanded="2linkme,facebook">
+		<NCI:AddThisButtonLanguageItem Language="es" Compact="print" Expanded="2linkme,a97abi,adfty,facebook,twitter,email">
 			<ButtonsCollection>
+				<NCI:AddThisButtonItem Service="email" />
+				<NCI:AddThisButtonItem Service="facebook" />
 				<NCI:AddThisButtonItem Service="twitter" />
+				<NCI:CustomAddThisButtonItem Service="plus.google.com" Name="Google+" Url="http://plus.google.com?url={{url}}&title={{title}}" Icon="http://htmldev.cancer.gov/m/images/Google-Plus-32.png" />
 				<NCI:AddThisButtonItem Service="compact" />
 			</ButtonsCollection>
 		</NCI:AddThisButtonLanguageItem>
+
 	</AddThisButtonLanguages>
 </NCI:AddThisButtonListControl>
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
