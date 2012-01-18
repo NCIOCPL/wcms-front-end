@@ -25,5 +25,5 @@ if (!path){
 		altText ='Notificación de salida';
 		}
 }
-$("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
+$("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
 });
