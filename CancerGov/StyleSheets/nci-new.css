@@ -108,6 +108,19 @@
 
 /* 6.4 Additions */
 
+/* CDR Media Images */
+
+.cdrMediaImage img { max-width:100%;}
+
+.cdrMediaImage.full{margin:0;} 
+.cdrMediaImage.three-quarters{margin:0 12% 0 12%;} 
+.cdrMediaImage.half{margin:0 25% 0 25%;} 
+.cdrMediaImage.third{margin:0 33% 0 33%;} 
+.cdrMediaImage.quarter{margin:0 37% 0 37%;} 
+.cdrMediaImage.fifth{margin:0 40% 0 40%;} 
+.cdrMediaImage.sixth{margin:0 42% 0 42%;} 
+.cdrMediaImage.as-is{margin:0;} 
+
 /* Public Archive Banner */
 
 .public-archive-banner{
