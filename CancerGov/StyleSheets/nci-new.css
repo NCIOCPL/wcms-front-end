@@ -150,11 +150,15 @@ div.only-SI > p:first-child {margin: 0;}
 
 	
 /* Video Player */
-h3.video50title{padding: 0 0 20px 0;font-size:14pt;}
-h3.video75title{padding: 0 0 20px 0;font-size:15pt;}
-h3.video100title{padding: 0 0 20px 0;font-size:16pt;}
+h3.video50title{padding: 0;font-size:14px;}
+h3.video75title{padding: 0;font-size:16px;}
+h3.video100title{padding: 0;font-size:18px;}
 
 .videoPlayer{padding: 0px 0 40px 0;}
+
+.size50 .media-caption{font-size:11px;}
+.size75 .media-caption{font-size:12px;}
+.size100 .media-caption{font-size:13px;}
 
 .size50{width:300px;}
 .size75{width:400px;}
@@ -165,13 +169,9 @@ h3.video100title{padding: 0 0 20px 0;font-size:16pt;}
 	display: block;
 	color: #666;
 	background: #edeeed;
-	padding: 5px;
+	padding: 5px 5px 10px;
 	}
 	
-.media-caption .size50 {font-size:12pt;}
-.media-caption .size75 {font-size:13pt;}
-.media-caption .size100 {font-size:14pt;}
-
 
 .video-carousel-container {padding:0 0 40px 0;float:left;}
 
@@ -181,7 +181,7 @@ h3.video100title{padding: 0 0 20px 0;font-size:16pt;}
 	color: #666;
 	background: #edeeed;
 	text-align: right;
-	padding: 10px 5px 5px 5px;
+	padding: 10px 5px 10px 5px;
 }
 .video-carousel-caption img {
 	float: right;
