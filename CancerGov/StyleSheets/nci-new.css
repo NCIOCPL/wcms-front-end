@@ -173,7 +173,7 @@ h3.video100title{padding: 0;font-size:18px;}
 	}
 	
 
-.video-carousel-container {padding:0 0 40px 0;float:left;}
+.video-carousel-container {padding:0 0 20px 0;float:left;}
 
 .video-carousel-video {}
 .video-carousel-caption {
@@ -195,12 +195,12 @@ h3.video100title{padding: 0;font-size:18px;}
 div.right {
 	float: right;
 	border: 0;
-	margin-left: 10px;
-	margin-bottom: 10px;
+	margin-left: 20px;
+	margin-bottom: 0px;
 }
 div.left {
 	float:left;
 	border: 0;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	margin-right: 20px;
+	margin-bottom: 0px;
 }
