@@ -401,6 +401,10 @@ a.white:hover{
 	background-color:#444444;
 }
 
+/* Pager Style */
+.singlePager a {
+    margin-left: 20px;}
+
 /* Search Results Page*/
 .searchResults ul{ list-style-type:none; margin:0px; padding:0px;}
 
