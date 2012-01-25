@@ -81,6 +81,8 @@ padding-right:20px;}
 	float: left;
     margin-right: 5px;
     width: 70%;}
+	
+.body-container{padding-top:30px;}
 
 span.ui-btn-text p{margin:0;display:inline;}
 
@@ -112,11 +114,15 @@ span.ui-btn-text p{margin:0;display:inline;}
 .share{
 	padding: 5px 0 5px 0;
 	}
-.caption{
-	font-size:11px;
+	
+.caption .definition{
+	font-size:14px;
 	color:#4d4d4d;
 	padding:7px;
-	text-align:left;}
+	text-align:left;
+	background-color: #DDDDDD;}
+	
+a.definition, a.Summary-GlossaryTermRef{color: #4d4d4d !important;}
 
 .thumb {
 	border: 1px solid #CCC;
@@ -420,3 +426,8 @@ table.table-default td {
     border: 1px solid #BDBDBD;
     padding: 4px;
 }
+
+/* Press Release */
+span.news-type{}
+h2.news-title{margin:0px;}
+h3.news-subheader{display:block;font-style:italic;font-size:16px; font-weight:normal;margin-top:0;}
