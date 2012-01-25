@@ -35,7 +35,7 @@
 		</Config:MobileLanguageToggle>
 	</MobileLanguageToggles>
 </NCI:MobileLanguageToggleControl>
-
+<div class="body-container">
 	  <NCI:TemplateSlot ID="cgvMobileTitleSlot" runat="server" />
 		
 <NCI:AddThisButtonListControl ID="AddThisButtonList1" runat="server">
@@ -63,6 +63,7 @@
 </NCI:AddThisButtonListControl>
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
       <NCI:TemplateSlot ID="cgvMobileNav" runat="server" />
+      </div>
     </div>
     <!-- End Content Area --> 
 
