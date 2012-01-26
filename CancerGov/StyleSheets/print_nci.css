@@ -109,6 +109,9 @@ table.no-bullet-padding ul li {
     margin: 0 0 15px;
     padding: 10px 0;
 }
+.cancer-bulletin-special-issue-homepage-banner {
+	overflow: hidden;
+}
 .cancer-bulletin-home-page-left-column {
     float: left;
     margin-bottom: 20px;
@@ -126,6 +129,9 @@ table.no-bullet-padding ul li {
 ul.cancer-bulletin-home-page-in-depth li {
 	background: none;
 	list-style-type: none;
+}
+ul.cancer-bulletin-home-page-list-item li ul li {
+	background: none;
 }
 .cancer-bulletin-home-page-in-depth-text {
 	width: auto;
@@ -209,6 +215,9 @@ h1.cancer-bulletin-sr-adolescent {
 	background: none;
 }
 h1.cancer-bulletin-sr-bioinformatics {
+	background: none;
+}
+h1.special-issue-cancer-obesity-research {
 	background: none;
 }
 h1.cancer-bulletin-sr-crt {
