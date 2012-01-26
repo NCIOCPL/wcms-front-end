@@ -408,8 +408,7 @@ a.white:hover{
 }
 
 /* Pager Style */
-.simplePager a {
-    margin-left: 20px;}
+.simplePager a { margin-left: 10px; margin-right:10px;}
 
 /* Search Results Page*/
 .searchResults ul{ list-style-type:none; margin:0px; padding:0px;}
