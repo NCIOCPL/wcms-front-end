@@ -143,10 +143,10 @@
 	
 /* List Titles */
 
-div.first-SI h3.list-title {margin: 0;}
-div.first-SI > p:first-child {margin: 0;}
-div.only-SI h3.list-title {margin: 0;}
-div.only-SI > p:first-child {margin: 0;}
+div.first-SI h3.list-title {margin-top: 0;}
+div.first-SI > p:first-child {margin-top: 0;}
+div.only-SI h3.list-title {margin-top: 0;}
+div.only-SI > p:first-child {margin-top: 0;}
 
 	
 /* Video Player */
