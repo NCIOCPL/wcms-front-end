@@ -105,3 +105,99 @@
 	color:#fff;
 	background-color:#444444;
 }
+
+/* 6.4 Additions */
+
+/* CDR Media Images */
+
+.cdrMediaImage img { max-width:100%;}
+
+.cdrMediaImage.full{margin:0;} 
+.cdrMediaImage.three-quarters{margin:0 12% 0 12%;} 
+.cdrMediaImage.half{margin:0 25% 0 25%;} 
+.cdrMediaImage.third{margin:0 33% 0 33%;} 
+.cdrMediaImage.quarter{margin:0 37% 0 37%;} 
+.cdrMediaImage.fifth{margin:0 40% 0 40%;} 
+.cdrMediaImage.sixth{margin:0 42% 0 42%;} 
+.cdrMediaImage.as-is{margin:0;} 
+
+/* Public Archive Banner */
+
+.public-archive-banner{
+	background-color:#f9f8ce;
+	color:#000;
+	font-weight:bold;
+	padding: 10px;
+	border:#d5d300 solid thin;
+	background-image:url('/PublishedContent/Images/images/icon-public-archive.png');
+	background-repeat:no-repeat;
+	background-position: 10px center ;
+	padding-left:60px;
+	margin-bottom:20px;
+	}
+	
+	
+/* Exit Notification */
+
+.exitNotification{padding:0px !important;}
+	
+/* List Titles */
+
+div.first-SI h3.list-title {margin-top: 0;}
+div.first-SI > p:first-child {margin-top: 0;}
+div.only-SI h3.list-title {margin-top: 0;}
+div.only-SI > p:first-child {margin-top: 0;}
+
+	
+/* Video Player */
+h3.video50title{padding: 0;font-size:14px;}
+h3.video75title{padding: 0;font-size:16px;}
+h3.video100title{padding: 0;font-size:18px;}
+
+.videoPlayer{padding: 0px 0 20px 0;}
+
+.size50 .media-caption{font-size:11px;}
+.size75 .media-caption{font-size:12px;}
+.size100 .media-caption{font-size:13px;}
+
+.size50{width:300px; overflow: auto; margin-left:0 !important;}
+.size75{width:450px; overflow: auto; margin-left:0 !important;}
+.size100{width:553px; overflow: auto; margin-left:0 !important;}
+
+
+.media-caption{	display:block;color:#666;background:#DDDDDD;padding:10px;margin-top:5px;}
+	
+.caption-line{margin-top:5px;border-top: 1px solid #BDBDBD;}	
+
+.video-carousel-container {padding:0 0 20px 0;float:left;}
+
+.video-carousel-video {}
+.video-carousel-caption {
+	display: block;
+	color: #666;
+	background: #DDDDDD;
+	text-align: right;
+	padding: 10px;
+}
+.video-carousel-caption img {
+	float: right;
+	padding-left: 5px;}
+
+.video-carousel-caption .size75{font-size:13pt;}
+.video-carousel-caption .size100{font-size:14pt;}
+
+/* Alignment Classes */
+
+div.right {
+	float: right;
+	border: 0;
+	margin-left: 20px;
+	margin-bottom: 0px;
+}
+div.left {
+	float:left;
+	border: 0;
+	margin-right: 20px;
+	margin-bottom: 0px;
+}
+

@@ -34,6 +34,7 @@
   <!-- End Left Nav --> 
   <!-- Main Content Area -->
   <div class="contentzone"> <a name="skiptocontent"></a>
+    <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
     <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
     <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
     <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />

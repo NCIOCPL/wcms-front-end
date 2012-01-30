@@ -65,8 +65,16 @@ a.Summary-GlossaryTermRef, a.Summary-GlossaryTermRef:visited, a.Summary-Glossary
 	color:#333333;}
 
 .document-title-block {
+	min-height: 35px !important;
 	display: block;
 	background: none !important;
+	padding: 0;
+}
+
+.document-title-block h1{
+	font-size: 19px !important;
+    font-weight: bold !important;
+	color: #000000;
 	padding: 0;
 }
 

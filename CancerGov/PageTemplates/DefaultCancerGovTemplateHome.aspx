@@ -48,6 +48,7 @@
     <div class="contentzone"> 
     	<a name="skiptocontent"></a> 
       <!-- Parent container for content and timely content zone column -->
+      <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" CssClass="BodyHeaderSlot"/>
       <NCI:TemplateSlot ID="cgvSlotTimelyContentItem" runat="server" CssClass="TimelyContentSlot" />
       <!-- Tile zone column -->

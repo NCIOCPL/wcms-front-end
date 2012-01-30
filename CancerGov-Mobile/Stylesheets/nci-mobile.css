@@ -1,0 +1,432 @@
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#4d4d4d;
+	background-color:#fff;
+	}
+	
+.content a, a:active, a:visited, .red-text {
+	color: #900;
+	text-decoration:none;}
+	
+.content a:hover {
+	color: #900;
+	text-decoration : underline;
+}
+	
+.content-general{
+	background-color:#fff;
+	padding: 0 15px 0px 15px;
+}
+	
+	
+.content{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#4d4d4d;
+	
+	background-color:#fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2c1bd', endColorstr='#fff');
+	background: -webkit-gradient(linear, left top, left bottom, from(#c2c1bd), to(#fff));
+ 	background: -moz-linear-gradient(top, #c2c1bd, #fff);	
+	
+	-msfilter:"progid:DXImageTransform.Microsoft.gradient (startColorStr='#c2c1bd', EndColorStr='#fff')";
+	
+	padding: 0 15px 0px 15px;
+}
+
+
+.site-banner{
+	float:left;
+	}
+
+.searchDiv {
+	float:right;
+	}
+	
+.searchDiv ul{
+	margin:0px;
+	}
+.searchDiv li
+{
+	display: inline;
+	list-style-type: none;
+	padding-right: 15px;
+}
+
+img.go{float:right;
+padding-right:20px;}
+
+.goButton{
+	float:right;
+	background:#f4f4f4;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#7e7e7e');
+	background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#7e7e7e));
+ 	background: -moz-linear-gradient(top, #575757, #7e7e7e);
+	-moz-border-radius:10px; 
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	padding:7px;
+	text-align:center;
+	width:30px;
+	margin-top:3px;
+	margin-left:3px;
+}
+
+.addthis_container{padding:15px 0 10px 0;}
+
+.noBullets li{
+	list-style:none;
+	margin-top:1em;}	
+
+.searchString{
+	float: left;
+    margin-right: 5px;
+    width: 70%;}
+	
+.body-container{padding-top:30px;}
+
+span.ui-btn-text p{margin:0;display:inline;}
+
+.langContainer{
+	height:45px;}
+	
+.languageToggle a{
+	font-weight:900;
+	text-decoration:none;}
+.languageToggle {
+	float:right;
+	background:#fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#fff');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+ 	background: -moz-linear-gradient(top, #fff, #fff);
+	-moz-border-radius: 0px 0px 10px 10px; 
+	-webkit-border-radius: 0px 0px 10px 10px;
+	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0px 5px 5px 2px #888;
+	-webkit-box-shadow: 0px 3px 3px 2px #888;
+	-moz-box-shadow: 0px 3px 3px 2px #888;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#888, offX=3, offY=3, positive=true);
+	font-size:80%;
+	padding:10px 5px 5px 5px;
+	width:75px;
+	text-align:center;
+}	
+
+.share{
+	padding: 5px 0 5px 0;
+	}
+	
+.caption{
+	font-size:14px;
+	color:#4d4d4d;
+	padding:7px;
+	text-align:left;
+	background-color: #DDDDDD;}
+	
+a.definition, a.Summary-GlossaryTermRef{color: #4d4d4d !important;}
+
+.thumb {
+	border: 1px solid #CCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	background: #F9F9F9;
+	margin-bottom: 10px;
+	text-align:center;
+}
+.search {
+	width:70% !important;
+	}	
+	
+.search-icon{
+	float:right;
+	}
+	
+.home-icon{padding-right:10px;}
+
+.searchBox{
+	display:none;
+		}
+		
+.search-go{
+    font-size: 11px;
+	width:30% !important;
+	float:right !important;
+	}
+
+.left{
+	float:left;
+	padding-right:5px;
+	padding-bottom:5px;
+	}
+
+.center{
+	margin-left:auto;
+	margin-right:auto;
+	}
+	
+/*--------------------------*/
+
+.slidingDiv {
+	margin: 50px 0 0 0;
+/*	display: none;*/
+}
+
+.header {
+    background:#f4f4f4;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ebebea');
+	background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ebebea));
+ 	background: -moz-linear-gradient(top, #f4f4f4, #ebebea);
+    padding:10px;
+    border-bottom: thin solid #a51616;
+	border-top: none;
+	-webkit-box-shadow: 0px 5px 5px 2px #888;
+	-moz-box-shadow: 0px 5px 5px 2px #888;
+	box-shadow: 0px 5px 5px 2px #888;
+	position:relative;
+	overflow:auto;
+}
+
+.footer {
+    background:#f4f4f4;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#ebebea');
+	background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ebebea));
+ 	background: -moz-linear-gradient(top, #f4f4f4, #ebebea);
+    border-bottom: thin solid #a51616;
+	border-top: thin solid #a51616;
+	-webkit-box-shadow: 0px 5px 5px 2px #888;
+	-moz-box-shadow: 0px 5px 5px 2px #888;
+	box-shadow: 0px 5px 5px 2px #888;
+	color:#4d4d4d;
+    margin-left: auto ;
+    margin-right: auto ;
+	position:relative;
+	padding: 15px;
+	
+}
+.followUs{border-top:#4d4d4d thin solid; padding:10px 0 0 10px;}
+
+.footer ul
+{
+	list-style-type: none; /*to remove bullets*/
+    text-align: center;
+    margin: 0px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.footer li
+{
+	float: left;
+    padding: 2px;
+    width: 30%;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+li.line{
+	/*border-right:#666 solid thin;*/
+	}
+
+.govLinks{
+	margin-top:0px;
+	padding-top:15px;
+	background-color:#FFF;
+	text-align:center;
+	font-size:80%;
+	}
+	
+.round-box{
+	background:#f4f4f4;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#fffff4');
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fffff4));
+ 	background: -moz-linear-gradient(top, #fff, #fffff4);
+    padding:5px;
+	margin:15px;
+	border: 1px solid #CCCCCC;
+	-moz-border-radius:10px; -webkit-border-radius:10px;
+	border-radius:10px;
+}
+
+.callBtn{	
+	  font-family: "Helvetica Neue", Helvetica, sans-serif;
+     
+      font-weight: bold;
+      border: 1px solid #4d4d4d;
+	  margin-top:15px;
+	  
+      background: -webkit-gradient( linear, left top, left bottom, from(#8cca87), to(#24a81a), color-stop(0.5, #49b643), color-stop(0.5, #21a219) );
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cca87', endColorstr='#24a81a');
+	  background: -moz-linear-gradient(top, #8cca87, #24a81a);
+	  
+	  -moz-border-radius:8px; -webkit-border-radius:8px;
+      text-shadow: 0px 1px 0 #4d4d4d;
+	  padding:10px;
+	  text-align:center;
+      -webkit-background-origin: padding-box;
+      -webkit-background-clip: border-box;
+      -webkit-border-radius: 8px;
+}
+
+.callBtn a:link{
+	color:#FFF;
+	text-decoration:none;
+	}
+	
+.callBtn a:active{
+	color:#FFF;
+	text-decoration:none;
+	}
+
+.callBtn a:visited{
+	color:#FFF;
+	text-decoration:none;
+	}
+	
+.callBtn a:hover{
+	color:#FFF !important;
+	text-decoration:none;
+	}
+	
+div.emailBtn{	
+	  font-family: "Helvetica Neue", Helvetica, sans-serif;
+   
+      font-weight: bold;
+      border: 1px solid #4d4d4d;
+	  margin-top:15px;
+	  
+      background: -webkit-gradient( linear, left top, left bottom, from(#5995bf), to(#528cb8), color-stop(0.5, #477ead), color-stop(0.5, #3a6da0) );
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5995bf', endColorstr='#3a6da0');
+	  background: -moz-linear-gradient(top, #5995bf, #3a6da0);
+	  
+	  -moz-border-radius:8px; -webkit-border-radius:8px;
+      text-shadow: 0px 1px 0 #4d4d4d;
+	  padding:10px;
+	  text-align:center;
+      -webkit-background-origin: padding-box;
+      -webkit-background-clip: border-box;
+      -webkit-border-radius: 8px;
+}
+
+div.emailBtn a:link{
+	color:#FFF;
+	text-decoration:none;
+	}
+	
+div.emailBtn a:active{
+	color:#FFF;
+	text-decoration:none;
+	}
+
+div.emailBtn a:visited{
+	color:#FFF;
+	text-decoration:none;
+	}
+	
+div.emailBtn a:hover{
+	color:#FFF !important;
+	text-decoration:none;
+	}
+	
+a.white:hover{
+	color:#FFF;
+	text-decoration:none;
+	}
+
+.hidden {
+    height: 1px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -500px;
+    width: 1px;
+}
+
+.factSheet_qna.ui-btn-inner p{
+	padding:0;
+	}
+
+/* Auto Complete*/
+
+/*
+ * jQuery UI Autocomplete 1.8.13
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.ui-autocomplete { position:absolute; cursor: default; }	
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/*
+ * jQuery UI Menu 1.8.13
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu{
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: right;
+	color:#000;
+	background-color:#fff;
+	border: #999 thin solid;
+	z-index: 9999;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	list-style:none;
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	color:#000;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	color:#fff;
+	background-color:#444444;
+}
+
+/* Pager Style */
+.simplePager a { margin-left: 10px; margin-right:10px;}
+
+/* Search Results Page*/
+.searchResults ul{ list-style-type:none; margin:0px; padding:0px;}
+
+.searchResults li{margin-bottom:15px;}
+
+/* Table Styling */
+table.table-default {
+    border: 1px solid #BDBDBD;
+    border-collapse: collapse;
+}
+
+table.table-default td {
+    border: 1px solid #BDBDBD;
+    padding: 4px;
+}
+
+/* Press Release */
+span.news-type{}
+h2.news-title{margin:0px;}
+h3.news-subheader{display:block;font-style:italic;font-size:16px; font-weight:normal;margin-top:0;}

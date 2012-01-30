@@ -27,6 +27,7 @@
     <!-- Main Content Area --> 
     <a name="skiptocontent"></a>
     <div class="contentzone-noleftnav">
+      <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
