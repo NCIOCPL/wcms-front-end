@@ -269,21 +269,25 @@ li.line{
 .callBtn a:link{
 	color:#FFF;
 	text-decoration:none;
+	display:block;
 	}
 	
 .callBtn a:active{
 	color:#FFF;
 	text-decoration:none;
+	display:block;
 	}
 
 .callBtn a:visited{
 	color:#FFF;
 	text-decoration:none;
+	display:block;
 	}
 	
 .callBtn a:hover{
 	color:#FFF !important;
 	text-decoration:none;
+	display:block;
 	}
 	
 div.emailBtn{	
@@ -309,21 +313,25 @@ div.emailBtn{
 div.emailBtn a:link{
 	color:#FFF;
 	text-decoration:none;
+	display:block;
 	}
 	
 div.emailBtn a:active{
 	color:#FFF;
 	text-decoration:none;
+	display:block;
 	}
 
 div.emailBtn a:visited{
 	color:#FFF;
 	text-decoration:none;
+	display:block;
 	}
 	
 div.emailBtn a:hover{
 	color:#FFF !important;
 	text-decoration:none;
+	display:block;
 	}
 	
 a.white:hover{
