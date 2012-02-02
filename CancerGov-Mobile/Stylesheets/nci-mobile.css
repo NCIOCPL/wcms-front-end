@@ -33,6 +33,9 @@ body {
 	padding: 0 15px 0px 15px;
 }
 
+.content img{max-width:100%;}
+
+.content-general img{max-width:100%;}
 
 .site-banner{
 	float:left;
