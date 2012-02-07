@@ -74,7 +74,7 @@ padding-right:20px;}
 	margin-left:3px;
 }
 
-.addthis_container{padding:15px 0 10px 0;}
+.addthis_container{padding:5px 0 10px 0;}
 
 .noBullets li{
 	list-style:none;
@@ -444,6 +444,6 @@ table.table-default td {
 }
 
 /* Press Release */
-span.news-type{}
+div.news-type{}
 h2.news-title{margin:0px;}
 h3.news-subheader{display:block;font-style:italic;font-size:16px; font-weight:normal;margin-top:0;}
