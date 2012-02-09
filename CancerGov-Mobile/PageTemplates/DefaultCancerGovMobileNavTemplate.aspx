@@ -28,10 +28,10 @@
 <NCI:MobileLanguageToggleControl ID="langtoggle" runat="server">
 	<MobileLanguageToggles>
 		<Config:MobileLanguageToggle Language="en">
-		<Template><div class="languageToggle"><a href="{0}" class="ui-link">Espa&#241;ol</a></div></Template>
+		<Template><div class="languageToggle"><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select Espanol');">Espa&#241;ol</a></div></Template>
 		</Config:MobileLanguageToggle>
 		<Config:MobileLanguageToggle Language="es">
-		<Template><div class="languageToggle"><a href="{0}" class="ui-link">English</a></div></Template>
+		<Template><div class="languageToggle"><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select English');">English</a></div></Template>
 		</Config:MobileLanguageToggle>
 	</MobileLanguageToggles>
 </NCI:MobileLanguageToggleControl>
