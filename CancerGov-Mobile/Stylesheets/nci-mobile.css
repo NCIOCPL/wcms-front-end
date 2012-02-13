@@ -4,9 +4,13 @@ body {
 	background-color:#fff;
 	}
 	
+a {
+word-wrap: break-word;
+}
+	
 .content a, a:active, a:visited, .red-text {
 	color: #900;
-	text-decoration:none;}
+	text-decoration:underline;}
 	
 .content a:hover {
 	color: #900;
