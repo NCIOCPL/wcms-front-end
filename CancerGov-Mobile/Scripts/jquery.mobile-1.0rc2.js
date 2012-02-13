@@ -3394,6 +3394,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 					return;
 				} else {
 					// if the current active page is a dialog and we're navigating
+
 					// to a dialog use the dialog objected saved in the stack
 					urlHistory.directHashChange({
 						currentUrl: to,
@@ -5029,6 +5030,7 @@ $.widget( "mobile.slider", $.mobile.widget, {
 
 		// monitor the input for updated values
 		control.addClass( cType === "input" ? "ui-slider-input" : "ui-slider-switch" )
+
 			.change( function() {
 				// if the user dragged the handle, the "change" event was triggered from inside refresh(); don't call refresh() again
 				if (!self.mouseMoved) {
