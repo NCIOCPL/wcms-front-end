@@ -22,7 +22,7 @@ if (!path){
 		}
 	else{ 
 		path = $('meta[name="espanol-linking-policy"]').attr('content');
-		altText ='Notificación de salida';
+		altText ='Notificaci\u00F3n de salida';
 		}
 }
 $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
