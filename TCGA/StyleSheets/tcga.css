@@ -27,6 +27,21 @@ td {
 }
 /* ------------- END Eric Meyer's reset styles */
 
+/* ------------- Multimedia List */
+
+ul.media
+{
+  width: 100%;  /* room for 2 columns */
+}
+ul.media li
+{
+  float: left;
+  width: 290px;  /* accommodate the widest item */
+  margin-right:20px;
+}
+
+/* ------------- Multimedia List */
+
 /* ------------- "generic" styles --------------------------------------------------------------------------- */
 body {
 	background: #ffffff url(/images/general/background.jpg) repeat-x 50% 0;
