@@ -8,6 +8,7 @@ a {
 word-wrap: break-word;
 }
 	
+/*
 .content a, a:active, a:visited, .red-text {
 	color: #900;
 	text-decoration:underline;}
@@ -16,11 +17,23 @@ word-wrap: break-word;
 	color: #900;
 	text-decoration : underline;
 }
+*/
+
+a, a:active, a:visited, .red-text {
+	color: #900;
+	text-decoration:underline;}
+	
+a:hover {
+	color: #900;
+	text-decoration : underline;
+}
 	
 .content-general{
 	background-color:#fff;
 	padding: 0 15px 0px 15px;
 }
+
+.relatedPagesSection {padding:0 7px;}
 	
 	
 .content{
@@ -31,7 +44,6 @@ word-wrap: break-word;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2c1bd', endColorstr='#fff');
 	background: -webkit-gradient(linear, left top, left bottom, from(#c2c1bd), to(#fff));
  	background: -moz-linear-gradient(top, #c2c1bd, #fff);	
-	
 	-msfilter:"progid:DXImageTransform.Microsoft.gradient (startColorStr='#c2c1bd', EndColorStr='#fff')";
 	
 	padding: 0 15px 0px 15px;
