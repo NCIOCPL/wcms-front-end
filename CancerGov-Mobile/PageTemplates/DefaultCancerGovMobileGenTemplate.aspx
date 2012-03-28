@@ -45,7 +45,7 @@
 				<NCI:AddThisButtonItem Service="email" />
 				<NCI:AddThisButtonItem Service="facebook" />
 				<NCI:AddThisButtonItem Service="twitter" />
-				<NCI:CustomAddThisButtonItem Service="plus.google.com" Name="Google+" Url="http://plus.google.com?url={{url}}&title={{title}}" Icon="http://htmldev.cancer.gov/m/images/Google-Plus-32.png" />
+				<NCI:GoogleAddThisButtonItem Service="google_plusone" Size="standard" Count="false" />
 				<NCI:AddThisButtonItem Service="compact" />
 			</ButtonsCollection>
 		</NCI:AddThisButtonLanguageItem>
@@ -54,7 +54,7 @@
 				<NCI:AddThisButtonItem Service="email" />
 				<NCI:AddThisButtonItem Service="facebook" />
 				<NCI:AddThisButtonItem Service="twitter" />
-				<NCI:CustomAddThisButtonItem Service="plus.google.com" Name="Google+" Url="http://plus.google.com?url={{url}}&title={{title}}" Icon="http://htmldev.cancer.gov/m/images/Google-Plus-32.png" />
+				<NCI:GoogleAddThisButtonItem Service="google_plusone" Size="standard" Count="false" />
 				<NCI:AddThisButtonItem Service="compact" />
 			</ButtonsCollection>
 		</NCI:AddThisButtonLanguageItem>
