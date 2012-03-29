@@ -17,12 +17,12 @@ word-wrap: break-word;
 	color: #900;
 	text-decoration : underline;
 }
-*/
+
 
 a, a:active, a:visited, .red-text {
 	color: #900;
 	text-decoration:underline;}
-	
+*/	
 a:hover {
 	color: #900;
 	text-decoration : underline;
