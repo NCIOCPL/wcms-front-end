@@ -35,7 +35,7 @@ ul.media
 }
 ul.media li
 {
-  float: right;
+  float: left;
   width: 290px;  /* accommodate the widest item */
   margin-right:20px;
 }
