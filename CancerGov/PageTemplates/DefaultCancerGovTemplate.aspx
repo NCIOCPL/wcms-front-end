@@ -25,7 +25,7 @@ ul.ctpListPageList {
 </style>
 <![endif]-->
 </head>
-<body runat="server">
+<body id="Body1" runat="server">
 <!-- CGov Container -->
 <div id="cgovContainer"> 
   <!-- Site Banner -->
@@ -57,6 +57,9 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+      <!-- Begin Public Use Slot -->
+      <NCI:TemplateSlot ID="cgvPublicUseNoticeSl" runat="server" />
+      <!-- End Public Use Slot -->
     </div>
     <!-- End Content Area --> 
   </div>
