@@ -199,7 +199,7 @@ table {
 			#genSlotMainNav ul.genSiteMainNav  li ul  {
 				background-color: #252525;		
 				padding: 0 9px 7px 9px;
-				top: 38px; /* Correctly Positions the Fly Out Menu */		
+				top: 36px; /* Correctly Positions the Fly Out Menu */		
 				}
 	
 				#genSlotMainNav  ul.genSiteMainNav  li ul a {	
@@ -534,6 +534,7 @@ table {
 			}
 			
 
+
 			/**
 				Right Column
 			**/
@@ -704,40 +705,63 @@ body.genHome .genSiteRightColumn {
 		padding: 0;
 	}
 /* home page two columns */
-.home-page-column-container {
-	width: 100%;
-	overflow: auto;
-	border-top: 1px solid #bdbdbd;
-	padding: 15px 0 0 0;
+.genSlotColumnContainer {
+	border-top: 1px solid #BDBDBD;
+    padding: 15px 0 0;
 }
 
-.homepage-left-column {
+#genSlotColumn1 {
 	float: left;
 	width: 46%
 }
-.homepage-right-column {
+#genSlotColumn2 {
 	float: right;
-	width: 46%;
+	width: 46%
 }
-.homepage-left-column ul, .homepage-right-column ul {
+#genSlotColumn1 ul, #genSlotColumn2 ul {
 	margin: 0;	
 }
-.homepage-left-column ul li, .homepage-right-column ul li {
+#genSlotColumn2 ul li, #genSlotColumn2 ul li {
 	list-style-type: none;
 	margin: 0 0 10px 0;
 }
-.homepage-left-column span.date, .homepage-right-column span.date {
-	font-weight: bold;
+p.genListItemDate, p.genListItemDate {
 	font-size: 0.8em;
+	margin: 0; padding: 0;
 }
+.genListItemNews h4 {
+	margin: 0;
+	font-weight: normal;
+}
+.genListItemSource {
+	font-style: italic;
+}
+.genSlotColumnContainer h3,
+.genSlotColumnContainer h3 a,
 h2.homepage, h2.homepage a {
 	color: #0A5376;
   font-size: 1.15em;
   font-weight: 900;
-  padding-bottom: 10px;
+  padding: 20px 0 10px 0;
 }
+.genSlotColumnContainer h3
+ {
+	border-bottom: 1px solid #B2B2B2;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+}
+.genSlotColumnContainer h3 a,
 h2.homepage a {
 	text-decoration: none;
+}
+.genSiteRssLink {
+    padding-left: 10px;
+}
+span.genSiteRssLink a {
+    background: url(http://imaging.cancer.gov/publishedcontent/images/images/icons/icon-rss-sml.gif) no-repeat 0 20px;
+    font-weight: normal;
+    padding-left: 16px;
+		font-size: 0.8em;
 }
 /* end home page two columns */
 
@@ -852,9 +876,15 @@ ul.genList {
 	padding: 0 0 8px 0;
 }
 	/* Title */
+	.genAggroWidget h4 {
+		font-size: 12px;
+		font-weight: normal;
+	}
+	
+	
 	ul.genList li h4 {
 		font-size: 12px;
-		font-weight: 900;
+		font-weight: normal;
 	}
 	ul.genList li .genListItemTitle {
 		font-weight: 900;
