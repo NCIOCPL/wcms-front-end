@@ -1118,7 +1118,7 @@ ol.genAggroWidget {
 		-moz-border-radius: 4px;
 		padding: 0;
 		-webkit-border-radius: 4px;
-		width: 100%;
+		width: 615px; /* changed from 100% to fix problem when hitting ctl + minus making the widget break apart */
 	}
 		/* container for featured item */
 		
@@ -1316,6 +1316,30 @@ ol li.genSearchItem {
 		font-size: 0.9em;
 		font-style: italic;
 	}
+	
+	/* pullquote */
+.pullquote, .pullquote-right {
+	float: right;
+	width: 275px;
+	margin: 0 0 5px 5px;
+	padding: 20px 0 10px 0;
+	font: 17px georgia;
+	background:url(/publishedcontent/images/images/global/pullquote-openquote.gif) no-repeat left 5px;
+}
+.pullquote-left {
+	float: left;
+	width: 275px;
+	margin: 0 5px 5px 0;
+	padding: 20px 0 10px 0;
+	font: 17px georgia;
+	background:url(/publishedcontent/images/images/global/pullquote-openquote.gif) no-repeat left 5px;
+}
+.pullquote-text {
+	display: block;
+	background: url(/publishedcontent/images/images/global/pullquote-closequote.gif) no-repeat right bottom;
+	padding: 0 30px;
+}
+/* end pullquote */
 
 
 	
