@@ -40,7 +40,7 @@
       
 <NCI:AddThisButtonListControl ID="AddThisButtonList1" runat="server">
 	<AddThisButtonLanguages>
-		<NCI:AddThisButtonLanguageItem Language="en" Compact="print" Expanded="favorites,digg,google,live,reddit,twitter,delicious,facebook,linkedin,stumbleupon">
+		<NCI:AddThisButtonLanguageItem Language="en" Compact="print" Expanded="favorites,digg,google,reddit,twitter,delicious,facebook,linkedin,stumbleupon">
 			<ButtonsCollection>
 				<NCI:AddThisButtonItem Service="email" />
 				<NCI:AddThisButtonItem Service="facebook" />
@@ -49,7 +49,7 @@
 				<NCI:AddThisButtonItem Service="compact" />
 			</ButtonsCollection>
 		</NCI:AddThisButtonLanguageItem>
-		<NCI:AddThisButtonLanguageItem Language="es" Compact="print" Expanded="favorites,digg,google,live,reddit,twitter,delicious,facebook,linkedin,stumbleupon">
+		<NCI:AddThisButtonLanguageItem Language="es" Compact="print" Expanded="favorites,digg,google,reddit,twitter,delicious,facebook,linkedin,stumbleupon">
 			<ButtonsCollection>
 				<NCI:AddThisButtonItem Service="email" />
 				<NCI:AddThisButtonItem Service="facebook" />
