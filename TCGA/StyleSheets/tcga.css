@@ -247,7 +247,7 @@ way to fit your requirements.
 }
 #mainnav li {
 	display:inline;
-	margin: 0 5px;
+	margin: 0 3px;
 }
 #mainnav ul ul li {
 	margin: 0;
