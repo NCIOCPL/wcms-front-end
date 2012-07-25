@@ -27,8 +27,11 @@
     <div class="contentzone-noleftnav">
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
-      <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
+      <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
+	  <!-- Tile zone column -->
+      <NCI:TemplateSlot ID="cgvTileSlot" runat="server" CssClass="TileSlot" />
+      <!-- End Tile zone column -->
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
     </div>

@@ -6,7 +6,7 @@
 		
 		Usage: Used to define the look and feel of the website. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.
 		
-		Last Update: November 21, 2011
+		Last Update: June 7, 2012
 	====
 */
 
@@ -168,10 +168,45 @@ table {
 			}
 		
 		/* Site Search */	
+		
 		form.genSiteSearchForm {
 			float: right;
 			padding-bottom: 12px;
 		}
+			form.genSiteSearchForm  input#swKeywordQuery,
+			form#aspnetForm input#txtKeyword1 {
+				background: #fff url('/publishedcontent/images/images/global/input-search-bground.gif') no-repeat 98% center;
+				border: 1px solid #aaa;
+				color: #7e7e7e;
+				font-size: 12px;
+				height: 26px;
+				line-height: 26px;
+				padding: 0 4px;
+				vertical-align: middle;
+				width: 275px;
+			}
+			
+			form.genSiteSearchForm  input#swSearchButton,
+			form#aspnetForm input#swSearchButton {
+				background: #262727 url('/publishedcontent/images/images/global/button-search-black.gif') no-repeat;
+				border: 0;
+				color: #fff;
+				cursor: pointer;
+				font: 12px "ITC Avant Garde", "avant garde", "Century Gothic", Arial, Helvetica, sans-serif;
+				font-weight: 900;
+				letter-spacing: 1px;
+				height: 26px;
+				margin: 0;
+				padding: 0;
+				text-shadow: 0 0 5px #000; 
+				vertical-align: middle;
+				width: 66px;
+			}
+			/* Results */
+			
+			ol li.genSearchItem h4 {
+				padding-bottom: 0;
+			}
 		
 	/**
 		Site Navigation
@@ -708,6 +743,7 @@ body.genHome .genSiteRightColumn {
 .genSlotColumnContainer {
 	border-top: 1px solid #BDBDBD;
     padding: 15px 0 0;
+
 }
 
 #genSlotColumn1 {
@@ -724,6 +760,10 @@ body.genHome .genSiteRightColumn {
 #genSlotColumn2 ul li, #genSlotColumn2 ul li {
 	list-style-type: none;
 	margin: 0 0 10px 0;
+}
+p.genListItemDate, p.genListItemDate {
+	font-size: 0.8em;
+	margin: 0; padding: 0;
 }
 p.genListItemDate, p.genListItemDate {
 	font-size: 0.8em;
@@ -939,7 +979,39 @@ ul.genList {
 	Site Wide Search
 **/
 
+/***
+	Biography Pages layout
+***/
 
+.bio-box{ padding:10px; width:100%; float:left; background-color:#EEE;;}
 
+.bio-img {width: 120px; margin-right: 10px; float:left;}
 
-	
+.bio-info{ float:right;  }
+
+.bio-info table { width:100%;}
+
+.bio-info table tr td{ vertical-align:top; padding: 5px; }
+
+/**
+	Search Results
+**/
+
+p.genSiteSearchResultsCount {
+	font-weight: 900;
+	padding-top: 18px;
+}
+
+ol li.genSearchItem {
+	padding-bottom: 18px;
+}
+	ol li.genSearchItem h4 {
+		font-size: 1em;
+	}
+	ol li.genSearchItem p {
+		padding-bottom: 0;
+	}
+	ol li.genSearchItem p.genListItemLink {
+		font-size: 0.9em;
+		font-style: italic;
+	}

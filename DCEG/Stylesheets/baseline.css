@@ -1,0 +1,1766 @@
+@charset "utf-8";
+
+/*
+	====
+	
+		Baseline Design Elements
+		
+		Usage: Used to define the look and feel of the website. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.
+		
+		Before pushing this CSS to prod, it should be minimized.
+		
+		Last Update: July 25, 2012 by German Martinez
+	
+	====
+	
+	
+	TABLE OF CONTENTS ( Listing Major Sections only. To find your specific id or class, perform a Search for it. )
+	
+	1. Typography and Universal Elements
+	2. Global Page Specific Elements
+		A. General Site Container
+		B. Site Header
+		C. Site Navigation
+		D. Site Content Container 
+			i. Left Column
+				a. Section Navigation
+			ii. Middle Column
+				a. Content Column
+			iii. Right Column
+				a. Fifth Level Navigation
+		E. Site Footer
+	3. Content Type Specific Elements
+		A. Home Page
+			i. Column and Highlight areas used on Home page and Landing pages
+			ii. Timely Content Zone
+		B. Landing Pages
+		C. General
+		D. News Release
+		E. Event
+		F. Lists, List Items, and Aggregation Widgets
+			i. List Items - News
+			ii. List Items - Citations 
+			iii. List Items - Video 
+			iv. List Items - Funding Opportunities
+			v. List Items - Files
+			vi. List Items in the Sidebars
+		Y. Search Results
+		Z. Miscellaneous
+*/
+
+
+/*
+	==
+
+	1. Typography and Universal Elements
+
+	==
+*/
+
+body {
+    background: url("/publishedcontent/images/images/DCEG-bground.gif") repeat-x scroll 0 0 #FFFFFF;
+	background-color: #FFF;
+	color: #000;
+	font-family: Arial, sans-serif;
+	line-height: 1.8em;
+	font-size:12px;
+}
+a {
+	color: #0054a6;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	}
+	
+a:visited {
+	color:#727272;
+	text-decoration: none;
+	}	
+h1 {
+	font-size: 1.3em;
+	font-weight: 900;
+	line-height: 1.1em;
+}
+	h1 a {
+		text-decoration: none;
+	}
+	h1 a:hover {
+		text-decoration: underline;
+	}
+h2 {
+	font-size: 1.2em;
+	font-weight: 900;
+	line-height: 1.2em;
+	padding-bottom: 18px;
+}
+	h2 a {
+		text-decoration: none;
+	}
+	h2 a:hover {
+		text-decoration: underline;
+	}
+h3 {
+	font-size: 1.1em;
+	font-weight: 900;
+	padding-bottom: 18px;
+}
+	h3 a {
+		text-decoration: none;
+	}
+	h3 a:hover {
+		text-decoration: underline;
+	}
+h4 {
+	font-size: 1em;
+	font-weight: 900;
+	padding-bottom: 0;
+}
+h5 {
+	font-size: 1em;
+}
+p {
+	padding-bottom: 18px;
+}
+ul {
+	list-style-type: disc;
+	margin-left: 36px;
+	padding-bottom: 18px;
+}
+
+ul ul{
+	list-style-type: square;
+	margin-left: 36px;
+	padding-bottom: 18px;
+}
+
+ul ul ul{
+	list-style-type: circle;
+	margin-left: 36px;
+	padding-bottom: 18px;
+}
+
+
+	ul li {
+	}
+ol {
+	list-style-type: decimal;
+	margin-left: 36px;
+	padding-bottom: 18px;
+}
+	ol li {
+	}
+blockquote {
+	margin: 0 36px 0 36px;
+}
+b,
+strong {
+	font-weight: 900;
+}
+i,
+em {
+	font-style: italic;
+}
+dl {
+}
+	dl dt {
+	}
+	dl dd {
+	}
+table {
+	margin-bottom: 18px;
+}
+	table tr {
+	}
+	table td {
+		padding: 6px;
+		vertical-align: top;		
+	}
+	
+table.blue-table {
+	border:#C0C0C0 solid thin;
+	border-collapse:collapse;
+}
+
+table.blue-table th {
+	background-color:#d8e0eb;
+	border:#C0C0C0 solid thin;
+	border-bottom: none;
+	border-top: none;
+	text-align:left;
+	padding:.3em 1em;
+	}
+	
+table.blue-table td {
+	border:#C0C0C0 solid thin;
+	border-bottom: none;
+	border-top: none;
+	padding:.4em 1em;
+	vertical-align:top;
+}
+
+table.blue-table tr.odd {
+	background-color:#eaf1f5;
+}
+
+img.right {
+	float: right;
+	margin: 0 0 8px 8px;
+}
+img.left {
+	float: left;
+	margin: 0 8px 8px 0;
+}
+img.center {
+	margin: 0 auto 8px auto;
+	text-align: center;
+}
+
+/*	Ensuring extra div.slot-items generated from CDE do not have default padding. */
+.slot-item .slot-item {
+	padding: 0;
+}
+
+/*
+	==
+	
+	2. Page Specific Elements
+
+	==
+*/
+
+	/**
+		A. General Site Container
+	**/
+	.genSiteContainer {
+		background-color: #fff;
+		font-size: 1.2em;
+		border: thin solid #798d93;
+		border-top: none;
+		
+		-moz-box-shadow: 1px 5px 5px #bbbbbb;
+		-webkit-box-shadow: 1px 5px 5px #bbbbbb;
+		box-shadow: 1px 5px 5px #bbbbbb;
+		
+		border-bottom-left-radius: 10px;
+		-moz-border-bottom-left-radius: 10px;
+		-webkit-border-bottom-left-radius: 10px;
+		-khtml-border-bottom-left-radius: 10px;
+					
+		border-bottom-right-radius: 10px;
+		-moz-border-bottom-right-radius: 10px;
+		-webkit-border-bottom-right-radius: 10px;
+		-khtml-border-bottom-right-radius: 10px;
+		
+		margin-bottom: 30px;
+	}
+	
+	/**
+		NCI Branding Bar
+	**/
+	
+	
+	#genSlotBrandingBar {
+		margin: 0 auto;
+		width: 986px;
+	}
+		#genSlotBrandingBar li.nciURL {
+			margin-right: 12px
+		}
+		.genSiteBrandingBarContainer {
+			padding-bottom: 0px;
+		}
+
+	/**
+		B. Site Header
+	**/
+
+	#genSlotSiteBanner {
+		border-top: 0px dotted #AFAFAF;
+		padding: 8px 0;
+	}
+	
+	
+	/* Site Logo/Title */
+	
+	h1.genSiteLogo {
+		line-height: 40px;
+	}
+	
+	/* Contains Site Utility Items such as Search and other links */
+	
+	.genSiteUtilityContainer a{
+		color: #0054a6;
+		text-decoration: none;
+	
+	}
+	
+	.genSiteUtilityContainer a:hover{
+		text-decoration: underline;
+	
+	}
+		
+		/* Utility Links found in the top right of the Site Header */
+		
+		ol.genSiteUtilityLinks {
+			font-size: 11px;
+			margin: 0;
+			padding: 0 0 4px 0;
+		}
+			ol.genSiteUtilityLinks li{
+				margin: 0;
+				padding: 0 5px;
+				border-right:#000 thin solid;
+			}
+			
+			ol.genSiteUtilityLinks li.last{
+				border-right:none;
+			}
+		
+		/* Site Search */	
+		
+		form.genSiteSearchForm {
+			float: right;
+			padding-bottom: 12px;
+		}
+		
+		input#swKeywordQuery{
+			background: url("/publishedcontent/images/images/input-search-bground.gif") no-repeat scroll 98% center #FFFFFF;
+   			border: 1px solid #AAAAAA;
+    		color: #7E7E7E;
+    		font-size: 12px;
+    		height: 26px;
+    		line-height: 26px;
+    		padding: 0 4px;
+    		vertical-align: middle;
+    		width: 220px;
+			}
+			
+			input#swSearchButton{
+			background-color: #fff;
+			font-family: Arial, Helvetica, sans-serif;
+    		border: 1px solid #4d4d4d;
+    		color: #636363;
+    		cursor: pointer;
+			font-weight:bold;    		
+    		height: 26px;
+    		letter-spacing: 1px;
+    		margin: 0 0 0 10px;
+    		padding: 0;
+    		vertical-align: middle;
+    		width: 66px;
+				}
+		
+	/**
+		C. Site Navigation
+	**/
+	
+	#genSlotMainNav {
+		background: #000 url('/publishedcontent/images/images/bground-mainnav.gif');
+		color: #000;
+		font-weight:bold;
+		border-top:thin solid #b1b1b1;
+	}	
+		#genSlotMainNav a {
+			color: #000;
+			padding: 7px 0;
+			text-decoration: none;
+			/*border-right:thin solid #7d7d7d;
+			border-left: thin solid #a2b7cc;*/
+			
+		}
+		
+		#genSlotMainNav ul li a{
+			border-right:thin solid #9ebacf;
+			border-left: thin solid #b2d5eb;
+			border-bottom:thin solid #b1b1b1;
+		}
+		
+
+		
+		#genSlotMainNav ul li a.current{
+			border:none;
+			background-color:#FFF;
+		}
+		
+		#genSlotMainNav ul li ul li a{
+			border:none;
+			border-bottom:none;
+		}
+		
+		#genSlotMainNav ul li.first a{
+			border-left: none;
+		}
+
+		#genSlotMainNav ul li.currentSection{
+			border-left: thin solid #b1b1b1;
+			border-right: thin solid #b1b1b1;
+			border-bottom: thin solid #fff;
+			 }
+			 
+		#genSlotMainNav ul li.currentSection.first{
+			border-bottom: thin solid #fff;
+			border-left:none;
+			 }
+			 
+			 #genSlotMainNav ul li.first a.first:hover{
+			border-right: thin solid #b1b1b1;
+			border-left:none;
+			border-bottom: thin solid #fff;
+			 }
+			 
+			 #genSlotMainNav ul li.currentSection:hover{
+				 border:none;
+			 }
+		
+		#genSlotMainNav ul ul li.first a{
+			/*border-left: thin solid #7e7d83;*/
+		}
+		
+		/*#genSlotMainNav ul li.last {
+			border-right: thin solid #7e7d83;
+		}*/
+		
+			/* Hides the Highlight Color, but keeps the padding on the span. */
+			#genSlotMainNav ul li a span {
+				background-color: transparent;
+				padding: 9px 15px 10px;
+				
+				
+			}
+		
+			/* Current Section Identification in the Main Navigation*/
+			
+
+			/* Highlight Around Navigation */
+			
+			#genSlotMainNav ul.genSiteMainNav li a:hover span, #genSlotMainNav ul.genSiteAdditionalMainNav li a:hover span, #genSlotMainNav ul.genSiteMainNav li a.current span {
+				background-color: #fff;
+				color: #555555;
+
+			}
+				#genSlotMainNav ul.genSiteMainNav li ul a span {
+					padding: 8px 0 0 0;
+					font-size:12px;
+				}
+					#genSlotMainNav ul.genSiteMainNav li ul a:hover span {
+						background-color: transparent;
+						color: #4d4d4d;
+						
+					}
+					
+					
+					#genSlotMainNav ul.genSiteAdditionalMainNav li a{border-right:none;}
+					
+					#genSlotMainNav ul.genSiteAdditionalMainNav li:hover{background-color: #fff;}
+				
+			/* Hover state on Main Navigation Tabs */
+			
+			#genSlotMainNav ul.genSiteMainNav  li a:hover,
+			#genSlotMainNav ul.genSiteAdditionalMainNav li  a:hover  {
+					color: #4d4d4d;				
+					background-color:fff;
+					
+				
+			}
+				#genSlotMainNav ul.genSiteMainNav  li:hover > a {
+					color: #4d4d4d;
+					background-color:#fff;
+					border-bottom: none;
+					overflow:hidden;
+					border-left: thin solid #b1b1b1;
+					border-right: thin solid #b1b1b1;
+					
+				}
+				
+				#genSlotMainNav ul.genSiteMainNav  li ul li:hover > a {
+					border:none;
+					
+				}
+		
+			/* Flyout Menus */
+			
+			ul.genSiteMainNav  li ul li { 
+			
+			}
+			
+			
+			
+			ul.genSiteMainNav  li ul  {
+				
+				
+					background-color: #fff;
+					border-top: none;
+					border-right:thin solid #b1b1b1;
+					border-left:thin solid #b1b1b1;
+					border-bottom:thin solid #b1b1b1;
+					
+					border-bottom-left-radius: 10px;
+					-moz-border-bottom-left-radius: 10px;
+					-webkit-border-bottom-left-radius: 10px;
+					-khtml-border-bottom-left-radius: 10px;
+					
+					border-bottom-right-radius: 10px;
+					-moz-border-bottom-right-radius: 10px;
+					-webkit-border-bottom-right-radius: 10px;
+					-khtml-border-bottom-right-radius: 10px;
+					
+					/*border-top-right-radius: 10px;
+					-moz-border-top-right-radius: 10px;
+					-webkit-border-top-right-radius: 10px;
+					-khtml-border-top-right-radius: 10px;*/
+					
+					-moz-box-shadow: 1px 5px 5px #bbbbbb;
+					-webkit-box-shadow: 1px 5px 5px #bbbbbb;
+					box-shadow: 1px 5px 5px #bbbbbb;
+				}
+				#genSlotMainNav  ul.genSiteMainNav  li ul  a {	
+					color: #4d4d4d;
+					
+				}
+				
+				#genSlotMainNav ul li ul li.currentSection{
+			border:none;
+			 }
+								
+				#genSlotMainNav ul.genSiteMainNav li ul {
+					padding: 0 0;
+					
+				}
+					#genSlotMainNav ul.genSiteMainNav li ul a {
+						padding: 5px 9px;
+						
+					}
+									
+					#genSlotMainNav ul.genSiteMainNav li ul li {
+						border-top: 1px dotted #CCC;
+						
+					}
+					
+					#genSlotMainNav ul.genSiteMainNav li ul li.currentSection:hover {
+						border-top: 1px dotted #CCC;
+						
+					}
+					
+					#genSlotMainNav ul.genSiteMainNav li ul li.first a.first:hover {
+						border-bottom:none;
+						border-right:none;
+						
+					}
+					
+				#genSlotMainNav ul.genSiteMainNav li ul li a.last {
+					border-bottom: 0 none;
+					overflow:hidden;
+					
+					border-bottom-left-radius: 10px;
+					-moz-border-bottom-left-radius: 10px;
+					-webkit-border-bottom-left-radius: 10px;
+					-khtml-border-bottom-left-radius: 10px;
+					
+					border-bottom-right-radius: 10px;
+					-moz-border-bottom-right-radius: 10px;
+					-webkit-border-bottom-right-radius: 10px;
+					-khtml-border-bottom-right-radius: 10px;
+				}
+				/* Hover state on Main Navigation Fly outs */
+				
+				#genSlotMainNav ul.genSiteMainNav  li ul li:hover > a {
+					color: #4d4d4d;
+					text-decoration: none;
+					background-color:#ccdaeb;
+				}
+				
+
+	
+	/**
+		D. Site Content Container
+	**/
+
+		.genSiteContentContainer {
+			padding-top: 18px;
+		}
+	
+		/**
+			i. Left Column
+		**/
+		
+		.genSiteLeftColumn {
+			margin-right: 3%; /* Right hand margin for the Left column */
+			width: 20%; /* Width adjustment to account for Right hand margin */
+		}
+				
+			/**
+				a. Section Navigation
+					// Appears in the left-hand column.
+			**/
+			
+			/* Used in lieu of breadcrumbs, this is permenant link meant to denote what top level section you are currently in */
+			
+			p.genSiteSectionParent {
+				font-size: 12px;
+				padding: 0 0 12px 0;
+				font-weight: bold;
+			}
+			
+			p.genSiteSectionParent a:link{
+				color:#0054A6;
+				text-decoration:none;
+			}
+			
+			p.genSiteSectionParent a:visted{
+				color:#0054A6;
+				text-decoration:none;
+			}
+			
+			p.genSiteSectionParent a:hover{
+				color:#0054A6;
+				text-decoration:underline;
+			}
+
+				/* Section Navigation Container */
+				
+				#genSlotSectionNav ul.genSiteSectionNavigation {
+					border: 1px solid #e2e2e2;
+					margin-bottom: 18px;
+					padding: 0px 0 0px 0px;
+					background-color: #f8f8f8;
+				}			
+					#genSlotSectionNav ul ul {
+						list-style-type: none;
+						padding-bottom: 0;
+					}
+					#genSlotSectionNav ul.genSiteSectionNavigation a {
+						text-decoration: none;
+						padding: 7px 10px 7px 15px;
+						color: #565656;
+						border-bottom: 1px dotted #CCC;
+						
+					}
+					
+					
+					#genSlotSectionNav ul.genSiteSectionNavigation li a.last {
+						border-bottom: none;
+					}
+					
+						#genSlotSectionNav ul.genSiteSectionNavigation a:hover {
+							text-decoration: none;
+							
+						}
+			
+				
+					/* First Level of Section Navigation */
+					
+					#genSlotSectionNav ul {
+						margin: 0 0 0 0;
+						padding-bottom: 0;
+					}		
+						#genSlotSectionNav ul li {
+							font-size:15px;
+							list-style: none;
+							padding: 0;
+							line-height:1.3em;
+						}
+						#genSlotSectionNav ul li {
+							border-bottom: 0;
+						}
+						#genSlotSectionNav ul li a {
+							display: block;	
+							padding: 2px 0;
+							text-decoration: none;
+						}
+							#genSlotSectionNav ul li a:hover{
+								background-color:#d8e0eb;
+							}
+
+							/* Current Section Identification in the First Level */
+					
+							#genSlotSectionNav ul li.currentSection {
+								color: #575757;
+							}
+								#genSlotSectionNav ul li.currentSection  a,
+								#genSlotSectionNav ul li.currentSection  a:hover {
+									color: #575757;
+								}
+								#genSlotSectionNav ul li.currentSection .current {
+									
+								}
+																
+								#genSlotSectionNav ul li.currentSection  a.current.on {
+									color: #575757;
+									text-decoration: none;									
+									background-color:#d8e0eb;
+									font-weight: bold;
+								}
+									#genSlotSectionNav ul li.currentSection  a.current:hover {
+										text-decoration: none;
+									}
+							
+						/* Second Level of Section Navigation */					
+						
+						#genSlotSectionNav ul li ul {
+						}
+						
+							#genSlotSectionNav ul li ul li {
+								border: none;
+								font-size:13px;
+								list-style: none;
+								line-height:1.4em;
+							}
+								#genSlotSectionNav ul li.currentSection ul li a {
+									color: #575757;
+									padding-left:30px;
+								}
+								
+								#genSlotSectionNav ul li.currentSection ul li a.last {
+									border-bottom: 1px dotted #CCC;
+								}
+								
+								/* Current Section Identification in the Second Level */
+									
+								#genSlotSectionNav ul li.currentSection ul li.currentSection {
+									color: #575757;
+									background-color: transparent;
+
+								}
+								#genSlotSectionNav ul li.currentSection ul li.currentSection a {
+										color: #575757;
+									}
+								#genSlotSectionNav ul li.currentSection ul li.currentSection a.current.on {
+									color: #575757;
+									background-color:#d8e0eb;
+									font-weight:bold;
+								}
+
+							/* Third Level of Section Navigation */
+							
+							
+							
+							
+							#genSlotSectionNav ul li.currentSection ul li.currentSection ul li{
+							
+								font-size:12px;
+								margin-top: 0;
+								padding-bottom: 0px;
+								line-height:1.3em;
+							}
+								#genSlotSectionNav ul li.currentSection ul li.currentSection ul li a {
+									color: #575757;
+									padding-left:45px;
+								}	
+								
+								#genSlotSectionNav ul li.currentSection ul li.currentSection ul li a.last {
+									border-bottom: 1px dotted #CCC;
+								}
+								
+								/* Current Section Identification in the Third Level */
+									
+								#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection {
+									font-weight: bold;
+									color: #575757;
+								}
+									#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection  a {
+										color: #236393;
+									}
+									#genSlotSectionNav ul li.currentSection ul li.currentSection ul li.currentSection  a.current.on {
+										color: #575757;
+										color: #575757;
+										background-color:#d8e0eb;
+										font-weight:bold;
+									}											
+				
+
+				
+			
+		/**
+			ii. Main Column
+		**/
+		
+		.genSiteMainColumn {
+			background-color: #fff;
+		}
+	
+			/* Section banner */
+			#genSlotSectionBanner {
+				background-color: #AFAFAF;
+				margin-bottom: 18px;
+				padding: 18px 20px;
+			}
+
+			/* Page Title Area */
+			#genSlotTitle {
+				padding: 0 20px 18px 0;
+			}	
+				#genSlotTitle h1,
+				#genSlotTitle h2 {
+					padding: 0;
+				}
+				#genSlotTitle h1 {
+					line-height: 1.4em;
+				}
+				
+				#genSlotTitle h2 {
+					color:#555;
+					font-size:1.1em;
+				}
+				
+				/* If #genSlotTitle is in side of .genSiteContentColumn, the padding needs to change. */
+				
+				.genSiteContentColumn  #genSlotTitle  {
+					padding: 0 0 18px 0;
+				}
+					.genSiteContentColumn  #genSlotTitle h1,
+					.genSiteContentColumn  #genSlotTitle h2 {
+						padding: 0 0 0 0;
+					}
+
+		
+			/**
+				a. Content Column
+			**/
+			
+			.genSiteContentColumn {
+				margin-right: 2%; /* Right hand side margin */
+				width: 67%; /* Width adjusted to account for margin */
+			}
+				.genSiteContentColumn .slot-item {
+					overflow: hidden;
+				}
+			
+				/* Page Options */
+				.genSiteMainColumn #genSlotPageOptions {
+					padding-bottom: 18px;
+					text-align: right;
+				}
+					#genSlotPageOptions p.genSitePrintButton {
+						font-size: 12px;
+						padding-bottom: 0;
+					}
+						#genSlotPageOptions p.genSitePrintButton a {
+							background-image: url('/publishedcontent/images/images/icon-print-sml.gif');
+							background-repeat: no-repeat;
+							padding-left: 22px;
+							padding-bottom: 2px;
+						}
+					
+
+
+		/**
+			iii. Right Column
+		**/
+		
+		.genSiteRightColumn {
+			color: #000;
+			line-height:16px;
+		}
+
+							
+			/* a. Fifth Level Navigation */
+			
+			#genSlotRightNav {
+				border-top: 2px solid #2d2d2d;
+				border-bottom: 2px solid #2d2d2d;
+				margin-bottom: 18px;
+			}
+				#genSlotRightNav .slot-item {
+					margin: 0;
+					padding: 0;					
+				}
+				#genSlotRightNav ul {
+					list-style-type: none;
+					margin: 8px 0;
+					padding: 0;
+				}
+				#genSlotRightNav ul li {
+					border-bottom: 1px dotted #AFAFAF;
+					padding: 4px 0;
+				}
+					#genSlotRightNav ul li.last {
+						border-bottom: 0;
+					}
+				#genSlotRightNav a {
+					display: block;
+				}
+		
+			/* b. Additional content container */
+			
+			#genSlotRightSidebar h3 {
+				border-bottom: 0;
+
+			}
+
+			
+	/**
+		E. Site Footer
+	**/
+	
+	#genSlotSiteFooter {
+		border-top: 0px solid #2d2d2d;
+		font-size: 0.9em;
+		padding-top: 18px;
+	}
+		#genSlotSiteFooter  .slot-item {
+			padding-top: 0;
+		}
+		#genSlotSiteFooter ul {
+			list-style: none;
+			padding-bottom: 12px;
+		}
+		
+		#genSlotSiteFooter a{
+			color: #4d4d4d;
+			text-decoration:underline;
+		}
+		
+		#genSlotSiteFooter a:hover{
+			text-decoration:none;
+		}
+		
+			#genSlotSiteFooter ul li {
+				display: inline;
+				margin: 0 4px;
+			}
+			
+			#genSlotSiteFooter ul.genSiteFooterLinks li {
+				border-right: #000 solid thin;
+				padding-right: 5px;
+			}
+			
+			#genSlotSiteFooter ul.genSiteFooterLinks li.last {
+				border-right: none;
+			}
+			
+			
+			/* Agency Links */
+			#genSlotSiteFooter ul.genSiteAgencyLinks {
+				margin: 0 0 0 41%;
+				padding: 0 0 18px 0;
+			}
+				ul.genSiteAgencyLinks li {
+					float: left;
+					margin-right: 12px;
+					text-indent: -9999px;
+				}
+					ul.genSiteAgencyLinks li a {
+						background-repeat: no-repeat;
+						display: block;
+						height: 34px;
+					}
+					ul.genSiteAgencyLinks li a.genSiteFooterLinkHHS {
+						background-image: url("/publishedcontent/images/images/footer-hhs.gif");
+						width: 34px;
+					}
+					ul.genSiteAgencyLinks li a.genSiteFooterLinkNIH {
+						background-image: url("/publishedcontent/images/images/footer-nih.gif");
+						width: 31px;
+					}
+					ul.genSiteAgencyLinks li a.genSiteFooterLinkNCI {
+						background-image: url("/publishedcontent/images/images/footer-nci.gif");
+						width: 45px;
+					}
+					ul.genSiteAgencyLinks li a.genSiteFooterLinkUSA {
+						background-image: url("/publishedcontent/images/images/footer-usa.gif");
+						width: 83px;
+					}
+			
+		
+/*
+	==
+		3. Content Type Template Specific Styles
+	==
+**/
+
+/**
+	A. Home Page
+**/
+
+	/**
+		i. Column and Highlight areas used on Home page and Landing pages
+	**/
+
+	/* Two Column Area */
+
+	.genSlotColumnContainer {
+		margin: 0 0 15px 0;
+	}
+		.genSlotColumnContainer h3 {
+			margin-bottom: 8px;
+			padding-bottom: 9px;
+		}
+
+	/* Three Column Area (aka Highlights) */
+
+	.genSiteHighlightContainer {
+		margin: 0 0 15px 0;
+	}
+		.genSiteHighlightContainer h3 {
+			margin-bottom: 8px;
+			padding-bottom: 9px;
+		}
+	
+	/**
+		ii. Timely Content Zone found on Homepages and Landing Pages.
+	**/
+	
+	/* overall container */
+	
+	#news-slider {
+		border: 1px solid #2D2D2D;
+		-moz-border-radius: 10px;
+    	-webkit-border-radius: 10px;
+    	-khtml-border-radius: 10px;
+    	border-radius: 10px;
+		-moz-box-shadow: 1px 5px 5px #bbbbbb;
+		-webkit-box-shadow: 1px 5px 5px #bbbbbb;
+		box-shadow: 1px 5px 5px #bbbbbb;
+		margin: 0 0 15px 0;
+		padding: 0;
+		width: 99%;
+	}
+		/* container for featured item */
+		
+		#news-slider .ui-tabs-panel-x {
+			border: 0;
+			height: 200px;
+			margin: 2px;
+			width: 100%;
+		}	
+			#news-slider .ui-tabs-panel-x img {
+				float: left;
+				margin: 18px 18px 0 18px;
+			}	
+			#news-slider .ui-tabs-panel-x p,
+			#news-slider .ui-tabs-panel-x li {
+				font-size: 12px;
+			}
+			#news-slider .ui-tabs-panel-x a {
+				text-decoration: underline;
+			}
+				#news-slider .ui-tabs-panel-x a:hover {
+					text-decoration: none;
+				}
+			.ui-tabs-panel-x p {
+				margin: 4px 0;
+			}
+
+			/* text in featured item */
+			
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
+				float: left;
+				width: 45%;
+				padding: 18px 0 0 0;
+			}
+				/* text in featured item on home */
+				body.genHome #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
+					width: 58%;
+				}
+			
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h2 {
+				margin: 0;
+				padding-bottom: 4px;
+			}
+				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a {
+					text-decoration: none;
+				}
+				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:hover {
+					text-decoration: underline;
+				}
+				
+				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:visited {
+					color: #0054a6;
+				}
+				
+			.ui-tabs-panel-x ul {
+				margin: 0 0 0 10px;           
+				padding: 0;
+				background: none !important;
+				list-style-type: none !important;
+			}
+				.ui-tabs-panel-x ul li {
+					margin: 0;
+					padding: 0;
+					background: none !important;
+					list-style-type: none !important;
+				}
+				table.carousel-panel-list {
+					width: 90%;
+					margin: 0 0 0 5px;
+				}
+					table.carousel-panel-list td {
+						vertical-align: top;
+						padding-right: 3px;
+					}
+
+				#news-slider .ui-tabs-hide {
+					display: none;
+				}
+				
+	/* parent container for list items (tabs) */
+	
+	#news-slider ul.news-slider-tabs {
+		background: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		overflow:hidden;
+	}
+	#news-slider .ui-widget-header {
+		border: 0;
+	}
+	/* container for individual list items */
+	
+	#news-slider ul.news-slider-tabs {
+		overflow: hidden;
+	}
+		#news-slider ul.news-slider-tabs li.news-slider-tabs-item {
+				
+			/* Background Gradient */
+			background: #a8a7a7; /* Old browsers */
+			background: -moz-linear-gradient(top, #c2c3c3 0%, #fff 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c2c3c3), color-stop(100%,#fff)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, #c2c3c3 0%,#fff 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, #c2c3c3 0%,#fff 100%); /* Opera11.10+ */
+			background: -ms-linear-gradient(top, #c2c3c3 0%,#fff 100%); /* IE10+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2c3c3', endColorstr='#fff',GradientType=0 ); /* IE6-9 */
+			background: linear-gradient(top, #c2c3c3 0%,#fff 100%); /* W3C */
+			/* End Background Gradient */
+			
+			
+			border-top: 1px solid #2D2D2D;
+			border-right: 1px solid #2D2D2D;
+			float: left;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 33%;
+			
+			overflow: hidden;
+		}
+		
+		#news-slider ul.news-slider-tabs li.first {
+			
+			border-bottom-left-radius: 10px;
+			}
+		
+		#news-slider ul.news-slider-tabs li.last {
+			width: 33.6%;
+			border-right: 0;
+			overflow: hidden;
+			border-bottom-right-radius: 10px;
+			}
+		#news-slider ul.news-slider-tabs .ui-state-default {
+		}
+			#news-slider ul.news-slider-tabs .ui-state-default.last {
+			}
+		#news-slider ul.news-slider-tabs .ui-state-active {
+		
+		}
+			#news-slider ul.news-slider-tabs .ui-state-active.last {
+			}
+			
+			/* link used inside of list items */
+			
+			#news-slider li.news-slider-tabs-item a { /*On Hover Style*/
+				display: block;
+				text-decoration:none;
+				overflow: hidden;
+				font-weight: bold;
+				font-size: 0.9em;
+				margin: 0 0 0 0;
+				outline: none;
+				padding: 18px 18px 18px 18px;
+			}
+			#news-slider li.news-slider-tabs-item a { /*On Hover Style*/
+
+			}
+			/* thumbnail images in tabs */
+			#news-slider li.news-slider-tabs-item img {
+				margin: 0 10px 0 0;
+			}
+			/* container for individual list items image and text on hover */
+			#news-slider li.news-slider-tabs-item a:hover {
+			}
+			/* container for text in individual list items, selected */
+			#news-slider ul.news-slider-tabs li.ui-tabs-selected { /*Selected tab style*/
+				background-color: #fff;
+				border-top: 0;
+			}
+				/* container for text in individual list items, selected */
+				#news-slider ul.news-slider-tabs li.ui-tabs-selected a {
+					background-color:#FFF;
+					color: #0054a6;
+					text-decoration: none;
+				}
+
+/**
+	B. Landing Page
+**/
+
+body.genLanding {
+}
+
+/**
+	C. General
+**/
+
+body.genGeneral {
+}
+
+/**
+	D. News Release
+**/
+
+.genNewsDates {
+	font-weight: 900;
+}
+.genNewsMetadata {
+	margin-bottom: 18px;
+}
+	.genNewsMetadata p {
+		padding-bottom: 0;
+	}
+
+/**
+	E. Event
+**/
+
+.genEventMetadata  {
+	margin-bottom: 20px;
+}
+	.genEventMetadata p {
+		padding-bottom: 0;
+	}
+
+/**
+	F. Lists, List Items, and Aggregation Widgets
+**/
+
+ul.genList,
+ol.genList,
+ul.genAggroWidget,
+ol.genAggroWidget {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 8px 0;
+}
+	
+	/* clearFix is used in these lists to allow floated elements to remain properly inside of the box model in these elements. Using this is as opposed to overflow:hidden or clear:both; in order to ensure cross-browser compatibility and for smoother development */
+
+	ul.genList li,
+	ol.genList li,
+	ul.genAggroWidget li,
+	ol.genAggroWidget li {
+		zoom: 1; /* triggers hasLayout in IE */
+		display: block; /* resets display for IE/Windows */
+		margin-bottom: 10px;
+	}
+	ul.genList li:after,
+	ol.genList li:after,
+	ul.genAggroWidget li:after,
+	ol.genAggroWidget li:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+
+	/* Slim Lists (Used in Snippet Templates) */
+	
+	ul.genList.slim li,
+	ol.genList.slim li,
+	ul.genAggroWidget.slim li,
+	ol.genAggroWidget.slim li {
+		padding-bottom: 12px;
+	}
+	
+	/* Lists In Sidebars */
+	
+	#genSlotLeftSidebar .slot-item,
+	#genSlotRightSidebar .slot-item	{
+		margin-bottom:  18px;
+		padding-left: 18px;
+		font-size:12px;
+	}
+	
+	genSlotLeftSidebar p {
+		
+		padding-bottom: 10px;
+	}
+	
+		#genSlotLeftSidebar ul {
+			list-style: none;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+	/**
+		i .List Items
+	**/
+	
+	/**
+		a. Item Elements **/
+
+		/* 1. Title */
+		ul.genList li h4,
+		ol.genList li h4 ,
+		ul.genAggroWidget li h4 ,
+		ol.genAggroWidget li h4  {
+			font-size: 1em;
+			font-weight: 900;
+		}
+		ul.genList li .genListItemTitle,
+		ol.genList li .genListItemTitle,
+		ul.genAggroWidget li .genListItemTitle,
+		ol.genAggroWidget li .genListItemTitle	{
+			font-weight: 900;
+		}
+		
+		/* 2. Content */
+		ul.genList li p,
+		ol.genList li p,
+		ul.genAggroWidget li p,
+		ol.genAggroWidget li p {
+			padding-bottom: 8px;
+		}
+		
+		/* 3. Descriptions */
+		ul.genList li p.genListItemDesc,
+		ol.genList li p.genListItemDesc,
+		ul.genAggroWidget li p.genListItemDesc,
+		ol.genAggroWidget li p.genListItemDesc	{
+			padding-bottom: 12px;
+		}
+
+		/* 4. Source */
+		p.genListItemSource {
+			font-style: italic;
+		}
+		
+		/* 5. List Items - News */
+		
+		ul li.genListItemNews p.genListItemDate {
+			font-size: 0.9em;
+			padding-bottom: 0;
+		}
+		
+		/* 6. List Items - Citations */
+		
+		ul li.genListItemCitation {
+			padding-bottom: 8px;
+			margin-left: 18px;
+			text-indent: -18px;
+		}
+			ul li.genListItemCitation  .genListItemPub {
+				font-style: italic;
+			}
+
+		/* 7. List Items - Video */
+		
+		ul li.genListItemVideo .genListItemInfo p.genListItemMetaData {
+			padding-bottom: 0;
+		}	
+		.genListItemVideo .genListItemType {
+			background-image: url('/publishedcontent/images/images/icon-videos-sml.gif');
+			background-repeat: no-repeat;
+			padding-left: 18px;
+		}
+		
+	
+		/* 8. List Items - Funding Opportunities */
+		ul.genAggroWidget li.genListItemFundingOpp {
+			padding-bottom: 18px;
+		}
+		
+		
+		ul.genAggroWidget li.genListItemFundingOpp ul {
+			padding-bottom: 12px;	
+		}
+			ul.genListItemFundingOppDates {
+				margin-left: 0;
+				padding-left: 0;
+			}
+			li.genListItemFundingOpp h4 {
+				padding-bottom: 0;
+			}
+
+			li.genListItemFundingOpp p.genListItemSource {
+				font-style: italic;
+				text-indent: 0;
+			}
+			ul.genListItemFundingOppDates li p {
+				padding-bottom: 0;
+			}
+	
+		/* 9. List Items - Files */
+
+		ul.genList li.genListItemFile {
+			padding-bottom: 18px;
+		}
+			ul.genList li.genListItemFile p.genListItemInfo {
+				float: none;
+				width: 100%;
+			}
+			ul.genList li.genListItemFile .genListItemType {
+				font-weight: 900;
+				text-transform: uppercase;
+			}
+			ul.genList li.genListItemFile .genListItemFileInfo {
+				font-size: 0.8em;
+				font-style: italic;
+			}
+			ul.genList li.genListItemFile p,
+			ul.genList li.genListItemFile p.genListItemDesc {
+				padding-bottom: 0;
+			}
+	
+
+			
+		/* 10. Lists in a Sidebar */
+		
+		#genSlotLeftSidebar .slot-item,
+		#genSlotRightSidebar .slot-item	{
+			border: 1px solid #7c7c7c;
+			
+			-moz-border-radius: 6px;
+    		-webkit-border-radius: 6px;
+    		-khtml-border-radius: 6px;
+    		border-radius: 6px;
+			-moz-box-shadow: 1px 5px 5px #bbbbbb;
+			-webkit-box-shadow: 1px 5px 5px #bbbbbb;
+			box-shadow: 1px 5px 5px #bbbbbb;
+			padding: 12px 12px 0 12px;
+			
+		}
+		#genSlotLeftSidebar .slot-item h3,
+		#genSlotRightSidebar .slot-item h3{
+			/*margin-bottom: 12px;*/
+			padding-bottom: 12px;
+		}
+		#genSlotLeftSidebar .genSiteList ul,
+		#genSlotRightSidebar .genSiteList ul {
+			list-style-type: square;
+			margin: 0 0 0 18px;
+			padding-bottom: 0;
+		}
+			#genSlotLeftSidebar .genSiteList ul li,
+			#genSlotLeftSidebar .genSiteList ul li {
+				line-height: 1.4em;
+	
+		}
+
+			/* A. List Items in the Sidebars */
+			
+			.genSiteRightColumn  #genSlotRightSidebar ul.genList  li  {
+				border-bottom: 1px dotted #AFAFAF;
+				margin-bottom: 6px;
+				padding-bottom: 6px;
+			}
+						.genSiteRightColumn  #genSlotRightSidebar ul.genList  li:last-child {
+							border-bottom: 0;
+							padding-bottom: 0;
+						}
+				.genSiteRightColumn  #genSlotRightSidebar ul.genList  li p {
+					margin: 0;
+					padding: 0;		
+				}	
+				#genSlotRightSidebar ul.genList li p.genListItemThumbnail {
+					margin: 2px 4px 4px 0;
+				}
+		
+		
+		/* 11. List Items with Thumbnails */
+		
+		ul.genList li p.genListItemThumbnail,
+		ol.genList li p.genListItemThumbnail,
+		ul.genAggroWidget li p.genListItemThumbnail,
+		ol.genAggroWidget li p.genListItemThumbnail {
+			float: left;
+			width: 56px;
+		}
+			ul.genList li .genListItemInfo,
+			ol.genList li .genListItemInfo,
+			ul.genAggroWidget li .genListItemInfo,
+			ol.genAggroWidget li .genListItemInfo {
+				float: left;
+				width: 60%;
+			}
+				.genList p.genListItemThumbnail,
+				.genAggroWidget p.genListItemThumbnail {
+					margin-top: 4px;
+				}
+
+	
+
+/**
+	==
+		Y. Search Results
+	==
+**/
+
+p.genSiteSearchResultsCount {
+	font-weight: 900;
+	padding-top: 18px;
+}
+
+ol li.genSearchItem {
+	padding-bottom: 18px;
+}
+	ol li.genSearchItem h4 {
+		font-size: 1em;
+	}
+	ol li.genSearchItem p {
+		padding-bottom: 0;
+	}
+	ol li.genSearchItem p.genListItemLink {
+		font-size: 0.9em;
+		font-style: italic;
+	}
+
+
+	
+/**
+	==
+	
+	Z. Miscellaneous
+	
+	==
+**/
+
+	/**
+		i. One Column Pages (i.e. Error Pages)
+	**/
+	body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn  #genSlotBody {
+	}
+		
+	/**
+		ii. Related Links Area found at the bottom of general pages.
+	**/
+		
+	#genSlotRelatedLinks {
+		border: 1px solid #000;
+		
+		-moz-border-radius: 6px;
+    	-webkit-border-radius: 6px;
+    	-khtml-border-radius: 6px;
+    	border-radius: 6px;
+		-moz-box-shadow: 1px 5px 5px #bbbbbb;
+		-webkit-box-shadow: 1px 5px 5px #bbbbbb;
+		box-shadow: 1px 5px 5px #bbbbbb;
+		margin-bottom: 22px;
+		padding: 18px 18px 0 18px;
+	}
+		#genSlotRelatedLinks h3 {
+			font-size: 1.1em;
+			margin-bottom: 10px;
+		}
+	
+	/**
+		iii. Pagination used on Page Level Aggro Widgets and Search Results
+	**/
+	
+	ul.genSitePagination {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+		ul.genSitePagination li {
+			display: inline;
+		}
+
+		ul.genSitePagination {
+			border-top: 1px solid #B2B2B2;
+			margin: 0;
+			padding: 18px 0 20px 0;
+		}
+		
+		ul.genSitePagination a{
+			color: #0054a6;
+			text-decoration: none;
+		}
+		
+		ul.genSitePagination a:hover{
+			text-decoration: underline;
+		}
+	
+	/**
+		iv. Content Block in a Sidebar
+	**/
+	
+		.genContentBlock ul {
+			margin: 0 0 0 0;
+			padding: 0 12px 18px 12px;
+		}
+		
+			/* Sample Quick Links */
+			
+			.genSiteQuickLinks ul li,
+			.genSiteQuickLinks ul.genList li {
+				padding-bottom: 0;
+			}
+
+	/**
+		v. RSS Links in Titles
+	**/
+	
+	.genSiteRssLink a {
+		background-image: url("/publishedcontent/images/images/icon-rss-sml.gif");
+		background-repeat: no-repeat;
+		font-weight: normal;
+		padding-left: 16px;
+	}
+	h1 span.genSiteRssLink a {
+		font-size: 0.5em;
+	}
+	h3 span.genSiteRssLink a {
+		font-size: 0.7em;
+	}
+	
+/***
+	Biography Pages layout
+***/
+
+.bio-box{ 
+		padding:14px; 
+		width:457px; 
+		font-size:0.9em;
+		float:left; 
+		background-color:#f1f6fa; 
+		border: thin solid #7b7c7e;
+		border-radius: 6px;
+		-moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-khtml-border-radius: 6px;
+		margin-bottom:20px;
+
+}
+
+.bio-img {margin-right: 40px; float:left; width:160px;}
+
+.bio-info{   }
+
+.bio-info table {margin-bottom: 0;}
+
+.bio-info table tr td{ vertical-align:top; padding: 5px; }
+
+	
+/***
+	Newsletter Search Form
+***/
+
+.newsletterSearchFormContainer {
+	width:400px;
+	border: 1px solid #7c7c7c;
+	-moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+	-moz-box-shadow: 1px 5px 5px #bbbbbb;
+	-webkit-box-shadow: 1px 5px 5px #bbbbbb;
+	box-shadow: 1px 5px 5px #bbbbbb;
+	padding: 15px 0 0 15px;
+	margin-bottom:20px;
+}
+
+.newsletterSearchFormContainer p{
+	padding:20px 0 5px;
+	
+}
+
+.newsletterSearchFormContainer table td{
+	padding: 6px 6px 6px 0;
+}
+
+.newsletterSearchFormContainer h2{ margin-top:0; font-size:1.1em;}
+
+#cbkeyword{ border: 1px solid #AAAAAA;
+    color: #7E7E7E;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 4px;
+    vertical-align: middle;
+    width: 220px;
+}
+#ctl10_searchAllButton, #searchRangeButton
+{
+	background-color: #dcdcdc;
+    border: 1px solid #4D4D4D;
+    color: #000;
+	font-size:12px;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 26px;
+    letter-spacing: 0px;
+    margin: 0 0 0 10px;
+    vertical-align: middle;
+}
+
+
+/***
+	Newsletter List Page
+***/
+
+ul.newsletter-list {
+	margin-left:0;
+	list-style-type:none;
+}
+
+ul.newsletter-list li{
+	margin-bottom:20px;
+}
+
+
+.newsletter-list-image{
+	float:left;
+	width:58px;
+	height:42px;
+	margin-right:10px;
+}
+
+.newsletter-list-image img{
+	width:56px;
+	height:40px;
+	border: #636363 thin solid;
+}
+
+.newsletter-list-item{
+	/*margin-left:70px;*/
+}
+
+p.byline{ padding: 18px 0;}
+
+.header-a{
+	font-size: 1.2em;
+    font-weight: 900;
+    line-height: 1.2em;
+    padding-bottom: 18px;
+	}
+
+/***
+	Search Linkage Styles
+***/
+.search-linkage #search-input{
+	border: 1px solid #AAAAAA;
+    color: #7E7E7E;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 4px;
+    vertical-align: middle;
+    width: 150px;
+}
+
+.search-linkage #search-btn{
+	background-color: #dcdcdc;
+    border: 1px solid #4D4D4D;
+    color: #000;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    height: 26px;
+    letter-spacing: 1px;
+    padding: 0;
+	margin: 0 0 0 95px;
+    vertical-align: middle;
+    width: 66px;
+}

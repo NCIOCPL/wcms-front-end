@@ -1,8 +1,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
-<%@ Register src="/SnippetTemplates/TableofLinks.ascx" tagname="TableofLinks" tagprefix="uc1" %>
-<%@ Register src="/SnippetTemplates/GlossaryTerms.ascx" tagname="GlossaryTerms" tagprefix="uc2" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,10 +30,6 @@
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
-      <!-- Glossary of Terms -->
-      <uc2:GlossaryTerms ID="GlossaryTerms1" runat="server" />
-      <!-- Link Extraction -->
-      <uc1:TableofLinks ID="TableofLinks1" runat="server" />
     </div>
     <!-- End Main Area --> 
   </div>

@@ -1341,5 +1341,16 @@ ol li.genSearchItem {
 }
 /* end pullquote */
 
+/***
+	Biography Pages layout
+***/
 
-	
+.bio-box{ padding:10px; width:100%; float:left; background-color:#EEE;;}
+
+.bio-img {width: 120px; margin-right: 10px; float:left;}
+
+.bio-info{ float:right;  }
+
+.bio-info table { width:100%;}
+
+.bio-info table tr td{ vertical-align:top; padding: 5px; }
