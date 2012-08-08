@@ -721,7 +721,7 @@ img.center {
 			.slot-item  a.genSiteContactUs {
 				background-image: url('/publishedcontent/images/images/icons/icon-email-sml.gif');
 				background-repeat: no-repeat;
-				padding-left: 18px;
+				padding: 0 0 5px 18px;
 			}
 			
 		/* RSS Links */
@@ -733,7 +733,7 @@ img.center {
 				background-image: url('/publishedcontent/images/images/icons/icon-rss-sml.gif');
 				background-repeat: no-repeat;
 				font-weight: normal;
-				padding-left: 16px;
+				padding: 0 0 5px 18px;
 			}
 		h1 span.genSiteRssLink a {
 			font-size: 0.5em;
