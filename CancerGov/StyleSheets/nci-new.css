@@ -1,5 +1,11 @@
 /*  6.5 Additions  */
 
+/* spacing for audio image */
+div.audioPronounceLink a.CDR_audiofile img {
+	margin: 0 0 0 4px;
+	vertical-align: sub;
+}
+
 /* Genetics Terms Dictionary background */
 div#genetics-terms-dictionary {
 background: url(/PublishedContent/Images/images/genetics-terms-dictionary.jpg) no-repeat;
@@ -499,17 +505,23 @@ div.institution-legend {
                 padding: 4px 0 19px 0;
 }
 .institution-header {
-                font-weight: normal; 
                 color: #4D4D4D;
+				margin-bottom: 23px;
 }
 h2.institution-title {
 	font-size: 16px;
 }
 div.institution-content {
-                width: 292px; 
-                margin: 0 10px 10px 0; 
+                width: 280px; 
+                margin: 0 0 10px 0; 
                 float: left; 
-                padding: 0 0 0 20px;
+                padding: 0 0 0 33px;
+}
+div.institution-grouping > div div:first-child {
+	margin-right: 15px;
+}
+div.institution-content p {
+	margin-top: 20px;
 }
 div.cc {
                 background: transparent url(/publishedcontent/images/images/cancercenter_icon.png) 0 3px no-repeat; 
@@ -578,6 +590,9 @@ div.slim-bottom-border2 {
 div.dropDownCCDisplay{ 
 	display:none; 
 }
+div.dropDownCCDisplay span{ 
+	font-weight: bold;
+}
 div#dropDownCCDisplay1 {
 	display: block
 }
@@ -589,18 +604,17 @@ span#dropDownCC span a {
 }
 span#dropDownCC span.initialState a {
 	text-decoration: none; 
-	/* IE7 doesn't recognize the inherit property so I'm defining the color here for IE7 and below, then using the proper code on the following line to inherit the color */
 	color: #000;
-	color: inherit;
 }
 span#dropDownCC span a.active {
 	text-decoration: none; 
-	color: inherit; 
+	color: #000;
 	cursor: default;
 }
 /* map popup styles */
 div#map_canvas table td {vertical-align: top;}
-div#map_canvas table h3 { margin-top: 0; }
+div#map_canvas table tr + tr > td:first-child { width: 101px; }
+div#map_canvas table h3 { margin-top: 0; margin-bottom: 5px; }
 div#map_canvas table h3 a { text-decoration: none; }
 div#map_canvas table img { 
 	margin: 0 10px 0 0;
@@ -609,21 +623,27 @@ div#map_canvas table img {
 div.institution-listing { display:none; }
 div#institution-listing1 { display: block}
 div#picker {
-	margin: 15px 0 15px 0; 
+	margin: 10px 0 30px 0; 
 	border-top: 1px solid #BDBDBD; 
 	padding-top: 10px;
 }
 div#picker span a {margin: 0 5px 0 0;}
 div#picker span a.active {
 	text-decoration: none; 
-	color: #333; 
-	color: inherit; 
+	color: #000; 
 }
-div#picker span#picker1, div#picker span#picker2, span#dropDownCC1 { border-right: 2px solid #BDBDBD; }
-h3#findCCTitle {font-weight: normal;}
-div#CClegend span { vertical-align: bottom; }
+div#picker span#picker1, div#picker span#picker2, span#dropDownCC1 { 
+	border-right: 2px solid #BDBDBD;
+}
+span#dropDownCC  span, div#picker span#picker1, div#picker span#picker2, div#picker span#picker3 {
+	font-weight: normal;
+}
+h3#findCCTitle {margin-top:33px; margin-bottom: 8px;}
+div#picker h3#findCCTitle {margin-top:16px;}
+div#CClegend span { vertical-align: bottom; line-height: 28px; }
+div#CClegend img { margin-right: 4px; }
 div#CClegend div#CClegend1, div#CClegend div#CClegend2 { float: left; }
-div#CClegend1 { margin-right: 30px; }
+div#CClegend1 { margin-right: 39px; margin-left: 7px; }
 div#AtoZlistState span, div#AtoZlistName span {
 	padding: 0 6px;
 	border-right: 1px solid #BDBDBD;
@@ -632,7 +652,7 @@ div#AtoZlistState span, div#AtoZlistName span {
 span#AtoZlistLast {
 	border-right: none;
 }
-
+div.institution-grouping > div {clear:both;}
 
 /* Left Nav updates for down arrow when item has child */
 .leftnav-shaded-box ul li {
