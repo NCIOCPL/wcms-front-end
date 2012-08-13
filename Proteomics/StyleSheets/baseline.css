@@ -53,7 +53,7 @@ h2 {
 		h2 a:hover {
 			text-decoration: underline;
 		}
-h3 {
+h3, .header-a {
 	color: #262727;
 	font: 1.4em "ITC Avant Garde", "avant garde", "Century Gothic", Arial, Helvetica, sans-serif;
 	font-weight: 900;
@@ -724,6 +724,22 @@ img.center {
 				padding: 0 0 5px 18px;
 			}
 			
+			/* PDF Links found in Items */
+			
+			.slot-item  a.genSitePDF {
+				background-image: url('/publishedcontent/images/images/icons/pdf_icon.gif');
+				background-repeat: no-repeat;
+				padding: 0 0 5px 18px;
+			}
+			
+			/* Protein Links found in Items */
+			
+			.slot-item  a.genSiteProtein {
+				background-image: url('/publishedcontent/images/images/icons/protein_icon.gif');
+				background-repeat: no-repeat;
+				padding: 0 0 5px 18px;
+			}
+			
 		/* RSS Links */
 		
 		.genSiteRssLink {
@@ -872,10 +888,16 @@ body.genLanding .genSiteMainColumn {
 	
 	#genSlotBody .slot-item h3,
 	.genSlotColumnContainer h3,
-	.genSiteHighlightContainer h3 {
+	.genSiteHighlightContainer h3,
+	.genSlotColumnContainer .header-a {
 		border-bottom: 1px solid #B2B2B2;
 		margin-bottom: 14px;
 		padding-bottom: 14px;
+	}
+	
+	.genSlotColumnContainer .header-a {
+		display: block;
+		color: #0C70A8;
 	}
 	
 	/* Highlights */
