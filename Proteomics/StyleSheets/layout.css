@@ -249,10 +249,11 @@ body {
 			/** 
 				Section Navigation
 			**/
+			/** This class was created to allow words to break to a second line in the left nav due to the lack of space. 
 			ul.genSiteSectionNavigation li {
 				word-wrap: break-word;
 			}
-		
+			**/
 		/**
 			Main Column
 		**/
