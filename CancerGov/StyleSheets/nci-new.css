@@ -37,6 +37,9 @@ border-right: none;
     margin: 0;
 	}		
 
+/* This was put in for cancer.gov search results to try and handle issue with text going beyond content area. 
+But it caused problems in IE with words breaking to two lines, please comment out or remove after 6.5.1 goes live 
+with the fix for this page */
 .sw-search-results{
 	word-break:break-all;
 }
@@ -44,6 +47,7 @@ border-right: none;
 .sw-search-results-pager{
 	word-break:normal;
 }
+
 
 /* Boletin Content Header */
 .boletin-content-header{
