@@ -86,6 +86,25 @@ a.right{ float:right;}
      width:142px; 
 }  
 
+
+/* News Center Social Media Box */
+
+h3.newscenter-block-title{ font-size:13px;}
+
+ul.newscenter-media-icons{
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+ul.newscenter-media-icons li{
+	display: inline;
+	padding-right: 5px;
+}
+
+ul.newscenter-media-icons li.last{
+	padding-right: 0;
+}
+
 /* News Ticker */
 .dynamic-list-ticker-wrapper{
 	width:691px;
