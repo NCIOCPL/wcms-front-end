@@ -644,7 +644,7 @@ div#map_canvas table img {
 	max-width: 91px;
 }
 div.institution-listing { display:none; }
-div#institution-listing1 { display: block}
+div#institution-listing2 { display: block}
 div#picker {
 	margin: 10px 0 30px 0; 
 	border-top: 1px solid #BDBDBD; 
@@ -672,7 +672,7 @@ div#AtoZlistState span, div#AtoZlistName span {
 	border-right: 1px solid #BDBDBD;
 	display: inline-block;
 }
-span#AtoZlistLast {
+div#AtoZlistState span#AtoZlistLast, div#AtoZlistName span#AtoZlistLast {
 	border-right: none;
 }
 div.institution-grouping > div {clear:both;}
