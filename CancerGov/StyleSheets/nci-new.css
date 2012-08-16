@@ -78,6 +78,7 @@ a.right{ float:right;}
 
 .pr-large-feature{ 
      width:691px; 
+	 padding: 0 0 0 6px;
 } 
 .pr-small-feature{ 
      width:320px; 
