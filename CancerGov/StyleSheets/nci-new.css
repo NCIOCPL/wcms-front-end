@@ -267,7 +267,7 @@ ul.ticker-list li{
 	padding-left:10px;
 	margin-top:20px;
 	margin-bottom:10px;
-	border-right:thin solid #d3d3d3;
+	/*border-right:thin solid #d3d3d3;*/
 }
 
 .featured-item h3 {
@@ -282,7 +282,8 @@ ul.ticker-list li{
 	}
 
 .dynamic-list{
-	margin-top:20px;
+	border-left:thin solid #D3D3D3;
+	margin:20px 0;
 	padding:0 10px 10px 20px;
 	width:290px;
 	float:right;
@@ -314,6 +315,10 @@ ul.ticker-list li{
 /* Feature News Carousel*/
 
 .list-item-with-image{ padding-left:152px;} 
+
+img.image-collapsed{display:none;}
+
+.text-collapsed {padding-left:0;}
 
 .feature-news-carousel-wrapper{
 			clear:both; 
