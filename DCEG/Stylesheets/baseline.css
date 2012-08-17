@@ -114,7 +114,7 @@ h3 {
 h4 {
 	font-size: 1em;
 	font-weight: 900;
-	padding-bottom: 0;
+	padding-bottom: 16px;
 }
 h5 {
 	font-size: 1em;
@@ -177,12 +177,12 @@ table {
 		vertical-align: top;		
 	}
 	
-table.blue-table {
+table.blue-table, table.table-default {
 	border:#C0C0C0 solid thin;
 	border-collapse:collapse;
 }
 
-table.blue-table th {
+table.blue-table th, table.table-default th {
 	background-color:#d8e0eb;
 	border:#C0C0C0 solid thin;
 	border-bottom: none;
@@ -191,7 +191,7 @@ table.blue-table th {
 	padding:.3em 1em;
 	}
 	
-table.blue-table td {
+table.blue-table td, table.table-default td {
 	border:#C0C0C0 solid thin;
 	border-bottom: none;
 	border-top: none;
@@ -199,7 +199,7 @@ table.blue-table td {
 	vertical-align:top;
 }
 
-table.blue-table tr.odd {
+table.blue-table tr.odd, table.table-default tr.odd {
 	background-color:#eaf1f5;
 }
 
