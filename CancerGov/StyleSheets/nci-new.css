@@ -285,7 +285,7 @@ ul.ticker-list li{
 	border-left:thin solid #D3D3D3;
 	margin:20px 0;
 	padding:0 10px 10px 20px;
-	width:290px;
+	width:289px;
 	float:right;
 }
 
@@ -380,7 +380,7 @@ p.full-article {
 			background-position: center;
 			width:7px;
 			height:9px;
-			text-indent: -9999px;
+			/*text-indent: -9999px;*/
 			text-decoration:none;
 			}
 .feature-news-carousel-pager a.next{
@@ -440,6 +440,7 @@ p.full-article {
 
 		.tile-subtitle  {
 			font-size:11px;
+			line-height:normal;
 		}
 		.tile-slide-page {
 			overflow:hidden;
@@ -470,7 +471,7 @@ p.full-article {
 			background-position: center;
 			width:7px;
 			height:9px;
-			text-indent: -9999px;
+			/*text-indent: -9999px;*/
 			text-decoration:none;
 			}
 		.slider-carousel-pager a.next{
