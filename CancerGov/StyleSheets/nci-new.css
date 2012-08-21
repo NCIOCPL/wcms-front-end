@@ -239,11 +239,14 @@ ul.ticker-list li{
 
 .feature-headline-text{
 	padding: 10px 15px 0 10px;
+	}
 	
+.feature-headline-text p{
+	 margin-top: 5px;
 	}
 	
 .feature-headline-text h2{
-	margin:0 0 10px;
+	margin:0 0 1px;
 	}
 	
 .feature-headline-date{
@@ -265,17 +268,23 @@ ul.ticker-list li{
 	float:left;
 	padding-right:10px;
 	padding-left:10px;
-	margin-top:20px;
+	margin-top:17px;
 	margin-bottom:10px;
 	/*border-right:thin solid #d3d3d3;*/
 }
 
 .featured-item h3 {
-	margin-bottom:10x;
-	
-	margin-top:0px;
+	margin:0 0 5px;
 	}
-
+	
+.featured-item p {
+	margin-top: 10px;
+	}
+	
+.featured-item p.full-article {
+	margin-top: 10px;
+	}
+	
 .featured-item img {
 	float:left;
 	padding: 0 18px 10px 0;
@@ -283,20 +292,30 @@ ul.ticker-list li{
 
 .dynamic-list{
 	border-left:thin solid #D3D3D3;
-	margin:20px 0;
+	margin:15px 0;
 	padding:0 10px 10px 20px;
 	width:289px;
 	float:right;
 }
 
+.dynamic-list p.full-article{ 
+	margin-top:0;
+	margin-bottom:0;
+}
+
 .dynamic-list ul{
 	padding-left:0;
 	margin-top:0;
+	margin-bottom:0;
 
 }
 
 .dynamic-list ul li{
 	padding-bottom:20px;
+}
+
+.dynamic-list ul li:last-child {
+    padding-bottom: 5px;
 }
 
 .dynamic-list ul li a{
@@ -315,6 +334,8 @@ ul.ticker-list li{
 /* Feature News Carousel*/
 
 .list-item-with-image{ padding-left:152px;} 
+
+.list-item-with-image p{ margin-top:0px;} 
 
 img.image-collapsed{display:none;}
 
@@ -353,7 +374,11 @@ p.full-article {
 
 }
 
-.feature-news-item h3{ margin: 10px 0; font-size:16px;}
+.feature-news-item h3{ margin: 10px 0 3px; font-size:16px;}
+
+.feature-news-item p{ margin-top: 17px; }
+
+.feature-news-item p.full-article {margin-top: 22px; }
 
 .feature-news-carousel-title {
 			float: left;
