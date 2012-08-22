@@ -41,7 +41,7 @@ h1.genSiteLogo {
 **/	
 .dceg-top{font-size:12px;}
 
-.dceg-top a:link, a:visited, a:active{color: #0054a6; text-decoration: none; /*font-size:12px;*/}
+.dceg-top a:link, .dceg-top a:visited, .dceg-top a:active{color: #0054a6; text-decoration: none; /*font-size:12px;*/}
 
 .dceg-top a:hover{ text-decoration: underline;}
 	
