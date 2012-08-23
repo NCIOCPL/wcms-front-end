@@ -114,7 +114,7 @@ h3 {
 h4 {
 	font-size: 1em;
 	font-weight: 900;
-	padding-bottom: 16px;
+	padding-bottom: 4px;
 }
 h5 {
 	font-size: 1em;
@@ -165,8 +165,10 @@ dl {
 }
 
 sup{
-	font-size:smaller;
-	vertical-align:super;
+	font-size: smaller;
+    position: relative;
+    top: -0.4em;
+    vertical-align: baseline;
 	}
 	
 	
@@ -175,12 +177,12 @@ sup{
 	dl dd {
 	}
 table {
-	margin-bottom: 18px;
+	margin-bottom:9px;
 }
 	table tr {
 	}
 	table td {
-		padding: 6px;
+		padding: 0px;
 		vertical-align: top;		
 	}
 	
@@ -869,13 +871,17 @@ img.center {
 			/* a. Fifth Level Navigation */
 			
 			#genSlotRightNav {
-				border-top: 2px solid #2d2d2d;
+				/*border-top: 2px solid #2d2d2d;
 				border-bottom: 2px solid #2d2d2d;
-				margin-bottom: 18px;
+				margin-bottom: 18px;*/
 			}
 				#genSlotRightNav .slot-item {
-					margin: 0;
-					padding: 0;					
+				border: 1px solid #7C7C7C;
+    			border-radius: 6px 6px 6px 6px;
+    			box-shadow: 1px 5px 5px #BBBBBB;
+    			padding: 12px 12px 0;	
+				font-size: 12px;
+   				margin-bottom: 18px;		
 				}
 				#genSlotRightNav ul {
 					list-style-type: none;
@@ -1016,7 +1022,7 @@ img.center {
 	/* overall container */
 	
 	#news-slider {
-		border: 1px solid #2D2D2D;
+		border: 1px solid #7C7C7C;
 		-moz-border-radius: 10px;
     	-webkit-border-radius: 10px;
     	-khtml-border-radius: 10px;
@@ -1064,8 +1070,8 @@ img.center {
 			
 			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
 				float: left;
-				width: 50%;
-				padding: 18px 0 0 0;
+				width: 57%;
+				margin: 18px 0 0 10px;
 				font-size: 1.1em;
 			}
 				/* text in featured item on home */
@@ -1207,18 +1213,18 @@ img.center {
 				font-size: 0.9em;
 				margin: 0 0 0 0;
 				outline: none;
-				padding: 18px 18px 18px 18px;
+				padding: 12px;
 			}
 			#news-slider li.news-slider-tabs-item a { /*On Hover Style*/
 
 			}
 			/* thumbnail images in tabs */
 			#news-slider li.news-slider-tabs-item img {
-				margin: 0 10px 0 0;
+				margin: 0 15px 0 0;
 				float:left;
 				width: 58px;
 				height: 58px;
-				border: #636363 thin solid; 
+				border: #7C7C7C thin solid; 
 			}
 			/* container for individual list items image and text on hover */
 			#news-slider li.news-slider-tabs-item a:hover {
@@ -1582,7 +1588,6 @@ ol li.genSearchItem {
 		
 	#genSlotRelatedLinks {
 		border: 1px solid #000;
-		
 		-moz-border-radius: 6px;
     	-webkit-border-radius: 6px;
     	-khtml-border-radius: 6px;
@@ -1597,6 +1602,10 @@ ol li.genSearchItem {
 			font-size: 1.1em;
 			margin-bottom: 10px;
 		}
+		
+#genSlotRelatedLinks p.genListItemDate{ display:none;}	
+
+#genSlotRelatedLinks p.genListItemSource{ display:none;}	
 	
 	/**
 		iii. Pagination used on Page Level Aggro Widgets and Search Results
@@ -1646,6 +1655,9 @@ ol li.genSearchItem {
 	/**
 		v. RSS Links in Titles
 	**/
+	
+	
+	.genSiteRssLink{ margin-left: 10px;}
 	
 	.genSiteRssLink a {
 		background-image: url("/publishedcontent/images/images/icon-rss-sml.gif");
@@ -1773,8 +1785,13 @@ ul.newsletter-list li{
 }
 
 .newsletter-list-item{
-	/*margin-left:70px;*/
+	margin-left:86px;
 }
+
+.newsletter-list-date{
+	font-size: 12px;
+    font-weight: bold;
+	}
 
 p.byline{ padding: 18px 0;}
 
@@ -1814,14 +1831,92 @@ p.byline{ padding: 18px 0;}
     width: 66px;
 }
 
+/***
+	Subscribe Linkage Newsletter Form
+***/
+.linkage-subscribe #email-input{
+	border: 1px solid #AAAAAA;
+    color: #7E7E7E;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 4px;
+    vertical-align: middle;
+    width: 150px;
+}
+
+.linkage-subscribe #submit-btn{
+	background-color: #dcdcdc;
+    border: 1px solid #4D4D4D;
+    color: #000;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    height: 26px;
+    letter-spacing: 1px;
+    padding: 0;
+	margin: 0 0 0 80px;
+    vertical-align: middle;
+    width: 81px;
+}
+
+
+/***
+	Chordoma Study Form
+***/
+
+.required-msg-text {
+    font-size: 11px;
+    padding-right: 10px;
+    padding-top: 3px;
+    text-align: right;
+}
+.dceg-asterisk {
+    color: #990000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.chordoma-form input {
+	border: 1px solid #AAAAAA;
+    color: #7E7E7E;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 4px;
+    vertical-align: middle;
+}
+
+.chordoma-form textarea{
+	border: 1px solid #AAAAAA;
+    color: #7E7E7E;
+    font-size: 12px;
+    line-height: 26px;
+    padding: 0 4px;
+}
+
+.chordoma-form #submit-btn , .chordoma-form #reset-btn{
+	background-color: #dcdcdc;
+    border: 1px solid #4D4D4D;
+    color: #000;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    height: 26px;
+    letter-spacing: 1px;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
 /**
 		ii - 2. Timely Content Zone found on Landing Pages.
 	**/
 	
 	/* overall container */
 	
-body.genLanding body.genLanding #news-slider {
-		border: 1px solid #2D2D2D;
+body.genLanding #news-slider {
+		border: 1px solid #7C7C7C;
 		-moz-border-radius: 10px;
     	-webkit-border-radius: 10px;
     	-khtml-border-radius: 10px;
@@ -1869,9 +1964,10 @@ body.genLanding body.genLanding #news-slider {
 			
 			body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
 				float: left;
-				width: 50%;
-				padding: 9px 0 0 0;
-				font-size: 1.0em;
+				width: 57%;
+				margin: 10px 0 10px 10px;
+				font-size: .9em;
+				line-height: 1.3em;
 			}
 				/* text in featured item on home */
 				body.genHome body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
@@ -1884,8 +1980,8 @@ body.genLanding body.genLanding #news-slider {
 			}
 			
 			body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h3 {
-				font-size:1.2em;
-				padding-bottom:5px;
+				font-size:1.1em;
+				padding-bottom:0px;
 			}
 				body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a {
 					text-decoration: none;
@@ -2019,11 +2115,11 @@ body.genLanding body.genLanding #news-slider {
 			}
 			/* thumbnail images in tabs */
 			body.genLanding #news-slider li.news-slider-tabs-item img {
-				margin: 0 5px 0 0;
+				margin: 0 10px 0 0;
 				float:left;
-				width: 58px;
-				height: 58px;
-				border: #636363 thin solid; 
+				width: 50px;
+				height: 50px;
+				border: #7C7C7C thin solid; 
 			}
 			/* container for individual list items image and text on hover */
 			body.genLanding #news-slider li.news-slider-tabs-item a:hover {
