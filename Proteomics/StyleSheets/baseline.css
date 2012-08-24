@@ -939,6 +939,40 @@ body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColum
 	padding: 0 20px;
 }
 	
+/***
+    Newsletter List Page
+***/
+
+ul.newsletter-list {
+                margin-left:0;
+                list-style-type:none;
+}
+
+ul.newsletter-list li{
+                margin-bottom:20px;
+}
+
+
+.newsletter-list-image{
+                float:left;
+                margin-right:20px;
+}
+
+.newsletter-list-image img{
+                width:64px;
+                height:48px;
+                border: #636363 thin solid;
+}
+
+.newsletter-list-item{
+                margin-left:86px;
+}
+
+.newsletter-list-date{
+                font-size: 12px;
+    font-weight: bold;
+                }
+
 
 
 /**
