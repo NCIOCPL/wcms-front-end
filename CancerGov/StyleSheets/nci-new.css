@@ -1,3 +1,44 @@
+/*  6.5.1 Additions  */
+/* 508 TCZ Styles */
+*:focus {
+	outline: 2px dotted magenta !important;
+}
+#tcz508 img {
+	float: right;
+    margin: 18px 18px 0;
+}
+#tcz508 .ui-tabs-panel-x {
+    border: 0 none;
+    height: 200px;
+    margin: 2px;
+    width: 100%;
+}
+
+#tcz508 div#fragment-1, 
+#tcz508 div#fragment-2, 
+#tcz508 div#fragment-3 {
+border: 1px solid #bdbdbd !important;
+margin-bottom: 6px;	
+padding: 4px;
+}
+#tcz-toggle {
+position: absolute;
+left: -2000px;	
+z-index: 10;
+padding: 3px;
+}
+
+#tcz-toggle:focus {
+background: #f4f4f5;	
+top: 0;
+left: 0;
+}
+
+a#tcz-toggle:link, a#tcz-toggle:visited, a#tcz-toggle:hover, a#tcz-toggle:active {
+text-decoration: none;
+color: #4d4d4d;
+}
+
 /*  6.5 Additions  */
 
 /* spacing for audio image */
