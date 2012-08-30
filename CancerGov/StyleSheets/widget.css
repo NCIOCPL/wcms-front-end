@@ -1,7 +1,7 @@
 #container {
      border: thin solid #999999;
      overflow: hidden;
-     width: 220px;
+     width: 100%;
 	 font-family:Arial, Helvetica, sans-serif;
 	 font-size:12px;
 }
@@ -15,6 +15,11 @@ a, a:active, a:visited, a:hover {
 	background: #fff;
     border-bottom: thin solid #4D4D4D;
 }
+
+.header img{	 
+	width:100%;
+}
+
 
 h1.title {
      background: url("/PublishedContent/images/images/nci-logo.gif") no-repeat scroll 0% 0% transparent;
@@ -50,7 +55,10 @@ input#search {
 	-moz-border-radius: 5px; 
 	border-radius: 5px;
 	height:25px;
+	float:left;
 	vertical-align:middle;
+	width:100%;
+	margin-right: 5px;
 }
 
 input#Go {
@@ -64,13 +72,15 @@ input#Go {
 	height:32px;
 	width:32px;
 	vertical-align:middle;
+	margin-left: 3px;
 	}
 
+#searchBlock table{ width:100%;}
 
 #output{
 	margin-top:10px;
 	overflow:auto;
-	height:170px;
+	height:160px;
 	}
 	
 #output ul{
@@ -144,7 +154,7 @@ input#Go {
 	left: 15px;
 	font-family:Arial, Helvetica, sans-serif;
 	padding:10px;
-	width: 185px;
+	/*width: 185px;*/
 	border: thin solid #999999;
 	font-size:12px;
 	visibility:hidden;
