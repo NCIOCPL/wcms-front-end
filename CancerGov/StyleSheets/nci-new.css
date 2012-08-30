@@ -3,24 +3,55 @@
 *:focus {
 	outline: 2px dotted magenta !important;
 }
-#tcz508 img {
+/*#tcz508 img {
 	float: right;
     margin: 18px 18px 0;
-}
+}*/
+
 #tcz508 .ui-tabs-panel-x {
     border: 0 none;
-    height: 200px;
+    height: 186px;
     margin: 2px;
-    width: 100%;
+    width: 694px;
+	font-size: 12px !important;
+	line-height: 1.2em !important;
 }
 
-#tcz508 div#fragment-1, 
-#tcz508 div#fragment-2, 
-#tcz508 div#fragment-3 {
-border: 1px solid #bdbdbd !important;
-margin-bottom: 6px;	
-padding: 4px;
+#tcz508 div.fragment{
+	border: 1px solid #bdbdbd !important;
+	margin-bottom: 10px;	
+	width:694px;
+	height: 186px;
+	padding:2px;
 }
+
+#tcz508 div.fragment .ui-tabs-panel-x-text{
+	margin-left: 320px;
+    padding: 0 7px 0 0;
+    position:relative;
+    bottom: 180px;
+}
+
+#tcz508 div.fragment .ui-tabs-panel-x-text h2{
+	color: #333333;
+    font-size: 16px;
+    margin: 0;
+}
+
+#tcz508 div.fragment .ui-tabs-panel-x-text p, #tcz508 div.fragment .ui-tabs-panel-x-text a{
+	margin: 4px 0;
+	font-size: 12px;
+	line-height:1.2em;
+}
+
+#tcz508 div.fragment .ui-tabs-panel-x-text a{
+	text-decoration:none;
+}
+
+#tcz508 div.fragment .ui-tabs-panel-x-text a:hover{
+	text-decoration:underline;
+}
+
 #tcz-toggle {
 position: absolute;
 left: -2000px;	
