@@ -1,8 +1,7 @@
 /*  6.5.1 Additions  */
+
 /* 508 TCZ Styles */
-*:focus {
-	outline: 2px dotted magenta !important;
-}
+
 /*#tcz508 img {
 	float: right;
     margin: 18px 18px 0;
