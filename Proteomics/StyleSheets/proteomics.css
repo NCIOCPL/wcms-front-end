@@ -77,7 +77,8 @@ ul.genSiteFooterLogos {
 
 .genLanding .contentid-93218.first-SI  /* Current Funding Opportunities on Funding Opps Landing Page */,
 .genLanding .contentid-93525.first-SI   /* Leadership Update on eProtein Landing Page */ ,
-.genLanding .contentid-93223.only-SI   /* CPTC In The News on News and Events Landing Page */  {
+.genLanding .contentid-93223.only-SI   /* CPTC In The News on News and Events Landing Page */,
+.genLanding .contentid-410545.first-SI  /* Leadership Update (August 2012 Newsletter) */  {
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
     -moz-border-radius: 4px 4px 4px 4px;
@@ -86,5 +87,16 @@ ul.genSiteFooterLogos {
     margin: 0 18px 18px 18px;
     padding: 18px 18px 0;
 }
+/* August 2012 Newsletter */
+.genLanding .contentid-410545 h2, .genLanding .contentid-410548 h2, .genLanding .contentid-410551 h2, .genLanding .contentid-410554 h2 {
+	border-bottom: 1px solid #B2B2B2;
+	margin-bottom: 14px;
+	padding-bottom: 14px;
+	font-size: 17px;
+}
 
+.genLanding .contentid-410545 a h2, .genLanding .contentid-410548 a h2, .genLanding .contentid-410551 a h2, .genLanding .contentid-410554 a h2 {
+	color: #0C70A8; 
+	text-decoration: none;
+}
 	

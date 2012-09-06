@@ -384,7 +384,7 @@ img.center {
 				padding-bottom: 18px;
 			}
 				#genSlotSectionNav  .slot-item  {
-					padding: 0 20px;
+					padding: 0 15px;
 				}
 				#genSlotSectionNav ul.genSiteSectionNavigation {
 					background-color: #fff;
@@ -958,20 +958,32 @@ ul.newsletter-list li{
                 margin-right:20px;
 }
 
-.newsletter-list-image img{
+div.newsletter-list-image img{
                 width:64px;
                 height:48px;
                 border: #636363 thin solid;
+				margin: 0px!important;
 }
-
+/*
 .newsletter-list-item{
                 margin-left:86px;
 }
+*/
+div.newsletter-list-item p {
+	padding-bottom: 0;
+}
+
+div.newsletter-list-item a {
+	font-weight: bold;
+}
+ul.newsletter-list {
+	padding-bottom: 0;
+}
 
 .newsletter-list-date{
-                font-size: 12px;
+     font-size: 12px;
     font-weight: bold;
-                }
+}
 
 
 
