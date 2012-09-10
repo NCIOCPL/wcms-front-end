@@ -74,7 +74,7 @@ a:hover {
 	}
 	
 a:visited {
-	color:#727272;
+	color:#00337e;
 	text-decoration: none;
 	}	
 h1 {
@@ -211,6 +211,8 @@ table.blue-table td, table.table-default td {
 table.blue-table tr.odd, table.table-default tr.odd {
 	background-color:#eaf1f5;
 }
+
+table.form-table td{ padding: 5px;}
 
 img.right {
 	float: right;
@@ -867,14 +869,44 @@ img.center {
 			line-height:16px;
 		}
 
-							
-			/* a. Fifth Level Navigation */
+			
+			
+		/* a. Fifth Level Navigation */
 			
 			#genSlotRightNav {
+				border-top: 2px solid #2d2d2d;
+				border-bottom: 2px solid #2d2d2d;
+				margin-bottom: 18px;
+			}
+				#genSlotRightNav .slot-item {
+					margin: 0;
+					padding: 0;					
+				}
+				#genSlotRightNav ul {
+					list-style-type: none;
+					margin: 8px 0;
+					padding: 0;
+				}
+				#genSlotRightNav ul li {
+					border-bottom: 1px dotted #AFAFAF;
+					padding: 4px 0;
+				}
+					#genSlotRightNav ul li.last {
+						border-bottom: 0;
+					}
+				#genSlotRightNav a {
+					display: block;
+				}
+			
+			
+							
+			/* a. Fifth Level Navigation ------------ 09-10-12 */
+			
+			/*#genSlotRightNav {*/
 				/*border-top: 2px solid #2d2d2d;
 				border-bottom: 2px solid #2d2d2d;
 				margin-bottom: 18px;*/
-			}
+			/*}
 				#genSlotRightNav .slot-item {
 				border: 1px solid #7C7C7C;
     			border-radius: 6px 6px 6px 6px;
@@ -897,7 +929,7 @@ img.center {
 					}
 				#genSlotRightNav a {
 					display: block;
-				}
+				}*/
 		
 			/* b. Additional content container */
 			
@@ -1789,8 +1821,7 @@ ul.newsletter-list li{
 }
 
 .newsletter-list-date{
-	font-size: 12px;
-    font-weight: bold;
+	font-size: 0.9em;
 	}
 
 p.byline{ padding: 18px 0;}
