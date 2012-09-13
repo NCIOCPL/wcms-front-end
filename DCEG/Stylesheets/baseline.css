@@ -74,7 +74,7 @@ a:hover {
 	}
 	
 a:visited {
-	color:#002965;
+	color:#00337E;
 	text-decoration: none;
 	}	
 h1 {
@@ -982,7 +982,7 @@ img.center {
 			
 			/* Agency Links */
 			#genSlotSiteFooter ul.genSiteAgencyLinks {
-				margin: 0 0 0 41%;
+				margin: 0 0 0 38%;
 				padding: 0 0 18px 0;
 			}
 				ul.genSiteAgencyLinks li {
@@ -1798,6 +1798,7 @@ ol li.genSearchItem {
 ul.newsletter-list {
 	margin-left:0;
 	list-style-type:none;
+	padding-left:0;
 }
 
 ul.newsletter-list li{
