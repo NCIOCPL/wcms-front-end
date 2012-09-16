@@ -874,8 +874,8 @@ img.center {
 		/* a. Fifth Level Navigation */
 			
 			#genSlotRightNav {
-				border-top: 2px solid #2d2d2d;
-				border-bottom: 2px solid #2d2d2d;
+				border-top: 1px solid #7c7c7c;
+				border-bottom: 1px solid #7c7c7c;
 				margin-bottom: 18px;
 			}
 				#genSlotRightNav .slot-item {
@@ -891,6 +891,19 @@ img.center {
 					border-bottom: 1px dotted #AFAFAF;
 					padding: 4px 0;
 				}
+				
+				#genSlotRightNav ul li a{
+					padding-left:15px;
+				}
+				
+				#genSlotRightNav ul li a:hover {
+					text-decoration:none;
+				}
+				
+				#genSlotRightNav ul li:hover {
+					background-color:#d8e0eb;
+				}
+				
 					#genSlotRightNav ul li.last {
 						border-bottom: 0;
 					}
