@@ -191,6 +191,10 @@ table.blue-table, table.table-default {
 	border-collapse:collapse;
 }
 
+table.blue-table tr, table.table-default tr {
+    border-top: thin solid #C0C0C0;
+}
+
 table.blue-table th, table.table-default th {
 	background-color:#d8e0eb;
 	border:#C0C0C0 solid thin;
@@ -361,6 +365,8 @@ img.center {
     		vertical-align: middle;
     		width: 66px;
 				}
+				
+			label.hidden-label{ display:none;}
 		
 	/**
 		C. Site Navigation
