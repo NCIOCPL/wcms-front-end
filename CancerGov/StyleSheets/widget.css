@@ -17,19 +17,19 @@ a, a:active, a:visited, a:hover {
 }
 
 .header img{	 
-	width:100%;
+	max-width:100%;
 }
 
 
 h1.title {
-     background: url("/PublishedContent/images/images/nci-logo.gif") no-repeat scroll 0% 0% transparent;
+     background: url("/PublishedContent/images/images/nci-logo.jpg") no-repeat scroll 0% 0% transparent;
      margin: 0pt;
      padding: 10px;
      text-indent: -9999px;
 }
 
 h1.title-es {
-     background: url("/PublishedContent/images/images/nci-logo-es.gif") no-repeat scroll 0% 0% transparent;
+     background: url("/PublishedContent/images/images/nci-logo-es.jpg") no-repeat scroll 0% 0% transparent;
      margin: 0pt;
      padding: 10px;
      text-indent: -9999px;
