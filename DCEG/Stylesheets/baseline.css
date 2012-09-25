@@ -1070,6 +1070,19 @@ img.center {
 		ii. Timely Content Zone found on Homepages and Landing Pages.
 	**/
 	
+	#tcz-toggle {
+		position: absolute;
+		left: -2000px;	
+		z-index: 10;
+		padding: 3px;
+	}
+
+	#tcz-toggle:focus {
+		background: #f4f4f5;	
+		top: 0;
+		left: 0;
+	}
+	
 	/* overall container */
 	
 	#news-slider {
