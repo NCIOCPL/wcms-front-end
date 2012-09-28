@@ -9,7 +9,7 @@
 		
 		Before pushing this CSS to prod, it should be minimized.
 		
-		Last Update: July 25, 2012 by German Martinez
+		Last Update: September 26, 2012 by German Martinez
 	
 	====
 	
@@ -805,7 +805,7 @@ img.center {
 
 			/* Page Title Area */
 			#genSlotTitle {
-				padding: 0 20px 18px 0;
+				padding: 10px 20px 10px 0;
 			}	
 				#genSlotTitle h1,
 				#genSlotTitle h2 {
@@ -823,7 +823,7 @@ img.center {
 				/* If #genSlotTitle is in side of .genSiteContentColumn, the padding needs to change. */
 				
 				.genSiteContentColumn  #genSlotTitle  {
-					padding: 0 0 18px 0;
+					padding: 10px 0;
 				}
 					.genSiteContentColumn  #genSlotTitle h1,
 					.genSiteContentColumn  #genSlotTitle h2 {
@@ -850,7 +850,7 @@ img.center {
 			
 				/* Page Options */
 				.genSiteMainColumn #genSlotPageOptions {
-					padding-bottom: 18px;
+					padding-bottom: 10px;
 					text-align: right;
 				}
 					#genSlotPageOptions p.genSitePrintButton {
@@ -1296,7 +1296,7 @@ img.center {
 			/* container for text in individual list items, selected */
 			#news-slider ul.news-slider-tabs li.ui-tabs-selected { /*Selected tab style*/
 				background-color: #fff;
-				border-top: 0;
+				border-top: 1px solid #fff;
 			}
 				/* container for text in individual list items, selected */
 				#news-slider ul.news-slider-tabs li.ui-tabs-selected a {
@@ -1877,7 +1877,7 @@ p.byline{ padding: 18px 0;}
     line-height: 26px;
     padding: 0 4px;
     vertical-align: middle;
-    width: 150px;
+    width: 175px;
 }
 
 .search-linkage #search-btn{
@@ -1886,13 +1886,12 @@ p.byline{ padding: 18px 0;}
     color: #000;
     cursor: pointer;
     font-family: Arial,Helvetica,sans-serif;
-    font-weight: bold;
     height: 26px;
     letter-spacing: 1px;
     padding: 0;
-	margin: 0 0 0 95px;
+	margin: 0 0 0 120px;
     vertical-align: middle;
-    width: 66px;
+    width: 70px;
 }
 
 /***
@@ -1906,7 +1905,7 @@ p.byline{ padding: 18px 0;}
     line-height: 26px;
     padding: 0 4px;
     vertical-align: middle;
-    width: 150px;
+    width: 175px;
 }
 
 .linkage-subscribe #submit-btn{
@@ -1915,11 +1914,10 @@ p.byline{ padding: 18px 0;}
     color: #000;
     cursor: pointer;
     font-family: Arial,Helvetica,sans-serif;
-    font-weight: bold;
     height: 26px;
     letter-spacing: 1px;
     padding: 0;
-	margin: 0 0 0 80px;
+	margin: 0 0 0 105px;
     vertical-align: middle;
     width: 81px;
 }
@@ -2191,7 +2189,7 @@ body.genLanding #news-slider {
 			/* container for text in individual list items, selected */
 			body.genLanding #news-slider ul.news-slider-tabs li.ui-tabs-selected { /*Selected tab style*/
 				background-color: #fff;
-				border-top: 0;
+				border-top: 1px solid #fff;
 			}
 				/* container for text in individual list items, selected */
 				body.genLanding #news-slider ul.news-slider-tabs li.ui-tabs-selected a {
