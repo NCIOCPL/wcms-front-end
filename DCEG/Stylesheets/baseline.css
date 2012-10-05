@@ -1162,7 +1162,7 @@ img.center {
 				}
 				
 				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:visited {
-					color: #0054a6;
+					color: #800080;
 				}
 				
 				
@@ -1784,22 +1784,26 @@ ol li.genSearchItem {
 	-moz-box-shadow: 1px 5px 5px #bbbbbb;
 	-webkit-box-shadow: 1px 5px 5px #bbbbbb;
 	box-shadow: 1px 5px 5px #bbbbbb;
-	padding: 15px 0 0 15px;
+	padding: 15px;
 	margin-bottom:20px;
 }
 
 .newsletterSearchFormContainer p{
-	padding:20px 0 5px;
+	padding:5px 0 5px;
 	
 }
+
+.newsletterSearchFormContainer #Label1 { font-weight:bold;}
 
 .newsletterSearchFormContainer table td{
 	padding: 6px 6px 6px 0;
 }
 
-.newsletterSearchFormContainer h2{ margin-top:0; font-size:1.1em;}
+.newsletterSearchFormContainer h2{ margin-top:0; font-size:1.1em; padding-bottom: 0;}
 
-#cbkeyword{ border: 1px solid #AAAAAA;
+#cbkeyword{ 
+	background: url("/publishedcontent/images/images/input-search-bground.gif") no-repeat scroll 98% center #FFFFFF;
+	border: 1px solid #AAAAAA;
     color: #7E7E7E;
     font-size: 12px;
     height: 26px;
@@ -1870,6 +1874,7 @@ p.byline{ padding: 18px 0;}
 	Search Linkage Styles
 ***/
 .search-linkage #search-input{
+	background: url("/publishedcontent/images/images/input-search-bground.gif") no-repeat scroll 98% center #FFFFFF;
 	border: 1px solid #AAAAAA;
     color: #7E7E7E;
     font-size: 12px;
@@ -1897,7 +1902,11 @@ p.byline{ padding: 18px 0;}
 /***
 	Subscribe Linkage Newsletter Form
 ***/
+
+.contentid-401742 { background-color: #e9ecf5;}
+
 .linkage-subscribe #email-input{
+	background: url("/publishedcontent/images/images/input-search-email-icon.gif") no-repeat scroll 98% center #FFFFFF;
 	border: 1px solid #AAAAAA;
     color: #7E7E7E;
     font-size: 12px;
@@ -2055,7 +2064,7 @@ body.genLanding #news-slider {
 				}
 				
 				body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:visited {
-					color: #0054a6;
+					color: #800080;
 				}
 				
 				

@@ -6,7 +6,7 @@
 		
 		Usage: Used to define the look and feel of the website when printing. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.
 		
-		Last Update: May 24, 2011 by Mal Jones
+		Last Update: October 4, 2012 by German Martinez
 	====
 */
 
@@ -144,3 +144,92 @@ table {
 				display: none;
 			}				
 	
+/** TCZ Print Version**/	
+
+#news-slider {
+	clear:both;}
+
+#news-slider .ui-tabs-panel-x { 
+	clear:both;
+	border: 0 none;
+    margin: 2px;
+    width: 100%;
+	font-size:12px;
+}
+
+#news-slider ul.news-slider-tabs{
+	display:none;	
+	}
+
+.ui-tabs-panel-x img {
+	float:left;
+	margin: 0 18px 18px;
+	}
+	
+#news-slider .ui-tabs-panel-x p {
+    padding-bottom: 0;
+}
+	
+#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h3 {
+    font-size: 1.2em;
+    padding-bottom: 5px;
+}
+
+.genContentBlock {clear:both;}
+
+#genSlotColumn1 {
+    border-right: thin solid #7D7D7D;
+    float: left;
+    margin-right: 2%;
+    padding-right: 2%;
+    width: 47%;
+}
+
+#genSlotColumn2 {
+    float: right;
+    width: 48%;
+}
+
+
+ul.newsletter-list {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+ul.newsletter-list li {
+    margin-bottom: 20px;
+}
+
+ul.genList, ol.genList, ul.genAggroWidget, ol.genAggroWidget {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 8px;
+}
+
+ul.genList li:after, ol.genList li:after, ul.genAggroWidget li:after, ol.genAggroWidget li:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+ul li.genListItemNews p.genListItemDate {
+    font-size: 0.9em;
+    padding-bottom: 0;
+}
+
+img.left {
+    float: left;
+    margin: 0 8px 8px 0;
+}
+
+
+.newsletter-list-image {
+    float: left;
+    margin-right: 20px;
+}
+
+#genSlotBody {clear:both;}
