@@ -52,21 +52,20 @@
 }
 
 #tcz-toggle {
-position: absolute;
-left: -2000px;	
-z-index: 10;
-padding: 3px;
+    left: -2000px;
+    padding: 3px;
+    position: absolute;
+    z-index: 10;
 }
-
 #tcz-toggle:focus {
-background: #f4f4f5;	
-top: 0;
-left: 0;
+    background: none repeat scroll 0 0 #F4F4F5;
+    left: 0;
+    position: relative;
+    top: 0;
 }
-
 a#tcz-toggle:link, a#tcz-toggle:visited, a#tcz-toggle:hover, a#tcz-toggle:active {
-text-decoration: none;
-color: #4d4d4d;
+    color: #4D4D4D;
+    text-decoration: none;
 }
 
 /*  6.5 Additions  */
@@ -111,13 +110,26 @@ border-right: none;
 /* This was put in for cancer.gov search results to try and handle issue with text going beyond content area. 
 But it caused problems in IE with words breaking to two lines, please comment out or remove after 6.5.1 goes live 
 with the fix for this page */
-.sw-search-results{
+
+/*.sw-search-results{
 	word-break:break-all;
-}
+}*/
 
 .sw-search-results-pager{
 	word-break:normal;
 }
+
+.searchResultsHeader{
+	background: none repeat scroll 0 0 #E7E7E7;
+    border: 1px solid #BDBDBC;
+    padding: 4px 8px;
+	}
+
+.searchResultsSection{
+	padding: 12px 0 20px 8px;
+	}
+
+.searchResultsDescription{}
 
 
 /* Boletin Content Header */
@@ -176,6 +188,33 @@ ul.newscenter-media-icons li{
 ul.newscenter-media-icons li.last{
 	padding-right: 0;
 }
+
+/* News Center Title Links */
+a.news-title-link{
+	color:#000;
+	text-decoration:none;}
+	
+a.news-title-link:hover{
+	text-decoration:underline;
+	}
+	
+.tile-title a {
+	color:#000;
+	text-decoration:none;
+	}
+	
+.tile-title a:hover {
+	text-decoration:underline;
+	}
+
+.featured-dynamic-list-title a{ 
+	color:#000;
+	text-decoration:none;
+	}
+	
+.featured-dynamic-list-title a:hover{ 
+	text-decoration:underline;
+	}
 
 /* News Ticker */
 .dynamic-list-ticker-wrapper{
@@ -300,6 +339,10 @@ ul.ticker-list li{
 	font-size: 10pt;
 	font-weight:bold;
 	}
+	
+/* External News Link Style */
+.subscription-required {
+	font-style:italic;}
 
 /* Feature Headline*/
 
@@ -445,6 +488,7 @@ p.full-article {
     		background-repeat: no-repeat;
 
 }
+
 
 .feature-news-item h3{ margin: 10px 0 3px; font-size:16px;}
 
@@ -893,6 +937,7 @@ a.leftnav-shaded-box:hover h3, .leftnav-shaded-box h3 a:hover {
 	}
 
 #RelatedInfo h3{
+
 	font-size: 14px;
     font-weight: bold;
 	margin:0 0 3px 0;

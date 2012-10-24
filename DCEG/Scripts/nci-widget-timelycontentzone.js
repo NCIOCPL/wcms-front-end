@@ -267,3 +267,49 @@ Unrestricted. This script is free for both personal and commercial use.
         });
     };
 })(jQuery); /* END Yahoo style news slider, used on multimedia library on News and Events page */
+
+/* BEGIN TCZ Toggle */
+
+$(function(){
+		   
+var lang = $('meta[name="content-language"]').attr('content');
+
+if(lang == "en"){
+	
+			
+  			$('#tcz-toggle').text("View all news items.")
+  			$('#tcz-toggle').click(function(){
+     			$('#news-slider').toggle();
+     		$('#tcz508').toggle();
+  			});
+  
+  			$("#tcz-toggle").toggle(function (){
+    			$(this).text("Close news items")
+			}, function(){
+    			$(this).text("View all news items.")
+			});
+			
+
+		}
+		
+	else{ 
+		
+
+  			$('#tcz-toggle').text("Vea todas las notas.")
+  			$('#tcz-toggle').click(function(){
+     			$('#news-slider').toggle();
+     			$('#tcz508').toggle();
+  			});
+  
+  			$("#tcz-toggle").toggle(function (){
+    			$(this).text("Cierre las notas de la página.")
+			}, function(){
+    			$(this).text("Vea todas las notas.")
+			});
+
+
+	}
+
+});
+
+/* END TCZ Toggle */
