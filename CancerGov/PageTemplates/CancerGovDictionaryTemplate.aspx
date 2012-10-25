@@ -33,7 +33,7 @@
   </div>
   <!-- End Left Nav --> 
   <!-- Main Content Area -->
-  <div class="contentzone"> <a name="skiptocontent"></a>
+  <div class="contentzone"> <a name="skiptocontent" tabindex="1"></a>
     <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
     <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
     <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
