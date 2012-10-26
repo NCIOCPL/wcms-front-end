@@ -31,6 +31,7 @@
   <!-- End Site Banner --> 
   <!-- Content Header -->
   <div id="headerzone">
+	<NCI:TemplateSlot ID="coloMessage" runat="server" />
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguageDate" runat="server" />
   </div>
