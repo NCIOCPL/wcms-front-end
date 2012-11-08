@@ -882,3 +882,61 @@ hza.style.display = state;
 }
 }
 /* END Cancer Bulletin Science Shots */
+
+/* BEGIN TCZ Toggle */
+
+$(function(){
+		   
+var lang = $('meta[name="content-language"]').attr('content');
+
+if(lang == "en"){
+	
+			
+  			$('#tcz-toggle').text("View All News Items")
+  			$('#tcz-toggle').click(function(){
+     			$('#news-slider').toggle();
+     		$('#tcz508').toggle();
+  			});
+  
+  			$("#tcz-toggle").toggle(function (){
+    			$(this).text("Close News Items")
+			}, function(){
+    			$(this).text("View All News Items")
+			});
+			
+
+		}
+		
+	else{ 
+		
+  			$('#tcz-toggle').text("Vea todas las notas")
+  			$('#tcz-toggle').click(function(){
+     			$('#news-slider').toggle();
+     			$('#tcz508').toggle();
+  			});
+  
+  			$("#tcz-toggle").toggle(function (){
+    			$(this).text("Cierre las notas de la página")
+			}, function(){
+    			$(this).text("Vea todas las notas")
+			});
+
+
+	}
+
+});
+
+/*$(function(){
+  $('#tcz-toggle').text("View all news items.")
+  $('#tcz-toggle').click(function(){
+     $('#news-slider').toggle();
+     $('#tcz508').toggle();
+  });
+  
+  $("#tcz-toggle").toggle(function (){
+    $(this).text("Close news items")
+}, function(){
+    $(this).text("View all news items.")
+});
+});
+ END TCZ Toggle */

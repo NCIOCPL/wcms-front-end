@@ -32,7 +32,7 @@
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
     <div class="contentzone"> 
-    <a name="skiptocontent"></a>
+    <a name="skiptocontent" tabindex="1"></a>
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" />
       <div class="cancertypecontent">

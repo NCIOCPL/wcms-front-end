@@ -47,7 +47,7 @@
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
     <div class="contentzone"> 
-    	<a name="skiptocontent"></a> 
+    	<a name="skiptocontent" tabindex="1"></a> 
       <!-- Parent container for content and timely content zone column -->
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" CssClass="BodyHeaderSlot"/>

@@ -50,7 +50,7 @@ ul.ctpListPageList {
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
     <div class="contentzone contentzone-defaultTemplateContentContainer"> 
-    	<a name="skiptocontent"></a>
+    	<a name="skiptocontent" tabindex="1"></a>
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />

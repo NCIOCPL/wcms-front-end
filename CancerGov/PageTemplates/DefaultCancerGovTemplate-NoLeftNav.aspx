@@ -23,7 +23,7 @@
   <!-- Left Navigation and Content Area -->
   <div id="mainContainer"> 
     <!-- Main Content Area --> 
-    <a name="skiptocontent"></a>
+    <a name="skiptocontent" tabindex="1"></a>
     <div class="contentzone-noleftnav">
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
