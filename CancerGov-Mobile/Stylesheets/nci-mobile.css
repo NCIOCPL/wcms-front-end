@@ -530,6 +530,22 @@ h3.news-subheader{display:block;font-style:italic;font-size:16px; font-weight:no
     padding: 10px;
 }
 
+/* Ebooks */
+
+div.ebook-title h3 {
+	font-size: 17px;
+}
+div.ebook-info {
+	clear: left;
+}
+div.ebook-cover {
+	float: left; 
+	margin: 0 10px 10px 0;
+}
+div.ebook-cover img {
+	margin-bottom: 10px;
+}
+
 /* Hidden content */
 
 .hidden-content {
