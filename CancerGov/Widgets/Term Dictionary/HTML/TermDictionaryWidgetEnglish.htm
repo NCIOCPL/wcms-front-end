@@ -19,13 +19,18 @@
 
 <div id="container">
 	<div class="header">
-		<img src="/PublishedContent/images/images/nci-logo.gif">
+	  <!-- <h1 class="title">NCI Dictionary of Cancer Terms</h1> -->
+	  <img src="/PublishedContent/images/images/nci-logo.jpg">
 	</div>
     
     <div id="form" class="content">
-        <div id="searchBlock">
-            <input type="text" name="search" id="search" onkeypress="doSearch(event)" />
-            <input type="submit" name="Go" id="Go" value="Go" onclick="doSearch(null)" />
+		<div id="searchBlock">
+		<table>
+			<tr>
+				<td><input type="text" onkeypress="doSearch(event)" id="search" name="search" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></td>
+				<td><input type="submit" onclick="doSearch(null)" value="Go" id="Go" name="Go"></td>
+			</tr>
+		</table>
         </div>
         <div id="output">
         Find easy-to-understand definitions of terms related to cancer and medicine.
@@ -42,24 +47,33 @@
 
 <script type="text/javascript">
 <!--
+
 var s_account='nciglobal, ncienglish-all, ncincidictionary'
-var pageNameOverride= location.hostname.toLowerCase() + location.pathname.toLowerCase();
 
 --></script>
 <script type="text/javascript" src="http://www.cancer.gov/JS/Omniture/s_code.js"></script>
 <script type="text/javascript"><!--
+var s=s_gi(s_account);
+s.linkTrackVars='channel,prop47,prop48,prop51';
 s.channel='Dictionary Widget';
-s.prop47='Dictionary Widget';
-s.prop51=s.pageName;
-var s_code=s.t();if(s_code)document.write(s_code);
+s.prop47='dictionary widget';
+
+var parentInfo = window.location.href.match(/^[^#]+#([^?]*)\??(.*)/);
+if (parentInfo != null)
+{
+	s.prop48=parentInfo[2] + '_widget dictionary';
+	s.prop51=parentInfo[1];
+}
+
+s.tl(null,'o','Dictionary Widget - English');
 
 var NCIAnalytics = {
 	SiteSearch : function(sender, value) {
 		var s=s_gi(s_account); 
-		s.linkTrackVars='channel,prop14,eVar14,events'; 
+		s.linkTrackVars='channel,prop11,prop22,events'; 
 		s.linkTrackEvents='event2';
-		s.prop14=value;
-		s.eVar14=value;
+		s.prop11='widget_dictionary';
+		s.prop22=value;
 		s.channel='Dictionary Widget';
 		s.events='event2';
 		s.tl(this,'o','Dictionary Widget Search - English');
