@@ -548,6 +548,8 @@ div.ebook-cover img {
 
 /* Hidden content */
 
-.hidden-content {
+.hidden-content, .hidden-content-mobile {
 	display:none;
 	}
+	
+	
