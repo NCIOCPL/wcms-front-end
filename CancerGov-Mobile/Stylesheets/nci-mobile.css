@@ -27,6 +27,10 @@ a:hover {
 	color: #900;
 	text-decoration : underline;
 }
+
+td {
+	vertical-align: top;	
+}
 	
 .content-general{
 	background-color:#fff;
@@ -503,6 +507,9 @@ table.table-default {
     border-collapse: collapse;
 }
 
+table.table-default th {
+    text-align: center;
+}
 table.table-default td {
     border: 1px solid #BDBDBD;
     padding: 4px;
