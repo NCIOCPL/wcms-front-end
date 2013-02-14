@@ -501,19 +501,57 @@ a.white:hover{
 
 .searchResults li{margin-bottom:15px;}
 
-/* Table Styling */
-table.table-default {
-    border: 1px solid #BDBDBD;
-    border-collapse: collapse;
+/* begin default table styles*/
+td, th {
+	vertical-align: top;	
 }
+/* end default table styles*/
 
+/* begin default content table styling */
+table.table-default {
+	border: 1px solid #bdbdbd;
+	border-collapse: collapse;
+}
+table.table-default caption {
+	font-weight: bold;
+	text-align: left;
+	font-size: 15px;
+	color: #000;
+	padding: 20px 0 10px; /* using padding instead of margin due to problem in Safari */
+}
 table.table-default th {
-    text-align: center;
+	background-color: #ececec;
+	/*text-align: left;*/
 }
 table.table-default td {
-    border: 1px solid #BDBDBD;
-    padding: 4px;
+	background-color: #fff;
 }
+table.table-default td, table.table-default th {
+	border: 1px solid #bdbdbd;
+	padding: 10px;
+	border-spacing: 0;
+}
+table.table-default td p:first-child {
+	margin-top: 0;	
+}
+table.table-default td p:last-child {
+	margin-bottom: 0;	
+}
+table.table-default-center-td td {
+	text-align: center;
+}
+table.table-default td p:first-child,
+table.table-default th p:first-child {
+    margin-top: 0;   
+}
+table.table-default td p:last-child,
+table.table-default th p:last-child {
+    margin-bottom: 0;
+}
+table..table-default ul {
+	padding-left: 4px;
+}
+/* end default content table styling */
 
 /* Press Release */
 div.news-type{}
