@@ -270,6 +270,7 @@ table {
 			#genSlotMainNav ul.genSiteMainNav  li a.current span {
 				background-color: #ebebeb;
 				color: #000;
+				line-height: 1.4;
 			}
 
 				/* Removes Highlight Box from Fly Out Menus */
