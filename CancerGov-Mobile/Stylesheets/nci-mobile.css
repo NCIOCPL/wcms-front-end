@@ -23,6 +23,12 @@ a, a:active, a:visited, .red-text {
 	color: #900;
 	text-decoration:underline;}
 */	
+
+/* to temporarily hide videos from mobile until functianlity is added */
+.videoPlayer {
+display: none;	
+}
+/* End to temporarily hide videos from mobile until functianlity is added */
 a:hover {
 	color: #900;
 	text-decoration : underline;
