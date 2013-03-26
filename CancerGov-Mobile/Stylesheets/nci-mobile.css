@@ -28,6 +28,12 @@ a, a:active, a:visited, .red-text {
 .videoPlayer {
 display: none;	
 }
+
+.hide-mobile {
+	display: none;
+}
+
+
 /* End to temporarily hide videos from mobile until functianlity is added */
 a:hover {
 	color: #900;
