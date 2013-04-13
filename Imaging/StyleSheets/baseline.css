@@ -687,6 +687,10 @@ table {
 		.footer-imaging {
 			text-align: center;	
 		}
+		.footer-imaging p {
+			padding: 0;
+			margin: 15px 0;	
+		}
 		ul.footerUtilityLinks {
 			width: 80%;
 			margin: 0 auto 5px auto; padding: 0;
