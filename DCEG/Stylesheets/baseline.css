@@ -967,6 +967,10 @@ img.center {
 		font-size: 0.9em;
 		padding-top: 18px;
 	}
+	#genSlotSiteFooter p, #genSlotSiteFooter a {
+		font-size: 12px;
+	}
+	
 		#genSlotSiteFooter  .slot-item {
 			padding-top: 0;
 		}
