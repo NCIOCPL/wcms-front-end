@@ -897,8 +897,12 @@ sub {
 	-webkit-box-shadow: 0 0 5px#888;
 	box-shadow: 0 0 5px #888;
 }
+#footer p, #footer a {
+	font-size: 11px;
+	color: #fff;
+}
 #footer-text {
-	padding-bottom: 14px;
+	margin-bottom: 14px;
 }
 #footer-text li {
 	display: inline;
