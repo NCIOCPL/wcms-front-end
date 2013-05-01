@@ -940,3 +940,9 @@ if(lang == "en"){
 });
 });
  END TCZ Toggle */
+ 
+/* function to remove unwanted break tag from page after title */
+jQuery(document).ready(function($) {
+$("#cgvBody > div > br, #cgvBody > div > h2 > br").remove();
+});
+/* end function to remove unwanted break tag from page after title */
