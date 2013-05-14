@@ -943,6 +943,6 @@ if(lang == "en"){
  
 /* function to remove unwanted break tag from page after title */
 jQuery(document).ready(function($) {
-$("#cgvBody > div > br, #cgvBody > div > h2 > br").remove();
+$("div#cgvBody > div > br:first-child, #cgvBody > div > h2 > br:first-child").remove();
 });
 /* end function to remove unwanted break tag from page after title */
