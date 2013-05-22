@@ -1122,19 +1122,4 @@ h3.video100title{padding: 0;font-size:18px;}
 .video-carousel-caption .size100{font-size:14pt;}
 
 
-/* Alignment Classes */
-
-div.right {
-	float: right;
-	border: 0;
-	margin-left: 10px;
-	margin-bottom: 0px;
-}
-div.left {
-	float:left;
-	border: 0;
-	margin-right: 10px;
-	margin-bottom: 0px;
-}
-
 .public-use{padding: 0; margin:30px 0; border-top:#4d4d4d thin solid; font-style:italic;}
