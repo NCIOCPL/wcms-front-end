@@ -88,14 +88,14 @@ ul.genSiteFooterLogos {
     padding: 18px 18px 0;
 }
 /* August 2012 Newsletter */
-.genLanding .contentid-410545 h2, .genLanding .contentid-410548 h2, .genLanding .contentid-410551 h2, .genLanding .contentid-410554 h2 {
+.genLanding .contentid-410545 h2, .genLanding .contentid-410548 h2, .genLanding .contentid-410551 h2, .genLanding .contentid-410554 h2, .genLanding #genSlotBody .slot-item div div h2{
 	border-bottom: 1px solid #B2B2B2;
 	margin-bottom: 14px;
 	padding-bottom: 14px;
 	font-size: 17px;
 }
 
-.genLanding .contentid-410545 a h2, .genLanding .contentid-410548 a h2, .genLanding .contentid-410551 a h2, .genLanding .contentid-410554 a h2 {
+.genLanding .contentid-410545 a h2, .genLanding .contentid-410548 a h2, .genLanding .contentid-410551 a h2, .genLanding .contentid-410554 a h2,  .genLanding #genSlotBody .slot-item div div a h2{
 	color: #0C70A8; 
 	text-decoration: none;
 }
