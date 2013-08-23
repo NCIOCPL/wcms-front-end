@@ -229,6 +229,7 @@ img.left {
 img.center {
 	margin: 0 auto 8px auto;
 	text-align: center;
+	display: block;
 }
 
 /*	Ensuring extra div.slot-items generated from CDE do not have default padding. */
@@ -2210,3 +2211,10 @@ body.genLanding #news-slider {
 					color: #0054a6;
 					text-decoration: none;
 				}
+.content-block-shaded {
+	background: #E9ECF5;
+	border: 1px solid #7C7C7C;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 1px 5px 5px #BBBBBB;
+    padding: 12px 12px 0; margin: 15px 0;	
+}
