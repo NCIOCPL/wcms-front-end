@@ -2211,12 +2211,13 @@ body.genLanding #news-slider {
 					color: #0054a6;
 					text-decoration: none;
 				}
-.content-block-shaded {
+.callout-box {
 	background: #E9ECF5;
 	border: 1px solid #7C7C7C;
     border-radius: 6px 6px 6px 6px;
     box-shadow: 1px 5px 5px #BBBBBB;
-    padding: 12px 12px 0; margin: 15px 0;	
+    padding: 12px 12px 0; margin: 15px 0;
+	font-size: 1.1em;	
 }
 
 .left {
