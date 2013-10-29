@@ -2219,6 +2219,7 @@ body.genLanding #news-slider {
     box-shadow: 1px 5px 5px #BBBBBB;
     padding: 12px 12px 0; margin: 15px 0;
 	font-size: 1.1em;	
+	overflow: auto;
 }
 
 .left {
