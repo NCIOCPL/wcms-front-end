@@ -1,3 +1,10 @@
+/* function to move government shutdown notice */
+jQuery(document).ready(function($) {
+$("#shutdown").insertAfter("#cgvMainNav");
+});
+/* function to move government shutdown notice */
+
+
 /* BEGIN Yahoo style news slider, used on multimedia library on News and Events page */
 
 /****************************************************************************
@@ -946,3 +953,6 @@ jQuery(document).ready(function($) {
 $("div#cgvBody > div > br:first-child, #cgvBody > div > h2 + br").remove();
 });
 /* end function to remove unwanted break tag from page after title */
+
+
+
