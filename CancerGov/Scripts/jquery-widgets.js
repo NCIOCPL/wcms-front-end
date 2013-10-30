@@ -893,12 +893,16 @@ hza.style.display = state;
 /* BEGIN TCZ Toggle */
 
 $(function(){
-		   
-var lang = $('meta[name="content-language"]').attr('content');
 
-if(lang == "en"){
-	
-			
+/* Check to make sure the language data is available,
+   if not, abort the operation. */
+var langData = $('meta[name="content-language"]');
+if( langData == null )
+	return;
+
+var lang = langData.attr('content');
+
+	if(lang == "en"){
   			$('#tcz-toggle').text("View All News Items")
   			$('#tcz-toggle').click(function(){
      			$('#news-slider').toggle();
@@ -910,27 +914,21 @@ if(lang == "en"){
 			}, function(){
     			$(this).text("View All News Items")
 			});
-			
-
 		}
 		
 	else{ 
-		
   			$('#tcz-toggle').text("Vea todas las notas")
   			$('#tcz-toggle').click(function(){
      			$('#news-slider').toggle();
      			$('#tcz508').toggle();
   			});
-  
+
   			$("#tcz-toggle").toggle(function (){
     			$(this).text("Cierre las notas de la página")
 			}, function(){
     			$(this).text("Vea todas las notas")
 			});
-
-
 	}
-
 });
 
 /*$(function(){
