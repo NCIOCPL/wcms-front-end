@@ -894,22 +894,26 @@ hza.style.display = state;
 
 $(function(){
 
-/* Check to make sure the language data is available,
-   if not, abort the operation. */
+/* Make sure the timely content zone and its required data are
+   present.  Otherwise, don't try to set it up. */
 var langData = $('meta[name="content-language"]');
-if( langData == null )
+var tczToggle = $('#tcz-toggle');
+var tcz508 = $('#tcz508');
+var newsSlider = $('#news-slider');
+
+if( tczToggle == null || tcz508 == null || newsSlider == null || langData == null )
 	return;
 
 var lang = langData.attr('content');
 
 	if(lang == "en"){
-  			$('#tcz-toggle').text("View All News Items")
-  			$('#tcz-toggle').click(function(){
-     			$('#news-slider').toggle();
-     		$('#tcz508').toggle();
+  			tczToggle.text("View All News Items")
+  			tczToggle.click(function(){
+     			newsSlider.toggle();
+     		tcz508.toggle();
   			});
   
-  			$("#tcz-toggle").toggle(function (){
+  			tczToggle.toggle(function (){
     			$(this).text("Close News Items")
 			}, function(){
     			$(this).text("View All News Items")
@@ -917,13 +921,13 @@ var lang = langData.attr('content');
 		}
 		
 	else{ 
-  			$('#tcz-toggle').text("Vea todas las notas")
-  			$('#tcz-toggle').click(function(){
-     			$('#news-slider').toggle();
-     			$('#tcz508').toggle();
+  			tczToggle.text("Vea todas las notas")
+  			tczToggle.click(function(){
+     			newsSlider.toggle();
+     			tcz508.toggle();
   			});
 
-  			$("#tcz-toggle").toggle(function (){
+  			tczToggle.toggle(function (){
     			$(this).text("Cierre las notas de la página")
 			}, function(){
     			$(this).text("Vea todas las notas")
@@ -931,26 +935,10 @@ var lang = langData.attr('content');
 	}
 });
 
-/*$(function(){
-  $('#tcz-toggle').text("View all news items.")
-  $('#tcz-toggle').click(function(){
-     $('#news-slider').toggle();
-     $('#tcz508').toggle();
-  });
-  
-  $("#tcz-toggle").toggle(function (){
-    $(this).text("Close news items")
-}, function(){
-    $(this).text("View all news items.")
-});
-});
- END TCZ Toggle */
+/* END TCZ Toggle */
  
 /* function to remove unwanted break tag from page after title */
 jQuery(document).ready(function($) {
 $("div#cgvBody > div > br:first-child, #cgvBody > div > h2 + br").remove();
 });
 /* end function to remove unwanted break tag from page after title */
-
-
-
