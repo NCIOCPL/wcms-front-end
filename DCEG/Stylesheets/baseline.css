@@ -1426,7 +1426,7 @@ ol.genAggroWidget {
 		ul.genAggroWidget li h4 ,
 		ol.genAggroWidget li h4  {
 			font-size: 1em;
-			font-weight: 900;
+			font-weight: normal;
 		}
 		ul.genList li .genListItemTitle,
 		ol.genList li .genListItemTitle,
@@ -2219,7 +2219,7 @@ body.genLanding #news-slider {
     box-shadow: 1px 5px 5px #BBBBBB;
     padding: 12px 12px 0; margin: 15px 0;
 	font-size: 1.1em;	
-	overflow: auto;
+	overflow: hidden;
 }
 
 .left {
