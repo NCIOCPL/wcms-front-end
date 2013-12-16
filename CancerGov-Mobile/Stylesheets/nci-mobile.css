@@ -159,7 +159,9 @@ span.ui-btn-text p{margin:0;display:inline;}
 	color:#4d4d4d;
 	padding:7px;
 	text-align:left;
-	background-color: #DDDDDD;}
+	background-color: #DDDDDD;
+	display: block;
+	}
 	
 a.definition, a.Summary-GlossaryTermRef{color: #4d4d4d !important;}
 
