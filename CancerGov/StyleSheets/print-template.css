@@ -1,9 +1,3 @@
-/* 
-****************************************************
-                 PRINT VERSION                      
- NEW CLASSES FOR 2011 restyling OF CANCER.GOV       
- Last edited by Josh Soldan July 18, 2012            
-*****************************************************/
 body {
 background:none repeat scroll 0 0 transparent;
 color:#000;
@@ -380,4 +374,9 @@ padding-left: 0px;
 
 h1.cancer-bulletin-conversation-with,h1.cancer-bulletin-cancer-center-profile,h1.cancer-bulletin-cancer-gov-update,h1.cancer-bulletin-cancer-research-highlights,h1.cancer-bulletin-cdc-update,h1.cancer-bulletin-closer-look,h1.cancer-bulletin-cms-update,h1.cancer-bulletin-community-update,h1.cancer-bulletin-directors-update,h1.cancer-bulletin-fda-update,h1.cancer-bulletin-featured-article,h1.cancer-bulletin-featured-clinical-trial,h1.cancer-bulletin-guest-commentary,h1.cancer-bulletin-guest-directors-update,h1.cancer-bulletin-hhs-update,h1.cancer-bulletin-legislative-update,h1.cancer-bulletin-nih-update,h1.cancer-bulletin-notes,h1.cancer-bulletin-profiles-cancer-research,h1.cancer-bulletin-sr-adolescent,h1.cancer-bulletin-sr-bioinformatics,h1.cancer-bulletin-sr-crt,h1.cancer-bulletin-sr-gc,h1.cancer-bulletin-sr-cte,h1.cancer-bulletin-special-report,h1.cancer-bulletin-spotlight {
 background:none repeat scroll 0 0 transparent;
+}
+
+/* Multiple column divs. Overflow property set to visible to allow for proper printing */
+.two-columns, .three-columns, .four-columns, .five-columns {
+	overflow: visible;
 }
