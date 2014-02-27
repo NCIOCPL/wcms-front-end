@@ -57,6 +57,7 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+      <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
       <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
       <!-- Begin Public Use Slot -->
       <NCI:TemplateSlot ID="cgvPublicUseNoticeSl" runat="server" />
