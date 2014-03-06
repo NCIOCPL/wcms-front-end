@@ -42,7 +42,6 @@
         <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" CssClass="cancertypecontentleft" />
         <NCI:TemplateSlot ID="cgvBodyRight" runat="server" CssClass="cancertypecontentright" />
       </div>
-      <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
     </div>
     <!-- End Content Area --> 
     <!-- End Main Area --> 
