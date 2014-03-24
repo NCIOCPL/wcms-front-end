@@ -6,6 +6,7 @@ var sib;
 var kid;
 var sibList;
 var kidList;
+
 while(parent != document){
 	if($(parent).hasClass('ui-collapsible-content') && $(parent).hasClass('ui-collapsible-content-collapsed')){
 		sibList = parent.parentNode.childNodes
@@ -17,13 +18,16 @@ while(parent != document){
 				kid = kidList[i];
 					if($(kid).hasClass('ui-collapsible-heading-toggle')){
 						$(kid).click();
+						
 					}
 				}
 			}
+			
 		}
 	}
 	parent = parent.parentNode;
 }
+
 return true;
 }
 
@@ -34,6 +38,7 @@ if(location.hash != ""){
 	if(id!=""){
 		gotoHash(id,$);
 	}
+	
 	$("html, body").animate({ scrollTop: $(location.hash).offset().top }, 1000);
 }
 $('.body-container').find('a[href*="#"]').bind('click', function(e){
