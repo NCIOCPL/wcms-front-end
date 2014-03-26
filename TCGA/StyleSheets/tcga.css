@@ -82,6 +82,71 @@ img.right {
 img.border, .image-border img {
 	border: 1px solid #b2b2b2;
 }
+/* images using the HTML5 figure and figcaption elements */
+/* add block level style to HTML5 elements, for IE */	
+header,nav,article,footer,section,aside,figure,figcaption {
+	display:block
+}
+figure {
+	margin-bottom: 10px;
+}
+/* image right 25% width */
+figure.image-right-small {
+    float: right;
+    width: 25%;
+    margin: 0 0 1em 1em;
+}
+/* image right 40% width */
+figure.image-right-medium {
+    float: right;
+    width: 40%;
+    margin: 0 0 1em 1em;
+}
+/* image left 25% width */
+figure.image-left-small {
+    float: left;
+    width: 25%;
+    margin: 0 1em 1em 0;
+}
+/* image left 40% width */
+figure.image-left-medium {
+    float: left;
+    width: 40%;
+    margin: 0 1em 1em 0;
+}
+/* image center 75% width */
+figure.image-center {
+    width: 75%;
+    margin: 0 auto;
+}
+/* image center 100% width */
+figure.image-center-full {
+    width: 100%;
+    margin: 0 auto;
+}
+/* contain image inside fig */
+figure img {
+    max-width: 100%;
+}
+/* make enlarge link block level for display purposes */
+a.article-image-enlarge {
+	display: block;
+}
+/* style all figcaption elements the same */
+figcaption {
+	margin-top: 5px;
+	border-top: 1px solid #BDBDBD;
+}
+figcaption .caption-container {
+	display: block;
+	color: #666;
+	background: #DDDDDD;
+	padding: 10px;
+	margin-top: 5px;
+	font-size: 12px;
+	line-height: 1.2em;
+}
+/* end images using the HTML5 figure and figcaption elements */
 .nobreak {
 	white-space:nowrap;
 }

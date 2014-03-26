@@ -1,0 +1,152 @@
+@charset "utf-8";
+/*
+====Global Layout ElementsUsage:Used to define and place elements of the Website's shell, such as the content dimensions and the location of the header and footer. It also includes globally utilized elements such as the .clearFix selector and the Main Navigation flyout menus. It does not include design elements (i.e. padding, background-colors, font-styles, etc). Just positioning and base-line font size for the body.
+Last Updated: September 20, 2013 by randallw@mail.nih.gov 
+Height added to homepage highlight boxes to accommodate copy
+====
+TABLE OF CONTENTS ( Listing Major Sections only. To find your specific id or class, perform a Search for it. )
+1. Body Container
+2. National Cancer Institute Branding Bar
+A. Red Banner
+B. White Banner
+C. Grey Banner
+3. Site ContainerA. Site Header
+B. Site Navigation	
+i. Fly Out Menus	
+ii. Additional Navigation Link
+C. Site Content Container	
+i. Left Column		
+a. Section Navigation	
+ii. Main Column		
+a. Content Column		
+b. Right Column
+D. Site Footer
+4. Content Type Specific
+A. Home Page	
+i. Column and Highlight areas used on Home pages and Landing page		
+a. Two Column Area		
+b. Three Column Area
+B. General Content Type with No Right Sidebar
+C. Full Width Content Column (No Sidebars)
+D. News Release
+E. Publications
+F. Funding Opportunities
+G. Error Pages
+5. Miscellaneous Elements
+A. Skip To Content Link
+B. ClearFix
+/***	1. Body Container   ***/
+body {
+background:#e0e0e0 url(/publishedcontent/images/images/global/bg-body-white.jpg) repeat-x; background-attachment:fixed; color:#333; font-family:Arial, Helvetica, sans-serif; font-size:62.5%; text-align:center; width:100%; }
+
+/***	2. National Cancer Institute Branding Bar   ***/
+#genSlotBrandingBar { }
+.genSiteBrandingBarContainer { padding:0;  }
+#genSlotBrandingBar ul {list-style-type:none;margin:0 auto;padding:0;width:960px; }
+#genSlotBrandingBar ul  li.nciLogo { float:left; }
+#genSlotBrandingBar ul  li.nciLogo a { background-repeat:no repeat; display:block; height:39px; text-indent:-9999px; width:263px; }
+#genSlotBrandingBar ul li.nihText { float:right; }
+#genSlotBrandingBar ul li.nihText a { background-repeat:no repeat; display:block; height:39px; text-indent:-9999px; width:208px; }
+#genSlotBrandingBar ul  li.nciURL { float:right;  }	
+#genSlotBrandingBar ul  li.nciURL a { background-repeat:no repeat; display:block; height:39px; text-indent:-9999px; width:99px; }
+/**	A. White Banner	- Add the class of 'white' to ul to get the White NCI Banner - White is now the primary NCI banner**/
+#genSlotBrandingBar .white { background:url(/publishedcontent/images/images/global/bg-brandingbar.gif) repeat-x; color:#666; height:39px;}	
+.white ul li.nciLogo a { background-image:url(/publishedcontent/images/images/banners/white-ncilogo.gif); }	
+.white ul li.nihText a { background-image:url(/publishedcontent/images/images/banners/white-nihtext.gif); }	
+.white ul li.nciURL a { background-image:url(/publishedcontent/images/images/banners/white-nciurl.gif); }	
+/***	3. Global Site Container   ***/
+.genSiteContainer { border:1px solid #ccc; border-top:none; margin:0 auto; margin-bottom:12px; text-align:left; width:982px;
+}
+/**  A. Site Header  **/
+#genSlotSiteBanner { margin:0 2px; }
+h1.genSiteLogo { float:left; height:94px; line-height:0.8em; text-indent:-9999px; width:396px;}
+/* Contains Site Utility Items such as Search and other links */ 
+.genSiteUtilityContainer { float:right; margin:-5px 0 0 auto; text-align:right; }
+/* Utility Links found in the top right */
+ol.genSiteUtilityLinks {}	
+ol.genSiteUtilityLinks li{ display:inline; }
+/* Site Wide Search */
+form.genSiteSearchForm { float:right;}
+/**B. Site Navigation **/
+#genSlotMainNav { margin:0 18px;height:34px;padding:0;position:relative;z-index:9999; }
+#genSlotMainNav ul { list-style-type:none; margin:0; padding:0; }
+#genSlotMainNav ul li { float:left; margin:0 12px; position:relative; }	
+#genSlotMainNav ul li.first { margin-left:8px; }
+#genSlotMainNav ul.genSiteMainNav { float:left; margin:0; padding:0;position: absolute;top: 0;}	
+ul.genSiteMainNav a,ul.genSiteAdditionalMainNav a { display:block; }		
+
+/* i. Fly Out Menus	*/		
+/* ============================ 	
+This copyright notice must be untouched at all times.
+The original version of this stylesheet and the associated (x)html is available at http://www.cssplay.co.uk/menus/latest-flyout.html Copyright (c) 2005-2009 Stu Nicholls. All rights reserved. This stylesheet and the associated (x)html may be modified in any way to fit your requirements. Edited and simplified by Mal Jones for the National Cancer Institute.	
+========================================== */		
+
+ul.genSiteMainNav li { position:relative; }		
+ul.genSiteMainNav  li ul  { display:none; left:0; margin:0 10px; padding:0; position:absolute; top:34px; z-index:999; }						ul.genSiteMainNav ul li { display:block; margin:0 !important; width:200px; }			
+ul.genSiteMainNav ul a { float:none; }	
+ul.genSiteMainNav  li a:hover { } 		
+ul.genSiteMainNav  li:hover > a { }		
+ul.genSiteMainNav  li:hover > ul { 	display:block; }
+/**		ii. Additional Navigation Link	- This exists for rare use case, and becomes a global link for your site. If you need more then one additional link un-releated to the site map (i.e. an Intranet) and different solution should be found.	**/			
+#genSlotMainNav ul.genSiteAdditionalMainNav { float:right; margin:0 0 0 auto; }
+/**  C. Site Content Container  **/
+.genSiteContentContainer { margin:0 18px; }
+/**	i. Left Column**/ 
+.genSiteLeftColumn { float:left; width:20%;}	
+/** a. Section Navigation	**/	
+ul.genSiteSectionNavigation li { word-wrap:break-word; }
+/**	ii. Main Column**/
+.genSiteMainColumn { float:left; }	
+/**		a. Content Column	**/		
+.genSiteContentColumn { float:left; line-height:1.5em; }	
+/**		b. Right Column	**/
+.genSiteRightColumn { float:right; }
+.genHome .genSiteRightColumn, .genHome .genSiteRightColumn .slot-item { margin-top:0px; width:230px; }
+/**D. Site Footer  **/
+#genSlotSiteFooter { clear:left; text-align:center; }
+
+/***  ===4. Content Type Template Specific Styles 	=== ***/
+/**	A. Home page**/
+body.genHome .genSiteMainContainer { width:100%;}
+body.genHome .genSiteContentColumn { width:700px; }	
+/**	 i. Column and Highlight areas used on Home pages and Landing page	**/
+/* a. Two Column Area */
+.genSiteColumnContainer { }			
+#genSlotColumn1 { background:url("/publishedcontent/images/images/global/bg-callout.gif") repeat-x scroll center bottom transparent; border:1px solid #CCCCCC; float:left; height:308px; margin-right:12px; padding:12px; width:315px; }			#genSlotColumn2 { background:url("/publishedcontent/images/images/global/bg-callout.gif") repeat-x scroll center bottom transparent; border:1px solid #CCCCCC; float:left; height:308px; padding:12px; width:315px;
+}		
+/* b. Three Column Area (aka Highlights) */
+.genSiteHighlightContainer {}			
+#genSlotHighlight1 { float:left; margin-right:4%; width:31%; }			
+#genSlotHighlight2 { float:left; margin-right:4%; width:30%; }			
+#genSlotHighlight3 { float:left; width:31%; }
+/** B. General Content Type with No Right Sidebar **/
+body .genSiteContentColumn.noRightSidebar{
+width:100%;
+}
+
+/**	C. Full Width Content Column (No Sidebars) **/
+body .genSiteContentContainer.noSidebars .genSiteMainColumn { float:none; width:100%; }
+body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn { float:none;width:100%; }
+body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn  #genSlotBody,
+body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn  #genSlotBody .slot-item { padding:0; } 
+/**  D. News Release  **/
+.genNewsMetadata .genNewsEmbargoText { float:left; width:45%; }
+.genNewsMetadata .genNewsContactInfo { float:right; text-align:right; width:45%; }
+/**  E. Publications  **/ 
+.genCitations {  }
+/**  F. Funding Opportunities  **/
+ul li.genListItemFundingOpp { list-style:none; margin:0; padding:0; }
+ul li.genListItemFundingOpp p.genListItemDesc,
+ul li.genListItemFundingOpp p.genListItemAdditionalInfo { margin-left:22px; }
+/**  G. Error Pages  **/
+body.genError { }	
+/*** ===  5. Miscellaneous Elements  === ***/
+/**  A. Skip To Content Link. Used to apply to 508 Compliance rules. Method used is outlined here:
+http://www.jimthatcher.com/skipnav.htm  **/
+.genSiteSkipToContent { font-size:1.2em; text-align:left; }
+.genSiteSkipToContent a { left:-9999px;height:1px;overflow:hidden;position:absolute;text-align:left;width:1px; }
+.genSiteSkipToContent a:focus,.genSiteSkipToContent a:active { height:auto; left:0; overflow:visible; position:static; text-decoration:underline; width:auto;}
+/**  B. ClearFix
+// .clearFix is used to allow floated elements to remain properly inside of the box model. Using this is as opposed to overflow:hidden in order to ensure cross-browser compatibility and for smoother development  **/	
+.clearFix { zoom:1; /* triggers hasLayout in IE */ display:block; /* resets display for IE/Windows */ }
+.clearFix:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
