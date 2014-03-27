@@ -46,6 +46,7 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvFindACancerTypeSlot" runat="server" CssClass="LeftNavSlot" />
       <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot" />      
       <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />
+	  <NCI:TemplateSlot ID="cgvBottomLeftNav" runat="server" CssClass="LeftNavSlot" />
     </div>
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
@@ -57,7 +58,7 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
-      <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
+<NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />	
       <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
       <!-- Begin Public Use Slot -->
       <NCI:TemplateSlot ID="cgvPublicUseNoticeSl" runat="server" />
