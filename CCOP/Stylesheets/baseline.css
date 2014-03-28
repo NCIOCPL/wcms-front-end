@@ -77,7 +77,7 @@ img.center {margin:0 auto 8px auto; text-align:center; }
 /* images using the HTML5 figure and figcaption elements */
 /* add block level style to HTML5 elements, for IE */	
 header,nav,article,footer,section,aside,figure,figcaption {
-	display:block
+	display:block;
 }
 figure {
 	margin-bottom: 10px;
@@ -109,20 +109,23 @@ figure.image-left-medium {
 /* image center 75% width */
 figure.image-center {
     width: 75%;
-    margin: 0 auto;
+    margin: 0 auto 1em auto;
 }
 /* image center 100% width */
 figure.image-center-full {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 1em auto;
 }
 /* contain image inside fig */
 figure img {
     max-width: 100%;
+	/* remove white space under image */
+	display: block;
 }
 /* make enlarge link block level for display purposes */
 a.article-image-enlarge {
 	display: block;
+	text-align: right;
 }
 /* style all figcaption elements the same */
 figcaption {
@@ -137,6 +140,14 @@ figcaption .caption-container {
 	margin-top: 5px;
 	font-size: 12px;
 	line-height: 1.2em;
+}
+/* remove default spacing of p tags as this adds extra spacing around caption content */
+figcaption p:first-child {
+    margin-top: 0;
+}
+figcaption p:last-child {
+    margin-bottom: 0;
+	padding-bottom: 0;
 }
 /* end images using the HTML5 figure and figcaption elements */
 .date { color:#666666; font-family:Arial,Helvetica,sans-serif; font-size:0.9em; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; }

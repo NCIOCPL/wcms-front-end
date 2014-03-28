@@ -76,6 +76,11 @@ figure img {
 	display: block;
 	margin: 0 auto;
 }
+/* make enlarge link block level for display purposes */
+a.article-image-enlarge {
+	display: block;
+	text-align: right;
+}
 /* style all figcaption elements the same */
 figcaption {
 	margin-top: 5px;
