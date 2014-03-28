@@ -3,8 +3,6 @@
 	PURPOSE: Scripts in this file should be for use on all sites hosted by the Percussion CMS
 */
 
-
-
 // Exit Disclaimer Adder
 //  This script looks for urls where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link.  The image itself links to the exit disclaimer page.
 
@@ -26,4 +24,8 @@ if (!path){
 		}
 }
 $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
+
+/* add nopin tag to images that we do not want used on Pinterest */
+$( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).attr( "nopin", "nopin" );
+
 });
