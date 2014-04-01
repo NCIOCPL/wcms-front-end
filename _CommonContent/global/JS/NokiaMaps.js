@@ -21,6 +21,10 @@ function initMaps() {
 }
 
 function initMap( mapContainer, mapId, kmlPath ) {
+    // initialize the InfoBubble setting to align above the related placemark
+	var infoBubbles = new nokia.maps.map.component.InfoBubbles();
+	infoBubbles.options.set("defaultYAlignment", infoBubbles.ALIGNMENT_ABOVE);
+
 	// Create a map inside the map container DOM node
 	var map = new nokia.maps.map.Display(mapContainer, {
 		// set the default center and zoom level so the map does begin fully zoomed-out
@@ -29,7 +33,7 @@ function initMap( mapContainer, mapId, kmlPath ) {
 		components: [
 			// we add the behavior component to allow panning / zooming of the map
 			new nokia.maps.map.component.Behavior(),
-			new nokia.maps.map.component.InfoBubbles(),
+			infoBubbles,
 			// Creates UI to easily switch between street map satellite and terrain mapview modes
 			new nokia.maps.map.component.TypeSelector(),
 			// shows a +/- bar for zooming the map
@@ -59,6 +63,66 @@ function initMap( mapContainer, mapId, kmlPath ) {
 				resultSet.addObserver("state", function (resultSet) {
 					if (resultSet.state == "finished") {
 						// Retrieve map objects container from KML resultSet
+						container = resultSet.container;
+						
+						var TOUCH = nokia.maps.dom.Page.browser.touch,
+						CLICK = TOUCH ? "tap" : "click";
+
+						/* Instead of adding an event listener to every marker we are going 
+						 * to use event delegation. We install one event handler on the 
+						 * container that contains all of the objects. 
+						 */
+						container.addListener(CLICK, function (evt) {
+							var object = evt.target;
+							
+							// Check if the object on which the event was triggered is a marker
+							if (object instanceof nokia.maps.map.Marker) {
+								var openBubbleHandles = infoBubbles.openBubbleHandles;
+								
+								var display = container.getDisplay();
+							
+								// retrieve the first info bubble and reposition the map if necessary
+								if(openBubbleHandles.getLength() > 0)
+								{
+								    // get the Bubble object and the related jQuery item
+									var bubbleObj = openBubbleHandles.get(0);
+									var bubbleNode = bubbleObj.node;
+									var jqBubble = $(bubbleNode);
+									
+									// retrieve the height and width, and pixel location on map
+									var bubbleWidth = jqBubble.outerWidth();
+									var bubbleHeight = jqBubble.outerHeight();
+									var bubbleCoord = bubbleObj.coordinate;
+									var bubblePoint = display.geoToPixel(bubbleCoord);
+									
+									// calc bounding box (add extra to upper-right to clear various map buttons)
+									var leftX = bubblePoint.x;
+									var bottomY = bubblePoint.y;
+									var rightX = leftX + bubbleWidth + 40;
+									var topY = bottomY - bubbleHeight - 50;
+									
+									// if the bubble is off the upper-right corner
+									if(rightX > display.width && topY < 0)
+									{
+										// pan in both axes
+										display.pan(display.width, 0, rightX, topY);
+									}
+									// else if just off the top edge...
+									else if(topY < 0)
+									{
+										// pan vertically
+										display.pan(0, 0, 0, topY);
+									}
+									// else if off the right-hand edge...
+									else if(rightX > display.width)
+									{
+										// pan horizontally
+										display.pan(display.width, 0, rightX, 0);
+									}
+								}
+							}
+						});
+						
 						boundingBox = resultSet.container.getBoundingBox();
 						
 						// Here we check whether we have valid bounding box or no. 
