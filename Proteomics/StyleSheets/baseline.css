@@ -117,6 +117,10 @@ table {
 .genSiteContentColumn #genSlotBody img {
 	margin: 8px;
 }
+/* remove margin set by above rule for images in figure elements */
+.genSiteContentColumn #genSlotBody figure img {
+	margin: 0;
+}
 
 img.right {
 	float: right;
