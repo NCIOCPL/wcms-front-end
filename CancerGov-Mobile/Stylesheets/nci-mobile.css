@@ -95,6 +95,14 @@ figcaption .caption-container {
 	font-size: 12px;
 	line-height: 1.2em;
 }
+/* remove default spacing of p tags as this adds extra spacing around caption content */
+figcaption p:first-child {
+    margin-top: 0;
+}
+figcaption p:last-child {
+    margin-bottom: 0;
+	padding-bottom: 0;
+}
 /* end HTML5 figure images */
 
 .site-banner{
