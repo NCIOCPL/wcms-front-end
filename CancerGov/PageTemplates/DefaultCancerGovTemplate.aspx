@@ -58,7 +58,7 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
-	  <NCI:TemplateSlot ID="cgvOlderNewer" runat="server" />
+	  <NCI:TemplateSlot ID="cgvOlderNewer" runat="server" CssClass="clearfix" />
 	  <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
 	  <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />	
 	  
