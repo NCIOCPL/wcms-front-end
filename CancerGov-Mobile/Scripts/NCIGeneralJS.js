@@ -36,7 +36,7 @@ $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this
         var email = $("#EmailUs").attr('href');
 		var body ="";
 		if(email.indexOf("?subject=") != -1){
-			body = " - "+ canonical + "&body=" + "Hi, please see my question below. I was on this page, " + canonical;
+			body = " - "+ canonical + "&body=" + "Hi, please see my question or comment below. I was on this page, " + canonical;
 		}
 		else{body = "?body=" + canonical;}
         $("#EmailUs").attr('href', email + body);
