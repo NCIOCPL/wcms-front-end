@@ -337,6 +337,10 @@ body {
 				float: left;
 				width: 220px;
 			}
+			
+			.gennewsletterdetails .genSiteRightColumn {
+				display: none;
+			}
 	
 	/**
 		D. Site Footer

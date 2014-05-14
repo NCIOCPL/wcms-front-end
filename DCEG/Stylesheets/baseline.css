@@ -634,7 +634,7 @@ img.center {
 			
 			p.genSiteSectionParent {
 				font-size: 12px;
-				padding: 0 0 12px 0;
+				padding: 0 0 12px 16px;
 				font-weight: bold;
 			}
 			
@@ -837,6 +837,7 @@ img.center {
 				#genSlotTitle h2 {
 					color:#555;
 					font-size:1.1em;
+					margin-bottom: 0;
 				}
 				
 				/* If #genSlotTitle is in side of .genSiteContentColumn, the padding needs to change. */
@@ -847,6 +848,9 @@ img.center {
 					.genSiteContentColumn  #genSlotTitle h1,
 					.genSiteContentColumn  #genSlotTitle h2 {
 						padding: 0 0 0 0;
+					}
+					.genSiteContentColumn  #genSlotTitle h2 {
+						padding: 10px 0 0 0;
 					}
 
 		
@@ -862,6 +866,9 @@ img.center {
 			.genSiteContentColumn {
 				margin-right: 2%; /* Right hand side margin */
 				width: 67%; /* Width adjusted to account for margin */
+			}
+			.gennewsletterdetails .genSiteContentColumn {
+				width: 100%;
 			}
 				.genSiteContentColumn .slot-item {
 					overflow: hidden;
@@ -1727,6 +1734,10 @@ ol li.genSearchItem {
 		iv. Content Block in a Sidebar
 	**/
 	
+	.genContentBlock h3 {
+		margin-bottom: 0;
+	}
+	
 		.genContentBlock ul {
 			margin: 0 0 0 0;
 			padding: 0 12px 18px 12px;
@@ -1854,6 +1865,17 @@ ol li.genSearchItem {
 	Newsletter List Page
 ***/
 
+ul.newsletter-stories {
+	list-style-type: none;
+}
+ul.newsletter-stories {
+	margin-left: 25px;
+}
+ul.newsletter-stories li {
+	clear: both;
+	margin-top: 5px;
+}
+
 ul.newsletter-list {
 	margin-left:0;
 	list-style-type:none;
@@ -1896,29 +1918,35 @@ p.byline{ padding: 18px 0;}
 /***
 	Search Linkage Styles
 ***/
+.search-linkage {
+	padding: 0 0 10px;
+}
+
 .search-linkage #search-input{
 	background: url("/publishedcontent/images/images/input-search-bground.gif") no-repeat scroll 98% center #FFFFFF;
 	border: 1px solid #AAAAAA;
     color: #7E7E7E;
+		float: left;
     font-size: 12px;
     height: 26px;
     line-height: 26px;
     padding: 0 4px;
+		margin-bottom: 15px;
     vertical-align: middle;
-    width: 175px;
+    width: 94%;
 }
 
 .search-linkage #search-btn{
 	background-color: #dcdcdc;
     border: 1px solid #4D4D4D;
+		float: right;
     color: #000;
     cursor: pointer;
     font-family: Arial,Helvetica,sans-serif;
     height: 26px;
     letter-spacing: 1px;
     padding: 0;
-	margin: 0 0 0 120px;
-    vertical-align: middle;
+		vertical-align: middle;
     width: 70px;
 }
 
@@ -1928,16 +1956,22 @@ p.byline{ padding: 18px 0;}
 
 .contentid-401742 { background-color: #e9ecf5;}
 
+.linkage-subscribe {
+	padding: 0 0 10px;
+}
+
 .linkage-subscribe #email-input{
 	background: url("/publishedcontent/images/images/input-search-email-icon.gif") no-repeat scroll 98% center #FFFFFF;
 	border: 1px solid #AAAAAA;
     color: #7E7E7E;
+		float: left;
     font-size: 12px;
     height: 26px;
     line-height: 26px;
     padding: 0 4px;
+		margin-bottom: 15px;
     vertical-align: middle;
-    width: 175px;
+    width: 94%;
 }
 
 .linkage-subscribe #submit-btn{
@@ -1949,7 +1983,7 @@ p.byline{ padding: 18px 0;}
     height: 26px;
     letter-spacing: 1px;
     padding: 0;
-	margin: 0 0 0 105px;
+	  float: right;
     vertical-align: middle;
     width: 81px;
 }
@@ -2009,7 +2043,7 @@ p.byline{ padding: 18px 0;}
 	
 	/* overall container */
 	
-body.genLanding #news-slider {
+#news-slider {
 		border: 1px solid #7C7C7C;
 		-moz-border-radius: 10px;
     	-webkit-border-radius: 10px;
@@ -2025,29 +2059,29 @@ body.genLanding #news-slider {
 	}
 		/* container for featured item */
 		
-		body.genLanding #news-slider .ui-tabs-panel-x {
+		#news-slider .ui-tabs-panel-x {
 			border: 0;
 			/*height: 200px;*/
 			margin: 2px;
 			width: 100%;
 		}	
-			body.genLanding #news-slider .ui-tabs-panel-x img {
+			#news-slider .ui-tabs-panel-x img {
 				float: left;
 				margin: 9px;
 			}	
-			body.genLanding #news-slider .ui-tabs-panel-x p,
-			body.genLanding #news-slider .ui-tabs-panel-x li {
+			#news-slider .ui-tabs-panel-x p,
+			#news-slider .ui-tabs-panel-x li {
 				/*font-size: 12px;*/
 			}
 			
-			body.genLanding #news-slider .ui-tabs-panel-x p{
+			#news-slider .ui-tabs-panel-x p{
 				padding-bottom:0px;
 				}
 				
-			body.genLanding #news-slider .ui-tabs-panel-x a {
+			#news-slider .ui-tabs-panel-x a {
 				text-decoration: underline;
 			}
-				body.genLanding #news-slider .ui-tabs-panel-x a:hover {
+				#news-slider .ui-tabs-panel-x a:hover {
 					text-decoration: none;
 				}
 			.ui-tabs-panel-x p {
@@ -2056,7 +2090,7 @@ body.genLanding #news-slider {
 
 			/* text in featured item */
 			
-			body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
 				float: left;
 				width: 57%;
 				margin: 10px 0 10px 10px;
@@ -2064,29 +2098,29 @@ body.genLanding #news-slider {
 				line-height: 1.3em;
 			}
 				/* text in featured item on home */
-				body.genHome body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
+				body.genHome #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text {
 					/*width: 58%;*/
 				}
 			
-			body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h2 {
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h2 {
 				margin: 0;
 				padding-bottom: 4px;
 			}
 			
-			body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h3 {
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h3 {
 				font-size:1.1em;
 				padding-bottom:0px;
 			}
-				body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a {
+				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a {
 					text-decoration: none;
 					font-size: 0.9em;
 					line-height:1em;
 				}
-				body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:hover {
+				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:hover {
 					text-decoration: underline;
 				}
 				
-				body.genLanding #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:visited {
+				#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text  a:visited {
 					color: #800080;
 				}
 				
@@ -2104,7 +2138,7 @@ body.genLanding #news-slider {
 				}
 			
 
-				body.genLanding #news-slider .ui-tabs-hide {
+				#news-slider .ui-tabs-hide {
 					display: none;
 				}
 				
@@ -2129,22 +2163,22 @@ body.genLanding #news-slider {
 				
 	/* parent container for list items (tabs) */
 	
-	body.genLanding #news-slider ul.news-slider-tabs {
+	#news-slider ul.news-slider-tabs {
 		background: none;
 		margin: 0;
 		padding: 0;
 		width: 100%;
 		overflow:hidden;
 	}
-	body.genLanding #news-slider .ui-widget-header {
+	#news-slider .ui-widget-header {
 		border: 0;
 	}
 	/* container for individual list items */
 	
-	body.genLanding #news-slider ul.news-slider-tabs {
+	#news-slider ul.news-slider-tabs {
 		overflow: hidden;
 	}
-		body.genLanding #news-slider ul.news-slider-tabs li.news-slider-tabs-item {
+		#news-slider ul.news-slider-tabs li.news-slider-tabs-item {
 				
 			/* Background Gradient */
 			background-image: url('/publishedcontent/images/images/tcz-tab-bg.png') ;
@@ -2171,30 +2205,30 @@ body.genLanding #news-slider {
 			overflow: hidden;
 		}
 		
-		body.genLanding #news-slider ul.news-slider-tabs li.first {
+		#news-slider ul.news-slider-tabs li.first {
 			
 			border-bottom-left-radius: 10px;
 			}
 		
-		body.genLanding #news-slider ul.news-slider-tabs li.last {
+		#news-slider ul.news-slider-tabs li.last {
 			width: 33.5%;
 			border-right: 0;
 			overflow: hidden;
 			border-bottom-right-radius: 10px;
 			}
-		body.genLanding #news-slider ul.news-slider-tabs .ui-state-default {
+		#news-slider ul.news-slider-tabs .ui-state-default {
 		}
-			body.genLanding #news-slider ul.news-slider-tabs .ui-state-default.last {
+			#news-slider ul.news-slider-tabs .ui-state-default.last {
 			}
-		body.genLanding #news-slider ul.news-slider-tabs .ui-state-active {
+		#news-slider ul.news-slider-tabs .ui-state-active {
 		
 		}
-			body.genLanding #news-slider ul.news-slider-tabs .ui-state-active.last {
+			#news-slider ul.news-slider-tabs .ui-state-active.last {
 			}
 			
 			/* link used inside of list items */
 			
-			body.genLanding #news-slider li.news-slider-tabs-item a { /*On Hover Style*/
+			#news-slider li.news-slider-tabs-item a { /*On Hover Style*/
 				display: block;
 				text-decoration:none;
 				overflow: hidden;
@@ -2204,11 +2238,11 @@ body.genLanding #news-slider {
 				outline: none;
 				padding: 8px;
 			}
-			body.genLanding #news-slider li.news-slider-tabs-item a { /*On Hover Style*/
+			#news-slider li.news-slider-tabs-item a { /*On Hover Style*/
 
 			}
 			/* thumbnail images in tabs */
-			body.genLanding #news-slider li.news-slider-tabs-item img {
+			#news-slider li.news-slider-tabs-item img {
 				margin: 0 10px 0 0;
 				float:left;
 				width: 50px;
@@ -2216,15 +2250,15 @@ body.genLanding #news-slider {
 				border: #7C7C7C thin solid; 
 			}
 			/* container for individual list items image and text on hover */
-			body.genLanding #news-slider li.news-slider-tabs-item a:hover {
+			#news-slider li.news-slider-tabs-item a:hover {
 			}
 			/* container for text in individual list items, selected */
-			body.genLanding #news-slider ul.news-slider-tabs li.ui-tabs-selected { /*Selected tab style*/
+			#news-slider ul.news-slider-tabs li.ui-tabs-selected { /*Selected tab style*/
 				background-color: #fff;
 				border-top: 1px solid #fff;
 			}
 				/* container for text in individual list items, selected */
-				body.genLanding #news-slider ul.news-slider-tabs li.ui-tabs-selected a {
+				#news-slider ul.news-slider-tabs li.ui-tabs-selected a {
 					background-color:#FFF;
 					color: #0054a6;
 					text-decoration: none;
