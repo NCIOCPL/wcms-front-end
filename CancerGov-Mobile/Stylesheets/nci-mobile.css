@@ -69,6 +69,42 @@ td {
 
 .content-general img{max-width:100%;}
 
+/* images using the HTML5 figure and figcaption elements */
+/* contain image inside fig */
+figure img {
+    max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+/* make enlarge link block level for display purposes */
+a.article-image-enlarge {
+	display: block;
+	text-align: right;
+}
+/* style all figcaption elements the same */
+figcaption {
+	margin-top: 5px;
+	border-top: 1px solid #BDBDBD;
+}
+figcaption .caption-container {
+	display: block;
+	color: #666;
+	background: #DDDDDD;
+	padding: 10px;
+	margin-top: 5px;
+	font-size: 12px;
+	line-height: 1.2em;
+}
+/* remove default spacing of p tags as this adds extra spacing around caption content */
+figcaption p:first-child {
+    margin-top: 0;
+}
+figcaption p:last-child {
+    margin-bottom: 0;
+	padding-bottom: 0;
+}
+/* end HTML5 figure images */
+
 .site-banner{
 	float:left;
 	}

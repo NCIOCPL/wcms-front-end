@@ -35,15 +35,13 @@
     <a name="skiptocontent" tabindex="1"></a>
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server" />
-      <div class="cancertypecontent">
+      <div class="cancertypecontent clearfix">
+      	<NCI:TemplateSlot ID="cgvPageTitleSl" runat="server" />
         <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server" />
         <NCI:TemplateSlot ID="cgvBody" runat="server"  />
         <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" CssClass="cancertypecontentleft" />
         <NCI:TemplateSlot ID="cgvBodyRight" runat="server" CssClass="cancertypecontentright" />
       </div>
-      <div class="cancertyperightcolumn">
-      	<NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
-      </div>  
     </div>
     <!-- End Content Area --> 
     <!-- End Main Area --> 
