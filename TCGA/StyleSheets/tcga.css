@@ -182,6 +182,16 @@ figcaption p:last-child {
 	font-weight: bold;
 	text-transform: uppercase;
 }
+
+.hidden-from-sight {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
 /* ------------- END "generic" styles --------------------------------------------------------------------------- */
 
 /* ------------- NCI Banner styles --------------------------------------------------------------------------- */
