@@ -48,6 +48,11 @@ figure img {
 	/* remove white space under image */
 	display: block;
 }
+/* center images using the centered templates */
+figure.image-center img,
+figure.image-center-full img {
+	margin: 0 auto;
+}
 /* make enlarge link block level for display purposes */
 a.article-image-enlarge {
 	display: block;
