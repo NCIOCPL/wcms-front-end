@@ -2,9 +2,8 @@
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
 <%@ Register tagPrefix="CGov" namespace="CancerGov.EmergencyAlert" assembly="CancerGov.EmergencyAlert" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head id="header" runat="server">
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -51,7 +50,7 @@ ul.ctpListPageList {
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
     <div class="contentzone contentzone-defaultTemplateContentContainer"> 
-    	<a name="skiptocontent" tabindex="1"></a>
+    	<a id="skiptocontent" tabindex="1"></a>
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />

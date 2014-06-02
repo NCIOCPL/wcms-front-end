@@ -1,15 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head id="header" runat="server">
 <title></title>
-<script type="text/javascript" language="JavaScript" src="/JS/imgEvents.js"></script>
-<script type="text/javascript" language="JavaScript" src="/JS/popEvents.js"></script>
-<script type="text/javascript" language="javascript">	    var bSearchBoxBool = false; </script>
-<script type="text/javascript" language="JavaScript" src="/JS/JSLoader/JSLoader.js"></script>
+<script type="text/javascript" src="/JS/imgEvents.js"></script>
+<script type="text/javascript" src="/JS/popEvents.js"></script>
+<script type="text/javascript">	    var bSearchBoxBool = false; </script>
+<script type="text/javascript" src="/JS/JSLoader/JSLoader.js"></script>
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" runat="server">
 <!-- Site Banner -->
@@ -33,7 +32,7 @@
   </div>
   <!-- End Left Nav --> 
   <!-- Main Content Area -->
-  <div class="contentzone"> <a name="skiptocontent" tabindex="1"></a>
+  <div class="contentzone"> <a id="skiptocontent" tabindex="1"></a>
     <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
     <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
     <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
