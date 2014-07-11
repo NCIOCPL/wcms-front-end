@@ -374,7 +374,7 @@ figcaption p:last-child {
 				background-color: transparent; /* Needed for IE 7 */
 				border-radius: 4px;
 				-moz-border-radius: 4px;
-				padding: 4px 9px;
+				padding: 4px 7px;
 				-webkit-border-radius: 4px;
 			}
 			#genSlotMainNav ul.genSiteMainNav  li a:hover span,
