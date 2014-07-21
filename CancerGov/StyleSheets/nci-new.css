@@ -1,6 +1,4 @@
 /* 6.6 Additions */
-<<<<<<< .working
-
 /* images using the HTML5 figure and figcaption elements */
 /* add block level style to HTML5 elements, for IE */	
 header,nav,article,footer,section,aside,figure,figcaption {
@@ -87,8 +85,6 @@ div.rcc {
 	background: transparent url(/publishedcontent/images/images/researchcancercenter_icon.png) 0 3px no-repeat; 
 }
 
-=======
->>>>>>> .merge-right.r7655
 /*  6.5.1 Additions  */
 /* Active Navigation States when in Subsections of Microsites */
 /* End left nav */
