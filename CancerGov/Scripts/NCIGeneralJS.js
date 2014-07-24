@@ -24,6 +24,10 @@ if (!path){
 		}
 }
 $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
+if($('.with-image').length == 0){
+    $('.list-spacer-image').addClass('image-collapsed');
+	$('.list-item-with-image').addClass('text-collapsed');
+}
 
 /* add nopin tag to images that we do not want used on Pinterest */
 $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).attr( "nopin", "nopin" );
