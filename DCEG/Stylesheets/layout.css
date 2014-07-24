@@ -49,7 +49,6 @@
 ***/
 
 body {
-	font-size: 62.5%;
 	text-align: center;
 	width: 100%;
 }
@@ -144,8 +143,8 @@ body {
 			- Add the class of 'gray' to ul to get the Gray NCI Banner
 		**/
 		#genSlotBrandingBar .gray {
-			border-right: thin solid #798d93;
-			border-left: thin solid #798d93;
+			/*border-right: thin solid #798d93;
+			border-left: thin solid #798d93;*/
 			background: #F4F4F4;
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbfcfc', endColorstr='#d6d6d4');
 			background: -webkit-gradient(linear, left top, left bottom, from(#fbfcfc), to(#d6d6d4));
@@ -224,6 +223,13 @@ body {
 			#genSlotMainNav ul li {
 				float: left;
 				position: relative;
+				border-left: 1px solid #b1b1b1 !important;
+			}
+			#genSlotMainNav ul li.first {
+				border-left: none !important;
+			}
+			#genSlotMainNav ul ul li.first {
+				border-left: 1px solid #b1b1b1 !important;
 			}
 		#genSlotMainNav ul.genSiteMainNav {
 			float: left;
@@ -256,7 +262,7 @@ body {
 			}
 				ul.genSiteMainNav  li ul  {
 					display: none;
-					left: 0;
+					left: -1px;
 					margin: 0;
 					padding: 0;
 					position: absolute;
