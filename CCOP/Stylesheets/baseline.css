@@ -149,6 +149,42 @@ figcaption p:last-child {
     margin-bottom: 0;
 	padding-bottom: 0;
 }
+
+/* media highlight item css (Cheetoh IT1) */
+.media-highlight {
+    position: relative;
+    border: 1px solid #bdbdbd;
+}
+
+.media-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+	background-color: #464646;
+	color: #ffffff;
+	height: 34px;
+	line-height: 34px;
+	font-size: 15px;
+	width: 120px;
+	text-align: center;
+	/* firefox 3.5 */
+	-moz-transform: rotate(90deg) translateX(120px);
+	-moz-transform-origin: 100% 0%;
+	/* Saf3.1+, Chrome */
+	-webkit-transform: rotate(90deg) translateX(120px);
+	-webkit-transform-origin: 100% 0%;
+	/* IE 9+ */
+	-ms-transform: rotate(90deg) translateX(120px);
+	-ms-transform-origin: 100% 0%;
+}
+
+.media-label.media-infographic.en-us:before {
+    content:"Infographic";
+}
+
+.media-label.media-infographic.es-us:before {
+    content:"Infografía";
+}
 /* end images using the HTML5 figure and figcaption elements */
 .date { color:#666666; font-family:Arial,Helvetica,sans-serif; font-size:0.9em; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; }
 	 /*	Ensuring extra div.slot-items generated from CDE do not have default padding. */
