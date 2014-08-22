@@ -35,7 +35,7 @@ ul.ctpListPageList {
   <!-- Content Header -->
   <div id="headerzone">
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
-    <NCI:TemplateSlot ID="cgvLanguageDate" runat="server" />
+    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   </div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
@@ -56,9 +56,10 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
-      <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+      <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
+	  <NCI:TemplateSlot ID="cgvDate" runat="server" />
+	  <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
 	  <NCI:TemplateSlot ID="cgvOlderNewer" runat="server" CssClass="clearfloats clearfix" />
-	  <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
 	  <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />	
 	  
 	  <!-- Begin Public Use Slot -->
