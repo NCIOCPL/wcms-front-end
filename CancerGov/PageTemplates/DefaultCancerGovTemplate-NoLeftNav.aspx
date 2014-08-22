@@ -17,7 +17,7 @@
   <!-- Content Header -->
   <div id="headerzone">
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
-    <NCI:TemplateSlot ID="cgvLanguageDate" runat="server" />
+    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   </div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
@@ -34,6 +34,7 @@
       <!-- End Tile zone column -->
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+	  <NCI:TemplateSlot ID="cgvDate" runat="server" />
     </div>
     <!-- End Content Area --> 
   </div>
