@@ -18,7 +18,7 @@
   <!-- Content Header -->
   <div id="headerzone">
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
-    <NCI:TemplateSlot ID="cgvLanguageDate" runat="server" />
+    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   </div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
@@ -41,6 +41,7 @@
         <NCI:TemplateSlot ID="cgvBody" runat="server"  />
         <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" CssClass="cancertypecontentleft" />
         <NCI:TemplateSlot ID="cgvBodyRight" runat="server" CssClass="cancertypecontentright" />
+		<NCI:TemplateSlot ID="cgvDate" runat="server" />
       </div>
     </div>
     <!-- End Content Area --> 
