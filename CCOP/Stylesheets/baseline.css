@@ -81,6 +81,7 @@ header,nav,article,footer,section,aside,figure,figcaption {
 }
 figure {
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 /* image right 25% width */
 figure.image-right-small {

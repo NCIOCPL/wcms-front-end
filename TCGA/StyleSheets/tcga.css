@@ -71,11 +71,17 @@ form {
 td {
 	padding: 5px;
 }
-img.left {
+
+img.center, div.center {
+	display: block;
+	margin: 0 auto;
+}
+
+img.left, div.left {
 	float: left;
 	margin: 0 10px 5px 0;
 }
-img.right {
+img.right, div.right {
 	float: right;
 	margin: 0 0 5px 10px;
 }
@@ -89,6 +95,7 @@ header,nav,article,footer,section,aside,figure,figcaption {
 }
 figure {
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 /* image right 25% width */
 figure.image-right-small {

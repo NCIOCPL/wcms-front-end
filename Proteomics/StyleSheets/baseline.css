@@ -139,6 +139,7 @@ img.center {
 /* add block level style to HTML5 elements, for IE */	
 header,nav,article,footer,section,aside,figure,figcaption {
 	display:block;
+	overflow: hidden;
 }
 figure {
 	margin-bottom: 10px;
