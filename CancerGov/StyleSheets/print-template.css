@@ -120,6 +120,12 @@ background-color:#FFF;
 padding:0;
 }
 
+
+.document-title-block  .document-dates {
+	display: none;
+}
+
+
 .document-dates {
 float:left !important;
 margin:0 0 30px !important;
