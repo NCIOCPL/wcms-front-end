@@ -33,9 +33,9 @@
       <NCI:TemplateSlot ID="cgvTileSlot" runat="server" CssClass="TileSlot" />
       <!-- End Tile zone column -->
       <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-      <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
-	  <NCI:TemplateSlot ID="cgvDate" runat="server" />
-    </div>
+      <NCI:TemplateSlot ID="cgvDate" runat="server" />
+	  <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+	</div>
     <!-- End Content Area --> 
   </div>
   <!-- End Left Navigation and Content Area --> 
