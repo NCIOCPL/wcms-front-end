@@ -43,28 +43,29 @@ ul.ctpListPageList {
     <!-- Left Nav Column -->
     <div class="leftzone">
       <NCI:TemplateSlot ID="cgvFindACancerTypeSlot" runat="server" CssClass="LeftNavSlot" />
-      <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot" />      
+      <NCI:TemplateSlot ID="cgvSectionNav" runat="server" CssClass="LeftNavSlot" />
       <NCI:TemplateSlot ID="cgvLeftNav" runat="server" CssClass="LeftNavSlot" />
-	  <NCI:TemplateSlot ID="cgvBottomLeftNav" runat="server" CssClass="LeftNavSlot" />
+      <NCI:TemplateSlot ID="cgvBottomLeftNav" runat="server" CssClass="LeftNavSlot" />
     </div>
     <!-- End Left Nav --> 
     <!-- Main Content Area -->
-    <div class="contentzone contentzone-defaultTemplateContentContainer"> 
-    	<a id="skiptocontent" tabindex="1"></a>
+    <div class="contentzone contentzone-defaultTemplateContentContainer"> <a id="skiptocontent" tabindex="1"></a>
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
-      <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
+      <article>
+        <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
+      </article>
       <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
-	  <NCI:TemplateSlot ID="cgvDate" runat="server" />
-	  <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
-	  <NCI:TemplateSlot ID="cgvOlderNewer" runat="server" CssClass="clearfloats clearfix" />
-	  <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />	
-	  
-	  <!-- Begin Public Use Slot -->
+      <NCI:TemplateSlot ID="cgvDate" runat="server" />
+      <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
+      <NCI:TemplateSlot ID="cgvOlderNewer" runat="server" CssClass="clearfloats clearfix" />
+      <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
+      
+      <!-- Begin Public Use Slot -->
       <NCI:TemplateSlot ID="cgvPublicUseNoticeSl" runat="server" />
-      <!-- End Public Use Slot -->
+      <!-- End Public Use Slot --> 
     </div>
     <!-- End Content Area --> 
   </div>
