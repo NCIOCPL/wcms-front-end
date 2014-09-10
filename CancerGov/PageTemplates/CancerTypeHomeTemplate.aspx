@@ -38,9 +38,7 @@
       <div class="cancertypecontent clearfix">
       	<NCI:TemplateSlot ID="cgvPageTitleSl" runat="server" />
         <NCI:TemplateSlot ID="cgvCdrDefinition" runat="server" />
-        <NCI:TemplateSlot ID="cgvBody" runat="server"  />
-        <NCI:TemplateSlot ID="cgvBodyLeft" runat="server" CssClass="cancertypecontentleft" />
-        <NCI:TemplateSlot ID="cgvBodyRight" runat="server" CssClass="cancertypecontentright" />
+        <NCI:TemplateSlot ID="cgvBody" runat="server" />
 		<NCI:TemplateSlot ID="cgvDate" runat="server" />
       </div>
     </div>
