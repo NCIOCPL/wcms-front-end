@@ -32,4 +32,7 @@ if($('.with-image').length == 0){
 /* add nopin tag to images that we do not want used on Pinterest */
 $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).attr( "nopin", "nopin" );
 
+/*code to enlarge an image or a table*/
+ $( ".expandable_container > img" ).supersizeme( {text: 'Enlarge'} );
+          $( "table" ).supersizeme( {text: 'Enlarge'} );
 });
