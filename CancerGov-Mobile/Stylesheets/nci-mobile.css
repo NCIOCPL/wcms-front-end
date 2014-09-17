@@ -71,6 +71,24 @@ font-style:italic;
 margin: 0; padding: 0;
 background: #EBEAE9;
 }
+
+div.keyPoints h3 {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-bottom: 1px solid #BDBDBD;
+    color: #333333;
+    margin: 0 -10px;
+    padding: 2px;
+    text-align: center;}
+
+  .enlarge-link  { display: block;
+                   color: #9C3303;
+                   text-align: right;
+                   text-decoration: underline; }
+  .pdq-image-table-enlarge { position: absolute;
+           width: 100%;
+           left: 0;
+           right: 0; }
+		   
 /* END new styles for PDQ */
 
 
