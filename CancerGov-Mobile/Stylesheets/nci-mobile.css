@@ -1,3 +1,80 @@
+/* BEGIN new styles for PDQ */
+table figure {
+  display: table !important;
+  table-layout: fixed;
+}
+.table-enlarge {text-align: right;}
+
+.contentzone .on-this-page ul {
+	padding-left: 0;
+	border: 0px solid blue;
+}
+.contentzone .on-this-page ul ul {
+	padding-left: 20px;
+}
+.contentzone .on-this-page ul li {
+	margin-bottom: 3px;
+	background: none;
+	list-style-type: none;
+}
+.trial-sites h4 {
+	background: #E6E6E2;
+	padding: 3px 0;
+	font-size: 16px;
+}
+.trial-sites h5 {
+	color: #993333;
+	font-size: 15px;
+	margin: 10px 0;
+	border: 0px solid blue;
+}
+.trial-sites h6 {
+	font-size: 14px;
+	font-style: normal;
+	margin: 5px 0 10px;
+}
+.trial-sites .two-columns {
+	margin: 0 30px;
+	border: 0px solid red;
+}
+.definition-term {
+	line-height: 1em;
+}
+.definition-term-image {
+	display: inline-block; vertical-align:middle;
+}
+figure.definition-image {
+    width: 25%;
+		display: block;
+}
+table.drug-combination {
+	margin-left: 20px;
+	width: 100%;
+}
+table.drug-combination td {
+	padding: 5px;
+}
+table.drug-combination td.drug-combo-letter {
+	text-align: right;
+	font-weight: bold;
+}
+table.brand-fda td, table.brand-fda th {
+	padding: 5px;
+}
+.brand-fda .column1 {
+	 width: 150px !important; /* move under column1, and then the important can be removed, because this will override the 48% width based on it coming after that one is declared */
+	 font-weight: bold;
+}
+table.table-default tfoot td {
+border: none;
+font-style:italic;
+margin: 0; padding: 0;
+background: #EBEAE9;
+}
+/* END new styles for PDQ */
+
+
+
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#4d4d4d;
