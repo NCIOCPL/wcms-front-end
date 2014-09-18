@@ -40,5 +40,9 @@ $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this
 		}
 		else{body = "?body=" + canonical;}
         $("#EmailUs").attr('href', email + body);
+		
+		/*code to enlarge an image or a table*/
+		$( ".expandable_container > img" ).supersizeme( { } );
+        $( "table" ).supersizeme( { } );
 
 });
