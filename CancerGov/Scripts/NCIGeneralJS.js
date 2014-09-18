@@ -35,4 +35,11 @@ $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).
 /*code to enlarge an image or a table*/
   $( ".expandable_container > img" ).supersizeme( { } );
           $( "table" ).supersizeme( { } );
+		  
+		  
+		  /*javascript call for keypoints and table of contents*/
+		  $("#_toc_section").stoc({ search: "section", start: 3, depth: 2,
+          tocTitleEn: "Table of contents for this section",
+          tocTitleEs: "Tabla de contenidos para esta sección"});
+		  
 });
