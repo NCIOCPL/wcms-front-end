@@ -1,6 +1,8 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
+<%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.Configuration"
+    TagPrefix="Config" %>
 <%@ Register tagPrefix="CGov" namespace="CancerGov.EmergencyAlert" assembly="CancerGov.EmergencyAlert" %>
 <!doctype html>
 <html>
@@ -23,6 +25,25 @@
 <body runat="server">
 <!-- CGov Container -->
 <div id="cgovContainer"> 
+<!-- Language Toggle -->
+<div class="languageToggle" align="right">
+  <NCI:LanguageToggleControl ID="langtoggle" runat="server">
+	<LanguageToggles>
+	  <Config:LanguageToggle Language="en" Url="/espanol">
+	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
+	  </Config:LanguageToggle>
+	  <Config:LanguageToggle Language="es" Url="/">
+	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
+	  </Config:LanguageToggle>
+	  <Config:LanguageToggle Language="pt" Url="/">
+	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
+	  </Config:LanguageToggle>
+	  <Config:LanguageToggle Language="zh" Url="/">
+	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
+	  </Config:LanguageToggle>	  
+	</LanguageToggles>
+  </NCI:LanguageToggleControl>
+</div>
   <!-- Site Banner -->
   <div class="skip"><a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
   <NCI:TemplateSlot ID="cgvSiteBanner" runat="server" />
