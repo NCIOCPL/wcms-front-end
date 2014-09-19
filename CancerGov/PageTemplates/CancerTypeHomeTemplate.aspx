@@ -43,7 +43,7 @@
   </div>
 <!--Page Options Bar-->
 <div align="right">
-<NCI:PageOptionsControl ID="AddThisButtonList1" runat="server">
+<NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="page-options" runat="server">
 	<PageOptionsButtonLanguages>
 		<NCI:PageOptionsButtonLanguageItem Language="en">
 			<ButtonsCollection>
