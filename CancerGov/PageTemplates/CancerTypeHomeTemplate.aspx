@@ -37,39 +37,39 @@
   <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
   <!-- End Site Banner and main navigation --> 
   <!-- Content Header -->
-  <div id="headerzone">
+  <div id="headerzone clearfix">
     <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
+	<!--Page Options Bar-->
+	<div class="page-options">
+		<NCI:PageOptionsControl ID="PageOptionsControl1" runat="server">
+			<PageOptionsButtonLanguages>
+				<NCI:PageOptionsButtonLanguageItem Language="en">
+					<ButtonsCollection>
+						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="Email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
+						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
+						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
+						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+						<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+						<NCI:PageOptionsAddThisButtonItem Service="pinterest_share" Title="Pinterest" CssClass="po-pinterest" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+					</ButtonsCollection>
+				</NCI:PageOptionsButtonLanguageItem>
+				<NCI:PageOptionsButtonLanguageItem Language="es">
+					<ButtonsCollection>
+						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="Email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
+						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
+						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
+						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+						<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+						<NCI:PageOptionsAddThisButtonItem Service="pinterest_share" Title="Pinterest" CssClass="po-pinterest" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+					</ButtonsCollection>
+				</NCI:PageOptionsButtonLanguageItem>
+			</PageOptionsButtonLanguages>
+		</NCI:PageOptionsControl>
+	</div>
   </div>
-<!--Page Options Bar-->
-<div align="right">
-<NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="page-options" runat="server">
-	<PageOptionsButtonLanguages>
-		<NCI:PageOptionsButtonLanguageItem Language="en">
-			<ButtonsCollection>
-				<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="Email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
-				<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
-				<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
-				<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-				<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-				<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-				<NCI:PageOptionsAddThisButtonItem Service="pinterest_share" Title="Pinterest" CssClass="po-pinterest" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-			</ButtonsCollection>
-		</NCI:PageOptionsButtonLanguageItem>
-		<NCI:PageOptionsButtonLanguageItem Language="es">
-			<ButtonsCollection>
-				<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="Email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
-				<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
-				<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
-				<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-				<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-				<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-				<NCI:PageOptionsAddThisButtonItem Service="pinterest_share" Title="Pinterest" CssClass="po-pinterest" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-			</ButtonsCollection>
-		</NCI:PageOptionsButtonLanguageItem>
-	</PageOptionsButtonLanguages>
-</NCI:PageOptionsControl>
-</div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
   <div id="mainContainer"> 
