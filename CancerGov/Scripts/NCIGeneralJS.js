@@ -33,8 +33,7 @@ if($('.with-image').length == 0){
 $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).attr( "nopin", "nopin" );
 
 /*code to enlarge an image or a table*/
-  $( ".expandable_container > img" ).supersizeme( { } );
-          $( "table" ).supersizeme( { } );
-		    
+  $( ".expandable-container" ).supersizeme( { } );
+       		    
 		  
 });
