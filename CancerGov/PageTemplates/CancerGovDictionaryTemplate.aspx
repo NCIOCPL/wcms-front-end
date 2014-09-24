@@ -15,22 +15,38 @@
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" runat="server">
 <!-- Language Toggle -->
 <div class="languageToggle" align="right">
-  <NCI:LanguageToggleControl ID="langtoggle" runat="server">
-	<LanguageToggles>
-	  <Config:LanguageToggle Language="en" Url="/espanol">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>
-	  <Config:LanguageToggle Language="es" Url="/">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>
-	  <Config:LanguageToggle Language="pt" Url="/">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>
-	  <Config:LanguageToggle Language="zh" Url="/">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>	  
-	</LanguageToggles>
-  </NCI:LanguageToggleControl>
+<NCI:LanguageToggleControl ID="LangList1" runat="server">
+	<LanguageToggleLanguages>
+		<NCI:LanguageToggleLanguageItem Language="en">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Español" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Português" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+		<NCI:LanguageToggleLanguageItem Language="es">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Português" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+		<NCI:LanguageToggleLanguageItem Language="pt">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Español" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+		<NCI:LanguageToggleLanguageItem Language="zh">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Español" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Português" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+	</LanguageToggleLanguages>
+</NCI:LanguageToggleControl>
 </div>
 <!-- Site Banner -->
 <div class="skip"> <a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
@@ -46,7 +62,7 @@
 			<PageOptionsButtonLanguages>
 				<NCI:PageOptionsButtonLanguageItem Language="en">
 					<ButtonsCollection>
-						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="Email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
+						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
 						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
@@ -57,7 +73,7 @@
 				</NCI:PageOptionsButtonLanguageItem>
 				<NCI:PageOptionsButtonLanguageItem Language="es">
 					<ButtonsCollection>
-						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="Email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
+						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
 						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />

@@ -27,28 +27,25 @@
 <div id="cgovContainer"> 
 <!-- Language Toggle -->
 <div class="languageToggle" align="right">
-  <NCI:LanguageToggleControl ID="langtoggle" runat="server">
-	<LanguageToggles>
-	  <Config:LanguageToggle Language="en" Url="/espanol">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>
-	  <Config:LanguageToggle Language="es" Url="/">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>
-	  <Config:LanguageToggle Language="pt" Url="/">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>
-	  <Config:LanguageToggle Language="zh" Url="/">
-	  <Template><a href="{0}" class="ui-link" onclick="NCIAnalytics.ClickLink(this,'Language Select {1}');">{1}</a>&nbsp;&nbsp;&nbsp;</Template>
-	  </Config:LanguageToggle>	  
-	</LanguageToggles>
-  </NCI:LanguageToggleControl>
+<NCI:LanguageToggleControl ID="LangList1" runat="server">
+	<LanguageToggleLanguages>
+		<NCI:LanguageToggleLanguageItem Language="en">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+		<NCI:LanguageToggleLanguageItem Language="es">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+	</LanguageToggleLanguages>
+</NCI:LanguageToggleControl>
 </div>
   <!-- Site Banner -->
   <div class="skip"><a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
   <NCI:TemplateSlot ID="cgvSiteBanner" runat="server" />
   <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
-  <CGov:EmergencyAlertBanner ID="EmergencyAlertBanner" runat="server" />
   <!-- End Site Banner --> 
   <!-- Content Header -->
   <div id="headerzone">
