@@ -27,7 +27,9 @@
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
-      <NCI:TemplateSlot ID="cgvBody" runat="server"  />
+	  <article id="_article">
+		<NCI:TemplateSlot ID="cgvBody" runat="server"  />
+	  </article>
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" />
 	  <NCI:TemplateSlot ID="cgvDate" runat="server" />
     </div>
