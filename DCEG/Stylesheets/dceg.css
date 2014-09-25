@@ -213,3 +213,17 @@ figcaption p:last-child {
     content:"Infografía";
 }
 /* end images using the HTML5 figure and figcaption elements */
+
+/*Recaptcha */
+
+.recaptchatable #recaptcha_response_field {
+	margin: 10px 0 0 0!important;
+}
+
+.recaptcha_only_if_privacy {
+	margin-top: -5px !important;
+}
+
+.recaptcha_only_if_privacy .exitNotification{
+	display:none;	
+}
