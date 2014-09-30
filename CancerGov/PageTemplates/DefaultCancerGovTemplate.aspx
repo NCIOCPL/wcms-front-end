@@ -70,7 +70,6 @@ ul.ctpListPageList {
   <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
   <!-- Content Header -->
   <div id="headerzone clearfix">
-    <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
 	<!--Page Options Bar-->
 	<div class="page-options">
@@ -118,6 +117,7 @@ ul.ctpListPageList {
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
       <NCI:TemplateSlot ID="cgvRightNav" runat="server" CssClass="RightNavSlot" />
+	  <NCI:TemplateSlot ID="cgvTitle" runat="server"  />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
       <article id="_article">
         <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />

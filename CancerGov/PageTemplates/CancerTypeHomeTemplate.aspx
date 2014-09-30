@@ -54,7 +54,6 @@
   <!-- End Site Banner and main navigation --> 
   <!-- Content Header -->
   <div id="headerzone clearfix">
-    <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
 	<!--Page Options Bar-->
 	<div class="page-options">

@@ -50,7 +50,6 @@
   <!-- Content Header -->
   <div id="headerzone">
 	<NCI:TemplateSlot ID="coloMessage" runat="server" />
-    <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   </div>
   <!-- Main Area --> 

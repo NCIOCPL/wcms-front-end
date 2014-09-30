@@ -15,7 +15,6 @@
   <NCI:TemplateSlot ID="cgvSiteBannerPrint" runat="server" />  
   <!-- Content Header -->
   <div id="headerzone">
-    <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   </div>
   <!-- Main Area --> 
