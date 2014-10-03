@@ -14,16 +14,20 @@ jQuery(document).ready(function($) {
 //document.write($('meta').name);
 var path;
 var altText;
+var promptText;
 var lang = $('meta[name="content-language"]').attr('content');
 if (!path){
-	if( lang == "en"){
-		path = $('meta[name="english-linking-policy"]').attr('content');
-		altText ='Exit Disclaimer';
-		}
-	else{ 
+	if( lang == "es"){ 
 		path = $('meta[name="espanol-linking-policy"]').attr('content');
 		altText ='Notificaci\u00F3n de salida';
+		promptText = "Hola, por favor vea mi pregunta o comentario en la parte de abajo. Yo estaba en la siguiente página: ";
 		}
+	else{
+		path = $('meta[name="english-linking-policy"]').attr('content');
+		altText ='Exit Disclaimer';
+		promptText = "Hi, please see my question or comment below. I was on this page, ";
+		}
+
 }
 $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/PublishedContent/Images/global/images/exit_small.png" /></a>');
 
@@ -36,7 +40,7 @@ $("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this
         var email = $("#EmailUs").attr('href');
 		var body ="";
 		if(email.indexOf("?subject=") != -1){
-			body = " - "+ canonical + "&body=" + "Hi, please see my question or comment below. I was on this page, " + canonical;
+			body = " - "+ canonical + "&body=" + promptText + canonical;
 		}
 		else{body = "?body=" + canonical;}
         $("#EmailUs").attr('href', email + body);
