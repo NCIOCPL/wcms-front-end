@@ -36,5 +36,5 @@ $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).
   $( ".expandable-container" ).supersizeme( { } );
   
 /*to ensure large tables have a scroll bar*/  
-  $('.contentzone table').wrap('<div style="overflow: auto;"></div>'); 	  
+  $('.contentzone table').wrap('<div class="pdq-table-scrollbar"></div>'); 	  
 });
