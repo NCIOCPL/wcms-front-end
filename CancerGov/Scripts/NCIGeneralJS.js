@@ -34,7 +34,5 @@ $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).
 
 /*code to enlarge an image or a table*/
   $( ".expandable-container" ).supersizeme( { } );
-  
-/*to ensure large tables have a scroll bar*/  
-  $('.contentzone table').wrap('<div class="pdq-table-scrollbar"></div>'); 	  
+ 
 });
