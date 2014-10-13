@@ -51,6 +51,7 @@
   <div id="headerzone">
 	<NCI:TemplateSlot ID="coloMessage" runat="server" />
     <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
+    <NCI:TemplateSlot ID="cgvSlBreadcrumb" runat="server" /> 
   </div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
