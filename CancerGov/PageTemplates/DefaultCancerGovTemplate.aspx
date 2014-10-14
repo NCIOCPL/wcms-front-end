@@ -35,30 +35,30 @@ ul.ctpListPageList {
 	<LanguageToggleLanguages>
 		<NCI:LanguageToggleLanguageItem Language="en">
 			<LangsCollection>
-				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Español" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Português" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
 				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 		<NCI:LanguageToggleLanguageItem Language="es">
 			<LangsCollection>
 				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Português" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
 				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 		<NCI:LanguageToggleLanguageItem Language="pt">
 			<LangsCollection>
 				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Español" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
 				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 		<NCI:LanguageToggleLanguageItem Language="zh">
 			<LangsCollection>
 				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Español" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Português" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 	</LanguageToggleLanguages>
@@ -78,8 +78,8 @@ ul.ctpListPageList {
 			<PageOptionsButtonLanguages>
 				<NCI:PageOptionsButtonLanguageItem Language="en">
 					<ButtonsCollection>
-						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
+						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
@@ -89,8 +89,8 @@ ul.ctpListPageList {
 				</NCI:PageOptionsButtonLanguageItem>
 				<NCI:PageOptionsButtonLanguageItem Language="es">
 					<ButtonsCollection>
-						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
+						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
