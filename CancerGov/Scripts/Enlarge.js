@@ -26,6 +26,9 @@
     // Creating the "Enlarge" link above the table or figure
     // -----------------------------------------------------------
     return this.each( function() { 
+            //"cache" our target and search objects
+		    myObj = $(this); //target
+
             // Create the anchor link with the link text and add it
             // before the selected element (table or figure)
             // ----------------------------------------------------
@@ -33,31 +36,32 @@
                              enlargeTxt + "</a>";
 
             // Adding the Enlarge button 
-            $(this).before( linkLabel );
+            myObj.before( linkLabel );
 
             // Adding the scrollbar div for tables.
             // Also adding a (unnecessary) div for figures so that it's
             // simpler to handle both, figures and tables with the same
             // code
             // ---------------------------------------------------------
-            if ( $(this)[0].tagName == 'FIGURE' ) {
-                $(this).wrap("<div class='pdq-figure'></div>"); 
+            if ( myObj[0].tagName == 'FIGURE' ) {
+                myObj.wrap("<div class='pdq-figure'></div>"); 
             }
             else {
-                $(this).wrap("<div class='pdq-table-scrollbar'></div>"); 
+                myObj.wrap("<div class='pdq-table-scrollbar'></div>"); 
             }
 
-            var objectID = $( this ).attr("id") + "_e";
-            $(this).parent()
-                   .prev("a")
-                   .attr("id", objectID )
-                   .addClass("pdq-link-enlarge");
+            var objectID = myObj.attr("id") + "_e";
+            myObj.parent()
+                 .prev("a")
+                 .attr("id", objectID )
+                 .attr("href", "#" + objectID)
+                 .addClass("pdq-link-enlarge");
 
             // Add the "normal" class to each element to indicate
             // an element *not* being enlarged
             // --------------------------------------------------
-            $(this).parent()
-                   .addClass("normal");
+            myObj.parent()
+                 .addClass("normal");
 
             // Create the click event on the Enlarge link
             // -------------------------------------------
