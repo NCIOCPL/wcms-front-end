@@ -52,19 +52,18 @@
 <div class="skip"> <a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
 <NCI:TemplateSlot ID="cgvSiteBanner" runat="server" />
 <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
- <!-- Content Header -->
- <div id="headerzone clearfix">
-    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
-    <NCI:TemplateSlot ID="cgvSlBreadcrumb" runat="server" /> 
+<!-- Content Header -->
+<div id="headerzone clearfix">
+	<NCI:TemplateSlot ID="cgvSlBreadcrumb" runat="server" /> 
 	<!--Page Options Bar-->
 	<div class="page-options">
 		<NCI:PageOptionsControl ID="PageOptionsControl1" runat="server">
 			<PageOptionsButtonLanguages>
 				<NCI:PageOptionsButtonLanguageItem Language="en">
 					<ButtonsCollection>
+						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
 						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
-						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
@@ -73,9 +72,9 @@
 				</NCI:PageOptionsButtonLanguageItem>
 				<NCI:PageOptionsButtonLanguageItem Language="es">
 					<ButtonsCollection>
+						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
 						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
-						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
@@ -86,6 +85,7 @@
 		</NCI:PageOptionsControl>
 	</div>
 </div>
+<NCI:TemplateSlot ID="cgvLanguage" runat="server" />
 <!-- Main Area -->
 <div id="mainContainer"> 
   <!-- Left Nav Column -->

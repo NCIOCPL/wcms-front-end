@@ -20,21 +20,21 @@
 			<LangsCollection>
 				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
 				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
+				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 		<NCI:LanguageToggleLanguageItem Language="es">
 			<LangsCollection>
 				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
 				<NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
+				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 		<NCI:LanguageToggleLanguageItem Language="pt">
 			<LangsCollection>
 				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
 				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="中文" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
+				<NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" /> 
 			</LangsCollection>
 		</NCI:LanguageToggleLanguageItem>
 		<NCI:LanguageToggleLanguageItem Language="zh">
@@ -54,7 +54,6 @@
   <!-- End Site Banner and main navigation --> 
   <!-- Content Header -->
   <div id="headerzone clearfix">
-    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
     <NCI:TemplateSlot ID="cgvSlBreadcrumb" runat="server" /> 
 	<!--Page Options Bar-->
 	<div class="page-options">
@@ -86,6 +85,7 @@
 		</NCI:PageOptionsControl>
 	</div>
   </div>
+  <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
   <div id="mainContainer"> 

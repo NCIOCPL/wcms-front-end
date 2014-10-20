@@ -70,7 +70,6 @@ ul.ctpListPageList {
   <NCI:TemplateSlot ID="cgvMainNav" runat="server" />
   <!-- Content Header -->
   <div id="headerzone clearfix">
-    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
     <NCI:TemplateSlot ID="cgvSlBreadcrumb" runat="server" /> 
 	<!--Page Options Bar-->
 	<div class="page-options">
@@ -102,6 +101,7 @@ ul.ctpListPageList {
 		</NCI:PageOptionsControl>
 	</div>
   </div>
+  <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
   <div id="mainContainer"> 
