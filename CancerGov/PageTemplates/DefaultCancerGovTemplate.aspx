@@ -77,9 +77,9 @@ ul.ctpListPageList {
 			<PageOptionsButtonLanguages>
 				<NCI:PageOptionsButtonLanguageItem Language="en">
 					<ButtonsCollection>
-						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
+						<NCI:LinkButtonItem Title="View entire document" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
 						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
-						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
+						<NCI:EmailButtonItem Title="Email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
@@ -88,9 +88,9 @@ ul.ctpListPageList {
 				</NCI:PageOptionsButtonLanguageItem>
 				<NCI:PageOptionsButtonLanguageItem Language="es">
 					<ButtonsCollection>
-						<NCI:LinkButtonItem Title="View All" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
-						<NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
-						<NCI:EmailButtonItem Title="email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
+						<NCI:LinkButtonItem Title="Ver el documento completo" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
+						<NCI:LinkButtonItem Title="Imprimir" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
+						<NCI:EmailButtonItem Title="Enviar por correo electr&oacute;nico" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
 						<NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
@@ -124,11 +124,11 @@ ul.ctpListPageList {
         <NCI:TemplateSlot ID="cgvBody" CssClass="cgvBody-defaultTemplateContentContainer" runat="server"  />
       </article>
       <NCI:TemplateSlot ID="cgvRelatedResourcesSl" runat="server" />
+      <NCI:TemplateSlot ID="cgvBackToTop" runat="server" />
       <NCI:TemplateSlot ID="cgvDate" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyNav" runat="server" />
       <NCI:TemplateSlot ID="cgvOlderNewer" runat="server" CssClass="clearfloats clearfix" />
       <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
-      
       <!-- Begin Public Use Slot -->
       <NCI:TemplateSlot ID="cgvPublicUseNoticeSl" runat="server" />
       <!-- End Public Use Slot --> 
