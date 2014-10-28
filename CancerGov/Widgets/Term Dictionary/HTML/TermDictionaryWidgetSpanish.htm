@@ -19,14 +19,18 @@
 
 <div id="container">
 	<div class="header">
-		<img src="/PublishedContent/images/images/nci-logo-es.gif">
+		<img src="/PublishedContent/images/images/nci-logo-es.jpg" alt="Instituto Nacional del Cancer Diccioario de terminos de cancer">
 	</div>
     
     <div id="form" class="content">
         <div id="searchBlock">
-            <input type="text" name="search" id="search" onkeypress="doSearch(event)" />
-            <input type="submit" name="Go" id="Go" value="Go" onclick="doSearch(null)" />
-        </div>
+            <table>
+				<tr>
+					<td><label class="hidden" for="search">Buscar</label><input type="text" onkeypress="doSearch(event)" id="search" name="search" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></td>
+					<td><label class="hidden" for="Go">Ir</label><input type="submit" onclick="doSearch(null)" value="Go" id="Go" name="Go"></td>
+				</tr>
+		    </table>
+		</div>
         <div id="output">
         Definiciones fáciles de entender de términos relacionados con el cáncer y la medicina. 
         </div>
