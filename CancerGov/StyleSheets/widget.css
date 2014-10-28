@@ -48,6 +48,15 @@ h1.title-es {
 	 font-size:11px;
 }
 
+.hidden {
+position: absolute;
+left: -10000px;
+top: auto;
+width: 1px;
+height: 1px;
+overflow: hidden;
+}
+
 input#search {
     border: 2px solid #b3b2ad;
     background: #fff;
