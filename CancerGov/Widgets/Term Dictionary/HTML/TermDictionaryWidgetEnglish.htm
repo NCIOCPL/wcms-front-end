@@ -20,15 +20,15 @@
 <div id="container">
 	<div class="header">
 	  <!-- <h1 class="title">NCI Dictionary of Cancer Terms</h1> -->
-	  <img src="/PublishedContent/images/images/nci-logo.jpg">
+	  <img src="/PublishedContent/images/images/nci-logo.jpg" alt="National Cancer Institute Dictionary of Cancer Terms">
 	</div>
     
     <div id="form" class="content">
 		<div id="searchBlock">
 		<table>
 			<tr>
-				<td><input type="text" onkeypress="doSearch(event)" id="search" name="search" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></td>
-				<td><input type="submit" onclick="doSearch(null)" value="Go" id="Go" name="Go"></td>
+				<td><label class="hidden" for="search">Search</label><input type="text" onkeypress="doSearch(event)" id="search" name="search" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></td>
+				<td><label class="hidden" for="Go">Go</label><input type="submit" onclick="doSearch(null)" value="Go" id="Go" name="Go"></td>
 			</tr>
 		</table>
         </div>
