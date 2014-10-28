@@ -33,6 +33,9 @@ if($('.with-image').length == 0){
 $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).attr( "nopin", "nopin" );
 
 /*code to enlarge an image or a table*/
-  $( ".expandable-container" ).supersizeme( { } );
- 
+if($(".expandable-container").length > 0){
+
+  $(".expandable-container").supersizeme( { } );  
+}
+  
 });
