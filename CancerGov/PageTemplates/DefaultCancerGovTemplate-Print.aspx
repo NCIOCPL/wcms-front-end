@@ -25,6 +25,7 @@
     <div class="contentzone-noleftnav">
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
+	  <NCI:TemplateSlot ID="cgvTitle" runat="server"  />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
 	  <article id="_article">
 		<NCI:TemplateSlot ID="cgvBody" runat="server"  />
