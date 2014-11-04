@@ -20,7 +20,7 @@
     if ($('meta[name="content-language"]').attr('content') == 'es') {
        //defaults.stocTitle = '<h3>' + defaults.text + '</h3>';
        enlargeTxt = "Ampliar";
-       collapseTxt = "Colapso";
+       collapseTxt = "Reducir";
        }
 
     // Creating the "Enlarge" link above the table or figure
