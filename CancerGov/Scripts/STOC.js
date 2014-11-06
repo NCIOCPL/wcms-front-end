@@ -96,7 +96,7 @@
 				cacheHN.attr('id', id);
 			}
 			//our current text
-			txt = cacheHN.text();
+			txt = cacheHN.html();
 
             // Suppressing certain headings from TOC
             // The KeyPoint headings are only displayed in the KeyPoint
