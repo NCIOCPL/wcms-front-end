@@ -89,6 +89,45 @@ div.keyPoints h3 {
            left: 0;
            right: 0; }
 		   
+		   .pdq-table-scrollbar {
+            overflow: auto;
+            margin-bottom: 15px;    
+}
+.pdq-table-scrollbar table caption {
+            padding: 0 0 10px;
+}
+.pdq-table-scrollbar .table-default {
+            margin: 15px 0 0;
+}
+.pdq-on-this-page {
+            
+}
+tfoot.pdq-footer {
+            margin: 0; padding: 10px;
+}
+tfoot.pdq-footer td {
+            font-style:italic;
+            border: none;
+            background: #DDDDDD;
+            padding: 5px;
+}
+
+.pdq-image-table-enlarge table caption {
+            padding: 20px 0 10px 10px;
+}
+ul.pdq-address-block {
+            
+}
+ul.pdq-address-block li {
+            background: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+}
+.pdq-content-list {
+	
+}
+		   
 /* END new styles for PDQ */
 
 
