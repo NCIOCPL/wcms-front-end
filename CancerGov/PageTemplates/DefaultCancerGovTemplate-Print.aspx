@@ -13,10 +13,6 @@
   <!-- Site Banner -->
   <div class="skip"> <a title="Skip to content" href="#skiptocontent">Skip to content</a> </div>
   <NCI:TemplateSlot ID="cgvSiteBannerPrint" runat="server" />  
-  <!-- Content Header -->
-  <div id="headerzone">
-    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
-  </div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
   <div id="mainContainer"> 
@@ -26,6 +22,7 @@
       <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
       <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"  />
 	  <NCI:TemplateSlot ID="cgvTitle" runat="server"  />
+      <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
       <NCI:TemplateSlot ID="cgvMpToc" runat="server"  />
 	  <article id="_article">
 		<NCI:TemplateSlot ID="cgvBody" runat="server"  />
