@@ -163,7 +163,7 @@ a, a:active, a:visited, .red-text {
 display: none;	
 }
 
-.hide-mobile {
+.hide-mobile, .hide-for-medium-down {
 	display: none;
 }
 
