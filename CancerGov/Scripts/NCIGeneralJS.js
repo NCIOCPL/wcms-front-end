@@ -23,7 +23,7 @@ if (!path){
 		altText ='Notificaci\u00F3n de salida';
 		}
 }
-$("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
+$("a").filter(function () {  return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/.test(this.href) && this.href != "" && this.href.indexOf(location.protocol +"//" +location.hostname) != 0 && !$(this).hasClass("add_this_btn") && !$(this).hasClass("no-exit-notification") }).after(' <a class="exitNotification" href=' + path + '><img title='+ '"' + altText +'"' +'  alt='+ '"' + altText +'"' + ' src="/publishedcontent/images/images/exit_small.png" /></a>');
 if($('.with-image').length == 0){
     $('.list-spacer-image').addClass('image-collapsed');
 	$('.list-item-with-image').addClass('text-collapsed');
@@ -32,4 +32,10 @@ if($('.with-image').length == 0){
 /* add nopin tag to images that we do not want used on Pinterest */
 $( "#cgvSiteBanner img, #cgvFooter img, .leftzone img, .news-slider-tabs img" ).attr( "nopin", "nopin" );
 
+/*code to enlarge an image or a table*/
+if($(".expandable-container").length > 0){
+
+  $(".expandable-container").supersizeme( { } );  
+}
+  
 });

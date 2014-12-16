@@ -1,6 +1,8 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
+<%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.Configuration"
+    TagPrefix="Config" %>
 <%@ Register tagPrefix="CGov" namespace="CancerGov.EmergencyAlert" assembly="CancerGov.EmergencyAlert" %>
 <!doctype html>
 <html>
@@ -23,6 +25,23 @@
 <body runat="server">
 <!-- CGov Container -->
 <div id="cgovContainer"> 
+<!-- Language Toggle -->
+<div class="languageToggle" align="right">
+<NCI:LanguageToggleControl ID="LangList1" runat="server">
+	<LanguageToggleLanguages>
+		<NCI:LanguageToggleLanguageItem Language="en">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+		<NCI:LanguageToggleLanguageItem Language="es">
+			<LangsCollection>
+				<NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+			</LangsCollection>
+		</NCI:LanguageToggleLanguageItem>
+	</LanguageToggleLanguages>
+</NCI:LanguageToggleControl>
+</div>
   <!-- Site Banner -->
   <div class="skip"><a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
   <NCI:TemplateSlot ID="cgvSiteBanner" runat="server" />
@@ -32,8 +51,8 @@
   <!-- Content Header -->
   <div id="headerzone">
 	<NCI:TemplateSlot ID="coloMessage" runat="server" />
-    <NCI:TemplateSlot ID="cgvContentHeader" runat="server" />
-    <NCI:TemplateSlot ID="cgvLanguageDate" runat="server" />
+    <NCI:TemplateSlot ID="cgvLanguage" runat="server" />
+    <NCI:TemplateSlot ID="cgvSlBreadcrumb" runat="server" /> 
   </div>
   <!-- Main Area --> 
   <!-- Left Navigation and Content Area -->
@@ -56,6 +75,7 @@
       <NCI:TemplateSlot ID="cgvTileSlot" runat="server" CssClass="TileSlot" />
       <!-- End Tile zone column -->
       <NCI:TemplateSlot ID="cgvBody" CssClass="BodySlotPortal" runat="server"  />
+	  <NCI:TemplateSlot ID="cgvDate" runat="server" />
       <!-- End Parent container for content and timely content zone column --> 
     </div>
     <!-- End Content Area --> 

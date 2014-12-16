@@ -1026,6 +1026,7 @@ header,nav,article,footer,section,aside,figure,figcaption {
 }
 figure {
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 /* image right 25% width */
 figure.image-right-small {
@@ -1093,5 +1094,41 @@ figcaption p:first-child {
 figcaption p:last-child {
     margin-bottom: 0;
 	padding-bottom: 0;
+}
+
+/* media highlight item css (Cheetoh IT1) */
+.media-highlight {
+    position: relative;
+    border: 1px solid #bdbdbd;
+}
+
+.media-label {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #464646;
+	color: #ffffff;
+	line-height: 2.4em;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 8.5em;
+	text-align: center;
+	/* firefox 3.5 */
+	-moz-transform: rotate(90deg) translateX(8.5em);
+	-moz-transform-origin: 100% 0%;
+	/* Saf3.1+, Chrome */
+	-webkit-transform: rotate(90deg) translateX(8.5em);
+	-webkit-transform-origin: 100% 0%;
+	/* IE 9+ */
+	-ms-transform: rotate(90deg) translateX(8.5em);
+	-ms-transform-origin: 100% 0%;
+}
+
+.media-label.media-infographic.en-us:before {
+    content:"Infographic";
+}
+
+.media-label.media-infographic.es-us:before {
+    content:"Infografía";
 }
 /* end images using the HTML5 figure and figcaption elements */

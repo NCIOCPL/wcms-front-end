@@ -60,19 +60,6 @@ color:#000;
 text-decoration:none;
 }
 
-h1,.document-title {
-font-size:18px;
-}
-
-h2,H2,.page-title,.DrugInfoSummary-SummarySection-Title-Level1 {
-font-size:17px;
-margin:1.5em 0;
-}
-
-h3,H3,.header-A,.header-a {
-font-size:16px;
-margin:2em 0 0;
-}
 
 div.keyPoints {
 border:none;
@@ -119,6 +106,12 @@ background-image:none;
 background-color:#FFF;
 padding:0;
 }
+
+
+.document-title-block  .document-dates {
+	display: none;
+}
+
 
 .document-dates {
 float:left !important;
@@ -256,6 +249,10 @@ padding-right:0;
 }
 
 /* hide all version languages and then only show the active one */
+div#cgvLanguage{
+width: 100%;
+float: none;
+}
 div.version-language {
 float: none;
 }
@@ -274,6 +271,7 @@ left: 0;
 div.version-language ul {
 border-left: none;
 }
+
 div.document-dates ul {
 margin: 0;
 }

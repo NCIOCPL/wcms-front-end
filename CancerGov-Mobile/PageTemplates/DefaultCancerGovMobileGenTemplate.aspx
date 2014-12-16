@@ -61,7 +61,9 @@
 
 	</AddThisButtonLanguages>
 </NCI:AddThisButtonListControl>
+	<article id="_article">
       <NCI:TemplateSlot ID="cgvMobileBody" runat="server" />
+	</article>
       <NCI:TemplateSlot ID="cgvMobileNav" runat="server" />
       </div>
     </div>

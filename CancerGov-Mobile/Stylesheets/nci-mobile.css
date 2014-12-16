@@ -1,3 +1,137 @@
+/* BEGIN new styles for PDQ */
+table figure {
+  display: table !important;
+  table-layout: fixed;
+}
+.table-enlarge {text-align: right;}
+
+.contentzone .on-this-page ul {
+	padding-left: 0;
+	border: 0px solid blue;
+}
+.contentzone .on-this-page ul ul {
+	padding-left: 20px;
+}
+.contentzone .on-this-page ul li {
+	margin-bottom: 3px;
+	background: none;
+	list-style-type: none;
+}
+.trial-sites h4 {
+	background: #E6E6E2;
+	padding: 3px 0;
+	font-size: 16px;
+}
+.trial-sites h5 {
+	color: #993333;
+	font-size: 15px;
+	margin: 10px 0;
+	border: 0px solid blue;
+}
+.trial-sites h6 {
+	font-size: 14px;
+	font-style: normal;
+	margin: 5px 0 10px;
+}
+.trial-sites .two-columns {
+	margin: 0 30px;
+	border: 0px solid red;
+}
+.definition-term {
+	line-height: 1em;
+}
+.definition-term-image {
+	display: inline-block; vertical-align:middle;
+}
+figure.definition-image {
+    width: 25%;
+		display: block;
+}
+table.drug-combination {
+	margin-left: 20px;
+	width: 100%;
+}
+table.drug-combination td {
+	padding: 5px;
+}
+table.drug-combination td.drug-combo-letter {
+	text-align: right;
+	font-weight: bold;
+}
+table.brand-fda td, table.brand-fda th {
+	padding: 5px;
+}
+.brand-fda .column1 {
+	 width: 150px !important; /* move under column1, and then the important can be removed, because this will override the 48% width based on it coming after that one is declared */
+	 font-weight: bold;
+}
+table.table-default tfoot td {
+border: none;
+font-style:italic;
+margin: 0; padding: 0;
+background: #EBEAE9;
+}
+
+div.keyPoints h3 {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-bottom: 1px solid #BDBDBD;
+    color: #333333;
+    margin: 0 -10px;
+    padding: 2px;
+    text-align: center;}
+
+  .enlarge-link  { display: block;
+                   color: #9C3303;
+                   text-align: right;
+                   text-decoration: underline; }
+  .pdq-image-table-enlarge { position: absolute;
+           width: 100%;
+           left: 0;
+           right: 0; }
+		   
+		   .pdq-table-scrollbar {
+            overflow: auto;
+            margin-bottom: 15px;    
+}
+.pdq-table-scrollbar table caption {
+            padding: 0 0 10px;
+}
+.pdq-table-scrollbar .table-default {
+            margin: 15px 0 0;
+}
+.pdq-on-this-page {
+            
+}
+tfoot.pdq-footer {
+            margin: 0; padding: 10px;
+}
+tfoot.pdq-footer td {
+            font-style:italic;
+            border: none;
+            background: #DDDDDD;
+            padding: 5px;
+}
+
+.pdq-image-table-enlarge table caption {
+            padding: 20px 0 10px 10px;
+}
+ul.pdq-address-block {
+            
+}
+ul.pdq-address-block li {
+            background: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+}
+.pdq-content-list {
+	
+}
+		   
+/* END new styles for PDQ */
+
+
+
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#4d4d4d;
@@ -70,6 +204,12 @@ td {
 .content-general img{max-width:100%;}
 
 /* images using the HTML5 figure and figcaption elements */
+
+/* prevent figure elements from escaping container */
+figure {
+	overflow: hidden;
+}
+
 /* contain image inside fig */
 figure img {
     max-width: 100%;
@@ -102,6 +242,42 @@ figcaption p:first-child {
 figcaption p:last-child {
     margin-bottom: 0;
 	padding-bottom: 0;
+}
+
+/* media highlight item css (Cheetoh IT1) */
+.media-highlight {
+    position: relative;
+    border: 1px solid #bdbdbd;
+}
+
+.media-label {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #464646;
+	color: #ffffff;
+	line-height: 2.4em;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 8.5em;
+	text-align: center;
+	/* firefox 3.5 */
+	-moz-transform: rotate(90deg) translateX(8.5em);
+	-moz-transform-origin: 100% 0%;
+	/* Saf3.1+, Chrome */
+	-webkit-transform: rotate(90deg) translateX(8.5em);
+	-webkit-transform-origin: 100% 0%;
+	/* IE 9+ */
+	-ms-transform: rotate(90deg) translateX(8.5em);
+	-ms-transform-origin: 100% 0%;
+}
+
+.media-label.media-infographic.en-us:before {
+    content:"Infographic";
+}
+
+.media-label.media-infographic.es-us:before {
+    content:"Infografía";
 }
 /* end HTML5 figure images */
 
