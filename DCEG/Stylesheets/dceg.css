@@ -210,9 +210,19 @@ figcaption p:last-child {
 }
 
 .media-label.media-infographic.es-us:before {
-    content:"InfografÃ­a";
+    content:"Infografía";
 }
 /* end images using the HTML5 figure and figcaption elements */
+
+/* Hidden class for elements you wish to hide from sighted users but still be read by screen readers */
+.hidden {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
 
 /*Recaptcha */
 
