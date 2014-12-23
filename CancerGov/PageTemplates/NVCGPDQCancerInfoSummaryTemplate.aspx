@@ -127,7 +127,7 @@
 								</div>
 								<div class="row">
 									<!-- 	SECTION NAVIGATION -->
-									<NCI:TemplateSlot ID="nvcgSlLeftNav" CssClass="medium-3 columns local-navigation" runat="server" />
+									<NCI:TemplateSlot ID="nvcgSlSectionNav" CssClass="medium-3 columns local-navigation" runat="server" />
 									<!-- 	END SECTION NAVIGATION -->
 									<div class="medium-9 columns contentzone" id="main" tabindex="1" role="main">
 										<!-- ********************************* BEGIN Page Content ********************************** -->
