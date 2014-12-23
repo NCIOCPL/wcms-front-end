@@ -135,7 +135,10 @@
 											<!-- PAGE TITLE -->
 											<h1><NCI:CDEField Scope="Page" FieldName="long_title" runat="server" /></h1>
 											<!-- END PAGE TITLE -->
-											<NCI:TemplateSlot ID="cgvBody" runat="server" />
+											<!-- PDQ Specific wrapper Mobile Accordion
+											<div id="accordion">
+												<NCI:TemplateSlot ID="cgvBody" runat="server" />
+											</div>
 											<footer class="footer-article">
 												<NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
 												<NCI:TemplateSlot ID="cgvDate" runat="server" />
