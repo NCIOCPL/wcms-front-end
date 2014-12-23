@@ -1,7 +1,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.WebPageAssembler" %>
-<%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls" TagPrefix="NCI" %>
-<%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.Configuration" TagPrefix="Config" %>
-<%@ Register tagPrefix="CGov" namespace="CancerGov.EmergencyAlert" assembly="CancerGov.EmergencyAlert" %>
+<%@ Register TagPrefix="NCI" Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls" %>
+<%@ Register TagPrefix="Config" Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.Configuration" %>
+<%@ Register TagPrefix="CGov" Assembly="CancerGov.EmergencyAlert" Namespace="CancerGov.EmergencyAlert" %>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!-->
@@ -14,21 +14,21 @@
     <title></title>
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
-        <script src="js/ie8-polyfills.js"></script>
-        <script src="js/vendor/respond.js"></script>
+        <script src="//webcomm.sapientgov.com/htmldev/evolution/QA/js/ie8-polyfills.js"></script>
+        <script src="//webcomm.sapientgov.com/htmldev/evolution/QA/js/vendor/respond.js"></script>
     <![endif]-->
 </head>
 
 <body id="Body1" runat="server">
-    <div class="skip"><a title="Skip to content" href="#skiptocontent">Skip to content</a></div>
+    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
     <!-- NOTIFICATION AREA -->
-		<NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
+        <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
     
     <!-- HEADER -->
-		<header class="push" role="banner">
-			<NCI:TemplateSlot ID="nvcgSlSiteBanner" CssClass="row" AdditionalSnippetClasses="large-12 small-centered columns" runat="server" />
-		</header>
+        <header class="push" role="banner">
+            <NCI:TemplateSlot ID="nvcgSlSiteBanner" CssClass="row" AdditionalSnippetClasses="large-12 small-centered columns" runat="server" />
+        </header>
     <!-- END HEADER -->
     
     <div id="page">
@@ -38,7 +38,7 @@
             <div class="headroom-area">
                 <!-- LANGUAGE BAR -->
                     <div class="language-bar">
-						<NCI:LanguageToggleControl ID="LangList1" CssClass="row sitewide-language" AdditionalSnippetClasses="large-12 small columns" runat="server">
+                        <NCI:LanguageToggleControl ID="LangList1" CssClass="row sitewide-language" AdditionalSnippetClasses="large-12 small columns" runat="server">
                             <LanguageToggleLanguages>
                                 <NCI:LanguageToggleLanguageItem Language="en">
                                     <LangsCollection>
@@ -70,35 +70,32 @@
                                 </NCI:LanguageToggleLanguageItem>
                             </LanguageToggleLanguages>
                         </NCI:LanguageToggleControl>
-                    </div>
+                    </div><!-- end "language-bar" -->
                 <!-- END LANGUAGE BAR -->
                 
                 <!-- UTILITY NAV -->
-                    <div class="utility-background hide-for-medium-down">
-                        <NCI:TemplateSlot ID="nvcgUtilityBarSlot" CssClass="row utility" AdditionalSnippetClasses="large-12 columns utility" runat="server" />
-                    </div>
+                    <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
                 <!-- END UTILITY NAV -->    
-            </div>
+            </div><!-- end "headroom-area" -->
             
             <!-- BEGIN NAVIGATION -->
-                <!-- Begin nav-search bar -->
-                    <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
-                <!-- End nav-search bar -->
-				
-                <!-- Begin section menu clicker (on mobile) -->
-					<div></div>
-                <!-- End section menu clicker (on mobile) -->
+            <!-- Begin nav-search bar -->
+            <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
+            <!-- End nav-search bar -->
+                
+            <!-- Begin section menu clicker (on mobile) -->
+            <div></div>
+            <!-- End section menu clicker (on mobile) -->
             <!-- END NAVIGATION -->
-        </div>
-        <!-- END Global nav/utility bar/language -->
+        </div><!-- END Global nav/utility bar/language -->
         
         <!-- MAIN CONTENT -->
         <div class="main-content" id="content">
         
-			<!-- PUBLIC ARCHIVE BANNER -->
-				<NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
-			<!-- END PUBLIC ARCHIVE BANNER -->
-		
+            <!-- PUBLIC ARCHIVE BANNER -->
+		<NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
+            <!-- END PUBLIC ARCHIVE BANNER -->
+        
             <!-- HERO SLOT -->        
                  <NCI:TemplateSlot ID="nvcgSlBodyHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
             <!-- END HERO SLOT -->
@@ -130,25 +127,25 @@
                         </NCI:PageOptionsButtonLanguageItem>
                     </PageOptionsButtonLanguages>
                 </NCI:PageOptionsControl>
-            </div>
             <!-- END PAGE OPTIONS -->
 
             <!-- CARD CONTAINER --> 
                 <NCI:TemplateSlot ID="nvcgSlBodyLayout" runat="server" CssClass="nvcgSlBodyLayout" />
             <!-- END CARD CONTAINER -->
             
+<% /*
             <!-- OTHER NCI SITES - NOT SURE IF A SLOT EXISTS FOR THIS-->
                 <!-- <NCI:TemplateSlot ID="nvcgSlOtherSites" runat="server" /> -->
             <!-- END OTHER NCI SITES -->
+*/ %>
         
-        </div>
-        <!-- END MAIN CONTENT -->
-    </div>
+        </div> <!-- END MAIN CONTENT -->
+    </div> <!-- END "page" -->
     
     <!-- FOOTER -->
-        <footer>
-            <NCI:TemplateSlot ID="nvcgSlSiteFooter" runat="server" />
-        </footer>
+    <footer>
+        <NCI:TemplateSlot ID="nvcgSlFooter" runat="server" />
+    </footer>
     <!-- END FOOTER -->
     
     <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
