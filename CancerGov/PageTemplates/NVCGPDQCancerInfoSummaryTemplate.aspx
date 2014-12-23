@@ -135,7 +135,7 @@
 											<!-- PAGE TITLE -->
 											<h1><NCI:CDEField Scope="Page" FieldName="long_title" runat="server" /></h1>
 											<!-- END PAGE TITLE -->
-											<!-- PDQ Specific wrapper Mobile Accordion
+											<!-- PDQ Specific wrapper Mobile Accordion -->
 											<div id="accordion">
 												<NCI:TemplateSlot ID="cgvBody" runat="server" />
 											</div>
