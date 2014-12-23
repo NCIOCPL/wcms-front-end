@@ -93,7 +93,7 @@
 							<div class="row general-page-body-container collapse">
 								<div class="large-12 columns">
 									<div class="row">
-										<NCI:TemplateSlot ID="cgvSlBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
+										<NCI:TemplateSlot ID="cgvBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
 										<!-- PAGE OPTIONS -->
 										<NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="medium-4 columns" runat="server">
 											<PageOptionsButtonLanguages>
@@ -126,7 +126,7 @@
 								</div>
 								<div class="row">
 									<!-- 	SECTION NAVIGATION -->
-									<NCI:TemplateSlot ID="nvcgSlLeftNav" CssClass="medium-3 columns local-navigation" runat="server" />
+									<NCI:TemplateSlot ID="nvcgSlSectionNav" CssClass="medium-3 columns local-navigation" runat="server" />
 									<!-- 	END SECTION NAVIGATION -->
 									<div class="medium-9 columns contentzone" id="main" tabindex="1" role="main">
 										<!-- ********************************* BEGIN Page Content ********************************** -->
@@ -135,12 +135,12 @@
 											<NCI:TemplateSlot ID="cgvBodyHeader" CssClass="row banner-slot" AdditionalSnippetClasses="large-12 columns body-banner" runat="server" />
 											<!-- END BANNER SLOT -->
 											<!-- PAGE TITLE -->
-											<NCI:CDEField scope="Page" field="long-title" runat="server" />
+											<NCI:CDEField scope="Page" fieldname="short_title" runat="server" />
 											<!-- END PAGE TITLE -->
 											<NCI:TemplateSlot ID="cgvBody" runat="server" />
 											<footer class="footer-article">
 												<NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
-												<NCI:TemplateSlot ID="cgvDate" runat="server" />
+												<NCI:TemplateSlot ID="nvcgDate" runat="server" />
 												<NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
 												<NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
 											</footer>
