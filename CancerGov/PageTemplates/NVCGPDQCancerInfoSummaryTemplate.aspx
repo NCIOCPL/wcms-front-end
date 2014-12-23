@@ -133,7 +133,7 @@
 										<!-- ********************************* BEGIN Page Content ********************************** -->
 										<article>
 											<!-- PAGE TITLE -->
-											<NCI:CDEField scope="Page" field="long-title" runat="server" />
+											<NCI:CDEField Scope="Page" FieldName="long-title" runat="server" />
 											<!-- END PAGE TITLE -->
 											<NCI:TemplateSlot ID="cgvBody" runat="server" />
 											<footer class="footer-article">
