@@ -24,15 +24,15 @@
         <a title="Skip to content" href="#main">Skip to content</a>
     </div>
     <!-- NOTIFICATION AREA -->
-    <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
+        <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
-
+    
     <!-- HEADER -->
-    <header class="push" role="banner">
-        <NCI:TemplateSlot ID="nvcgSlSiteBanner" CssClass="row" AdditionalSnippetClasses="large-12 small-centered columns" runat="server" />
-    </header>
+        <header class="push" role="banner">
+            <NCI:TemplateSlot ID="nvcgSlSiteBanner" CssClass="row" AdditionalSnippetClasses="large-12 small-centered columns" runat="server" />
+        </header>
     <!-- END HEADER -->
-
+    
     <!-- Begin Page -->
     <div id="page">
 
@@ -40,73 +40,73 @@
         <div class="fixedtotop">
             <div class="headroom-area">
                 <!-- LANGUAGE BAR -->
-                <div class="language-bar">
-                    <NCI:LanguageToggleControl ID="LangList1" CssClass="row sitewide-language" AdditionalSnippetClasses="large-12 small columns" runat="server">
-                        <LanguageToggleLanguages>
-                            <NCI:LanguageToggleLanguageItem Language="en">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                            <NCI:LanguageToggleLanguageItem Language="es">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                            <NCI:LanguageToggleLanguageItem Language="pt">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                            <NCI:LanguageToggleLanguageItem Language="zh">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                        </LanguageToggleLanguages>
-                    </NCI:LanguageToggleControl>
-                </div>
+                    <div class="language-bar">
+                        <NCI:LanguageToggleControl ID="LangList1" CssClass="row sitewide-language" AdditionalSnippetClasses="large-12 small columns" runat="server">
+                            <LanguageToggleLanguages>
+                                <NCI:LanguageToggleLanguageItem Language="en">
+                                    <LangsCollection>
+                                        <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+                                        <NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+                                        <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+                                    </LangsCollection>
+                                </NCI:LanguageToggleLanguageItem>
+                                <NCI:LanguageToggleLanguageItem Language="es">
+                                    <LangsCollection>
+                                        <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+                                        <NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+                                        <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+                                    </LangsCollection>
+                                </NCI:LanguageToggleLanguageItem>
+                                <NCI:LanguageToggleLanguageItem Language="pt">
+                                    <LangsCollection>
+                                        <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+                                        <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+                                        <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+                                    </LangsCollection>
+                                </NCI:LanguageToggleLanguageItem>
+                                <NCI:LanguageToggleLanguageItem Language="zh">
+                                    <LangsCollection>
+                                        <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+                                        <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+                                        <NCI:LanguageToggle Locale="pt-br" Name="Portuguese" Title="Portugu&ecirc;s" OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+                                    </LangsCollection>
+                                </NCI:LanguageToggleLanguageItem>
+                            </LanguageToggleLanguages>
+                        </NCI:LanguageToggleControl>
+                    </div>
                 <!-- END LANGUAGE BAR -->
-
+                
                 <!-- UTILITY NAV -->
-                <NCI:TemplateSlot ID="nvcgUtilityBarSlot" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
-                <!-- END UTILITY NAV -->
+                    <NCI:TemplateSlot ID="nvcgUtilityBarSlot" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
+                <!-- END UTILITY NAV -->    
             </div>
-
+            
         <!-- BEGIN NAVIGATION -->
-        <!-- Begin nav-search bar -->
-        <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
-        <!-- End nav-search bar -->
-        <!-- Begin mobile section menu clicker -->
-        <div></div>
-        <!-- END mobile section menu clicker -->
+            <!-- Begin nav-search bar -->
+            <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
+            <!-- End nav-search bar -->
+            <!-- Begin mobile section menu clicker -->
+            <div></div>
+            <!-- END mobile section menu clicker -->
         <!-- END NAVIGATION -->
         </div>
         <!-- END Global nav/utility bar/language -->
-
+        
         <!-- MAIN CONTENT -->
         <div class="main-content" id="content">
-
+        
             <!-- PUBLIC ARCHIVE BANNER -->
             <NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
             <!-- END PUBLIC ARCHIVE BANNER -->
-
-            <!-- HERO SLOT -->
-            <NCI:TemplateSlot ID="nvcgSlBodyHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
+        
+            <!-- HERO SLOT -->        
+             <NCI:TemplateSlot ID="nvcgSlBodyHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
             <!-- END HERO SLOT -->
-
+            
             <!-- PAGE TITLE -->
             <NCI:CDEField scope="Page" fieldname="short_title" runat="server" />
             <!-- END PAGE TITLE -->
-
+            
             <!-- PAGE OPTIONS -->
             <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="row" AdditionalSnippetClass="medium-4 columns" runat="server">
                 <PageOptionsButtonLanguages>
@@ -136,24 +136,24 @@
             </NCI:PageOptionsControl>
             <!-- END PAGE OPTIONS -->
 
-            <!-- CARD CONTAINER -->
+            <!-- CARD CONTAINER --> 
             <NCI:TemplateSlot ID="nvcgSlBodyLayout" runat="server" CssClass="nvcgSlBodyLayout" />
             <!-- END CARD CONTAINER -->
-
+                
             <!-- OTHER NCI SITES - NOT SURE IF A SLOT EXISTS FOR THIS-->
             <!-- <NCI:TemplateSlot ID="nvcgSlOtherSites" runat="server" /> -->
             <!-- END OTHER NCI SITES -->
-
+        
         </div> <!-- END MAIN CONTENT -->
-
-        <!-- FOOTER -->
-        <footer class="footer-site">
-            <NCI:TemplateSlot ID="nvcgSlFooter" runat="server" />
-        </footer>
-        <!-- END FOOTER -->
     </div> <!-- END Page -->
-
-    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
+    
+    <!-- FOOTER -->
+    <footer>
+        <NCI:TemplateSlot ID="nvcgSlSiteFooter" runat="server" />
+    </footer>
+    <!-- END FOOTER -->
+    
+    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
     control else Web analytics scripts will not show up in the HTML-->
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 </body>
