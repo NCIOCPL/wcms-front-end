@@ -258,6 +258,7 @@ INNER   PAGE    TEMPLATE
                             <NCI:CDEField scope="Page" fieldName="long_title" runat="server" />
                             <!-- END PAGE TITLE -->
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
+                            <NCI:TemplateSlot ID="cgvSlPagination" runat="server" />
                             <footer class="footer-article">
                                 <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
                                 <NCI:TemplateSlot ID="cgvDate" runat="server" />
