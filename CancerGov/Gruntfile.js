@@ -10,7 +10,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    '_dist/css/nvcg.css': '_src/sass/nvcg.scss'
+                    '_dist/css/nvcg.css': '_src/StyleSheets/nvcg.scss'
                 }
             }
         },
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
                 //liveReload: true
             },
             css: {
-                files: '_src/sass/**/*.scss',
+                files: '_src/StyleSheets/**/*.scss',
                 tasks: ['sass']
             }
         },
