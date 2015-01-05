@@ -260,6 +260,7 @@ INNER   PAGE    TEMPLATE
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
                             <NCI:TemplateSlot ID="cgvSlPagination" runat="server" />
                             <footer class="footer-article">
+                                <NCI:TemplateSlot ID="cgvCitationSl" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
                                 <NCI:TemplateSlot ID="cgvDate" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
