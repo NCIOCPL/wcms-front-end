@@ -255,7 +255,7 @@ INNER   PAGE    TEMPLATE
                                 AdditionalSnippetClasses="large-12 columns body-banner" />
                             <!-- END BANNER SLOT -->
                             <!-- PAGE TITLE -->
-                            <NCI:CDEField scope="Page" fieldName="long_title" runat="server" />
+                            <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
                             <!-- END PAGE TITLE -->
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
                             <NCI:TemplateSlot ID="cgvSlPagination" runat="server" />

@@ -101,7 +101,7 @@
             <!-- END HERO SLOT -->
             
             <!-- PAGE TITLE -->
-            <NCI:CDEField scope="Page" fieldname="short_title" runat="server" />
+            <h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
             <!-- END PAGE TITLE -->
             
             <!-- PAGE OPTIONS -->

@@ -257,7 +257,7 @@ at the National Institutes of Health
                         <div class="medium-9 columns contentzone has-section-nav" id="main" tabindex="1" role="main">
                             <!-- ********************************* BEGIN Page Content ********************************** -->
                             <article role="article">
-                                <NCI:CDEField scope="Page" fieldName="long_title" runat="server" />
+                                <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
                                 <NCI:TemplateSlot ID="cgvBody" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgSlDates" runat="server" />
                                 <footer class="footer-article">

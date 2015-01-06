@@ -242,7 +242,7 @@ at the National Institutes of Health
             <!-- END PAGE OPTIONS -->
     <!-- slots -->
             <!-- Title Slot -->
-            <NCI:CDEField scope="Page" fieldName="long_title" runat="server" />
+            <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
 
             <!-- Body slot -->
             <NCI:TemplateSlot ID="cgvBody" runat="server" />
