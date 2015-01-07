@@ -1,0 +1,47 @@
+/********************* BEGIN Font Declarations ******************************************/
+@mixin font-face($family, $path, $svg, $weight, $style) {
+  $filetypes: ('.eot?#iefix', '.woff', '.ttf', '.svg#' + $svg);
+  $formats: ('embedded-opentype', 'woff', 'truetype', 'svg');
+  @font-face {
+    font-family: #{$family};
+    src: url($path + '.eot');
+    @each $ft, $format in $filetypes, $formats {
+      src: url($path + $ft) format($format);
+    }
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+/* NOTO */
+$noto: "noto";
+
+$noto-path: $fonts + "NotoSans-Regular-webfont";
+$noto-svg: "noto_sansregular";
+@include font-face($noto, $noto-path, $noto-svg, "normal", "normal");
+
+$noto-path: $fonts + "NotoSans-Bold-webfont";
+$noto-svg: "noto_sansbold";
+@include font-face($noto, $noto-path, $noto-svg, "bold", "normal");
+
+$noto-path: $fonts + "NotoSans-BoldItalic-webfont";
+$noto-svg: "noto_sansbold_italic";
+@include font-face($noto, $noto-path, $noto-svg, "bold", "italic");
+
+$noto-path: $fonts + "NotoSans-Italic-webfont";
+$noto-svg: "noto_sansitalic";
+@include font-face($noto, $noto-path, $noto-svg, "normal", "italic");
+
+
+/* Montserrat */
+
+$montserrat: "Montserrat";
+$mont-path: $fonts + 'montserrat_regular_macroman/Montserrat-Regular-webfont';
+$mont-svg: 'webfont';
+@include font-face($montserrat, $mont-path, $mont-svg, "normal", "normal");
+
+$mont-path: $fonts + 'montserrat_bold_macroman/Montserrat-Bold-webfont';
+@include font-face($montserrat, $mont-path, $mont-svg, "bold", "normal");
+
+/********************* END Font Declarations ******************************************/
+
+

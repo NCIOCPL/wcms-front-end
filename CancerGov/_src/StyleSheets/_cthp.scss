@@ -1,0 +1,175 @@
+/********** BEGIN Cancer Type Home Page Styles ******************************************/
+
+.version {
+    float: right;
+    background: #008eb0 $circle-arrow-blue-small 98% no-repeat;
+    color: #fff;
+    padding: 0.625em 3.6em 0.625em 1.875em;
+}
+.version:hover {
+    background: #008eb0 $circle-arrow-red-small 98% no-repeat;
+}
+.version a {
+    color: #fff;
+}
+.version a:hover {
+    text-decoration: none;
+}
+/* image right 40% width */
+
+figure.image-right-medium {
+    float: right;
+    width: 40%;
+    margin: 0 0 1em 1em;
+}
+.image-right-medium {
+    position: relative;
+}
+.caption-container {
+    padding: 0.9375em;
+    line-height: 1.5em;
+    background-color: #f7f8f3;
+    font-size: 0.8125em;
+}
+.bgWhite {
+    background-color: #fff;
+}
+.relatedContent {
+    color: #fff;
+}
+.relatedContent a:hover {
+    width: 100%;
+    background-color: #008eb0;
+    color: #fff;
+    padding: 0.625em 1.875em;
+}
+.relatedcontent:hover a,
+.relatedcontent a:hover {
+    color: #bb0e3d;
+    text-decoration: none;
+}
+.relatedcontent a:after {
+    content: $circle-arrow-blue-small;
+    vertical-align: middle;
+    padding-top: 7px;
+    padding-left: 7px;
+    top: 4px;
+    position: relative;
+}
+.relatedcontent:hover a:after {
+    content: $circle-arrow-red-small;
+}
+.relatedContent ul li {
+    background: #008eb0 $circle-arrow-blue-small center right no-repeat;
+}
+.relatedContent ul li:hover {
+    background: #008eb0 $circle-arrow-red-small center right no-repeat;
+}
+.relatedContent ul li a {
+    color: #fff;
+}
+.relatedContent ul li a:hover {
+    text-decoration: none;
+}
+.cthp-content-bottom-slot {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    overflow: auto;
+    background: #008eb0 url("../images/backgrounds/hexagon_molecular_structure_body.png") no-repeat 110% -100px;
+}
+.normal li {
+    background: url("../images/blue-list-dot.png") 0 7px no-repeat;
+    padding-left: 0.9375em;
+}
+.treatment,
+.research,
+.causes,
+.genetics,
+.screening,
+.survival,
+.general {
+    margin-bottom: 1.25em;
+}
+.treatment h3,
+.research h3,
+.causes h3,
+.genetics h3,
+.screening h3,
+.survival h3,
+.general h3 {
+    color: #fff;
+    padding: 0.7em 1em;
+    margin: 0;
+    text-transform: uppercase;
+}
+.treatment h3 {
+    background: #008eb0 url("../images/CTHP-green-waves.jpg") repeat-x;
+}
+.research h3 {
+    background: #008eb0 url("../images/CTHP-blue-gears.jpg") repeat-x;
+}
+.causes h3 {
+    background: #008eb0 url("../images/CTHP-purple-squares.jpg") repeat-x;
+}
+.genetics h3 {
+    background: #008eb0 url("../images/CTHP-blue-diamonds.jpg") repeat-x;
+}
+.screening h3 {
+    background: #008eb0 url("../images/CTHP-pink-triangles.jpg") repeat;
+}
+.survival h3 {
+    background: #008eb0 url("../images/CTHP-yellow-squares.jpg") repeat-x;
+}
+.general h3 {
+    background: #008eb0 url("../images/CTHP-blue-octagons.jpg") repeat-x;
+}
+.cardBody {
+    overflow: auto;
+    padding: 0.625em 1.875em;
+}
+.cardBody p {
+    font-size: 1em;
+}
+.cthpCard ul.moreInfo li {
+    list-style-type: none;
+    padding-left: 0.9375em;
+}
+.moreInfo li:before {
+    content: "\2022";
+    display: inline-block;
+    position: relative;
+    left: -.5em;
+    top: 0.1em;
+    margin: 0 -.2em;
+    font-size: 1.1em;
+    color: #186e88;
+}
+.main-content a.viewAll {
+    color: #606060;
+}
+.main-content a.viewAll:hover {
+    text-decoration: none;
+}
+.guide h3 {
+    color: #fff;
+}
+.tp20 {
+    padding-top: 1.25em;
+}
+.bp20 {
+    padding-bottom: 1.25em;
+}
+.alphalist {
+    padding: 1.2em 0;
+    overflow: auto;
+}
+.alphalist li {
+    float: left;
+    font-size: 1.625em;
+    font-family: 'Montserrat', Arial;
+    margin-right: 1em;
+    color: #606060;
+}
+
+/********** END Cancer Type Home Page Styles ******************************************/

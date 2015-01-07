@@ -1,0 +1,82 @@
+/* ***************** BEGIN CAROUSEL ***************** */
+
+.slick-slide .container {
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-color: #fff;
+    position: relative;
+    height: 16.25em;
+    display: block;
+}
+.carousel-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.slick-slide .container:hover {
+    text-decoration: none;
+}
+.spotlight-on-scientists .slick-track,
+.spotlight-on-scientists .slick-list {
+    height: 18em;
+}
+/* various patterned background images for slides */
+
+.blue-circles {
+    background-image: url($images + "/blue-circles.jpg");
+}
+.purple-triangles {
+    background-image: url($images + "/purple-triangles.jpg");
+}
+.blue-triangles {
+    background-image: url($images + "/blue-triangles.jpg");
+}
+.green-plaid {
+    background-image: url($images + "/green-plaid.jpg");
+}
+.site-name {
+    font-size: 1.45em;
+    font-family: Montserrat;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px;
+    margin: 0;
+    line-height: normal;
+}
+.other-nci-sites .site-link {
+    display: block;
+    width: 100%;
+    background: #403e3f url($images + "/icons/carousel-link-arrow.png") no-repeat 95% 50%;
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+}
+.spotlight-on-scientists .site-link {
+    display: block;
+    width: 100%;
+    background: #403e3f url($icons + "/carousel-link-arrow.png") no-repeat 95% 50%;
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    color: #fff;
+}
+.arrows-for-other-nci-sites {
+    text-align: right;
+    padding-right: 11px;
+}
+.arrows-for-other-nci-sites div {
+    display: inline;
+}
+.arrows-for-other-nci-sites button {
+    padding: 0;
+    border: 0;
+    height: 56px;
+    width: 56px;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline;
+}
+/****************** END CAROUSEL STYLES ******************/

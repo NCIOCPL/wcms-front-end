@@ -1,0 +1,178 @@
+/* mega menu list */
+.nav-menu {
+    display: block;
+    /* removing style to allow for full screen width mega menu
+    position: relative; */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 15;
+}
+
+/* a top level navigation item in the mega menu */
+nav .nav-menu .nav-item {
+    list-style: none;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+        /* first descendant link within a top level navigation item */
+.nav-item > a {
+    position: relative;
+    display: inline-block;
+    padding: 0 .4em;
+    margin: 0;
+    border-bottom: 7px solid transparent;
+    color: #FFF;
+    font-size: .95em;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    /*line-height: 3.125em;*/ /*replaced with padding for height*/
+    text-align: center;
+}
+html[lang="es"] .nav-item > a {
+    font-size: 0.9em;
+    line-height: 1em;
+    min-height: 58px;
+}
+
+/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
+.nav-menu .level-1 {
+    display: block;
+}
+
+@media only screen and (min-width: 1025px){
+    .nav-item > a {
+        font-size: 14px;
+        padding: 14px 7.5px 8px;
+    }
+    .nav-search-bar nav {
+        width: 75%;
+        float: left;
+    }
+    .nav-menu .level-1 {
+        display: none;
+    }
+}
+@media only screen and (min-width: 1441px) {
+    .nav-item > a {
+        padding: 14px 20px 8px;
+    }
+}
+
+/* focus/open states of first descendant link within a top level navigation item */
+.nav-item > a:focus,
+.nav-item > a.open {
+    background-color: #fff;
+    color: #2f2f2f;
+}
+
+/* Active state for top level items when you are in that section of the site */
+.nav-item a.active {
+    background-color: #fff;
+    /* the height of the border bottom (7px) is already set. Here we are only changing its color
+     * from transparent to teal. If the border height ever changes, it's changed in one place, not two.
+     */
+    border-bottom-color: #039B9C;
+    color: #2f2f2f;
+}
+
+/* open state of first descendant link within a top level navigation item */
+.nav-item > a.open {
+    /*
+    background-color: #fff;
+    border-bottom: none;
+    */
+    z-index: 1;
+}
+
+/* sub-navigation panel */
+.sub-nav-mega {
+    position: absolute;
+    display: none;
+    /* make menu the width of the entire nav bar */
+    left: 0;
+    margin-top: -1px;
+    padding: 0.5em 1em;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    width: 100%;
+}
+
+/* allow mega menu to span full width of screen while keep menu items within limits of content */
+.sub-nav-group-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* sub-navigation panel open state */
+.sub-nav-mega.open {
+    display: block;
+    /* display mega menu over content */
+    z-index: 999;
+}
+
+/* list of items within sub-navigation panel */
+.sub-nav-mega ul {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 2% 0 0;
+    padding: 0;
+    line-height: 1.3em;
+}
+
+/* make columns out of sub nav groups */
+.sub-nav-mega .sub-nav-group {
+    width: 22%;
+    /* using pixel value because we don't want this to change if user changes their default computer text size (no ems) */
+    margin-bottom: 20px;
+}
+
+/* mega menu headers/links */
+.sub-nav-group > li {
+
+}
+
+/* mega menu group headers (level 2) */
+.sub-nav-group-header {
+    font-size: 1.0625em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #186E88;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+}
+/* sub nav group header hover color */
+.sub-nav-group-header:hover {
+    color: #BB0E3D;
+}
+
+/* vertical line for Cancer Types menu */
+.cancer-types-border-container > li {
+    border-right: 1px solid #000;
+}
+
+/* mega menu group links (level 3) */
+.sub-nav-group ul li a {
+    font-size: 0.9375em;
+    color: #2f2f2f;
+}
+.sub-nav-group ul li a:hover {
+    text-decoration: underline;
+}
+
+/* decrease height of mega menu and add scroll bar */
+.mega-menu-scroll {
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* list item within sub-navigation panel */
+.sub-nav-mega li {
+    display: block;
+    list-style-type: none;
+    /* spacing between links */
+    margin: 8px 0 0 0;
+    padding: 0;
+}

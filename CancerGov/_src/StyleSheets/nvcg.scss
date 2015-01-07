@@ -1,0 +1,868 @@
+@charset "utf-8";
+@import "environments/percussion";
+@import "variables";
+
+/****************** VENDOR LIBRARIES SECTION ********************/
+@import "reset";
+@import "foundation";
+@import "slick";
+@import "jqueryui";
+/****************** END VENDOR LIBRARIES SECTION ********************/
+
+@import "fonts";
+
+/********************* BEGIN General Styles ******************************************/
+
+html {
+    font-size: 100%;
+}
+body {
+    font-size: 1em;
+    font-family: 'noto', Arial;
+    color: #606060;
+    line-height: 1.375em;
+    word-wrap: break-word;
+    /* done to let long words that are bigger than container wrap within the word */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', Arial;
+    margin-top: 0.5em;
+    color: #606060;
+}
+.section-nav {
+    font-family: 'Montserrat', Arial;
+}
+h1 {
+    font-size: 2em;
+    line-height: 1.1em;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.215em;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.25em;
+}
+h4 {
+    font-size: 1.25em;
+    line-height: 1.333em;
+}
+p {
+    margin: 0.5em 0;
+    line-height: 1.5em;
+    font-size: inherit;
+}
+table caption {
+    font-weight: bold;
+    text-align: left;
+    color: #000;
+    padding: 20px 0 10px;
+    /* using padding instead of margin due to problem in Safari */
+}
+/* begin default content table styling */
+
+table.table-default {
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+table.table-default caption {
+    font-weight: bold;
+    text-align: left;
+    font-size: 15px;
+    color: #000;
+    padding: 20px 0 10px;
+    /* using padding instead of margin due to problem in Safari */
+}
+table.table-default th {
+    background-color: #f2f3f7;
+    /*text-align: left;*/
+}
+table.table-default tr {
+    background-color: #fff;
+}
+table.table-default td,
+table.table-default th {
+    border: 1px solid #bdbdbd;
+    padding: 10px;
+    border-spacing: 0;
+}
+table.table-default td p:first-child {
+    margin-top: 0;
+}
+table.table-default td p:last-child {
+    margin-bottom: 0;
+}
+table.table-default-center-td td {
+    text-align: center;
+}
+table.table-default td p:first-child,
+table.table-default th p:first-child {
+    margin-top: 0;
+}
+table.table-default td p:last-child,
+table.table-default th p:last-child {
+    margin-bottom: 0;
+}
+table.table-default ul {
+    padding-left: 4px;
+}
+/* end default content table styling */
+
+.bcrumbs {
+    font-size: 0.8em;
+    margin-bottom: 1.25em;
+    margin-top: 2em;
+    font-family: 'Montserrat';
+}
+/* clearfix for clearing floated items */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+/* begin images using the HTML5 figure and figcaption elements */
+
+/* add block level style to HTML5 elements, for IE */
+
+header,
+nav,
+article,
+footer,
+section,
+aside,
+figure,
+figcaption {
+    display: block;
+}
+figure {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+/* image right 25% width */
+
+figure.image-right-small {
+    float: right;
+    position: relative;
+    width: 25%;
+    margin: 0 0 1em 1em;
+}
+figure a.article-image-enlarge {
+    position: absolute;
+    width: 150px;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background: #403f3f url($images + "/icons/enlarge.png") 90% 50% no-repeat;
+    padding: 0.3125em 0 0.3125em 1.25em;
+    font-weight: bold;
+    opacity: 0.9;
+}
+figure a.article-image-enlarge:hover {
+    text-decoration: none;
+}
+/* image right 40% width */
+
+figure.image-right-medium {
+    float: right;
+    width: 40%;
+    margin: 0 0 1em 1em;
+}
+/* image left 25% width */
+
+figure.image-left-small {
+    float: left;
+    width: 25%;
+    margin: 0 1em 1em 0;
+}
+/* image left 40% width */
+
+figure.image-left-medium {
+    float: left;
+    width: 40%;
+    margin: 0 1em 1em 0;
+}
+/* image center 75% width */
+
+figure.image-center {
+    width: 75%;
+    margin: 0 auto 1em;
+}
+/* image center 100% width */
+
+figure.image-center-full {
+    width: 100%;
+    margin: 0 auto 1em;
+}
+/* contain image inside fig */
+
+figure img {
+    max-width: 100%;
+    /* remove white space under image */
+    display: block;
+}
+table figure {
+    display: table;
+    table-layout: fixed;
+}
+/* center images using the centered templates */
+
+figure.image-center img,
+figure.image-center-full img {
+    margin: 0 auto;
+}
+/********************* END General Styles ******************************************/
+
+/********************* BEGIN Header Styles ******************************************/
+
+header {
+    padding: 1em 0 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #fcfcfa;
+}
+.nci-logo {
+    font-weight: bold;
+    line-height: 0.8;
+    background: url($images + "NIH-red-logo.png") no-repeat 5px 0;
+    font-size: 30px;
+    padding: 0.1em 0 0.2em;
+}
+.nci-logo.columns {
+    padding-left: 0;
+    padding-right: 0;
+}
+.nci-logo a {
+    color: #bb0e3d;
+    padding-left: 100px;
+    display: block;
+}
+.nci-logo a span {
+    color: #5d5d5d;
+    font-size: 0.6em;
+}
+/********************* END Header Styles ******************************************/
+
+/********************* BEGIN Sticky Nav Styles ******************************************/
+
+/* these styles control behaviour on scroll for sticky nav using headroom.js */
+
+.slide--up {
+    display: none;
+}
+.slide--reset {
+    display: block;
+}
+/********************* END Sticky Nav Styles ******************************************/
+
+/********************* BEGIN Language Bar Styles ******************************************/
+
+.language-bar {
+    background: #fcfcfa;
+    padding: 0 0 0.2em;
+}
+.sitewide-language {
+    padding-right: 0;
+}
+.sitewide-language a {
+    color: #186e88;
+}
+.sitewide-language ul {
+    text-align: right;
+}
+.sitewide-language li {
+    float: right;
+    margin-left: 1em;
+    text-align: right;
+}
+/********************* END Language Bar Styles ******************************************/
+
+/********************* BEGIN Utility Styles ******************************************/
+
+.row.utility {
+    padding-right: 0.9375em;
+}
+.utility-background {
+    background: #2a71a5;
+}
+.utility {
+    color: white;
+    padding: 0;
+    text-align: right;
+}
+.utility a {
+    color: white;
+}
+.utility span {
+    padding: 0.2em 1em;
+    display: inline-block;
+}
+/* These utility dictionary classes aren't currently used, but should be once we do the dropdown for the dictionary link on the utility bar */
+
+#utility-dictionary {
+    position: relative;
+    background: url($images + "/icons/white-arrow-down.png") no-repeat 100% 60%;
+}
+#utility-dictionary.active {
+    background: #f5f7f6;
+}
+#utility-dictionary.active a {
+    color: #2a73a8;
+}
+#utility-dropdown {
+    width: 20em;
+    display: none;
+    text-align: left;
+    color: #7f8084;
+    padding: 1em;
+    overflow: hidden;
+    background: #f5f7f6;
+    transition: height 0.5s ease-out 0s;
+    position: absolute;
+    top: 1.4em;
+    right: 0;
+    z-index: 10;
+}
+form.dictionary-dropdown {
+    margin: 0;
+}
+form.dictionary-dropdown input {
+    width: 19em;
+    display: inline;
+    margin-left: 2em;
+}
+form.dictionary-dropdown ul {
+    margin: 0;
+}
+form.dictionary-dropdown ul li {
+    display: inline;
+    margin-right: 0.3em;
+}
+/********************* END Utility Styles ******************************************/
+
+/********************* BEGIN Megamenus/Search Styles ******************************************/
+
+/* MegaMenu */
+
+#mega-nav .sub-nav-mega {
+    -webkit-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    border-top: none;
+}
+/* Navigation/Search bar */
+
+.nav-search-bar {
+    background: rgb(54, 54, 54);
+    /* fallback */
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1)));
+    /* Saf4+, Chrome */
+    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+    /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+    /* IE10 */
+    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+    /* W3C */
+}
+/* off canvas navigation
+* Source: http://codepen.io/scottb/details/javhr/ */
+
+#content {
+    clear: both;
+}
+a.open-panel,
+a.close-panel {
+    display: none;
+}
+script.nav-item {
+    display: none!important;
+}
+/* remove jQuery mobile styles */
+
+button.toggle {
+    display: inline-block;
+    cursor: pointer;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/********************* END Megamenus/Search Styles ******************************************/
+
+/********************* BEGIN Footer Styles ******************************************/
+
+footer {
+    background: #123e57 url($images + "/backgrounds/hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
+    padding: 1em 0;
+    color: white;
+}
+footer h2 {
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.footer-nci {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+}
+.footer-nci span {
+    font-size: 16px;
+}
+footer a,
+footer a:hover {
+    color: white;
+    font-weight: 700;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+footer .row {
+    margin: 1em auto;
+    border: 0 solid yellow;
+}
+footer li {
+    margin-bottom: 1em;
+    line-height: 1.1em;
+}
+.follow-us li {
+    float: left;
+    margin-right: 0.9em;
+    margin-left: 0;
+    text-indent: 0;
+}
+.follow-us img:hover {
+    opacity: 0.9;
+}
+.agencies ul {
+    text-align: center;
+}
+.agencies li {
+    display: inline-block;
+    background: url($images + "/backgrounds/agencies-divider.gif") center right no-repeat;
+    padding-right: 0.5em;
+    margin-right: 0.25em;
+}
+.agencies li.last {
+    background: none;
+    padding-right: 0;
+    margin-right: 0;
+}
+.tagline {
+    text-align: center;
+}
+/********************* END Footer Styles ******************************************/
+
+/********************* BEGIN Content Styles ******************************************/
+
+.main-content {
+    padding: 0;
+    background: #fcfcfa url($images + "/backgrounds/hexagon_molecular_structure_body.png") no-repeat 110% 600px;
+}
+.main-content a {
+    color: #186e88;
+}
+.main-content a:hover {
+    text-decoration: underline;
+}
+/* content pages need a default of underline for link hovers */
+
+.general-page-body-container a:hover {
+    text-decoration: underline;
+}
+a.definition,
+a.definition:visited,
+a.definition:active,
+a.definition:hover {
+    color: #606060;
+    text-decoration: none;
+    border-bottom: thin dotted;
+}
+a.definition:hover {
+    border-bottom: thin solid;
+}
+.lt-ie9 .general-page-body-container {
+    /* Border used here because IE8 doesn't support box-shadow */
+    border-left: 1px solid #cfd0cb;
+    border-right: 1px solid #cfd0cb;
+}
+.general-page-body-container {
+    background: #fffffb;
+    box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
+    padding-bottom: 1.5em;
+}
+.section-nav {} .contentzone {} .back-to-top {
+    position: fixed;
+    bottom: 1em;
+    right: 0.5em;
+    text-decoration: none;
+    color: #000;
+    background: transparent url($images + "/blue-arrow-up.png") no-repeat 50% 0;
+    font-weight: bold;
+    padding: 60px 15px 0;
+    display: none;
+    /* place on top of all other elements */
+    z-index: 998;
+}
+.back-to-top:hover {
+    background: url($images + "/red-arrow-up.png") no-repeat 50% 0;
+    color: #bd153c;
+}
+.back-to-top:visited {
+    background: transparent url($images + "/blue-arrow-up.png") no-repeat 50% 0;
+    color: #000;
+}
+/* Research Areas with Table of Contents */
+
+/*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
+
+.featured-zone {
+    background-color: #009b9d;
+    padding: 0 0 1.25em 1.25em;
+    overflow: hidden;
+    /*because in some pages content within box have floated elements */
+    margin-right: -1em;
+    padding: 1em;
+}
+.featured-zone,
+.featured-zone h1,
+.featured-zone h2,
+.featured-zone h3,
+.featured-zone h4,
+.featured-zone a {
+    color: white;
+}
+.toc-container {
+    padding-right: 0;
+    margin-right: -2em;
+    padding: 1em;
+}
+#my-toc {
+    background-color: #fff;
+    padding: 25px 0 30px 35px;
+    overflow: hidden;
+    padding-right: 0;
+}
+#my-toc h2 {
+    color: #606060;
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+/* hide default TOC header */
+
+#my-toc h4 {
+    display: none;
+}
+#my-toc ul {
+    margin: 0 1em;
+    list-style-type: disc;
+    color: #186e88;
+}
+#my-toc li {
+    padding-left: 0;
+    margin-left: 0;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+#my-toc ul a {
+    color: #186e88;
+    font-weight: bold;
+}
+/* BEGIN general content page styles */
+
+.contentzone ul,
+.contentzone ol {
+    margin-bottom: 1em;
+}
+.contentzone li {
+    margin-bottom: 0.5em;
+    margin-left: 2em;
+}
+.contentzone li {
+    list-style-type: none;
+}
+.contentzone li:before {
+    content: "\2022";
+    display: inline-block;
+    position: relative;
+    left: -.5em;
+    top: 0.1em;
+    margin: 0 -.2em;
+    font-size: 1.1em;
+}
+.contentzone ol li {
+    list-style-type: decimal;
+}
+ul.no-bullets li:before {
+    display: none;
+}
+ul.no-bullets {
+    padding: 0;
+}
+ul.no-bullets li {
+    background: none;
+    list-style-type: none;
+    padding: 0;
+}
+ul.no-bullets ul {
+    margin: 5px 0 8px;
+}
+ol.lower-alpha {
+    list-style-type: lower-alpha;
+}
+ol.lower-roman {
+    list-style-type: lower-roman;
+}
+ol.upper-alpha {
+    list-style-type: upper-alpha;
+}
+ol.upper-roman {
+    list-style-type: upper-roman;
+}
+.contentzone ul.no-bullets li,
+.contentzone ol.no-bullets li {
+    margin-bottom: 0.25em;
+    margin-left: 0;
+}
+ul.no-bullets ul li {
+    padding: 0 0 0 10px;
+    margin: 0 0 5px;
+}
+table.no-bullet-padding ul {
+    margin: 0;
+    padding: 0;
+}
+table.no-bullet-padding ul li {
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+.key-points {
+    overflow: auto;
+    margin: 1em 0 2em;
+    box-shadow: 2px 2px 4px 1px #c3c3c3;
+}
+.key-points h3 {
+    display: none;
+    /* hiding default h3 that PDQ spits out, for the more modular pseudo-element.   This allows for separation of style and content, as the manner in which the header is displayed is a style change, not a content one. - sjc - 2014-11-10 */
+}
+.key-points:before {
+    /* Key Points header */
+    content: "Key Points";
+    display: block;
+    margin: 0 auto 0.75em;
+    padding: 0.75em 0 0.75em 1.5em;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-family: "Montserrat", Arial;
+    font-weight: 100;
+    color: #fff;
+    background-color: #009b9d;
+}
+html[lang="es"] .key-points:before {
+    content: "Puntos Importantes";
+    display: block;
+    margin: 0 auto 0.75em;
+    padding: 0.75em 0 0.75em 1.5em;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-family: "Montserrat", Arial;
+    font-weight: 100;
+    color: #fff;
+    background-color: #009b9d;
+}
+.key-points ul {
+    padding: 0 1.5em 1.5em 1em;
+    margin: 0;
+}
+.key-points li:before
+/* Defining the bullet styles */
+
+{
+    content: "\2022";
+    display: inline-block;
+    position: relative;
+    left: -.5em;
+    top: 0.1em;
+    margin: 0 -.2em;
+    font-size: 1.1em;
+}
+.key-points li {
+    list-style-type: none;
+    color: #606060;
+    font-size: 18px;
+    font-weight: 100;
+}
+/*******************************************
+* ON THIS PAGE
+*******************************************/
+
+.on-this-page {
+    overflow: auto;
+    box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
+    width: 50%;
+    /* important set in display because the hide-medium-down has a display that is overriding this */
+    /* display: inline-block !important; */
+    padding: 1.6875em 1.4375em;
+    margin: 1.6875em 0 2em;
+}
+#_toc_article {
+    /* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
+    * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
+    * So, we can safely assume that if a div has this ID, it is an on-this-page style section, but on a PDQ page.
+    * Enforcing width: inherit will allow the on-this-page to be full width. Everywhere else, 50% width.
+    */
+    width: inherit;
+}
+.on-this-page > h2,
+.on-this-page > h3 {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+/* hiding default h3 that PDQ spits out, for the more modular pseudo-element.
+* This allows for separation of style and content, as the header treatment is a style change, not a content one.
+*  - sjc - 2014-11-10
+*/
+
+.on-this-page:before {
+    /* Key Points header */
+    content: "On this page";
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-family: "Montserrat", Arial;
+    font-weight: 100;
+    color: #606060;
+    margin: 0;
+    padding: 0;
+}
+html[lang="es"] .on-this-page:before {
+    content: "En este pagina";
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-family: "Montserrat", Arial;
+    font-weight: 100;
+    color: #606060;
+    margin: 0;
+    padding: 0;
+}
+.on-this-page ul {
+    padding: 0;
+    margin: -0.312em 0 0;
+}
+/* Defining the bullet disc styles */
+
+.on-this-page li:before {
+    content: "\2022";
+    display: inline-block;
+    position: relative;
+    left: -.5em;
+    top: 0.1em;
+    margin: 0 -.2em;
+    font-size: 1.1em;
+    color: #186e88;
+}
+.on-this-page li {
+    list-style-type: none;
+    color: #606060;
+    padding: 0;
+    margin: 1.19318em 0 0 1.25em;
+}
+.on-this-page li,
+.on-this-page a {
+    font-family: "noto", Arial;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 1em;
+}
+/*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
+
+.key-facts {
+    background: #d7f9fa;
+    float: right;
+    width: 40%;
+    padding: 0 1em;
+    margin: 1em -1em 1em 1em;
+}
+/* END general content page styles */
+
+.document-dates {
+    margin-top: 1.5em;
+}
+.syndication {
+    border-top: 1px solid black;
+    overflow: hidden;
+    /* this is to prevent the border from writing over a floated element */
+}
+/* icon that goes with syndication image */
+
+.syndication-image {
+    margin: 0 0.7em 0.5em 0.5em;
+    float: left;
+}
+/* hidden elements */
+
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+::-webkit-input-placeholder {
+    color: #fff;
+}
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+}
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+}
+:-ms-input-placeholder {
+    color: #fff;
+}
+/********************* END Content Styles ******************************************/
+
+@import "home";
+@import "cthp";
+
+@import "pageOptions";
+@import "carousel";
+@import "contentTemplate";
+@import "pdq";
+
+/* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
+
+@import "mediaqueries/medium-down";
+@import "mediaqueries/large-up";
+@import "mediaqueries/small";
+@import "mediaqueries/medium";
+@import "mediaqueries/large";
+@import "mediaqueries/extra-large";
+@import "mediaqueries/extra-small";
+
+/* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
+
+@import "MegaMenu";

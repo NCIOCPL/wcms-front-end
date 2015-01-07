@@ -1,0 +1,23 @@
+/***** BEGIN PAGE OPTIONS *************************************/
+.page-options {
+    margin-bottom: 1em;
+
+    ul {
+        margin: 0;
+    }
+    li {
+        display: inline-block;
+        margin: 0 -4px 0 0;
+    }
+    a {
+        display: inline-block;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 0.75em;
+    }
+}
+.contentzone .page-options li:before {
+    content: none;
+}
+/****** END PAGE OPTIONS *************************************/
+

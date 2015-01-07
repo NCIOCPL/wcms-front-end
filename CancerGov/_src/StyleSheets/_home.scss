@@ -1,0 +1,315 @@
+/********************* BEGIN Home Page Styles ******************************************/
+
+/* BEGIN Hero Section */
+
+.row .hero {
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 0;
+    padding-right: 0;
+    -webkit-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+}
+.hero-inner-page {
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 0;
+    padding-right: 0;
+}
+.hero-text {
+    position: absolute;
+    top: 1em;
+    left: 90px;
+    color: white;
+    width: 25%;
+    font-size: 1.55em;
+    font-weight: bold;
+}
+.hero-text p {
+    line-height: 1.1;
+    top-margin: 0.7em;
+    font-weight: bold;
+}
+.hero-text a {
+    color: white;
+}
+.hero-text a:hover {
+    text-decoration: none;
+}
+.hero-call-to-action {
+    font-size: 0.9em;
+    background: url($icons + "/hero-arrow.png") no-repeat center right;
+    display: inline-block;
+    padding-right: 1em;
+    -webkit-transition: padding-right 0.4s ease-in-out;
+    -moz-transition: padding-right 0.4s ease-in-out;
+    -ms-transition: padding-right 0.4s ease-in-out;
+    -o-transition: padding-right 0.4s ease-in-out;
+    transition: padding-right 0.4s ease-in-out;
+}
+.hero-call-to-action:hover {
+    padding-right: 1.5em;
+}
+/* END Hero Section */
+
+.content-bottom-slot {
+    background: #099;
+    /*margin-bottom: 1em;*/
+    padding: 1em 0;
+}
+/* BEGIN Featured Slick Carousel Row */
+
+.slick-dots {
+    text-align: center;
+}
+/* END Featured Slick Carousel Row */
+
+/* BEGIN CARDS GENERAL RULES */
+.body-banner {max-width: 100%; padding-left: 0; padding-right: 0;}
+
+/* equal height cards for desktop, visually push a div to the bottom of it's container */
+
+.card-row .card a {
+    color: #606060;
+}
+.card {
+    padding-top: 1em;
+    background: white;
+    /* for IE browsers that don't understnad rgba */
+    background: rgba(255, 255, 255, 0.8);
+}
+.card a:hover {
+    text-decoration: none;
+}
+.feature-secondary h3:hover,
+.multimedia h3 a:hover,
+.card-thumbnail h3 a:hover {
+    color: #bb0e3d;
+    text-decoration: none;
+}
+/* END CARDS GENERAL RULES */
+
+/* BEGIN FEAUTRE PRIMARY CARDS ROW */
+
+.feature-primary {
+    margin-bottom: 1em;
+}
+.feature-primary .card {
+    background: #178da9;
+}
+.feature-primary .featured-text {
+    background: white;
+}
+.feature-primary a,
+.feature-primary h3 {
+    color: white;
+}
+.feature-primary .featured-text a {
+    color: #186e88;
+}
+.feature-primary .featured-text a:hover {
+    color: #bb0e3d;
+}
+.feature-primary .featured-text h3 {
+    color: #666;
+}
+.feature-primary h3 {
+    font-weight: normal;
+    color: white;
+    font-size: 1.375em;
+    line-height: 1.272;
+}
+/* END FEATURE PRIMARY CARDS ROW */
+
+/* BEGIN FEATURE SECONDARY CARDS ROW */
+
+.feature-secondary {
+    margin-bottom: 1em;
+}
+.feature-secondary .card {
+    background: white;
+}
+.feature-secondary h3 {
+    font-weight: normal;
+    color: #186e88;
+    font-size: 1.375em;
+    line-height: 1.272;
+}
+.feature-secondary p {
+    color: #606060;
+}
+/* END FEATURE SECONDARY CARDS ROW */
+
+/* BEGIN GUIDE CARDS ROW */
+
+.guide-card {
+    margin-bottom: 1em;
+}
+.guide-card h3 {
+    font-weight: normal;
+    color: #606060;
+    font-size: 1.375em;
+    line-height: 1.272;
+}
+.featured-card {
+    background: #dbf2f8;
+}
+.featured-card h3,
+.featured-card a,
+.featured-card a.arrow-link-white {
+    color: #2f2f2f;
+}
+a.arrow-link {
+    background: url($icons + "/small-blue-circle-arrow.png") 100% 0 no-repeat;
+    padding-right: 2em;
+    width: 100%;
+    display: block;
+    color: #606060;
+}
+a.arrow-link-white {
+    background: url($icons + "/small-off-cream-circle-arrow.png") top right no-repeat;
+    padding-right: 1em;
+    width: 100%;
+    display: block;
+    color: #606060;
+}
+a.arrow-link:hover,
+a.arrow-link-white:hover {
+    background: url($icons + "/small-red-circle-arrow.png") top right no-repeat;
+    color: #bd153c;
+    text-decoration: none;
+}
+a.learn-more {
+    margin-top: 1em;
+    /* adding padding per #OCECREATIV-783 --sjc */
+}
+.card ul.cancer-types li {
+    background: none;
+    float: left;
+    padding-right: 0;
+    width: 2.5em;
+    height: 2.3em;
+}
+.card ul.cancer-types li a:hover {
+    color: #bb0e3d;
+}
+/* END GUIDE CARDS ROW */
+
+/* BEGIN THUMBNAIL CARDS ROW */
+
+.card-thumbnail {
+    background: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.card-thumbnail h3 {
+    font-weight: normal;
+}
+.card-thumbnail img {
+    margin-top: 1em;
+}
+/* END THUMBNAIL CARDS ROW */
+
+/* BEGIN MULTIMEDIA ROW */
+
+.multimedia .card {
+    background: none;
+    opacity: 1;
+}
+.multimedia {
+    margin-bottom: 1em;
+}
+.multimedia h3 {
+    font-size: 1.375em;
+    font-weight: normal;
+    line-height: 1.272;
+}
+/* END MULIMEDIA ROW */
+
+/* BEGIN Director's Row */
+
+.directors-row {} .directors-row h3 {
+    color: white;
+}
+.infographic {
+    position: relative;
+    /* allows for appearance of equal height cards on home page */
+    background: white;
+}
+.infographic-enlarge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+.infographic-enlarge a {
+    color: white;
+    padding: 1em 2em 1em 1em;
+    display: block;
+    background: #403f3f url($icons + "/white-arrow-view-infographic.png") no-repeat 95% 50%;
+}
+.infographic-enlarge a:hover {
+    text-decoration: none;
+    background-color: #bb0e3d;
+}
+.infographic figcaption {
+    padding: 0.5em 1em;
+}
+.home-director-stories {
+    background: white;
+    padding: 0.5em 1em 0.2em;
+    margin-top: -10px;
+}
+/* END Director's Row */
+
+/* search */
+
+.search form {
+    margin: 0 0 0 -4px;
+    height: 100%;
+}
+.search {
+    width: 25%;
+    float: right;
+    background-color: #636363;
+    height: 51px;
+}
+html[lang="es"] .search {
+    height: 58px;
+}
+/* search box */
+
+.search #swKeyword {
+    background-color: #636363;
+    -webkit-appearance: none;
+    border: 0;
+    display: inline;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    width: 89%;
+    padding-left: 7%;
+    font-size: 0.85em;
+    color: #fff;
+}
+/* placeholder text */
+
+#swKeyword::-webkit-input-placeholder {
+    color: #fff;
+}
+#swKeyword::-moz-placeholder {
+    color: #fff;
+    opacity: 1;
+}
+#swKeyword:-moz-placeholder {
+    color: #fff;
+    opacity: 1;
+}
+/* styles for markup automatically added by jquery mobile */
+
+.search .ui-input-text {
+    height: 100%;
+    width: 90%;
+    display: inline;
+}
+/********************* END Home Page Styles ******************************************/
