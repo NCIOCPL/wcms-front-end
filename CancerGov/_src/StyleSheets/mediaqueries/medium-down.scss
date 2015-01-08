@@ -88,22 +88,15 @@
 		background-position: 0 -45px;
 	}
 	/*** BEGIN Megamenus/Search Styles ***/
-	/* hide desktop nav */
-	#mega-nav {
-		display: none;
-	}
 	#content {
 		padding-top: 0;
 	}
 	/* Display nav items vertically */
-	nav#mobile-nav ul.menu {
+	#mega-nav ul.menu {
 		border-top: 1px solid #888;
 	}
-	nav#mobile-nav ul.menu li {
-		float: none;
+	#mega-nav ul.menu li {
 		width: 100%;
-		text-align: left;
-		padding: .5em 1em;
 		box-sizing: border-box;
 		border-top: 1px solid #888;
 	}
@@ -135,7 +128,7 @@
 		transition: left 500ms ease;
 	}
 	/* Move nav off screen, setup transitions */
-	#mobile-nav {
+	#mega-nav {
 		z-index: 1000;
 		position: absolute;
 		left: -80%;
@@ -144,7 +137,7 @@
 		height: 100%;
 		background-color: #E9E9E7;
 	}
-	#mobile-nav > ul {
+	#mega-nav > ul {
 		overflow-y: auto;
 		height: 100%;
 	}
@@ -155,24 +148,24 @@
 	}
 	/* mobile menu */
 	/* open/minus toggle */
-	#mobile-nav .toggle-opened,
-	#mobile-nav .toggle[aria-expanded="true"] {
+	#mega-nav .toggle-opened,
+	#mega-nav .toggle[aria-expanded="true"] {
 		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -55px no-repeat;
 	}
 	/* clicked open/minus toggle (only appears for a brief moment) */
-	#mobile-nav .toggle[aria-expanded="true"]:active {
+	#mega-nav .toggle[aria-expanded="true"]:active {
 		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -175px no-repeat;
 	}
 	/* closed/plus toggle */
-	#mobile-nav .toggle-closed,
-	#mobile-nav .toggle[aria-expanded="false"] {
+	#mega-nav .toggle-closed,
+	#mega-nav .toggle[aria-expanded="false"] {
 		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% 5px no-repeat;
 	}
 	/* clicked closed/plus toggle (only appears for a brief moment) */
-	#mobile-nav .toggle[aria-expanded="false"]:active {
+	#mega-nav .toggle[aria-expanded="false"]:active {
 		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -115px no-repeat;
 	}
-	#mobile-nav .toggle {
+	#mega-nav .toggle {
 		float: right;
 		vertical-align: top;
 		width: 25%;
@@ -181,11 +174,13 @@
 		margin: 0;
 		padding: 0;
 	}
-	nav#mobile-nav > li,
-	nav#mobile-nav > li > ul > li {
+	/*
+	#mega-nav > li,
+	#mega-nav > li > ul > li {
 		padding-left: 0;
 	}
-	nav#mobile-nav li a {
+	*/
+	#mega-nav li a {
 		display: inline-block;
 		min-height: 1.5em;
 		width: 75%;
@@ -194,30 +189,33 @@
 		font-size: 1.1em;
 		color: #606060;
 	}
-	nav#mobile-nav li > div > a {
-		width: 100%;
+	#mega-nav li > div > a {
+		width: 75%;
+		/* If we add "has-children", change to 100% */
 	}
-	nav#mobile-nav li.has-children > div > a {
+	/* Re-add if we add "has-children"
+	#mega-nav li.has-children > div > a {
 		width: 75%;
 	}
-	nav#mobile-nav li {
+	*/
+	#mega-nav li {
 		border-top: 1px solid #898987;
 	}
 	/* list item spacing through the hierarchy */
-	nav#mobile-nav li > div > a,
-	nav#mobile-nav li li > div > a {
+	#mega-nav li > div > a,
+	#mega-nav li li > div > a {
 		padding-left: 31px;
 		font-size: 1.17em;
 		padding-top: 12px;
 		padding-bottom: 12px;
 	}
-	nav#mobile-nav li li li > div > a {
+	#mega-nav li li li > div > a {
 		padding-left: 44px;
 		font-size: 0.91em;
 		padding-top: 14px;
 		padding-bottom: 11px;
 	}
-	nav#mobile-nav li li li li > div > a {
+	#mega-nav li li li li > div > a {
 		padding-left: 62px;
 		font-size: 0.78em;
 		font-weight: bold;
@@ -225,47 +223,49 @@
 		padding-bottom: 15px;
 	}
 	/* remove padding on HOME link to appear as a level 0 item */
-	nav#mobile-nav .nav-menu > li > div > a {
+	#mega-nav .nav-menu > li > div > a {
 		padding-left: 17px;
 		color: #606060;
 		padding-top: 14px;
 	}
-	nav#mobile-nav .highlight > div {
+	#mega-nav .highlight > div {
 		background-color: #0498a1;
 	}
-	nav#mobile-nav .highlight > div > a {
+	#mega-nav .highlight > div > a {
 		font-weight: bold;
 	}
-	nav#mobile-nav .nav-menu .highlight > div > a {
+	#mega-nav .nav-menu .highlight > div > a {
 		color: #fefefe;
 	}
 	/* remove background color of any child lists items of the highlighted */
-	nav#mobile-nav .highlight ul li {
+	#mega-nav .highlight ul li {
 		background-color: #E9E9E7;
 		color: #2ba6cb;
 	}
-	#mobile-nav,
-	#mobile-nav div {
+	#mega-nav {
 		-webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 		-moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 	}
 	/* clicked link state */
-	nav#mobile-nav .nav-menu li > div > a.active {
+	#mega-nav .nav-menu li > div > a.active {
 		/*
 		background-color: #BB0E3C;
 		background-image: none;
 		*/
 		color: #fff;
 	}
-	nav#mobile-nav .nav-menu li > div.active {
+	#mega-nav .nav-menu li > div.active {
 		background-color: #BB0E3C;
 		background-image: none;
 	}
 	/* remove margin from lists */
-	nav#mobile-nav ul {
+	#mega-nav ul {
 		margin: 0;
 		width: 100%;
+	}
+	.sub-nav-mega {
+		display: none;
 	}
 	.hidden-sibling {
 		display: none;
@@ -497,9 +497,6 @@
 		color: white;
 	}
 	/* begin mobile menu styles */
-	.nav-menu {
-		display: none;
-	}
 	.navigation {
 		width: 20%;
 		display: inline-block;
