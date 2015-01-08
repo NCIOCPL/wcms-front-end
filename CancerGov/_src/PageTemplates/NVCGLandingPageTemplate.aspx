@@ -101,12 +101,8 @@
             <!-- END HERO SLOT -->
             
 			<div class="row collapse title-page-options">
-				<!-- PAGE TITLE -->
-				<h1><NCI:CDEField scope="Page" fieldname="short_title" CssClass="large-5 push-7 columns" runat="server" /></h1>
-				<!-- END PAGE TITLE -->
-				
 				<!-- PAGE OPTIONS -->
-				<NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-7 pull-5 columns" runat="server">
+				<NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-5 push-7 columns" runat="server">
 					<PageOptionsButtonLanguages>
 						<NCI:PageOptionsButtonLanguageItem Language="en">
 							<ButtonsCollection>
@@ -133,6 +129,10 @@
 					</PageOptionsButtonLanguages>
 				</NCI:PageOptionsControl>
 				<!-- END PAGE OPTIONS -->
+				
+				<!-- PAGE TITLE -->
+					<h1><NCI:CDEField scope="Page" fieldname="short_title" CssClass="large-7 pull-5 columns" runat="server" /></h1>
+				<!-- END PAGE TITLE -->
 			</div>
 
             <!-- CARD CONTAINER --> 
