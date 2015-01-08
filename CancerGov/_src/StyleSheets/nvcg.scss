@@ -122,7 +122,7 @@ table.table-default ul {
     @include font-montserrat;
 }
 /* clearfix for clearing floated items */
-.clearfix { 
+.clearfix {
     zoom: 1;
 
     &:after {
@@ -138,7 +138,6 @@ table.table-default ul {
 /* begin images using the HTML5 figure and figcaption elements */
 
 /* add block level style to HTML5 elements, for IE */
-
 header,
 nav,
 article,
@@ -149,17 +148,11 @@ figure,
 figcaption {
     display: block;
 }
+
 figure {
     margin-bottom: 10px;
     overflow: hidden;
-
-/* image right 25% width */
-    .image-right-small {
-        float: right;
-        position: relative;
-        width: 25%;
-        margin: 0 0 1em 1em;
-    }
+    position: relative;
 
     a.article-image-enlarge {
         position: absolute;
@@ -167,66 +160,76 @@ figure {
         top: 0;
         right: 0;
         color: #fff;
-        background: #403f3f url($images + "/icons/enlarge.png") 90% 50% no-repeat;
+        background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
         padding: 0.3125em 0 0.3125em 1.25em;
         font-weight: bold;
         opacity: 0.9;
 
+        &:hover {
+            text-decoration: none;
+        }
     }
-}
 
-figure a.article-image-enlarge:hover {
-    text-decoration: none;
-}
-/* image right 40% width */
+    /* image right 25% width */
+    &.image-right-small {
+        float: right;
+        width: 25%;
+        margin: 0 0 1em 1em;
+    }
 
-figure.image-right-medium {
-    float: right;
-    width: 40%;
-    margin: 0 0 1em 1em;
-}
-/* image left 25% width */
+    /* image right 40% width */
+    &.image-right-medium {
+        float: right;
+        width: 40%;
+        margin: 0 0 1em 1em;
+    }
 
-figure.image-left-small {
-    float: left;
-    width: 25%;
-    margin: 0 1em 1em 0;
-}
-/* image left 40% width */
+    /* image left 25% width */
+    &.image-left-small {
+        float: left;
+        width: 25%;
+        margin: 0 1em 1em 0;
+    }
 
-figure.image-left-medium {
-    float: left;
-    width: 40%;
-    margin: 0 1em 1em 0;
-}
-/* image center 75% width */
+    /* image left 40% width */
+    &.image-left-medium {
+        float: left;
+        width: 40%;
+        margin: 0 1em 1em 0;
+    }
 
-figure.image-center {
-    width: 75%;
-    margin: 0 auto 1em;
-}
-/* image center 100% width */
+    /* image center 75% width */
+    &.image-center {
+        width: 75%;
+        margin: 0 auto 1em;
 
-figure.image-center-full {
-    width: 100%;
-    margin: 0 auto 1em;
-}
-/* contain image inside fig */
+        /* center images using the centered templates */
+        img {
+            margin: 0 auto;
+        }
+    }
 
-figure img {
-    max-width: 100%;
-    /* remove white space under image */
-    display: block;
+    /* image center 100% width */
+    &.image-center-full {
+        width: 100%;
+        margin: 0 auto 1em;
+
+        /* center images using the centered templates */
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    /* contain image inside fig */
+    img {
+        max-width: 100%;
+        /* remove white space under image */
+        display: block;
+    }
 }
 table figure {
     display: table;
     table-layout: fixed;
-}
-/* center images using the centered templates */
-
-figure.image-center img,
-figure.image-center-full img {
-    margin: 0 auto;
 }
 /********************* END General Styles ******************************************/
 
