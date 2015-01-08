@@ -15,10 +15,6 @@ o8o        `8   `Y8bood8P'  o888o
 NATIONAL CANCER INSTITUTE
 at the National Institutes of Health
 
-
-
-                                     
-                                     
 `7MM"""Mq. `7MM"""Yb.     .g8""8q.   
   MM   `MM.  MM    `Yb. .dP'    `YM. 
   MM   ,M9   MM     `Mb dM'      `MM 
@@ -43,16 +39,15 @@ at the National Institutes of Health
 </head>
 
 <body id="Body1" runat="server">
-    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a>
-    </div>
+    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
     <!-- NOTIFICATION AREA -->
     <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
     
-    <!-- HEADER -->
+<!-- HEADER -->
     <header class="push" role="banner">
         <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server" 
-            CssClass="row" AdditionalSnippetClasses="large-12 small-centered columns" />
+            CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
     </header>
     <!-- END HEADER -->
     
@@ -103,9 +98,23 @@ at the National Institutes of Health
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="pt">
                                 <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+                                    <NCI:LanguageToggle 
+                                        Locale="en-us" 
+                                        Name="English" 
+                                        Title="English" 
+                                        Url="/" 
+                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+                                    <NCI:LanguageToggle 
+                                        Locale="es-us" 
+                                        Name="Spanish" 
+                                        Title="Espa&ntilde;ol" 
+                                        Url="/espanol" 
+                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+                                    <NCI:LanguageToggle 
+                                        Locale="zh-cn" 
+                                        Name="Chinese" 
+                                        Title="&#20013;&#25991;" 
+                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
                                 </LangsCollection>
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="zh">
@@ -131,9 +140,7 @@ at the National Institutes of Health
                 <!-- END LANGUAGE BAR -->
                 
                 <!-- UTILITY NAV -->
-                <NCI:TemplateSlot ID="nvcgSlUtilityBar" runat="server"
-                    CssClass="utility-background hide-for-medium-down" 
-                    AdditionalSnippetClasses="row utility" />
+                <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
                 <!-- END UTILITY NAV -->
             </div><!-- end "headroom-area" -->
             
