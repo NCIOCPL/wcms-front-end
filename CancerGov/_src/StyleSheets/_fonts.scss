@@ -1,4 +1,4 @@
-/********************* BEGIN Font Declarations ******************************************/
+/************** BEGIN Font Declarations ************************/
 @mixin font-face($family, $path, $svg, $weight, $style) {
   $filetypes: ('.eot?#iefix', '.woff', '.ttf', '.svg#' + $svg);
   $formats: ('embedded-opentype', 'woff', 'truetype', 'svg');
@@ -12,8 +12,14 @@
     font-style: $style;
   }
 }
+
+
 /* NOTO */
 $noto: "noto";
+
+@mixin font-noto {
+  font-family: #{$noto}, Arial;
+}
 
 $noto-path: $fonts + "NotoSans-Regular-webfont";
 $noto-svg: "noto_sansregular";
@@ -35,6 +41,10 @@ $noto-svg: "noto_sansitalic";
 /* Montserrat */
 
 $montserrat: "Montserrat";
+@mixin font-montserrat {
+  font-family: #{$montserrat}, Arial;
+}
+
 $mont-path: $fonts + 'montserrat_regular_macroman/Montserrat-Regular-webfont';
 $mont-svg: 'webfont';
 @include font-face($montserrat, $mont-path, $mont-svg, "normal", "normal");

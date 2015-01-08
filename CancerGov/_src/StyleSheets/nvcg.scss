@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "environments/percussion";
 @import "variables";
+@import "functions";
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 @import "reset";
@@ -18,7 +19,7 @@ html {
 }
 body {
     font-size: 1em;
-    font-family: 'noto', Arial;
+    @include font-noto;
     color: #606060;
     line-height: 1.375em;
     word-wrap: break-word;
@@ -30,12 +31,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Montserrat', Arial;
+    @include font-montserrat;
     margin-top: 0.5em;
     color: #606060;
 }
 .section-nav {
-    font-family: 'Montserrat', Arial;
+    @include font-montserrat;
 }
 h1 {
     font-size: 2em;
@@ -118,21 +119,22 @@ table.table-default ul {
     font-size: 0.8em;
     margin-bottom: 1.25em;
     margin-top: 2em;
-    font-family: 'Montserrat';
+    @include font-montserrat;
 }
 /* clearfix for clearing floated items */
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-.clearfix:after {
-    clear: both;
-}
-.clearfix {
+.clearfix { 
     zoom: 1;
+
+    &:after {
+        clear: both;
+    }
+
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
 }
+
 /* begin images using the HTML5 figure and figcaption elements */
 
 /* add block level style to HTML5 elements, for IE */
@@ -150,26 +152,29 @@ figcaption {
 figure {
     margin-bottom: 10px;
     overflow: hidden;
-}
-/* image right 25% width */
 
-figure.image-right-small {
-    float: right;
-    position: relative;
-    width: 25%;
-    margin: 0 0 1em 1em;
+/* image right 25% width */
+    .image-right-small {
+        float: right;
+        position: relative;
+        width: 25%;
+        margin: 0 0 1em 1em;
+    }
+
+    a.article-image-enlarge {
+        position: absolute;
+        width: 150px;
+        top: 0;
+        right: 0;
+        color: #fff;
+        background: #403f3f url($images + "/icons/enlarge.png") 90% 50% no-repeat;
+        padding: 0.3125em 0 0.3125em 1.25em;
+        font-weight: bold;
+        opacity: 0.9;
+
+    }
 }
-figure a.article-image-enlarge {
-    position: absolute;
-    width: 150px;
-    top: 0;
-    right: 0;
-    color: #fff;
-    background: #403f3f url($images + "/icons/enlarge.png") 90% 50% no-repeat;
-    padding: 0.3125em 0 0.3125em 1.25em;
-    font-weight: bold;
-    opacity: 0.9;
-}
+
 figure a.article-image-enlarge:hover {
     text-decoration: none;
 }
@@ -229,13 +234,13 @@ figure.image-center-full img {
 
 header {
     padding: 1em 0 0;
-    font-family: 'Montserrat', sans-serif;
+    @include font-montserrat;
     background: #fcfcfa;
 }
 .nci-logo {
     font-weight: bold;
     line-height: 0.8;
-    background: url($images + "NIH-red-logo.png") no-repeat 5px 0;
+    background: url($icons + "NIH-red-logo.png") no-repeat 5px 0;
     font-size: 30px;
     padding: 0.1em 0 0.2em;
 }
@@ -421,7 +426,7 @@ footer h2 {
     text-transform: uppercase;
 }
 .footer-nci {
-    font-family: 'Montserrat', sans-serif;
+    @include font-montserrat;
     font-size: 25px;
     padding-left: 0.6em;
     padding-right: 0.6em;
@@ -673,22 +678,14 @@ table.no-bullet-padding ul li {
     padding: 0.75em 0 0.75em 1.5em;
     text-transform: uppercase;
     font-size: 1.5em;
-    font-family: "Montserrat", Arial;
+    @include font-montserrat;
     font-weight: 100;
     color: #fff;
     background-color: #009b9d;
 }
 html[lang="es"] .key-points:before {
+    @extend .key-points:before;
     content: "Puntos Importantes";
-    display: block;
-    margin: 0 auto 0.75em;
-    padding: 0.75em 0 0.75em 1.5em;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    font-family: "Montserrat", Arial;
-    font-weight: 100;
-    color: #fff;
-    background-color: #009b9d;
 }
 .key-points ul {
     padding: 0 1.5em 1.5em 1em;
@@ -716,15 +713,7 @@ html[lang="es"] .key-points:before {
 * ON THIS PAGE
 *******************************************/
 
-.on-this-page {
-    overflow: auto;
-    box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
-    width: 50%;
-    /* important set in display because the hide-medium-down has a display that is overriding this */
-    /* display: inline-block !important; */
-    padding: 1.6875em 1.4375em;
-    margin: 1.6875em 0 2em;
-}
+
 #_toc_article {
     /* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
     * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
@@ -744,55 +733,62 @@ html[lang="es"] .key-points:before {
 *  - sjc - 2014-11-10
 */
 
-.on-this-page:before {
-    /* Key Points header */
-    content: "On this page";
-    text-transform: uppercase;
-    font-size: 1.25em;
-    font-family: "Montserrat", Arial;
-    font-weight: 100;
-    color: #606060;
-    margin: 0;
-    padding: 0;
-}
-html[lang="es"] .on-this-page:before {
-    content: "En este pagina";
-    text-transform: uppercase;
-    font-size: 1.25em;
-    font-family: "Montserrat", Arial;
-    font-weight: 100;
-    color: #606060;
-    margin: 0;
-    padding: 0;
-}
-.on-this-page ul {
-    padding: 0;
-    margin: -0.312em 0 0;
-}
-/* Defining the bullet disc styles */
+.on-this-page {
+    overflow: auto;
+    box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
+    width: 50%;
+    /* important set in display because the hide-medium-down has a display that is overriding this */
+    /* display: inline-block !important; */
+    padding: 1.6875em 1.4375em;
+    margin: 1.6875em 0 2em;
 
-.on-this-page li:before {
-    content: "\2022";
-    display: inline-block;
-    position: relative;
-    left: -.5em;
-    top: 0.1em;
-    margin: 0 -.2em;
-    font-size: 1.1em;
-    color: #186e88;
+    &:before {
+        /* Key Points header */
+        content: "On this page";
+        text-transform: uppercase;
+        font-size: 1.25em;
+        @include font-montserrat;
+        font-weight: 100;
+        color: #606060;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        padding: 0;
+        margin: -0.312em 0 0;
+    }
+
+    li:before {
+    /* Defining the bullet disc styles */
+        content: "\2022";
+        display: inline-block;
+        position: relative;
+        left: -.5em;
+        top: 0.1em;
+        margin: 0 -.2em;
+        font-size: 1.1em;
+        color: #186e88;
+    }
+
+    li {
+        list-style-type: none;
+        color: #606060;
+        padding: 0;
+        margin: 1.19318em 0 0 1.25em;
+    }
+
+    li, a {
+        @include font-noto;
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 1em;
+    }
 }
-.on-this-page li {
-    list-style-type: none;
-    color: #606060;
-    padding: 0;
-    margin: 1.19318em 0 0 1.25em;
-}
-.on-this-page li,
-.on-this-page a {
-    font-family: "noto", Arial;
-    font-size: 16px;
-    font-weight: 100;
-    line-height: 1em;
+
+html[lang="es"] .on-this-page:before {
+    @extend .on-this-page:before;
+    content: "En este pagina";
 }
 /*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
 
