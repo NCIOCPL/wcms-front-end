@@ -23,13 +23,12 @@
         text-transform: uppercase;
     }
 
-    a {
+    a, a:hover {
         color: white;
         font-weight: 700;
     }
 
     a:hover {
-        @extend .site-footer a;
         text-decoration: underline;
     }
 
