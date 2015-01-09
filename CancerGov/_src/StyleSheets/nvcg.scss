@@ -500,16 +500,18 @@ a.definition:hover {
 a.definition:hover {
     border-bottom: thin solid;
 }
-.lt-ie9 .general-page-body-container {
-    /* Border used here because IE8 doesn't support box-shadow */
-    border-left: 1px solid #cfd0cb;
-    border-right: 1px solid #cfd0cb;
-}
+
 .general-page-body-container {
     background: #fffffb;
-    box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
     padding-bottom: 1.5em;
+    box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
+    .no-boxshadow & {
+        /* Border used here because IE8 doesn't support box-shadow */
+        border-left: 1px solid #cfd0cb;
+        border-right: 1px solid #cfd0cb;
+    }
 }
+
 .section-nav {
 
 }
