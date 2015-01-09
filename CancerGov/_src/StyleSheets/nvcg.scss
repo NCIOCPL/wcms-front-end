@@ -406,71 +406,7 @@ button.toggle {
 }
 /********************* END Megamenus/Search Styles ******************************************/
 
-/********************* BEGIN Footer Styles ******************************************/
-
-.site-footer {
-    background: #123e57 url($images + "/backgrounds/hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
-    padding: 1em 0;
-    color: white;
-}
-.site-footer h2 {
-    color: white;
-    font-size: 1em;
-    font-weight: normal;
-    text-transform: uppercase;
-}
-.footer-nci {
-    @include font-montserrat;
-    font-size: 25px;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-}
-.footer-nci span {
-    font-size: 16px;
-}
-.site-footer a,
-.site-footer a:hover {
-    color: white;
-    font-weight: 700;
-}
-.site-footer a:hover {
-    text-decoration: underline;
-}
-.site-footer .row {
-    margin: 1em auto;
-    border: 0 solid yellow;
-}
-.site-footer li {
-    margin-bottom: 1em;
-    line-height: 1.1em;
-}
-.follow-us li {
-    float: left;
-    margin-right: 0.9em;
-    margin-left: 0;
-    text-indent: 0;
-}
-.follow-us img:hover {
-    opacity: 0.9;
-}
-.agencies ul {
-    text-align: center;
-}
-.agencies li {
-    display: inline-block;
-    background: url($images + "/backgrounds/agencies-divider.gif") center right no-repeat;
-    padding-right: 0.5em;
-    margin-right: 0.25em;
-}
-.agencies li.last {
-    background: none;
-    padding-right: 0;
-    margin-right: 0;
-}
-.tagline {
-    text-align: center;
-}
-/********************* END Footer Styles ******************************************/
+@include "footer";
 
 /********************* BEGIN Content Styles ******************************************/
 
