@@ -510,7 +510,15 @@ a.definition:hover {
     box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
     padding-bottom: 1.5em;
 }
-.section-nav {} .contentzone {} .back-to-top {
+.section-nav {
+
+}
+
+.contentzone:first-child {
+    width: 100%;
+}
+
+.back-to-top {
     position: fixed;
     bottom: 1em;
     right: 0.5em;
