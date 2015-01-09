@@ -268,6 +268,7 @@ INNER   PAGE    TEMPLATE
                             <!-- END PAGE TITLE -->
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
                             <NCI:TemplateSlot ID="cgvSlPagination" runat="server" />
+							<NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
                             <footer class="footer-article">
                                 <NCI:TemplateSlot ID="cgvCitationSl" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
