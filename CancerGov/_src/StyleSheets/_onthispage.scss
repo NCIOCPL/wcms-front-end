@@ -1,0 +1,81 @@
+/*******************************************
+* ON THIS PAGE
+*******************************************/
+
+
+#_toc_article {
+    /* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
+    * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
+    * So, we can safely assume that if a div has this ID, it is an on-this-page style section, but on a PDQ page.
+    * Enforcing width: inherit will allow the on-this-page to be full width. Everywhere else, 50% width.
+    */
+    width: inherit;
+}
+.on-this-page > h2,
+.on-this-page > h3 {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+/* hiding default h3 that PDQ spits out, for the more modular pseudo-element.
+* This allows for separation of style and content, as the header treatment is a style change, not a content one.
+*  - sjc - 2014-11-10
+*/
+
+.on-this-page {
+    overflow: auto;
+    box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
+    width: 50%;
+    /* important set in display because the hide-medium-down has a display that is overriding this */
+    /* display: inline-block !important; */
+    padding: 1.6875em 1.4375em;
+    margin: 1.6875em 0 2em;
+
+    &:before {
+        /* Key Points header */
+        content: "On this page";
+        text-transform: uppercase;
+        font-size: 1.25em;
+        @include font-montserrat;
+        font-weight: 100;
+        color: #606060;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        padding: 0;
+        margin: -0.312em 0 0;
+    }
+
+    li:before {
+    /* Defining the bullet disc styles */
+        content: "\2022";
+        display: inline-block;
+        position: relative;
+        left: -.5em;
+        top: 0.1em;
+        margin: 0 -.2em;
+        font-size: 1.1em;
+        color: #186e88;
+    }
+
+    li {
+        list-style-type: none;
+        color: #606060;
+        padding: 0;
+        margin: 1.19318em 0 0 1.25em;
+    }
+
+    li, a {
+        @include font-noto;
+        font-size: 16px;
+        font-weight: 100;
+        line-height: 1em;
+    }
+}
+
+html[lang="es"] .on-this-page:before {
+    @extend .on-this-page:before;
+    content: "En este pagina";
+}

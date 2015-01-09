@@ -320,7 +320,7 @@ header {
 
 #utility-dictionary {
     position: relative;
-    background: url($images + "/icons/white-arrow-down.png") no-repeat 100% 60%;
+    background: url($images + "icons/white-arrow-down.png") no-repeat 100% 60%;
 }
 #utility-dictionary.active {
     background: #f5f7f6;
@@ -363,20 +363,13 @@ form.dictionary-dropdown ul li {
 /* Navigation/Search bar */
 
 .nav-search-bar {
-    background: rgb(54, 54, 54);
-    /* fallback */
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1)));
-    /* Saf4+, Chrome */
-    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* Chrome 10+, Saf5.1+ */
-    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* FF3.6+ */
-    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* IE10 */
-    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* Opera 11.10+ */
-    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* W3C */
+    background: rgb(54, 54, 54); /* fallback */
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1))); /* Safari4+, Chrome */
+    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* FF3.6+ */
+    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* IE10 */
+    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Opera 11.10+ */
+    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* W3C */
 }
 /* off canvas navigation
 * Source: http://codepen.io/scottb/details/javhr/ */
@@ -412,7 +405,7 @@ button.toggle {
 
 .main-content {
     padding: 0;
-    background: #fcfcfa url($images + "/backgrounds/hexagon_molecular_structure_body.png") no-repeat 110% 600px;
+    background: #fcfcfa url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
 }
 .main-content a {
     color: #186e88;
@@ -462,7 +455,7 @@ a.definition:hover {
     right: 0.5em;
     text-decoration: none;
     color: #000;
-    background: transparent url($images + "/blue-arrow-up.png") no-repeat 50% 0;
+    background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
     font-weight: bold;
     padding: 60px 15px 0;
     display: none;
@@ -470,11 +463,11 @@ a.definition:hover {
     z-index: 998;
 }
 .back-to-top:hover {
-    background: url($images + "/red-arrow-up.png") no-repeat 50% 0;
+    background: url($images + "red-arrow-up.png") no-repeat 50% 0;
     color: #bd153c;
 }
 .back-to-top:visited {
-    background: transparent url($images + "/blue-arrow-up.png") no-repeat 50% 0;
+    background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
     color: #000;
 }
 /* Research Areas with Table of Contents */
