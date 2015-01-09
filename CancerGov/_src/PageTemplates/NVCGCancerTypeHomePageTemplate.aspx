@@ -5,26 +5,26 @@
 <!DOCTYPE html>
 <html id="htmlEl" runat="server">
 <!--
-ooooo      ooo   .oooooo.   ooooo 
-`888b.     `8'  d8P'  `Y8b  `888' 
- 8 `88b.    8  888           888  
- 8   `88b.  8  888           888  
- 8     `88b.8  888           888  
- 8       `888  `88b    ooo   888  
+ooooo      ooo   .oooooo.   ooooo
+`888b.     `8'  d8P'  `Y8b  `888'
+ 8 `88b.    8  888           888
+ 8   `88b.  8  888           888
+ 8     `88b.8  888           888
+ 8       `888  `88b    ooo   888
 o8o        `8   `Y8bood8P'  o888o
 NATIONAL CANCER INSTITUTE
 at the National Institutes of Health
-                                       
- @@@@@@@  @@@@@@@  @@@  @@@  @@@@@@@   
-@@@@@@@@  @@@@@@@  @@@  @@@  @@@@@@@@  
-!@@         @@!    @@!  @@@  @@!  @@@  
-!@!         !@!    !@!  @!@  !@!  @!@  
-!@!         @!!    @!@!@!@!  @!@@!@!   
-!!!         !!!    !!!@!!!!  !!@!!!    
-:!!         !!:    !!:  !!!  !!:       
-:!:         :!:    :!:  !:!  :!:       
- ::: :::     ::    ::   :::   ::       
- :: :: :     :      :   : :   :        
+
+ @@@@@@@  @@@@@@@  @@@  @@@  @@@@@@@
+@@@@@@@@  @@@@@@@  @@@  @@@  @@@@@@@@
+!@@         @@!    @@!  @@@  @@!  @@@
+!@!         !@!    !@!  @!@  !@!  @!@
+!@!         @!!    @!@!@!@!  @!@@!@!
+!!!         !!!    !!!@!!!!  !!@!!!
+:!!         !!:    !!:  !!!  !!:
+:!:         :!:    :!:  !:!  :!:
+ ::: :::     ::    ::   :::   ::
+ :: :: :     :      :   : :   :
  Cancer Types Home Page Template
 -->
 <head id="header" runat="server">
@@ -46,7 +46,7 @@ at the National Institutes of Health
 
 <!-- HEADER -->
     <header class="push" role="banner">
-        <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server" 
+        <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server"
             CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
     </header>
     <!-- END HEADER -->
@@ -56,80 +56,80 @@ at the National Institutes of Health
             <div class="headroom-area">
                 <!-- LANGUAGE BAR -->
                 <div class="language-bar">
-                    <NCI:LanguageToggleControl 
-                        ID="LangList1" 
-                        CssClass="row sitewide-language" 
+                    <NCI:LanguageToggleControl
+                        ID="LangList1"
+                        CssClass="row sitewide-language"
                         runat="server">
                         <LanguageToggleLanguages>
                             <NCI:LanguageToggleLanguageItem Language="en">
                                 <LangsCollection>
-                                    <NCI:LanguageToggle Locale="es-us" 
-                                        Name="Spanish" 
-                                        Title="Espa&ntilde;ol" 
-                                        Url="/espanol" 
+                                    <NCI:LanguageToggle Locale="es-us"
+                                        Name="Spanish"
+                                        Title="Espa&ntilde;ol"
+                                        Url="/espanol"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="pt-br" 
-                                        Name="Portuguese" 
-                                        Title="Portugu&ecirc;s" 
+                                    <NCI:LanguageToggle Locale="pt-br"
+                                        Name="Portuguese"
+                                        Title="Portugu&ecirc;s"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" 
-                                        Name="Chinese" 
-                                        Title="&#20013;&#25991;" 
+                                    <NCI:LanguageToggle Locale="zh-cn"
+                                        Name="Chinese"
+                                        Title="&#20013;&#25991;"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
                                 </LangsCollection>
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="es">
                                 <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" 
-                                        Name="English" 
-                                        Title="English" 
-                                        Url="/" 
+                                    <NCI:LanguageToggle Locale="en-us"
+                                        Name="English"
+                                        Title="English"
+                                        Url="/"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="pt-br" 
-                                        Name="Portuguese" 
-                                        Title="Portugu&ecirc;s" 
+                                    <NCI:LanguageToggle Locale="pt-br"
+                                        Name="Portuguese"
+                                        Title="Portugu&ecirc;s"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" 
-                                        Name="Chinese" 
-                                        Title="&#20013;&#25991;" 
+                                    <NCI:LanguageToggle Locale="zh-cn"
+                                        Name="Chinese"
+                                        Title="&#20013;&#25991;"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
                                 </LangsCollection>
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="pt">
                                 <LangsCollection>
-                                    <NCI:LanguageToggle 
-                                        Locale="en-us" 
-                                        Name="English" 
-                                        Title="English" 
-                                        Url="/" 
+                                    <NCI:LanguageToggle
+                                        Locale="en-us"
+                                        Name="English"
+                                        Title="English"
+                                        Url="/"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle 
-                                        Locale="es-us" 
-                                        Name="Spanish" 
-                                        Title="Espa&ntilde;ol" 
-                                        Url="/espanol" 
+                                    <NCI:LanguageToggle
+                                        Locale="es-us"
+                                        Name="Spanish"
+                                        Title="Espa&ntilde;ol"
+                                        Url="/espanol"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle 
-                                        Locale="zh-cn" 
-                                        Name="Chinese" 
-                                        Title="&#20013;&#25991;" 
+                                    <NCI:LanguageToggle
+                                        Locale="zh-cn"
+                                        Name="Chinese"
+                                        Title="&#20013;&#25991;"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
                                 </LangsCollection>
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="zh">
                                 <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" 
-                                        Name="English" 
-                                        Title="English" 
+                                    <NCI:LanguageToggle Locale="en-us"
+                                        Name="English"
+                                        Title="English"
                                         Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="es-us" 
-                                        Name="Spanish" 
-                                        Title="Espa&ntilde;ol" 
-                                        Url="/espanol" 
+                                    <NCI:LanguageToggle Locale="es-us"
+                                        Name="Spanish"
+                                        Title="Espa&ntilde;ol"
+                                        Url="/espanol"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="pt-br" 
-                                        Name="Portuguese" 
-                                        Title="Portugu&ecirc;s" 
+                                    <NCI:LanguageToggle Locale="pt-br"
+                                        Name="Portuguese"
+                                        Title="Portugu&ecirc;s"
                                         OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
                                 </LangsCollection>
                             </NCI:LanguageToggleLanguageItem>
@@ -146,7 +146,7 @@ at the National Institutes of Health
 
             <!-- BEGIN NAVIGATION -->
             <!-- Begin nav-search bar -->
-            <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" 
+            <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server"
                 CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
             <!-- End nav-search bar -->
             <!-- Begin section menu clicker (on mobile) -->
@@ -155,14 +155,14 @@ at the National Institutes of Health
             <!-- END NAVIGATION -->
         </div>
         <!-- END Global nav/utility bar/language -->
-        <!--  
-        ooo        ooooo            o8o              
-        `88.       .888'            `"'              
-         888b     d'888   .oooo.   oooo  ooo. .oo.   
-         8 Y88. .P  888  `P  )88b  `888  `888P"Y88b  
-         8  `888'   888   .oP"888   888   888   888  
-         8    Y     888  d8(  888   888   888   888  
-        o8o        o888o `Y888""8o o888o o888o o888o 
+        <!--
+        ooo        ooooo            o8o
+        `88.       .888'            `"'
+         888b     d'888   .oooo.   oooo  ooo. .oo.
+         8 Y88. .P  888  `P  )88b  `888  `888P"Y88b
+         8  `888'   888   .oP"888   888   888   888
+         8    Y     888  d8(  888   888   888   888
+        o8o        o888o `Y888""8o o888o o888o o888o
         MAIN CONTENT AREA -->
         <div class="main-content" id="content">
             <!-- slots -->
@@ -210,14 +210,16 @@ at the National Institutes of Health
             </div>
         </div>
         <!-- END MAIN CONTENT -->
-        <!-- SITE FOOTER -->
-        <footer>
-            <NCI:TemplateSlot ID="nvcgSlFooter" runat="server" />
-        </footer>
-        <!-- END SITE FOOTER -->
     </div>
     <!-- END PAGE -->
-    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
+    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <NCI:TemplateSlot ID="nvcgSlFooter" runat="server" />
+    </footer>
+    <!-- END SITE FOOTER -->
+
+    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
     control else Web analytics scripts will not show up in the HTML-->
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 </body>

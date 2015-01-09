@@ -408,12 +408,12 @@ button.toggle {
 
 /********************* BEGIN Footer Styles ******************************************/
 
-footer {
+.site-footer {
     background: #123e57 url($images + "/backgrounds/hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
     padding: 1em 0;
     color: white;
 }
-footer h2 {
+.site-footer h2 {
     color: white;
     font-size: 1em;
     font-weight: normal;
@@ -428,19 +428,19 @@ footer h2 {
 .footer-nci span {
     font-size: 16px;
 }
-footer a,
-footer a:hover {
+.site-footer a,
+.site-footer a:hover {
     color: white;
     font-weight: 700;
 }
-footer a:hover {
+.site-footer a:hover {
     text-decoration: underline;
 }
-footer .row {
+.site-footer .row {
     margin: 1em auto;
     border: 0 solid yellow;
 }
-footer li {
+.site-footer li {
     margin-bottom: 1em;
     line-height: 1.1em;
 }
