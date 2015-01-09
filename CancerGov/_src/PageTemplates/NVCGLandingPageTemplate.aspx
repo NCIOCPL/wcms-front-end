@@ -223,7 +223,7 @@ at the National Institutes of Health
     
     <!-- FOOTER -->
     <footer>
-        <NCI:TemplateSlot ID="nvcgSlSiteFooter" runat="server" />
+        <NCI:TemplateSlot ID="nvcgSlFooter" runat="server" />
     </footer>
     <!-- END FOOTER -->
     
