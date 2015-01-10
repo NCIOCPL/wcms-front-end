@@ -39,7 +39,7 @@
 }
 .hero-call-to-action {
     font-size: 0.9em;
-    background: url($icons + "/hero-arrow.png") no-repeat center right;
+    background: url($icons + "hero-arrow.png") no-repeat center right;
     display: inline-block;
     padding-right: 1em;
     -webkit-transition: padding-right 0.4s ease-in-out;
@@ -161,14 +161,14 @@
     color: #2f2f2f;
 }
 a.arrow-link {
-    background: url($icons + "/small-blue-circle-arrow.png") 100% 0 no-repeat;
+    background: url($icons + "small-blue-circle-arrow.png") 100% 0 no-repeat;
     padding-right: 2em;
     width: 100%;
     display: block;
     color: #606060;
 }
 a.arrow-link-white {
-    background: url($icons + "/small-off-cream-circle-arrow.png") top right no-repeat;
+    background: url($icons + "small-off-cream-circle-arrow.png") top right no-repeat;
     padding-right: 1em;
     width: 100%;
     display: block;
@@ -176,7 +176,7 @@ a.arrow-link-white {
 }
 a.arrow-link:hover,
 a.arrow-link-white:hover {
-    background: url($icons + "/small-red-circle-arrow.png") top right no-repeat;
+    background: url($icons + "small-red-circle-arrow.png") top right no-repeat;
     color: #bd153c;
     text-decoration: none;
 }
@@ -247,7 +247,7 @@ a.learn-more {
     color: white;
     padding: 1em 2em 1em 1em;
     display: block;
-    background: #403f3f url($icons + "/white-arrow-view-infographic.png") no-repeat 95% 50%;
+    background: #403f3f url($icons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
 }
 .infographic-enlarge a:hover {
     text-decoration: none;
