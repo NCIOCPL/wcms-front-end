@@ -206,7 +206,9 @@ at the National Institutes of Health
                 <!-- END PAGE OPTIONS -->
 
                 <!-- PAGE TITLE -->
-                    <h1><NCI:CDEField scope="Page" fieldname="short_title" CssClass="large-7 pull-5 columns" runat="server" /></h1>
+					<div class="large-7 pull-5 columns">
+						<h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
+					</div>
                 <!-- END PAGE TITLE -->
             </div>
 
