@@ -227,9 +227,23 @@ figure {
         display: block;
     }
 }
+
+.flex-image {
+    display: table;
+    position: relative;
+    margin: 0 auto;
+}
+
 table figure {
     display: table;
     table-layout: fixed;
+}
+
+.caption-container {
+    padding: 0.9375em;
+    line-height: 1.5em;
+    background-color: #f7f7f3;
+    font-size: 0.8125em;
 }
 /********************* END General Styles ******************************************/
 
