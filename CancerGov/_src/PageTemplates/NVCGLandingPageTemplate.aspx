@@ -146,8 +146,7 @@ at the National Institutes of Health
 
             <!-- BEGIN NAVIGATION -->
             <!-- Begin nav-search bar -->
-            <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server"
-                CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
+            <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" AdditionalSnippetClasses="row" /></div>
             <!-- End nav-search bar -->
             <!-- Begin mobile section menu clicker -->
             <div></div>
@@ -206,9 +205,9 @@ at the National Institutes of Health
                 <!-- END PAGE OPTIONS -->
 
                 <!-- PAGE TITLE -->
-					<div class="large-7 pull-5 columns">
-						<h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
-					</div>
+                    <div class="large-7 pull-5 columns">
+                        <h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
+                    </div>
                 <!-- END PAGE TITLE -->
             </div>
 
