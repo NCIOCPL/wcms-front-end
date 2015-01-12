@@ -172,7 +172,7 @@ at the National Institutes of Health
             <!-- END PUBLIC ARCHIVE BANNER -->
 
             <!-- HERO SLOT -->
-                 <NCI:TemplateSlot ID="nvcgSlBodyHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
+                 <NCI:TemplateSlot ID="nvcgSlHeroHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
             <!-- END HERO SLOT -->
 
             <div class="row collapse title-page-options">
