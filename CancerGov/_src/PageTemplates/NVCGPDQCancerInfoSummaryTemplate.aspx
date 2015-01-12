@@ -146,7 +146,7 @@ at the National Institutes of Health
 
             <!-- BEGIN NAVIGATION -->
             <!-- Begin nav-search bar -->
-            <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" AdditionalSnippetClasses="row" /></div>
+            <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="row" /></div>
             <!-- End nav-search bar -->
 
             <!-- Begin section menu clicker (on mobile) -->
