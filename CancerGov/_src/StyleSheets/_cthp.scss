@@ -93,25 +93,25 @@ figure.image-right-medium {
     text-transform: uppercase;
 }
 .treatment h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-green-waves.jpg") repeat-x;
+    background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
 }
 .research h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-blue-gears.jpg") repeat-x;
+    background: #008eb0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
 }
 .causes h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-purple-squares.jpg") repeat-x;
+    background: #008eb0 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
 }
 .genetics h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-blue-diamonds.jpg") repeat-x;
+    background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
 }
 .screening h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-pink-triangles.jpg") repeat;
+    background: #008eb0 url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
 }
 .survival h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-yellow-squares.jpg") repeat-x;
+    background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
 }
 .general h3 {
-    background: #008eb0 url("/PublishedContent/images/images/assets/backgrounds/CTHP-blue-octagons.jpg") repeat-x;
+    background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
 .cardBody {
     overflow: auto;
