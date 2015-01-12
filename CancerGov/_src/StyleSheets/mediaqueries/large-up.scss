@@ -139,65 +139,6 @@
 	}
 	/*** END desktop section nav ("left nav") styles ***/
 
-	/*** BEGIN Page Options styles ***/
-	/*.page-options {
-		padding-right: 0.9375em;
-	}*/
-	.content-top-slot .page-options {
-		top: -6.25em;
-	}
-	.landing-page-options {
-		height: 4.2em;
-
-		.page-options {
-			top: 0;
-			margin-top: 1.31875em;
-			margin-bottom: 1.31875em;
-		}
-
-		.cycle-font {
-			display: none;
-		}
-	}
-	.page-options {
-		position: absolute;
-		top: -2.5em;
-		right: 0.25em;
-
-		a {
-			height: 25px;
-		}
-	}
-	.cycle-font {
-		background-image: url("../images/icons/font-resizer.png");
-		width: 22px;
-	}
-	.addthis_button_print {
-		background-image: url("../images/icons/print.png");
-		width: 23px;
-	}
-	.addthis_button_email {
-		background-image: url("../images/icons/email.png");
-		width: 20px;
-	}
-	.addthis_button_facebook {
-		background-image: url("../images/icons/facebook_icon.png");
-		width: 8px;
-	}
-	.addthis_button_twitter  {
-		background-image: url("../images/icons/twitter_icon.png");
-		width: 19px;
-	}
-	.addthis_button_google_plusone_share  {
-		background-image: url("../images/icons/google_plus_icon.png");
-		width: 19px;
-	}
-	.addthis_button_pinterest_share  {
-		background-image: url("../images/icons/pinterest_icon.png");
-		width: 15px;
-	}
-
-	/*** END Page Options styles ***/
 
 	/* equal height cards for desktop, visually push a div to the bottom of it's container */
 	.equalheight {

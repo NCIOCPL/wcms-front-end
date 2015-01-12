@@ -534,35 +534,7 @@
 		background: transparent url(../images/icons/search-mobile.png) no-repeat center 0;
 	}
 	/* end mobile menu styles */
-	/* begin page options */
-	.page-options {
-		a {
-			width: 35px;
-			height: 35px;
-		}
-		.cycle-font {
-			display: none;
-		}
-		.addthis_button_print {
-			display: none;
-		}
-		.addthis_button_email {
-			background-image: url("../images/icons/email_mobile.png");
-		}
-		.addthis_button_facebook {
-			background-image: url("../images/icons/facebook_mobile.png");
-		}
-		.addthis_button_twitter  {
-			background-image: url("../images/icons/twitter_mobile.png");
-		}
-		.addthis_button_google_plusone_share  {
-			background-image: url("../images/icons/google_plus_mobile.png");
-		}
-		.addthis_button_pinterest_share  {
-			background-image: url("../images/icons/pinterest_mobile.png");
-		}
-	}
-	/* END page options */
+
 	/* begin carousel styles */
 	/* spacing */
 	.slick-slide {
