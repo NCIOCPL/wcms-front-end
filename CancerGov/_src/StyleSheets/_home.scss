@@ -53,11 +53,6 @@
 }
 /* END Hero Section */
 
-.content-bottom-slot {
-	background: #099;
-	/*margin-bottom: 1em;*/
-	padding: 1em 0;
-}
 /* BEGIN Featured Slick Carousel Row */
 
 .slick-dots {
@@ -217,18 +212,42 @@ a.learn-more {
 /* END THUMBNAIL CARDS ROW */
 
 /* BEGIN MULTIMEDIA ROW */
-
+.multimedia-slot {
+	background: #099;
+	/*margin-bottom: 1em;*/
+	padding: 1em 0;
+	margin-bottom: 1em;
+}
 .multimedia .card {
 	background: none;
 	opacity: 1;
 }
-.multimedia {
-	margin-bottom: 1em;
+.multimedia-feature-card {
+	background: white;
+	padding-bottom: 1em;
 }
-.multimedia h3 {
+.multimedia-feature-card a, .multimedia .card a {
+		color: #606060
+}
+.multimedia-feature-card h3 {
 	font-size: 1.375em;
 	font-weight: normal;
 	line-height: 1.272;
+	color: #186e88;
+}
+.multimedia-feature-card h3, .multimedia-feature-card p, .multimedia-feature-card ul,
+.multimedia-slot .feature-card h3, .multimedia-slot .feature-card p, .multimedia-slot .feature-card ul{
+	padding: 0 15px;	
+}
+.multimedia-slot .feature-card {
+	background: white;
+	padding-bottom: 1em;
+}
+.multimedia-slot .feature-card h3 {
+	font-size: 1.375em;
+	font-weight: normal;
+	line-height: 1.272;
+	color: #186e88;
 }
 /* END MULIMEDIA ROW */
 
