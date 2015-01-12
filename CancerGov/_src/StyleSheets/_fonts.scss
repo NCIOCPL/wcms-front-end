@@ -22,19 +22,19 @@ $noto: "noto";
 
 $noto-path: $fonts + "NotoSans-Regular-webfont";
 $noto-svg: "noto_sansregular";
-@include font-face($noto, $noto-path, $noto-svg, "normal", "normal");
+@include font-face($noto, $noto-path, $noto-svg, normal, normal);
 
 $noto-path: $fonts + "NotoSans-Bold-webfont";
 $noto-svg: "noto_sansbold";
-@include font-face($noto, $noto-path, $noto-svg, "bold", "normal");
+@include font-face($noto, $noto-path, $noto-svg, bold, normal);
 
 $noto-path: $fonts + "NotoSans-BoldItalic-webfont";
 $noto-svg: "noto_sansbold_italic";
-@include font-face($noto, $noto-path, $noto-svg, "bold", "italic");
+@include font-face($noto, $noto-path, $noto-svg, bold, italic);
 
 $noto-path: $fonts + "NotoSans-Italic-webfont";
 $noto-svg: "noto_sansitalic";
-@include font-face($noto, $noto-path, $noto-svg, "normal", "italic");
+@include font-face($noto, $noto-path, $noto-svg, normal, italic);
 
 
 /* Montserrat */
@@ -46,10 +46,10 @@ $montserrat: "Montserrat";
 
 $mont-path: $fonts + 'Montserrat-Regular-webfont';
 $mont-svg: 'webfont';
-@include font-face($montserrat, $mont-path, $mont-svg, "normal", "normal");
+@include font-face($montserrat, $mont-path, $mont-svg, normal, normal);
 
 $mont-path: $fonts + 'Montserrat-Bold-webfont';
-@include font-face($montserrat, $mont-path, $mont-svg, "bold", "normal");
+@include font-face($montserrat, $mont-path, $mont-svg, bold, normal);
 
 /********************* END Font Declarations ******************************************/
 
