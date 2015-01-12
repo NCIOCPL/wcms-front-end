@@ -145,7 +145,7 @@
     cursor: pointer;
 }
 .slick-dots li button {
-    background: transparent url($images + "carousel-inactive-dot.png") no-repeat 0 0;
+    background: transparent url($icons + "carousel-inactive-dot.png") no-repeat 0 0;
     border: 0;
     display: block;
     height: 20px;
@@ -166,5 +166,5 @@
     }
 }
 .slick-dots li.slick-active button {
-    background: transparent url($images + "carousel-active-dot.png") no-repeat 0 0;
+    background: transparent url($icons + "carousel-active-dot.png") no-repeat 0 0;
 }
