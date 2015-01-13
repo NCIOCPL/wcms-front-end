@@ -225,6 +225,7 @@ a.learn-more {
 .multimedia-feature-card {
 	background: white;
 	padding-bottom: 1em;
+	position: relative;
 }
 .multimedia-feature-card a, .multimedia .card a {
 		color: #606060
@@ -249,11 +250,34 @@ a.learn-more {
 	line-height: 1.272;
 	color: #186e88;
 }
+// these rules are to fix the autoheight problems in multimedia row
+.card > .slot-item, .multimedia-feature-card, .multimedia .feature-card {
+    height: inherit;
+}
+.multimedia-feature-card.cgvInfographic {
+	a:before {
+		content: "View full Infographic";
+		text-transform: uppercase;
+		position: absolute;
+		right: 0;
+		background: url($icons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
+		padding: 1em 2em 1em 1em;
+		color: white;
+		html[lang="es"] & {
+			content: "Ver Infograf\00ed a Completa"
+		}
+	}
+	&:hover a:before {
+		background-color: #bb0e3d;	
+	}
+}
 /* END MULIMEDIA ROW */
 
 /* BEGIN Director's Row */
 
-.directors-row {} .directors-row h3 {
+.directors-row {
+}
+.directors-row h3 {
 	color: white;
 }
 .infographic {
