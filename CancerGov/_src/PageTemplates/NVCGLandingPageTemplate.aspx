@@ -174,9 +174,9 @@ at the National Institutes of Health
              <NCI:TemplateSlot ID="nvcgSlHeroHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
             <!-- END HERO SLOT -->
 
-            <div class="row collapse title-page-options">
+            <div class="row collapse">
                 <!-- PAGE OPTIONS -->
-                <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-5 push-7 columns" runat="server">
+                <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-5 push-7 columns page-options" runat="server">
                     <PageOptionsButtonLanguages>
                         <NCI:PageOptionsButtonLanguageItem Language="en">
                             <ButtonsCollection>
@@ -205,9 +205,9 @@ at the National Institutes of Health
                 <!-- END PAGE OPTIONS -->
 
                 <!-- PAGE TITLE -->
-                    <div class="large-7 pull-5 columns">
-                        <h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
-                    </div>
+                <div class="large-7 pull-5 columns">
+                    <h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
+                </div>
                 <!-- END PAGE TITLE -->
             </div>
 
