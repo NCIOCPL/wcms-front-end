@@ -56,85 +56,87 @@ at the National Institutes of Health
             <div class="headroom-area">
                 <!-- LANGUAGE BAR -->
                 <div class="language-bar">
-                    <NCI:LanguageToggleControl
-                        ID="LangList1"
-                        CssClass="row sitewide-language"
-                        runat="server">
-                        <LanguageToggleLanguages>
-                            <NCI:LanguageToggleLanguageItem Language="en">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="es-us"
-                                        Name="Spanish"
-                                        Title="Espa&ntilde;ol"
-                                        Url="/espanol"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="pt-br"
-                                        Name="Portuguese"
-                                        Title="Portugu&ecirc;s"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                    <NCI:LanguageToggle Locale="zh-cn"
-                                        Name="Chinese"
-                                        Title="&#20013;&#25991;"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                            <NCI:LanguageToggleLanguageItem Language="es">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us"
-                                        Name="English"
-                                        Title="English"
-                                        Url="/"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="pt-br"
-                                        Name="Portuguese"
-                                        Title="Portugu&ecirc;s"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                    <NCI:LanguageToggle Locale="zh-cn"
-                                        Name="Chinese"
-                                        Title="&#20013;&#25991;"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                            <NCI:LanguageToggleLanguageItem Language="pt">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle
-                                        Locale="en-us"
-                                        Name="English"
-                                        Title="English"
-                                        Url="/"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle
-                                        Locale="es-us"
-                                        Name="Spanish"
-                                        Title="Espa&ntilde;ol"
-                                        Url="/espanol"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle
-                                        Locale="zh-cn"
-                                        Name="Chinese"
-                                        Title="&#20013;&#25991;"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                            <NCI:LanguageToggleLanguageItem Language="zh">
-                                <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us"
-                                        Name="English"
-                                        Title="English"
-                                        Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="es-us"
-                                        Name="Spanish"
-                                        Title="Espa&ntilde;ol"
-                                        Url="/espanol"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="pt-br"
-                                        Name="Portuguese"
-                                        Title="Portugu&ecirc;s"
-                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
-                                </LangsCollection>
-                            </NCI:LanguageToggleLanguageItem>
-                        </LanguageToggleLanguages>
-                    </NCI:LanguageToggleControl>
+					<div class="row sitewide-language"
+					   <NCI:LanguageToggleControl
+							ID="LangList1"
+							CssClass="large-12 small columns"
+							runat="server">
+							<LanguageToggleLanguages>
+								<NCI:LanguageToggleLanguageItem Language="en">
+									<LangsCollection>
+										<NCI:LanguageToggle Locale="es-us"
+											Name="Spanish"
+											Title="Espa&ntilde;ol"
+											Url="/espanol"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+										<NCI:LanguageToggle Locale="pt-br"
+											Name="Portuguese"
+											Title="Portugu&ecirc;s"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+										<NCI:LanguageToggle Locale="zh-cn"
+											Name="Chinese"
+											Title="&#20013;&#25991;"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+									</LangsCollection>
+								</NCI:LanguageToggleLanguageItem>
+								<NCI:LanguageToggleLanguageItem Language="es">
+									<LangsCollection>
+										<NCI:LanguageToggle Locale="en-us"
+											Name="English"
+											Title="English"
+											Url="/"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+										<NCI:LanguageToggle Locale="pt-br"
+											Name="Portuguese"
+											Title="Portugu&ecirc;s"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+										<NCI:LanguageToggle Locale="zh-cn"
+											Name="Chinese"
+											Title="&#20013;&#25991;"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+									</LangsCollection>
+								</NCI:LanguageToggleLanguageItem>
+								<NCI:LanguageToggleLanguageItem Language="pt">
+									<LangsCollection>
+										<NCI:LanguageToggle
+											Locale="en-us"
+											Name="English"
+											Title="English"
+											Url="/"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+										<NCI:LanguageToggle
+											Locale="es-us"
+											Name="Spanish"
+											Title="Espa&ntilde;ol"
+											Url="/espanol"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+										<NCI:LanguageToggle
+											Locale="zh-cn"
+											Name="Chinese"
+											Title="&#20013;&#25991;"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+									</LangsCollection>
+								</NCI:LanguageToggleLanguageItem>
+								<NCI:LanguageToggleLanguageItem Language="zh">
+									<LangsCollection>
+										<NCI:LanguageToggle Locale="en-us"
+											Name="English"
+											Title="English"
+											Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+										<NCI:LanguageToggle Locale="es-us"
+											Name="Spanish"
+											Title="Espa&ntilde;ol"
+											Url="/espanol"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+										<NCI:LanguageToggle Locale="pt-br"
+											Name="Portuguese"
+											Title="Portugu&ecirc;s"
+											OnClick="NCIAnalytics.ClickLink(this,'Language Select Portuguese');" />
+									</LangsCollection>
+								</NCI:LanguageToggleLanguageItem>
+							</LanguageToggleLanguages>
+						</NCI:LanguageToggleControl>
+					</div>	
                 </div><!-- end "language-bar" -->
                 <!-- END LANGUAGE BAR -->
 
