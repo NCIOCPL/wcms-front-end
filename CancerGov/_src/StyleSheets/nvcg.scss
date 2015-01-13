@@ -4,10 +4,12 @@
 @import "functions";
 
 /****************** VENDOR LIBRARIES SECTION ********************/
+
 @import "reset";
 @import "foundation";
 @import "slick";
 @import "jqueryui";
+
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
 @import "fonts";
@@ -15,15 +17,15 @@
 /********************* BEGIN General Styles ******************************************/
 
 html {
-    font-size: 100%;
+	font-size: 100%;
 }
 body {
-    font-size: 1em;
-    @include font-noto;
-    color: #606060;
-    line-height: 1.375em;
-    word-wrap: break-word;
-    /* done to let long words that are bigger than container wrap within the word */
+	font-size: 1em;
+	@include font-noto;
+	color: #606060;
+	line-height: 1.375em;
+	word-wrap: break-word;
+	/* done to let long words that are bigger than container wrap within the word */
 }
 h1,
 h2,
@@ -31,110 +33,109 @@ h3,
 h4,
 h5,
 h6 {
-    @include font-montserrat;
-    margin-top: 0.5em;
-    color: #606060;
+	@include font-montserrat;
+	margin-top: 0.5em;
+	color: #606060;
 }
 .section-nav {
-    @include font-montserrat;
+	@include font-montserrat;
 }
 h1 {
-    font-size: 2em;
-    line-height: 1.1em;
+	font-size: 2em;
+	line-height: 1.1em;
 }
 h2 {
-    font-size: 1.75em;
-    line-height: 1.215em;
+	font-size: 1.75em;
+	line-height: 1.215em;
 }
 h3 {
-    font-size: 1.5em;
-    line-height: 1.25em;
+	font-size: 1.5em;
+	line-height: 1.25em;
 }
 h4 {
-    font-size: 1.25em;
-    line-height: 1.333em;
+	font-size: 1.25em;
+	line-height: 1.333em;
 }
 p {
-    margin: 0.5em 0;
-    line-height: 1.5em;
-    font-size: inherit;
+	margin: 0.5em 0;
+	line-height: 1.5em;
+	font-size: inherit;
 }
 table caption {
-    font-weight: bold;
-    text-align: left;
-    color: #000;
-    padding: 20px 0 10px;
-    /* using padding instead of margin due to problem in Safari */
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+	padding: 20px 0 10px;
+	/* using padding instead of margin due to problem in Safari */
 }
 /* begin default content table styling */
 
 table.table-default {
-    border-collapse: collapse;
-    margin: 15px 0;
+	border-collapse: collapse;
+	margin: 15px 0;
 }
 table.table-default caption {
-    font-weight: bold;
-    text-align: left;
-    font-size: 15px;
-    color: #000;
-    padding: 20px 0 10px;
-    /* using padding instead of margin due to problem in Safari */
+	font-weight: bold;
+	text-align: left;
+	font-size: 15px;
+	color: #000;
+	padding: 20px 0 10px;
+	/* using padding instead of margin due to problem in Safari */
 }
 table.table-default th {
-    background-color: #f2f3f7;
-    /*text-align: left;*/
+	background-color: #f2f3f7;
+	/*text-align: left;*/
 }
 table.table-default tr {
-    background-color: #fff;
+	background-color: #fff;
 }
 table.table-default td,
 table.table-default th {
-    border: 1px solid #bdbdbd;
-    padding: 10px;
-    border-spacing: 0;
+	border: 1px solid #bdbdbd;
+	padding: 10px;
+	border-spacing: 0;
 }
 table.table-default td p:first-child {
-    margin-top: 0;
+	margin-top: 0;
 }
 table.table-default td p:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 table.table-default-center-td td {
-    text-align: center;
+	text-align: center;
 }
 table.table-default td p:first-child,
 table.table-default th p:first-child {
-    margin-top: 0;
+	margin-top: 0;
 }
 table.table-default td p:last-child,
 table.table-default th p:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 table.table-default ul {
-    padding-left: 4px;
+	padding-left: 4px;
 }
 /* end default content table styling */
 
 .bcrumbs {
-    font-size: 0.8em;
-    margin-bottom: 1.25em;
-    margin-top: 2em;
-    @include font-montserrat;
+	font-size: 0.8em;
+	margin-bottom: 1.25em;
+	margin-top: 2em;
+	@include font-montserrat;
 }
 /* clearfix for clearing floated items */
+
 .clearfix {
-    zoom: 1;
-
-    &:after {
-        clear: both;
-    }
-
-    &:before, &:after {
-        content: " ";
-        display: table;
-    }
+	zoom: 1;
+	&: after {
+		clear: both;
+	}
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
 }
-
 /* begin images using the HTML5 figure and figcaption elements */
 
 /* add block level style to HTML5 elements, for IE */
@@ -146,133 +147,119 @@ section,
 aside,
 figure,
 figcaption {
-    display: block;
+	display: block;
 }
-
 figure {
-    margin-bottom: 10px;
-    overflow: hidden;
-    position: relative;
-
-    a.article-image-enlarge {
-        position: absolute;
-        width: 150px;
-        top: 0;
-        right: 0;
-        color: #fff;
-        background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
-        padding: 0.3125em 0 0.3125em 1.25em;
-        font-weight: bold;
-        opacity: 0.9;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    /* image right 25% width */
-    &.image-right-small {
-        float: right;
-        width: 25%;
-        margin: 0 0 1em 1em;
-    }
-
-    /* image right 40% width */
-    &.image-right-medium {
-        float: right;
-        width: 40%;
-        margin: 0 0 1em 1em;
-    }
-
-    /* image left 25% width */
-    &.image-left-small {
-        float: left;
-        width: 25%;
-        margin: 0 1em 1em 0;
-    }
-
-    /* image left 40% width */
-    &.image-left-medium {
-        float: left;
-        width: 40%;
-        margin: 0 1em 1em 0;
-    }
-
-    /* image center 75% width */
-    &.image-center {
-        width: 75%;
-        margin: 0 auto 1em;
-
-        /* center images using the centered templates */
-        img {
-            margin: 0 auto;
-        }
-    }
-
-    /* image center 100% width */
-    &.image-center-full {
-        width: 100%;
-        margin: 0 auto 1em;
-
-        /* center images using the centered templates */
-        img {
-            margin: 0 auto;
-        }
-    }
-
-    /* contain image inside fig */
-    img {
-        max-width: 100%;
-        /* remove white space under image */
-        display: block;
-    }
+	margin-bottom: 10px;
+	overflow: hidden;
+	position: relative;
+	a.article-image-enlarge {
+		position: absolute;
+		width: 150px;
+		top: 0;
+		right: 0;
+		color: #fff;
+		background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
+		padding: 0.3125em 0 0.3125em 1.25em;
+		font-weight: bold;
+		text-transform: uppercase;
+		opacity: 0.9;
+		&: hover {
+			text-decoration: none;
+		}
+	}
+	/* image right 25% width */
+	&.image-right-small {
+		float: right;
+		width: 25%;
+		margin: 0 0 1em 1em;
+	}
+	/* image right 40% width */
+	&.image-right-medium {
+		float: right;
+		width: 40%;
+		margin: 0 0 1em 1em;
+	}
+	/* image left 25% width */
+	&.image-left-small {
+		float: left;
+		width: 25%;
+		margin: 0 1em 1em 0;
+	}
+	/* image left 40% width */
+	&.image-left-medium {
+		float: left;
+		width: 40%;
+		margin: 0 1em 1em 0;
+	}
+	/* image center 75% width */
+	&.image-center {
+		width: 75%;
+		margin: 0 auto 1em;
+		/* center images using the centered templates */
+		img {
+			margin: 0 auto;
+		}
+	}
+	/* image center 100% width */
+	&.image-center-full {
+		width: 100%;
+		margin: 0 auto 1em;
+		/* center images using the centered templates */
+		img {
+			margin: 0 auto;
+		}
+	}
+	/* contain image inside fig */
+	img {
+		max-width: 100%;
+		/* remove white space under image */
+		display: block;
+	}
 }
-
 .flex-image {
-    display: table;
-    position: relative;
-    margin: 0 auto;
+	display: table;
+	position: relative;
+	margin: 0 auto;
 }
-
 table figure {
-    display: table;
-    table-layout: fixed;
+	display: table;
+	table-layout: fixed;
 }
-
 .caption-container {
-    padding: 0.9375em;
-    line-height: 1.5em;
-    background-color: #f7f7f3;
-    font-size: 0.8125em;
+	padding: 0.9375em;
+	line-height: 1.5em;
+	background-color: #f7f7f3;
+	font-size: 0.8125em;
 }
 /********************* END General Styles ******************************************/
 
 /********************* BEGIN Header Styles ******************************************/
 
 header {
-    padding: 1em 0 0;
-    @include font-montserrat;
-    background: #fcfcfa;
+	padding: 1em 0 0;
+	@include font-montserrat;
+	background: #fcfcfa;
 }
 .nci-logo {
-    font-weight: bold;
-    line-height: 0.8;
-    background: url($icons + "NIH-red-logo.png") no-repeat 5px 0;
-    font-size: 30px;
-    padding: 0.1em 0 0.2em;
+	font-weight: bold;
+	line-height: 0.8;
+	background: url($icons + "NIH-red-logo.png") no-repeat 5px 0;
+	font-size: 30px;
+	padding: 0.1em 0 0.2em;
 }
 .nci-logo.columns {
-    padding-left: 0;
-    padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 .nci-logo a {
-    color: #bb0e3d;
-    padding-left: 100px;
-    display: block;
+	color: #bb0e3d;
+	padding-left: 100px;
+	display: block;
 }
 .nci-logo a span {
-    color: #5d5d5d;
-    font-size: 0.6em;
+	color: #5d5d5d;
+	font-size: 0.6em;
 }
 /********************* END Header Styles ******************************************/
 
@@ -281,135 +268,143 @@ header {
 /* these styles control behaviour on scroll for sticky nav using headroom.js */
 
 .slide--up {
-    display: none;
+	display: none;
 }
 .slide--reset {
-    display: block;
+	display: block;
 }
 /********************* END Sticky Nav Styles ******************************************/
 
 /********************* BEGIN Language Bar Styles ******************************************/
 
 .language-bar {
-    background: #fcfcfa;
-    padding: 0 0 0.2em;
+	background: #fcfcfa;
+	padding: 0 0 0.2em;
 }
 .sitewide-language {
-    padding-right: 0;
+	padding-right: 0;
 }
 .sitewide-language a {
-    color: #186e88;
+	color: #186e88;
 }
 .sitewide-language ul {
-    text-align: right;
+	text-align: right;
 }
 .sitewide-language li {
-    float: right;
-    margin-left: 1em;
-    text-align: right;
+	float: right;
+	margin-left: 1em;
+	text-align: right;
 }
 /********************* END Language Bar Styles ******************************************/
 
 /********************* BEGIN Utility Styles ******************************************/
 
 .row.utility {
-    padding-right: 0.9375em;
+	padding-right: 0.9375em;
 }
 .utility-background {
-    background: #2a71a5;
+	background: #2a71a5;
 }
 .utility {
-    color: white;
-    padding: 0;
-    text-align: right;
+	color: white;
+	padding: 0;
+	text-align: right;
 }
 .utility a {
-    color: white;
+	color: white;
 }
 .utility span {
-    padding: 0.2em 1em;
-    display: inline-block;
+	padding: 0.2em 1em;
+	display: inline-block;
 }
 /* These utility dictionary classes aren't currently used, but should be once we do the dropdown for the dictionary link on the utility bar */
 
 #utility-dictionary {
-    position: relative;
-    background: url($images + "icons/white-arrow-down.png") no-repeat 100% 60%;
+	position: relative;
+	background: url($images + "icons/white-arrow-down.png") no-repeat 100% 60%;
 }
 #utility-dictionary.active {
-    background: #f5f7f6;
+	background: #f5f7f6;
 }
 #utility-dictionary.active a {
-    color: #2a73a8;
+	color: #2a73a8;
 }
 #utility-dropdown {
-    width: 20em;
-    display: none;
-    text-align: left;
-    color: #7f8084;
-    padding: 1em;
-    overflow: hidden;
-    background: #f5f7f6;
-    transition: height 0.5s ease-out 0s;
-    position: absolute;
-    top: 1.4em;
-    right: 0;
-    z-index: 10;
+	width: 20em;
+	display: none;
+	text-align: left;
+	color: #7f8084;
+	padding: 1em;
+	overflow: hidden;
+	background: #f5f7f6;
+	transition: height 0.5s ease-out 0s;
+	position: absolute;
+	top: 1.4em;
+	right: 0;
+	z-index: 10;
 }
 form.dictionary-dropdown {
-    margin: 0;
+	margin: 0;
 }
 form.dictionary-dropdown input {
-    width: 19em;
-    display: inline;
-    margin-left: 2em;
+	width: 19em;
+	display: inline;
+	margin-left: 2em;
 }
 form.dictionary-dropdown ul {
-    margin: 0;
+	margin: 0;
 }
 form.dictionary-dropdown ul li {
-    display: inline;
-    margin-right: 0.3em;
+	display: inline;
+	margin-right: 0.3em;
 }
 /********************* END Utility Styles ******************************************/
 
 /********************* BEGIN Megamenus/Search Styles ******************************************/
+
 /* Navigation/Search bar */
 
 .nav-search-bar {
-    background: rgb(54, 54, 54); /* fallback */
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1))); /* Safari4+, Chrome */
-    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Chrome 10+, Saf5.1+ */
-    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* FF3.6+ */
-    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* IE10 */
-    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Opera 11.10+ */
-    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* W3C */
+	background: rgb(54, 54, 54);
+	/* fallback */
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1)));
+	/* Safari4+, Chrome */
+	background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+	/* Chrome 10+, Saf5.1+ */
+	background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+	/* FF3.6+ */
+	background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+	/* IE10 */
+	background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+	/* Opera 11.10+ */
+	background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
+	/* W3C */
 }
 /* off canvas navigation
 * Source: http://codepen.io/scottb/details/javhr/ */
 
 #content {
-    clear: both;
+	clear: both;
 }
 a.open-panel,
 a.close-panel {
-    display: none;
+	display: none;
 }
 script.nav-item {
-    display: none!important;
+	display: none!important;
 }
 /* remove jQuery mobile styles */
 
 button.toggle {
-    display: inline-block;
-    cursor: pointer;
-    background: transparent;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+	display: inline-block;
+	cursor: pointer;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 /********************* END Megamenus/Search Styles ******************************************/
 
@@ -418,83 +413,76 @@ button.toggle {
 /********************* BEGIN Content Styles ******************************************/
 
 .main-content {
-    padding: 0;
-    background: #fcfcfa url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
+	padding: 0;
+	background: #fcfcfa url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
 }
 .main-content a {
-    color: #186e88;
+	color: #186e88;
 }
 .main-content a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 /* content pages need a default of underline for link hovers */
 
 .general-page-body-container a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 a.definition,
 a.definition:visited,
 a.definition:active,
 a.definition:hover {
-    color: #606060;
-    text-decoration: none;
-    border-bottom: thin dotted;
+	color: #606060;
+	text-decoration: none;
+	border-bottom: thin dotted;
 }
 a.definition:hover {
-    border-bottom: thin solid;
+	border-bottom: thin solid;
 }
-
 .general-page-body-container {
-    background: #fffffb;
-    padding-bottom: 1.5em;
-    box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
-    .no-boxshadow & {
-        /* Border used here because IE8 doesn't support box-shadow */
-        border-left: 1px solid #cfd0cb;
-        border-right: 1px solid #cfd0cb;
-    }
+	background: #fffffb;
+	padding-bottom: 1.5em;
+	box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
+	.no-boxshadow & {
+		/* Border used here because IE8 doesn't support box-shadow */
+		border-left: 1px solid #cfd0cb;
+		border-right: 1px solid #cfd0cb;
+	}
 }
-
-.section-nav {
-
+.section-nav {} .contentzone:first-child {
+	width: 100%;
 }
-
-.contentzone:first-child {
-    width: 100%;
-}
-
 .back-to-top {
-    position: fixed;
-    bottom: 1em;
-    right: 0.5em;
-    text-decoration: none;
-    color: #000;
-    background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
-    font-weight: bold;
-    padding: 60px 15px 0;
-    display: none;
-    /* place on top of all other elements */
-    z-index: 998;
+	position: fixed;
+	bottom: 1em;
+	right: 0.5em;
+	text-decoration: none;
+	color: #000;
+	background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
+	font-weight: bold;
+	padding: 60px 15px 0;
+	display: none;
+	/* place on top of all other elements */
+	z-index: 998;
 }
 .back-to-top:hover {
-    background: url($images + "red-arrow-up.png") no-repeat 50% 0;
-    color: #bd153c;
+	background: url($images + "red-arrow-up.png") no-repeat 50% 0;
+	color: #bd153c;
 }
 .back-to-top:visited {
-    background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
-    color: #000;
+	background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
+	color: #000;
 }
 /* Research Areas with Table of Contents */
 
 /*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
 
 .featured-zone {
-    background-color: #009b9d;
-    padding: 0 0 1.25em 1.25em;
-    overflow: hidden;
-    /*because in some pages content within box have floated elements */
-    margin-right: -1em;
-    padding: 1em;
+	background-color: #009b9d;
+	padding: 0 0 1.25em 1.25em;
+	overflow: hidden;
+	/*because in some pages content within box have floated elements */
+	margin-right: -1em;
+	padding: 1em;
 }
 .featured-zone,
 .featured-zone h1,
@@ -502,190 +490,184 @@ a.definition:hover {
 .featured-zone h3,
 .featured-zone h4,
 .featured-zone a {
-    color: white;
+	color: white;
 }
 .toc-container {
-    padding-right: 0;
-    margin-right: -2em;
-    padding: 1em;
+	padding-right: 0;
+	margin-right: -2em;
+	padding: 1em;
 }
 #my-toc {
-    background-color: #fff;
-    padding: 25px 0 30px 35px;
-    overflow: hidden;
-    padding-right: 0;
+	background-color: #fff;
+	padding: 25px 0 30px 35px;
+	overflow: hidden;
+	padding-right: 0;
 }
 #my-toc h2 {
-    color: #606060;
-    margin: 0 0 10px;
-    font-size: 1.5em;
+	color: #606060;
+	margin: 0 0 10px;
+	font-size: 1.5em;
 }
 /* hide default TOC header */
 
 #my-toc h4 {
-    display: none;
+	display: none;
 }
 #my-toc ul {
-    margin: 0 1em;
-    list-style-type: disc;
-    color: #186e88;
+	margin: 0 1em;
+	list-style-type: disc;
+	color: #186e88;
 }
 #my-toc li {
-    padding-left: 0;
-    margin-left: 0;
-    line-height: 20px;
-    margin-bottom: 5px;
+	padding-left: 0;
+	margin-left: 0;
+	line-height: 20px;
+	margin-bottom: 5px;
 }
 #my-toc ul a {
-    color: #186e88;
-    font-weight: bold;
+	color: #186e88;
+	font-weight: bold;
 }
-
 /* BEGIN general content page styles */
+
 ul {
-    &.no-bullets {
-        padding: 0;
-        & > li {
-            background: none;
-            list-style-type: none;
-            padding: 0;
-            &:before {
-                display: none;
-                content: none;
-            }
-      }
-      ul {
-          margin: 5px 0 8px;
-          & > li {
-              padding: 0 0 0 10px;
-              margin: 0 0 5px;
-          }
-      }
-    }
+	&.no-bullets {
+		padding: 0;
+		& > li {
+			background: none;
+			list-style-type: none;
+			padding: 0;
+			&: before {
+				display: none;
+				content: none;
+			}
+		}
+		ul {
+			margin: 5px 0 8px;
+			& > li {
+				padding: 0 0 0 10px;
+				margin: 0 0 5px;
+			}
+		}
+	}
 }
-
 ol {
-    &.lower-alpha {
-        list-style-type: lower-alpha;
-    }
-    &.lower-roman {
-        list-style-type: lower-roman;
-    }
-    &.upper-alpha {
-        list-style-type: upper-alpha;
-    }
-    &.upper-roman {
-        list-style-type: upper-roman;
-    }
+	&.lower-alpha {
+		list-style-type: lower-alpha;
+	}
+	&.lower-roman {
+		list-style-type: lower-roman;
+	}
+	&.upper-alpha {
+		list-style-type: upper-alpha;
+	}
+	&.upper-roman {
+		list-style-type: upper-roman;
+	}
 }
-
 .contentzone ul,
 .contentzone ol {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 .contentzone li {
-    margin-bottom: 0.5em;
-    margin-left: 2em;
+	margin-bottom: 0.5em;
+	margin-left: 2em;
 }
 .contentzone ul.no-bullets > li,
 .contentzone ol.no-bullets > li {
-    margin-bottom: 0.25em;
-    margin-left: 0;
+	margin-bottom: 0.25em;
+	margin-left: 0;
 }
-
 .contentzone ul {
-    list-style-type: none;
-    & > li {
-        &:before {
-            content: "\2022";
-            display: inline-block;
-            position: relative;
-            left: -.5em;
-            top: 0.1em;
-            margin: 0 -.2em;
-            font-size: 1.1em;
-        }
-    }
+	list-style-type: none;
+	& > li {
+		&: before {
+			content: "\2022";
+			display: inline-block;
+			position: relative;
+			left: -.5em;
+			top: 0.1em;
+			margin: 0 -.2em;
+			font-size: 1.1em;
+		}
+	}
 }
 .contentzone ol {
-    list-style-type: decimal;
+	list-style-type: decimal;
 }
-
 table.no-bullet-padding ul {
-  margin: 0;
-  padding: 0;
-  & > li {
-    margin: 0;
-    padding: 0 0 0 10px;
-  }
+	margin: 0;
+	padding: 0;
+	& > li {
+		margin: 0;
+		padding: 0 0 0 10px;
+	}
 }
-
 .key-points {
-    overflow: auto;
-    margin: 1em 0 2em;
-    box-shadow: 2px 2px 4px 1px #c3c3c3;
+	overflow: auto;
+	margin: 1em 0 2em;
+	box-shadow: 2px 2px 4px 1px #c3c3c3;
 }
 .key-points h3 {
-    display: none;
-    /* hiding default h3 that PDQ spits out, for the more modular pseudo-element.   This allows for separation of style and content, as the manner in which the header is displayed is a style change, not a content one. - sjc - 2014-11-10 */
+	display: none;
+	/* hiding default h3 that PDQ spits out, for the more modular pseudo-element.   This allows for separation of style and content, as the manner in which the header is displayed is a style change, not a content one. - sjc - 2014-11-10 */
 }
 .key-points:before {
-    /* Key Points header */
-    content: "Key Points";
-    display: block;
-    margin: 0 auto 0.75em;
-    padding: 0.75em 0 0.75em 1.5em;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    @include font-montserrat;
-    font-weight: 100;
-    color: #fff;
-    background-color: #009b9d;
+	/* Key Points header */
+	content: "Key Points";
+	display: block;
+	margin: 0 auto 0.75em;
+	padding: 0.75em 0 0.75em 1.5em;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	@include font-montserrat;
+	font-weight: 100;
+	color: #fff;
+	background-color: #009b9d;
 }
 html[lang="es"] .key-points:before {
-    @extend .key-points:before;
-    content: "Puntos Importantes";
+	@extend .key-points: before;
+	content: "Puntos Importantes";
 }
 .key-points ul {
-    padding: 0 1.5em 1.5em 1em;
-    margin: 0;
+	padding: 0 1.5em 1.5em 1em;
+	margin: 0;
 }
 .key-points li:before
 /* Defining the bullet styles */
 
 {
-    content: "\2022";
-    display: inline-block;
-    position: relative;
-    left: -.5em;
-    top: 0.1em;
-    margin: 0 -.2em;
-    font-size: 1.1em;
+	content: "\2022";
+	display: inline-block;
+	position: relative;
+	left: -.5em;
+	top: 0.1em;
+	margin: 0 -.2em;
+	font-size: 1.1em;
 }
 .key-points li {
-    list-style-type: none;
-    color: #606060;
-    font-size: 18px;
-    font-weight: 100;
+	list-style-type: none;
+	color: #606060;
+	font-size: 18px;
+	font-weight: 100;
 }
 /*******************************************
 * ON THIS PAGE
 *******************************************/
 
-
 #_toc_article {
-    /* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
+	/* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
     * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
     * So, we can safely assume that if a div has this ID, it is an on-this-page style section, but on a PDQ page.
     * Enforcing width: inherit will allow the on-this-page to be full width. Everywhere else, 50% width.
     */
-    width: inherit;
+	width: inherit;
 }
 .on-this-page > h2,
 .on-this-page > h3 {
-    display: none;
-    margin: 0;
-    padding: 0;
+	display: none;
+	margin: 0;
+	padding: 0;
 }
 /* hiding default h3 that PDQ spits out, for the more modular pseudo-element.
 * This allows for separation of style and content, as the header treatment is a style change, not a content one.
@@ -693,116 +675,110 @@ html[lang="es"] .key-points:before {
 */
 
 .on-this-page {
-    overflow: auto;
-    box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
-    width: 50%;
-    /* important set in display because the hide-medium-down has a display that is overriding this */
-    /* display: inline-block !important; */
-    padding: 1.6875em 1.4375em;
-    margin: 1.6875em 0 2em;
-
-    &:before {
-        /* Key Points header */
-        content: "On this page";
-        text-transform: uppercase;
-        font-size: 1.25em;
-        @include font-montserrat;
-        font-weight: 100;
-        color: #606060;
-        margin: 0;
-        padding: 0;
-    }
-
-    ul {
-        padding: 0;
-        margin: -0.312em 0 0;
-    }
-
-    li:before {
-    /* Defining the bullet disc styles */
-        content: "\2022";
-        display: inline-block;
-        position: relative;
-        left: -.5em;
-        top: 0.1em;
-        margin: 0 -.2em;
-        font-size: 1.1em;
-        color: #186e88;
-    }
-
-    li {
-        list-style-type: none;
-        color: #606060;
-        padding: 0;
-        margin: 1.19318em 0 0 1.25em;
-    }
-
-    li, a {
-        @include font-noto;
-        font-size: 16px;
-        font-weight: 100;
-        line-height: 1em;
-    }
+	overflow: auto;
+	box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
+	width: 50%;
+	/* important set in display because the hide-medium-down has a display that is overriding this */
+	/* display: inline-block !important; */
+	padding: 1.6875em 1.4375em;
+	margin: 1.6875em 0 2em;
+	&: before {
+		/* Key Points header */
+		content: "On this page";
+		text-transform: uppercase;
+		font-size: 1.25em;
+		@include font-montserrat;
+		font-weight: 100;
+		color: #606060;
+		margin: 0;
+		padding: 0;
+	}
+	ul {
+		padding: 0;
+		margin: -0.312em 0 0;
+	}
+	li:before {
+		/* Defining the bullet disc styles */
+		content: "\2022";
+		display: inline-block;
+		position: relative;
+		left: -.5em;
+		top: 0.1em;
+		margin: 0 -.2em;
+		font-size: 1.1em;
+		color: #186e88;
+	}
+	li {
+		list-style-type: none;
+		color: #606060;
+		padding: 0;
+		margin: 1.19318em 0 0 1.25em;
+	}
+	li,
+	a {
+		@include font-noto;
+		font-size: 16px;
+		font-weight: 100;
+		line-height: 1em;
+	}
 }
-
 html[lang="es"] .on-this-page:before {
-    @extend .on-this-page:before;
-    content: "En este pagina";
+	@extend .on-this-page: before;
+	content: "En este pagina";
 }
 /*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
 
 .key-facts {
-    background: #d7f9fa;
-    float: right;
-    width: 40%;
-    padding: 0 1em;
-    margin: 1em -1em 1em 1em;
+	background: #d7f9fa;
+	float: right;
+	width: 40%;
+	padding: 0 1em;
+	margin: 1em -1em 1em 1em;
 }
 /* END general content page styles */
 
 .document-dates {
-    margin-top: 1.5em;
+	margin-top: 1.5em;
 }
 .syndication {
-    border-top: 1px solid black;
-    overflow: hidden;
-    /* this is to prevent the border from writing over a floated element */
+	border-top: 1px solid black;
+	overflow: hidden;
+	/* this is to prevent the border from writing over a floated element */
 }
 /* icon that goes with syndication image */
 
 .syndication-image {
-    margin: 0 0.7em 0.5em 0.5em;
-    float: left;
+	margin: 0 0.7em 0.5em 0.5em;
+	float: left;
 }
 /* hidden elements */
 
 .hidden {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 ::-webkit-input-placeholder {
-    color: #fff;
+	color: #fff;
 }
 :-moz-placeholder {
-    /* Firefox 18- */
-    color: #fff;
+	/* Firefox 18- */
+	color: #fff;
 }
 ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #fff;
+	/* Firefox 19+ */
+	color: #fff;
 }
 :-ms-input-placeholder {
-    color: #fff;
+	color: #fff;
 }
 /********************* END Content Styles ******************************************/
 
 @import "home";
 @import "cthp";
-
 @import "pageOptions";
 @import "carousel";
 @import "contentTemplate";
