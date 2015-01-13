@@ -39,19 +39,17 @@ at the National Institutes of Health
 </head>
 
 <body id="Body1" runat="server">
-    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a>
-    </div>
-    <!-- NOTIFICATION AREA -->
+    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
+<!-- NOTIFICATION AREA -->
     <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
 
-    <!-- HEADER -->
+<!-- HEADER -->
     <header class="push" role="banner">
         <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server"
-            CssClass="row" AdditionalSnippetClasses="large-12 small-centered columns" />
+            CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
     </header>
     <!-- END HEADER -->
-
     <div id="page">
         <!-- Global nav/utilit bar/language  -->
         <div class="fixedtotop">
@@ -99,9 +97,23 @@ at the National Institutes of Health
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="pt">
                                 <LangsCollection>
-                                    <NCI:LanguageToggle Locale="en-us" Name="English" Title="English" Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
-                                    <NCI:LanguageToggle Locale="es-us" Name="Spanish" Title="Espa&ntilde;ol" Url="/espanol" OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
-                                    <NCI:LanguageToggle Locale="zh-cn" Name="Chinese" Title="&#20013;&#25991;" OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
+                                    <NCI:LanguageToggle
+                                        Locale="en-us"
+                                        Name="English"
+                                        Title="English"
+                                        Url="/"
+                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+                                    <NCI:LanguageToggle
+                                        Locale="es-us"
+                                        Name="Spanish"
+                                        Title="Espa&ntilde;ol"
+                                        Url="/espanol"
+                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
+                                    <NCI:LanguageToggle
+                                        Locale="zh-cn"
+                                        Name="Chinese"
+                                        Title="&#20013;&#25991;"
+                                        OnClick="NCIAnalytics.ClickLink(this,'Language Select Chinese');" />
                                 </LangsCollection>
                             </NCI:LanguageToggleLanguageItem>
                             <NCI:LanguageToggleLanguageItem Language="zh">
@@ -127,16 +139,13 @@ at the National Institutes of Health
                 <!-- END LANGUAGE BAR -->
 
                 <!-- UTILITY NAV -->
-                <NCI:TemplateSlot ID="nvcgSlUtilityBar" runat="server"
-                    CssClass="utility-background hide-for-medium-down"
-                    AdditionalSnippetClasses="row utility" />
+                <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
                 <!-- END UTILITY NAV -->
             </div><!-- end "headroom-area" -->
 
             <!-- BEGIN NAVIGATION -->
             <!-- Begin nav-search bar -->
-            <NCI:TemplateSlot ID="nvcgSlMainNav" runat="server"
-                CssClass="nav-search-bar gradient header" AdditionalSnippetClasses="row" />
+            <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="row" /></div>
             <!-- End nav-search bar -->
 
             <!-- Begin section menu clicker (on mobile) -->
@@ -164,9 +173,10 @@ at the National Institutes of Health
                             <PageOptionsButtonLanguages>
                                 <NCI:PageOptionsButtonLanguageItem Language="en">
                                     <ButtonsCollection>
-                                        <NCI:LinkButtonItem Title="View entire document"
-                                            CssClass="po-view-entire-document"
-                                            AlternateContentVersionKey="viewall" />
+                                        <NCI:LinkButtonItem
+                                            Title="Resize font"
+                                            CssClass="po-font-resize"
+                                            AlternateContentVersionKey="fontResize" />
                                         <NCI:LinkButtonItem Title="Print"
                                             CssClass="po-print"
                                             AlternateContentVersionKey="print"
@@ -200,9 +210,9 @@ at the National Institutes of Health
                                 <NCI:PageOptionsButtonLanguageItem Language="es">
                                     <ButtonsCollection>
                                         <NCI:LinkButtonItem
-                                            Title="Ver el documento completo"
-                                            CssClass="po-view-entire-document"
-                                            AlternateContentVersionKey="viewall" />
+                                            Title="Cambiar el tama&ntilde;o de texto"
+                                            CssClass="po-font-resize"
+                                            AlternateContentVersionKey="fontResize" />
                                         <NCI:LinkButtonItem
                                             Title="Imprimir"
                                             CssClass="po-print"
@@ -279,7 +289,7 @@ at the National Institutes of Health
 
     <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
     control else Web analytics scripts will not show up in the HTML-->
-<NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
+    <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 </body>
 
 </html>
