@@ -540,7 +540,44 @@ a.definition:hover {
     color: #186e88;
     font-weight: bold;
 }
+
 /* BEGIN general content page styles */
+ul {
+    &.no-bullets {
+        padding: 0;
+        & > li {
+            background: none;
+            list-style-type: none;
+            padding: 0;
+            &:before {
+                display: none;
+                content: none;
+            }
+      }
+      ul {
+          margin: 5px 0 8px;
+          & > li {
+              padding: 0 0 0 10px;
+              margin: 0 0 5px;
+          }
+      }
+    }
+}
+
+ol {
+    &.lower-alpha {
+        list-style-type: lower-alpha;
+    }
+    &.lower-roman {
+        list-style-type: lower-roman;
+    }
+    &.upper-alpha {
+        list-style-type: upper-alpha;
+    }
+    &.upper-roman {
+        list-style-type: upper-roman;
+    }
+}
 
 .contentzone ul,
 .contentzone ol {
@@ -550,64 +587,39 @@ a.definition:hover {
     margin-bottom: 0.5em;
     margin-left: 2em;
 }
-.contentzone li {
-    list-style-type: none;
-}
-.contentzone li:before {
-    content: "\2022";
-    display: inline-block;
-    position: relative;
-    left: -.5em;
-    top: 0.1em;
-    margin: 0 -.2em;
-    font-size: 1.1em;
-}
-.contentzone ol li {
-    list-style-type: decimal;
-}
-ul.no-bullets li:before {
-    display: none;
-}
-ul.no-bullets {
-    padding: 0;
-}
-ul.no-bullets li {
-    background: none;
-    list-style-type: none;
-    padding: 0;
-}
-ul.no-bullets ul {
-    margin: 5px 0 8px;
-}
-ol.lower-alpha {
-    list-style-type: lower-alpha;
-}
-ol.lower-roman {
-    list-style-type: lower-roman;
-}
-ol.upper-alpha {
-    list-style-type: upper-alpha;
-}
-ol.upper-roman {
-    list-style-type: upper-roman;
-}
-.contentzone ul.no-bullets li,
-.contentzone ol.no-bullets li {
+.contentzone ul.no-bullets > li,
+.contentzone ol.no-bullets > li {
     margin-bottom: 0.25em;
     margin-left: 0;
 }
-ul.no-bullets ul li {
-    padding: 0 0 0 10px;
-    margin: 0 0 5px;
+
+.contentzone ul {
+    list-style-type: none;
+    & > li {
+        &:before {
+            content: "\2022";
+            display: inline-block;
+            position: relative;
+            left: -.5em;
+            top: 0.1em;
+            margin: 0 -.2em;
+            font-size: 1.1em;
+        }
+    }
 }
+.contentzone ol {
+    list-style-type: decimal;
+}
+
 table.no-bullet-padding ul {
-    margin: 0;
-    padding: 0;
-}
-table.no-bullet-padding ul li {
+  margin: 0;
+  padding: 0;
+  & > li {
     margin: 0;
     padding: 0 0 0 10px;
+  }
 }
+
 .key-points {
     overflow: auto;
     margin: 1em 0 2em;
