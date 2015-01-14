@@ -247,7 +247,7 @@ at the National Institutes of Health
                     </div> <!-- END "row" -->
                 </div> <!-- END "large-12 columns" -->
                 <div class="row">
-                    <div class="medium-12 columns contentzone" id="main" tabindex="1" role="main">
+                    <div class="medium-12 columns contentzone" id="main" tabindex="0" role="main">
                         <!-- ********************************* BEGIN Page Content ********************************** -->
                         <article>
                             <!-- BANNER SLOT -->
