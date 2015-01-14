@@ -8,16 +8,6 @@ $(function() {
   var topTocDiv = "<div id='pdq-toptoc' class='toptoc'></div>";
   $( ".summary-sections > section:eq( 0 )" ).before(topTocDiv);
 
-  // Add the Previous/Next navigation to the bottom of the page
-  var pnNav = "<div class='row show-for-large-up previous-next-links collapse'>";
-  pnNav = pnNav + "<div class='large-6 columns previous-link'>";
-  pnNav = pnNav + "<a>&lt; Previous section</a>";
-  pnNav = pnNav + "<br><em data-role='previous'></em></div>";
-  pnNav = pnNav + "<div class='large-6 columns next-link'>";
-  pnNav = pnNav + "<a>Next section &gt;</a>";
-  pnNav = pnNav + "<br><em data-role='next'></em></div>";
-  pnNav = pnNav + "</div>";
-
   // JQuery Function: topToc()
   // This function selects the H2 elements from the "article" container
   // element and creates a one-level table of content 
@@ -34,8 +24,8 @@ $(function() {
                                //go just deeper)
 		stocTitle: "Contents", //what to display before our box
 		listType: "ul",        //could be ul or ol
-        tocTitleEn: "Sections [EN]",
-        tocTitleEs: "Sections [ES]",
+        tocTitleEn: "Sections",
+        tocTitleEs: "Secciones",
         beforeText: "",        // can add <span class="text-class">
         afterText: "",         // can add </span> to match beforeText
 		smoothScroll: 1
@@ -264,38 +254,54 @@ $(function() {
   // Function formerly known as InThisSummary.js
   // ------------------------------------------------------------------
   $.fn.previousNext = function( options ) {
-    alert("In previousNext Start");
+    //alert("In previousNext Start");
     var defaults = {
         footer:   "Prev Next"
-    }
+    };
 
 	//let's extend our plugin with default or user options when defined
 	var options = $.extend(defaults, options);
 
-    return  $( "div.summary-sections > section").each( function() {
-            obj = $(this);
-        obj.append(options.footer);
-        $( "div.summary-sections > section em" ).addClass("DADA");
-        
-        //$( "div.summary-sections > section" ).each( function() {
+  // Add the Previous/Next navigation to the bottom of the page
+  var pnNav = ""
+  pnNav = pnNav + "<div class='row show-for-large-up "
+  pnNav = pnNav + "previous-next-links collapse'>";
+  pnNav = pnNav + "<div class='large-6 columns previous-link'>";
+  pnNav = pnNav + "<a>&lt; Previous section</a>";
+  pnNav = pnNav + "<br><em data-role='previous'></em></div>";
+  pnNav = pnNav + "<div class='large-6 columns next-link'>";
+  pnNav = pnNav + "<a>Next section &gt;</a>";
+  pnNav = pnNav + "<br><em data-role='next'></em></div>";
+  pnNav = pnNav + "</div>";
 
-            var pSecId    = obj.prev("section").attr("id");
-            var pSecTitle = obj.prev("section").children("h2").text();
-            alert(pSecTitle);
-            var nSecId    = obj.next("section").attr("id");
-            var nSecTitle = obj.next("section").children("h2").text();
+    defaults.footer = pnNav;
+    //alert(defaults.footer);
 
-            // Add the title of the prev/next sections
-            $( "em[data-role='previous']" ).append(pSecTitle);
-            $( "em[data-role='next']" ).append(nSecTitle);
-            
-            // Add the links of the prev/next sections
-            $( "em[data-role='previous']" ).attr("href", pSecId);
-            $( "em[data-role='next']" ).attr("href", nSecId);
+    $(this).children("section").append(pnNav);
+
+    //return  $( "div.summary-sections > section").each( function() {
+    //        obj = $(this);
+    //    $( "div.summary-sections > section em" ).addClass("DADA");
+    //    
+    //    //$( "div.summary-sections > section" ).each( function() {
+//
+    //        var pSecId    = obj.prev("section").attr("id");
+    //        var pSecTitle = obj.prev("section").children("h2").text();
+    //        alert(pSecTitle);
+    //        var nSecId    = obj.next("section").attr("id");
+    //        var nSecTitle = obj.next("section").children("h2").text();
+//
+    //        // Add the title of the prev/next sections
+    //        $( "em[data-role='previous']" ).append(pSecTitle);
+    //        $( "em[data-role='next']" ).append(nSecTitle);
+    //        
+    //        // Add the links of the prev/next sections
+    //        $( "em[data-role='previous']" ).attr("href", pSecId);
+    //        $( "em[data-role='next']" ).attr("href", nSecId);
         //})
 
-    });
-    alert("In previousNext End");
+    //});
+    //alert("In previousNext End");
     };
 
 
@@ -311,7 +317,7 @@ $(function() {
 
   // Adding the previous/next navigation
   // ------------------------------------------------------------
-  $("div.summary-sections").previousNext( { footer: pnNav } );
+  $("div.summary-sections").previousNext( { footer: "dada" } );
 
   //alert("End");
 //})(jQuery);
