@@ -1,5 +1,8 @@
 /***** BEGIN PAGE OPTIONS *************************************/
-.page-options {
+
+/* COMMON for all page options */
+.page-options,
+.mobile-page-options {
 	margin-bottom: 1em;
 
 	ul {
@@ -8,22 +11,24 @@
 	}
 	li {
 		display: inline-block;
-		margin-left: 0.875em;
+		margin: 0;
+		background-image: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
 		background-repeat: no-repeat;
 	}
 }
-.contentzone .page-options li:before {
+.contentzone .page-options li:before,
+.contentzone .mobile-page-options li:before {
 		content: none;
 }
 
+/* MOBILE page options */
 @media only screen and (max-width: 1024px) {
 	.page-options {
-		ul {
-			float: left;
-		}
-
+		display: none;
+	}
+	.mobile-page-options {
 		li {
-			background-image: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+			margin: 0 0.875em 0 0;
 		}
 
 		a, img {
@@ -31,6 +36,9 @@
 			height: 35px;
 		}
 
+		.po-view-entire-document {
+			display: none;
+		}
 		.po-font-resize {
 			display: none;
 		}
@@ -38,25 +46,28 @@
 			display: none;
 		}
 		.po-email {
-			background-image: url("../images/icons/email_mobile.png");
+			background-position-y: -337px;
 		}
 		.po-facebook {
-			background-image: url("../images/icons/facebook_mobile.png");
+			background-position-y: -397px;
 		}
 		.po-twitter {
-			background-image: url("../images/icons/twitter_mobile.png");
+			background-position-y: -457px;
 		}
 		.po-googleplus {
-			background-image: url("../images/icons/google_plus_mobile.png");
+			background-position-y: -517px;
 		}
 		.po-pinterest {
-			background-image: url("../images/icons/pinterest_mobile.png");
+			background-position-y: -577px;
 		}
 	}
 }
 
-
+/* DESKTOP page options */
 @media only screen and (min-width: 1025px) {
+	.mobile-page-options {
+		display: none;
+	}
 	.page-options {
 		margin-top: 1.6em;
 
@@ -65,7 +76,7 @@
 		}
 
 		li {
-			background-image: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+			margin: 0 0 0 0.875em;
 		}
 
 		a, img {
@@ -74,46 +85,46 @@
 		}
 
 		.po-view-entire-document {
-			background-position-y: 0;
+			background-position-y: 0px;
 		}
 		.po-font-resize {
-			background-position-y: 0;
+			background-position-y: -43px;
 			& > a, & img {
 				width: 22px;
 			}
 		}
 		.po-print {
-			background-position-y: -26px;
+			background-position-y: -83px;
 			& > a, & img {
 				width: 23px;
 			}
 		}
 		.po-email {
-			background-position-y: -54px;
+			background-position-y: -128px;
 			& > a, & img {
 				width: 20px;
 			}
 		}
 		.po-facebook {
-			background-position-y: -81px;
+			background-position-y: -167px;
 			& > a, & img {
 				width: 8px;
 			}
 		}
 		.po-twitter {
-			background-position-y: -110px;
+			background-position-y: -209px;
 			& > a, & img {
 				width: 19px;
 			}
 		}
 		.po-googleplus {
-			background-position-y: -139px;
+			background-position-y: -249px;
 			& > a, & img {
 				width: 19px;
 			}
 		}
 		.po-pinterest {
-			background-position-y: -169px;
+			background-position-y: -293px;
 			& > a, & img {
 				width: 15px;
 			}
