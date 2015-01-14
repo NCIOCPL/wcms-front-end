@@ -1,0 +1,89 @@
+/********** BEGIN Blogs Styles ******************************************/
+/*Begin Blog Content CSS*/
+.blog-post-publishing-info {
+	font-size:12px;
+}
+p.blog-post-publishing-info {
+	margin-top:0;
+}
+.blog-post {
+	border-top: 1px solid #bdbdbd;
+	padding-top: 16px;
+}
+.blog-post:first-child {
+	border-top: none;
+	margin-top: 0;
+	padding-top: 0;
+}
+.blog-post .post-thumb {
+	
+}
+.blog-post .post-thumb img {
+	max-width: 100%;
+}
+/* If there is a thumbnail, then set the width to not be 100% */
+.blog-post .post-thumb + .post-info {
+	
+}
+.blog-post .post-info .post-title > a {
+	display: block;
+	float: right;
+}
+.blog-post h3 {
+	margin: 0;
+	width: 70%;
+	float: left;
+}
+.blog-post {
+}
+.blog-list {
+	margin-top: 24px;
+}
+.blog-pager {
+	border-top: 1px solid #bdbdbd;
+	padding-top: 24px;
+}
+.blog-pager a {
+	display: block;
+}
+.blog-pager a.newer {
+	float: right;
+}
+.blog-pager a.older {
+	float: left;
+}
+.post-title h3 a {
+	color: #333333;
+	text-decoration: none;
+}
+a.comment-count {
+	background: url("/PublishedContent/images/images/comment-icon.png") no-repeat;
+	padding-left: 26px;
+	height: 22px;
+}
+.date-author {
+	padding-top: 10px;
+}
+.blog-post-older {
+	float:left;
+	width:30%;
+}
+.blog-post-newer {
+	width: 30%;
+	text-align:right;
+	float:right;
+}
+.blog-post-older p {
+	margin-top:0;
+}
+.blog-post-newer p {
+	margin-top:0;
+}
+/*end Blog Content CSS*/
+
+
+
+
+
+
+/********** END Blogs Styles ******************************************/
