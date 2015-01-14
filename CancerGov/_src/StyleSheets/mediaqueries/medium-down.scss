@@ -5,683 +5,683 @@
 /* *************************************************************************/
 
 @media only screen and (max-width: 1024px) {
-	.bcrumbs {
-		display: none;
-	}
-	.shareBtn {
-		margin-top: 0;
-	}
-	.shareComponent {
-		float: right;
-		width: initial;
-	}
-	.section-head {
-		float: none;
-		width: 100%;
-	}
-	figure.image-left-medium {
-		width: 100%
-	}
-	.feature-primary .card {
-		background: white;
-	}
-	.feature-primary a {
-		color: #606060;
-	}
-	.feature-primary h3 {
-		color: #076f88;
-	}
-	/* hide the TOC on small/medium screens. The accordion serves the same purpose */
-	/* hide the key-points on small/medium screens. Because, reasons^^^^ (the same reasons). 2014-11-05 SJC #OCECREATIV-879 */
-	.toc-container,
-	.key-points {
-		display: none;
-	}
-	.back-to-top {
-		display: none !important;
-	}
-	/* mobile accordion */
-	/* override jQuery UI styling */
-	.ui-widget {
-		font-family: inherit;
-		/* jquery-ui.css:832 sets this to 'Verdana,Arial,sans-serif' */
-		font-size: inherit;
-		/* jquery-ui.css:832 sets this to '1.1em' */
-	}
-	#accordion .ui-accordion-header {
-		font-weight: bold;
-		border-left: 0;
-		border-right: 0;
-		border-top: 0;
-		border-radius: 0;
-		border-bottom: 1px solid #96aeb8;
-		background: #1D5E86;
-		color: #fff;
-		margin: 0 -0.9375em;
-		padding: 10px 50px 10px 20px;
-	}
-	#accordion .ui-accordion-header:first-child {
-		border-top: 1px solid #96aeb8;
-	}
-	/* openend accordion */
-	#accordion .ui-accordion-header.ui-state-active {
-		background: #CCEEFA;
-		color: #606060;
-	}
-	#accordion .ui-widget-content {
-		border: 0;
-	}
-	#accordion .ui-accordion .ui-accordion-content {
-		padding: 10px 20px;
-	}
-	/* override icons to use our own */
-	#accordion .ui-icon {
-		width: 32px;
-		height: 32px;
-		background-image: url(../images/mobile-menus-expand-collapse-buttons-sm.png);
-		background-position: 0 0;
-		margin-top: -16px;
-		right: 15px;
-		left: auto;
-	}
-	#accordion .ui-state-active .ui-icon {
-		background-position: 0 -45px;
-	}
-	/*** BEGIN Megamenus/Search Styles ***/
-	#content {
-		padding-top: 0;
-	}
-	/* Display nav items vertically */
-	#mega-nav ul.menu {
-		border-top: 1px solid #888;
-	}
-	#mega-nav ul.menu li {
-		width: 100%;
-		box-sizing: border-box;
-		border-top: 1px solid #888;
-	}
-	/* Reveal open/close buttons */
-	a.open-panel,
-	a.close-panel {
-		display: inline;
-	}
-	.close-panel {
-		position: relative;
-		top: .5em;
-		left: 1em;
-	}
-	#page {
-		position: relative;
-		left: 0;
-		-webkit-transition: left 500ms ease;
-		-moz-transition: left 500ms ease;
-		-o-transition: left 500ms ease;
-		transition: left 500ms ease;
-	}
-	.openNav #page {
-		left: 80%;
-	}
-	.fixedtotop {
-		-webkit-transition: left 500ms ease;
-		-moz-transition: left 500ms ease;
-		-o-transition: left 500ms ease;
-		transition: left 500ms ease;
-	}
-	/* Move nav off screen, setup transitions */
-	#mega-nav {
-		z-index: 1000;
-		position: absolute;
-		left: -80%;
-		top: 0;
-		width: 80%;
-		height: 100%;
-		background-color: #E9E9E7;
-	}
-	#mega-nav > ul {
-		overflow-y: auto;
-		height: 100%;
-	}
-	/* When the panel is closed, transition the page back to the left */
-	/* hide search on mobile */
-	.search {
-		display: none;
-	}
-	/* mobile menu */
-	/* open/minus toggle */
-	#mega-nav .toggle-opened,
-	#mega-nav .toggle[aria-expanded="true"] {
-		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -55px no-repeat;
-	}
-	/* clicked open/minus toggle (only appears for a brief moment) */
-	#mega-nav .toggle[aria-expanded="true"]:active {
-		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -175px no-repeat;
-	}
-	/* closed/plus toggle */
-	#mega-nav .toggle-closed,
-	#mega-nav .toggle[aria-expanded="false"] {
-		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% 5px no-repeat;
-	}
-	/* clicked closed/plus toggle (only appears for a brief moment) */
-	#mega-nav .toggle[aria-expanded="false"]:active {
-		background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -115px no-repeat;
-	}
-	#mega-nav .toggle {
-		float: right;
-		vertical-align: top;
-		width: 25%;
-		min-height: 47px;
-		border: 0;
-		margin: 0;
-		padding: 0;
-	}
-	/*
-	#mega-nav > li,
-	#mega-nav > li > ul > li {
-		padding-left: 0;
-	}
-	*/
-	#mega-nav li a {
-		display: inline-block;
-		min-height: 1.5em;
-		width: 75%;
-		text-decoration: none;
-		padding-top: .6em;
-		font-size: 1.1em;
-		color: #606060;
-	}
-	#mega-nav li > div > a {
-		width: 75%;
-		/* If we add "has-children", change to 100% */
-	}
-	/* Re-add if we add "has-children"
-	#mega-nav li.has-children > div > a {
-		width: 75%;
-	}
-	*/
-	#mega-nav li {
-		border-top: 1px solid #898987;
-	}
-	/* list item spacing through the hierarchy */
-	#mega-nav li > div > a,
-	#mega-nav li li > div > a {
-		padding-left: 31px;
-		font-size: 1.17em;
-		padding-top: 12px;
-		padding-bottom: 12px;
-	}
-	#mega-nav li li li > div > a {
-		padding-left: 44px;
-		font-size: 0.91em;
-		padding-top: 14px;
-		padding-bottom: 11px;
-	}
-	#mega-nav li li li li > div > a {
-		padding-left: 62px;
-		font-size: 0.78em;
-		font-weight: bold;
-		padding-top: 12px;
-		padding-bottom: 15px;
-	}
-	/* remove padding on HOME link to appear as a level 0 item */
-	#mega-nav .nav-menu > li > div > a {
-		padding-left: 17px;
-		color: #606060;
-		padding-top: 14px;
-	}
-	#mega-nav .highlight > div {
-		background-color: #0498a1;
-	}
-	#mega-nav .highlight > div > a {
-		font-weight: bold;
-	}
-	#mega-nav .nav-menu .highlight > div > a {
-		color: #fefefe;
-	}
-	/* remove background color of any child lists items of the highlighted */
-	#mega-nav .highlight ul li {
-		background-color: #E9E9E7;
-		color: #2ba6cb;
-	}
-	#mega-nav {
-		-webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-		-moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-	}
-	/* clicked link state */
-	#mega-nav .nav-menu li > div > a.active {
-		/*
-		background-color: #BB0E3C;
-		background-image: none;
-		*/
-		color: #fff;
-	}
-	#mega-nav .nav-menu li > div.active {
-		background-color: #BB0E3C;
-		background-image: none;
-	}
-	/* remove margin from lists */
-	#mega-nav ul {
-		margin: 0;
-		width: 100%;
-	}
-	.sub-nav-mega {
-		display: none;
-	}
-	.hidden-sibling {
-		display: none;
-	}
-	.hidden {
-		position: absolute;
-		left: -10000px;
-		top: auto;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
-	button,
-	button:focus {
-		-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-		/* for most devices */
-		-webkit-tap-highlight-color: transparent;
-		/* for certain Android devices */
-		outline: none;
-		/* to get rid of the outline */
-		/* NOTE: these styles have accessibility concerns (probably only an issue on larger displays):
-		 * http://outlinenone.com/
-		 */
-	}
-	/*** END Megamenus/Search Styles ***/
-	/*** BEGIN mobile section nav ("tongue") styles ***/
-	/* fix the margin (on mobile) for pages with a section nav */
-	.has-section-nav {
-		margin-top: 1.5em;
-	}
-	/* container width */
-	.main-content .general-page-body-container .local-navigation {
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-	#section-nav {
-		display: none;
-		position: absolute;
-		top: 1.9375em;
-		z-index: 999;
-		width: 90%;
-		background: white;
-	}
-	#section-nav,
-	#section-nav ul,
-	#section-nav ul li {
-		margin: 0;
-	}
-	#section-nav div {
-		position: relative;
-		font-size: 0.875em;
-		line-height: 1.2;
-		padding-top: 0.625em;
-		padding-bottom: 0.625em;
-	}
-	#section-nav .contains-current > div {
-		font-weight: bold;
-	}
-	#section-nav div > a {
-		display: inline-block;
-	}
-	#section-nav ul li {
-		border-top: 1px solid #d5d5d2;
-	}
-	#section-nav ul > li:first-child {
-		border: none;
-	}
-	/* these will not apply to the top-level item (currently in blue) */
-	#section-nav ul div > a {
-		margin-right: 3.8125em;
-		color: #606060;
-		line-height: 1.5;
-		vertical-align: middle;
-	}
-	#section-nav div.current-page > a {
-		color: white;
-		font-weight: bold;
-	}
-	/** BEGIN button styling **/
-	#section-nav .toggle {
-		position: absolute;
-		font-size: 2.5em;
-		width: 1em;
-		height: 1em;
-		color: #454545;
-		font-weight: bold;
-		line-height: 1;
-		top: 50%;
-		right: 4%;
-		margin-top: -0.5em;
-	}
-	#section-nav .toggle:after {
-		display: block;
-		width: 1em;
-		height: 1em;
-		background-color: white;
-		border-radius: 1em;
-		border: 1px solid rgba(0, 0, 0, 0.1);
-		-webkit-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-		-moz-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-		box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-	}
-	#section-nav .toggle[aria-expanded="false"]:after {
-		content: "+";
-	}
-	#section-nav .toggle[aria-expanded="true"]:after {
-		content: "\2212";
-		/* "2212" is Unicode for the minus sign */
-		color: #009b9d;
-	}
-	/** END button styling **/
-	/** BEGIN level-by-level styling **/
-	/* level 0 */
-	#section-nav .level-0 > div {
-		font-size: 1.125em;
-		font-weight: bold;
-		padding-top: 0.625em;
-		padding-bottom: 0.625em;
-		background-color: #0A6E89;
-	}
-	#section-nav .level-0 > div > a {
-		color: #FFFFFF;
-		margin-left: 0.8888em;
-		margin-right: 3.3888em;
-	}
-	/* level 1 */
-	#section-nav .level-1 > div > a {
-		text-transform: uppercase;
-		margin-left: 1em;
-	}
-	#section-nav .level-1.contains-current {
-		background-color: #eeedf4;
-	}
-	/* level 2 */
-	#section-nav .level-2 > div > a {
-		margin-left: 1.875em;
-		font-family: Noto, Arial;
-	}
-	#section-nav .level-2 > ul {
-		z-index: 1;
-		position: absolute;
-		background: #c7c7d3;
-	}
-	/* level 3 */
-	#section-nav .level-3 > div > a {
-		margin-left: 2.3em;
-		margin-right: 2.0833em;
-		font-size: 0.9em;
-	}
-	/** END level-by-level styling **/
-	/* this rule to be below the level-by-level styles */
-	#section-nav div.current-page {
-		background: #009b9d;
-	}
-	/* style section menu clicker on mobile */
-	#section-menu-button {
-		display: none;
-		position: absolute;
-		z-index: 2020;
-		cursor: pointer;
-		text-align: right;
-		color: #fff;
-		font-size: 0.625em;
-		line-height: 1.6;
-		min-height: 1.5em;
-		padding: 0.75em 2.5em 0.75em 0.75em;
-		right: 5%;
-		background: rgb(74, 74, 74) 95% 50% no-repeat;
-		background-image: url(../images/section-menu-down-arrow.png);
-		/* fallback */
-		background-image: url(../images/section-menu-down-arrow.png), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
-		/* Saf4+, Chrome */
-		background-image: url(../images/section-menu-down-arrow.png), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* Chrome 10+, Saf5.1+ */
-		background-image: url(../images/section-menu-down-arrow.png), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* FF3.6+ */
-		background-image: url(../images/section-menu-down-arrow.png), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* IE10 */
-		background-image: url(../images/section-menu-down-arrow.png), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* Opera 11.10+ */
-		background-image: url(../images/section-menu-down-arrow.png), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* W3C */
-		font-family: Montserrat, Arial;
-		text-transform: uppercase;
-	}
-	#section-menu-button.open {
-		background-image: url(../images/section-menu-up-arrow.png);
-		/* fallback */
-		background-image: url(../images/section-menu-up-arrow.png), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
-		/* Saf4+, Chrome */
-		background-image: url(../images/section-menu-up-arrow.png), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* Chrome 10+, Saf5.1+ */
-		background-image: url(../images/section-menu-up-arrow.png), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* FF3.6+ */
-		background-image: url(../images/section-menu-up-arrow.png), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* IE10 */
-		background-image: url(../images/section-menu-up-arrow.png), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* Opera 11.10+ */
-		background-image: url(../images/section-menu-up-arrow.png), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-		/* W3C */
-	}
-	/* Fallbacks */
-	.no-js #section-nav ul {
-		display: none;
-	}
-	.no-js #section-nav:hover ul {
-		display: block;
-	}
-	/* section nav grey page overlay - http://css-tricks.com/snippets/jquery/append-site-overlay-div/ */
-	#overlay {
-		opacity: 0.4;
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		background-color: black;
-		width: 100%;
-		z-index: 998;
-	}
-	/*** END Section Nav Styles ***/
-	header {
-		padding: 1em 0;
-	}
-	.language-bar {
-		background: #2a71a5;
-		color: white;
-	}
-	.sitewide-language a {
-		color: white;
-	}
-	/* begin mobile menu styles */
-	.navigation {
-		width: 20%;
-		display: inline-block;
-	}
-	.mobile-menu-bar {
-		margin-top: 0.5em;
-	}
-	.mobile-menu-bar h2 {
-		padding-top: 35px;
-	}
-	.nav-search-bar {
-		line-height: 0;
-	}
-	.nav-header,
-	.nav-contact,
-	.nav-dictionary,
-	.nav-search {
-		float: left;
-		font-size: .8em;
-		color: #fff;
-		padding: 2em 0 0 0;
-		width: 24%;
-		text-align: center;
-	}
-	.nav-header {
-		background: transparent url(../images/icons/menu-icon.png) no-repeat center 0;
-	}
-	.nav-contact {
-		background: transparent url(../images/icons/phone-mobile.png) no-repeat center 0;
-	}
-	.nav-dictionary {
-		background: transparent url(../images/icons/dictionary-mobile.png) no-repeat center 0;
-	}
-	.nav-search {
-		background: transparent url(../images/icons/search-mobile.png) no-repeat center 0;
-	}
-	/* end mobile menu styles */
+    .bcrumbs {
+        display: none;
+    }
+    .shareBtn {
+        margin-top: 0;
+    }
+    .shareComponent {
+        float: right;
+        width: initial;
+    }
+    .section-head {
+        float: none;
+        width: 100%;
+    }
+    figure.image-left-medium {
+        width: 100%
+    }
+    .feature-primary .card {
+        background: white;
+    }
+    .feature-primary a {
+        color: #606060;
+    }
+    .feature-primary h3 {
+        color: #076f88;
+    }
+    /* hide the TOC on small/medium screens. The accordion serves the same purpose */
+    /* hide the key-points on small/medium screens. Because, reasons^^^^ (the same reasons). 2014-11-05 SJC #OCECREATIV-879 */
+    .toc-container,
+    .key-points {
+        display: none;
+    }
+    .back-to-top {
+        display: none !important;
+    }
+    /* mobile accordion */
+    /* override jQuery UI styling */
+    .ui-widget {
+        font-family: inherit;
+        /* jquery-ui.css:832 sets this to 'Verdana,Arial,sans-serif' */
+        font-size: inherit;
+        /* jquery-ui.css:832 sets this to '1.1em' */
+    }
+    #accordion .ui-accordion-header {
+        font-weight: bold;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #96aeb8;
+        background: #1D5E86;
+        color: #fff;
+        margin: 0 -0.9375em;
+        padding: 10px 50px 10px 20px;
+    }
+    #accordion .ui-accordion-header:first-child {
+        border-top: 1px solid #96aeb8;
+    }
+    /* openend accordion */
+    #accordion .ui-accordion-header.ui-state-active {
+        background: #CCEEFA;
+        color: #606060;
+    }
+    #accordion .ui-widget-content {
+        border: 0;
+    }
+    #accordion .ui-accordion .ui-accordion-content {
+        padding: 10px 20px;
+    }
+    /* override icons to use our own */
+    #accordion .ui-icon {
+        width: 32px;
+        height: 32px;
+        background-image: url(../images/mobile-menus-expand-collapse-buttons-sm.png);
+        background-position: 0 0;
+        margin-top: -16px;
+        right: 15px;
+        left: auto;
+    }
+    #accordion .ui-state-active .ui-icon {
+        background-position: 0 -45px;
+    }
+    /*** BEGIN Megamenus/Search Styles ***/
+    #content {
+        padding-top: 0;
+    }
+    /* Display nav items vertically */
+    #mega-nav ul.menu {
+        border-top: 1px solid #888;
+    }
+    #mega-nav ul.menu li {
+        width: 100%;
+        box-sizing: border-box;
+        border-top: 1px solid #888;
+    }
+    /* Reveal open/close buttons */
+    a.open-panel,
+    a.close-panel {
+        display: inline;
+    }
+    .close-panel {
+        position: relative;
+        top: .5em;
+        left: 1em;
+    }
+    #page {
+        position: relative;
+        left: 0;
+        -webkit-transition: left 500ms ease;
+        -moz-transition: left 500ms ease;
+        -o-transition: left 500ms ease;
+        transition: left 500ms ease;
+    }
+    .openNav #page {
+        left: 80%;
+    }
+    .fixedtotop {
+        -webkit-transition: left 500ms ease;
+        -moz-transition: left 500ms ease;
+        -o-transition: left 500ms ease;
+        transition: left 500ms ease;
+    }
+    /* Move nav off screen, setup transitions */
+    #mega-nav {
+        z-index: 1000;
+        position: absolute;
+        left: -80%;
+        top: 0;
+        width: 80%;
+        height: 100%;
+        background-color: #E9E9E7;
+    }
+    #mega-nav > ul {
+        overflow-y: auto;
+        height: 100%;
+    }
+    /* When the panel is closed, transition the page back to the left */
+    /* hide search on mobile */
+    .search {
+        display: none;
+    }
+    /* mobile menu */
+    /* open/minus toggle */
+    #mega-nav .toggle-opened,
+    #mega-nav .toggle[aria-expanded="true"] {
+        background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -55px no-repeat;
+    }
+    /* clicked open/minus toggle (only appears for a brief moment) */
+    #mega-nav .toggle[aria-expanded="true"]:active {
+        background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -175px no-repeat;
+    }
+    /* closed/plus toggle */
+    #mega-nav .toggle-closed,
+    #mega-nav .toggle[aria-expanded="false"] {
+        background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% 5px no-repeat;
+    }
+    /* clicked closed/plus toggle (only appears for a brief moment) */
+    #mega-nav .toggle[aria-expanded="false"]:active {
+        background: transparent url(../images/mobile-menus-expand-collapse-buttons.png) 50% -115px no-repeat;
+    }
+    #mega-nav .toggle {
+        float: right;
+        vertical-align: top;
+        width: 25%;
+        min-height: 47px;
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    /*
+    #mega-nav > li,
+    #mega-nav > li > ul > li {
+        padding-left: 0;
+    }
+    */
+    #mega-nav li a {
+        display: inline-block;
+        min-height: 1.5em;
+        width: 75%;
+        text-decoration: none;
+        padding-top: .6em;
+        font-size: 1.1em;
+        color: #606060;
+    }
+    #mega-nav li > div > a {
+        width: 75%;
+        /* If we add "has-children", change to 100% */
+    }
+    /* Re-add if we add "has-children"
+    #mega-nav li.has-children > div > a {
+        width: 75%;
+    }
+    */
+    #mega-nav li {
+        border-top: 1px solid #898987;
+    }
+    /* list item spacing through the hierarchy */
+    #mega-nav li > div > a,
+    #mega-nav li li > div > a {
+        padding-left: 31px;
+        font-size: 1.17em;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    #mega-nav li li li > div > a {
+        padding-left: 44px;
+        font-size: 0.91em;
+        padding-top: 14px;
+        padding-bottom: 11px;
+    }
+    #mega-nav li li li li > div > a {
+        padding-left: 62px;
+        font-size: 0.78em;
+        font-weight: bold;
+        padding-top: 12px;
+        padding-bottom: 15px;
+    }
+    /* remove padding on HOME link to appear as a level 0 item */
+    #mega-nav .nav-menu > li > div > a {
+        padding-left: 17px;
+        color: #606060;
+        padding-top: 14px;
+    }
+    #mega-nav .highlight > div {
+        background-color: #0498a1;
+    }
+    #mega-nav .highlight > div > a {
+        font-weight: bold;
+    }
+    #mega-nav .nav-menu .highlight > div > a {
+        color: #fefefe;
+    }
+    /* remove background color of any child lists items of the highlighted */
+    #mega-nav .highlight ul li {
+        background-color: #E9E9E7;
+        color: #2ba6cb;
+    }
+    #mega-nav {
+        -webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+        -moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+        box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+    }
+    /* clicked link state */
+    #mega-nav .nav-menu li > div > a.active {
+        /*
+        background-color: #BB0E3C;
+        background-image: none;
+        */
+        color: #fff;
+    }
+    #mega-nav .nav-menu li > div.active {
+        background-color: #BB0E3C;
+        background-image: none;
+    }
+    /* remove margin from lists */
+    #mega-nav ul {
+        margin: 0;
+        width: 100%;
+    }
+    .sub-nav-mega {
+        display: none;
+    }
+    .hidden-sibling {
+        display: none;
+    }
+    .hidden {
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+    }
+    button,
+    button:focus {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        /* for most devices */
+        -webkit-tap-highlight-color: transparent;
+        /* for certain Android devices */
+        outline: none;
+        /* to get rid of the outline */
+        /* NOTE: these styles have accessibility concerns (probably only an issue on larger displays):
+         * http://outlinenone.com/
+         */
+    }
+    /*** END Megamenus/Search Styles ***/
+    /*** BEGIN mobile section nav ("tongue") styles ***/
+    /* fix the margin (on mobile) for pages with a section nav */
+    .has-section-nav {
+        margin-top: 1.5em;
+    }
+    /* container width */
+    .main-content .general-page-body-container .local-navigation {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .section-nav {
+        display: none;
+        position: absolute;
+        top: 1.9375em;
+        z-index: 999;
+        width: 90%;
+        background: white;
+    }
+    .section-nav,
+    .section-nav ul,
+    .section-nav ul li {
+        margin: 0;
+    }
+    .section-nav div {
+        position: relative;
+        font-size: 0.875em;
+        line-height: 1.2;
+        padding-top: 0.625em;
+        padding-bottom: 0.625em;
+    }
+    .section-nav .contains-current > div {
+        font-weight: bold;
+    }
+    .section-nav div > a {
+        display: inline-block;
+    }
+    .section-nav ul li {
+        border-top: 1px solid #d5d5d2;
+    }
+    .section-nav ul > li:first-child {
+        border: none;
+    }
+    /* these will not apply to the top-level item (currently in blue) */
+    .section-nav ul div > a {
+        margin-right: 3.8125em;
+        color: #606060;
+        line-height: 1.5;
+        vertical-align: middle;
+    }
+    .section-nav div.current-page > a {
+        color: white;
+        font-weight: bold;
+    }
+    /** BEGIN button styling **/
+    .section-nav .toggle {
+        position: absolute;
+        font-size: 2.5em;
+        width: 1em;
+        height: 1em;
+        color: #454545;
+        font-weight: bold;
+        line-height: 1;
+        top: 50%;
+        right: 4%;
+        margin-top: -0.5em;
+    }
+    .section-nav .toggle:after {
+        display: block;
+        width: 1em;
+        height: 1em;
+        background-color: white;
+        border-radius: 1em;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+    .section-nav .toggle[aria-expanded="false"]:after {
+        content: "+";
+    }
+    .section-nav .toggle[aria-expanded="true"]:after {
+        content: "\2212";
+        /* "2212" is Unicode for the minus sign */
+        color: #009b9d;
+    }
+    /** END button styling **/
+    /** BEGIN level-by-level styling **/
+    /* level 0 */
+    .section-nav .level-0 > div {
+        font-size: 1.125em;
+        font-weight: bold;
+        padding-top: 0.625em;
+        padding-bottom: 0.625em;
+        background-color: #0A6E89;
+    }
+    .section-nav .level-0 > div > a {
+        color: #FFFFFF;
+        margin-left: 0.8888em;
+        margin-right: 3.3888em;
+    }
+    /* level 1 */
+    .section-nav .level-1 > div > a {
+        text-transform: uppercase;
+        margin-left: 1em;
+    }
+    .section-nav .level-1.contains-current {
+        background-color: #eeedf4;
+    }
+    /* level 2 */
+    .section-nav .level-2 > div > a {
+        margin-left: 1.875em;
+        font-family: Noto, Arial;
+    }
+    .section-nav .level-2 > ul {
+        z-index: 1;
+        position: absolute;
+        background: #c7c7d3;
+    }
+    /* level 3 */
+    .section-nav .level-3 > div > a {
+        margin-left: 2.3em;
+        margin-right: 2.0833em;
+        font-size: 0.9em;
+    }
+    /** END level-by-level styling **/
+    /* this rule to be below the level-by-level styles */
+    .section-nav div.current-page {
+        background: #009b9d;
+    }
+    /* style section menu clicker on mobile */
+    #section-menu-button {
+        display: none;
+        position: absolute;
+        z-index: 2020;
+        cursor: pointer;
+        text-align: right;
+        color: #fff;
+        font-size: 0.625em;
+        line-height: 1.6;
+        min-height: 1.5em;
+        padding: 0.75em 2.5em 0.75em 0.75em;
+        right: 5%;
+        background: rgb(74, 74, 74) 95% 50% no-repeat;
+        background-image: url(../images/section-menu-down-arrow.png);
+        /* fallback */
+        background-image: url(../images/section-menu-down-arrow.png), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
+        /* Saf4+, Chrome */
+        background-image: url(../images/section-menu-down-arrow.png), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* Chrome 10+, Saf5.1+ */
+        background-image: url(../images/section-menu-down-arrow.png), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* FF3.6+ */
+        background-image: url(../images/section-menu-down-arrow.png), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* IE10 */
+        background-image: url(../images/section-menu-down-arrow.png), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* Opera 11.10+ */
+        background-image: url(../images/section-menu-down-arrow.png), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* W3C */
+        font-family: Montserrat, Arial;
+        text-transform: uppercase;
+    }
+    #section-menu-button.open {
+        background-image: url(../images/section-menu-up-arrow.png);
+        /* fallback */
+        background-image: url(../images/section-menu-up-arrow.png), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
+        /* Saf4+, Chrome */
+        background-image: url(../images/section-menu-up-arrow.png), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* Chrome 10+, Saf5.1+ */
+        background-image: url(../images/section-menu-up-arrow.png), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* FF3.6+ */
+        background-image: url(../images/section-menu-up-arrow.png), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* IE10 */
+        background-image: url(../images/section-menu-up-arrow.png), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* Opera 11.10+ */
+        background-image: url(../images/section-menu-up-arrow.png), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        /* W3C */
+    }
+    /* Fallbacks */
+    .no-js .section-nav ul {
+        display: none;
+    }
+    .no-js .section-nav:hover ul {
+        display: block;
+    }
+    /* section nav grey page overlay - http://css-tricks.com/snippets/jquery/append-site-overlay-div/ */
+    #overlay {
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: black;
+        width: 100%;
+        z-index: 998;
+    }
+    /*** END Section Nav Styles ***/
+    header {
+        padding: 1em 0;
+    }
+    .language-bar {
+        background: #2a71a5;
+        color: white;
+    }
+    .sitewide-language a {
+        color: white;
+    }
+    /* begin mobile menu styles */
+    .navigation {
+        width: 20%;
+        display: inline-block;
+    }
+    .mobile-menu-bar {
+        margin-top: 0.5em;
+    }
+    .mobile-menu-bar h2 {
+        padding-top: 35px;
+    }
+    .nav-search-bar {
+        line-height: 0;
+    }
+    .nav-header,
+    .nav-contact,
+    .nav-dictionary,
+    .nav-search {
+        float: left;
+        font-size: .8em;
+        color: #fff;
+        padding: 2em 0 0 0;
+        width: 24%;
+        text-align: center;
+    }
+    .nav-header {
+        background: transparent url(../images/icons/menu-icon.png) no-repeat center 0;
+    }
+    .nav-contact {
+        background: transparent url(../images/icons/phone-mobile.png) no-repeat center 0;
+    }
+    .nav-dictionary {
+        background: transparent url(../images/icons/dictionary-mobile.png) no-repeat center 0;
+    }
+    .nav-search {
+        background: transparent url(../images/icons/search-mobile.png) no-repeat center 0;
+    }
+    /* end mobile menu styles */
 
-	/* begin carousel styles */
-	/* spacing */
-	.slick-slide {
-		margin: 0 10px 0 0;
-	}
-	/*.slick-slide:last-child {
-		margin: 0;
-	}*/
-	/* opacity on non-active slide items */
-	.slick-slide {
-		background-color: #000;
-	}
-	.slick-slide .container {
-		opacity: 0.5;
-	}
-	/* overwrite above styles for opacity and background-color */
-	.slick-active {
-		background-color: #fff;
-	}
-	.slick-active .container {
-		opacity: 1;
-	}
-	.arrows-for-other-nci-sites .previous {
-		display: none;
-	}
-	.arrows-for-other-nci-sites .next {
-		position: absolute;
-		right: 20px;
-		z-index: 800;
-		top: 50%;
-	}
-	.arrows-for-other-nci-sites .next {
-		display: none;
-	}
-	/* end carousel styles */
-	.main-content {
-		background: #f7f8f3;
-	}
-	.content-bottom-slot {
-		background: #dceef8;
-	}
-	.site-footer {
-		background-position: 120% 150px;
-	}
-	.footer-utility .columns {
-		width: 100%;
-	}
-	.agencies ul {
-		text-align: left;
-	}
-	.agencies ul li {
-		display: block;
-		background: none;
-		padding-right: 0;
-		margin-right: 0;
-	}
-	.hero-text {
-		position: absolute;
-		bottom: 0;
-		color: white;
-		background-color: rgba(51, 102, 153, 0.5);
-		font-size: 1.2em;
-		font-weight: bold;
-		width: 100%;
-		padding: 0 0.8em;
-		left: 0;
-		top: auto;
-	}
-	.hero-text p {
-		line-height: 1;
-		margin: 0.2em;
-	}
-	.guide-card {
-		margin-bottom: 0;
-		margin-top: -35px;
-	}
-	.guide-card .card,
-	.guide-card .featured-card {
-		background: #1d5e86;
-		padding-top: 0;
-		padding-bottom: 0;
-		margin: 0;
-	}
-	.guide-card .card h3 {
-		color: white;
-		background: url(../images/icons/small-arrow.png) 95% center no-repeat;
-		border-bottom: 1px solid black;
-		padding: 0.3em 0.9375em;
-		margin: 0;
-	}
-	.guide-card .card h3.last {
-		border-bottom: none;
-	}
-	.cthp-title {
-		margin-top: 0;
-	}
-	.feature-zone-image img {
-		display: block;
-		margin: 0 auto;
-	}
-	.featured-zone {
-		margin-right: 0;
-	}
-	.home-director-stories,
-	.infographic {
-		background: none
-	}
-	.key-facts,
-	.key-points {
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0;
-		float: none;
-	}
-	.ui-accordion .ui-accordion-content {
-		padding: 0.5em .5em;
-	}
-	/* the portal pages needed these items to not hit the edge of screen */
-	.content-top-slot h1,
-	.content-bottom-slot h1,
-	.content-top-slot h2,
-	.content-bottom-slot h2,
-	.content-top-slot h3,
-	.content-bottom-slot h3,
-	.page-options {
-		padding-left: 15px;
-	}
-	/* since these items are still in columns at tablet, this reverses previous move for these classes */
-	.feature-primary h3,
-	.feature-primary p,
-	.feature-secondary h3,
-	.feature-secondary p,
-	.multimedia h3,
-	.multimedia p,
-	.other-sites-carousel h3,
-	.contentzone .page-options {
-		padding-left: 0;
-	}
-	/*** BEGIN PDQ Styles ***/
-	.toptoc {
-		display: none;
-	}
-	div#_toc_article {
-		display: none;
-	}
-	section.hide {
-		display: block;
-	}
-	/*** END PDQ Styles ***/
+    /* begin carousel styles */
+    /* spacing */
+    .slick-slide {
+        margin: 0 10px 0 0;
+    }
+    /*.slick-slide:last-child {
+        margin: 0;
+    }*/
+    /* opacity on non-active slide items */
+    .slick-slide {
+        background-color: #000;
+    }
+    .slick-slide .container {
+        opacity: 0.5;
+    }
+    /* overwrite above styles for opacity and background-color */
+    .slick-active {
+        background-color: #fff;
+    }
+    .slick-active .container {
+        opacity: 1;
+    }
+    .arrows-for-other-nci-sites .previous {
+        display: none;
+    }
+    .arrows-for-other-nci-sites .next {
+        position: absolute;
+        right: 20px;
+        z-index: 800;
+        top: 50%;
+    }
+    .arrows-for-other-nci-sites .next {
+        display: none;
+    }
+    /* end carousel styles */
+    .main-content {
+        background: #f7f8f3;
+    }
+    .content-bottom-slot {
+        background: #dceef8;
+    }
+    .site-footer {
+        background-position: 120% 150px;
+    }
+    .footer-utility .columns {
+        width: 100%;
+    }
+    .agencies ul {
+        text-align: left;
+    }
+    .agencies ul li {
+        display: block;
+        background: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    .hero-text {
+        position: absolute;
+        bottom: 0;
+        color: white;
+        background-color: rgba(51, 102, 153, 0.5);
+        font-size: 1.2em;
+        font-weight: bold;
+        width: 100%;
+        padding: 0 0.8em;
+        left: 0;
+        top: auto;
+    }
+    .hero-text p {
+        line-height: 1;
+        margin: 0.2em;
+    }
+    .guide-card {
+        margin-bottom: 0;
+        margin-top: -35px;
+    }
+    .guide-card .card,
+    .guide-card .featured-card {
+        background: #1d5e86;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0;
+    }
+    .guide-card .card h3 {
+        color: white;
+        background: url(../images/icons/small-arrow.png) 95% center no-repeat;
+        border-bottom: 1px solid black;
+        padding: 0.3em 0.9375em;
+        margin: 0;
+    }
+    .guide-card .card h3.last {
+        border-bottom: none;
+    }
+    .cthp-title {
+        margin-top: 0;
+    }
+    .feature-zone-image img {
+        display: block;
+        margin: 0 auto;
+    }
+    .featured-zone {
+        margin-right: 0;
+    }
+    .home-director-stories,
+    .infographic {
+        background: none
+    }
+    .key-facts,
+    .key-points {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        float: none;
+    }
+    .ui-accordion .ui-accordion-content {
+        padding: 0.5em .5em;
+    }
+    /* the portal pages needed these items to not hit the edge of screen */
+    .content-top-slot h1,
+    .content-bottom-slot h1,
+    .content-top-slot h2,
+    .content-bottom-slot h2,
+    .content-top-slot h3,
+    .content-bottom-slot h3,
+    .page-options {
+        padding-left: 15px;
+    }
+    /* since these items are still in columns at tablet, this reverses previous move for these classes */
+    .feature-primary h3,
+    .feature-primary p,
+    .feature-secondary h3,
+    .feature-secondary p,
+    .multimedia h3,
+    .multimedia p,
+    .other-sites-carousel h3,
+    .contentzone .page-options {
+        padding-left: 0;
+    }
+    /*** BEGIN PDQ Styles ***/
+    .toptoc {
+        display: none;
+    }
+    div#_toc_article {
+        display: none;
+    }
+    section.hide {
+        display: block;
+    }
+    /*** END PDQ Styles ***/
 }
