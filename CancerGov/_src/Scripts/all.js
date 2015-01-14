@@ -208,7 +208,7 @@ jQuery(document).ready(function(jQuery) {
 	(function($) {
 		/* font resizer */
 		var originalFontSize = $("body").css('font-size');
-		$(".cycle-font").click(function(){
+		$(".po-font-resize").click(function(){
 			var currentFontSizeM = $(".main-content").css('font-size');
 			var currentFontSizeNumM = parseFloat(currentFontSizeM, 10);
 			if (currentFontSizeNumM < 30 ) {
