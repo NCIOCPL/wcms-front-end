@@ -26,6 +26,12 @@
 	.page-options {
 		display: none;
 	}
+
+	// apply homepage-only styles
+	.page-options + .mobile-page-options {
+		margin-top: 1em;
+		margin-bottom: 0;
+	}
 	.mobile-page-options {
 		li {
 			margin: 0 0.875em 0 0;
