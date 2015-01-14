@@ -136,7 +136,7 @@ at the National Institutes of Health
 								</NCI:LanguageToggleLanguageItem>
 							</LanguageToggleLanguages>
 						</NCI:LanguageToggleControl>
-					</div>	
+					</div>
                 </div><!-- end "language-bar" -->
                 <!-- END LANGUAGE BAR -->
 
@@ -168,7 +168,7 @@ at the National Institutes of Health
             <!-- slots -->
             <!-- Breadcrumb slot -->
             <div class="row collapse">
-              <NCI:TemplateSlot ID="cvgBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
+              <NCI:TemplateSlot ID="cvgSlBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
               <!-- PAGE OPTIONS -->
               <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="medium-4 columns page-options" runat="server">
                   <PageOptionsButtonLanguages>
