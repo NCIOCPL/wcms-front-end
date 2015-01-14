@@ -17,7 +17,7 @@ ul.breadcrumbs > *:first-child:before {
 }
 
 ul.breadcrumbs > *:before {
-  content: “>“;
+  content: “\003E“;
   color: #606060;
   margin: 0;
 }
