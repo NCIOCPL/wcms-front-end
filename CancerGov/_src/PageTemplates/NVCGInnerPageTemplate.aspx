@@ -266,7 +266,7 @@ INNER   PAGE    TEMPLATE
                             <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
                             <!-- END PAGE TITLE -->
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
-                            <NCI:TemplateSlot ID="cgvSlPagination" runat="server" />
+                            <NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
                             <NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
                             <footer class="article-footer">
                                 <NCI:TemplateSlot ID="cgvCitationSl" runat="server" />
