@@ -8,12 +8,7 @@
 	}
 	li {
 		display: inline-block;
-		margin: 0 -4px 0 0; //needed for list items styled as inline-block
 		margin-left: 0.875em;
-	}
-	a {
-		display: inline-block;
-		background-position: center;
 		background-repeat: no-repeat;
 	}
 }
@@ -28,7 +23,7 @@
 		}
 
 		li {
-			background: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+			background-image: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
 		}
 
 		a, img {
@@ -70,7 +65,7 @@
 		}
 
 		li {
-			background: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+			background-image: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
 		}
 
 		a, img {
@@ -83,43 +78,43 @@
 		}
 		.po-font-resize {
 			background-position-y: 0;
-			& > a {
+			& > a, & img {
 				width: 22px;
 			}
 		}
 		.po-print {
 			background-position-y: -26px;
-			& > a {
+			& > a, & img {
 				width: 23px;
 			}
 		}
 		.po-email {
 			background-position-y: -54px;
-			& > a {
+			& > a, & img {
 				width: 20px;
 			}
 		}
 		.po-facebook {
 			background-position-y: -81px;
-			& > a {
+			& > a, & img {
 				width: 8px;
 			}
 		}
 		.po-twitter {
 			background-position-y: -110px;
-			& > a {
+			& > a, & img {
 				width: 19px;
 			}
 		}
 		.po-googleplus {
 			background-position-y: -139px;
-			& > a {
+			& > a, & img {
 				width: 19px;
 			}
 		}
 		.po-pinterest {
 			background-position-y: -169px;
-			& > a {
+			& > a, & img {
 				width: 15px;
 			}
 		}
