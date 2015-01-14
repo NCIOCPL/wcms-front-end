@@ -611,10 +611,6 @@ table.no-bullet-padding ul {
 	box-shadow: 2px 2px 4px 1px #c3c3c3;
 }
 .key-points h3 {
-	display: none;
-	/* hiding default h3 that PDQ spits out, for the more modular pseudo-element.   This allows for separation of style and content, as the manner in which the header is displayed is a style change, not a content one. - sjc - 2014-11-10 */
-}
-.key-points:before {
 	/* Key Points header */
 	display: block;
 	margin: 0 auto 0.75em;
