@@ -12,14 +12,14 @@ ul.breadcrumbs > * {
 }
 
 ul.breadcrumbs > *:first-child:before {
-  content: “ “;
+  content: " ";
   margin: 0;
 }
 
 ul.breadcrumbs > *:before {
-  content: “\003E“;
+  content: "\003E";
   color: #606060;
-  margin: 0;
+  margin: 0 0.25em;
 }
 
 ul.breadcrumbs > * a {
