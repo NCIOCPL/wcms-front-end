@@ -12,7 +12,7 @@ div.institution-sidebar {
 	overflow: hidden;
 	float: right;
 	border: 1px solid #939695;
-	width: 215px;
+	width: 40%;
 	margin: 0 0 12px 12px;
 }
 div.institution-sidebar div.institution-sidebar-content {
@@ -48,6 +48,12 @@ div.institution-content p {
 }
 
 
+@media only screen and (max-width: 640px){
+div.institution-sidebar {
+width: 100%;
+margin: 0 0 1em 0;
+}
+}
 
 
 
