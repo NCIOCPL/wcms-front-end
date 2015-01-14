@@ -39,7 +39,7 @@ at the National Institutes of Health
 </head>
 
 <body id="Body1" runat="server">
-    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
+    <div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
     <!-- NOTIFICATION AREA -->
     <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
@@ -161,7 +161,7 @@ at the National Institutes of Health
          8    Y     888  d8(  888   888   888   888
         o8o        o888o `Y888""8o o888o o888o o888o
         MAIN CONTENT AREA -->
-        <div class="main-content" id="content">
+        <div class="main-content" id="content" tabindex="0">
             <!-- slots -->
             <!-- Breadcrumb slot -->
             <div class="row collapse">
