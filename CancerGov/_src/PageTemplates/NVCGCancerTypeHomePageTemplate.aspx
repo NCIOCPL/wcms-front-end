@@ -197,7 +197,7 @@ at the National Institutes of Health
             </div>
             <!-- slots -->
             <!-- Body slot -->
-            <NCI:TemplateSlot ID="cgvBody" runat="server" />
+            <NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" />
             <!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
             <div class="cthp-content-bottom-slot">
                 <div class="row">
