@@ -254,7 +254,7 @@ INNER   PAGE    TEMPLATE
                     <!--    SECTION NAVIGATION -->
                     <NCI:TemplateSlot ID="nvcgSlSectionNav" CssClass="medium-3 columns local-navigation" runat="server" />
                     <!--    END SECTION NAVIGATION -->
-                    <div class="medium-9 columns contentzone" id="main" tabindex="1" role="main">
+                    <div class="medium-9 columns contentzone" id="main" tabindex="0" role="main">
                         <!-- ********************************* BEGIN Page Content ********************************** -->
                         <article>
                             <!-- BANNER SLOT -->
