@@ -256,7 +256,9 @@ at the National Institutes of Health
                                 AdditionalSnippetClasses="large-12 columns body-banner" />
                             <!-- END BANNER SLOT -->
                             <!-- PAGE TITLE -->
-                            <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
+							<div class="row collapse">
+								<h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
+							</div>
                             <!-- END PAGE TITLE -->
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
                             <footer class="article-footer">
