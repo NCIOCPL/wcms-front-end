@@ -76,7 +76,7 @@
 /* various patterned background images for slides */
 @mixin nci-bg-pattern($color, $shape) {
     .#{$color}-#{$shape} {
-        background-image: url($images + $color + "-" + $shape + ".jpg");
+        background-image: url($backgrounds + $color + "-" + $shape + ".jpg");
     }
 }
 @include nci-bg-pattern("blue","circles");
