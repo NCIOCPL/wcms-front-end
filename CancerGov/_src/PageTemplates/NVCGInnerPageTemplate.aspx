@@ -271,10 +271,11 @@ INNER   PAGE    TEMPLATE
                                 <NCI:TemplateSlot ID="cgvCitationSl" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
                                 <NCI:TemplateSlot ID="cgvDate" runat="server" />
-                                <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
-                                <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
 								<NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
 								<NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
+                                <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
+                                <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
+								
                             </footer>
                         </article>
                         <!-- ********************************* END Page Content ********************************** -->
