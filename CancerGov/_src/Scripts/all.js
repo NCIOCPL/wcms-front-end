@@ -36,7 +36,7 @@ jQuery(document).ready(function(jQuery) {
 			/* css class for the open state */
 			openClass: "open"
 		});
-		
+
 		// Get the name of the page you are on
 		var mysplit = window.location.pathname.split("/");
 		var pagename = mysplit[mysplit.length - 1];
@@ -201,6 +201,48 @@ jQuery(document).ready(function(jQuery) {
 		});
 	})(jQuery);
 	/*** END Headroom initializer ***/
+
+	/*** BEGIN Page Options
+	 * This functions the font resizer and places the mobile page options.
+	 ***/
+	(function($) {
+		/* font resizer */
+		var originalFontSize = $("body").css('font-size');
+		$(".cycle-font").click(function(){
+			var currentFontSizeM = $(".main-content").css('font-size');
+			var currentFontSizeNumM = parseFloat(currentFontSizeM, 10);
+			if (currentFontSizeNumM < 30 ) {
+				var newFontSizeM = currentFontSizeNumM*1.2;
+				$(".main-content").css('font-size', newFontSizeM);
+			} else {
+				$(".main-content").css('font-size', originalFontSize);
+			}
+			equalHeights();
+			return false;
+		});
+
+		/* place mobile page options */
+		if($('h1').length > 0) {
+			// if there is an h1, we are not on the home page
+			$('h1').after(
+				$(document.createElement('div'))
+				.addClass('mobile-page-options')
+				.prepend(
+					$('.page-options > ul').clone()
+				)
+			);
+		} else {
+			// if there isn't an h1, we're probably on the home page
+			$('.page-options').after(
+				$(document.createElement('div'))
+				.addClass('mobile-page-options')
+				.prepend(
+					$('.page-options > ul').clone()
+				)
+			);
+		}
+	})(jQuery);
+	/*** END Page Options **/
 
 	/*** BEGIN table toggling
 	 * This allows for toggling between tables.
