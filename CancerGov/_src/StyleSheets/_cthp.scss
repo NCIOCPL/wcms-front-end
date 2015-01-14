@@ -59,7 +59,7 @@ figure.image-right-medium {
     margin-bottom: 0;
     width: 100%;
     overflow: auto;
-    background: #008eb0 url("../images/backgrounds/hexagon_molecular_structure_body.png") no-repeat 110% -100px;
+    background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% -100px;
 }
 .normal li {
     background: url("../images/blue-list-dot.png") 0 7px no-repeat;
