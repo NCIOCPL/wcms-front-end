@@ -1,167 +1,128 @@
 /***** BEGIN PAGE OPTIONS *************************************/
 .page-options {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 
 	ul {
 		margin: 0;
-		background: transparent; 
+		background: transparent;
 	}
 	li {
 		display: inline-block;
-		margin: 0 -4px 0 0; 
+		margin: 0 -4px 0 0; //needed for list items styled as inline-block
+		margin-left: 0.875em;
 	}
 	a {
 		display: inline-block;
 		background-position: center;
 		background-repeat: no-repeat;
-		margin-right: 0.75em; 
 	}
-	ul li {
-		background: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png) no-repeat; /* Sprites */
-		display: inline-block;
-		margin: 0 0 0 0px; 
-	}
-	ul li:first-child {
-		margin: 0 
-	}
-	img {
-		width: 19px;
-		height: 19px; 
-	}
-	ul li.po-view-entire-document {
-		background-position: 0 0; 
-	}
-	ul li.po-font-resize {
-		background-position: 0 0; 
-	}
-	ul li.po-print {
-		background-position: 0 -26px;
-		margin-left: 9px; 
-	}
-	ul li.po-email {
-		background-position: 0 -54px;
-		margin-left: 9px; 
-	}
-	ul li.po-facebook {
-		background-position: 0 -81px; 
-	}
-	ul li.po-twitter {
-		background-position: 0 -110px;
-		margin-left: 5.5px; 
-	}
-	ul li.po-googleplus {
-		background-position: 0 -139px;
-		margin-left: 7px; 
-	}
-	ul li.po-pinterest {
-		background-position: 0 -169px;
-		margin-left: 5px; 
-	}	
 }
 .contentzone .page-options li:before {
-    content: none;
+		content: none;
 }
 
-
-
 @media only screen and (max-width: 1024px) {
-
-	/* begin page options */
 	.page-options {
-		a {
+		ul {
+			float: left;
+		}
+
+		li {
+			background: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+		}
+
+		a, img {
 			width: 35px;
 			height: 35px;
 		}
-		.cycle-font {
+
+		.po-font-resize {
 			display: none;
 		}
-		.addthis_button_print {
+		.po-print {
 			display: none;
 		}
-		.addthis_button_email {
+		.po-email {
 			background-image: url("../images/icons/email_mobile.png");
 		}
-		.addthis_button_facebook {
+		.po-facebook {
 			background-image: url("../images/icons/facebook_mobile.png");
 		}
-		.addthis_button_twitter  {
+		.po-twitter {
 			background-image: url("../images/icons/twitter_mobile.png");
 		}
-		.addthis_button_google_plusone_share  {
+		.po-googleplus {
 			background-image: url("../images/icons/google_plus_mobile.png");
 		}
-		.addthis_button_pinterest_share  {
+		.po-pinterest {
 			background-image: url("../images/icons/pinterest_mobile.png");
 		}
 	}
-	/* END page options */
-}	
+}
 
 
 @media only screen and (min-width: 1025px) {
-
-	/*** BEGIN Page Options styles ***/
-	/*.page-options {
-		padding-right: 0.9375em;
-	}*/
-	.content-top-slot .page-options {
-		top: -6.25em;
-	}
-	.landing-page-options {
-		height: 4.2em;
-
-		.page-options {
-			top: 0;
-			margin-top: 1.31875em;
-			margin-bottom: 1.31875em;
-		}
-
-		.cycle-font {
-			display: none;
-		}
-	}
 	.page-options {
-		position: absolute;
-		top: -2.5em;
-		right: 0.25em;
+		margin-top: 1.6em;
 
-		a {
+		ul {
+			float: right;
+		}
+
+		li {
+			background: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+		}
+
+		a, img {
 			height: 25px;
+			width: 25px;
+		}
+
+		.po-view-entire-document {
+			background-position-y: 0;
+		}
+		.po-font-resize {
+			background-position-y: 0;
+			& > a {
+				width: 22px;
+			}
+		}
+		.po-print {
+			background-position-y: -26px;
+			& > a {
+				width: 23px;
+			}
+		}
+		.po-email {
+			background-position-y: -54px;
+			& > a {
+				width: 20px;
+			}
+		}
+		.po-facebook {
+			background-position-y: -81px;
+			& > a {
+				width: 8px;
+			}
+		}
+		.po-twitter {
+			background-position-y: -110px;
+			& > a {
+				width: 19px;
+			}
+		}
+		.po-googleplus {
+			background-position-y: -139px;
+			& > a {
+				width: 19px;
+			}
+		}
+		.po-pinterest {
+			background-position-y: -169px;
+			& > a {
+				width: 15px;
+			}
 		}
 	}
-	.cycle-font {
-		background-image: url("../images/icons/font-resizer.png");
-		width: 22px;
-	}
-	.addthis_button_print {
-		background-image: url("../images/icons/print.png");
-		width: 23px;
-	}
-	.addthis_button_email {
-		background-image: url("../images/icons/email.png");
-		width: 20px;
-	}
-	.addthis_button_facebook {
-		background-image: url("../images/icons/facebook_icon.png");
-		width: 8px;
-	}
-	.addthis_button_twitter  {
-		background-image: url("../images/icons/twitter_icon.png");
-		width: 19px;
-	}
-	.addthis_button_google_plusone_share  {
-		background-image: url("../images/icons/google_plus_icon.png");
-		width: 19px;
-	}
-	.addthis_button_pinterest_share  {
-		background-image: url("../images/icons/pinterest_icon.png");
-		width: 15px;
-	}
-
-	/*** END Page Options styles ***/
 }
-	
-	
-
 /****** END PAGE OPTIONS *************************************/
-
