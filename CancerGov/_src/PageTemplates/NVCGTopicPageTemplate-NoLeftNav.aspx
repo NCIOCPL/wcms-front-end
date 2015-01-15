@@ -251,9 +251,16 @@ at the National Institutes of Health
                     </div> <!-- END "row" -->
                 </div> <!-- END "large-12 columns" -->
                 <div class="row">
+
+
+
                     <div class="medium-12 columns contentzone" id="main" tabindex="0" role="main">
                         <!-- ********************************* BEGIN Page Content ********************************** -->
                         <article>
+                            <!-- PUBLIC ARCHIVE BANNER -->
+                            <NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
+                            <!-- END PUBLIC ARCHIVE BANNER -->
+
                             <!-- BANNER SLOT -->
                             <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"
                                 CssClass="row banner-slot"
@@ -263,11 +270,16 @@ at the National Institutes of Health
 							<h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
 	                        <!-- END PAGE TITLE -->
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
+
                             <footer class="article-footer">
+
                                 <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
                                 <NCI:TemplateSlot ID="cgvDate" runat="server" />
+
                                 <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
+
+
                             </footer>
                         </article>
                         <!-- ********************************* END Page Content ********************************** -->

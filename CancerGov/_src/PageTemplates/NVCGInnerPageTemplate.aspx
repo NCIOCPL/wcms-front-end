@@ -258,6 +258,10 @@ INNER   PAGE    TEMPLATE
                     <div class="medium-9 columns contentzone" id="main" tabindex="0" role="main">
                         <!-- ********************************* BEGIN Page Content ********************************** -->
                         <article>
+                            <!-- PUBLIC ARCHIVE BANNER -->
+                            <NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
+                            <!-- END PUBLIC ARCHIVE BANNER -->
+
                             <!-- BANNER SLOT -->
                             <NCI:TemplateSlot ID="cgvBodyHeader" runat="server"
                                 CssClass="row banner-slot"
@@ -273,9 +277,9 @@ INNER   PAGE    TEMPLATE
                                 <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
                                 <NCI:TemplateSlot ID="cgvDate" runat="server" />
 								<NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
-								<NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
                                 <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
+								<NCI:TemplateSlot ID="cgvCommentsSl" runat="server" />
 								
                             </footer>
                         </article>

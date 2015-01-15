@@ -248,33 +248,46 @@ at the National Institutes of Health
                             </PageOptionsButtonLanguages>
                         </NCI:PageOptionsControl>
                         <!-- END PAGE OPTIONS -->
-                    </div>
-                    <div class="row">
-                        <!-- SECTION NAV -->
-                        <div class="medium-3 columns local-navigation">
-                            <NCI:TemplateSlot ID="nvcgSlSectionNav" runat="server" />
-                        </div>
-                        <!-- END SECTION NAV -->
-                        <div class="medium-9 columns contentzone has-section-nav" id="main" tabindex="0" role="main">
-                            <!-- ********************************* BEGIN Page Content ********************************** -->
-                            <article role="article">
-                                <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
-                                <NCI:TemplateSlot ID="cgvBody" runat="server" />
-                                <NCI:TemplateSlot ID="nvcgSlDates" runat="server" />
-                                <footer class="article-footer">
-                                    <NCI:TemplateSlot ID="nvcgRelatedResourcesArea" runat="server" />
-                                    <NCI:TemplateSlot ID="cgvDate" runat="server" />
-                                    <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
-                                    <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
-                                </footer>
-                            </article>
-                            <!-- ********************************* END Page Content ********************************** -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div><!-- END "row" -->
+                </div> <!-- END "large-12 columns" -->
+                <div class="row">
+                    <!--    SECTION NAVIGATION -->
+                    <NCI:TemplateSlot ID="nvcgSlSectionNav" CssClass="medium-3 columns local-navigation" runat="server" />
+                    <!--    END SECTION NAV -->
+                    <div class="medium-9 columns contentzone" id="main" tabindex="0" role="main">
+                        <!-- ********************************* BEGIN Page Content ********************************** -->
+                        <article>
+                            <!-- PUBLIC ARCHIVE BANNER -->
+                            <NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
+                            <!-- END PUBLIC ARCHIVE BANNER -->
+
+
+
+
+
+
+                            <!-- PAGE TITLE -->
+                            <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
+                            <!-- END PAGE TITLE -->
+                            <NCI:TemplateSlot ID="cgvBody" runat="server" />
+
+                            <footer class="article-footer">
+
+
+                                <NCI:TemplateSlot ID="cgvDate" runat="server" />
+								<NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
+                                <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
+                                <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
+
+
+                            </footer>
+                        </article>
+                        <!-- ********************************* END Page Content ********************************** -->
+                    </div> <!-- END Main -->
+                </div> <!-- END "row" -->
+            </div> <!-- END "row general-page-body-container collapse" -->
+        </div> <!-- END Content -->
+    </div> <!-- END Page -->
     <!-- END MAIN CONTENT -->
 
     <!-- FOOTER -->
