@@ -545,7 +545,8 @@ a.definition:hover {
 }
 
 /* BEGIN general content page styles */
-ul {
+ul,
+.contentzone ul {
 	&.no-bullets {
 		padding: 0;
 		& > li {
@@ -580,9 +581,6 @@ ol {
 		list-style-type: upper-roman;
 	}
 }
-.on-this-page li p {
-	display: inline;
-}
 .contentzone ul,
 .contentzone ol {
 	margin-bottom: 1em;
@@ -613,6 +611,11 @@ ol {
 .contentzone ol {
 	list-style-type: decimal;
 }
+
+.toptoc ul > li:before {
+	content: none;
+}
+
 table.no-bullet-padding ul {
 	margin: 0;
 	padding: 0;
@@ -722,6 +725,10 @@ table.no-bullet-padding ul {
 		color: #606060;
 		padding: 0;
 		margin: 1.19318em 0 0 1.25em;
+
+		p {
+			display: inline;
+		}
 	}
 	li,
 	a {
