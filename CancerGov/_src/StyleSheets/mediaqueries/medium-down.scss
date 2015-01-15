@@ -22,14 +22,16 @@
     figure.image-left-medium {
         width: 100%
     }
-    .feature-primary .card {
-        background: white;
-    }
-    .feature-primary a {
-        color: #606060;
-    }
-    .feature-primary h3 {
-        color: #076f88;
+    .feature-primary {
+        .card {
+            background: white;
+        }
+        a {
+            color: #606060;
+        }
+        h3 {
+            color: #076f88;
+        }
     }
     /* hide the TOC on small/medium screens. The accordion serves the same purpose */
     /* hide the key-points on small/medium screens. Because, reasons^^^^ (the same reasons). 2014-11-05 SJC #OCECREATIV-879 */
@@ -84,7 +86,7 @@
     .accordion .ui-icon {
         width: 32px;
         height: 32px;
-        background-image: url($images + "mobile-menus-expand-collapse-buttons-sm.png");
+        background-image: url($icons + "mobile-menus-expand-collapse-buttons-sm.png");
         background-position: 0 0;
         margin-top: -16px;
         right: 15px;
@@ -97,15 +99,6 @@
     /*** BEGIN Megamenus/Search Styles ***/
     #content {
         padding-top: 0;
-    }
-    /* Display nav items vertically */
-    #mega-nav ul.menu {
-        border-top: 1px solid #888;
-    }
-    #mega-nav ul.menu li {
-        width: 100%;
-        box-sizing: border-box;
-        border-top: 1px solid #888;
     }
     /* Reveal open/close buttons */
     a.open-panel,
@@ -134,6 +127,13 @@
         -o-transition: left 500ms ease;
         transition: left 500ms ease;
     }
+
+    /* When the panel is closed, transition the page back to the left */
+    /* hide search on mobile */
+    .search {
+        display: none;
+    }
+
     /* Move nav off screen, setup transitions */
     #mega-nav {
         z-index: 1000;
@@ -143,133 +143,148 @@
         width: 80%;
         height: 100%;
         background-color: #E9E9E7;
-    }
-    #mega-nav > ul {
-        overflow-y: auto;
-        height: 100%;
-    }
-    /* When the panel is closed, transition the page back to the left */
-    /* hide search on mobile */
-    .search {
-        display: none;
-    }
-    /* mobile menu */
-    /* open/minus toggle */
-    #mega-nav .toggle-opened,
-    #mega-nav .toggle[aria-expanded="true"] {
-        background: transparent url($images + "mobile-menus-expand-collapse-buttons.png") 50% -55px no-repeat;
-    }
-    /* clicked open/minus toggle (only appears for a brief moment) */
-    #mega-nav .toggle[aria-expanded="true"]:active {
-        background: transparent url($images + "mobile-menus-expand-collapse-buttons.png") 50% -175px no-repeat;
-    }
-    /* closed/plus toggle */
-    #mega-nav .toggle-closed,
-    #mega-nav .toggle[aria-expanded="false"] {
-        background: transparent url($images + "mobile-menus-expand-collapse-buttons.png") 50% 5px no-repeat;
-    }
-    /* clicked closed/plus toggle (only appears for a brief moment) */
-    #mega-nav .toggle[aria-expanded="false"]:active {
-        background: transparent url($images + "mobile-menus-expand-collapse-buttons.png") 50% -115px no-repeat;
-    }
-    #mega-nav .toggle {
-        float: right;
-        vertical-align: top;
-        width: 25%;
-        min-height: 47px;
-        border: 0;
-        margin: 0;
-        padding: 0;
-    }
-    /*
-    #mega-nav > li,
-    #mega-nav > li > ul > li {
-        padding-left: 0;
-    }
-    */
-    #mega-nav li a {
-        display: inline-block;
-        min-height: 1.5em;
-        width: 75%;
-        text-decoration: none;
-        padding-top: .6em;
-        font-size: 1.1em;
-        color: #606060;
-    }
-    #mega-nav li > div > a {
-        width: 75%;
-        /* If we add "has-children", change to 100% */
-    }
-    /* Re-add if we add "has-children"
-    #mega-nav li.has-children > div > a {
-        width: 75%;
-    }
-    */
-    #mega-nav li {
-        border-top: 1px solid #898987;
-    }
-    /* list item spacing through the hierarchy */
-    #mega-nav li > div > a,
-    #mega-nav li li > div > a {
-        padding-left: 31px;
-        font-size: 1.17em;
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-    #mega-nav li li li > div > a {
-        padding-left: 44px;
-        font-size: 0.91em;
-        padding-top: 14px;
-        padding-bottom: 11px;
-    }
-    #mega-nav li li li li > div > a {
-        padding-left: 62px;
-        font-size: 0.78em;
-        font-weight: bold;
-        padding-top: 12px;
-        padding-bottom: 15px;
-    }
-    /* remove padding on HOME link to appear as a level 0 item */
-    #mega-nav .nav-menu > li > div > a {
-        padding-left: 17px;
-        color: #606060;
-        padding-top: 14px;
-    }
-    #mega-nav .highlight > div {
-        background-color: #0498a1;
-    }
-    #mega-nav .highlight > div > a {
-        font-weight: bold;
-    }
-    #mega-nav .nav-menu .highlight > div > a {
-        color: #fefefe;
-    }
-    /* remove background color of any child lists items of the highlighted */
-    #mega-nav .highlight ul li {
-        background-color: #E9E9E7;
-        color: #2ba6cb;
-    }
-    #mega-nav {
         -webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
         -moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
         box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-    }
-    /* clicked link state */
-    #mega-nav .nav-menu li > div > a.active {
+
+        > ul > li:first-child {
+            display: inherit;
+        }
+
+        /* Display nav items vertically */
+        ul.menu {
+            border-top: 1px solid #888;
+        }
+        ul.menu li {
+            width: 100%;
+            box-sizing: border-box;
+            border-top: 1px solid #888;
+        }
+
+        > ul {
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        /* mobile menu */
+        /* open/minus toggle */
+        .toggle-opened,
+        .toggle[aria-expanded="true"] {
+            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% -55px no-repeat;
+        }
+
+        /* clicked open/minus toggle (only appears for a brief moment) */
+        .toggle[aria-expanded="true"]:active {
+            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% -175px no-repeat;
+        }
+
+        /* closed/plus toggle */
+        .toggle-closed,
+        .toggle[aria-expanded="false"] {
+            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% 5px no-repeat;
+        }
+
+        /* clicked closed/plus toggle (only appears for a brief moment) */
+        .toggle[aria-expanded="false"]:active {
+            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% -115px no-repeat;
+        }
+        .toggle {
+            float: right;
+            vertical-align: top;
+            width: 25%;
+            min-height: 47px;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
         /*
-        background-color: #BB0E3C;
-        background-image: none;
+        > li,
+        > li > ul > li {
+            padding-left: 0;
+        }
         */
-        color: #fff;
-    }
-    #mega-nav .nav-menu li > div.active {
-        background-color: #BB0E3C;
-        background-image: none;
-    }
-    /* remove margin from lists */
-    #mega-nav ul {
-        margin: 0;
-        width: 100%;
+        li a {
+            display: inline-block;
+            min-height: 1.5em;
+            width: 75%;
+            text-decoration: none;
+            padding-top: .6em;
+            font-size: 1.1em;
+            color: #606060;
+        }
+        li > div > a {
+            width: 75%;
+            /* If we add "has-children", change to 100% */
+        }
+        /* Re-add if we add "has-children"
+        li.has-children > div > a {
+            width: 75%;
+        }
+        */
+
+        li {
+            border-top: 1px solid #898987;
+        }
+
+        /* list item spacing through the hierarchy */
+        li > div > a,
+        li li > div > a {
+            padding-left: 31px;
+            font-size: 1.17em;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        li li li > div > a {
+            padding-left: 44px;
+            font-size: 0.91em;
+            padding-top: 14px;
+            padding-bottom: 11px;
+        }
+        li li li li > div > a {
+            padding-left: 62px;
+            font-size: 0.78em;
+            font-weight: bold;
+            padding-top: 12px;
+            padding-bottom: 15px;
+        }
+        /* remove padding on HOME link to appear as a level 0 item */
+        .nav-menu > li > div > a {
+            padding-left: 17px;
+            color: #606060;
+            padding-top: 14px;
+        }
+        .highlight > div {
+            background-color: #0498a1;
+        }
+        .highlight > div > a {
+            font-weight: bold;
+        }
+        .nav-menu .highlight > div > a {
+            color: #fefefe;
+        }
+        /* remove background color of any child lists items of the highlighted */
+        .highlight ul li {
+            background-color: #E9E9E7;
+            color: #2ba6cb;
+        }
+
+        /* clicked link state */
+        .nav-menu li > div > a.active {
+            /*
+            background-color: #BB0E3C;
+            background-image: none;
+            */
+            color: #fff;
+        }
+        .nav-menu li > div.active {
+            background-color: #BB0E3C;
+            background-image: none;
+        }
+        /* remove margin from lists */
+        ul {
+            margin: 0;
+            width: 100%;
+        }
     }
     .sub-nav-mega {
         display: none;
