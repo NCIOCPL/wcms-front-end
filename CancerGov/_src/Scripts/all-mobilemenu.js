@@ -19,38 +19,39 @@ $(document).ready(function() {
         // Add toggle functionality
         $('#mega-nav .toggle').click(function(event) {
             event.stopPropagation();
+            var t = $(this);
             // If the toggle is open, do this
-            if ($(this).attr('aria-expanded') == 'true' ) {
-                $(this).closest("li").find("button[aria-expanded='true']").closest("li").children("ul").slideToggle("slow", function() {
+            if (t.attr('aria-expanded') == 'true' ) {
+                t.closest("li").find("button[aria-expanded='true']").closest("li").children("ul").slideToggle("slow", function() {
                     //Animation complete
                 });
-                $(this).closest("li").find(".toggle").attr('aria-expanded','false');
+                t.closest("li").find(".toggle").attr('aria-expanded','false');
                 // remove highlight class
-                $(this).closest("li").removeClass("highlight");
+                t.closest("li").removeClass("highlight");
                 // add highlight back to parent
-                $(this).closest('li').parent('ul').parent('li').addClass('highlight');
+                t.closest('li').parent('ul').parent('li').addClass('highlight');
                 // Stop processing
                 return;
             }
 
             // If the toggle is closed, do this
-            if ($(this).attr('aria-expanded') == 'false' ) {
+            if (t.attr('aria-expanded') == 'false' ) {
                 // close any open siblings and their children...
-                $(this).closest("li").siblings().children("div").children("button[aria-expanded='true']").closest("li").children("ul").slideToggle( "slow", function() {
+                t.closest("li").siblings().children("div").children("button[aria-expanded='true']").closest("li").children("ul").slideToggle( "slow", function() {
                     //Animation complete
                 });
                 // ...and add proper ARIA to indicate those siblings and children are closed
-                $(this).closest("li").siblings().children("div").children("button").attr('aria-expanded','false');
+                t.closest("li").siblings().children("div").children("button").attr('aria-expanded','false');
                 // slide open list of nav elements for selected button
-                $(this).closest("li").children("ul").slideToggle( "slow", function() {
+                t.closest("li").children("ul").slideToggle( "slow", function() {
                     // Animation complete.
                 });
                 // add ARIA to indicate this section has been opened
-                $(this).attr('aria-expanded','true');
+                t.attr('aria-expanded','true');
                 // remove highlight class from any other items
-                $(this).closest("#mega-nav").find("li").removeClass("highlight");
+                t.closest("#mega-nav").find("li").removeClass("highlight");
                 // add highlight class to this item
-                $(this).closest("li").addClass("highlight");
+                t.closest("li").addClass("highlight");
                 return;
             }
         });
