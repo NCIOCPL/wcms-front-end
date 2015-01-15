@@ -3,7 +3,7 @@
 /* *************************************************************************/
 @media only screen and (min-width : 641px) and (max-width :1024px) {
     .nci-logo {
-      background-image: url(../images/icons/NIH-red-logo-tablet.png);
+      background-image: url($icons + "NIH-red-logo-tablet.png");
       font-size: 24px;
     }
     .nci-logo a {
