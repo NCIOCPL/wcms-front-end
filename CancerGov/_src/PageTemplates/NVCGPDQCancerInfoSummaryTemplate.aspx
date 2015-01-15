@@ -173,9 +173,10 @@ at the National Institutes of Health
                             <PageOptionsButtonLanguages>
                                 <NCI:PageOptionsButtonLanguageItem Language="en">
                                     <ButtonsCollection>
-                                        <NCI:LinkButtonItem Title="View entire document"
-                                            CssClass="po-view-entire-document"
-                                            AlternateContentVersionKey="viewall" />
+                                        <NCI:LinkButtonItem
+                                            Title="Resize font"
+                                            CssClass="po-font-resize"
+                                            AlternateContentVersionKey="fontResize" />
                                         <NCI:LinkButtonItem Title="Print"
                                             CssClass="po-print"
                                             AlternateContentVersionKey="print"
@@ -209,9 +210,9 @@ at the National Institutes of Health
                                 <NCI:PageOptionsButtonLanguageItem Language="es">
                                     <ButtonsCollection>
                                         <NCI:LinkButtonItem
-                                            Title="Ver el documento completo"
-                                            CssClass="po-view-entire-document"
-                                            AlternateContentVersionKey="viewall" />
+                                            Title="Cambiar el tama&ntilde;o de texto"
+                                            CssClass="po-font-resize"
+                                            AlternateContentVersionKey="fontResize" />
                                         <NCI:LinkButtonItem
                                             Title="Imprimir"
                                             CssClass="po-print"

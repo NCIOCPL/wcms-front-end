@@ -169,32 +169,84 @@ at the National Institutes of Health
             <div class="row collapse">
               <NCI:TemplateSlot ID="cvgSlBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
               <!-- PAGE OPTIONS -->
-              <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="medium-4 columns page-options" runat="server">
-                  <PageOptionsButtonLanguages>
-                      <NCI:PageOptionsButtonLanguageItem Language="en">
-                          <ButtonsCollection>
-                              <NCI:LinkButtonItem Title="View entire document" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
-                              <NCI:LinkButtonItem Title="Print" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
-                              <NCI:EmailButtonItem Title="Email" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="pinterest_share" Title="Pinterest" CssClass="po-pinterest" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                          </ButtonsCollection>
-                      </NCI:PageOptionsButtonLanguageItem>
-                      <NCI:PageOptionsButtonLanguageItem Language="es">
-                          <ButtonsCollection>
-                              <NCI:LinkButtonItem Title="Ver el documento completo" CssClass="po-view-entire-document" AlternateContentVersionKey="viewall" />
-                              <NCI:LinkButtonItem Title="Imprimir" CssClass="po-print" AlternateContentVersionKey="print" WebAnalytics="NCIAnalytics.PrintLink(this);" />
-                              <NCI:EmailButtonItem Title="Enviar por correo electr&oacute;nico" CssClass="po-email" AlternateContentVersionKey="email" WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="facebook" Title="Facebook" CssClass="po-facebook" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="twitter" Title="Twitter" CssClass="po-twitter" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share" Title="Google+" CssClass="po-googleplus" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                              <NCI:PageOptionsAddThisButtonItem Service="pinterest_share" Title="Pinterest" CssClass="po-pinterest" AlternateContentVersionKey="bookmarkshare" WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                          </ButtonsCollection>
-                      </NCI:PageOptionsButtonLanguageItem>
-                  </PageOptionsButtonLanguages>
-              </NCI:PageOptionsControl>
+                        <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="medium-4 columns page-options" runat="server">
+                            <PageOptionsButtonLanguages>
+                                <NCI:PageOptionsButtonLanguageItem Language="en">
+                                    <ButtonsCollection>
+                                        <NCI:LinkButtonItem
+                                            Title="Resize font"
+                                            CssClass="po-font-resize"
+                                            AlternateContentVersionKey="fontResize" />
+                                        <NCI:LinkButtonItem Title="Print"
+                                            CssClass="po-print"
+                                            AlternateContentVersionKey="print"
+                                            WebAnalytics="NCIAnalytics.PrintLink(this);" />
+                                        <NCI:EmailButtonItem Title="Email"
+                                            CssClass="po-email"
+                                            AlternateContentVersionKey="email"
+                                            WebAnalytics="NCIAnalytics.eMailLink(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="facebook"
+                                            Title="Facebook"
+                                            CssClass="po-facebook"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="twitter"
+                                            Title="Twitter"
+                                            CssClass="po-twitter"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
+                                            Title="Google+"
+                                            CssClass="po-googleplus"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
+                                            Title="Pinterest"
+                                            CssClass="po-pinterest"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                    </ButtonsCollection>
+                                </NCI:PageOptionsButtonLanguageItem>
+                                <NCI:PageOptionsButtonLanguageItem Language="es">
+                                    <ButtonsCollection>
+                                        <NCI:LinkButtonItem
+                                            Title="Cambiar el tama&ntilde;o de texto"
+                                            CssClass="po-font-resize"
+                                            AlternateContentVersionKey="fontResize" />
+                                        <NCI:LinkButtonItem
+                                            Title="Imprimir"
+                                            CssClass="po-print"
+                                            AlternateContentVersionKey="print"
+                                            WebAnalytics="NCIAnalytics.PrintLink(this);" />
+                                        <NCI:EmailButtonItem
+                                            Title="Enviar por correo electr&oacute;nico"
+                                            CssClass="po-email"
+                                            AlternateContentVersionKey="email"
+                                            WebAnalytics="NCIAnalytics.eMailLink(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="facebook"
+                                            Title="Facebook"
+                                            CssClass="po-facebook"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="twitter"
+                                            Title="Twitter"
+                                            CssClass="po-twitter"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
+                                            Title="Google+"
+                                            CssClass="po-googleplus"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                        <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
+                                            Title="Pinterest"
+                                            CssClass="po-pinterest"
+                                            AlternateContentVersionKey="bookmarkshare"
+                                            WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+                                    </ButtonsCollection>
+                                </NCI:PageOptionsButtonLanguageItem>
+                            </PageOptionsButtonLanguages>
+                        </NCI:PageOptionsControl>
               <!-- END PAGE OPTIONS -->
             </div>
             <!-- slots -->
