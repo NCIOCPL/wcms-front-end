@@ -1,31 +1,12 @@
-/* Kick off the Table of Content javascript */
-$(function () {
-	$(".on-this-page, #my-toc").stoc_v03({
-		/* div ID to search on */
-		search: "#accordion",
-		/* only search one level of headings (h2, specified by 'start') */
-		depth: 1,
-		/* start at Heading level 2 */
-		start: 2,
-		/* title - On This Page */
-		tocTitleEn: "<h2>On This Page</h2>"
-	});
-});
-
-/* Either apply or destroy the section accordion that we only want on small/medium screens */
-
-/* first, wrap the content for each accordion in a div to create each panel */
-$('#accordion h2').each(function (index) {
-	$(this).nextUntil('h2').wrapAll('<div class="clearfix"></div>');
-});
+// all this file really does is accordions, and should be renamed or moved into all.js [Wade, 01/15/2015]
 
 var doAccordion = function() {
 	/* determine window width */
 	var width = window.innerWidth || $(window).width();
 
-	/* If the width is less than or equal to 1024px (small/medium screens) */
-	if (width <= 1024) {
-
+	/* If the width is less than or equal to 1024px (small/medium screens)
+	 * AND if the accordion(s) isn't (aren't) already built */
+	if (width <= 1024 && $('.accordion.ui-accordion, #accordion.ui-accordion').length === 0) {
 		// verify that the accordion will build correctly
 		$('.accordion h2, #accordion h2').each(function() {
 			if($(this).nextAll().length > 1) {
@@ -88,6 +69,9 @@ var doAccordion = function() {
 };
 
 /* on window load AND resize */
-$(window).on('load resize', function() {
+$(document).on('ready', function() {
+	doAccordion();
+});
+$(window).on('resize', function() {
 	doAccordion();
 });
