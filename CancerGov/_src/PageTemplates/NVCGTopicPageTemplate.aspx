@@ -39,7 +39,7 @@ at the National Institutes of Health
 </head>
 
 <body id="Body1" runat="server">
-    <div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
+    <div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
     <!-- NOTIFICATION AREA -->
     <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
