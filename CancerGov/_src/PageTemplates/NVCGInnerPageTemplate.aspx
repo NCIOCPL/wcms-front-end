@@ -34,14 +34,14 @@ INNER   PAGE    TEMPLATE
     <title></title>
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
-        <script src="//webcomm.sapientgov.com/htmldev/evolution/QA/js/ie8-polyfills.js"></script>
-        <script src="//webcomm.sapientgov.com/htmldev/evolution/QA/js/vendor/respond.js"></script>
+        <script src="/PublishedContent/js/ie8-polyfills.js"></script>
+        <script src="/PublishedContent/js/respond.js"></script>
     <![endif]-->
 </head>
 
 <body id="Body1" runat="server">
     <div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
-<!-- NOTIFICATION AREA -->
+    <!-- NOTIFICATION AREA -->
     <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
     <!-- END NOTIFICATION AREA -->
 
@@ -51,6 +51,7 @@ INNER   PAGE    TEMPLATE
             CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
     </header>
     <!-- END HEADER -->
+    <!-- Begin Page -->
     <div id="page">
         <!-- Global nav/utilit bar/language  -->
         <div class="fixedtotop">

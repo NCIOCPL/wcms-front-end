@@ -33,8 +33,8 @@ at the National Institutes of Health
     <title></title>
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
-        <script src="//webcomm.sapientgov.com/htmldev/evolution/QA/js/ie8-polyfills.js"></script>
-        <script src="//webcomm.sapientgov.com/htmldev/evolution/QA/js/vendor/respond.js"></script>
+        <script src="/PublishedContent/js/ie8-polyfills.js"></script>
+        <script src="/PublishedContent/js/respond.js"></script>
     <![endif]-->
 </head>
 
@@ -50,7 +50,7 @@ at the National Institutes of Health
             CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
     </header>
     <!-- END HEADER -->
-
+    <!-- Begin Page -->
     <div id="page">
         <!-- Global nav/utilit bar/language  -->
         <div class="fixedtotop">
@@ -58,7 +58,7 @@ at the National Institutes of Health
                 <!-- LANGUAGE BAR -->
                 <div class="language-bar">
                     <div class="row sitewide-language">
-                        <NCI:LanguageToggleControl ID="LangList1" CssClass="large-12 columns" runat="server">
+                       <NCI:LanguageToggleControl ID="LangList1" CssClass="large-12 columns" runat="server">
                             <LanguageToggleLanguages>
                                 <NCI:LanguageToggleLanguageItem Language="en">
                                     <LangsCollection>
