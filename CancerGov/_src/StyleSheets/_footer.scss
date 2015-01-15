@@ -23,12 +23,13 @@
         text-transform: uppercase;
     }
 
-    a, a:hover {
+    a,
+    a:hover, a:focus {
         color: white;
         font-weight: 700;
     }
 
-    a:hover {
+    a:hover, a:focus {
         text-decoration: underline;
     }
 
@@ -50,7 +51,7 @@
         margin-left: 0;
         text-indent: 0;
     }
-    img:hover {
+    img:hover, img:focus {
         opacity: 0.9;
     }
 }
@@ -78,4 +79,3 @@
     text-align: center;
 }
 /********************* END Footer Styles ******************************************/
-

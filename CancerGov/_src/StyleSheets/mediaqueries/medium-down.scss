@@ -478,7 +478,7 @@
     .no-js .section-nav ul {
         display: none;
     }
-    .no-js .section-nav:hover ul {
+    .no-js .section-nav:hover ul, .no-js .section-nav:focus ul {
         display: block;
     }
     /* section nav grey page overlay - http://css-tricks.com/snippets/jquery/append-site-overlay-div/ */

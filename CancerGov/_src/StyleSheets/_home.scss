@@ -34,7 +34,7 @@
 .hero-text a {
 	color: white;
 }
-.hero-text a:hover {
+.hero-text a:hover, .hero-text a:focus {
 	text-decoration: none;
 }
 .hero-call-to-action {
@@ -48,7 +48,7 @@
 	-o-transition: padding-right 0.4s ease-in-out;
 	transition: padding-right 0.4s ease-in-out;
 }
-.hero-call-to-action:hover {
+.hero-call-to-action:hover, .hero-call-to-action:focus {
 	padding-right: 1.5em;
 }
 /* END Hero Section */
@@ -78,12 +78,12 @@
 	/* for IE browsers that don't understnad rgba */
 	background: rgba(255, 255, 255, 0.8);
 }
-.card a:hover {
+.card a:hover, .card a:focus {
 	text-decoration: none;
 }
-.feature-secondary h3:hover,
-.multimedia h3 a:hover,
-.card-thumbnail h3 a:hover {
+.feature-secondary h3:hover, .feature-secondary h3:focus,
+.multimedia h3 a:hover, .multimedia h3 a:focus,
+.card-thumbnail h3 a:hover, .card-thumbnail h3 a:focus {
 	color: #bb0e3d;
 	text-decoration: none;
 }
@@ -107,7 +107,7 @@
 .feature-primary .featured-text a {
 	color: #186e88;
 }
-.feature-primary .featured-text a:hover {
+.feature-primary .featured-text a:hover, .feature-primary .featured-text a:focus {
 	color: #bb0e3d;
 }
 .feature-primary .featured-text h3 {
@@ -175,8 +175,8 @@ a.arrow-link-white {
 	color: #606060;
 	text-decoration: none;
 }
-a.arrow-link:hover,
-a.arrow-link-white:hover {
+a.arrow-link:hover, a.arrow-link:focus,
+a.arrow-link-white:hover, a.arrow-link-white:focus {
 	background-image: url($icons + "small-red-circle-arrow.png");
 	color: #bd153c;
 }
@@ -191,7 +191,7 @@ a.learn-more {
 	width: 2.5em;
 	height: 2.3em;
 }
-.card ul.cancer-types li a:hover {
+.card ul.cancer-types li a:hover, .card ul.cancer-types li a:focus {
 	color: #bb0e3d;
 }
 /* END GUIDE CARDS ROW */
@@ -238,7 +238,7 @@ a.learn-more {
 }
 .multimedia-feature-card h3, .multimedia-feature-card p, .multimedia-feature-card ul,
 .multimedia-slot .feature-card h3, .multimedia-slot .feature-card p, .multimedia-slot .feature-card ul{
-	padding: 0 15px;	
+	padding: 0 15px;
 }
 .multimedia-slot .feature-card {
 	background: white;
@@ -267,12 +267,13 @@ a.learn-more {
 			content: "Ver Infograf\00ed a Completa"
 		}
 	}
-	&:hover a:before {
-		background-color: #bb0e3d;	
+	&:hover a:before, &:focus a:before {
+		background-color: #bb0e3d;
 	}
 }
-.multimedia-feature-card a:hover h3, .feature-card a:hover h3 {
-color: #bb0e3d;	
+.multimedia-feature-card a:hover h3, .multimedia-feature-card a:focus h3,
+.feature-card a:hover h3, .feature-card a:focus h3 {
+	color: #bb0e3d;
 }
 /* END MULIMEDIA ROW */
 
@@ -300,7 +301,7 @@ color: #bb0e3d;
 	display: block;
 	background: #403f3f url($icons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
 }
-.infographic-enlarge a:hover {
+.infographic-enlarge a:hover, .infographic-enlarge a:focus {
 	text-decoration: none;
 	background-color: #bb0e3d;
 }

@@ -6,14 +6,14 @@
     color: #fff;
     padding: 0.625em 3.6em 0.625em 1.875em;
 
-    &:hover {
+    &:hover, &:focus {
         background: #008eb0 $circle-arrow-red-small 98% no-repeat;
     }
 
     a {
         color: #fff;
 
-        &:hover {
+        &:hover, &:focus {
             text-decoration: none;
         }
     }
@@ -35,7 +35,8 @@ figure.image-right-medium {
 }
 
 .relatedcontent {
-    &:hover a, a:hover {
+    &:hover a, a:hover,
+    &:focus a, a:focus {
         color: #bb0e3d;
         text-decoration: none;
     }
@@ -49,7 +50,8 @@ figure.image-right-medium {
         position: relative;
     }
 
-    &:hover a:after {
+    &:hover a:after,
+    &:focus a:after {
         content: $circle-arrow-red-small;
     }
 }
@@ -131,7 +133,7 @@ figure.image-right-medium {
 .main-content a.viewAll {
     color: #606060;
 }
-.main-content a.viewAll:hover {
+.main-content a.viewAll:hover, .main-content a.viewAll:focus {
     text-decoration: none;
 }
 .guide h3 {

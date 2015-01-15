@@ -32,7 +32,9 @@
     border-bottom: 1px solid #d5d5d2;
 }
 .toptoc li:hover {
-    cursor: pointer;
+    cursor: pointer; // this doesn't make sense for focus state, so I've applied it only to hover state [Wade, 01/14/2015]
+}
+.toptoc li:hover, .toptoc li:focus {
     text-decoration: underline;
 }
 .toptoc li:before {

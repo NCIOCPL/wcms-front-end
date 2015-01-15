@@ -139,7 +139,7 @@
         font-family: 'Montserrat', sans-serif;
     }
     /* sub nav group header hover color */
-    .sub-nav-group-header:hover {
+    .sub-nav-group-header:hover, .sub-nav-group-header:focus {
         color: #BB0E3D;
     }
 
@@ -153,7 +153,7 @@
         font-size: 0.9375em;
         color: #2f2f2f;
     }
-    .sub-nav-group ul li a:hover {
+    .sub-nav-group ul li a:hover, .sub-nav-group ul li a:focus {
         text-decoration: underline;
     }
 

@@ -8,7 +8,7 @@
     height: 14.25em;
     display: block;
 
-    &:hover {
+    &:hover, &:focus {
         text-decoration: none;
     }
 }
