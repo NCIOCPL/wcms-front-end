@@ -58,7 +58,7 @@ var doAccordion = function() {
 		});
 
 		/* else, the window must be large */
-	} else {
+	} else if(width >= 1025) {
 		/* destroy the accordion if it's already been initialized */
 		$('.accordion, #accordion').each(function() {
 			if (typeof $(this).data("ui-accordion") != "undefined") {
