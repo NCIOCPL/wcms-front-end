@@ -111,6 +111,7 @@ table tfoot {
 /* removing padding for nested ul elements inside an accordion */
 
 #accordion li > ul,
+.accordion li > ul,
 .key-points li > ul {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -118,4 +119,3 @@ table tfoot {
 /* per ticket OCECREATIV-905 */
 
 /*** END PDQ Styles ***/
-

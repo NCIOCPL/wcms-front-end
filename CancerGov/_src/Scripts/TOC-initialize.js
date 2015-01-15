@@ -19,23 +19,28 @@ $('#accordion h2').each(function (index) {
 	$(this).nextUntil('h2').wrapAll('<div class="clearfix"></div>');
 });
 
-/* on window load AND resize */
-$(window).on('load resize', function () {
+var doAccordion = function() {
 	/* determine window width */
 	var width = window.innerWidth || $(window).width();
 
 	/* If the width is less than or equal to 1024px (small/medium screens) */
 	if (width <= 1024) {
-		/* wrap all content following each h2 in a div so that it can be opened/closed with the jQuery UI accordion */
 
-		/* ... build the accordion */
-		$("#accordion").accordion({
+		// verify that the accordion will build correctly
+		$('.accordion h2, #accordion h2').each(function() {
+			if($(this).nextAll().length > 1) {
+				$(this).nextUntil('h2').wrapAll('<div class="clearfix"></div>');
+			}
+		});
+
+		// actually build the accordion
+		$('.accordion, #accordion').accordion({
 			heightStyle: "content",
 			header: "h2",
 			collapsible: true,
 			active: false,
 			/* override default functionality of accordion that only allows for a single pane to be open
-			 * source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
+			* source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
 			beforeActivate: function (event, ui) {
 				// The accordion believes a panel is being opened
 				var currHeader;
@@ -74,8 +79,15 @@ $(window).on('load resize', function () {
 		/* else, the window must be large */
 	} else {
 		/* destroy the accordion if it's already been initialized */
-		if (typeof $("#accordion").data("ui-accordion") != "undefined") {
-			$("#accordion").accordion("destroy");
-		}
+		$('.accordion, #accordion').each(function() {
+			if (typeof $(this).data("ui-accordion") != "undefined") {
+				$(this).accordion("destroy");
+			}
+		});
 	}
+};
+
+/* on window load AND resize */
+$(window).on('load resize', function() {
+	doAccordion();
 });
