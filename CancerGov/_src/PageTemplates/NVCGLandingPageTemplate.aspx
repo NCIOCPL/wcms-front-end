@@ -138,7 +138,7 @@ at the National Institutes of Health
                 <!-- END LANGUAGE BAR -->
 
                 <!-- UTILITY NAV -->
-                    <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
+                <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
                 <!-- END UTILITY NAV -->
             </div><!-- end "headroom-area" -->
 
@@ -146,12 +146,12 @@ at the National Institutes of Health
             <!-- Begin nav-search bar -->
             <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="row" /></div>
             <!-- End nav-search bar -->
+
             <!-- Begin mobile section menu clicker -->
             <div></div>
             <!-- END mobile section menu clicker -->
-        <!-- END NAVIGATION -->
-        </div>
-        <!-- END Global nav/utility bar/language -->
+            <!-- END NAVIGATION -->
+        </div><!-- END Global nav/utility bar/language -->
 
         <!--
         ooo        ooooo            o8o

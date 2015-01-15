@@ -147,12 +147,13 @@ at the National Institutes of Health
             <!-- Begin nav-search bar -->
             <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="row" /></div>
             <!-- End nav-search bar -->
+
             <!-- Begin section menu clicker (on mobile) -->
             <div></div>
             <!-- End section menu clicker (on mobile) -->
             <!-- END NAVIGATION -->
-        </div>
-        <!-- END Global nav/utility bar/language -->
+        </div><!-- END Global nav/utility bar/language -->
+
         <!--
         ooo        ooooo            o8o
         `88.       .888'            `"'

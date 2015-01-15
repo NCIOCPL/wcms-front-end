@@ -164,7 +164,6 @@ at the National Institutes of Health
         o8o        o888o `Y888""8o o888o o888o o888o
         MAIN CONTENT AREA -->
         <div class="main-content" id="content">
-
             <div class="row general-page-body-container collapse">
                 <div class="large-12 columns">
                     <div class="row">

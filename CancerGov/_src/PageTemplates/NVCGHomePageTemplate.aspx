@@ -139,7 +139,7 @@ at the National Institutes of Health
                 <!-- END LANGUAGE BAR -->
 
                 <!-- UTILITY NAV -->
-                    <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
+                <NCI:TemplateSlot ID="nvcgSlUtilityBar" CssClass="utility-background hide-for-medium-down" AdditionalSnippetClasses="row utility" runat="server" />
                 <!-- END UTILITY NAV -->
             </div><!-- end "headroom-area" -->
 
