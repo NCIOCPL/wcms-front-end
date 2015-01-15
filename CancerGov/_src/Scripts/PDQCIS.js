@@ -251,7 +251,7 @@ $(function() {
   // This function selects the H2 elements from the "article" container
   // element and creates a one-level table of content 
   // ------------------------------------------------------------------
-  // Function formerly known as InThisSummary.js
+  // Function to create the Previous/Next Navigation
   // ------------------------------------------------------------------
   $.fn.previousNext = function( options ) {
     //alert("In previousNext Start");
@@ -262,45 +262,37 @@ $(function() {
 	//let's extend our plugin with default or user options when defined
 	var options = $.extend(defaults, options);
 
-  // Add the Previous/Next navigation to the bottom of the page
-  var pnNav = ""
-  pnNav = pnNav + "<div class='row show-for-large-up "
-  pnNav = pnNav + "previous-next-links collapse'>";
-  pnNav = pnNav + "<div class='large-6 columns previous-link'>";
-  pnNav = pnNav + "<a>&lt; Previous section</a>";
-  pnNav = pnNav + "<br><em data-role='previous'></em></div>";
-  pnNav = pnNav + "<div class='large-6 columns next-link'>";
-  pnNav = pnNav + "<a>Next section &gt;</a>";
-  pnNav = pnNav + "<br><em data-role='next'></em></div>";
-  pnNav = pnNav + "</div>";
+    $(this).children("section").each(function(index, elem) {
 
-    defaults.footer = pnNav;
-    //alert(defaults.footer);
+       // Add the Previous/Next navigation to the bottom of each section
+       var pp1 = "<div class='row show-for-large-up ";
+       pp1 = pp1 + "previous-next-links collapse'>";
+       pp1 = pp1 + "<div class='large-6 columns previous-link'>";
+       pp1 = pp1 + "<a href='#";
+       var pp2 = "'>&lt; Previous section</a>";
+       pp2 = pp2 + "<br><em data-role='previous'>";
+       var pp3 = "</em></div>";
+       var nn4 = "<div class='large-6 columns next-link'>";
+       nn4 = nn4 + "<a href='#";
+       var nn5 = "'>Next section &gt;</a>";
+       nn5 = nn5 + "<br><em data-role='next'>";
+       var nn6 = "</em></div>";
+       nn6 = nn6 + "</div>";
 
-    $(this).children("section").append(pnNav);
+       // Extract the section ID and section title of previous/next section
+       var prevTitle = $(this).prev("section").children("h2").text();
+       var prevId    = $(this).prev("section").attr("id");
+       var nextTitle = $(this).next("section").children("h2").text();
+       var nextId    = $(this).next("section").attr("id");
 
-    //return  $( "div.summary-sections > section").each( function() {
-    //        obj = $(this);
-    //    $( "div.summary-sections > section em" ).addClass("DADA");
-    //    
-    //    //$( "div.summary-sections > section" ).each( function() {
-//
-    //        var pSecId    = obj.prev("section").attr("id");
-    //        var pSecTitle = obj.prev("section").children("h2").text();
-    //        alert(pSecTitle);
-    //        var nSecId    = obj.next("section").attr("id");
-    //        var nSecTitle = obj.next("section").children("h2").text();
-//
-    //        // Add the title of the prev/next sections
-    //        $( "em[data-role='previous']" ).append(pSecTitle);
-    //        $( "em[data-role='next']" ).append(nSecTitle);
-    //        
-    //        // Add the links of the prev/next sections
-    //        $( "em[data-role='previous']" ).attr("href", pSecId);
-    //        $( "em[data-role='next']" ).attr("href", nSecId);
-        //})
+       // Concatenate everything
+       var pnFooter = pp1 + prevId + pp2 + prevTitle + pp3; 
+       pnFooter = pnFooter + nn4 + nextId + nn5 + nextTitle + nn6;
+       
+       // Add the footer to the section
+       $(this).append(pnFooter);
+    });
 
-    //});
     //alert("In previousNext End");
     };
 
@@ -318,6 +310,14 @@ $(function() {
   // Adding the previous/next navigation
   // ------------------------------------------------------------
   $("div.summary-sections").previousNext( { footer: "dada" } );
+
+  $("div.summary-sections > section > div.row a").click(function() {
+      $("section.show").removeClass("show").addClass("hide");
+      var open = $(this).attr("href");
+      link = open.substr(1, open.length - 1);
+      $("section[id="+link+"]").removeClass("hide").addClass("show");
+      $(document).scrollTop(0);
+  });
 
   //alert("End");
 //})(jQuery);
