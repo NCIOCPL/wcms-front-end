@@ -20,30 +20,30 @@ $(document).ready(function() {
         $('#mega-nav .toggle').click(function(event) {
             event.stopPropagation();
             var t = $(this);
+            var closest = t.closest("li");
+            var aria_expanded = t.attr('aria-expanded');
             // If the toggle is open, do this
-            if (t.attr('aria-expanded') == 'true' ) {
-                t.closest("li").find("button[aria-expanded='true']").closest("li").children("ul").slideToggle("slow", function() {
+            if (aria_expanded == 'true' ) {
+                closest.find("button[aria-expanded='true']").closest("li").children("ul").slideToggle("slow", function() {
                     //Animation complete
                 });
-                t.closest("li").find(".toggle").attr('aria-expanded','false');
+                closest.find(".toggle").attr('aria-expanded','false');
                 // remove highlight class
-                t.closest("li").removeClass("highlight");
+                closest.removeClass("highlight");
                 // add highlight back to parent
-                t.closest('li').parent('ul').parent('li').addClass('highlight');
+                closest.parent('ul').parent('li').addClass('highlight');
                 // Stop processing
                 return;
             }
-
-            // If the toggle is closed, do this
-            if (t.attr('aria-expanded') == 'false' ) {
+            else if (aria_expanded == 'false' ) { // If the toggle is closed, do this
                 // close any open siblings and their children...
-                t.closest("li").siblings().children("div").children("button[aria-expanded='true']").closest("li").children("ul").slideToggle( "slow", function() {
+                closest.siblings().children("div").children("button[aria-expanded='true']").closest("li").children("ul").slideToggle( "slow", function() {
                     //Animation complete
                 });
                 // ...and add proper ARIA to indicate those siblings and children are closed
-                t.closest("li").siblings().children("div").children("button").attr('aria-expanded','false');
+                closest.siblings().children("div").children("button").attr('aria-expanded','false');
                 // slide open list of nav elements for selected button
-                t.closest("li").children("ul").slideToggle( "slow", function() {
+                closest.children("ul").slideToggle( "slow", function() {
                     // Animation complete.
                 });
                 // add ARIA to indicate this section has been opened
@@ -51,7 +51,7 @@ $(document).ready(function() {
                 // remove highlight class from any other items
                 t.closest("#mega-nav").find("li").removeClass("highlight");
                 // add highlight class to this item
-                t.closest("li").addClass("highlight");
+                closest.addClass("highlight");
                 return;
             }
         });
