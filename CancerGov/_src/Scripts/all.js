@@ -302,10 +302,10 @@ jQuery(document).ready(function(jQuery) {
 	(function($) {
 		$('.flex-video').each(function() {
 			var $this = $(this);
+			var lang = $(html).attr('lang') || 'en';
 
 			var videoSrc = '//www.youtube.com/embed/',
 				videoLinkSrc = 'https://www.youtube.com/',
-				videoText = 'YouTube embedded',
 				videoId = '',
 				videoTitle = '',
 				videoOptions = '?rel=0',
@@ -316,18 +316,27 @@ jQuery(document).ready(function(jQuery) {
 				videoTitle = $this.attr('data-playlist-title');
 				videoId = 'videoseries';
 				videoOptions = videoOptions +
-							   '&list=' + $this.attr('data-playlist-id');
+					'&list=' + $this.attr('data-playlist-id');
 				videoLinkSrc = videoLinkSrc + 'playlist?list=' + videoId;
 			} else {
 				videoType = 'video';
 				videoTitle = $this.attr('data-video-title');
 				videoId = $this.attr('data-video-id');
 				videoOptions = videoOptions +
-							   '';
+					'';
 				videoLinkSrc = videoLinkSrc + 'watch?v=' + videoId;
 			}
 			videoSrc = videoSrc + videoId + videoOptions;
-			videoText = videoText + ' ' + videoType + ': ' + videoLinkSrc;
+			var videoText = {
+				video: {
+					en: 'Youtube embedded video: ' + videoLinkSrc,
+					es: 'Youtube embedded video [ES]:' + videoLinkSrc
+				},
+				playlist: {
+					en: 'Youtube embedded video playlist: ' + videoLinkSrc,
+					es: 'Youtube embedded video playlist [ES]:' + videoLinkSrc
+				}
+			};
 			$this.append(
 				$(document.createElement('iframe'))
 					.attr('width', '560')
@@ -337,7 +346,7 @@ jQuery(document).ready(function(jQuery) {
 					.attr('allowFullScreen', '')
 					.attr('title', videoTitle)
 					.attr('alt', videoTitle)
-					.text(videoText)
+					.text(videoText.videoType.lang)
 			);
 		});
 	})(jQuery);
