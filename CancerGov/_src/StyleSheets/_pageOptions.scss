@@ -12,7 +12,7 @@
 	li {
 		display: inline-block;
 		margin: 0;
-		background-image: url(/PublishedContent/images/images/design-elements/icons/page-options/page-options-sprites.png); /* Sprites */
+		background-image: url($icons + "page-options-sprites.png"); /* Sprites */
 		background-repeat: no-repeat;
 	}
 }

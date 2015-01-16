@@ -86,7 +86,7 @@
     .accordion .ui-icon {
         width: 32px;
         height: 32px;
-        background-image: url($icons + "mobile-menus-expand-collapse-buttons-sm.png");
+        background-image: url($buttons + "mobile-menus-expand-collapse-buttons-sm.png");
         background-position: 0 0;
         margin-top: -16px;
         right: 15px;
@@ -170,23 +170,23 @@
         /* open/minus toggle */
         .toggle-opened,
         .toggle[aria-expanded="true"] {
-            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% -55px no-repeat;
+            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% -55px no-repeat;
         }
 
         /* clicked open/minus toggle (only appears for a brief moment) */
         .toggle[aria-expanded="true"]:active {
-            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% -175px no-repeat;
+            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% -175px no-repeat;
         }
 
         /* closed/plus toggle */
         .toggle-closed,
         .toggle[aria-expanded="false"] {
-            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% 5px no-repeat;
+            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% 5px no-repeat;
         }
 
         /* clicked closed/plus toggle (only appears for a brief moment) */
         .toggle[aria-expanded="false"]:active {
-            background: transparent url($icons + "mobile-menus-expand-collapse-buttons.png") 50% -115px no-repeat;
+            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% -115px no-repeat;
         }
         .toggle {
             float: right;
@@ -456,37 +456,37 @@
         padding: 0.75em 2.5em 0.75em 0.75em;
         right: 5%;
         background: rgb(74, 74, 74) 95% 50% no-repeat;
-        background-image: url($images + "section-menu-down-arrow.png");
+        background-image: url($buttons + "section-menu-down-arrow.png");
         /* fallback */
-        background-image: url($images + "section-menu-down-arrow.png"), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
+        background-image: url($buttons + "section-menu-down-arrow.png"), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
         /* Saf4+, Chrome */
-        background-image: url($images + "section-menu-down-arrow.png"), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-down-arrow.png"), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* Chrome 10+, Saf5.1+ */
-        background-image: url($images + "section-menu-down-arrow.png"), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-down-arrow.png"), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* FF3.6+ */
-        background-image: url($images + "section-menu-down-arrow.png"), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-down-arrow.png"), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* IE10 */
-        background-image: url($images + "section-menu-down-arrow.png"), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-down-arrow.png"), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* Opera 11.10+ */
-        background-image: url($images + "section-menu-down-arrow.png"), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-down-arrow.png"), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* W3C */
         font-family: Montserrat, Arial;
         text-transform: uppercase;
     }
     #section-menu-button.open {
-        background-image: url($images + "section-menu-up-arrow.png");
+        background-image: url($buttons + "section-menu-up-arrow.png");
         /* fallback */
-        background-image: url($images + "section-menu-up-arrow.png"), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
+        background-image: url($buttons + "section-menu-up-arrow.png"), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
         /* Saf4+, Chrome */
-        background-image: url($images + "section-menu-up-arrow.png"), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-up-arrow.png"), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* Chrome 10+, Saf5.1+ */
-        background-image: url($images + "section-menu-up-arrow.png"), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-up-arrow.png"), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* FF3.6+ */
-        background-image: url($images + "section-menu-up-arrow.png"), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-up-arrow.png"), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* IE10 */
-        background-image: url($images + "section-menu-up-arrow.png"), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-up-arrow.png"), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* Opera 11.10+ */
-        background-image: url($images + "section-menu-up-arrow.png"), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
+        background-image: url($buttons + "section-menu-up-arrow.png"), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
         /* W3C */
     }
     /* Fallbacks */
@@ -645,7 +645,7 @@
     }
     .guide-card .card h3 {
         color: white;
-        background: url($icons + "small-arrow.png") 95% center no-repeat;
+        background: url($buttons + "small-arrow.png") 95% center no-repeat;
         border-bottom: 1px solid black;
         padding: 0.3em 0.9375em;
         margin: 0;

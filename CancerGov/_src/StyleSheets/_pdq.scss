@@ -42,14 +42,14 @@
     /* removes the bullets for toptoc li menu items */
 }
 .toptoc li.selected {
-    background: url("../images/backgrounds/toptoc-active.gif") 0 0 repeat-y;
+    background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
     font-weight: bold;
 }
 .toptoc .enlarge-link {
     display: none;
 }
 .toptoc li.viewall span {
-    background: url("../images/view-entire-summary.png") no-repeat scroll 0 50% #fffffb;
+    background: url($icons + "view-entire-summary.png") no-repeat scroll 0 50% #fffffb;
     padding: 5px 0 5px 20px;
     display: block;
 }

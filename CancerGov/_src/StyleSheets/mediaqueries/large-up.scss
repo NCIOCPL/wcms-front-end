@@ -177,16 +177,16 @@
     /*CAROUSEL STYLES*/
     /* desktop arrows */
     .arrows-for-other-nci-sites .next {
-        background: transparent url($icons + "blue-arrow-right.png") no-repeat 0 0;
+        background: transparent url($buttons + "blue-arrow-right.png") no-repeat 0 0;
     }
     .arrows-for-other-nci-sites .next:hover, .arrows-for-other-nci-sites .next:focus {
-        background: transparent url($icons + "red-arrow-right.png") no-repeat 0 0;
+        background: transparent url($buttons + "red-arrow-right.png") no-repeat 0 0;
     }
     .arrows-for-other-nci-sites .previous {
-        background: transparent url($icons + "blue-arrow-left.png") no-repeat 0 0;
+        background: transparent url($buttons + "blue-arrow-left.png") no-repeat 0 0;
     }
     .arrows-for-other-nci-sites .previous:hover, .arrows-for-other-nci-sites .previous:focus {
-        background: transparent url($icons + "red-arrow-left.png") no-repeat 0 0;
+        background: transparent url($buttons + "red-arrow-left.png") no-repeat 0 0;
     }
     /* spacing */
     .slick-slide .container {

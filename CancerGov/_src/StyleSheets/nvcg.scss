@@ -261,7 +261,7 @@ header {
 .nci-logo {
 	font-weight: bold;
 	line-height: 0.8;
-	background: url($icons + "NIH-red-logo.png") no-repeat 5px 0;
+	background: url($logos + "NIH-red-logo.png") no-repeat 5px 0;
 	font-size: 30px;
 	padding: 0.1em 0 0.2em;
 }
@@ -338,7 +338,7 @@ header {
 
 #utility-dictionary {
 	position: relative;
-	background: url($images + "icons/white-arrow-down.png") no-repeat 100% 60%;
+	background: url($buttons + "white-arrow-down.png") no-repeat 100% 60%;
 }
 #utility-dictionary.active {
 	background: #f5f7f6;
@@ -474,7 +474,7 @@ a.definition:hover, a.definition:focus {
 	right: 0.5em;
 	text-decoration: none;
 	color: #000;
-	background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
+	background: transparent url($buttons + "blue-arrow-up.png") no-repeat 50% 0;
 	font-weight: bold;
 	padding: 60px 15px 0;
 	display: none;
@@ -482,11 +482,11 @@ a.definition:hover, a.definition:focus {
 	z-index: 998;
 }
 .back-to-top:hover, .back-to-top:focus {
-	background: url($images + "red-arrow-up.png") no-repeat 50% 0;
+	background: url($buttons + "red-arrow-up.png") no-repeat 50% 0;
 	color: #bd153c;
 }
 .back-to-top:visited {
-	background: transparent url($images + "blue-arrow-up.png") no-repeat 50% 0;
+	background: transparent url($buttons + "blue-arrow-up.png") no-repeat 50% 0;
 	color: #000;
 }
 /* Research Areas with Table of Contents */
