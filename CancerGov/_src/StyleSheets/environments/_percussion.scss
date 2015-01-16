@@ -4,7 +4,7 @@ $path: "/publishedcontent/";
 
 /* images */
 $images: $path + "images/images/";
-$designelements: $path + "design-elements/";
+$designelements: $images + "design-elements/";
 
 $backgrounds: $designelements + "background-graphics/";
 $bodybanners: $designelements + "body-banners/";
