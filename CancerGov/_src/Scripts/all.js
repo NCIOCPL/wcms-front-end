@@ -302,7 +302,7 @@ jQuery(document).ready(function(jQuery) {
 	(function($) {
 		$('.flex-video').each(function() {
 			var $this = $(this);
-			var lang = $(html).attr('lang') || 'en';
+			var lang = $('html').attr('lang') || 'en';
 
 			var videoSrc = '//www.youtube.com/embed/',
 				videoLinkSrc = 'https://www.youtube.com/',
@@ -346,7 +346,7 @@ jQuery(document).ready(function(jQuery) {
 					.attr('allowFullScreen', '')
 					.attr('title', videoTitle)
 					.attr('alt', videoTitle)
-					.text(videoText.videoType.lang)
+					.text(videoText[videoType][lang])
 			);
 		});
 	})(jQuery);
