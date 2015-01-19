@@ -755,9 +755,30 @@ html[lang="es"] .on-this-page:before {
 }
 /* END general content page styles */
 
+/* BEGIN document date styling */
+
 .document-dates {
 	margin-top: 1.5em;
 }
+
+.contentzone .document-dates ul li:before {
+	content: none;
+	display: none;
+}
+
+.contentzone .document-dates ul li:first-child {
+	float: left;
+	padding: 0 5px 0 0;
+	background: none;
+}
+.contentzone .document-dates ul li {
+	float: left;
+	padding: 0 5px 0 20px;
+	background: url(/PublishedContent/images/images/design-elements/css/pipe.gif) 0 2px no-repeat;
+	margin: 0;
+}
+
+/* END document date styling */
 
 .article-citation  li p{
  display: inline; }
