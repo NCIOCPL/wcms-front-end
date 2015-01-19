@@ -15,6 +15,54 @@
 
 @import "fonts";
 
+/***************** BEGIN Content-Specific Styles **************************************/
+
+/*  A to Z menu Start 
+
+	Used at /cancertopics/pdq/adulttreatment and /cancertopics/types/alphalist
+
+ */
+.azMenu {
+	width: auto;
+}
+.azMenu ul {
+	width: 100%;
+	margin: 0;
+	padding: 10px 0 10px 4px;
+	overflow: auto;
+}
+.azMenu ul li {
+	background: none;
+	display: block;
+	width: 3.8%;
+	text-align: center;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+.azMenu:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+.contentzone .azMenu ul li:before {
+	content: none;
+	display: none;
+}
+
+/* end A to Z menu End */ 
+
+/* START PDQ content list items */
+
+.contentzone ul.PDQ-list li span {
+	margin-left: 16px;
+}
+/*  END PDQ content list items  */
+
+/****************** END Content-Specific Styles ***************************************/
+
 /********************* BEGIN General Styles ******************************************/
 
 html {
