@@ -330,11 +330,11 @@ jQuery(document).ready(function(jQuery) {
 			var videoText = {
 				video: {
 					en: 'Youtube embedded video: ' + videoLinkSrc,
-					es: 'Youtube embedded video [ES]:' + videoLinkSrc
+					es: 'Video insertado desde YouTube: ' + videoLinkSrc
 				},
 				playlist: {
 					en: 'Youtube embedded video playlist: ' + videoLinkSrc,
-					es: 'Youtube embedded video playlist [ES]:' + videoLinkSrc
+					es: 'Lista de reproducci&oacute;n insertada desde YouTube: ' + videoLinkSrc
 				}
 			};
 			$this.append(
