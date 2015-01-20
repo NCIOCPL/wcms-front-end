@@ -304,7 +304,7 @@ jQuery(document).ready(function(jQuery) {
 			var $this = $(this);
 			var lang = $('html').attr('lang') || 'en';
 
-			var videoSrc = '//www.youtube.com/embed/',
+			var videoSrc = '//www.youtube-nocookie.com/embed/',
 				videoLinkSrc = 'https://www.youtube.com/',
 				videoId = '',
 				videoTitle = '',
