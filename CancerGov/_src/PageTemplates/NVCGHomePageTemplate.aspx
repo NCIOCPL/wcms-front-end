@@ -170,7 +170,7 @@ at the National Institutes of Health
 
             <div class="row home-page-options">
                 <!-- PAGE OPTIONS -->
-                <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="columns page-options" runat="server">
+                <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-5 columns page-options" runat="server">
                     <PageOptionsButtonLanguages>
                         <NCI:PageOptionsButtonLanguageItem Language="en">
                             <ButtonsCollection>

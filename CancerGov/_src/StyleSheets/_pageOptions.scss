@@ -68,11 +68,11 @@
 	.columns.page-options {
 		top: 0;
 		right: 0;
+		position: static;
 	}
 	
 	// apply homepage-only styles
 	.home-page-options {
-		position: relative;
 		padding-bottom: 4.25em;
 
 		.page-options {
@@ -80,7 +80,12 @@
 			margin-bottom: 0;
 		}
 	}
-	
+
+	// apply CTHP-only styles
+	.cthp-mobile.page-options {
+		display: none;
+	}
+
 	.page-options {
 		margin-top: 1.6em;
 		float: right;

@@ -173,8 +173,8 @@ at the National Institutes of Health
                     <h1><NCI:CDEField scope="Page" fieldname="short_title" runat="server" /></h1>
                 </div>
                 <!-- END PAGE TITLE -->
-				<!-- PAGE OPTIONS -->
-                <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="columns page-options" runat="server">
+                <!-- PAGE OPTIONS -->
+                <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-5 columns page-options" runat="server">
                     <PageOptionsButtonLanguages>
                         <NCI:PageOptionsButtonLanguageItem Language="en">
                             <ButtonsCollection>

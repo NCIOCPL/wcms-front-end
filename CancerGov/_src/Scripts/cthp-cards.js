@@ -7,6 +7,7 @@ jQuery(document).ready(function(jQuery) {
 			// if there is an h1, we are not on the home page
 			$('h1').after(
 				$(document.createElement('div'))
+				.addClass('cthp-mobile')
 				.addClass('page-options')
 				.prepend(
 					$('.page-options > ul').clone()
