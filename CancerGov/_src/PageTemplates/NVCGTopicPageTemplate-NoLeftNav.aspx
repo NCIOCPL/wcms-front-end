@@ -65,7 +65,6 @@ at the National Institutes of Health
                                         <NCI:LanguageToggle Locale="es-us"
                                             Name="Spanish"
                                             Title="Espa&ntilde;ol"
-                                            Url="/espanol"
                                             OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
                                         <NCI:LanguageToggle Locale="pt-br"
                                             Name="Portuguese"
@@ -82,7 +81,6 @@ at the National Institutes of Health
                                         <NCI:LanguageToggle Locale="en-us"
                                             Name="English"
                                             Title="English"
-                                            Url="/"
                                             OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
                                         <NCI:LanguageToggle Locale="pt-br"
                                             Name="Portuguese"
@@ -100,13 +98,11 @@ at the National Institutes of Health
                                             Locale="en-us"
                                             Name="English"
                                             Title="English"
-                                            Url="/"
                                             OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
                                         <NCI:LanguageToggle
                                             Locale="es-us"
                                             Name="Spanish"
                                             Title="Espa&ntilde;ol"
-                                            Url="/espanol"
                                             OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
                                         <NCI:LanguageToggle
                                             Locale="zh-cn"
@@ -120,11 +116,10 @@ at the National Institutes of Health
                                         <NCI:LanguageToggle Locale="en-us"
                                             Name="English"
                                             Title="English"
-                                            Url="/" OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
+                                            OnClick="NCIAnalytics.ClickLink(this,'Language Select English');" />
                                         <NCI:LanguageToggle Locale="es-us"
                                             Name="Spanish"
                                             Title="Espa&ntilde;ol"
-                                            Url="/espanol"
                                             OnClick="NCIAnalytics.ClickLink(this,'Language Select Spanish');" />
                                         <NCI:LanguageToggle Locale="pt-br"
                                             Name="Portuguese"
