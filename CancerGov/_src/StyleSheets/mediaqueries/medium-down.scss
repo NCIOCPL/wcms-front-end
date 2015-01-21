@@ -63,6 +63,9 @@
         margin: 0 -0.9375em;
         padding: 10px 50px 10px 20px;
     }
+		.accordion.columns .ui-accordion-header {
+			margin: 0;	
+		}
     #accordion .ui-accordion-header:first-child,
     .accordion .ui-accordion-header:first-child {
         border-top: 1px solid #96aeb8;
@@ -77,13 +80,13 @@
     .accordion .ui-widget-content {
         border: 0;
     }
-    #accordion .ui-accordion .ui-accordion-content,
-    .accordion .ui-accordion .ui-accordion-content {
+    #accordion .ui-accordion-content,
+    .accordion.ui-accordion .ui-accordion-content {
         padding: 10px 20px;
     }
     /* override icons to use our own */
     #accordion .ui-icon,
-    .accordion .ui-icon {
+    .accordion.ui-accordion .ui-icon {
         width: 32px;
         height: 32px;
         background-image: url($buttons + "mobile-menus-expand-collapse-buttons-sm.png");
