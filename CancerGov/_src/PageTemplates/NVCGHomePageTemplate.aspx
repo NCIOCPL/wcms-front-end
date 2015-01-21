@@ -168,7 +168,7 @@ at the National Institutes of Health
                  <NCI:TemplateSlot ID="nvcgSlHeroHeader" runat="server" CssClass="row hero-slot" AdditionalSnippetClasses="large-12 columns hero" />
             <!-- END HERO SLOT -->
 
-            <div class="row home-page-options">
+            <div class="row">
                 <!-- PAGE OPTIONS -->
                 <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="large-5 columns page-options" runat="server">
                     <PageOptionsButtonLanguages>
