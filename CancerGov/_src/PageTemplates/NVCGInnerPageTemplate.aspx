@@ -206,7 +206,7 @@ INNER   PAGE    TEMPLATE
                                 <NCI:PageOptionsButtonLanguageItem Language="es">
                                     <ButtonsCollection>
                                         <NCI:LinkButtonItem
-                                            Title="Cambiar el tama&ntilde;o de texto"
+                                            Title="Control de tama&ntilde;o de fuente"
                                             CssClass="po-font-resize"
                                             AlternateContentVersionKey="fontResize" />
                                         <NCI:LinkButtonItem
