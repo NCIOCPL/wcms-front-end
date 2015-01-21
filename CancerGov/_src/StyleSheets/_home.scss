@@ -119,6 +119,18 @@
 	font-size: 1.375em;
 	line-height: 1.272;
 }
+// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
+.feature-primary .columns {
+	padding: 0;
+}
+.feature-primary .columns a {
+	padding: 1em 0.9375em 1px 0.9375em;
+	display: block;
+}
+.multimedia-feature-card a, .multimedia .feature-card a {
+	display: block; 
+	height: 100%;
+}
 /* END FEATURE PRIMARY CARDS ROW */
 
 /* BEGIN FEATURE SECONDARY CARDS ROW */
