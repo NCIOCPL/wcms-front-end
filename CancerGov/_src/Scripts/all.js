@@ -203,7 +203,7 @@ jQuery(document).ready(function(jQuery) {
 	/*** END Headroom initializer ***/
 
 	/*** BEGIN Page Options
-	 * This functions the font resizer and places the mobile page options.
+	 * This functions the font resizer.
 	 ***/
 	(function($) {
 		/* font resizer */
@@ -220,27 +220,6 @@ jQuery(document).ready(function(jQuery) {
 			equalHeights();
 			return false;
 		});
-
-		/* place mobile page options */
-		if($('h1').length > 0) {
-			// if there is an h1, we are not on the home page
-			$('h1').after(
-				$(document.createElement('div'))
-				.addClass('mobile-page-options')
-				.prepend(
-					$('.page-options > ul').clone()
-				)
-			);
-		} else {
-			// if there isn't an h1, we're probably on the home page
-			$('.page-options').after(
-				$(document.createElement('div'))
-				.addClass('mobile-page-options')
-				.prepend(
-					$('.page-options > ul').clone()
-				)
-			);
-		}
 	})(jQuery);
 	/*** END Page Options **/
 

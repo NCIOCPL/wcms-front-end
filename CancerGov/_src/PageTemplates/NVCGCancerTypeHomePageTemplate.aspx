@@ -163,8 +163,10 @@ at the National Institutes of Health
             <!-- Breadcrumb slot -->
             <div class="row collapse">
               <NCI:TemplateSlot ID="cgvSlBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
+            </div>
+            <!-- slots -->
               <!-- PAGE OPTIONS -->
-                        <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="medium-4 columns page-options" runat="server">
+                        <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="cthp-desktop page-options" runat="server">
                             <PageOptionsButtonLanguages>
                                 <NCI:PageOptionsButtonLanguageItem Language="en">
                                     <ButtonsCollection>
@@ -243,8 +245,6 @@ at the National Institutes of Health
                             </PageOptionsButtonLanguages>
                         </NCI:PageOptionsControl>
               <!-- END PAGE OPTIONS -->
-            </div>
-            <!-- slots -->
             <!-- Body slot -->
             <NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" />
             <!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->

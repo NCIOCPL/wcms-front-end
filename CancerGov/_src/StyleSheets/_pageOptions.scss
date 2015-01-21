@@ -1,8 +1,7 @@
 /***** BEGIN PAGE OPTIONS *************************************/
 
 /* COMMON for all page options */
-.page-options,
-.mobile-page-options {
+.page-options {
 	margin-bottom: 1em;
 
 	ul {
@@ -16,23 +15,17 @@
 		background-repeat: no-repeat;
 	}
 }
-.contentzone .page-options li:before,
-.contentzone .mobile-page-options li:before {
+.contentzone .page-options li:before {
 		content: none;
 }
 
 /* MOBILE page options */
 @media only screen and (max-width: 1024px) {
-	.page-options {
+	.cthp-desktop.page-options {
 		display: none;
 	}
-
-	// apply homepage-only styles
-	.page-options + .mobile-page-options {
-		margin-top: 1em;
-		margin-bottom: 0;
-	}
-	.mobile-page-options {
+	
+	.page-options {
 		li {
 			margin: 0 0.875em 0 0;
 		}
@@ -71,12 +64,29 @@
 
 /* DESKTOP page options */
 @media only screen and (min-width: 1025px) {
-	.mobile-page-options {
-		display: none;
+	// apply homepage- and landing page-only styles
+	.columns.page-options {
+		top: 0;
+		right: 0;
 	}
+	
+	// apply homepage-only styles
+	.home-page-options {
+		position: relative;
+		padding-bottom: 4.25em;
+
+		.page-options {
+			margin-top: 1em;
+			margin-bottom: 0;
+		}
+	}
+	
 	.page-options {
 		margin-top: 1.6em;
 		float: right;
+		position: absolute;
+		top: -3.75em;
+		right: 0.875em;
 
 		ul {
 			float: right;
