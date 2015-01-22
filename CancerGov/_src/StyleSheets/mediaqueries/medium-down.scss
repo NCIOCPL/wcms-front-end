@@ -603,6 +603,18 @@
     .content-bottom-slot {
         background: #dceef8;
     }
+	
+	.contentzone .document-dates,
+	.contentzone .document-dates.horizontal {
+		ul > li {
+			display: block;
+			&:before {
+				content: none;
+				display: none;
+			}
+		}
+	}
+	
     .site-footer {
         background-position: 120% 150px;
     }

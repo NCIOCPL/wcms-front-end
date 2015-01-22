@@ -708,13 +708,23 @@ html[lang="es"] .on-this-page:before {
 .contentzone .document-dates {
     margin-top: 1.5em;
 	ul > li {
+		margin: 0;
+		display: block;
+		&:before {
+			content: none;
+			display: none;
+		}
+	}
+	
+	&.horizontal ul > li {
 		display: inline;
-		margin-left: 0;
 		&:before {
 			content: "|";
+			display: inline;
 			left: -0.1em;
-			top: 0;
+			top: -0.1em;
 			margin: 0 0.4em;
+			font-size: 1em;
 		}
 		&:first-child:before {
 			content: none;
