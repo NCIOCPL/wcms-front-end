@@ -158,15 +158,15 @@ figure {
 
     a.article-image-enlarge {
         position: absolute;
-        width: 150px;
         top: 0;
         right: 0;
         color: #fff;
         background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
-        padding: 0.3125em 0 0.3125em 1.25em;
+        padding: 0.3125em 2.25em 0.3125em 1em;
         font-weight: bold;
         text-transform: uppercase;
         opacity: 0.9;
+        text-align: right;
 
         &:hover, &:focus {
             text-decoration: none;
@@ -221,10 +221,18 @@ figure {
         display: block;
     }
 }
+.centered-set {
+    text-align: center;
+}
+.centered-element {
+    display: inline-block;
+    max-width: 100%;
+}
+.centered-exempt {
+    text-align: left;
+}
 .flex-image {
-    display: table;
     position: relative;
-    margin: 0 auto;
 }
 table figure {
     display: table;
@@ -717,7 +725,7 @@ html[lang="es"] .on-this-page:before {
 
 .article-citation  li p{
  display: inline; }
- 
+
 .syndication {
     border-top: 1px solid black;
     overflow: hidden;
