@@ -655,7 +655,7 @@
     .guide-card .card h3.last {
         border-bottom: none;
     }
-    .cthp-title {
+		.cthp-title {
         margin-top: 0;
     }
     .feature-zone-image img {
@@ -679,26 +679,19 @@
     .ui-accordion .ui-accordion-content {
         padding: 0.5em .5em;
     }
-    /* the portal pages needed these items to not hit the edge of screen */
-    .content-top-slot h1,
-    .content-bottom-slot h1,
-    .content-top-slot h2,
-    .content-bottom-slot h2,
-    .content-top-slot h3,
-    .content-bottom-slot h3,
-    .page-options {
-        padding-left: 15px;
-    }
     /* since these items are still in columns at tablet, this reverses previous move for these classes */
     .feature-primary h3,
     .feature-primary p,
     .feature-secondary h3,
     .feature-secondary p,
-    .multimedia h3,
-    .multimedia p,
     .other-sites-carousel h3,
     .contentzone .page-options {
         padding-left: 0;
+    }
+	/* Multimedia row does need padding in tablet */
+    .multimedia h3, 
+		.multimedia p { 
+		     padding-left: 15px;
     }
     /*** BEGIN PDQ Styles ***/
     .toptoc {
