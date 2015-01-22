@@ -264,7 +264,7 @@ a.learn-more {
 }
 // these rules are to fix the autoheight problems in multimedia row
 .card > .slot-item, .multimedia-feature-card, .multimedia .feature-card {
-    height: inherit;
+    height: 100%;
 }
 .multimedia-feature-card.cgvInfographic {
 	a:before {
