@@ -590,7 +590,7 @@ table.no-bullet-padding ul {
     text-transform: uppercase;
     font-size: 1.25em;
     @include font-montserrat;
-    font-weight: 100;
+    font-weight: bold;
 }
 .key-points ul {
     padding: 0 1.5em 1.5em 0;
@@ -700,6 +700,7 @@ table.no-bullet-padding ul {
 @import "contentTemplate";
 @import "pdq";
 @import "blogs";
+@import "onthispage";
 @import "institutions";
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
