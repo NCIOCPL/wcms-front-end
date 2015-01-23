@@ -2,7 +2,6 @@
 * ON THIS PAGE
 *******************************************/
 
-
 #_toc_article {
     /* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
     * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
@@ -23,33 +22,27 @@
 */
 
 .on-this-page {
-    overflow: auto;
-    box-shadow: 6px 7px 9px 0 rgba(0, 0, 0, 0.23);
-    width: 50%;
     /* important set in display because the hide-medium-down has a display that is overriding this */
     /* display: inline-block !important; */
-    padding: 1.6875em 1.4375em;
-    margin: 1.6875em 0 2em;
-
-    &:before {
-        /* Key Points header */
-        content: "On this page";
-        text-transform: uppercase;
-        font-size: 1.25em;
-        @include font-montserrat;
-        font-weight: 100;
-        color: #606060;
-        margin: 0;
-        padding: 0;
-    }
-
-    ul {
+    padding: 0 0 0 15px;
+    margin: 1.2em 0 1.7em;
+}
+.on-this-page h6 {
+			/* Key Points header */
+			display: block;
+			margin: 0 auto 1.25em;
+			padding: 0.8em 0 0 0.5em;
+			text-transform: uppercase;
+			font-size: 1.25em;
+			@include font-montserrat;
+			font-weight: bold;	
+		}
+.on-this-page ul {
         padding: 0;
         margin: -0.312em 0 0;
     }
-
-    li:before {
-    /* Defining the bullet disc styles */
+.on-this-page li:before {
+        /* Defining the bullet disc styles */
         content: "\2022";
         display: inline-block;
         position: relative;
@@ -59,23 +52,25 @@
         font-size: 1.1em;
         color: #186e88;
     }
-
-    li {
+.on-this-page li {
         list-style-type: none;
         color: #606060;
         padding: 0;
-        margin: 1.19318em 0 0 1.25em;
-    }
+        margin: 0.25em 0 0 1.25em;
 
-    li, a {
+        p {
+            display: inline;
+        }
+    }
+.on-this-page li,
+    a {
         @include font-noto;
         font-size: 16px;
         font-weight: 100;
         line-height: 1em;
     }
-}
-
 html[lang="es"] .on-this-page:before {
     @extend .on-this-page:before;
     content: "En este pagina";
 }
+/* End On This Page */
