@@ -168,3 +168,11 @@
 .slick-dots li.slick-active button {
     background: transparent url($icons + "carousel-active-dot.png") no-repeat 0 0;
 }
+
+// default styling for Slick image behavior on hover
+.slick-slide:hover .image-hover {
+	background-color: #000;
+}
+.slick-slide:hover .image-hover .site-name {
+		opacity: 0.8;
+}
