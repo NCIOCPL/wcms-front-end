@@ -37,10 +37,10 @@ h6 {
     @include font-montserrat;
     margin-top: 0.5em;
     color: #606060;
-	
-	p {
-		font-weight: inherit;
-	}
+
+    p {
+        font-weight: inherit;
+    }
 }
 .section-nav {
     @include font-montserrat;
@@ -498,32 +498,34 @@ a.definition:hover, a.definition:focus {
 
 /* BEGIN general content page styles */
 %no-bullets{
-	padding: 0;
-	& > li {
-		background: none;
-		list-style-type: none;
-		padding: 0;
-		&:before {
-			display: none;
-			content: none;
-		}
-	}
-	ul {
-		margin: 5px 0 8px;
-		& > li {
-			padding: 0 0 0 10px;
-			margin: 0 0 5px;
-		}
-	}
+    padding: 0;
+    & > li {
+        background: none;
+        list-style-type: none;
+        padding: 0;
+        &:before {
+            display: none;
+            content: none;
+        }
+    }
+    ul {
+        margin: 5px 0 8px;
+        & > li {
+            padding: 0 0 0 10px;
+            margin: 0 0 5px;
+        }
+    }
 }
 
 ul,
 .contentzone ul {
     &.no-bullets {
-		@extend %no-bullets;
+        @extend %no-bullets;
     }
 }
 ol {
+    list-style-type: decimal;
+
     &.lower-alpha {
         list-style-type: lower-alpha;
     }
@@ -563,9 +565,6 @@ ol {
             font-size: 1.1em;
         }
     }
-}
-.contentzone ol {
-    list-style-type: decimal;
 }
 
 .toptoc ul > li:before {
@@ -615,7 +614,7 @@ table.no-bullet-padding ul {
     color: #606060;
     font-size: 18px;
     font-weight: 100;
-		margin-left: 1em;
+        margin-left: 1em;
 }
 /*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
 .key-facts {
@@ -629,30 +628,30 @@ table.no-bullet-padding ul {
 
 .contentzone .document-dates {
     margin-top: 1.5em;
-	ul > li {
-		margin: 0;
-		display: block;
-		&:before {
-			content: none;
-			display: none;
-		}
-	}
-	
-	&.horizontal ul > li {
-		display: inline;
-		&:before {
-			content: "|";
-			display: inline;
-			left: -0.1em;
-			top: -0.1em;
-			margin: 0 0.4em;
-			font-size: 1em;
-		}
-		&:first-child:before {
-			content: none;
-			display: none;
-		}
-	}
+    ul > li {
+        margin: 0;
+        display: block;
+        &:before {
+            content: none;
+            display: none;
+        }
+    }
+
+    &.horizontal ul > li {
+        display: inline;
+        &:before {
+            content: "|";
+            display: inline;
+            left: -0.1em;
+            top: -0.1em;
+            margin: 0 0.4em;
+            font-size: 1em;
+        }
+        &:first-child:before {
+            content: none;
+            display: none;
+        }
+    }
 }
 
 .article-citation  li p{
