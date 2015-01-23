@@ -50,8 +50,7 @@
         font-size: inherit;
         /* jquery-ui.css:832 sets this to '1.1em' */
     }
-    #accordion .ui-accordion-header,
-    .accordion .ui-accordion-header {
+    .ui-accordion .ui-accordion-header {
         font-weight: bold;
         border-left: 0;
         border-right: 0;
@@ -63,30 +62,25 @@
         margin: 0 -0.9375em;
         padding: 10px 50px 10px 20px;
     }
-		.accordion.columns .ui-accordion-header {
-			margin: 0;	
-		}
-    #accordion .ui-accordion-header:first-child,
-    .accordion .ui-accordion-header:first-child {
+    .accordion.columns .ui-accordion-header {
+        margin: 0;
+    }
+    .ui-accordion .ui-accordion-header:first-child {
         border-top: 1px solid #96aeb8;
     }
     /* openend accordion */
-    #accordion .ui-accordion-header.ui-state-active,
-    .accordion .ui-accordion-header.ui-state-active {
+    .ui-accordion .ui-accordion-header.ui-state-active {
         background: #CCEEFA;
         color: #606060;
     }
-    #accordion .ui-widget-content,
-    .accordion .ui-widget-content {
+    .ui-accordion .ui-widget-content {
         border: 0;
     }
-    #accordion .ui-accordion-content,
-    .accordion.ui-accordion .ui-accordion-content {
+    .ui-accordion .ui-accordion-content {
         padding: 10px 20px;
     }
     /* override icons to use our own */
-    #accordion .ui-icon,
-    .accordion.ui-accordion .ui-icon {
+    .ui-accordion .ui-icon {
         width: 32px;
         height: 32px;
         background-image: url($buttons + "mobile-menus-expand-collapse-buttons-sm.png");
@@ -95,8 +89,7 @@
         right: 15px;
         left: auto;
     }
-    #accordion .ui-state-active .ui-icon,
-    .accordion .ui-state-active .ui-icon {
+    .ui-accordion .ui-state-active .ui-icon {
         background-position: 0 -45px;
     }
     /*** BEGIN Megamenus/Search Styles ***/
@@ -604,11 +597,11 @@
     .content-bottom-slot {
         background: #dceef8;
     }
-	
+
 	.on-this-page {
 		display: none;
 	}
-	
+
 	.contentzone .document-dates,
 	.contentzone .document-dates.horizontal {
 		ul > li {
@@ -619,7 +612,7 @@
 			}
 		}
 	}
-	
+
     .site-footer {
         background-position: 120% 150px;
     }
@@ -706,8 +699,8 @@
         padding-left: 0;
     }
 	/* Multimedia row does need padding in tablet */
-    .multimedia h3, 
-		.multimedia p { 
+    .multimedia h3,
+		.multimedia p {
 		     padding-left: 15px;
     }
     /*** BEGIN PDQ Styles ***/
