@@ -231,12 +231,10 @@ figure {
 .centered-element {
     display: inline-block;
     max-width: 100%;
+    position: relative;
 }
 .centered-exempt {
     text-align: left;
-}
-.flex-image {
-    position: relative;
 }
 table figure {
     display: table;
