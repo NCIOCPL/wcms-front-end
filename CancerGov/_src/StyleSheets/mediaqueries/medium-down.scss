@@ -106,7 +106,7 @@
         top: .5em;
         left: 1em;
     }
-    #page {
+    #page, #mega-nav {
         position: relative;
         left: 0;
         -webkit-transition: left 500ms ease;
@@ -133,7 +133,7 @@
     /* Move nav off screen, setup transitions */
     #mega-nav {
         z-index: 1000;
-        position: absolute;
+        position: fixed;
         left: -80%;
         top: 0;
         width: 80%;
@@ -142,6 +142,10 @@
         -webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
         -moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
         box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+
+        .openNav & {
+            left: 0.01%;
+        }
 
         > ul > li:first-child {
             display: inherit;
@@ -379,7 +383,7 @@
         display: block;
         width: 1.125em;
         height: 1.125em;
-		line-height: 0.925em;
+        line-height: 0.925em;
         background-color: white;
         border-radius: 1em;
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -598,20 +602,20 @@
         background: #dceef8;
     }
 
-	.on-this-page {
-		display: none;
-	}
+    .on-this-page {
+        display: none;
+    }
 
-	.contentzone .document-dates,
-	.contentzone .document-dates.horizontal {
-		ul > li {
-			display: block;
-			&:before {
-				content: none;
-				display: none;
-			}
-		}
-	}
+    .contentzone .document-dates,
+    .contentzone .document-dates.horizontal {
+        ul > li {
+            display: block;
+            &:before {
+                content: none;
+                display: none;
+            }
+        }
+    }
 
     .site-footer {
         background-position: 120% 150px;
@@ -665,7 +669,7 @@
     .guide-card .card h3.last {
         border-bottom: none;
     }
-		.cthp-title {
+        .cthp-title {
         margin-top: 0;
     }
     .feature-zone-image img {
@@ -695,10 +699,10 @@
     .contentzone .page-options {
         padding-left: 0;
     }
-	/* Multimedia row does need padding in tablet */
+    /* Multimedia row does need padding in tablet */
     .multimedia h3,
-		.multimedia p {
-		     padding-left: 15px;
+        .multimedia p {
+             padding-left: 15px;
     }
     /*** BEGIN PDQ Styles ***/
     .toptoc {
