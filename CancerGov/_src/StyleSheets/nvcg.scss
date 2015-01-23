@@ -37,6 +37,10 @@ h6 {
     @include font-montserrat;
     margin-top: 0.5em;
     color: #606060;
+	
+	p {
+		font-weight: inherit;
+	}
 }
 .section-nav {
     @include font-montserrat;
