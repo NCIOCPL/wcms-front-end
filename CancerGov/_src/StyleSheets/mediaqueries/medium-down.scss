@@ -80,7 +80,7 @@
         padding: 10px 20px;
     }
     /* override icons to use our own */
-    .ui-accordion .ui-icon {
+    .ui-accordion .ui-accordion-header .ui-icon {
         width: 32px;
         height: 32px;
         background-image: url($buttons + "mobile-menus-expand-collapse-buttons-sm.png");
@@ -685,9 +685,6 @@
         margin-left: 0;
         margin-right: 0;
         float: none;
-    }
-    .ui-accordion .ui-accordion-content {
-        padding: 0.5em .5em;
     }
     /* since these items are still in columns at tablet, this reverses previous move for these classes */
     .feature-primary h3,
