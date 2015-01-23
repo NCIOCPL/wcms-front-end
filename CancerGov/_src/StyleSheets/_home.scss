@@ -87,6 +87,13 @@
 	color: #bb0e3d;
 	text-decoration: none;
 }
+// default styling for Card image behavior on hover
+.card:hover .image-hover {
+	background-color: #000;
+}
+.card:hover .image-hover img {
+	opacity: 0.8;
+}
 /* END CARDS GENERAL RULES */
 
 /* BEGIN FEAUTRE PRIMARY CARDS ROW */
