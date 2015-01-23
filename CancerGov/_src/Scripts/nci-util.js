@@ -86,5 +86,91 @@ NCI = {
 				$toc_ul.append("<li><a href='#" + s.id + "'>" + s_name + "</a></li>");
 			}
 		}
+	},
+
+	/*======================================================================================================
+	* function doAccordion
+	*
+	*  will generate an accordion using jQuery UI
+	*
+	* returns: null
+	* paramenters:
+	*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
+	*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
+	*
+	* TODO: remove this script after the usability prototype (it probably won't be useful in Devon Rex)
+	*====================================================================================================*/
+	doAccordion: function(target, opts) {
+		var defaultOptions = {
+			heightStyle: "content",
+			header: "h2",
+			collapsible: true,
+			active: false,
+			/* override default functionality of accordion that only allows for a single pane to be open
+			* source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
+			beforeActivate: function (event, ui) {
+				// The accordion believes a panel is being opened
+				var currHeader;
+				if (ui.newHeader[0]) {
+					currHeader = ui.newHeader;
+					// The accordion believes a panel is being closed
+				} else {
+					currHeader = ui.oldHeader;
+				}
+				var currContent = currHeader.next('.ui-accordion-content');
+				// Since we've changed the default behavior, this detects the actual status
+				var isPanelSelected = currHeader.attr('aria-selected') == 'true';
+
+				// Toggle the panel's header
+				currHeader.toggleClass('ui-corner-all', isPanelSelected).toggleClass('accordion-header-active ui-state-active ui-corner-top', !isPanelSelected).attr('aria-selected', ((!isPanelSelected).toString()));
+
+				// Toggle the panel's icon
+				currHeader.children('.ui-icon').toggleClass('ui-icon-triangle-1-e', isPanelSelected).toggleClass('ui-icon-triangle-1-s', !isPanelSelected);
+
+				// Toggle the panel's content
+				currContent.toggleClass('accordion-content-active', !isPanelSelected);
+				if (isPanelSelected) {
+					currContent.slideUp();
+				} else {
+					currContent.slideDown();
+				}
+
+				return false; // Cancels the default action
+			},
+			icons: {
+				"header": "ui-icon-circle-plus-right-e",
+				"headerSelected": "ui-icon-circle-minus-right-s"
+			}
+		};
+		var options = $.extend({}, defaultOptions, opts || {});
+
+		var $target = $(target);
+		if($target.length > 0) {
+			$(target).accordion(options);
+		}
+	},
+
+	/*======================================================================================================
+	* function undoAccordion
+	*
+	*  will destroy an accordion using jQuery UI
+	*
+	* returns: null
+	* paramenters:
+	*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
+	*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
+	*
+	* TODO: remove this script after the usability prototype (it probably won't be useful in Devon Rex)
+	*====================================================================================================*/
+	undoAccordion: function(target) {
+		var $target = $(target);
+		if($target.length > 0) {
+			/* destroy the accordion if it's already been initialized */
+			$(target).each(function() {
+				if (typeof $(this).data("ui-accordion") != "undefined") {
+					$(this).accordion("destroy");
+				}
+			});
+		}
 	}
 };
