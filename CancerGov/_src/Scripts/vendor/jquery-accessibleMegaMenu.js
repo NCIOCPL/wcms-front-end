@@ -164,6 +164,7 @@ limitations under the License.
             keydownSearchString = "",
             isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart"),
             _getPlugin,
+            _isMobile,
             _addUniqueId,
             _togglePanel,
             _clickHandler,
@@ -186,7 +187,19 @@ limitations under the License.
          * @private
          */
         _getPlugin = function (element) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             return $(element).closest(':data(plugin_' + pluginName + ')').data("plugin_" + pluginName);
+        };
+
+        _isMobile = function () {
+            var width = window.innerWidth || $(window).width();
+            if (width <= 1024) {
+                return true;
+            } else {
+                return false;
+            }
         };
 
         /**
@@ -200,6 +213,9 @@ limitations under the License.
          * @private
          */
         _addUniqueId = function (element) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             element = $(element);
             var settings = this.settings;
             if (!element.attr("id")) {
@@ -218,6 +234,9 @@ limitations under the License.
          * @private
          */
         _togglePanel = function (event, hide) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             var target = $(event.target),
                 that = this,
                 settings = this.settings,
@@ -285,6 +304,9 @@ limitations under the License.
          * @private
          */
         _clickHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             var target = $(event.target),
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
@@ -319,6 +341,9 @@ limitations under the License.
          * @private
          */
         _clickOutsideHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             if ($(event.target).closest(this.menu).length === 0) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -335,6 +360,9 @@ limitations under the License.
          * @private
          */
         _DOMAttrModifiedHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             if (event.originalEvent.attrName === 'aria-expanded'
                     && event.originalEvent.newValue === 'false'
                     && $(event.target).hasClass(this.settings.openClass)) {
@@ -353,6 +381,9 @@ limitations under the License.
          * @private
          */
         _focusInHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             clearTimeout(this.focusTimeoutID);
             var target = $(event.target),
                 panel = target.closest('.' + this.settings.panelClass);
@@ -375,6 +406,9 @@ limitations under the License.
          * @private
          */
         _focusOutHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             this.justFocused = false;
             var that = this,
                 target = $(event.target),
@@ -416,6 +450,9 @@ limitations under the License.
          * @private
          */
         _keyDownHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             var that = (this.constructor === AccessibleMegaMenu) ? this : _getPlugin(this), // determine the AccessibleMegaMenu plugin instance
                 settings = that.settings,
                 target = $($(this).is('.' + settings.hoverClass + ':tabbable') ? this : event.target), // if the element is hovered the target is this, otherwise, its the focused element
@@ -630,6 +667,9 @@ limitations under the License.
          * @private
          */
         _mouseDownHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             if ($(event.target).is(":focusable, ." + this.settings.panelClass)) {
                 this.mouseFocused = true;
             }
@@ -647,6 +687,9 @@ limitations under the License.
          * @private
          */
         _mouseOverHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             clearTimeout(this.mouseTimeoutID);
             $(event.target)
                 .addClass(this.settings.hoverClass);
@@ -665,6 +708,9 @@ limitations under the License.
          * @private
          */
         _mouseOutHandler = function (event) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             var that = this;
             $(event.target)
                 .removeClass(that.settings.hoverClass);
@@ -678,6 +724,9 @@ limitations under the License.
         };
 
         _toggleExpandedEventHandlers = function (hide) {
+            // Hack to prevent mobile menu from getting cross talk from mega menu
+            if (_isMobile()) { return; }
+
             var menu = this.menu;
             if (hide) {
                 $('html').off('mouseup.outside-accessible-megamenu, touchend.outside-accessible-megamenu, mspointerup.outside-accessible-megamenu,  pointerup.outside-accessible-megamenu');
