@@ -372,7 +372,7 @@
     /** BEGIN button styling **/
     .section-nav .toggle {
         position: absolute;
-        font-size: 2.5em;
+        font-size: 2em;
         width: 1em;
         height: 1em;
         color: #454545;
@@ -380,12 +380,13 @@
         line-height: 1;
         top: 50%;
         right: 4%;
-        margin-top: -0.5em;
+        margin-top: -0.5625em;
     }
     .section-nav .toggle:after {
         display: block;
-        width: 1em;
-        height: 1em;
+        width: 1.125em;
+        height: 1.125em;
+		line-height: 0.925em;
         background-color: white;
         border-radius: 1em;
         border: 1px solid rgba(0, 0, 0, 0.1);
