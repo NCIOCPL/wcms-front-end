@@ -35,15 +35,18 @@ $(function() {
 	var options = $.extend(defaults, options);
 
     // Select the language tag to pick the proper text for headings
-    // TBD:  Are KeyPoints H3 or H4???
     // ------------------------------------------------------------
     var strViewAll = "";
     if ($('meta[name="content-language"]').attr('content') == 'es') {
-       defaults.stocTitle = '<h3>' + defaults.tocTitleEs + '</h3>';
+       defaults.stocTitle = "<h3 do-not-show='toc'>" 
+                            + defaults.tocTitleEs 
+                            + "</h3>";
        strViewAll = "Ver todas las secciones";
     }
     else {
-       defaults.stocTitle = '<h3>' + defaults.tocTitleEn + '</h3>';
+       defaults.stocTitle = "<h3 do-not-show='toc'>" 
+                            + defaults.tocTitleEn 
+                            + "</h3>";
        strViewAll = "View All Sections";
     };
 
@@ -114,14 +117,18 @@ $(function() {
             // need to include them at the section level.
             // --------------------------------------------------------
             if (options.search == 'body' || options.search == 'article') {
-                hAttr = cacheHN.attr("type");
+                var hAttr = cacheHN.attr("type");
             }
             else {
-                hAttr = '';
+                var hAttr = '';
             }
+            var tocShow = cacheHN.attr("do-not-show");
 
             // We also suppress headings for Reference sections and the
             // heading for the KP box itself.
+            // There are certain headings that should never be included
+            // in the TOC, i.e. Key Points, References, Nav Headings.
+            // These are identified by a "do-not-show='toc'" attribute.
             // ---------------------------------------------------------
             //if (txt == 'References' || txt == 'Key Points for This Section' 
             //                        || hAttr == 'keypoint') {
@@ -192,13 +199,12 @@ $(function() {
 
 
   // JQuery Function: showSection()
-  // This function selects the H2 elements from the "article" container
-  // element and creates a one-level table of content 
+  // This function opens and closes the top-level sections selected
+  // on the section nav bar
   // ------------------------------------------------------------------
   // Function formerly known as InThisSummary.js
   // ------------------------------------------------------------------
   $.fn.showSection = function( options ) {
-     //alert("In showSection Start");
         // Adding some default settings
         var settings = $.extend({
             text: "Default Text",
@@ -207,7 +213,6 @@ $(function() {
 
 
         return this.each( function() {
-            //alert("SS Dada");
 			// hide all sections
             $( ".summary-sections > section").addClass("hide");
 			// ... and then show the first section of the page
@@ -219,7 +224,6 @@ $(function() {
             // If any of the section Nav items are pressed do the following
             // ------------------------------------------------------------
             $("#pdq-toptoc li").click(function() {
-                //alert("its - Volker");
                 $(document).scrollTop(0);
                 // Do nothing if the highlighted section is pressed again
                 if ( $( this ).hasClass("selected")) {
@@ -230,11 +234,11 @@ $(function() {
                     $( this ).addClass("selected");
                     $("section.hide").removeClass("hide")
                                      .addClass("show");
-                    // Need to display the article level TOC
-                    $("#pdq-toc-article").removeClass("hide")
-                                            .addClass("show");
-                    // ... and hide the section level TOC
-                    $("div.pdq-on-this-page").addClass("hide");
+                    // Hide all the TOCs (section and doc level)
+                    $("div nav.on-this-page").addClass("hide");
+                    // ... and then just show the doc level TOC
+                    $("#pdq-toc-article nav.on-this-page").removeClass("hide")
+                                                          .addClass("show");
                     // ... and hide the Previous/Next navigation links
                     $("div.next-link").addClass("hide");
                     $("div.previous-link").addClass("hide");
@@ -249,15 +253,15 @@ $(function() {
                                           .attr("show");
                     $( "section.show").removeClass("show")
                                       .addClass("hide");
-                    $("#pdq-toc-article").removeClass("show")
-                                            .addClass("hide");
-                    // ... and hide the section level TOC
-                    $("div.pdq-on-this-page").removeClass("hide");
+                    // Show all the TOCs (section and doc level)
+                    $("div nav.on-this-page").removeClass("hide");
+                    // ... and then hide just the doc level TOC
+                    $("#pdq-toc-article nav.on-this-page").removeClass("show")
+                                                          .addClass("hide");
                     // ... and show the Previous/Next navigation links
                     $("div.next-link").removeClass("hide");
                     $("div.previous-link").removeClass("hide");
 
-                    //jumpTo = "_section" + jumpTo.substring(0, jumpTo.length - 4);
                     openSection = "#" + jumpTo;
                     //alert(openSection);
                     $(openSection).parent()
@@ -266,18 +270,16 @@ $(function() {
                 }
             });
         });
-    //alert("In showSection End");
     };
 
 
   // JQuery Function: previousNext()
-  // This function selects the H2 elements from the "article" container
-  // element and creates a one-level table of content 
+  // This function creates the links at the bottom to navigate to the
+  // previous/next section
   // ------------------------------------------------------------------
   // Function to create the Previous/Next Navigation
   // ------------------------------------------------------------------
   $.fn.previousNext = function( options ) {
-    //alert("In previousNext Start");
     var defaults = {
         footer:   "Prev Next"
     };
@@ -299,19 +301,19 @@ $(function() {
        strNext = "Next section";
     };
 
-    $(this).children("section").each(function(index, elem) {
+    return this.children("section").each(function() {
 
        // Add the Previous/Next navigation to the bottom of each section
        var pnDivL = "<div class='row show-for-large-up ";
        pnDivL = pnDivL + "previous-next-links collapse'>";
        var pDivL = "<div class='large-6 columns previous-link'>";
-       var pLinkL = "<a href='#";
+       var pLinkL = "<a href='javascript:void(0)";
        var pLinkR = "'>&lt; " + strPrev + "</a>";
        var pTitleL = "<br><em>";
        var pTitleR = "</em>";
        var pDivR = "</div>";
        var nDivL = "<div class='large-6 columns next-link'>";
-       var nLinkL = "<a href='#";
+       var nLinkL = "<a href='javascript:void(0)";
        var nLinkR = "'>" + strNext + " &gt;</a>";
        var nTitleL = "<br><em>";
        var nTitleR = "</em>";
@@ -319,6 +321,7 @@ $(function() {
        var pnDivR = "</div>";
 
        // Extract the section ID and section title of previous/next section
+       // XXX replace prevId with prevTitle
        var prevTitle = $(this).prev("section").children("h2").text();
        var prevId    = $(this).prev("section").attr("id");
        var nextTitle = $(this).next("section").children("h2").text();
@@ -326,30 +329,45 @@ $(function() {
 
        // Concatenate everything
        var pnFooter = ""
-       pnFooter = pnFooter + pnDivL + pDivL
+       pnFooter = pnFooter + pnDivL + pDivL;
        if ( prevId ) {
-           pnFooter = pnFooter + pLinkL + prevId + pLinkR;
-           pnFooter = pnFooter + pTitleL + prevTitle + pTitleR;
+                      //+ pLinkL + prevId + pLinkR
+           pnFooter = pnFooter 
+                      + pLinkL + pLinkR
+                      + pTitleL + prevTitle + pTitleR;
        }
-       pnFooter = pnFooter + pDivR + nDivL
+       pnFooter = pnFooter + pDivR + nDivL;
        if ( nextId ) {
-           pnFooter = pnFooter + nLinkL + nextId + nLinkR;
-           pnFooter = pnFooter + nTitleL + nextTitle + nTitleR;
+                      //+ nLinkL + nextId + nLinkR
+           pnFooter = pnFooter 
+                      + nLinkL + nLinkR
+                      + nTitleL + nextTitle + nTitleR;
        }
-       pnFooter = pnFooter + nDivR + pnDivR
+       pnFooter = pnFooter + nDivR + pnDivR;
 
        // Add the footer to the section
        $(this).append(pnFooter);
-    });
 
-    //alert("In previousNext End");
-    };
+    //$("div.next-link a").click(function() {
+    //    var mySection = $("section.show").attr("id");
+    //    $("section.show").removeClass("show").addClass("hide");
+    //    $("section#" + mySection).next("section").addClass("show");
+    //});
+    //$("div.previous-link a").click(function() {
+    //    $("section.show").removeClass("show").prev("section").addClass("show");
+    //});
+
+    });
+ };
 
 
   // JQuery Function: stoc()
   // This function creates the table of contents for the article and
   // for the individual sections.
-  // The TOC starts on H-level 3 and goes 2 levels deep.
+  // Document level TOC also includes a title 'ON THIS PAGE' and all
+  // TOCs are wrapped in a <nav> element.
+  // The TOC starts on H-level 3 and goes 2 levels deep for sections.
+  // The TOC starts on H-level 2 and goes 3 levels deep for the article.
   // ------------------------------------------------------------------
   // Function to create the TOC (Table Of Contents)
   // ------------------------------------------------------------------
@@ -368,6 +386,7 @@ $(function() {
         beforeText: "", // can add <span class="text-class">
         afterText: "", // can add </span> to match beforeText
         smoothScroll: 1
+
     };
 
 
@@ -378,9 +397,14 @@ $(function() {
     // TBD:  Are KeyPoints H3 or H4???
     // ------------------------------------------------------------
     if ($('meta[name="content-language"]').attr('content') == 'es')
-       defaults.stocTitle = '<h3>' + defaults.tocTitleEs + '</h3>';
+       defaults.stocTitle = '<h6>' + defaults.tocTitleEs + '</h6>';
     else
-       defaults.stocTitle = '<h3>' + defaults.tocTitleEn + '</h3>';
+       defaults.stocTitle = '<h6>' + defaults.tocTitleEn + '</h6>';
+
+    // If the title string is empty don't put out the H-tages
+    if ( defaults.stocTitle == '<h6></h6>') {
+       defaults.stocTitle = "";
+    }
 
     // Need to identify if this is a HP or patient summary.  If it's a
     // patient summary we'll create KeyPoint boxes.
@@ -390,7 +414,7 @@ $(function() {
         var kp = 1;
     }
     else {
-        kp = 0;
+        var kp = 0;
     }
 
 
@@ -420,8 +444,8 @@ $(function() {
             cacheHN = "";
 
         // Turn off the KeyPoint header (coming from the TOC box) (VE)
-        if (kp == 1)
-            options.stocTitle = ""
+        if (kp == 1 && options.search != 'article')
+            options.stocTitle = "";
 
         //which tags we will search
         while ( depth > 1) {
@@ -471,15 +495,19 @@ $(function() {
                 hAttr = '';
             }
 
-            // We also suppress headings for Reference sections and the
-            // heading for the KP box itself.
+            // There are certain headings that should never be included
+            // in the TOC, i.e. Key Points, References, Nav Headings.
+            // These are identified by a "do-not-show='toc'" attribute.
             // ---------------------------------------------------------
-            if (txt != 'References' 
-                    && txt.substring(0, 14) != 'Key Points for'
-                    && txt.substring(0, 10) != 'Bibliograf'
-                    && txt.substring(0, 14) != 'Puntos importa'
-                    && hAttr != 'keypoint'
-                    && txt != 'Sections') {
+            var tocDNS = cacheHN.attr("do-not-show");
+
+            //if (txt != 'References' 
+            //        && txt.substring(0, 14) != 'Key Points for'
+            //        && txt.substring(0, 10) != 'Bibliograf'
+            //        && txt.substring(0, 14) != 'Puntos importa'
+            //        && hAttr != 'keypoint'
+            //        && txt != 'Sections') {
+            if ( tocDNS != "toc" ) {
                 switch(true) {                //with switch(true) we can do
                                               //comparisons in each case
                 case (tagNumber > previous) : //it means that we went down
@@ -549,6 +577,13 @@ $(function() {
                   + "<"+ options.listType + ">"
                   + "</" + options.listType + ">";
         if ( appHTML != emptyHTML ) {
+            var hideDocTOC = "";
+            if (options.search == 'article') hideDocTOC = " hide";
+            appHTML = "<nav class='on-this-page"
+                      + hideDocTOC
+                      + "'>"
+                      + appHTML
+                      + "</nav>"
             obj.append(appHTML);
         }
 
@@ -585,35 +620,63 @@ $(function() {
   $("div.summary-sections").previousNext( { footer: "dada" } );
 
   // Showing the previous/next section when the link is clicked
+  // Also, setting the corresponding section nav item to selected.
   // ------------------------------------------------------------
   $("div.summary-sections > section > div.row a").click(function() {
       $(document).scrollTop(0);
-      $("section.show").removeClass("show").addClass("hide");
-      var open = $(this).attr("href");
-      var link = open.substr(1, open.length - 1);
-      $("section[id="+link+"]").removeClass("hide").addClass("show");
+      var which = $(this).parent("div").attr("class");
+      console.log(which);
+      // Next section link is clicked
+      if ($(this).parent("div").hasClass("next-link")) {
+         $("section.show").removeClass("show")
+                          .addClass("hide")
+                          .next("section")
+                          .removeClass("hide")
+                          .addClass("show");
+         $("div#pdq-toptoc li.selected").removeClass("selected")
+                                        .next("li")
+                                        .addClass("selected");
+      }
+      // Previous section link is clicked
+      else {
+         $("section.show").removeClass("show")
+                          .addClass("hide")
+                          .prev("section")
+                          .removeClass("hide")
+                          .addClass("show");
+         $("div#pdq-toptoc li.selected").removeClass("selected")
+                                        .prev("li")
+                                        .addClass("selected");
+      };
+      //var open = $(this).attr("href");
+      //var link = open.substr(1, open.length - 1);
+      // $("section[id="+link+"]").removeClass("hide").addClass("show");
 
       // Also need to add the attribute 'selected' to the section nav
-      var titleId = $("section[id="+link+"]").children("h2").attr("id");
-      $("div#pdq-toptoc li.selected").removeClass("selected")
-      $("span[show="+titleId+"]").parent("li")
-                                 .addClass("selected");
-  });
+      //var titleId = $("section[id="+link+"]").children("h2").attr("id");
+      //$("div#pdq-toptoc li.selected").removeClass("selected")
+      //                               .next("li")
+      //                               .addClass("selected");
+      //$("span[show="+titleId+"]").parent("li")
+      //                           .addClass("selected");
+  }).stop();
 
   // Creating the TOC entries by calling the stoc function
   // -----------------------------------------------------------
   // First create the div container for the article TOC
-  var tocArticle = "<div id='pdq-toc-article' class='on-this-page hide'>"
-                 + "</div>";
+  var tocArticle = "<div id='pdq-toc-article'></div>";
   $("div#pdq-toptoc").after(tocArticle);
   // Then insert the list
+  // The default TOC header for the document level TOC is 'ON THIS PAGE'
   $("#pdq-toc-article").stoc( { search: "article", 
                                 start: 2, depth: 3,
                                 tocTitleEn: "ON THIS PAGE", 
                                 tocTitleEs: "En esta p&#225;gina" });
 
   // Secondly creating the TOC container for sections
-  var tocSection = "<div class='pdq-on-this-page'></div>";
+  // Note: This will only be used for TOC, not if Keypoints exist for the
+  //       section
+  var tocSection = "<div></div>";
   $("section.pdq-sections").prepend(tocSection);
   $("section.pdq-sections").each(function() {
       var sectionId = $(this).attr("id");
@@ -630,6 +693,11 @@ $(function() {
       var sectionId = $(this).attr("id");
       var tocId = $(this).children("section.pdq-sections").attr("id");
       var hasKeyPoints = $(this).find("div.key-points");
+
+      // Section-level TOC are not created if KeyPoints exist
+      // Note: The default TOC header gets suppressed for 
+      //       section level TOC
+      // ----------------------------------------------------
       if (hasKeyPoints.length === 0) {
           $("#_toc"+tocId).stoc( { search: "#"+sectionId, 
                                    start: 3, depth: 2,
@@ -638,6 +706,11 @@ $(function() {
       }
   });
 
+  // Wrapping the summary sections in a DIV to create the accordion
+  // for the mobile layout
+  // --------------------------------------------------------------
+  $("div.summary-sections").children("section")
+                           .wrapAll("<div class='accordion'></div>");
   //alert("End");
 //})(jQuery);
 });
