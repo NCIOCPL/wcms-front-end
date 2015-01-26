@@ -4,9 +4,14 @@ $(document).ready(function() {
 
     // Global mobile nav functionality
     var styleMobileNav = function() {
-        $('#mega-nav li li div > .toggle[aria-expanded="false"]').parent('div').parent('li').children('ul').hide();
+        var active = $(".active").parents(".nav-item");
+        var toggles = $('#mega-nav .toggle');
+        toggles.filter('[aria-expanded="false"]')
+            .parent('div').parent('li').children('ul').hide()
+            .parent(".nav-item").find("[aria-expanded='true']").attr("aria-expanded","false");
         // highlight active items
         $("#mega-nav li li > div > .toggle[aria-expanded='true']").closest("li").addClass("highlight");
+        $("#mega-nav .highlight").not(active).removeClass("highlight").children("ul").hide();
         $('#mega-nav .nav-menu > li:first-child').addClass("highlight");
 
         $('#mega-nav div > a').on('mousedown mouseup mouseleave touchstart touchend touchcancel', function(e) {
