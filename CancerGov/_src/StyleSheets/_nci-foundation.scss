@@ -92,8 +92,8 @@ $default-float: left;
 // Inset shadow shiny edges and depressions.
 
 // $shiny-edge-size: 0 1px 0;
-// $shiny-edge-color: rgba(#fff, .5);
-// $shiny-edge-active-color: rgba(#000, .2);
+// $shiny-edge-color: rgba(#fff, 0.5);
+// $shiny-edge-active-color: rgba(#000, 0.2);
 
 // Control whether or not CSS classes come through in the CSS files.
 
@@ -104,8 +104,8 @@ $default-float: left;
 // $include-html-type-classes: $include-html-classes;
 // $include-html-grid-classes: $include-html-classes;
 // $include-html-visibility-classes: $include-html-classes;
-// $include-html-button-classes: $include-html-classes;
-// $include-html-form-classes: $include-html-classes;
+$include-html-button-classes: false;
+$include-html-form-classes: false;
 // $include-html-custom-form-classes: $include-html-classes;
 // $include-html-media-classes: $include-html-classes;
 // $include-html-section-classes: $include-html-classes;
@@ -138,7 +138,7 @@ $default-float: left;
 
 //// Cursors
 
-//Custom use example -> $cursor-default-value: url(http://cursors-site.net/path/to/custom/cursor/default.cur),progress;
+//Custom use example -> $cursor-default-value: url(http://cursors-site.net/path/to/custom/cursor/default.cur), progress;
 
 // $cursor-crosshair-value: "crosshair";
 // $cursor-default-value: "default";
@@ -177,8 +177,8 @@ $default-float: left;
 // $header-font-style: normal;
 // $header-font-color: #222;
 // $header-line-height: 1.4;
-// $header-top-margin: .2em;
-// $header-bottom-margin: .5em;
+// $header-top-margin: 0.2em;
+// $header-bottom-margin: 0.5em;
 // $header-text-rendering: optimizeLegibility;
 
 // Control header font sizes
@@ -195,8 +195,8 @@ $default-float: left;
 // $subheader-line-height: 1.4;
 // $subheader-font-color: lighten($header-font-color, 30%);
 // $subheader-font-weight: 300;
-// $subheader-top-margin: .2em;
-// $subheader-bottom-margin: .5em;
+// $subheader-top-margin: 0.2em;
+// $subheader-bottom-margin: 0.5em;
 
 // A general <small> styling
 
@@ -240,7 +240,7 @@ $default-float: left;
 // $list-side-margin: 0;
 // $list-nested-margin: em-calc(20);
 // $definition-list-header-weight: bold;
-// $definition-list-header-margin-bottom: .3em;
+// $definition-list-header-margin-bottom: 0.3em;
 // $definition-list-margin-bottom: em-calc(12);
 
 // Style blockquotes
@@ -283,206 +283,6 @@ $default-float: left;
 
 // $microformat-abbr-font-weight: bold;
 // $microformat-abbr-font-decoration: none;
-
-//
-// Form Variables
-//
-
-// We use this to set the base for lots of form spacing and positioning styles
-
-// $form-spacing: em-calc(16);
-
-// We use these to style the labels in different ways
-
-// $form-label-pointer: pointer;
-// $form-label-font-size: em-calc(14);
-// $form-label-font-weight: 500;
-// $form-label-font-color: lighten(#000, 30%);
-// $form-label-bottom-margin: em-calc(3);
-// $input-font-family: inherit;
-// $input-font-color: rgba(0,0,0,0.75);
-// $input-font-size: em-calc(14);
-// $input-bg-color: #fff;
-// $input-focus-bg-color: darken(#fff, 2%);
-// $input-border-color: darken(#fff, 20%);
-// $input-focus-border-color: darken(#fff, 40%);
-// $input-border-style: solid;
-// $input-border-width: 1px;
-// $input-disabled-bg: #ddd;
-// $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-// $input-include-glowing-effect: true;
-
-// We use these to style the fieldset border and spacing.
-
-// $fieldset-border-style: solid;
-// $fieldset-border-width: 1px;
-// $fieldset-border-color: #ddd;
-// $fieldset-padding: em-calc(20);
-// $fieldset-margin: em-calc(18 0);
-
-// We use these to style the legends when you use them
-
-// $legend-bg: #fff;
-// $legend-font-weight: bold;
-// $legend-padding: em-calc(0 3);
-
-// We use these to style the prefix and postfix input elements
-
-// $input-prefix-bg: darken(#fff, 5%);
-// $input-prefix-border-color: darken(#fff, 20%);
-// $input-prefix-border-size: 1px;
-// $input-prefix-border-type: solid;
-// $input-prefix-overflow: hidden;
-// $input-prefix-font-color: #333;
-// $input-prefix-font-color-alt: #fff;
-
-// We use these to style the error states for inputs and labels
-
-// $input-error-message-padding: em-calc(6 4);
-// $input-error-message-top: 0;
-// $input-error-message-font-size: em-calc(12);
-// $input-error-message-font-weight: bold;
-// $input-error-message-font-color: #fff;
-// $input-error-message-font-color-alt: #333;
-
-// We use this to style the glowing effect of inputs when focused
-
-// $glowing-effect-fade-time: 0.45s;
-// $glowing-effect-color: $input-focus-border-color;
-
-//
-// Button Variables
-//
-
-// We use these to build padding for buttons.
-
-// $button-med: em-calc(12);
-// $button-tny: em-calc(7);
-// $button-sml: em-calc(9);
-// $button-lrg: em-calc(16);
-
-// We use this to control the display property.
-
-// $button-display: inline-block;
-// $button-margin-bottom: em-calc(20);
-
-// We use these to control button text styles.
-
-// $button-font-family: inherit;
-// $button-font-color: #fff;
-// $button-font-color-alt: #333;
-// $button-font-med: em-calc(16);
-// $button-font-tny: em-calc(11);
-// $button-font-sml: em-calc(13);
-// $button-font-lrg: em-calc(20);
-// $button-font-weight: bold;
-// $button-font-align: center;
-
-// We use these to control various hover effects.
-
-// $button-function-factor: 10%;
-
-// We use these to control button border styles.
-
-// $button-border-width: 1px;
-// $button-border-style: solid;
-
-// We use this to set the default radius used throughout the core.
-
-// $button-radius: $global-radius;
-// $button-round: $global-rounded;
-
-// We use this to set default opacity for disabled buttons.
-
-// $button-disabled-opacity: 0.6;
-
-//
-// Button Groups
-//
-
-// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
-
-// $button-bar-margin-opposite: em-calc(10);
-
-//
-// Dropdown Button Variables
-//
-
-// We use these to set the color of the pip in dropdown buttons
-
-// $dropdown-button-pip-color: #fff;
-// $dropdown-button-pip-color-alt: #333;
-
-// We use these to style tiny dropdown buttons
-
-// $dropdown-button-padding-tny: $button-tny * 5;
-// $dropdown-button-pip-size-tny: $button-tny;
-// $dropdown-button-pip-opposite-tny: $button-tny * 2;
-// $dropdown-button-pip-top-tny: -$button-tny / 2 + em-calc(1);
-
-// We use these to style small dropdown buttons
-
-// $dropdown-button-padding-sml: $button-sml * 5;
-// $dropdown-button-pip-size-sml: $button-sml;
-// $dropdown-button-pip-opposite-sml: $button-sml * 2;
-// $dropdown-button-pip-top-sml: -$button-sml / 2 + em-calc(1);
-
-// We use these to style medium dropdown buttons
-
-// $dropdown-button-padding-med: $button-med * 4 + em-calc(3);
-// $dropdown-button-pip-size-med: $button-med - em-calc(3);
-// $dropdown-button-pip-opposite-med: $button-med * 2;
-// $dropdown-button-pip-top-med: -$button-med / 2 + em-calc(2);
-
-// We use these to style large dropdown buttons
-
-// $dropdown-button-padding-lrg: $button-lrg * 4;
-// $dropdown-button-pip-size-lrg: $button-lrg - em-calc(6);
-// $dropdown-button-pip-opposite-lrg: $button-lrg + em-calc(12);
-// $dropdown-button-pip-top-lrg: -$button-lrg / 2 + em-calc(3);
-
-//
-// Split Button Variables
-//
-
-// We use these to control different shared styles for Split Buttons
-
-// $split-button-function-factor: 15%;
-// $split-button-pip-color: #fff;
-// $split-button-pip-color-alt: #333;
-// $split-button-active-bg-tint: rgba(0,0,0,0.1);
-
-// We use these to control tiny split buttons
-
-// $split-button-padding-tny: $button-tny * 9;
-// $split-button-span-width-tny: $button-tny * 6.5;
-// $split-button-pip-size-tny: $button-tny;
-// $split-button-pip-top-tny: $button-tny * 2;
-// $split-button-pip-default-float-tny: em-calc(-5);
-
-// We use these to control small split buttons
-
-// $split-button-padding-sml: $button-sml * 7;
-// $split-button-span-width-sml: $button-sml * 5;
-// $split-button-pip-size-sml: $button-sml;
-// $split-button-pip-top-sml: $button-sml * 1.5;
-// $split-button-pip-default-float-sml: em-calc(-9);
-
-// We use these to control medium split buttons
-
-// $split-button-padding-med: $button-med * 6.4;
-// $split-button-span-width-med: $button-med * 4;
-// $split-button-pip-size-med: $button-med - em-calc(3);
-// $split-button-pip-top-med: $button-med * 1.5;
-// $split-button-pip-default-float-med: em-calc(-9);
-
-// We use these to control large split buttons
-
-// $split-button-padding-lrg: $button-lrg * 6;
-// $split-button-span-width-lrg: $button-lrg * 3.75;
-// $split-button-pip-size-lrg: $button-lrg - em-calc(6);
-// $split-button-pip-top-lrg: $button-lrg + em-calc(5);
-// $split-button-pip-default-float-lrg: em-calc(-9);
 
 //
 // Alert Box Variables
@@ -593,7 +393,7 @@ $default-float: left;
 // $clearing-active-img-height: 75%;
 // $clearing-carousel-height: 150px;
 // $clearing-carousel-thumb-width: 175px;
-// $clearing-carousel-thumb-active-border: 4px solid rgb(255,255,255);
+// $clearing-carousel-thumb-active-border: 4px solid rgb(255, 255, 255);
 
 //
 // Custom Form Variables
@@ -634,7 +434,7 @@ $default-float: left;
 // $custom-dropdown-font-size: em-calc(14);
 // $custom-dropdown-color-selected: #eeeeee;
 // $custom-dropdown-font-color-selected: #000;
-// $custom-dropdown-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+// $custom-dropdown-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 // $custom-dropdown-offset-top: auto;
 // $custom-dropdown-list-padding: em-calc(4);
 // $custom-dropdown-default-float-padding: em-calc(6);
@@ -730,7 +530,7 @@ $default-float: left;
 
 // Controlling default Joyride styles
 
-// $joyride-tip-bg: rgb(0,0,0);
+// $joyride-tip-bg: rgb(0, 0, 0);
 // $joyride-tip-default-width: 300px;
 // $joyride-tip-padding: em-calc(18 20 24);
 // $joyride-tip-border: solid 1px #555;
@@ -761,7 +561,7 @@ $default-float: left;
 
 // When Joyride is filling the screen, we use this style for the bg
 
-// $joyride-screenfill: rgba(0,0,0,0.5);
+// $joyride-screenfill: rgba(0, 0, 0, 0.5);
 
 //
 // Keystroke Variables
@@ -817,23 +617,23 @@ $default-float: left;
 // We use these to control the caption styles
 
 // $orbit-container-bg: #f5f5f5;
-// $orbit-caption-bg: rgba(0,0,0,0.6);
+// $orbit-caption-bg: rgba(0, 0, 0, 0.6);
 // $orbit-caption-font-color: #fff;
 // $orbit-caption-font-size: emCalc(14);
 // $orbit-caption-position: "bottom";    // Supported values: "bottom", "under"
-// $orbit-caption-padding: emCalc(10,14);
+// $orbit-caption-padding: emCalc(10, 14);
 // $orbit-caption-height: auto;
 
 // We use these to control the left/right nav styles
 
-// $orbit-nav-bg: rgba(0,0,0,0.6);
-// $orbit-nav-bg-hover: rgba(0,0,0,0.6);
+// $orbit-nav-bg: rgba(0, 0, 0, 0.6);
+// $orbit-nav-bg-hover: rgba(0, 0, 0, 0.6);
 // $orbit-nav-arrow-color: #fff;
 // $orbit-nav-arrow-color-hover: #ccc;
 
 // We use these to control the timer styles
 
-// $orbit-timer-bg: rgba(0,0,0,0.6);
+// $orbit-timer-bg: rgba(0, 0, 0, 0.6);
 // $orbit-timer-show-progress-bar: true;
 
 // We use these to control the bullet nav styles
@@ -844,7 +644,7 @@ $default-float: left;
 
 // We use these to controls the style of slide numbers
 
-// $orbit-slide-number-bg: rgba(0,0,0,0);
+// $orbit-slide-number-bg: rgba(0, 0, 0, 0);
 // $orbit-slide-number-font-color: #fff;
 // $orbit-slide-number-padding: em-calc(5);
 
@@ -1007,7 +807,7 @@ $default-float: left;
 
 // We use these to control the style of the reveal overlay.
 
-// $reveal-overlay-bg: rgba(#000, .45);
+// $reveal-overlay-bg: rgba(#000, 0.45);
 // $reveal-overlay-bg-old: #000;
 
 // We use these to control the style of the modal itself.
@@ -1016,7 +816,7 @@ $default-float: left;
 // $reveal-position-top: 50px;
 // $reveal-default-width: 80%;
 // $reveal-modal-padding: em-calc(20);
-// $reveal-box-shadow: 0 0 10px rgba(#000,.4);
+// $reveal-box-shadow: 0 0 10px rgba(#000, 0.4);
 
 // We use these to style the reveal close button
 
@@ -1164,7 +964,7 @@ $default-float: left;
 // $switch-paddle-border-color: darken($switch-paddle-bg, 35%);
 // $switch-paddle-border-width: 1px;
 // $switch-paddle-border-style: solid;
-// $switch-paddle-transition-speed: .1s;
+// $switch-paddle-transition-speed: 0.1s;
 // $switch-paddle-transition-ease: ease-out;
 // $switch-positive-color: lighten($success-color, 50%);
 // $switch-negative-color: #f5f5f5;
@@ -1217,8 +1017,8 @@ $default-float: left;
 // $thumb-border-style: solid;
 // $thumb-border-width: 4px;
 // $thumb-border-color: #fff;
-// $thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
-// $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
+// $thumb-box-shadow: 0 0 0 1px rgba(#000, 0.2);
+// $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 
 // Radius and transition speed for thumbs
 
