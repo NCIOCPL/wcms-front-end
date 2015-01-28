@@ -1,5 +1,4 @@
-$include-html-classes: false;
-@import 'nci-foundation';
+
 //
 // Form Variables
 //
@@ -14,8 +13,8 @@ $include-html-classes: false;
 
 // $form-label-pointer: pointer;
 // $form-label-font-size: em-calc(14);
-// $form-label-font-weight: 500;
-// $form-label-font-color: lighten(#000, 30%);
+$form-label-font-weight: normal;
+$form-label-font-color: #606060;
 // $form-label-bottom-margin: em-calc(3);
 // $input-font-family: inherit;
 $input-font-color: #606060;
@@ -24,7 +23,7 @@ $input-placeholder-font-family: inherit;
 $input-placeholder-font-color: lighten($input-font-color, 30%);
 $input-placeholder-font-size: inherit;
 $input-placeholder-font-style: italic;
-$input-bg-color: #fff;
+$input-bg-color: #f2f2f3;
 $input-focus-bg-color: darken($input-bg-color, 2%);
 $input-border-color: darken($input-bg-color, 20%);
 $input-focus-border-color: darken($input-bg-color, 40%);
