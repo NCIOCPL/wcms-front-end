@@ -1,0 +1,59 @@
+/* Begin eBook buttons */
+
+a.pub-button {
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 5px 15px;
+	text-decoration: none;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	display: block;
+	color: #fff;
+	line-height: 24px;
+	font-size: 13px;
+}
+
+.html {
+	background-color: #82368c;	
+}
+.pdf {
+	background-color: #bb0e3d;	
+}
+.kindle {
+	background-color: #ff5f00;	
+}
+.epub {
+	background-color: #2a72a5;	
+}
+
+a.pub-button.icon {
+	padding-left: 11px;
+}
+
+a.pub-button.icon span{
+	padding-left: 36px;
+	background: url(/PublishedContent/images/images/design-elements/icons/Cgov-NVCG-sprite.png) no-repeat 0 -4px;
+	display: block;
+}
+
+a.pub-button.icon.html span {
+	background-position: -20px -584px;
+}
+
+a.pub-button.icon.pdf span{
+	background-position: -20px -474px;
+}
+
+a.pub-button.icon.kindle span{
+	background-position: -20px -511px;
+}
+
+a.pub-button.icon.epub span {
+	background-position: -20px -548px;
+}
+
+
+
+/* End eBook buttons */
