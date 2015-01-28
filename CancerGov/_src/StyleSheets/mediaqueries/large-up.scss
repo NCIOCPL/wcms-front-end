@@ -200,7 +200,11 @@
         display: block;
     }
     /** END PDQ Styles **/
-
+		/** BEGIN Feature Primary Row **/
+		.feature-primary a:hover h3 {
+ 			color: white;	
+		}
+		/** End Feature Primary Row **/
     .medium-1 {
         position: relative;
         width: 8.33333%;
