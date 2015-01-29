@@ -407,7 +407,7 @@
         font-weight: bold;
         padding-top: 0.625em;
         padding-bottom: 0.625em;
-        background-color: #0A6E89;
+        background-color: #186d89;
     }
     .section-nav .level-0 > div > a {
         color: #FFFFFF;
@@ -455,39 +455,13 @@
         min-height: 1.5em;
         padding: 0.75em 2.5em 0.75em 0.75em;
         right: 5%;
-        background: rgb(74, 74, 74) 95% 50% no-repeat;
+        background: #186d89 95% 50% no-repeat;
         background-image: url($buttons + "section-menu-down-arrow.png");
-        /* fallback */
-        background-image: url($buttons + "section-menu-down-arrow.png"), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
-        /* Saf4+, Chrome */
-        background-image: url($buttons + "section-menu-down-arrow.png"), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* Chrome 10+, Saf5.1+ */
-        background-image: url($buttons + "section-menu-down-arrow.png"), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* FF3.6+ */
-        background-image: url($buttons + "section-menu-down-arrow.png"), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* IE10 */
-        background-image: url($buttons + "section-menu-down-arrow.png"), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* Opera 11.10+ */
-        background-image: url($buttons + "section-menu-down-arrow.png"), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* W3C */
-        font-family: Montserrat, Arial;
+        font-family: 'Montserrat', Arial;
         text-transform: uppercase;
     }
     #section-menu-button.open {
         background-image: url($buttons + "section-menu-up-arrow.png");
-        /* fallback */
-        background-image: url($buttons + "section-menu-up-arrow.png"), -webkit-gradient(left top, left bottom, color-stop(0%, rgba(74, 74, 74, 1)), color-stop(100%, rgba(82, 82, 82, 1)));
-        /* Saf4+, Chrome */
-        background-image: url($buttons + "section-menu-up-arrow.png"), -webkit-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* Chrome 10+, Saf5.1+ */
-        background-image: url($buttons + "section-menu-up-arrow.png"), -moz-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* FF3.6+ */
-        background-image: url($buttons + "section-menu-up-arrow.png"), -ms-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* IE10 */
-        background-image: url($buttons + "section-menu-up-arrow.png"), -o-linear-gradient(top, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* Opera 11.10+ */
-        background-image: url($buttons + "section-menu-up-arrow.png"), linear-gradient(to bottom, rgba(74, 74, 74, 1) 0%, rgba(82, 82, 82, 1) 100%);
-        /* W3C */
     }
     /* Fallbacks */
     .no-js .section-nav ul {
