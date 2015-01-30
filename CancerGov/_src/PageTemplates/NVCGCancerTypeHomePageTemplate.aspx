@@ -8,7 +8,7 @@
             </div>
             <!-- slots -->
             <!-- Body slot -->
-            <NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" />
+            <NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server"  CssClass="resize-content" />
             <!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
             <div class="cthp-content-bottom-slot">
                 <div class="row">
