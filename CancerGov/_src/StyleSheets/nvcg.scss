@@ -2,32 +2,21 @@
 @import "environments/percussion";
 @import "variables";
 @import "functions";
+@import "fonts";
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 
 @import "reset";
-$small-screen: 641px;
-$medium-screen: 1025;
-$large-screen: 1440px;
-
-@import "vendor/foundation/scss/foundation";
+@import "nci-foundation";
 @import "foundation_overrides";
 @import "slick";
 @import "jqueryui";
 
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
-@import "fonts";
-
 /********************* BEGIN General Styles ******************************************/
 
-html {
-    font-size: 100%;
-}
 body {
-    font-size: 1em;
-    @include font-noto;
-    color: #606060;
     line-height: 1.375em;
     word-wrap: break-word;
     /* done to let long words that are bigger than container wrap within the word */
@@ -38,10 +27,6 @@ h3,
 h4,
 h5,
 h6 {
-    @include font-montserrat;
-    margin-top: 0.5em;
-    color: #606060;
-
     p {
         font-weight: inherit;
     }
@@ -50,19 +35,15 @@ h6 {
     @include font-montserrat;
 }
 h1 {
-    font-size: 2em;
     line-height: 1.1em;
 }
 h2 {
-    font-size: 1.75em;
     line-height: 1.215em;
 }
 h3 {
-    font-size: 1.5em;
     line-height: 1.25em;
 }
 h4 {
-    font-size: 1.25em;
     line-height: 1.333em;
 }
 p {

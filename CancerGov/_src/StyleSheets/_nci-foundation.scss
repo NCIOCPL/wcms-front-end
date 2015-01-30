@@ -64,10 +64,10 @@ $em-base: 16px !default;
 $default-float: left;
 
 // $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
-// $body-font-style: normal;
+$body-font-color: #606060;
+$body-font-family: #{$noto-font-stack};
+$body-font-weight: normal;
+$body-font-style: normal;
 
 // Font-smoothing
 
@@ -125,9 +125,9 @@ $include-html-form-classes: false;
 
 // Media Queries
 
-// $small-screen: 768px;
-// $medium-screen: 1280px;
-// $large-screen: 1440px;
+$small-screen: 641px;
+$medium-screen: 1025;
+$large-screen: 1440px;
 
 // $screen: "only screen";
 // $small: "only screen and (min-width: #{$small-screen})";
@@ -172,21 +172,21 @@ $include-html-form-classes: false;
 
 // Control header font styles
 
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
-// $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-family: #{$montserrat-font-stack};
+$header-font-weight: bold;
+$header-font-style: normal;
+$header-font-color: #606060;
 // $header-line-height: 1.4;
-// $header-top-margin: 0.2em;
+$header-top-margin: 0.5em;
 // $header-bottom-margin: 0.5em;
 // $header-text-rendering: optimizeLegibility;
 
 // Control header font sizes
 
-// $h1-font-size: em-calc(44);
-// $h2-font-size: em-calc(37);
-// $h3-font-size: em-calc(27);
-// $h4-font-size: em-calc(23);
+$h1-font-size: em-calc(32);
+$h2-font-size: em-calc(28);
+$h3-font-size: em-calc(24);
+$h4-font-size: em-calc(20);
 // $h5-font-size: em-calc(18);
 // $h6-font-size: 1em;
 
