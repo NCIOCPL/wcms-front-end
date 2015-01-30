@@ -6,7 +6,11 @@
 /****************** VENDOR LIBRARIES SECTION ********************/
 
 @import "reset";
-@import "foundation";
+$small-screen: 641px;
+$medium-screen: 1025;
+$large-screen: 1440px;
+
+@import "vendor/foundation/scss/foundation";
 @import "foundation_overrides";
 @import "slick";
 @import "jqueryui";
