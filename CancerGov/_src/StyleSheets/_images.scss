@@ -1,0 +1,108 @@
+%enlarge-infographic {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #fff;
+        padding: 0.3125em 2.25em 0.3125em 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+        opacity: 0.9;
+        text-align: right;
+
+        &:hover, &:focus {
+            text-decoration: none;
+			background: #bb0e3d url($icons + "enlarge.png") 90% 50% no-repeat;
+        }
+}
+
+figure {
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+
+    a.article-image-enlarge {
+        background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
+		@extend %enlarge-infographic;
+    }
+	 
+    /* image right 25% width */
+    &.image-right-small {
+        float: right;
+        width: 25%;
+        margin: 0 0 1em 1em;
+    }
+    /* image right 40% width */
+    &.image-right-medium {
+        float: right;
+        width: 40%;
+        margin: 0 0 1em 1em;
+    }
+    /* image left 25% width */
+    &.image-left-small {
+        float: left;
+        width: 25%;
+        margin: 0 1em 1em 0;
+    }
+    /* image left 40% width */
+    &.image-left-medium {
+        float: left;
+        width: 40%;
+        margin: 0 1em 1em 0;
+    }
+    /* image center 75% width */
+    &.image-center {
+        width: 75%;
+        margin: 0 auto 1em;
+        /* center images using the centered templates */
+        img {
+            margin: 0 auto;
+        }
+    }
+    /* image center 100% width */
+    &.image-center-full {
+        width: 100%;
+        margin: 0 auto 1em;
+        /* center images using the centered templates */
+        img {
+            margin: 0 auto;
+        }
+    }
+    /* contain image inside fig */
+    img {
+        max-width: 100%;
+        /* remove white space under image */
+        display: block;
+    }
+}
+.infographic-view-full {
+	@extend %enlarge-infographic;
+	background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
+	color: #fff;
+	
+	&:hover, &:focus {
+		background: #bb0e3d url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		text-decoration: none;
+		color: #fff;
+	}
+}
+.centered-set {
+    text-align: center;
+}
+.centered-element {
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+}
+.centered-exempt {
+    text-align: left;
+}
+table figure {
+    display: table;
+    table-layout: fixed;
+}
+.caption-container {
+    padding: 0.9375em;
+    line-height: 1.5em;
+    background-color: #f7f7f3;
+    font-size: 0.8125em;
+}
