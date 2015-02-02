@@ -138,7 +138,8 @@ $button-background-color-reset: red;
 // $split-button-pip-default-float-lrg: em-calc(-9);
 
 
-button {
+button,
+.button {
   @include button-base;
   @include button-size;
   @include button-style;
