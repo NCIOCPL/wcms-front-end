@@ -275,7 +275,7 @@ a.learn-more {
 }
 .multimedia-feature-card.cgvInfographic {
 	a:before {
-		content: "View full Infographic";
+		content: "View Infographic";
 		text-transform: uppercase;
 		position: absolute;
 		right: 0;
@@ -283,7 +283,41 @@ a.learn-more {
 		padding: 1em 2em 1em 1em;
 		color: white;
 		html[lang="es"] & {
-			content: "Ver Infograf\00ed a Completa"
+			content: "Ver Infograf\00ed a"
+		}
+	}
+	&:hover a:before, &:focus a:before {
+		background-color: #bb0e3d;
+	}
+}
+.multimedia-feature-card.gloVideo {
+	a:before {
+		content: "View Video";
+		text-transform: uppercase;
+		position: absolute;
+		right: 0;
+		background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
+		padding: 1em 2em 1em 1em;
+		color: white;
+		html[lang="es"] & {
+			content: "Ver video"
+		}
+	}
+	&:hover a:before, &:focus a:before {
+		background-color: #bb0e3d;
+	}
+}
+.multimedia-feature-card.gloVideoCarousel {
+	a:before {
+		content: "View Video Playlist";
+		text-transform: uppercase;
+		position: absolute;
+		right: 0;
+		background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
+		padding: 1em 2em 1em 1em;
+		color: white;
+		html[lang="es"] & {
+			content: "Ver lista de reproducci\00f3 n"
 		}
 	}
 	&:hover a:before, &:focus a:before {
