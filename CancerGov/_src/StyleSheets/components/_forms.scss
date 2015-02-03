@@ -70,6 +70,21 @@ $fieldset-border-color: none;
 // $glowing-effect-fade-time: 0.45s;
 // $glowing-effect-color: $input-focus-border-color;
 
+// We use these to style the radio and checkbox inputs
+
+// common (radios and checkboxes)
+$custom-form-radiocheck-size: 1em;
+$custom-form-radiocheck-spacing: 0.25em;
+$custom-form-radiocheck-bgcolor: white;
+$custom-form-radiocheck-border-size: 2px;
+$custom-form-radiocheck-border-color: green;
+// radios only
+$custom-form-radio-checked-color: $custom-form-radiocheck-border-color;
+$custom-form-radio-radius: 0.5em;
+// checkboxes only
+$custom-form-checkbox-checked-bgcolor: $custom-form-radiocheck-bgcolor;
+$custom-form-checkbox-checked-textcolor: green;
+$custom-form-checkbox-radius: 0;
 
 @mixin input-placeholder() {
   font-family: $input-placeholder-font-family;
@@ -216,8 +231,7 @@ input[type="time"],
 input[type="url"],
 textarea {
   -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  border-radius: 0;
+  @include radius(0);
 
   @include form-element;
   @if not $input-include-glowing-effect {
@@ -292,4 +306,45 @@ textarea.error {
 
 label.error {
   @include form-label-error-color;
+}
+
+/* Custom radio and checkbox styling
+ * Note that these do not get applied to IE8 and below.
+ */
+html.borderradius.generatedcontent {
+  .radio, .checkbox {
+    @extend .hidden;
+  }
+
+  .radio + label:before,
+  .checkbox + label:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    line-height: 0.875em;
+    border-style: solid;
+
+    margin-right: $custom-form-radiocheck-spacing;
+    width: $custom-form-radiocheck-size;
+    height: $custom-form-radiocheck-size;
+    background-color: $custom-form-radiocheck-bgcolor;
+    border-size: $custom-form-radiocheck-border-size;
+    border-color: $custom-form-radiocheck-border-color;
+  }
+  .radio + label:before {
+    @include radius($custom-form-radio-radius);
+  }
+  .radio.checked + label:before {
+    background-color: $custom-form-radio-checked-color;
+  }
+  .checkbox + label:before {
+    @include radius($custom-form-checkbox-radius);
+  }
+  .checkbox.checked + label:before {
+    content: "\2713";
+
+    background-color: $custom-form-checkbox-checked-bgcolor;
+    color: $custom-form-checkbox-checked-textcolor;
+  }
 }
