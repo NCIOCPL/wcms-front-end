@@ -1,9 +1,6 @@
-
 //
 // Form Variables
 //
-
-// $include-html-form-classes: $include-html-classes;
 
 // We use this to set the base for lots of form spacing and positioning styles
 
@@ -12,9 +9,11 @@
 // We use these to style the labels in different ways
 
 // $form-label-pointer: pointer;
+$form-label-display: inline-block;
 // $form-label-font-size: em-calc(14);
 $form-label-font-weight: normal;
 $form-label-font-color: #606060;
+$form-label-line-height: 1em;
 // $form-label-bottom-margin: em-calc(3);
 // $input-font-family: inherit;
 $input-font-color: #606060;
@@ -35,9 +34,9 @@ $input-box-shadow: 0px 2px 4px 0px rgba(242, 242, 243, 0.05) inset;
 
 // We use these to style the fieldset border and spacing.
 
-// $fieldset-border-style: solid;
-// $fieldset-border-width: 1px;
-// $fieldset-border-color: #ddd;
+$fieldset-border-style: none;
+$fieldset-border-width: 0px;
+$fieldset-border-color: none;
 // $fieldset-padding: em-calc(20);
 // $fieldset-margin: em-calc(18 0);
 
@@ -109,6 +108,8 @@ form .row {
 /* Label Styles */
 label {
   @include form-label;
+  display: $form-label-display;
+  line-height: $form-label-line-height;
 
   &.right {
     @include form-label(right, false);
