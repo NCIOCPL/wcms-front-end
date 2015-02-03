@@ -1,8 +1,6 @@
 // This file is for the PDQ Cancer Information Summary UX functionality
 $(function() {
 //(function($) {
-  //alert("Start");
-  
   // Add the container DIV to insert the SectionNav list
   // as the first element of the DIV.summary-sections container
   var topTocDiv = "<div id='pdq-toptoc' class='toptoc'></div>";
@@ -28,7 +26,7 @@ $(function() {
         tocTitleEs: "Secciones",
         beforeText: "",        // can add <span class="text-class">
         afterText: "",         // can add </span> to match beforeText
-		smoothScroll: 1
+		smoothScroll: 0
 	};
 
 	//let's extend our plugin with default or user options when defined
@@ -230,43 +228,52 @@ $(function() {
                     x = 'do_nothing';
                 }
                 else if ( $( this ).hasClass("viewall")) {
-                    $( ".selected").removeClass("selected");
-                    $( this ).addClass("selected");
-                    $("section.hide").removeClass("hide")
-                                     .addClass("show");
-                    // Hide all the TOCs (section and doc level)
-                    $("div nav.on-this-page").addClass("hide");
-                    // ... and then just show the doc level TOC
-                    $("#pdq-toc-article nav.on-this-page").removeClass("hide")
-                                                          .addClass("show");
-                    // ... and hide the Previous/Next navigation links
-                    $("div.next-link").addClass("hide");
-                    $("div.previous-link").addClass("hide");
+                    routie('section/all');
+                    // $( ".selected").removeClass("selected");
+                    // $( this ).addClass("selected");
+                    // $("section.hide").removeClass("hide")
+                    //                  .addClass("show");
+                    // // Hide all the TOCs (section and doc level)
+                    // $("div nav.on-this-page").addClass("hide");
+                    // // ... and then just show the doc level TOC
+                    // $("#pdq-toc-article nav.on-this-page").removeClass("hide")
+                    //                                       .addClass("show");
+                    // // ... and hide the Previous/Next navigation links
+                    // $("div.next-link").addClass("hide");
+                    // $("div.previous-link").addClass("hide");
                 }
                 else {
-                    // Highlighting of the TOC elements
-                    $( ".selected").removeClass("selected");
-                    $( this ).addClass("selected");
-
                     // Display of SummarySections
                     var jumpTo = $( this ).find("span")
                                           .attr("show");
-                    $( "section.show").removeClass("show")
-                                      .addClass("hide");
-                    // Show all the TOCs (section and doc level)
-                    $("div nav.on-this-page").removeClass("hide");
-                    // ... and then hide just the doc level TOC
-                    $("#pdq-toc-article nav.on-this-page").removeClass("show")
-                                                          .addClass("hide");
-                    // ... and show the Previous/Next navigation links
-                    $("div.next-link").removeClass("hide");
-                    $("div.previous-link").removeClass("hide");
+                    var secId = $("h2#"+jumpTo).closest("section")
+                                              .attr("id");
 
-                    openSection = "#" + jumpTo;
-                    //alert(openSection);
-                    $(openSection).parent()
-                                  .removeClass("hide")
-                                  .addClass("show");
+                    routie('section/'+secId);
+
+                    // // Highlighting of the section nav elements
+                    // $( ".selected").removeClass("selected");
+                    // $( this ).addClass("selected");
+                    // 
+                    // // Display of SummarySections
+                    // var jumpTo = $( this ).find("span")
+                    //                       .attr("show");
+                    // $( "section.show").removeClass("show")
+                    //                   .addClass("hide");
+                    // // Show all the TOCs (section and doc level)
+                    // $("div nav.on-this-page").removeClass("hide");
+                    // // ... and then hide just the doc level TOC
+                    // $("#pdq-toc-article nav.on-this-page").removeClass("show")
+                    //                                       .addClass("hide");
+                    // // ... and show the Previous/Next navigation links
+                    // $("div.next-link").removeClass("hide");
+                    // $("div.previous-link").removeClass("hide");
+                    // 
+                    // openSection = "#" + jumpTo;
+                    // //alert(openSection);
+                    // $(openSection).parent()
+                    //               .removeClass("hide")
+                    //               .addClass("show");
                 }
             });
         });
@@ -301,19 +308,21 @@ $(function() {
        strNext = "Next section";
     };
 
+    // Add the Previous/Next navigation to the bottom of each section
     return this.children("section").each(function() {
-
-       // Add the Previous/Next navigation to the bottom of each section
+       // The link target '#section/_id' triggers routie.js to set the
+       // URL for the section properly
+       // --------------------------------------------------------------
        var pnDivL = "<div class='row show-for-large-up ";
        pnDivL = pnDivL + "previous-next-links collapse'>";
        var pDivL = "<div class='large-6 columns previous-link'>";
-       var pLinkL = "<a href='javascript:void(0)";
+       var pLinkL = "<a href='#section/";
        var pLinkR = "'>&lt; " + strPrev + "</a>";
        var pTitleL = "<br><em>";
        var pTitleR = "</em>";
        var pDivR = "</div>";
        var nDivL = "<div class='large-6 columns next-link'>";
-       var nLinkL = "<a href='javascript:void(0)";
+       var nLinkL = "<a href='#section/";
        var nLinkR = "'>" + strNext + " &gt;</a>";
        var nTitleL = "<br><em>";
        var nTitleR = "</em>";
@@ -321,56 +330,48 @@ $(function() {
        var pnDivR = "</div>";
 
        // Extract the section ID and section title of previous/next section
-       // XXX replace prevId with prevTitle
+       // including the section ID will trigger routie.js to open the 
+       // appropriate section.
+       // -----------------------------------------------------------------
        var prevTitle = $(this).prev("section").children("h2").text();
        var prevId    = $(this).prev("section").attr("id");
        var nextTitle = $(this).next("section").children("h2").text();
        var nextId    = $(this).next("section").attr("id");
 
-       // Concatenate everything
+       // Concatenate everything and add to the end of the section
+       // but only if a previous/next section exists.
+       // --------------------------------------------------------
        var pnFooter = ""
        pnFooter = pnFooter + pnDivL + pDivL;
        if ( prevId ) {
-                      //+ pLinkL + prevId + pLinkR
            pnFooter = pnFooter 
-                      + pLinkL + pLinkR
+                      + pLinkL + prevId + pLinkR
                       + pTitleL + prevTitle + pTitleR;
        }
        pnFooter = pnFooter + pDivR + nDivL;
        if ( nextId ) {
-                      //+ nLinkL + nextId + nLinkR
            pnFooter = pnFooter 
-                      + nLinkL + nLinkR
+                      + nLinkL + nextId + nLinkR
                       + nTitleL + nextTitle + nTitleR;
        }
        pnFooter = pnFooter + nDivR + pnDivR;
 
        // Add the footer to the section
        $(this).append(pnFooter);
-
-    //$("div.next-link a").click(function() {
-    //    var mySection = $("section.show").attr("id");
-    //    $("section.show").removeClass("show").addClass("hide");
-    //    $("section#" + mySection).next("section").addClass("show");
-    //});
-    //$("div.previous-link a").click(function() {
-    //    $("section.show").removeClass("show").prev("section").addClass("show");
-    //});
-
     });
  };
 
 
-  // JQuery Function: stoc()
-  // This function creates the table of contents for the article and
-  // for the individual sections.
-  // Document level TOC also includes a title 'ON THIS PAGE' and all
-  // TOCs are wrapped in a <nav> element.
-  // The TOC starts on H-level 3 and goes 2 levels deep for sections.
-  // The TOC starts on H-level 2 and goes 3 levels deep for the article.
-  // ------------------------------------------------------------------
-  // Function to create the TOC (Table Of Contents)
-  // ------------------------------------------------------------------
+ // JQuery Function: stoc()
+ // This function creates the table of contents for the article and
+ // for the individual sections.
+ // Document level TOC also includes a title 'ON THIS PAGE' and all
+ // TOCs are wrapped in a <nav> element.
+ // The TOC starts on H-level 3 and goes 2 levels deep for sections.
+ // The TOC starts on H-level 2 and goes 3 levels deep for the article.
+ // ------------------------------------------------------------------
+ // Function to create the TOC (Table Of Contents)
+ // ------------------------------------------------------------------
  $.fn.stoc = function(options) {
     //console.log("In stoc start");
     //Our default options
@@ -617,49 +618,38 @@ $(function() {
 
   // Creating the previous/next navigation links
   // ------------------------------------------------------------
-  $("div.summary-sections").previousNext( { footer: "dada" } );
+  $("div.summary-sections").previousNext( { footer: "Prev/Next" } );
 
-  // Showing the previous/next section when the link is clicked
-  // Also, setting the corresponding section nav item to selected.
-  // ------------------------------------------------------------
-  $("div.summary-sections > section > div.row a").click(function() {
-      $(document).scrollTop(0);
-      var which = $(this).parent("div").attr("class");
-      console.log(which);
-      // Next section link is clicked
-      if ($(this).parent("div").hasClass("next-link")) {
-         $("section.show").removeClass("show")
-                          .addClass("hide")
-                          .next("section")
-                          .removeClass("hide")
-                          .addClass("show");
-         $("div#pdq-toptoc li.selected").removeClass("selected")
-                                        .next("li")
-                                        .addClass("selected");
-      }
-      // Previous section link is clicked
-      else {
-         $("section.show").removeClass("show")
-                          .addClass("hide")
-                          .prev("section")
-                          .removeClass("hide")
-                          .addClass("show");
-         $("div#pdq-toptoc li.selected").removeClass("selected")
-                                        .prev("li")
-                                        .addClass("selected");
-      };
-      //var open = $(this).attr("href");
-      //var link = open.substr(1, open.length - 1);
-      // $("section[id="+link+"]").removeClass("hide").addClass("show");
-
-      // Also need to add the attribute 'selected' to the section nav
-      //var titleId = $("section[id="+link+"]").children("h2").attr("id");
-      //$("div#pdq-toptoc li.selected").removeClass("selected")
-      //                               .next("li")
-      //                               .addClass("selected");
-      //$("span[show="+titleId+"]").parent("li")
-      //                           .addClass("selected");
-  }).stop();
+  // // Showing the previous/next section when the link is clicked
+  // // Also, setting the corresponding section nav item to selected.
+  // // ------------------------------------------------------------
+  // $("div.summary-sections > section > div.row a").click(function() {
+  //     $(document).scrollTop(0);
+  //     var which = $(this).parent("div").attr("class");
+  //     console.log(which);
+  //     // Next section link is clicked
+  //     if ($(this).parent("div").hasClass("next-link")) {
+  //        $("section.show").removeClass("show")
+  //                         .addClass("hide")
+  //                         .next("section")
+  //                         .removeClass("hide")
+  //                         .addClass("show");
+  //        $("div#pdq-toptoc li.selected").removeClass("selected")
+  //                                       .next("li")
+  //                                       .addClass("selected");
+  //     }
+  //     // Previous section link is clicked
+  //     else {
+  //        $("section.show").removeClass("show")
+  //                         .addClass("hide")
+  //                         .prev("section")
+  //                         .removeClass("hide")
+  //                         .addClass("show");
+  //        $("div#pdq-toptoc li.selected").removeClass("selected")
+  //                                       .prev("li")
+  //                                       .addClass("selected");
+  //     };
+  // }).stop();
 
   // Creating the TOC entries by calling the stoc function
   // -----------------------------------------------------------
@@ -711,7 +701,92 @@ $(function() {
   // --------------------------------------------------------------
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
-  //alert("End");
-//})(jQuery);
+
+// Section to setup re-routing of URLs
+// -----------------------------------
+routie({
+    'all': function() {
+        routie('section/all');
+    },
+    'section/:sid': function(sid) {
+        $(document).scrollTop(0);
+
+        if ( sid == 'all' ) {
+            $("section.hide").removeClass("hide")
+                             .addClass("show");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            $("#pdq-toptoc li.viewall").addClass("selected");
+
+            // Hide all the TOCs (section and doc level)
+            $("div nav.on-this-page").addClass("hide");
+            // ... and then just show the doc level TOC
+            $("#pdq-toc-article nav.on-this-page").removeClass("hide")
+                                                  .addClass("show");
+            // ... and hide the Previous/Next navigation links
+            $("div.next-link").addClass("hide");
+            $("div.previous-link").addClass("hide");
+        }
+        else {
+            // Display of SummarySections
+            $("section.show").removeClass("show")
+                             .addClass("hide");
+            $("section#"+sid).removeClass("hide")
+                             .addClass("show");
+
+            // Highlighting of the section nav elements
+            var thisSection = $("section.show").children("h2")
+                                              .attr("id");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+                                                            .addClass("selected");
+
+            // Show all the TOCs (section and doc level)
+            $("div nav.on-this-page").removeClass("hide");
+            // ... and then hide just the doc level TOC
+            $("#pdq-toc-article nav.on-this-page").removeClass("show")
+                                                  .addClass("hide");
+            // ... and show the Previous/Next navigation links
+            $("div.next-link").removeClass("hide");
+            $("div.previous-link").removeClass("hide");
+          }
+    },
+    'link/:rid': function(rid) {
+        // Hide all open sections
+        $(".summary-sections section.show").removeClass("show")
+                                           .addClass("hide");
+        // Find parent (top level section) of current element
+        $("#"+rid).closest("section.hide").removeClass("hide")
+                                          .addClass("show");
+        $("#pdq-toptoc li.selected").removeClass("selected");
+        var thisSection = $("section.show").children("h2")
+                                           .attr("id");
+        $("#pdq-toptoc li.selected").removeClass("selected");
+        $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+                                                        .addClass("selected");
+        $("#"+rid)[0].scrollIntoView();
+
+        // According to Bryan positioning the link target below the 
+        // sticky menu is not part of this story
+        // ------------------------------------------------------------
+        // var myPos = Math.floor( $("div.nav-search-bar").position().top);
+        // var myHeight = Math.floor( $("div.nav-search-bar").height() );
+        // console.log("dada3");
+        // console.log(myPos);
+        // console.log(myHeight);
+        // $("#"+rid)[0].scrollIntoView();
+        // document.body.scrollTop -= myPos//+myHeight;
+    },
+
+    ':lid': function(lid) { 
+        var goodLink = $("#"+lid);
+        console.log(goodLink);
+        if ( goodLink.length == 0 ) {
+            routie ('section/all');
+        }
+        else {
+            routie ('link/'+lid); 
+        };
+    }
 });
 
+});
