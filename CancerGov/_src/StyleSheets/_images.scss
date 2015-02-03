@@ -74,7 +74,7 @@ figure {
         display: block;
     }
 }
-.infographic-view-full {
+a.infographic-view-full {
 	@extend %enlarge-infographic;
 	background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
 	color: #fff;
