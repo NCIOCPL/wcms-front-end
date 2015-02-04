@@ -36,9 +36,9 @@ $input-box-shadow: 0px 2px 4px 0px rgba(242, 242, 243, 0.05) inset;
 
 $fieldset-border-style: none;
 $fieldset-border-width: 0px;
-$fieldset-border-color: none;
-// $fieldset-padding: em-calc(20);
-// $fieldset-margin: em-calc(18 0);
+$fieldset-border-color: transparent;
+$fieldset-padding: 0;
+$fieldset-margin: 0;
 
 // We use these to style the legends when you use them
 
@@ -83,7 +83,7 @@ $custom-form-radio-checked-color: $custom-form-radiocheck-border-color;
 $custom-form-radio-radius: 0.5em;
 // checkboxes only
 $custom-form-checkbox-checked-bgcolor: $custom-form-radiocheck-bgcolor;
-$custom-form-checkbox-checked-textcolor: #186d89;
+$custom-form-checkbox-checked-textcolor: $body-font-color;
 $custom-form-checkbox-radius: 0;
 
 @mixin input-placeholder() {
@@ -335,7 +335,7 @@ html.borderradius.generatedcontent {
 
     display: inline-block;
     text-align: center;
-    line-height: 0.875em;
+    line-height: $custom-form-radiocheck-size - $custom-form-radiocheck-spacing;
     border-style: solid;
 
     margin-right: $custom-form-radiocheck-spacing;
