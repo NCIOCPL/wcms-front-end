@@ -85,6 +85,17 @@ a.infographic-view-full {
 		color: #fff;
 	}
 }
+a.video-view-full {
+	@extend %enlarge-infographic;
+	background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
+	color: #fff;
+	
+	&:hover, &:focus {
+		background: #bb0e3d url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		text-decoration: none;
+		color: #fff;
+	}
+}
 .centered-set {
     text-align: center;
 }
