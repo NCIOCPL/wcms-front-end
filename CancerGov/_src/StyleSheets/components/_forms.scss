@@ -77,13 +77,13 @@ $custom-form-radiocheck-size: 1em;
 $custom-form-radiocheck-spacing: 0.25em;
 $custom-form-radiocheck-bgcolor: white;
 $custom-form-radiocheck-border-size: 2px;
-$custom-form-radiocheck-border-color: green;
+$custom-form-radiocheck-border-color: #186d89;
 // radios only
 $custom-form-radio-checked-color: $custom-form-radiocheck-border-color;
 $custom-form-radio-radius: 0.5em;
 // checkboxes only
 $custom-form-checkbox-checked-bgcolor: $custom-form-radiocheck-bgcolor;
-$custom-form-checkbox-checked-textcolor: green;
+$custom-form-checkbox-checked-textcolor: #186d89;
 $custom-form-checkbox-radius: 0;
 
 @mixin input-placeholder() {
@@ -313,13 +313,26 @@ label.error {
  */
 html.borderradius.generatedcontent {
   .radio, .checkbox {
-    @extend .hidden;
+    position: relative;
+  }
+  .radio input[type=radio], .checkbox input[type=checkbox] {
+    position: absolute;
+    top: 0.25em;
+    left: $custom-form-radiocheck-border-size / 2;
+    opacity: 0;
   }
 
+  .radio + label,
+  .checkbox + label {
+    position: relative;
+    margin-left: $custom-form-radiocheck-size + $custom-form-radiocheck-spacing;
+  }
   .radio + label:before,
   .checkbox + label:before {
     content: "";
-    position: relative;
+    position: absolute;
+    left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing);
+
     display: inline-block;
     text-align: center;
     line-height: 0.875em;
@@ -329,7 +342,7 @@ html.borderradius.generatedcontent {
     width: $custom-form-radiocheck-size;
     height: $custom-form-radiocheck-size;
     background-color: $custom-form-radiocheck-bgcolor;
-    border-size: $custom-form-radiocheck-border-size;
+    border-width: $custom-form-radiocheck-border-size;
     border-color: $custom-form-radiocheck-border-color;
   }
   .radio + label:before {
