@@ -56,3 +56,41 @@
 		padding: 10px 20px;
 	}
 }
+
+/* selectmenu */
+$ui-selectmenu-padding: 0.5em 2em 0.5em 1em;
+
+// based on the sprite
+$ui-selectmenu-icon-width: 11px;
+$ui-selectmenu-icon-height: 8px;
+
+.ui-selectmenu-button {
+	// specified in components/forms.scss
+	color: $input-font-color;
+	background-color: $input-bg-color;
+
+	span.ui-icon {
+		top: 0;
+		right: 0;
+		margin-top: 0;
+		padding: 1em;
+		padding: 1em;
+		height: $ui-selectmenu-icon-height;
+		width: $ui-selectmenu-icon-width;
+		background: #0eb5bb url("nci-sprite.png") no-repeat -378.5px -172px;
+	}
+	span.ui-selectmenu-text {
+		padding: $ui-selectmenu-padding;
+		line-height: 1;
+	}
+}
+.ui-selectmenu-menu {
+	.ui-menu-item {
+		padding: $ui-selectmenu-padding;
+		line-height: 1;
+	}
+	.ui-state-focus {
+		color: #fff;
+		background: #bb0e3d;
+	}
+}
