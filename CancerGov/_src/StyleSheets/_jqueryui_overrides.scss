@@ -1,0 +1,58 @@
+/*
+ * jQuery UI Overrides
+ */
+
+/* general */
+.ui-widget {
+	font-family: inherit;
+	/* jquery-ui.css:832 sets this to 'Verdana,Arial,sans-serif' */
+	font-size: inherit;
+	/* jquery-ui.css:832 sets this to '1.1em' */
+}
+
+/* accordion */
+.ui-accordion {
+	// accordion header
+	.ui-accordion-header {
+		font-weight: bold;
+		border-left: 0;
+		border-right: 0;
+		border-top: 0;
+		border-radius: 0;
+		border-bottom: 1px solid #96aeb8;
+		background: #1D5E86;
+		color: #fff;
+		margin: 0 -0.9375em;
+		padding: 10px 50px 10px 20px;
+	}
+	&.columns .ui-accordion-header {
+		margin: 0;
+	}
+	.ui-accordion-header:first-child {
+		border-top: 1px solid #96aeb8;
+	}
+	// opened accordion
+	.ui-accordion-header.ui-state-active {
+		background: #CCEEFA;
+		color: #606060;
+	}
+	// override icons
+	.ui-accordion-header .ui-icon {
+		width: 32px;
+		height: 32px;
+		background-image: url($buttons + "mobile-menus-expand-collapse-buttons-sm.png");
+		background-position: 0 0;
+		margin-top: -16px;
+		right: 15px;
+		left: auto;
+	}
+	.ui-accordion-header.ui-state-active .ui-icon {
+		background-position: 0 -45px;
+	}
+
+	// accordion content
+	.ui-accordion-content {
+		border: 0;
+		padding: 10px 20px;
+	}
+}

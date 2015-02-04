@@ -11,6 +11,7 @@
 @import "foundation_overrides";
 @import "slick";
 @import "jqueryui";
+@import "jqueryui_overrides";
 
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
@@ -81,7 +82,7 @@ table.table-default caption {
 }
 table.table-default th {
     background-color: #f2f3f7;
-	  font-weight: bold; 
+	  font-weight: bold;
 	  @include font-montserrat;
     /*text-align: left;*/
 }
