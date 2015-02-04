@@ -516,7 +516,7 @@ $(function() {
                         appHTML = appHTML + "<" + options.listType + ">"
                                           + "<li>"
                                           + beforeTxt
-                                          + "<a href=\"#"+ id + "\">"
+                                          + "<a href=\"#link/"+ id + "\">"
                                           + txt
                                           + "</a>";
                         previous = tagNumber;
@@ -527,7 +527,7 @@ $(function() {
                         appHTML = appHTML + "</li>"
                                           + "<li>"
                                           + beforeTxt
-                                          + "<a href=\"#" + id + "\">"
+                                          + "<a href=\"#link/" + id + "\">"
                                           + txt
                                           + "</a>";
                     break;
@@ -541,7 +541,7 @@ $(function() {
                         }
                         appHTML = appHTML + "<li>"
                                           + beforeTxt
-                                          + "<a href=\"#" + id + "\">"
+                                          + "<a href=\"#link/" + id + "\">"
                                           + txt
                                           + "</a>";
                     break;
@@ -702,8 +702,18 @@ $(function() {
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
 
+  // Creating the TOC for CTGovProtocols
+  // The default TOC header for the document level TOC is 'ON THIS PAGE'
+  $("#pdq-toc-protocol").stoc( { search: "article", 
+                                 start: 2, depth: 3,
+                                 tocTitleEn: "ON THIS PAGE", 
+                                 tocTitleEs: "En esta p&#225;gina" });
+  $("#pdq-toc-protocol").removeClass("hide"); 
+
 // Section to setup re-routing of URLs
-// -----------------------------------
+// We are jumping to the specified link and opening the parent section
+// that contains this link.
+// -------------------------------------------------------------------
 routie({
     'all': function() {
         routie('section/all');
@@ -777,9 +787,12 @@ routie({
         // document.body.scrollTop -= myPos//+myHeight;
     },
 
+    // Check if the supplied ID exists.  If it doesn't exist open
+    // the full document.
+    // ----------------------------------------------------------
     ':lid': function(lid) { 
         var goodLink = $("#"+lid);
-        console.log(goodLink);
+        // console.log(goodLink);
         if ( goodLink.length == 0 ) {
             routie ('section/all');
         }
