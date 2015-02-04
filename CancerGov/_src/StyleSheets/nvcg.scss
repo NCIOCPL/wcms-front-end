@@ -72,10 +72,10 @@ table.table-default {
     margin: 15px 0;
 }
 table.table-default caption {
-    font-weight: bold;
+    @include font-montserrat;
+	  font-weight: normal;
+	  text-transform: uppercase;
     text-align: left;
-    font-size: 15px;
-    color: #000;
     padding: 20px 0 10px;
     /* using padding instead of margin due to problem in Safari */
 }
