@@ -48,7 +48,7 @@
     }
 
     .icon {
-        background-image: url('/publishedcontent/images/images/design-elements/icons/Cgov-NVCG-sprite.png');
+        background-image: url($icons + "nci-sprite.png");
         background-repeat: no-repeat;
         display: inline-block;
 

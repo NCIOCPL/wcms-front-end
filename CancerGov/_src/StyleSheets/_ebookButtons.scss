@@ -1,7 +1,7 @@
 /* Begin eBook buttons */
 
 .pub-buttons {
-	overflow:auto;	
+	overflow:auto;
 }
 
 .pub-buttons a{
@@ -24,16 +24,16 @@
 }
 
 .html {
-	background-color: #82368c;	
+	background-color: #82368c;
 }
 .pdf {
-	background-color: #bb0e3d;	
+	background-color: #bb0e3d;
 }
 .kindle {
-	background-color: #ff5f00;	
+	background-color: #ff5f00;
 }
 .epub {
-	background-color: #2a72a5;	
+	background-color: #2a72a5;
 }
 
 .pub-buttons a.icon {
@@ -42,7 +42,7 @@
 
 .pub-buttons a.icon span{
 	padding-left: 36px;
-	background: url(/PublishedContent/images/images/design-elements/icons/Cgov-NVCG-sprite.png) no-repeat 0 -4px;
+	background: url($icons + "nci-sprite.png") no-repeat 0 -4px;
 	display: block;
 }
 
