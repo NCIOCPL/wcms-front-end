@@ -278,6 +278,7 @@ a.learn-more {
 		content: "View Infographic";
 		text-transform: uppercase;
 		position: absolute;
+		z-index: 88;
 		right: 0;
 		background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
 		padding: 1em 2em 1em 1em;
@@ -295,6 +296,7 @@ a.learn-more {
 		content: "View Video";
 		text-transform: uppercase;
 		position: absolute;
+		z-index: 88;
 		right: 0;
 		background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
 		padding: 1em 2em 1em 1em;
@@ -312,6 +314,7 @@ a.learn-more {
 		content: "View Video Playlist";
 		text-transform: uppercase;
 		position: absolute;
+		z-index: 88;
 		right: 0;
 		background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
 		padding: 1em 2em 1em 1em;
