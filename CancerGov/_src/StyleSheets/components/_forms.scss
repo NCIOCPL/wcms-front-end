@@ -315,49 +315,52 @@ html.borderradius.generatedcontent {
   .radio, .checkbox {
     position: relative;
   }
-  .radio input[type=radio], .checkbox input[type=checkbox] {
+  input[type=radio], input[type=checkbox] {
     position: absolute;
     top: 0.25em;
     left: $custom-form-radiocheck-border-size / 2;
     opacity: 0;
-  }
 
-  .radio + label,
-  .checkbox + label {
-    position: relative;
-    margin-left: $custom-form-radiocheck-size + $custom-form-radiocheck-spacing;
-  }
-  .radio + label:before,
-  .checkbox + label:before {
-    content: "";
-    position: absolute;
-    left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing);
+    + label {
+      position: relative;
+      margin-left: $custom-form-radiocheck-size + $custom-form-radiocheck-spacing;
 
-    display: inline-block;
-    text-align: center;
-    line-height: $custom-form-radiocheck-size - $custom-form-radiocheck-spacing;
-    border-style: solid;
+      &:before {
+        content: "";
+        position: absolute;
+        left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing);
 
-    margin-right: $custom-form-radiocheck-spacing;
-    width: $custom-form-radiocheck-size;
-    height: $custom-form-radiocheck-size;
-    background-color: $custom-form-radiocheck-bgcolor;
-    border-width: $custom-form-radiocheck-border-size;
-    border-color: $custom-form-radiocheck-border-color;
-  }
-  .radio + label:before {
-    @include radius($custom-form-radio-radius);
-  }
-  .radio.checked + label:before {
-    background-color: $custom-form-radio-checked-color;
-  }
-  .checkbox + label:before {
-    @include radius($custom-form-checkbox-radius);
-  }
-  .checkbox.checked + label:before {
-    content: "\2713";
+        display: inline-block;
+        text-align: center;
+        line-height: $custom-form-radiocheck-size - $custom-form-radiocheck-spacing;
+        border-style: solid;
 
-    background-color: $custom-form-checkbox-checked-bgcolor;
-    color: $custom-form-checkbox-checked-textcolor;
+        margin-right: $custom-form-radiocheck-spacing;
+        width: $custom-form-radiocheck-size;
+        height: $custom-form-radiocheck-size;
+        background-color: $custom-form-radiocheck-bgcolor;
+        border-width: $custom-form-radiocheck-border-size;
+        border-color: $custom-form-radiocheck-border-color;
+      }
+    }
+  }
+  input[type=radio] {
+    + label:before {
+      @include radius($custom-form-radio-radius);
+    }
+    &:checked + label:before {
+      background-color: $custom-form-radio-checked-color;
+    }
+  }
+  input[type=checkbox] {
+    + label:before {
+      @include radius($custom-form-checkbox-radius);
+    }
+    &:checked + label:before {
+      content: "\2713";
+
+      background-color: $custom-form-checkbox-checked-bgcolor;
+      color: $custom-form-checkbox-checked-textcolor;
+    }
   }
 }
