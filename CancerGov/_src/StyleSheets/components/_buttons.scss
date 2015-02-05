@@ -19,21 +19,22 @@
 $button-font-family: 'Montserrat', Arial, sans-serif;
 $button-font-color: #fff;
 // $button-font-color-alt: #333;
-// $button-font-med: em-calc(16);
+$button-font-med: em-calc(16);
 // $button-font-tny: em-calc(11);
 // $button-font-sml: em-calc(13);
 // $button-font-lrg: em-calc(20);
-// $button-font-weight: bold;
-// $button-font-align: center;
+$button-font-weight: bold;
+$button-font-align: center;
 
 // We use these to control button background styles.
 
 $button-background-color-submit: #0eb5bb;
 $button-background-color-reset: #bb0e3d;
+$button-background-color-otheraction: #186e88;
 
 // We use these to control various hover effects.
 
-// $button-function-factor: 10%;
+$button-function-factor: 10%;
 
 // We use these to control button border styles.
 
@@ -152,6 +153,9 @@ button,
   &.reset {
     @include button-style($bg:$button-background-color-reset);
   }
+  &.action {
+    @include button-style($bg:$button-background-color-otheraction);
+  }
 
   &.left-align {
     text-align: left; text-indent: em-calc(12);
@@ -169,6 +173,9 @@ button,
     &[type=reset],
     &.reset {
       @include button-style($bg:$button-background-color-reset, $disabled:true);
+    }
+    &.action {
+      @include button-style($bg:$button-background-color-otheraction, $disabled:true);
     }
   }
 }
