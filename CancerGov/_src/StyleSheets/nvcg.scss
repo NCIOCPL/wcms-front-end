@@ -167,10 +167,54 @@ figcaption {
 }
 /* fix for Chrome problem with rendering sup tags */
 .sup {font-size: 80%; position: relative; bottom: 0.6em;}
+/* BEGIN columns by css instead of tables */
+.two-columns, .three-columns, .four-columns, .five-columns {
+	width: 100%; 
+	overflow: auto;
+	margin-bottom: 1em;	
+}
+/* 2 col */
+.two-columns .column1,
+.two-columns .column2 {
+	float: left; width: 48%; padding-right: 4%;
+}
+.two-columns .column2 {
+	padding-right: 0;
+}
+/* 3 col */
+.three-columns .column1,
+.three-columns .column2,
+.three-columns .column3 {
+	float: left; width: 30%; padding-right: 5%;
+}
+.three-columns .column3 {
+	padding-right: 0;
+}
+/* 4 col */
+.four-columns .column1,
+.four-columns .column2,
+.four-columns .column3,
+.four-columns .column4 {
+	float: left; width: 22%; padding-right: 4%;
+}
+.four-columns .column4 {
+	padding-right: 0;
+}
+/* 5 col */
+.five-columns .column1,
+.five-columns .column2,
+.five-columns .column3,
+.five-columns .column4,
+.five-columns .column5 {
+	float: left; width: 16%; padding-right: 5%;
+}
+.five-columns .column5 {
+	padding-right: 0;
+}
+/* END columns by css instead of tables */
 /********************* END General Styles ******************************************/
 
 /********************* BEGIN Header Styles ******************************************/
-
 header {
     padding: 1em 0 0;
     @include font-montserrat;
