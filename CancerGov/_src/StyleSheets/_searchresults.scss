@@ -6,3 +6,27 @@
 		display: inline-block;
 	}
 }
+
+.pagination {
+	float: right;
+	font-size: 1.125em;
+
+	li {
+		display: inline-block;
+		margin-left: 0.75em;
+	}
+	// to get rid of bullets (can't use no-bullets because it adds annoying padding/margin)
+	ul > li:before {
+		content: none;
+	}
+
+	.next a:after {
+		content: ">";
+	}
+	.previous a:before {
+		content: "<";
+	}
+	.current {
+		font-weight: bold;
+	}
+}
