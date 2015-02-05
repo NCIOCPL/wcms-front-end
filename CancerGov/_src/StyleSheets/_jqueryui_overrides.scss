@@ -58,35 +58,42 @@
 }
 
 /* selectmenu */
-$ui-selectmenu-padding: 0.5em 2em 0.5em 1em;
+// variables
+$ui-selectmenu-padding-topbottom: 0.5em;
+$ui-selectmenu-padding-left: 2em;
+$ui-selectmenu-padding-right: 1em;
+@mixin ui-selectmenu-padding {
+	padding: $ui-selectmenu-padding-topbottom $ui-selectmenu-padding-right $ui-selectmenu-padding-topbottom $ui-selectmenu-padding-left;
+};
 
-// based on the sprite
-$ui-selectmenu-icon-width: 11px;
-$ui-selectmenu-icon-height: 8px;
+$ui-selectmenu-maxitems: 7;
 
 .ui-selectmenu-button {
-	// specified in components/forms.scss
-	color: $input-font-color;
-	background-color: $input-bg-color;
+	color: #606060;
+	background-color: #f2f2f3;
 
 	span.ui-icon {
 		top: 0;
 		right: 0;
 		margin-top: 0;
-		padding: 1em;
-		padding: 1em;
-		height: $ui-selectmenu-icon-height;
-		width: $ui-selectmenu-icon-width;
+		padding: 2 * $ui-selectmenu-padding-topbottom;
+
+		height: 11px;
+		width: 8px;
 		background: #0eb5bb url($icons + "nci-sprite.png") no-repeat -378.5px -172px;
 	}
 	span.ui-selectmenu-text {
-		padding: $ui-selectmenu-padding;
+		@include ui-selectmenu-padding;
 		line-height: 1;
 	}
 }
 .ui-selectmenu-menu {
+	.ui-menu {
+		padding-bottom: 0;
+		max-height: $ui-selectmenu-maxitems * (1em + (2 * $ui-selectmenu-padding-topbottom)) + em-calc(2px);
+	}
 	.ui-menu-item {
-		padding: $ui-selectmenu-padding;
+		@include ui-selectmenu-padding;
 		line-height: 1;
 	}
 	.ui-state-focus {

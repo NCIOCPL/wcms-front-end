@@ -168,9 +168,9 @@ jQuery(document).ready(function(jQuery) {
      ***/
     (function($) {
         /* font resizer */
-       
-	   var originalFontSize = $("body").css('font-size');//find the body's original size
-        
+
+	    var originalFontSize = $("body").css('font-size');//find the body's original size
+
 		$(".po-font-resize").click(function(){ //click font resizer button
             var currentFontSizeM = $(".resize-content").css('font-size');  //returns 16px, 19px, 23px, 28px, 34px
 			var currentFontSizeNumM = parseFloat(currentFontSizeM, 10); //returns 16, 19, 23, 28, 34
@@ -293,4 +293,13 @@ jQuery(document).ready(function(jQuery) {
         });
     })(jQuery);
     /*** END video embedding ***/
+
+    /*** BEGIN form controls ***/
+    (function($) {
+        $('select:not([multiple])')
+            .selectmenu({ width: "100%" })
+            .selectmenu('menuWidget')
+                .addClass('scrollable-y');
+    })(jQuery);
+    /*** END form controls ***/
 });
