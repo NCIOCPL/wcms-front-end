@@ -29,7 +29,7 @@ $button-font-color: #fff;
 // We use these to control button background styles.
 
 $button-background-color-submit: #0eb5bb;
-$button-background-color-reset: red;
+$button-background-color-reset: #bb0e3d;
 
 // We use these to control various hover effects.
 
@@ -175,7 +175,8 @@ button,
 
 @media only screen {
   button {
-    @include inset-shadow();
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
+
     @include single-transition(background-color);
 
     &.radius {
