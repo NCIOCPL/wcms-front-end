@@ -5,7 +5,11 @@
 .text-icon-help {
 	color: white;
 	background-color: #186e88;
-	padding: 0.5em 0.75em;
+	display: inline-block;
+	height: 2.375em;
+	width: 2.375em;
+	padding: 0.5em;
+	text-align: center;
 
 	&:hover, &:focus {
 		color: white;
