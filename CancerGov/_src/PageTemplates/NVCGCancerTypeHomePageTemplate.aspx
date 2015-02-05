@@ -6,14 +6,13 @@
 	</div>
 	<!-- END "row" -->
 </div>
-<div style="background: blue;">
+<div class="cthp-content">
 	<div class="row">
 		<div class="large-12 columns">
 			<!--(bake Includes/PageTitle.inc)-->
 			<!--(bake Includes/PageOptions.inc css-class="page-options")-->
 		</div>
 	</div>
-	<!-- END "large-12 columns" -->
 	<!-- Body slot -->
 	<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" CssClass="resize-content" />
 	<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
