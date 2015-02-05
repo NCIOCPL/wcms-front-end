@@ -20,13 +20,6 @@
 }
 
 
-/* image right 40% width */
-
-figure.image-right-medium {
-    float: right;
-    width: 40%;
-    margin: 0 0 1em 1em;
-}
 .image-right-medium {
     position: relative;
 }
@@ -56,13 +49,22 @@ figure.image-right-medium {
     }
 }
 
-.cthp-content-bottom-slot {
+.cthp-content {
+	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% -100px;
+}
+.cthp-body {
+	float: left; width: 55%;
+}
+.cthp-content h1 {
+  color: white;	
+}
+
+/*.cthp-content-bottom-slot {
     padding-bottom: 0;
     margin-bottom: 0;
     width: 100%;
     overflow: auto;
-    background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% -100px;
-}
+}*/
 .normal li {
     background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
     padding-left: 0.9375em;
@@ -141,6 +143,7 @@ figure.image-right-medium {
 }
 .tp20 {
     padding-top: 1.25em;
+	margin: 20px 0;
 }
 .bp20 {
     padding-bottom: 1.25em;
