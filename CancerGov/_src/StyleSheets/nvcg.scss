@@ -19,6 +19,7 @@
 
 @import "components/buttons";
 @import "components/forms";
+@import "components/icons";
 
 /****************** END NCI COMPONENTS SECTION ********************/
 
@@ -169,9 +170,9 @@ figcaption {
 .sup {font-size: 80%; position: relative; bottom: 0.6em;}
 /* BEGIN columns by css instead of tables */
 .two-columns, .three-columns, .four-columns, .five-columns {
-	width: 100%; 
+	width: 100%;
 	overflow: auto;
-	margin-bottom: 1em;	
+	margin-bottom: 1em;
 }
 /* 2 col */
 .two-columns .column1,

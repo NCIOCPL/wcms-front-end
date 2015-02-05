@@ -1,0 +1,14 @@
+//
+// Icons
+//
+
+.text-icon-help {
+	color: white;
+	background-color: #186e88;
+	padding: 0.5em 0.75em;
+
+	&:hover, &:focus {
+		color: white;
+		background-color: #bb0e3d;
+	}
+}
