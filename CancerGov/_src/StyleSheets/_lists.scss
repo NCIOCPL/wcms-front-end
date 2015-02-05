@@ -1,0 +1,39 @@
+// Managed List styles...
+.managed-list {
+    position: relative;
+
+    ul {
+        list-style-type: none;
+        padding: 0px;
+
+        > li {
+            padding: 0px;
+            margin: 0px;
+
+            &:before {
+                content: "";
+                display: none;
+            }
+
+        }
+    }
+
+    .container {
+        display: inline-block;
+
+        &.image {
+            width: 20%;
+        }
+
+        &.image + &.title {
+            width: 79%;
+        }
+    }
+
+    // Title,!DATE,!DESC,!IMAGE
+    // Title,!DATE, Desc,!IMAGE
+    // Title,!DATE, Desc, Image
+    // Title, Date, Desc,!IMAGE
+    // Title, Date, Desc, Image
+}
+
