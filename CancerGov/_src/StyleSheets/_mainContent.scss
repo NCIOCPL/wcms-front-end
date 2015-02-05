@@ -352,4 +352,14 @@ table.no-bullet-padding ul {
 	visibility: hidden;
 }
 /* end A to Z menu End */
+
+.scrollable-y {
+    overflow-y: auto;
+}
+.scrollable-x {
+    overflow-x: auto;
+}
+.scrollable {
+    overflow: auto;
+}
 /********************* END Content Styles ******************************************/
