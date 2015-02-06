@@ -5,6 +5,13 @@
 	dd.pronunciation {
 		display: inline-block;
 	}
+
+	.results-count {
+		font-family: #{$montserrat-font-stack};
+		font-weight: bold;
+		font-size: em-calc(28px);
+		line-height: em-calc(35px);
+	}
 }
 
 .pagination {
