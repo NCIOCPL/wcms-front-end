@@ -18,6 +18,7 @@
 	float: right;
 	font-size: 1.125em;
 
+	/* used on dictionary pages */
 	li {
 		display: inline-block;
 		margin-left: 0.75em;
@@ -35,5 +36,24 @@
 	}
 	.current {
 		font-weight: bold;
+	}
+
+	/* used on complex search pages (clinical trials, etc.) */
+	> span {
+		font-weight: bold;
+	}
+	input {
+		background: none;
+		border: none;
+		font-size: 1em;
+		font-family: inherit;
+		color: #186e88;
+		margin-left: 0.75em;
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
