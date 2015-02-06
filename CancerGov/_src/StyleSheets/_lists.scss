@@ -29,10 +29,10 @@
 
     .container {
         display: inline-block;
+        vertical-align: top;
 
         &.image {
             width: 20%;
-            float: left;
 
             + .container.title {
                 width: 79%;
