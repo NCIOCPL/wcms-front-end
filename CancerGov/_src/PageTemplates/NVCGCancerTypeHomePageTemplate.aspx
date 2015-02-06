@@ -11,18 +11,16 @@
 		<div class="large-12 columns">
 			<!--(bake Includes/PageTitle.inc)-->
 			<!--(bake Includes/PageOptions.inc css-class="page-options")-->
-		</div>
-	</div>
 	<!-- Body slot -->
 	<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" CssClass="resize-content" />
 	<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
-	<div class="cthp-content-bottom-slot">
-		<div class="row">
-			<div class="large-12 columns guide">
-				<h3><NCI:CDEField scope="Page" fieldName="Tagline" runat="server" /></h3>
-			</div>
+	<div class="row">
+		<div class="large-12 columns guide">
+			<h3><NCI:CDEField scope="Page" fieldName="Tagline" runat="server" /></h3>
 		</div>
-		<NCI:TemplateSlot ID="nvcgSlCTHPCards" AdditionalSnippetClasses="large-6 columns cthpCard" runat="server" />
+	</div>
+	<NCI:TemplateSlot ID="nvcgSlCTHPCards" AdditionalSnippetClasses="large-6 columns cthpCard" runat="server" />
+</div>
 	</div>
 </div>
 <!--(bake Includes/TemplateEnding.inc)-->
