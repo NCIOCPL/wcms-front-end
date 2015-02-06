@@ -1,5 +1,4 @@
 /********** BEGIN Cancer Type Home Page Styles ******************************************/
-
 .version {
     float: right;
     background: #008eb0 $circle-arrow-blue-small 98% no-repeat;
@@ -18,15 +17,12 @@
         }
     }
 }
-
-
 .image-right-medium {
     position: relative;
 }
 .bgWhite {
     background-color: #fff;
 }
-
 .relatedcontent {
     &:hover a, a:hover,
     &:focus a, a:focus {
@@ -48,9 +44,11 @@
         content: $circle-arrow-red-small;
     }
 }
-
 .cthp-content {
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% -100px;
+}
+.cthp-intro-multimedia {
+  background: white;	
 }
 .cthp-body {
 	float: left; width: 55%;
@@ -58,13 +56,6 @@
 .cthp-content h1 {
   color: white;	
 }
-
-/*.cthp-content-bottom-slot {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    width: 100%;
-    overflow: auto;
-}*/
 .normal li {
     background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
     padding-left: 0.9375em;
@@ -159,5 +150,4 @@
     margin-right: 1em;
     color: #606060;
 }
-
 /********** END Cancer Type Home Page Styles ******************************************/
