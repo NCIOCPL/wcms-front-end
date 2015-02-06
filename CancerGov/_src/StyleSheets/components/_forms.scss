@@ -322,6 +322,17 @@ label.error {
   @include form-label-error-color;
 }
 
+select {
+  width: auto;
+  font-size: inherit;
+  @include ui-selectmenu-padding;
+  line-height: 1;
+
+  &.fullwidth {
+    width: 100%;
+  }
+}
+
 @mixin radiocheck($type) {
   input[type="#{$type}"] {
     position: absolute;

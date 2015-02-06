@@ -297,7 +297,7 @@ jQuery(document).ready(function(jQuery) {
     /*** BEGIN form controls ***/
     (function($) {
         $('select:not([multiple])')
-            .selectmenu({ width: "100%" })
+            .selectmenu()
             .selectmenu('menuWidget')
                 .addClass('scrollable-y');
     })(jQuery);
