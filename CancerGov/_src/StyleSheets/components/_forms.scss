@@ -78,15 +78,17 @@ $legend-lineheight: em-calc(25px, 22px);
 // common (radios and checkboxes)
 $custom-form-radiocheck-size: 1em;
 $custom-form-radiocheck-spacing: 0.25em;
-$custom-form-radiocheck-bgcolor: white;
+$custom-form-radiocheck-bg-color: white;
 $custom-form-radiocheck-border-size: 2px;
 $custom-form-radiocheck-border-color: #186d89;
+$custom-form-radiocheck-border-color-disabled: #b0b0b0;
 // radios only
-$custom-form-radio-checked-color: $custom-form-radiocheck-border-color;
+$custom-form-radio-checked-bg-color: $custom-form-radiocheck-border-color;
+$custom-form-radio-checked-bg-color-disabled: #ccc;
 $custom-form-radio-radius: 0.5em;
 // checkboxes only
-$custom-form-checkbox-checked-bgcolor: $custom-form-radiocheck-bgcolor;
-$custom-form-checkbox-checked-textcolor: $body-font-color;
+$custom-form-checkbox-checked-bg-color: $custom-form-radiocheck-bg-color;
+$custom-form-checkbox-checked-text-color: $body-font-color;
 $custom-form-checkbox-radius: 0;
 
 @mixin input-placeholder() {
@@ -320,14 +322,8 @@ label.error {
   @include form-label-error-color;
 }
 
-/* Custom radio and checkbox styling
- * Note that these do not get applied to IE8 and below.
- */
-html.borderradius.generatedcontent {
-  .radio, .checkbox {
-    position: relative;
-  }
-  input[type=radio], input[type=checkbox] {
+@mixin radiocheck($type) {
+  input[type="#{$type}"] {
     position: absolute;
     top: 0.25em;
     left: $custom-form-radiocheck-border-size / 2;
@@ -350,29 +346,57 @@ html.borderradius.generatedcontent {
         margin-right: $custom-form-radiocheck-spacing;
         width: $custom-form-radiocheck-size;
         height: $custom-form-radiocheck-size;
-        background-color: $custom-form-radiocheck-bgcolor;
+        background-color: $custom-form-radiocheck-bg-color;
         border-width: $custom-form-radiocheck-border-size;
         border-color: $custom-form-radiocheck-border-color;
       }
     }
-  }
-  input[type=radio] {
-    + label:before {
-      @include radius($custom-form-radio-radius);
-    }
-    &:checked + label:before {
-      background-color: $custom-form-radio-checked-color;
+    &:disabled {
+      + label:before {
+        border-color: $custom-form-radiocheck-border-color-disabled;
+      }
     }
   }
-  input[type=checkbox] {
-    + label:before {
-      @include radius($custom-form-checkbox-radius);
-    }
-    &:checked + label:before {
-      content: "\2713";
+}
+/* Custom radio and checkbox styling
+ * Note that these do not get applied to IE8 and below.
+ */
+html.borderradius.generatedcontent {
+  .radio, .checkbox {
+    position: relative;
+  }
+  .radio {
+    @include radiocheck('radio');
 
-      background-color: $custom-form-checkbox-checked-bgcolor;
-      color: $custom-form-checkbox-checked-textcolor;
+    input[type=radio] {
+      + label:before {
+        @include radius($custom-form-radio-radius);
+      }
+      &:checked {
+        + label:before {
+          background-color: $custom-form-radio-checked-bg-color;
+        }
+        &:disabled + label:before {
+          background-color: $custom-form-radio-checked-bg-color-disabled;
+        }
+      }
+    }
+  }
+  .checkbox {
+    @include radiocheck('checkbox');
+
+    input[type=checkbox] {
+      + label:before {
+        @include radius($custom-form-checkbox-radius);
+      }
+      &:checked {
+        + label:before {
+          content: "\2713";
+
+          background-color: $custom-form-checkbox-checked-bg-color;
+          color: $custom-form-checkbox-checked-text-color;
+        }
+      }
     }
   }
 }
