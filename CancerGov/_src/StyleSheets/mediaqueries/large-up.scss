@@ -12,6 +12,9 @@
     /*** BEGIN Megamenus/Search Styles ***/
     /* hide mobile nav */
     #mega-nav .mobile-item, .mobile-menu-bar {
+        display: none !important;
+    }
+    #mega-nav .toggle {
         display: none;
     }
     /*** END Megamenus/Search styles ***/
