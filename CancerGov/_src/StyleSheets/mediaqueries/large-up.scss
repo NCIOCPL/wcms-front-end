@@ -71,27 +71,6 @@
         font-weight: bold;
     }
 
-    /** BEGIN button styling **/
-    .section-nav .toggle {
-        color: #454545;
-        font-size: 1.25em;
-        font-weight: bold;
-        height: 1em;
-        width: 1em;
-        top: 50%;
-        right: 4%;
-        position: absolute;
-        margin-top: -0.625em;
-    }
-    .section-nav .toggle[aria-expanded="false"]:after {
-        content: "+";
-    }
-    .section-nav .toggle[aria-expanded="true"]:after {
-        content: "\2212"; /* "2212" is Unicode for the minus sign */
-        color: #009b9d;
-    }
-    /** END button stylign **/
-
     /** BEGIN level-by-level styling **/
     /* level 0 */
     .section-nav .level-0 > div {

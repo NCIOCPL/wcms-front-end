@@ -115,38 +115,6 @@
             overflow-y: auto;
             height: 100%;
         }
-
-        /* mobile menu */
-        /* open/minus toggle */
-        .toggle-opened,
-        .toggle[aria-expanded="true"] {
-            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% -55px no-repeat;
-        }
-
-        /* clicked open/minus toggle (only appears for a brief moment) */
-        .toggle[aria-expanded="true"]:active {
-            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% -175px no-repeat;
-        }
-
-        /* closed/plus toggle */
-        .toggle-closed,
-        .toggle[aria-expanded="false"] {
-            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% 5px no-repeat;
-        }
-
-        /* clicked closed/plus toggle (only appears for a brief moment) */
-        .toggle[aria-expanded="false"]:active {
-            background: transparent url($buttons + "mobile-menus-expand-collapse-buttons.png") 50% -115px no-repeat;
-        }
-        .toggle {
-            float: right;
-            vertical-align: top;
-            width: 25%;
-            min-height: 47px;
-            border: 0;
-            margin: 0;
-            padding: 0;
-        }
         /*
         > li,
         > li > ul > li {
@@ -235,6 +203,9 @@
             margin: 0;
             width: 100%;
         }
+        .nav-item-title {
+            position: relative;
+        }
     }
     .sub-nav-mega {
         display: none;
@@ -249,18 +220,6 @@
         width: 1px;
         height: 1px;
         overflow: hidden;
-    }
-    button,
-    button:focus {
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        /* for most devices */
-        -webkit-tap-highlight-color: transparent;
-        /* for certain Android devices */
-        outline: none;
-        /* to get rid of the outline */
-        /* NOTE: these styles have accessibility concerns (probably only an issue on larger displays):
-         * http://outlinenone.com/
-         */
     }
     /*** END Megamenus/Search Styles ***/
     /*** BEGIN mobile section nav ("tongue") styles ***/
@@ -316,40 +275,6 @@
         color: white;
         font-weight: bold;
     }
-    /** BEGIN button styling **/
-    .section-nav .toggle {
-        position: absolute;
-        font-size: 2em;
-        width: 1em;
-        height: 1em;
-        color: #454545;
-        font-weight: bold;
-        line-height: 1;
-        top: 50%;
-        right: 4%;
-        margin-top: -0.5625em;
-    }
-    .section-nav .toggle:after {
-        display: block;
-        width: 1.125em;
-        height: 1.125em;
-        line-height: 0.925em;
-        background-color: white;
-        border-radius: 1em;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        -webkit-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-        box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    }
-    .section-nav .toggle[aria-expanded="false"]:after {
-        content: "+";
-    }
-    .section-nav .toggle[aria-expanded="true"]:after {
-        content: "\2212";
-        /* "2212" is Unicode for the minus sign */
-        color: #009b9d;
-    }
-    /** END button styling **/
     /** BEGIN level-by-level styling **/
     /* level 0 */
     .section-nav .level-0 > div {
