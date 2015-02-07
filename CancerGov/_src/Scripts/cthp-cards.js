@@ -14,7 +14,7 @@ jQuery(document).ready(function(jQuery) {
 	 * Make the CTHP page an accordion below desktop size
 	 ***/
 	(function($) {
-		var accordionContainer = '#nvcgSlCTHPCards';
+		var accordionContainer = '.cthp-content';
 		var header = 'h3';
 
 		var accordionize = function() {
