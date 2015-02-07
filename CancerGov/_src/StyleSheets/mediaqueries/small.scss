@@ -40,4 +40,12 @@
         .feature-primary h3,  .feature-primary p,  .feature-secondary h3,  .feature-secondary p, .multimedia h3, .multimedia p, .other-sites-carousel h3, .row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
             padding-left: 15px;
         }
+	/** CTHP styles **/
+	.cthp-content {
+		background: white;
+	}
+	.cthp-content h1 {
+    color: #606060;
+}
+	/** END CTHP styles **/
 }
