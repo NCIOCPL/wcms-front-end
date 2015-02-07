@@ -14,11 +14,6 @@
 	<!-- Body slot -->
 	<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" CssClass="resize-content" />
 	<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
-	<div class="row">
-		<div class="large-12 columns guide">
-			<h3><NCI:CDEField scope="Page" fieldName="Tagline" runat="server" /></h3>
-		</div>
-	</div>
 	<NCI:TemplateSlot ID="nvcgSlCTHPCards" CssClass="cthp-card-container" AdditionalSnippetClasses="large-6 columns cthpCard" runat="server" />
 </div>
 	</div>
