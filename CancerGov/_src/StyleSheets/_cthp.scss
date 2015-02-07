@@ -45,7 +45,7 @@
     }
 }
 .cthp-content {
-	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% -100px;
+	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 350px;
 }
 .cthp-intro-multimedia {
   background: white;	
@@ -77,7 +77,7 @@
 .survival h3,
 .general h3 {
     color: #fff;
-    padding: 0.7em 1em;
+    padding: 0.47em 0.6em;
     margin: 0;
     text-transform: uppercase;
 }
@@ -104,7 +104,7 @@
 }
 .cardBody {
     overflow: auto;
-    padding: 0.625em 1.875em;
+    padding: 0.625em 0.8em;
 }
 .cardBody p {
     font-size: 1em;
