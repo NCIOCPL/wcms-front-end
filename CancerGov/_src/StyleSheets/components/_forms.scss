@@ -327,11 +327,18 @@ label.error {
 select {
   width: auto;
   font-size: inherit;
-  @include ui-selectmenu-padding;
   line-height: 1;
+  @include ui-selectmenu-padding;
 
   &.fullwidth {
     width: 100%;
+  }
+  &[multiple] {
+    padding: 0;
+
+    > option {
+      @include ui-selectmenu-padding($right:$ui-selectmenu-padding-right + 0.5em);
+    }
   }
 }
 

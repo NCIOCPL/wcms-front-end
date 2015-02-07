@@ -62,8 +62,8 @@
 $ui-selectmenu-padding-topbottom: 0.5em;
 $ui-selectmenu-padding-left: 2em;
 $ui-selectmenu-padding-right: 1em;
-@mixin ui-selectmenu-padding {
-	padding: $ui-selectmenu-padding-topbottom $ui-selectmenu-padding-right $ui-selectmenu-padding-topbottom $ui-selectmenu-padding-left;
+@mixin ui-selectmenu-padding($top:$ui-selectmenu-padding-topbottom, $right:$ui-selectmenu-padding-right, $bottom:$ui-selectmenu-padding-topbottom, $left:$ui-selectmenu-padding-left) {
+	padding: $top $right $bottom $left;
 };
 
 $ui-selectmenu-maxitems: 7;
@@ -84,7 +84,7 @@ $ui-selectmenu-maxitems: 7;
 		background: #0eb5bb url($icons + "nci-sprite.png") no-repeat -378.5px -172px;
 	}
 	span.ui-selectmenu-text {
-		@include ui-selectmenu-padding;
+		@include ui-selectmenu-padding();
 		line-height: 1;
 	}
 }
