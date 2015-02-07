@@ -19,7 +19,7 @@
 			<h3><NCI:CDEField scope="Page" fieldName="Tagline" runat="server" /></h3>
 		</div>
 	</div>
-	<NCI:TemplateSlot ID="nvcgSlCTHPCards" AdditionalSnippetClasses="large-6 columns cthpCard" runat="server" />
+	<NCI:TemplateSlot ID="nvcgSlCTHPCards" CssClass="cthp-card-container" AdditionalSnippetClasses="large-6 columns cthpCard" runat="server" />
 </div>
 	</div>
 </div>
