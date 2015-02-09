@@ -42,46 +42,46 @@
     background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
     padding-left: 0.9375em;
 }
-.treatment,
-.research,
-.causes,
-.genetics,
-.screening,
-.survival,
-.general {
+.cthp-treatment,
+.cthp-research,
+.cthp-causes,
+.cthp-genetics,
+.cthp-screening,
+.cthp-survival,
+.cthp-general {
     margin-bottom: 1.25em;
 }
-.treatment h3,
-.research h3,
-.causes h3,
-.genetics h3,
-.screening h3,
-.survival h3,
-.general h3 {
+.cthp-treatment h3,
+.cthp-research h3,
+.cthp-causes h3,
+.cthp-genetics h3,
+.cthp-screening h3,
+.cthp-survival h3,
+.cthp-general h3 {
     color: #fff;
     padding: 0.47em 0.6em;
     margin: 0;
     text-transform: uppercase;
 }
-.treatment h3 {
+.cthp-treatment h3 {
     background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
 }
-.research h3 {
+.cthp-research h3 {
     background: #008eb0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
 }
-.causes h3 {
+.cthp-causes h3 {
     background: #008eb0 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
 }
-.genetics h3 {
+.cthp-genetics h3 {
     background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
 }
-.screening h3 {
+.cthp-screening h3 {
     background: #008eb0 url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
 }
-.survival h3 {
+.cthp-survival h3 {
     background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
 }
-.general h3 {
+.cthp-general h3 {
     background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
 .cardBody {
