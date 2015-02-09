@@ -522,9 +522,20 @@
     .guide-card .card h3.last {
         border-bottom: none;
     }
-        .cthp-title {
+	/* CTHP Page */
+    .cthp-title {
         margin-top: 0;
     }
+	.cthp-treatment,
+.cthp-research,
+.cthp-causes,
+.cthp-genetics,
+.cthp-screening,
+.cthp-survival,
+.cthp-general {
+    margin-bottom: 0;
+}
+	/* END CTHP Page */
     .feature-zone-image img {
         display: block;
         margin: 0 auto;
