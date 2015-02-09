@@ -16,6 +16,7 @@ jQuery(document).ready(function(jQuery) {
 	(function($) {
 		var accordionContainer = '.cthp-content';
 		var header = 'h3';
+		var targetsBuiltAccordionSelector = accordionContainer + '.ui-accordion';
 
 		var accordionize = function() {
 			var width = window.innerWidth || $(window).width();
