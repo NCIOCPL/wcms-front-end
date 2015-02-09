@@ -14,7 +14,7 @@
 	<!-- Body slot -->
 	<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" CssClass="resize-content" />
 	<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
-	<NCI:TemplateSlot ID="nvcgSlCTHPCards" CssClass="cthp-card-container" AdditionalSnippetClasses="large-6 columns cthpCard" runat="server" />
+	<NCI:TemplateSlot ID="nvcgSlCTHPCards" CssClass="cthp-card-container" AdditionalSnippetClasses="medium-6 columns cthpCard" runat="server" />
 </div>
 	</div>
 </div>
