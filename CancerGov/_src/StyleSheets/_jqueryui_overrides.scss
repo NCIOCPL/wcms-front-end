@@ -37,17 +37,11 @@
 		color: #606060;
 	}
 	// override icons
-	.ui-accordion-header .ui-icon {
-		width: 32px;
-		height: 32px;
-		background-image: url($buttons + "mobile-menus-expand-collapse-buttons-sm.png");
-		background-position: 0 0;
-		margin-top: -16px;
-		right: 15px;
+	.ui-accordion-header .ui-accordion-header-icon {
 		left: auto;
-	}
-	.ui-accordion-header.ui-state-active .ui-icon {
-		background-position: 0 -45px;
+		right: 4%;
+		background-image: none;
+		margin-top: -0.5em;
 	}
 
 	// accordion content

@@ -109,6 +109,7 @@ NCI = {
 			/* override default functionality of accordion that only allows for a single pane to be open
 			* source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
 			beforeActivate: function (event, ui) {
+				var icons = $(this).accordion('option', 'icons');
 				// The accordion believes a panel is being opened
 				var currHeader;
 				if (ui.newHeader[0]) {
@@ -122,10 +123,12 @@ NCI = {
 				var isPanelSelected = currHeader.attr('aria-selected') == 'true';
 
 				// Toggle the panel's header
-				currHeader.toggleClass('ui-corner-all', isPanelSelected).toggleClass('accordion-header-active ui-state-active ui-corner-top', !isPanelSelected).attr('aria-selected', ((!isPanelSelected).toString()));
+				currHeader.toggleClass('ui-corner-all', isPanelSelected).toggleClass('accordion-header-active ui-state-active ui-corner-top', !isPanelSelected).attr('aria-selected', (!isPanelSelected).toString()).attr('aria-expanded', (!isPanelSelected).toString());
 
-				// Toggle the panel's icon
-				currHeader.children('.ui-icon').toggleClass('ui-icon-triangle-1-e', isPanelSelected).toggleClass('ui-icon-triangle-1-s', !isPanelSelected);
+				// Toggle the panel's icon if the active and inactive icons are different
+				if(icons.header !== icons.activeHeader) {
+					currHeader.children('.ui-icon').toggleClass(icons.header, isPanelSelected).toggleClass(icons.activeHeader, !isPanelSelected);
+				}
 
 				// Toggle the panel's content
 				currContent.toggleClass('accordion-content-active', !isPanelSelected);
@@ -138,8 +141,8 @@ NCI = {
 				return false; // Cancels the default action
 			},
 			icons: {
-				"header": "ui-icon-circle-plus-right-e",
-				"headerSelected": "ui-icon-circle-minus-right-s"
+				"header": "toggle",
+				"activeHeader": "toggle"
 			}
 		};
 		var options = $.extend({}, defaultOptions, opts || {});
