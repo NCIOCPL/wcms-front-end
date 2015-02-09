@@ -6,7 +6,7 @@
 	</div>
 	<!-- END "row" -->
 </div>
-<div class="cthp-content accordion">
+<div class="cthp-content">
 	<div class="row">
 		<div class="large-12 columns">
 			<!--(bake Includes/PageTitle.inc)-->
