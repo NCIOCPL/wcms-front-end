@@ -139,8 +139,8 @@ $button-function-factor: 10%;
 // $split-button-pip-default-float-lrg: em-calc(-9);
 
 
-button,
-.button {
+form button,
+form .button {
   @include button-base;
   @include button-size;
   @include button-style;
@@ -181,7 +181,8 @@ button,
 }
 
 @media only screen {
-  button {
+  form button,
+  form .button {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
 
     @include single-transition(background-color);
@@ -193,7 +194,8 @@ button,
 }
 
 @media #{$small} {
-  button {
+  form button,
+  form .button {
     @include button-base($style:false, $display:inline-block);
     @include button-size($padding:false, $full-width:false);
   }
