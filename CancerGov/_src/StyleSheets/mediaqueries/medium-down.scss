@@ -526,8 +526,13 @@
     .cthp-title {
         margin-top: 0;
     }
-	.nvcgSlCTHPCards {
-	margin-top: 0;	
+	.cthp-card-container {
+	margin-top: 0;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+	}
+	.cthp-intro-multimedia {
+	text-transform: uppercase;	
 	}
 	.cthp-treatment,
 .cthp-research,
