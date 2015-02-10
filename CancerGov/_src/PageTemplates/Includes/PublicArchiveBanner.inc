@@ -4,5 +4,5 @@
 -->
 <!--(bake-end)-->
 <!-- PUBLIC ARCHIVE BANNER -->
-<NCI:TemplateSlot ID="nvcgSlPublicArchiveBanner" runat="server" />
+<NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
 <!-- END PUBLIC ARCHIVE BANNER -->
