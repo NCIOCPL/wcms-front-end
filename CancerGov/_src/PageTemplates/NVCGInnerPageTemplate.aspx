@@ -20,11 +20,14 @@
                                 CssClass="row banner-slot"
                                 AdditionalSnippetClasses="large-12 columns body-banner" />
                             <!-- END BANNER SLOT -->
-                            <!--(bake Includes/PageTitle.inc)-->
+                            
+							<div class="resize-content">
+							<!--(bake Includes/PageTitle.inc)-->
 
                             <!--(bake Includes/PageOptions-Inner.inc)-->
 
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
+							</div>
                             <!--(bake includes/ArticleFooter.inc citations="true" related_resources="true" pagination="true" comments="true")-->
                         </article>
                         <!-- ********************************* END Page Content ********************************** -->
