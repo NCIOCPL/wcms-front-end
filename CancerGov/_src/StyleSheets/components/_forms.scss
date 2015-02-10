@@ -11,7 +11,7 @@
 // $form-label-pointer: pointer;
 $form-label-display: inline-block;
 // $form-label-font-size: em-calc(14);
-$form-label-font-weight: normal;
+$form-label-font-weight: bold;
 $form-label-font-color: #606060;
 $form-label-line-height: 1em;
 // $form-label-bottom-margin: em-calc(3);
@@ -328,16 +328,16 @@ select {
   width: auto;
   font-size: inherit;
   line-height: 1;
-  @include ui-selectmenu-padding;
+  @include ui-selectmenu-padding($left:$ui-selectmenu-padding-left - 0.25em);
 
-  &.fullwidth {
+  &.full-width {
     width: 100%;
   }
   &[multiple] {
     padding: 0;
 
     > option {
-      @include ui-selectmenu-padding($right:$ui-selectmenu-padding-right + 0.5em);
+      @include ui-selectmenu-padding($right:$ui-selectmenu-padding-right + 0.25em);
     }
   }
 }
