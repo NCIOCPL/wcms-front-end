@@ -12,6 +12,10 @@
 		font-size: em-calc(28px);
 		line-height: em-calc(35px);
 	}
+	
+	.result .row + .row {
+		margin-top: em-calc(20px);
+	}
 }
 
 .pagination {
