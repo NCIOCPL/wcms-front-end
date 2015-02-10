@@ -313,12 +313,18 @@ table.no-bullet-padding ul {
     color: #fff;
 }
 
+.dictionary-search .columns:first-child,
+.dictionary-search .column:first-child {
+    padding-left: 0;
+}
+
 /*  A to Z menu Start                 */
 /*  uses include Cancer Types A to Z  */
 /*  and Drug Dictionary A to Z        */
 .az-list {
   > ul > li {
-    margin-left: 1em;
+    margin-left: 0;
+    margin-right: 1em;
     display: inline-block;
 
     &:before {
