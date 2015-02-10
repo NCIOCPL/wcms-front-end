@@ -202,6 +202,26 @@ form .row .clinical-trial-individual-result {
 	border-top: 4px solid #00cccc;
 	padding: 10px;
 }
+.search-criteria-box {
+  border: 1px solid #bdbdbd;
+  padding: 5px;
+}
+.hide-criteria-link {
+  border-bottom: 1px solid #bdbdbd;
+  padding: 15px;
+}
+.show-criteria-link {
+  padding: 15px;
+}
 /* end clinical trial search results */
+
+/* Protocol search results */
+.study-site-city {
+  left-margin: 15px;	
+}
+.study-site-name {
+	font-weight: bold;
+}
+/* end Protocol search results */
 
 /*** END PDQ Styles ***/
