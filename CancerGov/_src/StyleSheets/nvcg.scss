@@ -67,6 +67,12 @@ table caption {
     padding: 20px 0 10px;
     /* using padding instead of margin due to problem in Safari */
 }
+
+.row .header  {
+	  font-weight: bold;
+      @include font-montserrat;
+}
+
 /* begin default content table styling */
 
 table.table-default {
@@ -79,6 +85,7 @@ table.table-default caption {
       text-transform: uppercase;
     text-align: left;
     padding: 20px 0 10px;
+	font-size: 1.375em;
     /* using padding instead of margin due to problem in Safari */
 }
 table.table-default th {
