@@ -20,11 +20,11 @@ jQuery(document).ready(function(jQuery) {
 
 		var accordionize = function() {
 			var width = window.innerWidth || $(window).width();
-			/* If the width is less than or equal to 1024px (small/medium screens)
+			/* If the width is less than or equal to 640px (small screen)
 			 * AND if the accordion(s) isn't (aren't) already built */
-			if (width <= 1024 && $(targetsBuiltAccordionSelector).length === 0) {
+			if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
 				NCI.doAccordion(accordionContainer, {'header': header});
-			} else if(width >= 1025) {
+			} else if(width >= 641) {
 				NCI.undoAccordion(accordionContainer, {'header': header});
 			}
 		};
