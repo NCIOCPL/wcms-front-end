@@ -1,7 +1,18 @@
 /* Public Archive banner */
 .public-archive-banner {
-	background: #bb0e3c;
-	color: white;
-	padding: 20px 20px 15px;
+	background: #bb0e3d;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-size: 1.125em;
+	font-weight: bold;
+	line-height: 1.25;
+	color: #fff;
+	padding: 1.4375em 1.5625em;
+	margin-bottom: 1px;
+}
+.public-archive-banner p:first-child {
+	margin-top: 0;
+}
+.public-archive-banner p:last-child {
+	margin-bottom: 0;
 }
 /* End Public Archive banner */
