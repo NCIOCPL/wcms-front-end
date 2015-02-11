@@ -182,16 +182,18 @@ NCI = {
 	*
 	* returns: null
 	* paramenters:
-	*  target[]            (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
-	*  url[]               (string)                     URL of the autocomplete service.
-	*  queryParam["term"]  (string)                     Primary search querystring parameter.
-	*  queryString{}       (object)                     Additional parts of the querystring to pass to the autocomplete service.
-	*  opts{}              (object)                     Other options to pass to jQuery UI's autocomplete function.
+	*  !target[]            (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
+	*  !url[]               (string)                     URL of the autocomplete service.
+	*  contains[false]      (boolean)                    Boolean variable describing whether the autocomplete is for "starts with" (false) or "contains" (true).
+	*  queryParam["term"]   (string)                     Primary search querystring parameter.
+	*  queryString{}        (object)                     Additional parts of the querystring to pass to the autocomplete service.
+	*  opts{}               (object)                     Other options to pass to jQuery UI's autocomplete function.
 	*
 	*====================================================================================================*/
-	doAutocomplete: function(target, url, queryParam, queryString, opts) {
+	doAutocomplete: function(target, url, contains, queryParam, queryString, opts) {
 		var $target = $(target);
 		var queryParameter = queryParam || "term";
+		var regexIsContains = contains || false;
 		var defaultOptions = {
 			// Set AJAX service source
 			source: (function() {
@@ -236,22 +238,22 @@ NCI = {
 		var options = $.extend({}, defaultOptions, opts || {});
 
 		$target.autocomplete(options)
-			.data("ui-autocomplete")._renderItem = function(ul, item) {
+			.data('ui-autocomplete')._renderItem = function(ul, item) {
 				//Escape bad characters
-				var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, "\$&");
+				var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
 				var regexBold = new RegExp();
 
-				if (IsContains()) {
+				if (regexIsContains) {
 					// highlight autocomplete item if it appears anywhere
-					regexBold = new RegExp("(" + lterm + "|\s+" + lterm + "i)", "i");
+					regexBold = new RegExp('(' + lterm + ')', 'i');
 				} else {
 					// highlight autocomplete item if it appears at the beginning
-					regexBold = new RegExp("(^" + lterm + "|\\s+" + lterm + ")");
+					regexBold = new RegExp('(^' + lterm + '|\\s+' + lterm + ')', 'i');
 				}
 				var word = item.item.replace(regexBold, "<strong>$&</strong>");
 
 				return $("<li></li>")
-					.data("ui-autocomplete-item", item)
+					.data('ui-autocomplete-item', item)
 					.append(word)
 					.appendTo(ul);
 			};
