@@ -2,7 +2,8 @@
 // Icons
 //
 
-.text-icon-help {
+.text-icon-help,
+.main-content .text-icon-help {
 	color: white;
 	background-color: #186e88;
 	display: inline-block;
@@ -16,5 +17,6 @@
 	&:hover, &:focus {
 		color: white;
 		background-color: #bb0e3d;
+		text-decoration: none;
 	}
 }
