@@ -13,7 +13,7 @@
     }
 
     a:after {
-        content: $circle-arrow-blue-small;
+        content: $circle-arrow-red-small;
         vertical-align: middle;
         padding-top: 7px;
         padding-left: 7px;
@@ -23,7 +23,7 @@
 
     &:hover a:after,
     &:focus a:after {
-        content: $circle-arrow-red-small;
+        content: $circle-arrow-blue-small;
     }
 }
 .cthp-content {
@@ -119,13 +119,13 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
 .cthp-version-toggle {
     float: right;
-    background: #16c4a9 $circle-arrow-red-small 98% no-repeat;
+    background: #16c4a9 $circle-arrow-blue-small 98% no-repeat;
     color: #fff;
     padding: 0.625em 3.6em 0.625em 0.7em;
 		margin: -55px 0 20px 0;
 
     &:hover, &:focus {
-        background-image: $circle-arrow-blue-small;
+        background-image: $circle-arrow-red-small;
     }
 
     a {
