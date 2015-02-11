@@ -1,11 +1,13 @@
 // Managed List styles...
-.managed-list {
+.managed.list {
     position: relative;
+    margin: 2em 0em 2em 0em;
     
     > .title {
         @include font-montserrat;
         font-weight: normal;
         font-size: 22px;
+        line-height: 26px;
         text-transform: uppercase;
         color: $dgrey00;
     }
@@ -15,7 +17,7 @@
         padding: 0px;
 
         > li {
-            padding: 0px;
+            padding: 0.5em 0px;
             margin: 0px;
             clear: both;
 
@@ -36,6 +38,7 @@
 
             + .container.title {
                 width: 79%;
+                padding-left: 1.25em;
             }
         }
 
@@ -43,6 +46,7 @@
             @include font-montserrat;
             font-weight: normal;
             font-size: 22px;
+            line-height: 28px;
             color: $dteal00;
         }
 
@@ -53,10 +57,52 @@
         }
     }
 
+    // List Item Types
+    .general { }
+
+    .video {
+        &.carousel {}
+    }
+
+    .infographic {}
+
+    .file {
+        .filesize {
+            color: $dgrey00;
+        }
+
+        .filetype {
+            position: relative;
+            display: inline-block;
+            top: 5px;
+            height: 22px;
+            width: .75em;
+            background: white;
+            border: solid 1px $dgrey00;
+            background-image: url("/publishedcontent/images/images/design-elements/icons/file-format/file-type-sprites.png");
+
+            &.pdf { background-position-y: 0px; }
+            &.exe { background-position-y: 25px; }
+            &.ebook { background-position-y: 75px; }
+            &.ppt { background-position-y: 125px; }
+            &.excel { background-position-y: 175px; }
+            &.word { background-position-y: 225px; }
+        }
+    }
+
+    /* this is because of a bug in other code.
+     * TODO: REMOVE THIS */
+    .pdf { background: inherit; }
+
     // Title,!DATE,!DESC,!IMAGE
     // Title,!DATE, Desc,!IMAGE
     // Title,!DATE, Desc, Image
     // Title, Date, Desc,!IMAGE
     // Title, Date, Desc, Image
+}
+
+.accessibility-text {
+    position: absolute;
+    top: -99999px;
 }
 
