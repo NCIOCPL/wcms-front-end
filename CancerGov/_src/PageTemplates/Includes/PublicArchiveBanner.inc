@@ -4,5 +4,5 @@
 -->
 <!--(bake-end)-->
 <!-- PUBLIC ARCHIVE BANNER -->
-<NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" />
+<NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" CssClass="row collapse" AdditionalSnippetClasses="large-12 columns" />
 <!-- END PUBLIC ARCHIVE BANNER -->
