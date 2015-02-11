@@ -189,12 +189,6 @@ NCI = {
 	*
 	*====================================================================================================*/
 	doAutocomplete: function(target, url, querystring, opts) {
-		var defaultQuery = {
-			term: request.term
-		};
-
-		var ajaxData = $.extend({}, defaultQuery, querystring || {});
-
 		var defaultOptions = {
 			// Set AJAX service source
 			source: function( request, response ) {
@@ -203,7 +197,7 @@ NCI = {
 				}
 				that.xhr = $.ajax({
 					url: url,
-					data: ajaxData,
+					data: querystring,
 					dataType: "json",
 					success: function( data ) {
 						response( data );
@@ -235,7 +229,7 @@ NCI = {
 				var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, "\$&");
 				var regexBold = new RegExp();
 
-				if (isContains) {
+				if (IsContains()) {
 					// highlight autocomplete item if it appears anywhere
 					regexBold = new RegExp("(" + lterm + "|\s+" + lterm + "i)", "i");
 				} else {
