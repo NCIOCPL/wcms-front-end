@@ -54,8 +54,8 @@
 /* selectmenu */
 // variables
 $ui-selectmenu-padding-topbottom: 0.5em;
-$ui-selectmenu-padding-left: 2em;
-$ui-selectmenu-padding-right: 1em;
+$ui-selectmenu-padding-right: 2em;
+$ui-selectmenu-padding-left: 1em;
 @mixin ui-selectmenu-padding($top:$ui-selectmenu-padding-topbottom, $right:$ui-selectmenu-padding-right, $bottom:$ui-selectmenu-padding-topbottom, $left:$ui-selectmenu-padding-left) {
 	padding: $top $right $bottom $left;
 };
