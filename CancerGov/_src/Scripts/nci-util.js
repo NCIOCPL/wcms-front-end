@@ -191,22 +191,26 @@ NCI = {
 	doAutocomplete: function(target, url, querystring, opts) {
 		var defaultOptions = {
 			// Set AJAX service source
-			source: function( request, response ) {
-				if ( that.xhr ) {
-					that.xhr.abort();
-				}
-				that.xhr = $.ajax({
-					url: url,
-					data: querystring,
-					dataType: "json",
-					success: function( data ) {
-						response( data );
-					},
-					error: function() {
-						response([]);
+			source: (function() {
+				var xhr;
+
+				return function( request, response ) {
+					if ( xhr ) {
+						xhr.abort();
 					}
-				});
-			},
+					xhr = $.ajax({
+						url: url,
+						data: querystring,
+						dataType: "json",
+						success: function( data ) {
+							response( data );
+						},
+						error: function() {
+							response([]);
+						}
+					});
+				};
+			})(),
 
 			// Start autocomplete only after three characters are typed
 			minLength: 3,
