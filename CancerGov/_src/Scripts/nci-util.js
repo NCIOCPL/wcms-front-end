@@ -190,6 +190,7 @@ NCI = {
 	*
 	*====================================================================================================*/
 	doAutocomplete: function(target, url, queryParam, queryString, opts) {
+		var $target = $(target);
 		var queryParameter = queryParam || "term";
 		var defaultOptions = {
 			// Set AJAX service source
@@ -197,15 +198,15 @@ NCI = {
 				var xhr;
 
 				return function( request, response ) {
+					var dataQuery = $.extend({}, queryString || {});
+					dataQuery[queryParameter] = request.term;
+
 					if ( xhr ) {
 						xhr.abort();
 					}
 					xhr = $.ajax({
 						url: url,
-						data: $.extend(
-							{ queryParameter: request.term },
-							queryString || {}
-						),
+						data: dataQuery,
 						dataType: "json",
 						success: function( data ) {
 							response( data );
@@ -221,17 +222,19 @@ NCI = {
 			minLength: 3,
 
 			focus: function(event, ui) {
-				$("#" + ids.AutoComplete1).val(ui.item.item);
-				return false;
+				event.preventDefault();
+				event.stopPropagation();
+				$target.val(ui.item.item);
 			},
 			select: function(event, ui) {
-				$("#" + ids.AutoComplete1).val(ui.item.item);
-				return false;
+				event.preventDefault();
+				event.stopPropagation();
+				$target.val(ui.item.item);
 			}
 		};
+
 		var options = $.extend({}, defaultOptions, opts || {});
 
-		var $target = $(target);
 		$target.autocomplete(options)
 			.data("ui-autocomplete")._renderItem = function(ul, item) {
 				//Escape bad characters
