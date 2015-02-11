@@ -98,7 +98,6 @@ NCI = {
 	*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
 	*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
 	*
-	* TODO: remove this script after the usability prototype (it probably won't be useful in Devon Rex)
 	*====================================================================================================*/
 	doAccordion: function(target, opts) {
 		var defaultOptions = {
@@ -163,7 +162,6 @@ NCI = {
 	*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
 	*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
 	*
-	* TODO: remove this script after the usability prototype (it probably won't be useful in Devon Rex)
 	*====================================================================================================*/
 	undoAccordion: function(target) {
 		var $target = $(target);
@@ -175,5 +173,88 @@ NCI = {
 				}
 			});
 		}
+	},
+
+	/*======================================================================================================
+	* function doAutocomplete
+	*
+	*  will generate an autocomplete box for an <input type="text"> element, using jQuery UI
+	*
+	* returns: null
+	* paramenters:
+	*  target[]       (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
+	*  url[]          (string)                     URL of the autocomplete service.
+	*  querystring{}  (object)                     Query string to pass to the autocomplete service.
+	*  opts{}         (object)                     Other options to pass to jQuery UI's autocomplete function.
+	*
+	*====================================================================================================*/
+	doAutocomplete: function(target, url, querystring, opts) {
+		var defaultQuery = {
+			term: request.term
+		};
+
+		var ajaxData = $.extend({}, defaultQuery, querystring || {});
+
+		var defaultOptions = {
+			// Set AJAX service source
+			source: function( request, response ) {
+				if ( that.xhr ) {
+					that.xhr.abort();
+				}
+				that.xhr = $.ajax({
+					url: url,
+					data: ajaxData,
+					dataType: "json",
+					success: function( data ) {
+						response( data );
+					},
+					error: function() {
+						response([]);
+					}
+				});
+			},
+
+			// Start autocomplete only after three characters are typed
+			minLength: 3,
+
+			focus: function(event, ui) {
+				$("#" + ids.AutoComplete1).val(ui.item.item);
+				return false;
+			},
+			select: function(event, ui) {
+				$("#" + ids.AutoComplete1).val(ui.item.item);
+				return false;
+			}
+		};
+		var options = $.extend({}, defaultOptions, opts || {});
+
+		var $target = $(target);
+		$target.autocomplete(options)
+			.data("ui-autocomplete")._renderItem = function(ul, item) {
+				//Escape bad characters
+				var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, "\$&");
+				var regexBold = new RegExp();
+
+				if (isContains) {
+					// highlight autocomplete item if it appears anywhere
+					regexBold = new RegExp("(" + lterm + "|\s+" + lterm + "i)", "i");
+				} else {
+					// highlight autocomplete item if it appears at the beginning
+					regexBold = new RegExp("(^" + lterm + "|\\s+" + lterm + ")");
+				}
+				var word = item.item.replace(regexBold, "<strong>$&</strong>");
+
+				return $("<li></li>")
+					.data("ui-autocomplete-item", item)
+					.append($(word))
+					.appendTo(ul);
+			};
+
+		$target.keyup(function(event) {
+			if (event.which == 13) {
+				event.preventDefault();
+				DoSearch();
+			}
+		});
 	}
 };
