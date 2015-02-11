@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="large-12 columns">
 			<!--(bake Includes/PageTitle.inc)-->
-			<!--(bake Includes/PageOptions.inc css-class="page-options")-->
+			<!--(bake Includes/PageOptions-Inner.inc)-->
 	<!-- Body slot -->
 	<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" CssClass="resize-content" />
 	<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
