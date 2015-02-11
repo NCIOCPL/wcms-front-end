@@ -252,7 +252,7 @@ NCI = {
 
 				return $("<li></li>")
 					.data("ui-autocomplete-item", item)
-					.append($(word))
+					.append(word)
 					.appendTo(ul);
 			};
 	}
