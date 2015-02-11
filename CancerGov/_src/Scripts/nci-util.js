@@ -182,13 +182,15 @@ NCI = {
 	*
 	* returns: null
 	* paramenters:
-	*  target[]       (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
-	*  url[]          (string)                     URL of the autocomplete service.
-	*  querystring{}  (object)                     Query string to pass to the autocomplete service.
-	*  opts{}         (object)                     Other options to pass to jQuery UI's autocomplete function.
+	*  target[]            (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
+	*  url[]               (string)                     URL of the autocomplete service.
+	*  queryParam["term"]  (string)                     Primary search querystring parameter.
+	*  queryString{}       (object)                     Additional parts of the querystring to pass to the autocomplete service.
+	*  opts{}              (object)                     Other options to pass to jQuery UI's autocomplete function.
 	*
 	*====================================================================================================*/
-	doAutocomplete: function(target, url, querystring, opts) {
+	doAutocomplete: function(target, url, queryParam, queryString, opts) {
+		var queryParameter = queryParam || "term";
 		var defaultOptions = {
 			// Set AJAX service source
 			source: (function() {
@@ -200,7 +202,10 @@ NCI = {
 					}
 					xhr = $.ajax({
 						url: url,
-						data: querystring,
+						data: $.extend(
+							{ queryParameter: request.term },
+							queryString || {}
+						),
 						dataType: "json",
 						success: function( data ) {
 							response( data );
