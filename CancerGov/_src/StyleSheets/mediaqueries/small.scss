@@ -45,5 +45,53 @@
     float: none;
     width: 100%;
 }
+    .cthp-title {
+        margin-top: 0;
+    }
+	.cthp-card-container {
+	margin-top: 0;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+	}
+	.cthp-card-container img {
+	display: none;
+	}
+	.cthp-intro-multimedia h3 {
+	text-transform: uppercase;	
+	}
+	
+	.cthp-treatment,
+.cthp-research,
+.cthp-causes,
+.cthp-genetics,
+.cthp-screening,
+.cthp-survival,
+.cthp-general {
+    margin-bottom: 0;
+}
+		.cthp-content {
+		background: white;
+	}
+	
+	.cthp-content h1 {
+    color: #606060;
+}
+	.cthp-version-toggle {
+    float: none;
+    background: white $circle-arrow-blue-small 98% no-repeat;
+    display: inline-block;
+		padding: 0 40px 0px 0;
+		margin-top: 0;
+		&:hover, &:focus {
+        background: white $circle-arrow-red-small 98% no-repeat;
+    }
+	}
+	.cthp-version-toggle a {
+   color: #606060;
+}
+	.row .tp20 {
+  margin-top: 0;
+	
+}
 	/** END CTHP styles **/
 }
