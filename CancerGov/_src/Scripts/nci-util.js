@@ -249,12 +249,5 @@ NCI = {
 					.append($(word))
 					.appendTo(ul);
 			};
-
-		$target.keyup(function(event) {
-			if (event.which == 13) {
-				event.preventDefault();
-				DoSearch();
-			}
-		});
 	}
 };
