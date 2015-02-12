@@ -1,7 +1,7 @@
 /* Begin eBook buttons */
 
 .pub-buttons {
-	overflow:auto;
+	overflow:auto;	
 }
 
 .pub-buttons a{
@@ -19,21 +19,27 @@
 	font-size: 13px;
 }
 
+.pub-buttons a.lector {
+		line-height: 12px;
+	}
+
 .pub-buttons a:hover{
 	text-decoration: none;
 }
 
-.html {
-	background-color: #82368c;
+
+.pub-buttons a.html {
+	background-color: #82368c;	
 }
-.pdf {
-	background-color: #bb0e3d;
+.pub-buttons a.pdf {
+	background-color: #bb0e3d;	
 }
-.kindle {
-	background-color: #ff5f00;
+.pub-buttons a.kindle {
+	background-color: #ff5f00;	
 }
-.epub {
-	background-color: #2a72a5;
+.pub-buttons a.epub,
+.pub-buttons a.lector {
+	background-color: #2a72a5;	
 }
 
 .pub-buttons a.icon {
@@ -58,7 +64,8 @@
 background-position: -20px -511px;
 }
 
-.pub-buttons a.icon.epub span {
+.pub-buttons a.icon.epub span,
+.pub-buttons a.icon.lector span {
 background-position: -20px -548px;
 }
 
