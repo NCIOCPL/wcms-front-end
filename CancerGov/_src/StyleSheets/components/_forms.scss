@@ -381,6 +381,11 @@ select {
 /* Custom radio and checkbox styling
  * Note that these do not get applied to IE8 and below.
  */
+.radio, .checkbox {
+  + .radio, +.checkbox {
+    margin-left: 1em;
+  }
+}
 html.borderradius.generatedcontent {
   .radio, .checkbox {
     position: relative;
