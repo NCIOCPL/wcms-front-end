@@ -201,17 +201,28 @@ form .row .clinical-trial-individual-result {
 	border: 1px solid #bdbdbd;
 	border-top: 4px solid #00cccc;
 	padding: 10px;
+	margin: 60px 20px 30px 0;
 }
 .search-criteria-box {
-  border: 1px solid #bdbdbd;
+  display: inline-block;
+	border: 1px solid #bdbdbd;
   padding: 5px;
 }
 .hide-criteria-link {
   border-bottom: 1px solid #bdbdbd;
-  padding: 15px;
 }
 .show-criteria-link {
-  padding: 15px;
+}
+.hide-criteria-link a, .show-criteria-link a {
+  padding: 0 10px;
+}
+.clinicaltrials-results-criteria-display {
+	padding: 5px 10px;
+}
+.ct-results-lower-control {
+  margin-bottom: 20px;	
+}
+.ct-results-bottom-action {
 }
 /* end clinical trial search results */
 
