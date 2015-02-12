@@ -4,10 +4,14 @@
 	font-family: 'Montserrat', Arial, sans-serif;
 	font-size: 1.125em;
 	font-weight: bold;
-	line-height: 1.25;
-	color: #fff;
-	padding: 1.4375em 1.5625em;
+	line-height: 1.12;
+	color: white;
+	padding: 1.28;
 	margin-bottom: 1px;
+	a {
+		color: white;
+		text-decoration: underline;
+	}
 }
 .public-archive-banner p:first-child {
 	margin-top: 0;
@@ -16,3 +20,18 @@
 	margin-bottom: 0;
 }
 /* End Public Archive banner */
+/* Site Notices banner */
+.site-notices-banner {
+	background: #bb0e3d;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-size: 1.125em;
+	font-weight: bold;
+	line-height: 1.12;
+	color: white;
+	padding: 1.28em;
+	a {
+		color: white;	
+		text-decoration: underline;
+	}
+}
+/* End Site Notices banner */
