@@ -75,18 +75,20 @@
             position: relative;
             display: inline-block;
             top: 5px;
-            height: 22px;
-            width: .75em;
+            height: 1em;
+            width: 1em;
+            padding: 0px;
+            margin: 0px;
             background: white;
-            border: solid 1px $dgrey00;
-            background-image: url("/publishedcontent/images/images/design-elements/icons/file-format/file-type-sprites.png");
+            background-image: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png");
+            background-position-x: -71px;
 
-            &.pdf { background-position-y: 0px; }
-            &.exe { background-position-y: 25px; }
-            &.ebook { background-position-y: 75px; }
-            &.ppt { background-position-y: 125px; }
-            &.excel { background-position-y: 175px; }
-            &.word { background-position-y: 225px; }
+            &.pdf { background-position-y: -474px; }
+            &.exe { background-position-y: -506px; }
+            &.ebook { background-position-y: -537px; }
+            &.ppt { background-position-y: -568px; }
+            &.word { background-position-y: -598px; }
+            &.excel { background-position-y: -630px; }
         }
     }
 
