@@ -197,13 +197,18 @@ background: #EBEAE9;
 form .row .clinical-trial-individual-result {
 	margin-bottom: 75px;
 }
+.ct-results-form {
+	margin: 60px 20px 30px 0;
+}
 form .row .view-content-for-container {
 	border: 1px solid #bdbdbd;
 	border-top: 4px solid #00cccc;
 	padding: 10px;
-	margin: 60px 20px 30px 0;
 }
-form .row .search-criteria-box {
+.ct-results-help {
+	text-align:right;
+}
+.search-criteria-box {
   display: inline-block;
 	border: 1px solid #bdbdbd;
   padding: 5px;
