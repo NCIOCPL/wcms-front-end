@@ -1,0 +1,4 @@
+.list {
+    .description, .image { display: none; }
+    .image.container + .title.container { width: 100%; padding: 0px;}
+}
