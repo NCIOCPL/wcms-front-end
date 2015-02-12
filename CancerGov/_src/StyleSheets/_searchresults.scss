@@ -1,9 +1,18 @@
 .results {
-	dt {
-		display: inline-block;
+	dt,
+	dd.pronunciation {
+		display: inline;
+		margin-bottom: 0;
 	}
 	dd.pronunciation {
-		display: inline-block;
+		margin-left: 0.5em;
+
+		> span {
+			margin-left: 0.25em;
+		}
+	}
+	dd {
+		margin-bottom: 1em;
 	}
 
 	.results-count {
@@ -12,7 +21,7 @@
 		font-size: em-calc(28px);
 		line-height: em-calc(35px);
 	}
-	
+
 	.result .row + .row {
 		margin-top: em-calc(20px);
 	}
