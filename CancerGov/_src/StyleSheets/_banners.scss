@@ -1,5 +1,5 @@
-/* Public Archive banner */
-.public-archive-banner {
+/* Public Archive banner, Site Notices Banner */
+.public-archive-banner, .site-notices-banner {
 	background: #bb0e3d;
 	font-family: 'Montserrat', Arial, sans-serif;
 	font-size: 1.125em;
@@ -12,26 +12,11 @@
 		color: white;
 		text-decoration: underline;
 	}
-}
-.public-archive-banner p:first-child {
-	margin-top: 0;
-}
-.public-archive-banner p:last-child {
-	margin-bottom: 0;
-}
-/* End Public Archive banner */
-/* Site Notices banner */
-.site-notices-banner {
-	background: #bb0e3d;
-	font-family: 'Montserrat', Arial, sans-serif;
-	font-size: 1.125em;
-	font-weight: bold;
-	line-height: 1.12;
-	color: white;
-	padding: 1.28em;
-	a {
-		color: white;	
-		text-decoration: underline;
+	p:first-child {
+		margin-top: 0;
+	}
+	p:last-child {
+		margin-bottom: 0;
 	}
 }
-/* End Site Notices banner */
+/* END Public Archive banner, Site Notices Banner */
