@@ -96,3 +96,17 @@ $ui-selectmenu-maxitems: 7;
 		background: #bb0e3d;
 	}
 }
+
+/* autocomplete */
+.ui-autocomplete {
+	opacity: 0.9;
+
+	.ui-menu-item {
+		color: #606060;
+		background-color: #fff;
+	}
+	.ui-state-focus {
+		color: #fff;
+		background: #bb0e3d;
+	}
+}
