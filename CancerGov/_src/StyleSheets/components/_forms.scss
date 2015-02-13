@@ -330,7 +330,8 @@ select {
   line-height: 1;
   @include ui-selectmenu-padding($left:$ui-selectmenu-padding-left - 0.25em);
 
-  &.full-width {
+  &.full-width,
+  &.fullwidth {
     width: 100%;
   }
   &[multiple] {
@@ -344,14 +345,14 @@ select {
 
 @mixin radiocheck($type) {
   input[type="#{$type}"] {
-    position: absolute;
-    top: 0.25em;
-    left: $custom-form-radiocheck-border-size / 2;
+    position: relative;
+    top: $custom-form-radiocheck-border-size / 2;
+    left: 0;
     opacity: 0;
 
     + label {
       position: relative;
-      margin-left: $custom-form-radiocheck-size + $custom-form-radiocheck-spacing;
+      margin-left: $custom-form-radiocheck-spacing;
 
       &:before {
         content: "";
@@ -360,7 +361,7 @@ select {
 
         display: inline-block;
         text-align: center;
-        line-height: $custom-form-radiocheck-size - $custom-form-radiocheck-spacing;
+        line-height: $custom-form-radiocheck-size - em-calc($custom-form-radiocheck-border-size * 2, $form-label-font-size);
         border-style: solid;
 
         margin-right: $custom-form-radiocheck-spacing;
