@@ -702,13 +702,16 @@ $(function() {
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
 
-  // Creating the TOC for CTGovProtocols
-  // The default TOC header for the document level TOC is 'ON THIS PAGE'
-  $("#pdq-toc-protocol").stoc( { search: "article", 
-                                 start: 2, depth: 3,
-                                 tocTitleEn: "ON THIS PAGE", 
-                                 tocTitleEs: "En esta p&#225;gina" });
-  $("#pdq-toc-protocol").removeClass("hide"); 
+// **********************************************************************
+//  The CTGov Protocol JS has been placed inline with the protocol XSLT
+//  // Creating the TOC for CTGovProtocols
+//  // The default TOC header for the document level TOC is 'ON THIS PAGE'
+//  $("#pdq-toc-protocol").stoc( { search: "article", 
+//                                 start: 2, depth: 3,
+//                                 tocTitleEn: "ON THIS PAGE", 
+//                                 tocTitleEs: "En esta p&#225;gina" });
+//  $("#pdq-toc-protocol").removeClass("hide"); 
+// **********************************************************************
 
 // Section to setup re-routing of URLs
 // We are jumping to the specified link and opening the parent section
@@ -786,18 +789,40 @@ routie({
         // $("#"+rid)[0].scrollIntoView();
         // document.body.scrollTop -= myPos//+myHeight;
     },
+    'cit/:cid': function(cid) {
+        // Hide all open sections
+        $(".summary-sections section.show").removeClass("show")
+                                           .addClass("hide");
+        // Find parent (top level section) of current element
+        $("li[id='"+cid+"']").closest("section.hide").removeClass("hide")
+                                          .addClass("show");
+        $("#pdq-toptoc li.selected").removeClass("selected");
+        var thisSection = $("section.show").children("h2")
+                                           .attr("id");
+        $("#pdq-toptoc li.selected").removeClass("selected");
+        $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+                                                        .addClass("selected");
+        $("li[id='"+cid+"']")[0].scrollIntoView();
+    },
 
     // Check if the supplied ID exists.  If it doesn't exist open
     // the full document.
     // ----------------------------------------------------------
     ':lid': function(lid) { 
         var goodLink = $("#"+lid);
+        var citLink = $("li[id='"+lid+"']");
         // console.log(goodLink);
-        if ( goodLink.length == 0 ) {
+        if ( goodLink.length == 0 && citLink.length == 0 ) {
             routie ('section/all');
         }
         else {
-            routie ('link/'+lid); 
+            console.log(lid.substring(0,7));
+            if ( lid.substring(0, 8) == 'section_' ) {
+                routie ('cit/'+lid); 
+            }
+            else {
+                routie ('link/'+lid); 
+            }
         };
     }
 });
