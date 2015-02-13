@@ -1,0 +1,90 @@
+/* Video Player */
+h3.video50title {
+	padding: 0;
+	font-size:14px;
+}
+h3.video75title {
+	padding: 0;
+	font-size:16px;
+}
+h3.video100title {
+	padding: 0;
+	font-size:18px;
+}
+.videoPlayer {
+	padding: 0px 0 20px 0;
+}
+.size50 .media-caption {
+	font-size:11px;
+}
+.size75 .media-caption {
+	font-size:12px;
+}
+.size100 .media-caption {
+	font-size:13px;
+}
+.size50 {
+	width:300px;
+	overflow: hide;
+	margin-left:0 !important;
+}
+.size75 {
+	width:450px;
+	overflow: hide;
+	margin-left:0 !important;
+}
+.size100 {
+	width:533px;
+	overflow: hide;
+	margin-left:0 !important;
+}
+.media-caption {
+	display:block;
+	color:#666;
+	background:#DDDDDD;
+	padding:10px;
+	margin-top:5px;
+	font-size:12px;
+	line-height:1.2em;
+}
+.media-caption p:first-child {
+	margin-top:0;
+}
+.media-caption p:last-child {
+	margin-bottom:0;
+}
+.caption-line {
+	margin-top:5px;
+	border-top: 1px solid #BDBDBD;
+}
+.video-carousel-container {
+	padding:0 0 20px 0;
+	float:left;
+}
+.video-carousel-video {
+}
+.video-carousel-caption {
+	display: block;
+	color: #666;
+	background: #DDDDDD;
+	text-align: right;
+	padding: 10px;
+}
+.video-carousel-caption img {
+	float: right;
+	padding-left: 5px;
+}
+.video-carousel-caption .size75 {
+	font-size:13pt;
+}
+.video-carousel-caption .size100 {
+	font-size:14pt;
+}
+.public-use {
+	padding: 0;
+	margin:30px 0;
+	border-top:#4d4d4d thin solid;
+	font-style:italic;
+	clear: both;
+}
+/* END Video Player */
