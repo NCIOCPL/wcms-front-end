@@ -138,6 +138,10 @@ $button-function-factor: 10%;
 // $split-button-pip-top-lrg: $button-lrg + em-calc(5);
 // $split-button-pip-default-float-lrg: em-calc(-9);
 
+form a.button,
+form a.button:hover, {
+  text-decoration: none;
+}
 
 form button,
 form .button {
@@ -155,6 +159,12 @@ form .button {
   }
   &.action {
     @include button-style($bg:$button-background-color-otheraction);
+  }
+
+  &.startover {
+    background-image: url($icons + "nci-sprite.png");
+    background-position: -233px -343px;
+    padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
   }
 
   &.left-align {
