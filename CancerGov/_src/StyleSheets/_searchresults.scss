@@ -26,6 +26,12 @@
 		margin-top: em-calc(20px);
 	}
 }
+.sitewide-results {
+	> ul > li {
+		margin-top: 1.25em;
+		margin-bottom: 1.25em;
+	}
+}
 
 .pagination {
 	float: right;
