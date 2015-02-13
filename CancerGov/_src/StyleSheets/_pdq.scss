@@ -197,7 +197,7 @@ background: #EBEAE9;
 form .row .clinical-trial-individual-result {
 	margin-bottom: 75px;
 }
-.ct-results-form {
+.row .row .ct-results-form  {
 	margin: 60px 20px 30px 0;
 }
 form .row .view-content-for-container {
@@ -212,12 +212,21 @@ form .row .view-content-for-container {
   display: inline-block;
 	border: 1px solid #bdbdbd;
   padding: 5px;
-	margin: 30px 0;
+	margin: 0 0 30px;
+}
+.ct-results-top-search-options {
+	margin-top: 30px
 }
 .hide-criteria-link {
   border-bottom: 1px solid #bdbdbd;
+		a:after {
+			background: url($icons + "nci-sprite.png") no-repeat -488px -186px; width: 8px; height: 5px;
+		}
 }
 .show-criteria-link {
+		a:after {
+			background: url($icons + "nci-sprite.png") no-repeat -460px -186px; width: 8px; height: 5px;
+		}
 }
 .hide-criteria-link a, .show-criteria-link a {
   padding: 0 10px;
@@ -226,12 +235,12 @@ form .row .view-content-for-container {
 	padding: 5px 10px;
 }
 .ct-results-lower-control {
-  margin-bottom: 20px;	
+  margin-bottom: 40px;	
 }
 .ct-results-bottom-action {
 }
 .ct-results-top-control {
-	margin: 30px 0 60px 0;
+	margin: 10px 0 50px 0;
 }
 .ct-results-select-all, .ct-results-sort, .ct-results-show {
 margin-right: 20px;	
