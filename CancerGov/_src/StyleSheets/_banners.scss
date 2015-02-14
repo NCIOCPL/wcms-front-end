@@ -31,7 +31,7 @@ $notice-banner-line-height-mobile: 14px;
 	margin-top: 1px;
 	background-color: #bb0e3d;
 
-	.first-SI & {
+	.first-SI &, .only-SI & {
 		margin-top: 0;
 	}
 	.row {
