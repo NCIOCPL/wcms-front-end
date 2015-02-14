@@ -349,6 +349,8 @@ select {
     top: $custom-form-radiocheck-border-size / 2;
     left: 0;
     opacity: 0;
+    z-index: 1;
+    cursor: pointer;
 
     + label {
       position: relative;
