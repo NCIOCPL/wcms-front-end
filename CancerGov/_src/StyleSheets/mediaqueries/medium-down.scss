@@ -63,6 +63,10 @@
         -moz-transition: left 500ms ease;
         -o-transition: left 500ms ease;
         transition: left 500ms ease;
+
+        // The following two rules will prevent horizontal scrolling on mobile
+        width: 100%;
+        overflow-x: hidden;
     }
     .openNav #page {
         left: 80%;
@@ -522,7 +526,7 @@
     .guide-card .card h3.last {
         border-bottom: none;
     }
-	
+    
     .feature-zone-image img {
         display: block;
         margin: 0 auto;
