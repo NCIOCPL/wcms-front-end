@@ -1,0 +1,28 @@
+/********************* BEGIN Header Styles ******************************************/
+header {
+    padding: 1em 0 0;
+    @include font-montserrat;
+    background: #fcfcfa;
+}
+.nci-logo {
+    font-weight: bold;
+    line-height: 0.8;
+    background: url($logos + "NIH-red-logo.png") no-repeat 5px 0;
+    font-size: 30px;
+    padding: 0.1em 0 0.3em;
+}
+.nci-logo.columns {
+    padding-left: 0;
+    padding-right: 0;
+}
+.nci-logo a {
+    color: #bb0e3d;
+    padding-left: 100px;
+    display: block;
+}
+.nci-logo a span {
+    color: #5d5d5d;
+    font-size: 0.6em;
+}
+/********************* END Header Styles ******************************************/
+

@@ -1,0 +1,199 @@
+/********************* BEGIN General Styles ******************************************/
+
+body {
+    line-height: 1.375em;
+    word-wrap: break-word;
+    /* done to let long words that are bigger than container wrap within the word */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    p {
+        font-weight: inherit;
+    }
+}
+.section-nav {
+    @include font-montserrat;
+}
+h1 {
+    line-height: 1.1em;
+}
+h2 {
+    line-height: 1.215em;
+}
+h3 {
+    line-height: 1.25em;
+}
+h4 {
+    line-height: 1.333em;
+}
+p {
+    margin: 0.5em 0;
+    line-height: 1.5em;
+    font-size: inherit;
+}
+table caption {
+    font-weight: bold;
+    text-align: left;
+    color: #000;
+    padding: 20px 0 10px;
+    /* using padding instead of margin due to problem in Safari */
+}
+
+.row .header  {
+      font-weight: bold;
+      @include font-montserrat;
+}
+
+/* begin default content table styling */
+
+table.table-default {
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+table.table-default caption {
+    @include font-montserrat;
+      font-weight: normal;
+      text-transform: uppercase;
+    text-align: left;
+    padding: 20px 0 10px;
+    font-size: 1.375em;
+    /* using padding instead of margin due to problem in Safari */
+}
+table.table-default th {
+    background-color: #f2f3f7;
+      font-weight: bold;
+      @include font-montserrat;
+    /*text-align: left;*/
+}
+table.table-default tr {
+    background-color: #fff;
+}
+table.table-default td,
+table.table-default th {
+    border: 1px solid #bdbdbd;
+    padding: 10px;
+    border-spacing: 0;
+}
+table.table-default td p:first-child {
+    margin-top: 0;
+}
+table.table-default td p:last-child {
+    margin-bottom: 0;
+}
+table.table-default-center-td td {
+    text-align: center;
+}
+table.table-default td p:first-child,
+table.table-default th p:first-child {
+    margin-top: 0;
+}
+table.table-default td p:last-child,
+table.table-default th p:last-child {
+    margin-bottom: 0;
+}
+table.table-default ul {
+    padding-left: 4px;
+}
+/* end default content table styling */
+
+.bcrumbs {
+    font-size: 0.8em;
+    margin-bottom: 1.25em;
+    margin-top: 2em;
+    @include font-montserrat;
+}
+/* clearfix for clearing floated items */
+
+.clearfix {
+    zoom: 1;
+    &:after {
+        clear: both;
+    }
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+}
+/* begin images using the HTML5 figure and figcaption elements */
+
+/* add block level style to HTML5 elements, for IE */
+
+header,
+nav,
+article,
+footer,
+section,
+aside,
+figure,
+figcaption {
+    display: block;
+}
+
+
+// skip navigation styles
+.skip a, .skip a:hover, .skip a:visited {
+    position: absolute;
+    left:-999px;
+}
+.skip a:active, .skip a:focus {
+    display:block;
+    left: 0;
+    z-index:999;
+    background: #fff;
+    border: 1px solid #000;
+    padding: 5px 5px 5px 5px;
+}
+/* fix for Chrome problem with rendering sup tags */
+.sup {font-size: 80%; position: relative; bottom: 0.6em;}
+/* BEGIN columns by css instead of tables */
+.two-columns, .three-columns, .four-columns, .five-columns {
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 1em;
+}
+/* 2 col */
+.two-columns .column1,
+.two-columns .column2 {
+    float: left; width: 48%; padding-right: 4%;
+}
+.two-columns .column2 {
+    padding-right: 0;
+}
+/* 3 col */
+.three-columns .column1,
+.three-columns .column2,
+.three-columns .column3 {
+    float: left; width: 30%; padding-right: 5%;
+}
+.three-columns .column3 {
+    padding-right: 0;
+}
+/* 4 col */
+.four-columns .column1,
+.four-columns .column2,
+.four-columns .column3,
+.four-columns .column4 {
+    float: left; width: 22%; padding-right: 4%;
+}
+.four-columns .column4 {
+    padding-right: 0;
+}
+/* 5 col */
+.five-columns .column1,
+.five-columns .column2,
+.five-columns .column3,
+.five-columns .column4,
+.five-columns .column5 {
+    float: left; width: 16%; padding-right: 5%;
+}
+.five-columns .column5 {
+    padding-right: 0;
+}
+/* END columns by css instead of tables */
+/********************* END General Styles ******************************************/
+
