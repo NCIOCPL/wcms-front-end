@@ -140,75 +140,75 @@ $button-function-factor: 10%;
 
 form a.button,
 form a.button:hover, {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 form button,
 form .button {
-  @include button-base;
-  @include button-size;
-  @include button-style;
+	@include button-base;
+	@include button-size;
+	@include button-style;
 
-  &[type=submit],
-  &.submit {
-    @include button-style($bg:$button-background-color-submit);
-  }
-  &[type=reset],
-  &.reset {
-    @include button-style($bg:$button-background-color-reset);
-  }
-  &.action {
-    @include button-style($bg:$button-background-color-otheraction);
-  }
+	&[type=submit],
+	&.submit {
+		@include button-style($bg:$button-background-color-submit);
+	}
+	&[type=reset],
+	&.reset {
+		@include button-style($bg:$button-background-color-reset);
+	}
+	&.action {
+		@include button-style($bg:$button-background-color-otheraction);
+	}
 
-  &.startover {
-    background-image: url($icons + "nci-sprite.png");
-    background-position: -233px -343px;
-    padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
-  }
+	&.startover {
+		background-image: url($icons + "nci-sprite.png");
+		background-position: -233px -343px;
+		padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
+	}
 
-  &.left-align {
-    text-align: left; padding-left: em-calc(12);
-  }
-  &.right-align {
-    text-align: right; padding-right: em-calc(12);
-  }
+	&.left-align {
+		text-align: left; padding-left: em-calc(12);
+	}
+	&.right-align {
+		text-align: right; padding-right: em-calc(12);
+	}
 
-  &[disabled],
-  &.disabled {
-    &[type=submit],
-    &.submit {
-      @include button-style($bg:$button-background-color-submit, $disabled:true);
-    }
-    &[type=reset],
-    &.reset {
-      @include button-style($bg:$button-background-color-reset, $disabled:true);
-    }
-    &.action {
-      @include button-style($bg:$button-background-color-otheraction, $disabled:true);
-    }
-  }
+	&[disabled],
+	&.disabled {
+		&[type=submit],
+		&.submit {
+			@include button-style($bg:$button-background-color-submit, $disabled:true);
+		}
+		&[type=reset],
+		&.reset {
+			@include button-style($bg:$button-background-color-reset, $disabled:true);
+		}
+		&.action {
+			@include button-style($bg:$button-background-color-otheraction, $disabled:true);
+		}
+	}
 }
 
 @media only screen {
-  form button,
-  form .button {
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
+	form button,
+	form .button {
+		box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
 
-    @include single-transition(background-color);
+		@include single-transition(background-color);
 
-    &.radius {
-      @include button-style($bg:false, $radius:true);
-    }
-  }
+		&.radius {
+			@include button-style($bg:false, $radius:true);
+		}
+	}
 }
 
 @media #{$small} {
-  form button,
-  form .button {
-    @include button-base($style:false, $display:inline-block);
-    @include button-size($padding:false, $full-width:false);
-  }
+	form button,
+	form .button {
+		@include button-base($style:false, $display:inline-block);
+		@include button-size($padding:false, $full-width:false);
+	}
 }
 
 
@@ -216,86 +216,99 @@ form .button {
 //
 // Plus/Minus (Expand/Collapse) buttons
 //
+
+$plusminus-desktop-color-collapsed: #454545;
+$plusminus-desktop-color-expanded: #009b9d;
+
+// variables
+$plusminus-color-accordion-odd: #454545;
+$plusminus-bg-color-accordion-odd: #fff;
+
 .toggle {
-  // BEGIN reset
-  display: inline-block;
-  cursor: pointer;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  // END reset
+	// BEGIN reset
+	display: inline-block;
+	cursor: pointer;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	// END reset
 
-  text-align: center;
-  text-indent: 0;
-  overflow: visible;
-  color: #454545;
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 1;
-  height: 1em;
-  width: 1em;
-  position: absolute;
-  right: 4%;
-  top: 50%;
-  margin-top: -0.5em;
+	position: absolute;
+	right: 4%;
+	top: 50%;
+	margin-top: -0.5em;
+	overflow: visible;
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1;
+	text-indent: 0;
+	text-align: center;
+	height: 1em;
+	width: 1em;
 
-  &:hover, &:focus {
-    background: none;
-    color: initial;
-  }
-  &:after {
-    display: block;
-    width: 1em;
-    height: 1em;
-  }
-  [aria-expanded="false"] &:after,
-  &[aria-expanded="false"]:after {
-    content: "+";
-  }
-  [aria-expanded="true"] &:after,
-  &[aria-expanded="true"]:after {
-    content: "\2212"; /* "2212" is Unicode for the minus sign */
-    color: #009b9d;
-  }
+	&:after {
+		display: block;
+		height: 1em;
+		width: 100%;
+		line-height: 1;
+	}
+	[aria-expanded="false"] &:after,
+	&[aria-expanded="false"]:after {
+		content: "+";
+	}
+	[aria-expanded="true"] &:after,
+	&[aria-expanded="true"]:after {
+		content: "\2212"; /* "2212" is Unicode for the minus sign */
+	}
 }
 
 @media only screen and (max-width: 1024px) {
-  // MOBILE: general plus/minus buttons
-  .toggle {
-    font-size: 2em;
+	// MOBILE: general plus/minus buttons
+	.toggle {
+		right: 0;
+		top: 0;
+		margin-top: 0;
+		color: $plusminus-color-accordion-odd;
+		background-color: $plusminus-bg-color-accordion-odd;
+		font-size: 2em;
+		height: 100%;
+		width: 50px;
 
-    &:after {
-      background-color: white;
-      border-radius: 1em;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      -webkit-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-      box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    }
-  }
+		&:hover, &:focus {
+			background-color: $plusminus-color-accordion-odd;
+			color: $plusminus-bg-color-accordion-odd;
+		}
+		&:after {
+			position: absolute;
+			top: 50%;
+			margin-top: -0.5em;
+		}
+	}
 
-  // MOBILE: "hamburger" plus/minus buttons
-  #mega-nav .toggle {
-    font-size: 3em;
-
-    &:after {
-      font-size: 0.75em;
-      line-height: 0.875em;
-      padding: 0.25em;
-      width: 1.25em;
-      height: 1.25em;
-    }
-  }
+	// MOBILE: "hamburger" plus/minus buttons
+	#mega-nav .toggle {
+		font-size: 2.5em;
+	}
 }
 
 @media only screen and (min-width: 1025px) {
-  // DESKTOP: general plus/minus buttons
-  .toggle {
-    font-size: 1.25em;
-    margin-top: -0.625em;
-  }
+	// DESKTOP: general plus/minus buttons
+	.toggle {
+		font-size: 1.25em;
+		margin-top: -0.625em;
+
+		[aria-expanded="false"] &,
+		&[aria-expanded="false"] {
+			color: $plusminus-desktop-color-collapsed;
+		}
+		[aria-expanded="true"] &,
+		&[aria-expanded="true"] {
+			color: $plusminus-desktop-color-expanded;
+		}
+	}
 }

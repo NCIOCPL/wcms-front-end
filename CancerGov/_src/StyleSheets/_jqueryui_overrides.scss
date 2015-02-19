@@ -38,10 +38,11 @@
 	}
 	// override icons
 	.ui-accordion-header .ui-accordion-header-icon {
+		top: 0;
 		left: auto;
-		right: 4%;
+		right: 0;
 		background-image: none;
-		margin-top: -0.5em;
+		margin-top: 0;
 	}
 
 	// accordion content
