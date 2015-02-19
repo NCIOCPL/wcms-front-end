@@ -8,7 +8,7 @@
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	padding: 5px 15px;
+	padding: 8px 15px 0 15px;
 	text-decoration: none;
 	float: left;
 	margin-right: 15px;
@@ -47,25 +47,34 @@
 }
 
 .pub-buttons a.icon span{
-	padding-left: 36px;
-	background: url($icons + "nci-sprite.png") no-repeat 0 -4px;
-	display: block;
+	padding-left: 22px;
+	vertical-align: top;
+	display: inline-block;
 }
 
-.pub-buttons a.icon.html span {
+.pub-buttons a.icon:before {
+background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0px;
+content: " ";
+width: 22px;
+height: 21px;
+display: inline-block;
+}
+
+.pub-buttons a.kindle.icon:before {
+background-position: -20px -510px;
+}
+
+
+.pub-buttons a.html.icon:before {
 	background-position: -20px -584px;
 }
 
-.pub-buttons a.icon.pdf span {
+.pub-buttons a.pdf.icon:before {
 	background-position: -20px -474px;
 }
 
-.pub-buttons a.icon.kindle span {
-background-position: -20px -511px;
-}
-
-.pub-buttons a.icon.epub span,
-.pub-buttons a.icon.lector span {
+.pub-buttons a.epub.icon:before,
+.pub-buttons a.lector.icon:before {
 background-position: -20px -548px;
 }
 
