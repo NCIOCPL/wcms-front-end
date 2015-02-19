@@ -217,12 +217,23 @@ form .button {
 // Plus/Minus (Expand/Collapse) buttons
 //
 
+// variables
 $plusminus-desktop-color-collapsed: #454545;
 $plusminus-desktop-color-expanded: #009b9d;
 
-// variables
 $plusminus-color-accordion-odd: #454545;
 $plusminus-bg-color-accordion-odd: #fff;
+
+// color mixin
+@mixin toggle-color($color, $bg-color) {
+	color: $color;
+	background-color: $bg-color;
+
+	&:hover, &:focus {
+		color: $bg-color;
+		background-color: $color;
+	}
+}
 
 .toggle {
 	// BEGIN reset
@@ -273,21 +284,16 @@ $plusminus-bg-color-accordion-odd: #fff;
 		right: 0;
 		top: 0;
 		margin-top: 0;
-		color: $plusminus-color-accordion-odd;
-		background-color: $plusminus-bg-color-accordion-odd;
 		font-size: 2em;
 		height: 100%;
 		width: 50px;
 
-		&:hover, &:focus {
-			background-color: $plusminus-color-accordion-odd;
-			color: $plusminus-bg-color-accordion-odd;
-		}
 		&:after {
 			position: absolute;
 			top: 50%;
 			margin-top: -0.5em;
 		}
+		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
 	}
 
 	// MOBILE: "hamburger" plus/minus buttons
