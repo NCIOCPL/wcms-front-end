@@ -26,3 +26,16 @@ $text-icon-help-size: 28px;
 		text-decoration: none;
 	}
 }
+
+
+$icon-cdr-audiofile-width: 27px;
+$icon-cdr-audiofile-height: 19px;
+
+.CDR_audiofile {
+	background: url($icons + 'nci-sprite.png') no-repeat -379px -259px;
+	width: $icon-cdr-audiofile-width;
+	height: $icon-cdr-audiofile-height;
+	display: inline-block;
+	position: relative;
+	top: $icon-cdr-audiofile-height / 4;
+}
