@@ -70,6 +70,11 @@
     color: #fff;
 }
 
+/* TODO: Make the slick dots into html, not images
+.slick-dots button:hover {
+    background-color: $lblue;
+} */
+
 .spotlight-on-scientists {
     .slick-track, .slick-list {
         height: 15em;
