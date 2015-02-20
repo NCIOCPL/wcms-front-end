@@ -157,23 +157,9 @@
         margin: 0 auto;
     }
     /*CAROUSEL STYLES*/
-    /* desktop arrows */
-    .arrows-for-other-nci-sites .next {
-        background: transparent url($buttons + "blue-arrow-right.png") no-repeat 0 0;
-    }
-    .arrows-for-other-nci-sites .next:hover, .arrows-for-other-nci-sites .next:focus {
-        background: transparent url($buttons + "red-arrow-right.png") no-repeat 0 0;
-    }
-    .arrows-for-other-nci-sites .previous {
-        background: transparent url($buttons + "blue-arrow-left.png") no-repeat 0 0;
-    }
-    .arrows-for-other-nci-sites .previous:hover, .arrows-for-other-nci-sites .previous:focus {
-        background: transparent url($buttons + "red-arrow-left.png") no-repeat 0 0;
-    }
-    /* spacing */
-    .slick-slide .container {
-        margin: 0 11px;
-    }
+
+@include "_carousel-largeup";
+    
     /** BEGIN PDQ Styles **/
     section.hide, div.hide {
         display: none;
@@ -182,11 +168,11 @@
         display: block;
     }
     /** END PDQ Styles **/
-		/** BEGIN Feature Primary Row **/
-		.feature-primary a:hover h3 {
- 			color: white;
-		}
-		/** End Feature Primary Row **/
+        /** BEGIN Feature Primary Row **/
+        .feature-primary a:hover h3 {
+            color: white;
+        }
+        /** End Feature Primary Row **/
     .medium-1 {
         position: relative;
         width: 8.33333%;

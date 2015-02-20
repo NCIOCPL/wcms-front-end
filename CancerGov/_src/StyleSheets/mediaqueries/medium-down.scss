@@ -63,10 +63,6 @@
         -moz-transition: left 500ms ease;
         -o-transition: left 500ms ease;
         transition: left 500ms ease;
-
-        // The following two rules will prevent horizontal scrolling on mobile
-        width: 100%;
-        overflow-x: hidden;
     }
     .openNav #page {
         left: 80%;
@@ -414,39 +410,7 @@
     /* end mobile menu styles */
 
     /* begin carousel styles */
-    /* spacing */
-    .slick-slide {
-        margin: 0 10px 0 0;
-    }
-    /*.slick-slide:last-child {
-        margin: 0;
-    }*/
-    /* opacity on non-active slide items */
-    .slick-slide {
-        background-color: #000;
-    }
-    .slick-slide .container {
-        opacity: 0.5;
-    }
-    /* overwrite above styles for opacity and background-color */
-    .slick-active {
-        background-color: #fff;
-    }
-    .slick-active .container {
-        opacity: 1;
-    }
-    .arrows-for-other-nci-sites .previous {
-        display: none;
-    }
-    .arrows-for-other-nci-sites .next {
-        position: absolute;
-        right: 20px;
-        z-index: 800;
-        top: 50%;
-    }
-    .arrows-for-other-nci-sites .next {
-        display: none;
-    }
+@include "_carousel-mediumdown";
     /* end carousel styles */
     .main-content {
         background: #f7f8f3;
