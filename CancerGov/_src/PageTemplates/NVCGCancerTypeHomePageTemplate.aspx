@@ -6,7 +6,7 @@
 	</div>
 	<!-- END "row" -->
 </div>
-<div class="cthp-content">
+<div class="cthp-content" id="content">
 	<div class="row">
 		<div class="large-12 columns resize-content">
 			<!--(bake Includes/PageTitle.inc)-->
