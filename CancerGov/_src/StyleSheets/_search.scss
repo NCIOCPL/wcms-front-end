@@ -1,32 +1,75 @@
 /********************* BEGIN Megamenus/Search Styles ******************************************/
 
 /* Navigation/Search bar */
-
 .nav-search-bar {
-    background: rgb(54, 54, 54);
-    /* fallback */
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1)));
-    /* Safari4+, Chrome */
-    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* Chrome 10+, Saf5.1+ */
-    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* FF3.6+ */
-    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* IE10 */
-    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* Opera 11.10+ */
-    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* W3C */
+    background: rgb(54, 54, 54); /* fallback */
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1))); /* Safari 4+, Chrome */
+    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Chrome 10+, Saf5.1+ */
+    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* FF3.6+ */
+    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* IE10 */
+    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Opera 11.10+ */
+    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* W3C */
 }
 /* off canvas navigation
-* Source: http://codepen.io/scottb/details/javhr/ */
+ * Source: http://codepen.io/scottb/details/javhr/
+ */
 
 #content {
     clear: both;
 }
+
 a.open-panel,
 a.close-panel {
     display: none;
 }
-/********************* END Megamenus/Search Styles ******************************************/
 
+
+/* search */
+.search form {
+	margin: 0 0 0 -4px;
+	height: 100%;
+}
+.search {
+	width: 25%;
+	float: right;
+	background-color: #636363;
+	height: 51px;
+}
+html[lang="es"] .search {
+	height: 58px;
+}
+
+/* search box */
+#swKeyword {
+	display: inline;
+	width: 89%;
+	height: 100%;
+	padding-left: 7%;
+	margin-bottom: 0;
+	border: 0;
+	background-color: #636363;
+	@include font-montserrat;
+	font-style: normal;
+	font-size: 0.85em;
+	color: #fff;
+
+	/* placeholder text */
+	&::-webkit-input-placeholder {
+		color: inherit;
+		font-style: inherit;
+	}
+	&:-moz-placeholder {
+		color: inherit;
+		font-style: inherit;
+	}
+	&::-moz-placeholder {
+		color: inherit;
+		font-style: inherit;
+	}
+	&:-ms-input-placeholder {
+		color: inherit;
+		font-style: inherit;
+	}
+}
+
+/********************* END Megamenus/Search Styles ******************************************/
