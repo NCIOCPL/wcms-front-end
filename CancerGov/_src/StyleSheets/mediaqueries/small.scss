@@ -40,6 +40,12 @@
         .feature-primary h3,  .feature-primary p,  .feature-secondary h3,  .feature-secondary p, .multimedia h3, .multimedia p, .other-sites-carousel h3, .row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
             padding-left: 15px;
         }
+	table .article-image-enlarge {
+    font-size: 7px;
+    margin-top: -5px;
+    padding-left: 3px !important;
+    padding-right: 24px !important;
+}
 	/** CTHP styles **/
 	.cthp-body {
     float: none;
