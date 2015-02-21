@@ -118,3 +118,8 @@ table figure {
     font-size: 0.8125em;
 	text-align: left;
 }
+	// this is done to fix a problem in tables/chrome, where a figure image is causing text in other tds to go beyond their borders
+	table figure img {
+		display: inline-block;
+		vertical-align: top;
+	}
