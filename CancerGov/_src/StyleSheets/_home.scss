@@ -68,14 +68,16 @@
 	padding-right: 0;
 }
 /* equal height cards for desktop, visually push a div to the bottom of it's container */
+.card.equalheight > div, .card.equalheight > div > a {
+	height: 100%;
+}
 
 .card-row .card a {
 	color: #606060;
 }
 .card {
 	padding-top: 1em;
-	background: white;
-	/* for IE browsers that don't understnad rgba */
+	background: white; /* for IE browsers that don't understand rgba */
 	background: rgba(255, 255, 255, 0.8);
 }
 .card a:hover, .card a:focus {
@@ -96,8 +98,7 @@
 }
 /* END CARDS GENERAL RULES */
 
-/* BEGIN FEAUTRE PRIMARY CARDS ROW */
-
+/* BEGIN FEATURE PRIMARY CARDS ROW */
 .feature-primary {
 	margin-bottom: 1em;
 }
@@ -126,16 +127,19 @@
 	font-size: 1.375em;
 	line-height: 1.272;
 }
+.feature-primary p {
+	margin-bottom: 0;
+}
 // the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
 .feature-primary .columns {
 	padding: 0;
 }
 .feature-primary .columns a {
-	padding: 1em 0.9375em 1px 0.9375em;
+	padding: em-calc(30px);
 	display: block;
 }
 .multimedia-feature-card a, .multimedia .feature-card a {
-	display: block; 
+	display: block;
 	height: 100%;
 }
 /* END FEATURE PRIMARY CARDS ROW */
@@ -160,7 +164,6 @@
 /* END FEATURE SECONDARY CARDS ROW */
 
 /* BEGIN GUIDE CARDS ROW */
-
 .guide-card {
 	margin-bottom: 1em;
 }
@@ -169,6 +172,15 @@
 	color: #606060;
 	font-size: 1.375em;
 	line-height: 1.272;
+}
+.guide-card .card {
+	padding: em-calc(38px 32px 34px);
+}
+.guide-card .card ul {
+	margin-bottom: 0;
+}
+.guide-card .card h2 {
+	margin-top: 0;
 }
 .featured-card {
 	background: #dbf2f8;

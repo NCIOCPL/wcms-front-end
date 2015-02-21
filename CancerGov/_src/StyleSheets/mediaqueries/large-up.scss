@@ -138,16 +138,17 @@
         max-width: 1350px;
     }
     .row .gutter {
-        width: 31%;
-        margin-left: 3.5%;
+        width: 32.5%;
+        margin-left: 1.25%;
     }
     .row .gutter:first-child {
-        width: 31%;
+        width: 32.5%;
         margin-left: 0;
     }
     .nvcgSlLayoutGuideB .card:first-child {
-        margin-left: 3.5%;
+        margin-left: 1.25%;
     }
+
     /* MegaMenu styles for side exits */
     nav .sub-nav-group-wrapper {
         max-width: 70em;
@@ -158,8 +159,8 @@
     }
     /*CAROUSEL STYLES*/
 
-@import "_carousel-largeup";
-    
+    @import "_carousel-largeup";
+
     /** BEGIN PDQ Styles **/
     section.hide, div.hide {
         display: none;
