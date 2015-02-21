@@ -158,7 +158,7 @@
     }
     /*CAROUSEL STYLES*/
 
-@include "_carousel-largeup";
+@import "_carousel-largeup";
     
     /** BEGIN PDQ Styles **/
     section.hide, div.hide {

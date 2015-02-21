@@ -410,7 +410,7 @@
     /* end mobile menu styles */
 
     /* begin carousel styles */
-@include "_carousel-mediumdown";
+@import "_carousel-mediumdown";
     /* end carousel styles */
     .main-content {
         background: #f7f8f3;
