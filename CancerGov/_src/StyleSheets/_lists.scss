@@ -6,10 +6,15 @@
     > .title {
         @include font-montserrat;
         font-weight: normal;
-        font-size: 22px;
-        line-height: 26px;
+        font-size: 20px;
+        line-height: 24px;
         text-transform: uppercase;
         color: $dgrey00;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 20px;
     }
 
     ul {
@@ -46,8 +51,8 @@
         .title {
             @include font-montserrat;
             font-weight: normal;
-            font-size: 22px;
-            line-height: 28px;
+            font-size: 18px;
+            line-height: 20px;
             color: $dteal00;
         }
 
