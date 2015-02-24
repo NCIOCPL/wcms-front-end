@@ -269,7 +269,7 @@ jQuery(document).ready(function(jQuery) {
 				videoLinkSrc = 'https://www.youtube.com/',
 				videoId = '',
 				videoTitle = '',
-				videoOptions = '?rel=0',
+				videoOptions = '?wmode=opaque&rel=0',
 				videoType = '';
 
 			if($this.hasClass('playlist')) {
