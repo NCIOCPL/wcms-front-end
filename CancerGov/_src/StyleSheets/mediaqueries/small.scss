@@ -23,10 +23,9 @@
             .main-content {
             background: none;
         }
-
-        .hero-text {
-            font-size: 0.9em;
-        }
+				.hero-slot {
+					display: none;
+				}
         /* remove padding on language links to fit all on one line */
             .sitewide-language {
             padding-right: 0;
