@@ -36,9 +36,15 @@ a.definition:hover, a.definition:focus {
         border-right: 1px solid #cfd0cb;
     }
 }
-.section-nav {} .contentzone:first-child {
-    width: 100%;
+
+.contentzone {
+    padding-right: em-calc(50px);
 }
+.contentzone:first-child {
+    width: 100%;
+    padding-left: em-calc(50px);
+}
+
 .back-to-top {
     position: fixed;
     bottom: 1em;
