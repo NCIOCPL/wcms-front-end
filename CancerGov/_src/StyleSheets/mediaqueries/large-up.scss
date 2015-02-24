@@ -3,6 +3,16 @@
 /* We created this medium breakpoint so that items could stack on tablet devices */
 /* *************************************************************************/
 @media only screen and (min-width: 1025px) {
+    .contentzone {
+        padding-right: em-calc(50px);
+
+        &:first-child {
+            padding-left: em-calc(50px);
+        }
+    }
+    .toptoc {
+        margin-right: em-calc(-50px, 0.8*$em-base);
+    }
 
     /* large screen styles for TOC */
     #my-toc {
