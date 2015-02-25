@@ -2,32 +2,33 @@
 
 /* Navigation/Search bar */
 .nav-search-bar {
-    background: rgb(54, 54, 54); /* fallback */
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1))); /* Safari 4+, Chrome */
-    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Chrome 10+, Saf5.1+ */
-    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* FF3.6+ */
-    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* IE10 */
-    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Opera 11.10+ */
-    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* W3C */
+	background: rgb(54, 54, 54); /* fallback */
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1))); /* Safari 4+, Chrome */
+	background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Chrome 10+, Saf5.1+ */
+	background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* FF3.6+ */
+	background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* IE10 */
+	background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Opera 11.10+ */
+	background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* W3C */
 }
 /* off canvas navigation
  * Source: http://codepen.io/scottb/details/javhr/
  */
 
 #content {
-    clear: both;
+	clear: both;
 }
 
 a.open-panel,
 a.close-panel {
-    display: none;
+	display: none;
 }
 
 
 /* search */
-.search form {
+#siteSearchForm {
 	margin: 0 0 0 -4px;
 	height: 100%;
+	position: relative;
 }
 .search {
 	width: 25%;
@@ -41,10 +42,9 @@ html[lang="es"] .search {
 
 /* search box */
 #swKeyword {
-	display: inline;
-	width: 89%;
+	width: 100%;
 	height: 100%;
-	padding-left: 7%;
+	padding-left: 1.5em;
 	margin-bottom: 0;
 	border: 0;
 	background-color: #636363;

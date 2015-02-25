@@ -49,3 +49,23 @@ $icon-cdr-audiofile-height: 19px;
 	position: relative;
 	top: $icon-cdr-audiofile-height / 4;
 }
+
+$icon-sitewide-search-submit-width: 16px;
+$icon-sitewide-search-submit-height: 16px;
+#sitesearch {
+	// reset general <button> styling
+	border: none;
+	box-shadow: none;
+	transition: none;
+	padding: 0;
+	margin: 0;
+
+	background: url($icons + 'nci-sprite.png') no-repeat -199px -261px;
+	width: $icon-sitewide-search-submit-width;
+	height: $icon-sitewide-search-submit-height;
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -($icon-sitewide-search-submit-height / 2);
+	right: 1em;
+}
