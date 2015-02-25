@@ -3,7 +3,6 @@
 //
 
 $text-icon-help-size: 28px;
-
 .text-icon-help,
 .main-content .text-icon-help {
 	font-size: em-calc(18px);
@@ -28,9 +27,20 @@ $text-icon-help-size: 28px;
 }
 
 
+$icon-exit-notification-width: 12px;
+$icon-exit-notification-height: 12px;
+.icon-exit-notification {
+	background: url($icons + 'nci-sprite.png') no-repeat -470px -263px;
+	width: $icon-exit-notification-width;
+	height: $icon-exit-notification-height;
+	display: inline-block;
+	margin-left: 0.25em;
+	margin-right: 0.5em;
+}
+
+
 $icon-cdr-audiofile-width: 27px;
 $icon-cdr-audiofile-height: 19px;
-
 .CDR_audiofile {
 	background: url($icons + 'nci-sprite.png') no-repeat -379px -259px;
 	width: $icon-cdr-audiofile-width;

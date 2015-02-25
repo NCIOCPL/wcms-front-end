@@ -163,24 +163,52 @@ jQuery(document).ready(function(jQuery) {
 	})(jQuery);
 	/*** END Headroom initializer ***/
 
-  /*** BEGIN Site-Wide Search
-   * This initializes jQuery UI Autocomplete on the site-wide search widget.
-   ***/
-  (function($) {
-    var language = "English";
-    if ($('html').attr("lang") === "es") {
-      language = "Spanish";
-    }
+	/*** BEGIN Exit Disclaimer
+	 * This script looks for URLs where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link. The image itself links to the exit disclaimer page.
+	 ***/
+	(function($) {
+		var lang = $('html').attr('lang') || 'en',
+		    path,
+		    altText;
 
-    var keywordElem = "#swKeyword";
-    if ($(keywordElem).length === 0) {
-      return;
-    }
-    var svcUrl = "/AutoSuggestSearch.svc/SearchJSON/" + language;
+		switch(lang) {
+			case 'es':
+				path = $('meta[name="espanol-linking-policy"]').prop('content');
+				altText ='Notificaci\u00F3n de salida';
+				break;
+			default:
+				path = $('meta[name="english-linking-policy"]').prop('content');
+				altText ='Exit Disclaimer';
+				break;
+		}
+		$("a[href]").filter(function() {
+			return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
+		}).after($(
+			'<a class="icon-exit-notification" href="' + path + '">' +
+				'<span class="hidden">' + altText + '</span>' +
+			'</a>'
+		));
+	})(jQuery);
+	/*** END Exit Disclaimer ***/
 
-    NCI.doAutocomplete(keywordElem, svcUrl, false, "term");
-  })(jQuery);
-  /*** END Site-Wide Search ***/
+	/*** BEGIN Site-Wide Search
+	 * This initializes jQuery UI Autocomplete on the site-wide search widget.
+	 ***/
+	(function($) {
+		var language = "English";
+		if ($('html').attr("lang") === "es") {
+			language = "Spanish";
+		}
+
+		var keywordElem = "#swKeyword";
+		if ($(keywordElem).length === 0) {
+			return;
+		}
+		var svcUrl = "/AutoSuggestSearch.svc/SearchJSON/" + language;
+
+		NCI.doAutocomplete(keywordElem, svcUrl, false, "term");
+	})(jQuery);
+	/*** END Site-Wide Search ***/
 
 	/*** BEGIN Page Options
 	 * This functions the font resizer.
