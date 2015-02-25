@@ -5,14 +5,24 @@
 @import "fonts";
 
 /****************** VENDOR LIBRARIES SECTION ********************/
-
+/***  BEGIN RESET STYLES ***/
 @import "reset";
+/***  END RESET STYLES ***/
+/***  BEGIN FOUNDATION STYLES ***/
 @import "nci-foundation";
+/***  END FOUNDATION STYLES ***/
+/***  BEGIN FOUNDATION OVERRIDE STYLES ***/
 @import "foundation_overrides";
+/***  END FOUNDATION OVERRIDE STYLES ***/
+/***  BEGIN SLICK STYLES ***/
 @import "slick";
+/***  BEGIN SLICK STYLES ***/
+/***  BEGIN JQUERY UI STYLES ***/
 @import "jqueryui";
+/***  END JQUERY UI STYLES ***/
+/***  BEGIN JQUERY UI OVERRIDE STYLES ***/
 @import "jqueryui_overrides";
-
+/***  END JQUERY UI OVERRIDE STYLES ***/
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
 /****************** NCI COMPONENTS SECTION ********************/
