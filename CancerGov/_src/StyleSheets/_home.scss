@@ -105,21 +105,28 @@
 .feature-primary .card {
 	background: #178da9;
 }
+// featured-text is used for the funding opportunities box
 .feature-primary .featured-text {
+	padding: 15px;
 	background: white;
+	color: #186e88;
+	// this is needed to overcome padding that was put in cards anchor tag
+	a {
+		padding: 0; 
+	}
+	a:hover, a:focus {
+		color: #bb0e3d;
+	}
+	h3 {
+		color: #666;
+	}
+	p {
+		margin-top: 1em; 
+	}
 }
 .feature-primary a,
 .feature-primary h3 {
 	color: white;
-}
-.feature-primary .featured-text a {
-	color: #186e88;
-}
-.feature-primary .featured-text a:hover, .feature-primary .featured-text a:focus {
-	color: #bb0e3d;
-}
-.feature-primary .featured-text h3 {
-	color: #666;
 }
 .feature-primary h3 {
 	font-weight: normal;
