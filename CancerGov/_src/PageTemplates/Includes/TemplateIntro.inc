@@ -28,7 +28,8 @@
     <![endif]-->
 <div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
 <!-- NOTIFICATION AREA -->
-<NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
+<NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" CssClass="notification-banner" />
+<NCI:TemplateSlot ID="nvcgColo" runat="server"  CssClass="notification-banner" />
 <!-- END NOTIFICATION AREA -->
 
 <!-- HEADER -->
