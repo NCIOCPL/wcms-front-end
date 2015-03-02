@@ -19,11 +19,13 @@
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
     <script src="/PublishedContent/js/ie8-polyfills.js"></script>
-    <script src="/PublishedContent/js/respond.js"></script>
     <![endif]-->
 </head>
 
 <body id="Body1" runat="server">
+    <!--[if lt IE 9]>
+    <script src="/PublishedContent/js/respond.js"></script>
+    <![endif]-->
 <div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
 <!-- NOTIFICATION AREA -->
 <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
