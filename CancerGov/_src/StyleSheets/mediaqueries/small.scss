@@ -61,7 +61,11 @@
 	.feature-card a:focus h3 {
 		color: white;
 	}
-	.feature-primary p {
+	.card-thumbnail {
+		padding-left: 1.9375em;
+		padding-right: 1.9375em;
+	}
+	.feature-primary p, .card-thumbnail p {
 		display: none;
 	}
         /* the portal pages needed these items to not hit the edge of screen on mobile only */
