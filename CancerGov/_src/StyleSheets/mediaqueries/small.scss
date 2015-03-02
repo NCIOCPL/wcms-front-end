@@ -35,6 +35,33 @@
             padding-right: 0;
             padding-left: 0;
         }
+	.feature-primary {
+	margin-bottom: 0;	
+	}
+	
+	.feature-primary .card {
+		background: #178DAA;
+	}
+	.feature-primary .columns a {
+	padding-bottom: 0;	
+	}
+	.feature-primary .image-hover {
+		float: left;
+		width: 30%;
+	}
+	.feature-primary h3 {
+	margin-top: 0;	
+		color: white;
+		float: right;
+		width: 70%;
+	}
+	.feature-card a:hover h3,
+	.feature-card a:focus h3 {
+		color: white;
+	}
+	.feature-primary p {
+		display: none;
+	}
         /* the portal pages needed these items to not hit the edge of screen on mobile only */
         .feature-primary h3,  .feature-primary p,  .feature-secondary h3,  .feature-secondary p, .multimedia h3, .multimedia p, .other-sites-carousel h3, .row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
             padding-left: 15px;
