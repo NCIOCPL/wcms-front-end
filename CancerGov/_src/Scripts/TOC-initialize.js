@@ -26,7 +26,11 @@ var accordionize = function() {
 
 	/* If the width is less than or equal to 1024px (small/medium screens)
 	 * AND if the accordion(s) isn't (aren't) already built */
-	if (width <= 1024 && $(targetsBuiltAccordionSelector).length === 0) {
+        /* Requirement Change:
+         * Accordion does not get created for tables size (1024), only for
+         * mobile size (640)
+         * --------------------------------------------------------------- */
+	if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
 		// verify that the accordion will build correctly
 		$('.accordion h2').each(function() {
 			if($(this).nextAll().length > 1) {
@@ -41,7 +45,7 @@ var accordionize = function() {
 		}
 
 		/* else, the window must be large */
-	} else if(width >= 1025) {
+	} else if(width > 640) {
 		for(accordion in targets) {
 			if(targets.hasOwnProperty(accordion)) {
 				NCI.undoAccordion(accordion, {'header': targets[accordion]});
