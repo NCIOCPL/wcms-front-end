@@ -43,7 +43,9 @@
 		background: #178DAA;
 	}
 	.feature-primary .columns a {
-	padding-bottom: 0;	
+	padding-bottom: 15px;
+	padding-top: 15px;	
+		overflow: auto;
 	}
 	.feature-primary .image-hover {
 		float: left;
