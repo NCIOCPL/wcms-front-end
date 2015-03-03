@@ -82,8 +82,8 @@
             position: relative;
             display: inline-block;
             top: 5px;
-            height: 1em;
-            width: 1em;
+            height: calc(1em + 2px);
+            width: calc(1em + 2px);
             padding: 0px;
             margin: 0px;
             background: white;
