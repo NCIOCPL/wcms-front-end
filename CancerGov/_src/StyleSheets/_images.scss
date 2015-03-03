@@ -19,8 +19,7 @@ figure {
     margin-bottom: 10px;
     overflow: hidden;
     position: relative;
-	background-color: #f7f7f3;
-
+	
     a.article-image-enlarge {
         background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
 		@extend %enlarge-infographic;
@@ -113,11 +112,12 @@ table figure {
     table-layout: fixed;
 }
 .caption-container {
-    padding: 0.4375em 0.9375em 0.75em 0.9375em;
+    padding: 0.9375em;
     line-height: 1.5em;
     background-color: #f7f7f3;
     font-size: 0.8125em;
 	text-align: left;
+	margin-top: -0.3125em;
 }
 	// this is done to fix a problem in tables/chrome, where a figure image is causing text in other tds to go beyond their borders
 	table figure img {
