@@ -7,16 +7,8 @@ p.blog-post-publishing-info {
 	margin-top:0;
 }
 .blog.body-banner:before {
-	-webkit-transform: rotate(90deg) translate(0, -3em);
-	-webkit-transform-origin: 0 0;
+	@include call-to-action-corner();
 	content: "Blog";
-	text-transform: uppercase;
-	position: absolute;
-	z-index: 88;
-	background-color: #403f3f;
-	padding: 1em;
-	color: white;
-	left: calc(100% - 3em);
 }
 .blog-post {
 	border-top: 1px solid #bdbdbd;
