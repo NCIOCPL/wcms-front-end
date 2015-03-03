@@ -6,35 +6,39 @@
 p.blog-post-publishing-info {
 	margin-top:0;
 }
+.blog.body-banner:before {
+	-webkit-transform: rotate(90deg) translate(0, -3em);
+	-webkit-transform-origin: 0 0;
+	content: "Blog";
+	text-transform: uppercase;
+	position: absolute;
+	z-index: 88;
+	background-color: #403f3f;
+	padding: 1em;
+	color: white;
+	left: calc(100% - 3em);
+}
 .blog-post {
 	border-top: 1px solid #bdbdbd;
 	padding-top: 16px;
-}
-.blog-post:first-child {
-	border-top: none;
-	margin-top: 0;
-	padding-top: 0;
-}
-.blog-post .post-thumb {
-
-}
-.blog-post .post-thumb img {
-	max-width: 100%;
-}
-/* If there is a thumbnail, then set the width to not be 100% */
-.blog-post .post-thumb + .post-info {
-
-}
-.blog-post .post-info .post-title > a {
-	display: block;
-	float: right;
-}
-.blog-post h3 {
-	margin: 0;
-	width: 70%;
-	float: left;
-}
-.blog-post {
+	
+	&:first-child {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+	}
+	h3 {
+		margin: 0;
+		width: 70%;
+		float: left;
+	}
+	.post-info .post-title > a {
+		display: block;
+		float: right;
+	}
+	.post-thumb img {
+		max-width: 100%;
+	}
 }
 .blog-list {
 	margin-top: 24px;
