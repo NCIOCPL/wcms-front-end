@@ -218,6 +218,9 @@ a.arrow-link-white:hover, a.arrow-link-white:focus {
     background-image: url($buttons + "small-red-circle-arrow.png");
     color: #bd153c;
 }
+a.arrow-link.news-footer {
+    width: 125px;
+}
 a.learn-more {
     margin-top: 1em;
     /* adding padding per #OCECREATIV-783 --sjc */
