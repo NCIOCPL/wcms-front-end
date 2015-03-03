@@ -1,4 +1,5 @@
 // Managed List styles...
+
 .list {
     position: relative;
     margin: 1.5em 0em 3em 0em;
@@ -108,6 +109,10 @@
     // Title, Date, Desc,!IMAGE
     // Title, Date, Desc, Image
 }
+
+// Fix for wrapping width issues on Dynamic Lists combined with right nav
+.large-8 .list .container.image + .container.title {
+    width: 65%; }
 
 .accessibility-text {
     position: absolute;
