@@ -217,6 +217,7 @@ a.arrow-link:hover, a.arrow-link:focus,
 a.arrow-link-white:hover, a.arrow-link-white:focus {
     background-image: url($buttons + "small-red-circle-arrow.png");
     color: #bd153c;
+	text-decoration: none;
 }
 a.arrow-link.news-footer {
     width: 125px;
