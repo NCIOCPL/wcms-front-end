@@ -73,3 +73,7 @@
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
 @import "MegaMenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
+
+/* PRINT STYLES --------------------------------- */
+@import "print";
+/* END PRINT STYLES ----------------------------- */
