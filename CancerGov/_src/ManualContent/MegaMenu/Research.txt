@@ -33,13 +33,13 @@
 			<li><a href="#">Read about some of NCI's major research initiatives</a></li>
 		</ul>
 	</li>
-	<br><br>
+	<br/><br/>
 	<li><a href="#" class="sub-nav-group-header">R&amp;D Resources</a>
 		<ul>
 			<li><a href="#">Tools and data sets for researchers</a></li>
 		</ul>
 	</li>
-	<br><br>
+	<br/><br/>
 	<li><a href="#" class="sub-nav-group-header">Research by Cancer Type</a>
 		<ul>
 			<li><a href="#">Find research about a specific cancer type</a></li>
