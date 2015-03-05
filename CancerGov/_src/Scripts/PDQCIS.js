@@ -713,14 +713,71 @@ $(function() {
 //  $("#pdq-toc-protocol").removeClass("hide"); 
 // **********************************************************************
 
+  // Temporarily reset the URL for the email/facebook/etc. buttons
+  //console.log(oldUrl);
+  // Only attempt the replace if the print button exists on the page
+  // ---------------------------------------------------------------
+  var urlEmail = $("li.po-email a").attr("href");
+  var urlFacebook = $("li.po-facebook a").attr("href");
+  var urlTwitter = $("li.po-twitter a").attr("href");
+  var urlGooglePlus = $("li.po-googleplus a").attr("href");
+  var urlPinterest = $("li.po-pinterest a").attr("href");
+
+  console.log(urlEmail);
+  // Don't do this if we don't have the buttons available, i.e. 
+  // for PublishPreview
+  // -------------------------------------------------------------------
+  if ( urlEmail ) {
+      if ($('meta[name="content-language"]').attr('content') == 'en' ) {
+          var thisSection = $('section.show').attr('id');
+          var openSections = $('section.show');
+          //console.log(openSections.length);
+          if (openSections.length > 1) {
+              var newEmailUrl = urlEmail.replace('&language', 
+                                          '%23section%2fall&language');
+              var newFacebookUrl = urlFacebook.replace('#', 
+                                          '%23section%2fall&language');
+              var newTwitterUrl = urlTwitter.replace('#', 
+                                          '%23section%2fall&language');
+              var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
+                                          '%23section%2fall&tt=0');
+              var newPinterestUrl = urlPinterest.replace('#', 
+                                          '%23section%2fall&language');
+          }
+          else {
+              var newEmailUrl = urlEmail.replace('&language', 
+                                   '%23section%2f'+thisSection+'&language');
+              var newFacebookUrl = urlFacebook.replace('#', 
+                                   '%23section%2f'+thisSection+'&language');
+              var newTwitterUrl = urlTwitter.replace('#', 
+                                   '%23section%2f'+thisSection+'&language');
+              var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
+                                   '%23section%2f'+thisSection+'&tt=0');
+              var newPinterestUrl = urlPinterest.replace('#', 
+                                   '%23section%2f'+thisSection+'&language');
+          }
+      }
+      else {
+          var newEmailUrl = urlEmail.replace('&language', '#email&language');
+      }
+      console.log(newEmailUrl);
+      $("li.po-email a").attr("href", newEmailUrl);
+  }
+
 // Section to setup re-routing of URLs
 // We are jumping to the specified link and opening the parent section
 // that contains this link.
 // -------------------------------------------------------------------
 routie({
     'all': function() {
+        //console.log('all');
         routie('section/all');
     },
+    //'print': function() {
+    //    routie('section/_32');
+    //    console.log('printX');
+    //    window.print();
+    //},
     'section/:sid': function(sid) {
         $(document).scrollTop(0);
 
@@ -809,21 +866,36 @@ routie({
     // the full document.
     // ----------------------------------------------------------
     ':lid': function(lid) { 
-        var goodLink = $("#"+lid);
-        var citLink = $("li[id='"+lid+"']");
-        // console.log(goodLink);
-        if ( goodLink.length == 0 && citLink.length == 0 ) {
-            routie ('section/all');
-        }
-        else {
-            console.log(lid.substring(0,7));
-            if ( lid.substring(0, 8) == 'section_' ) {
-                routie ('cit/'+lid); 
+        if ( lid == 'print' || lid == 'imprimir') {
+            //console.log('call routie-print');
+            window.print();
+            var thisSection = $('section.show').attr('id');
+            var openSections = $('section.show');
+            //console.log(openSections.length);
+            if (openSections.length > 1) {
+                routie('section/all');
             }
             else {
-                routie ('link/'+lid); 
+                routie('section/'+thisSection);
             }
-        };
+        }
+        else {
+            var goodLink = $("#"+lid);
+            var citLink = $("li[id='"+lid+"']");
+            console.log('goodLink');
+            if ( goodLink.length == 0 && citLink.length == 0 ) {
+                routie ('section/all');
+            }
+            else {
+                console.log(lid.substring(0,7));
+                if ( lid.substring(0, 8) == 'section_' ) {
+                    routie ('cit/'+lid); 
+                }
+                else {
+                    routie ('link/'+lid); 
+                }
+            };
+        }
     }
 });
 
