@@ -1,6 +1,6 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Overview</a>
+	<li><a href="/aboutnci/overview" class="sub-nav-group-header">Overview</a>
 		<ul>
 			<li><a href="#">History of NCI</a></li>
 			<li><a href="#">Contributing to Cancer Research</a></li>
@@ -8,17 +8,17 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Director</a>
+	<li><a href="/aboutnci/director" class="sub-nav-group-header">Director</a>
 		<ul>
-			<li><a href="#">Comments &amp; Commentary</a></li>
-			<li><a href="#">Messages to the Research Community</a></li>
+			<li><a href="/aboutnci/director/speeches">Comments &amp; Commentary</a></li>
+			<li><a href="/aboutnci/director/messages">Messages to the Research Community</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">NCI Organization</a>
+	<li><a href="/aboutnci/organization" class="sub-nav-group-header">NCI Organization</a>
 		<ul>
-			<li><a href="#">Divisions, Offices &amp; Centers</a></li>
+			<li><a href="/aboutnci/organization">Divisions, Offices &amp; Centers</a></li>
 			<li><a href="#">NCI at Frederick</a></li>
 			<li><a href="#">Senior Leadership</a></li>
 		</ul>
@@ -38,7 +38,7 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Careers at NCI</a></li>
+	<li><a href="/aboutnci/careers-at-nci" class="sub-nav-group-header">Careers at NCI</a></li>
 </ul>
 <ul class="sub-nav-group">
 	<li><a href="#" class="sub-nav-group-header">Visitor Information</a></li>
