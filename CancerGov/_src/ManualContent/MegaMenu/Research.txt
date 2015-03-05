@@ -1,6 +1,6 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">How Cancer Research Works</a>
+	<li><a href="/researchandfunding/how-research-works" class="sub-nav-group-header">How Cancer Research Works</a>
 		<ul>
 			<li><a href="#">Extramural Research</a></li>
 			<li><a href="#">Intramural Research</a></li>
