@@ -83,7 +83,7 @@
 .card a:hover, .card a:focus {
     text-decoration: none;
 }
-.feature-secondary h3:hover, .feature-secondary h3:focus,
+.feature-secondary a:hover, .feature-secondary a:focus,
 .multimedia h3 a:hover, .multimedia h3 a:focus,
 .card-thumbnail h3 a:hover, .card-thumbnail h3 a:focus {
     color: #bb0e3d;
@@ -125,7 +125,7 @@
     }
 }
 .feature-primary a,
-.feature-primary h3 {
+.feature-primary a h3 {
     color: white;
 }
 .feature-primary h3 {
@@ -145,10 +145,6 @@
     padding: em-calc(30px);
     display: block;
 }
-.multimedia-feature-card a, .multimedia .feature-card a {
-    display: block;
-    height: 100%;
-}
 /* END FEATURE PRIMARY CARDS ROW */
 
 /* BEGIN FEATURE SECONDARY CARDS ROW */
@@ -159,14 +155,27 @@
 .feature-secondary .card {
     background: white;
 }
-.feature-secondary h3 {
+.feature-secondary a h3 {
     font-weight: normal;
     color: #186e88;
     font-size: 1.375em;
     line-height: 1.272;
 }
+.feature-secondary a:hover h3, 
+.feature-secondary a:focus h3 {
+	color: #bb0e3d;
+}
 .feature-secondary p {
-    color: #606060;
+     margin-bottom: 0;
+	color: #606060;
+}
+// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
+.feature-secondary .columns {
+    padding: 0;
+}
+.feature-secondary .columns a {
+    padding: em-calc(30px);
+    display: block;
 }
 /* END FEATURE SECONDARY CARDS ROW */
 
@@ -347,10 +356,13 @@ a.learn-more {
     height: 100%;
 }
 .multimedia-feature-card a:hover h3, .multimedia-feature-card a:focus h3,
-.feature-card a:hover h3, .feature-card a:focus h3 {
+.feature-primary a:hover h3, .feature-primary a:focus h3 {
     color: #bb0e3d;
 }
-
+.multimedia-feature-card a, .multimedia .feature-card a {
+    display: block;
+    height: 100%;
+}
 /* END MULIMEDIA ROW */
 
 /* BEGIN Director's Row */
