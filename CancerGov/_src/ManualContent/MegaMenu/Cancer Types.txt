@@ -1,1 +1,42 @@
-<div class="sub-nav-group-wrapper"> <div class="sub-nav-group-subwrapper"> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Common Cancer Types</a> <ul> <li><a href="#" >Bladder Cancer</a></li> <li><a href="#" >Breast Cancer</a></li> <li><a href="#">Colorectal Cancer</a></li> <li><a href="#" >Endometrial Cancer</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li> <ul> <li><a href="#" >Kidney (Renal Cell) Cancer</a></li> <li><a href="#" >Leukemia</a></li> <li><a href="#">Lung Cancer</a></li> <li><a href="#" >Melanoma</a></li> </ul> </li> </ul> <ul class="sub-nav-group cancer-types-border-container"> <li> <ul> <li><a href="#" >Non-Hodgkin Lymphoma</a></li> <li><a href="#" >Pancreatic Cancer</a></li> <li><a href="#" >Prostate Cancer</a></li> <li><a href="#" >Thyroid Cancer</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">All Cancer Types</a> <ul> <li><a href="#">A to Z List of Cancers</a></li> <li><a href="#">Cancers by Body Location</a></li> <li><a href="#">Childhood Cancers</a></li> <li><a href="#">Adolescent &amp; Young Adult Cancers</a></li> </ul> </li> </ul> </div> </div>
+<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+<ul class="sub-nav-group">
+	<li><a href="#" class="sub-nav-group-header">Common Cancer Types</a>
+		<ul>
+			<li><a href="/types/bladder">Bladder Cancer</a></li>
+			<li><a href="/types/breast">Breast Cancer</a></li>
+			<li><a href="/types/colorectal">Colorectal Cancer</a></li>
+			<li><a href="/types/endometrial">Endometrial Cancer</a></li>
+		</ul>
+	</li>
+</ul>
+<ul class="sub-nav-group"> 
+	<li>
+		<ul>
+			<li><a href="/types/kidney">Kidney (Renal Cell) Cancer</a></li>
+			<li><a href="/types/leukemia">Leukemia</a></li>
+			<li><a href="/types/lung">Lung Cancer</a></li>
+			<li><a href="/types/melanoma">Melanoma</a></li>
+		</ul>
+	</li>
+</ul>
+<ul class="sub-nav-group cancer-types-border-container">
+	<li>
+		<ul>
+			<li><a href="/types/non-hodgkin">Non-Hodgkin Lymphoma</a></li>
+			<li><a href="/types/pancreatic">Pancreatic Cancer</a></li>
+			<li><a href="/types/prostate">Prostate Cancer</a></li>
+			<li><a href="/types/thyroid">Thyroid Cancer</a></li>
+		</ul>
+	</li>
+</ul>
+<ul class="sub-nav-group">
+	<li><a href="#" class="sub-nav-group-header">All Cancer Types</a>
+		<ul>
+			<li><a href="/types/alphalist">A to Z List of Cancers</a></li>
+			<li><a href="/types/cancersbodylocation">Cancers by Body Location</a></li>
+			<li><a href="/types/childhoodcancers">Childhood Cancers</a></li>
+			<li><a href="/types/aya">Adolescent &amp; Young Adult Cancers</a></li>
+		</ul>
+	</li>
+</ul>
+</div></div>
