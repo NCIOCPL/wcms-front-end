@@ -9,4 +9,8 @@
     .nci-logo a {
       padding-left: 90px;
     }
+	/** Hide feature card title on tablets and up **/
+	.feature-primary-title {
+		display: none; 
+	}
 }

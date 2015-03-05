@@ -57,10 +57,19 @@
 		width: 70%;
 		font-size: 1.13em; 
 	}
-.feature-primary a:hover h3, 
-.feature-primary a:hover h3	{
-    color: white; 
-}
+	.feature-primary a:hover h3, 
+	.feature-primary a:hover h3	{
+		color: white; 
+	}
+	.feature-primary-title {
+		background: #178DAA; 
+	}
+	.feature-primary-title h3 {
+		font-size: 1.375em;
+		color: white;
+		padding: 0.625em 30px;
+		margin: 0em;
+	}
 	.card-thumbnail {
 		padding-left: 1.9375em;
 		padding-right: 1.9375em;
