@@ -1,4 +1,58 @@
 /********** BEGIN Blogs Styles ******************************************/
+/*Begin Blog Subscribe Button CSS*/
+.subscribeRSS {
+margin-bottom: 10px;
+}
+
+.subscribeRSS a.blogRSS:before {
+background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0px;
+content: " ";
+width: 22px;
+height: 21px;
+display: inline-block;
+background-position: -14px -377px;
+}
+
+.subscribeRSS a.blogRSS span {
+padding-left: 5px;
+display: inline-block;
+}
+
+
+@media only screen and (max-width: 1024px){
+.subscribeRSS a.blogRSS {
+padding: 2px 15px;
+text-decoration: none;
+font-size: 13px;
+background-color: #82368c;
+color: #fff;
+}
+.subscribeRSS a.blogRSS:before {
+background: none;
+content: " ";
+width: 0;
+height: 0;
+display: inline-block;
+}
+
+.subscribeRSS a.blogRSS span {
+padding: 0;
+display: inline-block;
+}
+
+}
+
+
+
+
+
+
+
+
+
+/*End Blog Subscribe Button CSS*/
+
+
 /*Begin Blog Content CSS*/
 .blog-post-publishing-info {
 	font-size:12px;
