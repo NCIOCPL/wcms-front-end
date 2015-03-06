@@ -144,6 +144,8 @@ jQuery(document).ready(function(jQuery) {
 				closeNav();
 			}
 		});
+
+		NCI.Search.init();
 	})(jQuery);
 	/*** END mobile nav ***/
 
