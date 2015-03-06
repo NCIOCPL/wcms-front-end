@@ -257,5 +257,19 @@ NCI = NCI || { // << this format enforces a Singleton pattern
 					.append(word)
 					.appendTo(ul);
 			};
+	},
+
+	Search: {
+		classname: "searching",
+		init: function() {
+			$(".nav-search").click(NCI.Search.show);
+		},
+		show: function(e) {
+			$("#nvcgSlMainNav").addClass(NCI.Search.classname);
+		},
+		hide: function(e) {
+			$("#nvcgSlMainNav").removeClass(NCI.Search.classname);
+		}
 	}
 };
+
