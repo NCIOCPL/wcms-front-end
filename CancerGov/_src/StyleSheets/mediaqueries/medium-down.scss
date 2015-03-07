@@ -97,6 +97,8 @@
             left: 0.01%;
         }
 
+
+
         > ul > li:first-child {
             display: inherit;
         }
@@ -104,32 +106,24 @@
         /* Display nav items vertically */
         ul.menu {
             border-top: 1px solid #888;
-        }
-        ul.menu li {
-            width: 100%;
-            box-sizing: border-box;
-            border-top: 1px solid #888;
-        }
-
-        > ul {
             overflow-y: auto;
             height: 100%;
         }
-        /*
-        > li,
-        > li > ul > li {
-            padding-left: 0;
-        }
-        */
-        li a {
-            display: inline-block;
-            min-height: 1.5em;
-            width: 75%;
-            text-decoration: none;
-            padding-top: .6em;
-            font-size: 1.1em;
-            color: #606060;
-        }
+		li {
+			width: 100%;
+			box-sizing: border-box;
+			border-top: 1px solid #888;
+
+			a {
+				display: inline-block;
+				min-height: 1.5em;
+				width: 75%;
+				text-decoration: none;
+				padding-top: .6em;
+				font-size: 1.1em;
+				color: #606060;
+			}
+		}
         li > div > a {
             width: 75%;
             /* If we add "has-children", change to 100% */
@@ -168,41 +162,59 @@
         /* remove padding on HOME link to appear as a level 0 item */
         .nav-menu > li > div > a {
             padding-left: 17px;
-            color: #606060;
+            //color: #606060;
             padding-top: 14px;
         }
-        .highlight > div {
-            background-color: #0498a1;
-        }
-        .highlight > div > a {
-            font-weight: bold;
-        }
-        .nav-menu .highlight > div > a {
-            color: #fefefe;
-        }
-        /* remove background color of any child lists items of the highlighted */
-        .highlight ul li {
-            background-color: #E9E9E7;
-            color: #2ba6cb;
-        }
-
+         
         /* clicked link state */
-        .nav-menu li > div > a.active {
+        .nav-menu li > div > a:active {
             /*
             background-color: #BB0E3C;
             background-image: none;
             */
             color: #fff;
         }
-        .nav-menu li > div.active {
-            background-color: #BB0E3C;
-            background-image: none;
-        }
+
         /* remove margin from lists */
         ul {
             margin: 0;
             width: 100%;
         }
+		.lvl-1 { // called level 0 in the mocks
+			text-transform: uppercase;
+			display: block;
+		}
+		.lvl-2 { // level 1 in the mocks
+			text-transform: uppercase;
+			display: none;
+		}
+		.lvl-3 { // level 2 in the mocks
+			text-transform: none;
+			display: none;
+		}
+		.contains-current {
+			font-weight: bold;
+			display: block;
+
+			+ li {
+				display: block;
+			}
+		}
+		.current-page {
+			display: block;
+			background-color: #0498a1;
+			color: #ffffff;
+			font-weight: bold;
+
+			a {
+				color: #ffffff;
+			}
+
+			+ li, li {
+				display: block;
+				background-color: #E9E9E7;
+			}
+		}
         .nav-item-title {
             position: relative;
         }
