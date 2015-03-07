@@ -2,7 +2,26 @@
     html, body {
     }
 
-    nav, .navigation, .nav, .language-bar, .utility-background, .breadcrumbs, .page-options, .local-navigation, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication {
-        display: none;
-    }
+    nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle {
+      display: none !important; // important used because in some places foundation classes are overwriting
+		}
+	.contentzone {
+		width: 100%;
+		padding-right: 0;
+	}
+	.main-content, .nci-logo, .cthp-content {
+		background: none;
+	}
+	.nci-logo a, .columns.contentzone, .cthp-content .columns {
+		padding-left: 0;
+	}
+	#nvcgSlCTHPIntro .row, .cthp-card-container {
+		margin-left: 0 !important; margin-right: 0 !important;
+	}
+	.general-page-body-container {
+		box-shadow: none;
+	}
+	.cthp-content h1 {
+		color: inherit;
+	}
 }
