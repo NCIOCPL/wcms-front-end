@@ -4,7 +4,7 @@
 
 // We use this to set the base for lots of form spacing and positioning styles
 
-// $form-spacing: em-calc(16);
+$form-spacing: em-calc(16);
 
 // We use these to style the labels in different ways
 
@@ -122,12 +122,14 @@ form {
 }
 
 /* Using forms within rows, we need to set some defaults */
+$form-spacing: em-calc(30);
 form .row {
   @include form-row-base;
 }
+$form-spacing: em-calc(16);
 
 /* Label Styles */
-label {
+label, .label {
   @include form-label;
   display: $form-label-display;
   line-height: $form-label-line-height;
@@ -143,6 +145,9 @@ label {
     text-transform: capitalize;
     color: lighten($form-label-font-color, 10%);
   }
+}
+.label {
+  margin: 0 0 1em 0;
 }
 
 /* Attach elements to the beginning or end of an input */
@@ -247,6 +252,10 @@ textarea {
   }
 }
 
+textarea[rows] {
+  height: initial;
+}
+
 /* Adjust margin for form elements below */
 input[type="file"],
 input[type="checkbox"],
@@ -258,6 +267,11 @@ select {
 /* Normalize file input width */
 input[type="file"] {
   width:100%;
+}
+
+#recaptcha_area input {
+  height: initial;
+  display: initial;
 }
 
 /* We add basic fieldset styling */

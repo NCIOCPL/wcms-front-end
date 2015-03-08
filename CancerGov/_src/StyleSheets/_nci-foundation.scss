@@ -116,7 +116,7 @@ $include-html-form-classes: false;
 // $include-html-alert-classes: $include-html-classes;
 // $include-html-nav-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
-// $include-html-label-classes: $include-html-classes;
+$include-html-label-classes: false;
 // $include-html-panel-classes: $include-html-classes;
 // $include-html-pricing-classes: $include-html-classes;
 // $include-html-progress-classes: $include-html-classes;
@@ -1149,7 +1149,7 @@ $h4-font-size: em-calc(20);
   "vendor/foundation/scss/foundation/components/breadcrumbs",
 //  "vendor/foundation/scss/foundation/components/custom-forms",
 //  "vendor/foundation/scss/foundation/components/keystrokes",
-  "vendor/foundation/scss/foundation/components/labels",
+//  "vendor/foundation/scss/foundation/components/labels",
   "vendor/foundation/scss/foundation/components/inline-lists",
   "vendor/foundation/scss/foundation/components/pagination",
 //  "vendor/foundation/scss/foundation/components/panels",
