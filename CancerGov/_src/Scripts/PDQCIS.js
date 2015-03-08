@@ -365,7 +365,7 @@ $(function() {
  // JQuery Function: stoc()
  // This function creates the table of contents for the article and
  // for the individual sections.
- // Document level TOC also includes a title 'ON THIS PAGE' and all
+ // Document level TOC also includes a title 'On this page:' and all
  // TOCs are wrapped in a <nav> element.
  // The TOC starts on H-level 3 and goes 2 levels deep for sections.
  // The TOC starts on H-level 2 and goes 3 levels deep for the article.
@@ -657,11 +657,11 @@ $(function() {
   var tocArticle = "<div id='pdq-toc-article'></div>";
   $("div#pdq-toptoc").after(tocArticle);
   // Then insert the list
-  // The default TOC header for the document level TOC is 'ON THIS PAGE'
+  // The default TOC header for the document level TOC is 'On this page:'
   $("#pdq-toc-article").stoc( { search: "article", 
                                 start: 2, depth: 3,
-                                tocTitleEn: "ON THIS PAGE", 
-                                tocTitleEs: "En esta p&#225;gina" });
+                                tocTitleEn: "On this page:", 
+                                tocTitleEs: "En esta p&#225;gina:" });
 
   // Secondly creating the TOC container for sections
   // Note: This will only be used for TOC, not if Keypoints exist for the
@@ -702,28 +702,32 @@ $(function() {
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
 
-// **********************************************************************
-//  The CTGov Protocol JS has been placed inline with the protocol XSLT
-//  // Creating the TOC for CTGovProtocols
-//  // The default TOC header for the document level TOC is 'ON THIS PAGE'
-//  $("#pdq-toc-protocol").stoc( { search: "article", 
-//                                 start: 2, depth: 3,
-//                                 tocTitleEn: "ON THIS PAGE", 
-//                                 tocTitleEs: "En esta p&#225;gina" });
-//  $("#pdq-toc-protocol").removeClass("hide"); 
-// **********************************************************************
 
+  // Set the URL for the link for printing to the JS-window.print()
+  // This will print just the text that's currently viewed.
+  // --------------------------------------------------------------
+  $("li.po-print a").attr("href", "javascript:window.print()");
+
+  // Set the meta-tag for 'og:url' to
+  
   // Temporarily reset the URL for the email/facebook/etc. buttons
-  //console.log(oldUrl);
   // Only attempt the replace if the print button exists on the page
   // ---------------------------------------------------------------
   var urlEmail = $("li.po-email a").attr("href");
-  var urlFacebook = $("li.po-facebook a").attr("href");
-  var urlTwitter = $("li.po-twitter a").attr("href");
-  var urlGooglePlus = $("li.po-googleplus a").attr("href");
-  var urlPinterest = $("li.po-pinterest a").attr("href");
+  var newEmailURL = urlEmail.replace(/docurl=.*&language/i, 
+                                     'docurl=#&language');
+  var currentDoc = $('meta[property="og:url"]').attr('content');
+  var fullDoc = $('meta[name="page"]').attr('content');
+  if (!fullDoc || 0 === fullDoc.length) {
+      fullDoc = currentDoc;
+  }
+  fullDoc.replace(/http:\/\/.*\//, '/');
+  //var urlFacebook = $("li.po-facebook a").attr("href");
+  //var urlTwitter = $("li.po-twitter a").attr("href");
+  //var urlGooglePlus = $("li.po-googleplus a").attr("href");
+  //var urlPinterest = $("li.po-pinterest a").attr("href");
 
-  console.log(urlEmail);
+  //console.log(urlEmail);
   // Don't do this if we don't have the buttons available, i.e. 
   // for PublishPreview
   // -------------------------------------------------------------------
@@ -733,35 +737,35 @@ $(function() {
           var openSections = $('section.show');
           //console.log(openSections.length);
           if (openSections.length > 1) {
-              var newEmailUrl = urlEmail.replace('&language', 
+              newEmailUrl.replace('#', fullDoc+
                                           '%23section%2fall&language');
-              var newFacebookUrl = urlFacebook.replace('#', 
-                                          '%23section%2fall&language');
-              var newTwitterUrl = urlTwitter.replace('#', 
-                                          '%23section%2fall&language');
-              var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
-                                          '%23section%2fall&tt=0');
-              var newPinterestUrl = urlPinterest.replace('#', 
-                                          '%23section%2fall&language');
+              //var newFacebookUrl = urlFacebook.replace('#', 
+              //                            '%23section%2fall&language');
+              //var newTwitterUrl = urlTwitter.replace('#', 
+              //                            '%23section%2fall&language');
+              //var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
+              //                            '%23section%2fall&tt=0');
+              //var newPinterestUrl = urlPinterest.replace('#', 
+              //                            '%23section%2fall&language');
           }
           else {
-              var newEmailUrl = urlEmail.replace('&language', 
+              newEmailUrl.replace('#', fullDoc+
                                    '%23section%2f'+thisSection+'&language');
-              var newFacebookUrl = urlFacebook.replace('#', 
-                                   '%23section%2f'+thisSection+'&language');
-              var newTwitterUrl = urlTwitter.replace('#', 
-                                   '%23section%2f'+thisSection+'&language');
-              var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
-                                   '%23section%2f'+thisSection+'&tt=0');
-              var newPinterestUrl = urlPinterest.replace('#', 
-                                   '%23section%2f'+thisSection+'&language');
+              //var newFacebookUrl = urlFacebook.replace('#', 
+              //                     '%23section%2f'+thisSection+'&language');
+              //var newTwitterUrl = urlTwitter.replace('#', 
+              //                     '%23section%2f'+thisSection+'&language');
+              //var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
+              //                     '%23section%2f'+thisSection+'&tt=0');
+              //var newPinterestUrl = urlPinterest.replace('#', 
+              //                     '%23section%2f'+thisSection+'&language');
           }
       }
       else {
           var newEmailUrl = urlEmail.replace('&language', '#email&language');
       }
-      console.log(newEmailUrl);
-      $("li.po-email a").attr("href", newEmailUrl);
+      //console.log(newEmailUrl);
+      // $("li.po-email a").attr("href", newEmailUrl);
   }
 
 // Section to setup re-routing of URLs
@@ -773,13 +777,29 @@ routie({
         //console.log('all');
         routie('section/all');
     },
-    //'print': function() {
-    //    routie('section/_32');
-    //    console.log('printX');
-    //    window.print();
-    //},
     'section/:sid': function(sid) {
         $(document).scrollTop(0);
+
+        // When we're routing to a new section we're setting the
+        // meta-tag for 'og:url' to the current section so that 
+        // the social media share buttons - retrieving the URL from
+        // this tag - will grab and display the correct section 
+        // instead of displaying the default section One
+        // ---------------------------------------------------------
+        var currentDoc = $('meta[property="og:url"]').attr('content');
+        var fullDoc = $('meta[name="page"]').attr('content');
+        //console.log('current:');
+        //console.log(currentDoc);
+        //console.log('full:');
+        //console.log(fullDoc);
+
+        // Saving the document URL if it doesn't exist yet this makes
+        // it easier to create the new current URL
+        // ----------------------------------------------------------
+        if (!fullDoc || 0 === fullDoc.length) {
+           $("head").append('<meta name="page" content="'+currentDoc+'">');
+           fullDoc = currentDoc;
+        }
 
         if ( sid == 'all' ) {
             $("section.hide").removeClass("hide")
@@ -795,6 +815,12 @@ routie({
             // ... and hide the Previous/Next navigation links
             $("div.next-link").addClass("hide");
             $("div.previous-link").addClass("hide");
+
+            // Finally, set the meta tag used by the AddThis JS to set the
+            // proper URL
+            
+            $('meta[property="og:url"]').attr('content', fullDoc+'#section/'
+                                                                +'all');
         }
         else {
             // Display of SummarySections
@@ -818,6 +844,13 @@ routie({
             // ... and show the Previous/Next navigation links
             $("div.next-link").removeClass("hide");
             $("div.previous-link").removeClass("hide");
+
+            $('meta[property="og:url"]').attr('content', fullDoc+'#section/'
+                                                                +sid);
+  //var urlEmail = $("li.po-email a").attr("href");
+  //            var newEmailUrl = urlEmail.replace('&language', 
+  //                                 '%23section%2f'+thisSection+'&language');
+  //    $("li.po-email a").attr("href", newEmailUrl);
           }
     },
     'link/:rid': function(rid) {
@@ -868,26 +901,26 @@ routie({
     ':lid': function(lid) { 
         if ( lid == 'print' || lid == 'imprimir') {
             //console.log('call routie-print');
-            window.print();
+            //window.print();
             var thisSection = $('section.show').attr('id');
             var openSections = $('section.show');
             //console.log(openSections.length);
-            if (openSections.length > 1) {
-                routie('section/all');
-            }
-            else {
-                routie('section/'+thisSection);
-            }
+            //if (openSections.length > 1) {
+            //    routie('section/all');
+            //}
+            //else {
+            //    routie('section/'+thisSection);
+            //}
         }
         else {
             var goodLink = $("#"+lid);
             var citLink = $("li[id='"+lid+"']");
-            console.log('goodLink');
+            //console.log('goodLink');
             if ( goodLink.length == 0 && citLink.length == 0 ) {
                 routie ('section/all');
             }
             else {
-                console.log(lid.substring(0,7));
+                //console.log(lid.substring(0,7));
                 if ( lid.substring(0, 8) == 'section_' ) {
                     routie ('cit/'+lid); 
                 }
