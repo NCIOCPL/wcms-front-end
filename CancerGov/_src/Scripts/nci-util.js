@@ -262,13 +262,19 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	Search: {
 		classname: "searching",
 		init: function() {
-			$(".nav-search").click(NCI.Search.show);
+			$(".nav-search").click(NCI.Search.mobile.show);
 		},
-		show: function(e) {
-			$("#nvcgSlMainNav").addClass(NCI.Search.classname);
-		},
-		hide: function(e) {
-			$("#nvcgSlMainNav").removeClass(NCI.Search.classname);
+		mobile: {
+			clear: function() {
+				$("#swKeyword").val("");
+			},
+			show: function(e) {
+				$("#nvcgSlMainNav").addClass(NCI.Search.classname);
+				$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
+			},
+			hide: function(e) {
+				$("#nvcgSlMainNav").removeClass(NCI.Search.classname);
+			}
 		}
 	}
 };
