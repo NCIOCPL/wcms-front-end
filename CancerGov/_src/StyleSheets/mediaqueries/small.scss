@@ -70,9 +70,11 @@
 		padding: 0.625em 30px;
 		margin: 0em;
 	}
-	.feature-primary-title h3:before {
-		content: "Featured News";
-	}
+	.feature-primary-title {
+		h3:before { content: "Featured News";
+			html[lang="es"] & { content: "Noticias destacadas" }
+		}
+	}	
 	.card-thumbnail {
 		padding-left: 1.9375em;
 		padding-right: 1.9375em;
