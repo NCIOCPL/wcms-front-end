@@ -1,6 +1,6 @@
 /********************* BEGIN Megamenus/Search Styles ******************************************/
 
-/* Navigation/Search bar */
+/*** Navigation/Search bar ***/
 .nav-search-bar {
 	background: rgb(54, 54, 54); /* fallback */
 	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1))); /* Safari 4+, Chrome */
@@ -23,8 +23,6 @@ a.close-panel {
 	display: none;
 }
 
-
-/* search */
 #siteSearchForm {
 	margin: 0 0 0 -4px;
 	height: 100%;
@@ -40,7 +38,6 @@ html[lang="es"] .search {
 	height: 58px;
 }
 
-/* search box */
 #swKeyword {
 	width: 100%;
 	height: 100%;
@@ -70,6 +67,12 @@ html[lang="es"] .search {
 		color: inherit;
 		font-style: inherit;
 	}
+}
+
+/*** Dictionaries ***/
+.dictionary-search .columns,
+.dictionary-search .column {
+    padding-left: 0;
 }
 
 /********************* END Megamenus/Search Styles ******************************************/
