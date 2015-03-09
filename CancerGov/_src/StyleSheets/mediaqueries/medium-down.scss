@@ -80,6 +80,151 @@
         display: none;
     }
 
+	#nvcgSlMainNav {
+		.mobile-menu-bar {
+			left: 0px;
+			position: relative;
+		}
+
+	}
+	#nvcgSlMainNav.searching {
+		// This .searching class is applied with javascript
+		// by NCI.Search.mobile.search(); in nci-utils.js
+		
+		// We want to control as much as we can with CSS
+		// instead of relying on JavaScript. The reasons
+		// for this are many. 
+
+		// We set 'pos:rel' here so that we have a baseline
+		// for the rest of the absolute positioning we're
+		// about to do.
+		position: relative;
+
+		.mobile-menu-bar {
+			left: -100%; // Get that thing outta here!
+			height: 100%; // We still need the height for the menu button we're about to borrow.
+
+			.menu-btn {
+				// we borrow & transform this 
+				// into our back to menu button
+				position: absolute; 
+				left: 100%; // Get back here!
+				background-color: #444;
+				background-position-y: 50%; // move icon into place
+				background-position-x: 80%;
+				height: 71px;
+				width: 71px;
+				top: -14px;
+				color: rgba(0,0,0,0); // get rid of the text
+				z-index: 90; // needs to be above search
+
+				&:before {
+					/* The arrow in the back to menu button */
+					content: " "; // we're adding image content
+					position: absolute;
+					left: 25%;
+					display: block;
+					top: calc(50% - 9px); // a good way to position, uses 1/2 the height.
+					background: url($icons + "nci-sprite.png")no-repeat -349px -178px;
+					width: 11px;
+					height: 18px; //adjust 'top' calc() value if your change this.
+					// This really should be a mixin:
+					-webkit-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		.search {
+			/* we use the main search...it's just easier */
+			display: block;
+			width: 100%;
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			height: 100%;
+		}
+
+		// These are all ID selectors, so we really don't
+		// need to do any more nesting. All we're trying
+		// to catch is the .searching that we're applying
+		// with javascript on the parent.
+		#siteSearchForm {
+			background-color: #444;
+
+			&:before {
+				content: "";
+				display: block;
+				width: 87%;
+				height: 10px;
+				$mobile-search-border: 3px solid $teal;
+				border-bottom: $mobile-search-border;
+				border-left: $mobile-search-border;
+				border-right: $mobile-search-border;
+				background-color: transparent;
+				left: 90px;
+				position: absolute;
+				bottom: 10px;
+			}
+		}
+
+		#swKeyword {
+			height: 100%;
+			width: 100%;
+			margin-top: 0px;
+			margin-bottom: 10px;
+			margin-left: 0%;
+			margin-right: 2%;	
+			padding: 10px 0px 0px 3.25em;
+			font-size: 2em;
+			z-index: 80; //needs to be below the menu-btn
+			background-color: #444;
+
+			@include placeholder {
+				color: #888;
+				height: 100%;
+				position: relative;
+				display: block;
+			}
+		}
+
+		#sitesearch { // the search submit button
+			// to be honest, it seems like bad usability...
+			display: none;
+		}
+
+		#searchclear {
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
+			background-color: transparent;
+			height: 64px;
+			width: 64px;
+			top: 0px;
+			border: none;
+
+			&:before {
+				content: "+";
+				@include font-noto;
+				font-size: 64px;
+				font-weight: 100;
+				color: #888;
+				display: block;
+				position: absolute;
+				height: 64px;
+				width: 64px;
+				top: 0px;
+				left: 0px;
+				@include transform(rotate(45deg));
+			}
+		}
+	}
+	// This is necessary to make the suggested search terms match the spec.
+	.ui-autocomplete { 
+		font-size: 2em; 
+	}
+
     /* Move nav off screen, setup transitions */
     #mega-nav {
         z-index: 1000;
