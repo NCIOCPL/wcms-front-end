@@ -1,0 +1,1 @@
+<div class="mobile-menu-bar"><h2 class="open-panel nav-header menu-btn">MENÚ</h2><a href="/espanol/global/contactenos"><h2 class="nav-contact">CONTACTO</h2></a><a href="/diccionario" title="cancer dictionary"><h2 class="nav-dictionary">DICCIONARIO</h2></a><h2 class="nav-search">BUSCAR</h2></div>
