@@ -1,4 +1,4 @@
-NCI = NCI || { // << this format enforces a Singleton pattern
+var NCI = NCI || { // << this format enforces a Singleton pattern
 	/*======================================================================================================
 	 * function linkToEmpty
 	 *
