@@ -1,0 +1,26 @@
+/********** BEGIN News Page Styles ******************************************/
+a.arrow-link.news-footer {
+  width: 125px; }
+
+.news-share {
+  margin-bottom: 10px; }
+
+.news-share a:before {
+  background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0px;
+  content: " ";
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  margin-left: 2px;
+  }
+
+.news-share a.news-twitter:before {
+  background-position: -16px -196px; }
+
+.news-share a.news-youtube:before {
+  height: 22px;
+  background-position: -19px -335px; }
+  
+.news-share a.news-rss:before {
+  background-position: -20px -376px; }
+/********** END News Page Styles ******************************************/
