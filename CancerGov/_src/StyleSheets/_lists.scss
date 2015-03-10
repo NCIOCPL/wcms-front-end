@@ -87,7 +87,7 @@
             padding: 0px;
             margin: 0px;
             background: white;
-            background-image: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png");
+            background-image: url($icons+"nci-sprite.png");
             background-position-x: -71px;
 
             &.pdf { background-position-y: -474px; }
