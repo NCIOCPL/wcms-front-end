@@ -5,6 +5,16 @@
 /* *************************************************************************/
 
 @media only screen and (max-width: 1024px) {
+	.row .row {
+		// not sure why we need to override this, however apparently we have
+		// a rule on desktop that goes .row .row margin: 0 .9375em; which is
+		// really weird. I'm sure there's a reason for it, but I don't know
+		// it, so I will leave it in for now.  This rule shouldn't break
+		// anything, but it may, so if we see wonky margins on rows in mobile
+		// this is why. -sjc 2015 03 10.
+		margin-left: auto;
+		margin-right: auto;
+	}
     .bcrumbs {
         display: none;
     }
@@ -110,11 +120,8 @@
 				position: absolute; 
 				left: 100%; // Get back here!
 				background-color: #444;
-				background-position-y: 50%; // move icon into place
-				background-position-x: 80%;
-				height: 71px;
+				background-position: 80% 50%; // move icon into place
 				width: 71px;
-				top: -14px;
 				color: rgba(0,0,0,0); // get rid of the text
 				z-index: 90; // needs to be above search
 
@@ -152,11 +159,12 @@
 		// with javascript on the parent.
 		#siteSearchForm {
 			background-color: #444;
+			$siteSearchFormPadding: 6.5em;
 
 			&:before {
 				content: "";
 				display: block;
-				width: 87%;
+				width: calc(100% - $siteSearchFormPadding);
 				height: 10px;
 				$mobile-search-border: 3px solid $teal;
 				border-bottom: $mobile-search-border;
@@ -170,14 +178,18 @@
 		}
 
 		#swKeyword {
+			$swKeywordFontSize: 2em;
 			height: 100%;
 			width: 100%;
 			margin-top: 0px;
 			margin-bottom: 10px;
 			margin-left: 0%;
-			margin-right: 2%;	
-			padding: 10px 0px 0px 3.25em;
-			font-size: 2em;
+			margin-right: 0%;	
+			// We need the padding on this to match the padding set on the siteSearchFrom
+			// that accounts for the back to menu button.  Since this is in em and will thusly
+			// change based on font size, we also needed to capture the font-size in a var
+			padding: 10px 0px 0px $siteSearchFormPadding/$swKeywordFontSize;
+			font-size: $swKeywordFontSize;
 			z-index: 80; //needs to be below the menu-btn
 			background-color: #444;
 
@@ -337,6 +349,7 @@
 			text-transform: none;
 			display: none;
 		}
+		.lvl-1, .lvl-2, .lvl-3 { font-weight: normal; }
 		.contains-current {
 			font-weight: bold;
 			display: block;
