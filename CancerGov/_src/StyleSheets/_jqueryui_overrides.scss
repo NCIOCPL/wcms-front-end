@@ -111,3 +111,17 @@ $ui-selectmenu-maxitems: 7;
 		background: #bb0e3d;
 	}
 }
+
+/* accordion zebra styling */
+.accordion div:nth-child(odd) > .ui-accordion-header, .accordion section:nth-child(odd) > .ui-accordion-header {
+	background: #bcedf2;
+}
+.accordion div:nth-child(even) > .ui-accordion-header, .accordion section:nth-child(even) > .ui-accordion-header {
+	background: #dbf4f6;
+}
+/* end accordion zebra styling */
+.ui-accordion .ui-accordion-header {
+	color: #606060;
+	font-size: 1.125em;
+	font-weight: normal;
+}
