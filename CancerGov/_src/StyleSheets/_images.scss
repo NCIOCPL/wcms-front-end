@@ -21,8 +21,10 @@ figure {
     position: relative;
 	
     a.article-image-enlarge {
-        background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
-		@extend %enlarge-infographic;
+      background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
+			background-color: rgba(18, 62, 88, 0.8);
+    	font-size: 0.875em !important;
+			@extend %enlarge-infographic;
     }
 	 
     /* image right 25% width */
