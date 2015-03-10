@@ -87,11 +87,13 @@
     /** BEGIN level-by-level styling **/
     /* level 0 */
     .section-nav .level-0 > div {
-        font-size: 1.125em;
+        font-size: 19px;
         font-weight: bold;
+		line-height: 21px;
         padding-top: 0.625em;
         padding-bottom: 0.625em;
         background-color: #186d89;
+		text-transform: uppercase;
     }
     .section-nav .level-0 > div > a {
         color: #FFFFFF;
@@ -99,10 +101,12 @@
 
     /* level 1 */
     .section-nav .level-1 {
+		font-size: 15px;
+		line-height: 17px;
         border-top: 1px solid #d5d5d2;
     }
     .section-nav .level-1 > div > a {
-        text-transform: uppercase;
+        text-transform: none;
     }
     .section-nav .level-1.contains-current {
         background-color: #eeedf4;
