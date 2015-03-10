@@ -157,9 +157,9 @@
 		// need to do any more nesting. All we're trying
 		// to catch is the .searching that we're applying
 		// with javascript on the parent.
+		$siteSearchFormPadding: 6.5em;
 		#siteSearchForm {
 			background-color: #444;
-			$siteSearchFormPadding: 6.5em;
 
 			&:before {
 				content: "";
