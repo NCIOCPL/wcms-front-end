@@ -35,6 +35,9 @@
             padding-right: 0;
             padding-left: 0;
         }
+	.ui-accordion .ui-accordion-header {
+		margin: 0;
+	}
 	.feature-primary {
 	margin-bottom: 0;	
 	}
@@ -159,7 +162,8 @@
 	.dynamic {
         padding: 0 15px;
     }
-//** BEGIN Dynamic List Styles **/
-
-
+	.news-share {
+		margin: 0;
+	}
+//** END Dynamic List Styles **/	
 }
