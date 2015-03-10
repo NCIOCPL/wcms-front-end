@@ -17,7 +17,7 @@
         font-size: 16px;
         line-height: 20px;
     }
-
+ 
     ul {
         list-style-type: none;
         padding: 0px;
@@ -96,6 +96,7 @@
             &.ppt { background-position-y: -568px; }
             &.word { background-position-y: -598px; }
             &.excel { background-position-y: -630px; }
+            &.txt { background-position-y: -630px; }
         }
     }
 
