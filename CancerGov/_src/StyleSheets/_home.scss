@@ -291,7 +291,7 @@ a.learn-more {
     text-transform: uppercase;
     position: absolute;
     z-index: 88;
-    padding: 1em;
+    padding: 0.62em;
     color: #FFFFFF;
     background-color: #403f3f;
 
@@ -331,20 +331,20 @@ a.learn-more {
     h3, p, ul { padding: 0 15px; }
 
     &.cgvInfographic {
-        a:before { content: "View Infographic";
-            html[lang="es"] & { content: "Ver Infograf\00ed a" }
+        a:before { content: "Infographic";
+            html[lang="es"] & { content: "Infograf\00ed a" }
         }
     }
     &.gloVideo {
-        a:before { content: "View Video";
-            html[lang="es"] & { content: "Ver video" }
+        a:before { content: "Video";
+            html[lang="es"] & { content: "Video" }
         }
     }
 
     &.gloVideoCarousel {
-        a:before { content: "View Video Playlist";
+        a:before { content: "Video Playlist";
             html[lang="es"] & {
-                content: "Ver lista de reproducci\00f3 n de videos" }
+                content: "Lista de reproducci\00f3 n de videos" }
         }
     }
 }
