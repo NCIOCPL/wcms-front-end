@@ -136,6 +136,7 @@
 }
 .feature-primary p {
     margin-bottom: 0;
+	font-size: em-calc(18px);
 }
 // the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
 .feature-primary .columns {
@@ -168,6 +169,7 @@
 .feature-secondary p {
      margin-bottom: 0;
 	color: #606060;
+	font-size: em-calc(18px);
 }
 // the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
 .feature-secondary .columns {
