@@ -232,6 +232,11 @@ jQuery(document).ready(function(jQuery) {
 			equalHeights();
 			return false;
 		});
+
+		$(".po-print a").click(function(e) { 
+			e.preventDefault();
+			window.print(); 
+		});
 	})(jQuery);
 	/*** END Page Options **/
 
