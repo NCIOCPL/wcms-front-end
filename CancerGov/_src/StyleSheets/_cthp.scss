@@ -130,11 +130,10 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 
     a {
         color: #606060;
-
-        &:hover, &:focus {
-            text-decoration: none;
-			color: #bd153c;
-        }
+	}
+    &:hover a, &:focus a {
+		text-decoration: none;
+		color: #bd153c;
     }
 }
 .bp20 {
