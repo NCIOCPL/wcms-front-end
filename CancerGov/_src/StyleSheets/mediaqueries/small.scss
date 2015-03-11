@@ -162,6 +162,9 @@
 	.dynamic {
         padding: 0 15px;
     }
+	.large-8 .list .container.image + .container.title {
+		width: 100%; 
+	}
 	.news-share {
 		margin: 0;
 	}
