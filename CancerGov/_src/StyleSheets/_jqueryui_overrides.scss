@@ -125,3 +125,33 @@ $ui-selectmenu-maxitems: 7;
 	font-size: 1.125em;
 	font-weight: normal;
 }
+/* begin CTHP accordion styling rules */
+.cthp-content.ui-accordion .ui-accordion-header {
+	color: white;
+	font-weight: bold;
+}
+.cthp-intro-multimedia {
+	background-color: #198dae;
+}
+.cthp-treatment {
+	background-color:	#2ec799;
+}
+.cthp-research {
+	background-color:	#0886d0;
+}
+.cthp-causes {
+	background-color:	#7f3796;
+}
+.cthp-screening {
+	background-color:	#aa3d65;
+}
+.cthp-survival {
+	background-color:	#cf871a;
+}
+.cthp-general {
+	background-color:	#3c8c9c;
+}
+.cthp-genetics {
+	background-color:	#009095;
+}
+/* end CTHP accordion styling rules */
