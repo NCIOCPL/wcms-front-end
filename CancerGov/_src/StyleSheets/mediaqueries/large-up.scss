@@ -56,16 +56,15 @@
     .section-nav .current-page:after {
         left: 100%;
         top: 50%;
-        border: dotted transparent;
+		margin-top: -12px;
+		border: 12px solid transparent;
+		border-right-style: dotted;
         border-left-color: #009b9d;
-        border-left-style: solid;
         content: " ";
         height: 0;
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-width: 12px;
-        margin-top: -12px;
     }
     .section-nav .current-page + ul {
         display: block !important; /* TODO: FIX THIS (JAVASCRIPT) */
