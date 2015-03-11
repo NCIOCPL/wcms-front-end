@@ -9,6 +9,8 @@ $(function() {
   // JQuery Function: topToc()
   // This function selects the H2 elements from the "article" container
   // element and creates a one-level table of content 
+  // It's also called the "Section Navigation" because it opens the 
+  // sections to be displayed.
   // ------------------------------------------------------------------
   // Function formerly known as TOPTOC.js
   // ------------------------------------------------------------------
@@ -186,11 +188,11 @@ $(function() {
 
 		//our pretty smooth scrolling here
 		// acctually I've just compressed the code so you guys will think that I'm the man . Source: http://css-tricks.com/snippets/jquery/smooth-scrolling/
-		if (options.smoothScroll == 1) {
-			$(window).load(function(){
-				function filterPath(string){return string.replace(/^\//,'').replace(/(index|default).[a-zA-Z]{3,4}$/,'').replace(/\/$/,'')}var locationPath=filterPath(location.pathname);var scrollElem=scrollableElement('html','body');obj.find('a[href*=#]').each(function(){var thisPath=filterPath(this.pathname)||locationPath;if(locationPath==thisPath&&(location.hostname==this.hostname||!this.hostname)&&this.hash.replace(/#/,'')){var $target=$(this.hash),target=this.hash;if(target){var targetOffset=$target.offset().top;$(this).click(function(event){event.preventDefault();$(scrollElem).animate({scrollTop:targetOffset},400,function(){location.hash=target})})}}});function scrollableElement(els){for(var i=0,argLength=arguments.length;i<argLength;i++){var el=arguments[i],$scrollElement=$(el);if($scrollElement.scrollTop()>0){return el}else{$scrollElement.scrollTop(1);var isScrollable=$scrollElement.scrollTop()>0;$scrollElement.scrollTop(0);if(isScrollable){return el}}}return[]}
-			});
-		}
+//		if (options.smoothScroll == 1) {
+//			$(window).load(function(){
+//				function filterPath(string){return string.replace(/^\//,'').replace(/(index|default).[a-zA-Z]{3,4}$/,'').replace(/\/$/,'')}var locationPath=filterPath(location.pathname);var scrollElem=scrollableElement('html','body');obj.find('a[href*=#]').each(function(){var thisPath=filterPath(this.pathname)||locationPath;if(locationPath==thisPath&&(location.hostname==this.hostname||!this.hostname)&&this.hash.replace(/#/,'')){var $target=$(this.hash),target=this.hash;if(target){var targetOffset=$target.offset().top;$(this).click(function(event){event.preventDefault();$(scrollElem).animate({scrollTop:targetOffset},400,function(){location.hash=target})})}}});function scrollableElement(els){for(var i=0,argLength=arguments.length;i<argLength;i++){var el=arguments[i],$scrollElement=$(el);if($scrollElement.scrollTop()>0){return el}else{$scrollElement.scrollTop(1);var isScrollable=$scrollElement.scrollTop()>0;$scrollElement.scrollTop(0);if(isScrollable){return el}}}return[]}
+//			});
+//		}
     });
     //alert("In topToc End");
   }
@@ -386,7 +388,7 @@ $(function() {
         tocTitleEs: "Tabla de contenidos para esta secci&#243;n",
         beforeText: "", // can add <span class="text-class">
         afterText: "", // can add </span> to match beforeText
-        smoothScroll: 1
+        smoothScroll: 0
 
     };
 
@@ -593,11 +595,11 @@ $(function() {
         // acctually I've just compressed the code so you guys will think
         // that I'm the man.
         // Source: http://css-tricks.com/snippets/jquery/smooth-scrolling/
-        if (options.smoothScroll == 1) {
-            $(window).load(function(){
-                function filterPath(string){return string.replace(/^\//,'').replace(/(index|default).[a-zA-Z]{3,4}$/,'').replace(/\/$/,'')}var locationPath=filterPath(location.pathname);var scrollElem=scrollableElement('html','body');obj.find('a[href*=#]').each(function(){var thisPath=filterPath(this.pathname)||locationPath;if(locationPath==thisPath&&(location.hostname==this.hostname||!this.hostname)&&this.hash.replace(/#/,'')){var $target=$(this.hash),target=this.hash;if(target){var targetOffset=$target.offset().top;$(this).click(function(event){event.preventDefault();$(scrollElem).animate({scrollTop:targetOffset},400,function(){location.hash=target})})}}});function scrollableElement(els){for(var i=0,argLength=arguments.length;i<argLength;i++){var el=arguments[i],$scrollElement=$(el);if($scrollElement.scrollTop()>0){return el}else{$scrollElement.scrollTop(1);var isScrollable=$scrollElement.scrollTop()>0;$scrollElement.scrollTop(0);if(isScrollable){return el}}}return[]}
-            });
-        }
+//        if (options.smoothScroll == 1) {
+//            $(window).load(function(){
+//                function filterPath(string){return string.replace(/^\//,'').replace(/(index|default).[a-zA-Z]{3,4}$/,'').replace(/\/$/,'')}var locationPath=filterPath(location.pathname);var scrollElem=scrollableElement('html','body');obj.find('a[href*=#]').each(function(){var thisPath=filterPath(this.pathname)||locationPath;if(locationPath==thisPath&&(location.hostname==this.hostname||!this.hostname)&&this.hash.replace(/#/,'')){var $target=$(this.hash),target=this.hash;if(target){var targetOffset=$target.offset().top;$(this).click(function(event){event.preventDefault();$(scrollElem).animate({scrollTop:targetOffset},400,function(){location.hash=target})})}}});function scrollableElement(els){for(var i=0,argLength=arguments.length;i<argLength;i++){var el=arguments[i],$scrollElement=$(el);if($scrollElement.scrollTop()>0){return el}else{$scrollElement.scrollTop(1);var isScrollable=$scrollElement.scrollTop()>0;$scrollElement.scrollTop(0);if(isScrollable){return el}}}return[]}
+//            });
+//        }
     });
     //console.log("In stoc End");
  };
@@ -706,7 +708,8 @@ $(function() {
   // Set the URL for the link for printing to the JS-window.print()
   // This will print just the text that's currently viewed.
   // --------------------------------------------------------------
-  $("li.po-print a").attr("href", "javascript:window.print()");
+  // This is now done in all.js
+  //$("li.po-print a").attr("href", "javascript:window.print()");
 
   // Set the meta-tag for 'og:url' to
   
@@ -714,7 +717,7 @@ $(function() {
   // Only attempt the replace if the print button exists on the page
   // ---------------------------------------------------------------
   var urlEmail = $("li.po-email a").attr("href");
-  var newEmailURL = urlEmail.replace(/docurl=.*&language/i, 
+  var newEmailUrl = urlEmail.replace(/docurl=.*&language/i, 
                                      'docurl=#&language');
   var currentDoc = $('meta[property="og:url"]').attr('content');
   var fullDoc = $('meta[name="page"]').attr('content');
@@ -860,13 +863,15 @@ routie({
         // Find parent (top level section) of current element
         $("#"+rid).closest("section.hide").removeClass("hide")
                                           .addClass("show");
+        // ... and set the section navigation properly
         $("#pdq-toptoc li.selected").removeClass("selected");
         var thisSection = $("section.show").children("h2")
                                            .attr("id");
         $("#pdq-toptoc li.selected").removeClass("selected");
         $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
                                                         .addClass("selected");
-        $("#"+rid)[0].scrollIntoView();
+        // Lastly move to the target
+        $("#"+rid).get(0).scrollIntoView();
 
         // According to Bryan positioning the link target below the 
         // sticky menu is not part of this story
@@ -925,7 +930,8 @@ routie({
                     routie ('cit/'+lid); 
                 }
                 else {
-                    routie ('link/'+lid); 
+                    $("#"+lid).get(0).scrollIntoView();
+                    //routie ('link/'+lid); 
                 }
             };
         }
