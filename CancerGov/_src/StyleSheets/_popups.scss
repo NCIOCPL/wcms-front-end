@@ -18,13 +18,18 @@
 
 .popup .nci-logo {
     margin: 10px 10px 0px 10px;
+	float: left;
 }
 .popup .caption-container {
     display: none;
 }
 .popup-close a {
     background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -414px -256px;  
-    width: 19px;  height: 19px;  display: inline-block;  position: relative;  top: 4.75px;
+    width: 19px;  
+	height: 19px;  
+	display: inline-block;  
+	position: relative;  
+	
 }
 .popup .popup-close {
     float: right;
