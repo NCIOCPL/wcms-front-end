@@ -125,6 +125,14 @@ $ui-selectmenu-maxitems: 7;
 	color: #606060;
 	font-size: 1.125em;
 	font-weight: normal;
+	border-bottom-width: 0;
+}
+.ui-accordion .ui-accordion-header:first-child {
+border-top-width: 0;	
+}
+.accordion-header-active .toggle {
+	background: white;
+	color: #8fd4db;
 }
 /* begin CTHP accordion styling rules */
 .cthp-content.ui-accordion .ui-accordion-header {
