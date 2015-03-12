@@ -13,53 +13,53 @@
 		<div class="slider spotlight-on-scientists">
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight1.jpg" alt="Anuradha Budhu" />
+					<img src="/PublishedContent/Images/images/testdr/badhu-article.jpg" alt="Anuradha Budhu" />
 					<p class="site-link" href="#">Anuradha Budhu</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight2.jpg" alt="Rimas Orentas" />
+					<img src="/PublishedContent/Images/images/testdr/orentas-article.jpg" alt="Rimas Orentas" />
 					<p class="site-link" href="#">Rimas Orentas</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight3.jpg" alt="Shiv Grewal" />
+					<img src="/PublishedContent/Images/images/testdr/grewal-article.jpg" alt="Shiv Grewal" />
 					<p class="site-link" href="#">Shiv Grewal</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight4.jpg" alt="Crystal Mackall" />
+					<img src="/PublishedContent/Images/images/testdr/mackall-article.jpg" alt="Crystal Mackall" />
 					<p class="site-link" href="#">Crystal Mackall</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight1.jpg" alt="Anuradha Budhu" />
-					<p class="site-link" href="#">Richard Fagerstrom</p>
+					<img src="/PublishedContent/Images/images/testdr/badhu-article.jpg" alt="Anuradha Budhu" />
+					<p class="site-link" href="#">Anuradha Budhu</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight2.jpg" alt="Rimas Orentas" />
-					<p class="site-link" href="#">Mariotto & Yabroff</p>
+					<img src="/PublishedContent/Images/images/testdr/orentas-article.jpg" alt="Rimas Orentas" />
+					<p class="site-link" href="#">Rimas Orentas</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight3.jpg" alt="Shiv Grewal" />
+					<img src="/PublishedContent/Images/images/testdr/grewal-article.jpg" alt="Shiv Grewal" />
 					<p class="site-link" href="#">Shiv Grewal</p>
 				</a>
 			</div>
 			<div>
 				<a href="#" class="container">
-					<img src="/PublishedContent/Images/testcontent/research-spotlight4.jpg" alt="Crystal Mackall" />
+					<img src="/PublishedContent/Images/images/testdr/mackall-article.jpg" alt="Crystal Mackall" />
 					<p class="site-link" href="#">Crystal Mackall</p>
 				</a>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- END Spotlight on Scientits slick carousel -->
+<!-- END Spotlight on Scientists slick carousel -->
