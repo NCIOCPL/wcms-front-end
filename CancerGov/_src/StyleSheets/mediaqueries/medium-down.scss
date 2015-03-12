@@ -442,6 +442,7 @@
         color: white;
         font-weight: bold;
     }
+
     /** BEGIN level-by-level styling **/
     /* level 0 */
     .section-nav .level-0 > div {
@@ -458,14 +459,16 @@
 		}
 
     }
-    .section-nav .level-0 > div     /* level 1 */
-    .section-nav .level-1 > div > a {
+
+	/* level 1 */
+    .section-nav .level-1 > div > a { 
         text-transform: none;
         margin-left: 1em;
     }
     .section-nav .level-1.contains-current {
         background-color: #eeedf4;
     }
+
     /* level 2 */
     .section-nav .level-2 > div > a {
         margin-left: 1.875em;
@@ -476,6 +479,7 @@
         position: absolute;
         background: #c7c7d3;
     }
+
     /* level 3 */
     .section-nav .level-3 > div > a {
         margin-left: 2.3em;
@@ -483,6 +487,7 @@
         font-size: 0.9em;
     }
     /** END level-by-level styling **/
+
     /* this rule to be below the level-by-level styles */
     .section-nav div.current-page {
         background: #009b9d;

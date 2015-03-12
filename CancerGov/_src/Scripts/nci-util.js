@@ -271,9 +271,13 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			show: function(e) {
 				$("#nvcgSlMainNav").addClass(NCI.Search.classname);
 				$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
+				NCI.Search.showMenuClick = $(".open-nav").click;
+				$(".open-nav").click(function(e){ e.stopPropagation(); });
+				$(".nav-search").click(NCI.Search.mobile.hide);
 			},
 			hide: function(e) {
 				$("#nvcgSlMainNav").removeClass(NCI.Search.classname);
+				$(".open-nav").click(NCI.Search.showMenuClick);
 			}
 		}
 	}
