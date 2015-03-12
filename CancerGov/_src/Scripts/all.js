@@ -360,10 +360,11 @@ jQuery(document).ready(function(jQuery) {
     /*** BEGIN Mobile Menu ***/
     (function($) {
         $(window).scroll(function(e){
-            if($(html).hasClass("openNav")){
+            if($('html').hasClass("openNav")){
                 $("#mega-nav").offset({"top": $(".fixedtotop").offset().top, "left": "0px"});
             }
         });
+		$("#mega-nav").offset({"top": $(".fixedtotop").offset().top, "left": "0px"});
     })(jQuery);
     /*** END Mobile Menu ***/
 });
