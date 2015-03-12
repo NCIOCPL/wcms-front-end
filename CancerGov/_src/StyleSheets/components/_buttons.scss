@@ -221,11 +221,15 @@ form .button {
 $plusminus-desktop-color-collapsed: #454545;
 $plusminus-desktop-color-expanded: #009b9d;
 
-$plusminus-color-accordion-odd: #454545;
-$plusminus-bg-color-accordion-odd: #fff;
+$plusminus-color-default: white;
+$plusminus-bg-color-default: #b2dcdf;
+
+$plusminus-color-accordion-odd: white;
+$plusminus-bg-color-accordion-odd: #8fd4db;
+
 
 // color mixin
-@mixin toggle-color($color, $bg-color) {
+@mixin toggle-color($color:$plusminus-color-default, $bg-color:$plusminus-bg-color-default) {
 	color: $color;
 	background-color: $bg-color;
 
@@ -293,6 +297,11 @@ $plusminus-bg-color-accordion-odd: #fff;
 			top: 50%;
 			margin-top: -0.5em;
 		}
+		@include toggle-color($plusminus-color-default, $plusminus-bg-color-default);
+	}
+	
+	.accordion div:nth-child(odd) > .ui-accordion-header > .toggle,
+	.accordion section:nth-child(odd) > .ui-accordion-header > .toggle {
 		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
 	}
 
