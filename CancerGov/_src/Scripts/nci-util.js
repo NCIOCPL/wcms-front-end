@@ -269,15 +269,16 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				$("#swKeyword").val("");
 			},
 			show: function(e) {
+				var menu_btn = $(".open-panel");
 				$("#nvcgSlMainNav").addClass(NCI.Search.classname);
 				$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
-				NCI.Search.showMenuClick = $(".open-nav").click;
-				$(".open-nav").click(function(e){ e.stopPropagation(); });
-				$(".nav-search").click(NCI.Search.mobile.hide);
+				NCI.Search.showMenuClick = menu_btn.click;
+				menu_btn.click(function(e){ e.stopPropagation(); });
+				$(".nav-menu").click(NCI.Search.mobile.hide);
 			},
 			hide: function(e) {
 				$("#nvcgSlMainNav").removeClass(NCI.Search.classname);
-				$(".open-nav").click(NCI.Search.showMenuClick);
+				$(".open-panel").click(NCI.Search.showMenuClick);
 			}
 		}
 	}
