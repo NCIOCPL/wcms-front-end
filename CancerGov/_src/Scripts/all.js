@@ -121,10 +121,10 @@ jQuery(document).ready(function(jQuery) {
         }
 
         function closeNav() {
-			$(".openNav #mega-nav").removeAttr("style");
             $("html").removeClass("openNav");
             $("#mobile-nav").attr('aria-hidden', 'true');
             $('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
+			$("#mega-nav").removeAttr("style");
 
             // Disable swiping to close
             $("#page").swipe("destroy");
