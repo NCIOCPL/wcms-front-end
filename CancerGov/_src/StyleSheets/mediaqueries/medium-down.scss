@@ -124,6 +124,7 @@
 				width: 71px;
 				color: rgba(0,0,0,0); // get rid of the text
 				z-index: 90; // needs to be above search
+				top: -11px;
 
 				&:before {
 					/* The arrow in the back to menu button */
@@ -164,7 +165,7 @@
 			&:before {
 				content: "";
 				display: block;
-				width: calc(100% - $siteSearchFormPadding);
+				width: calc(100% - #{$siteSearchFormPadding});
 				height: 10px;
 				$mobile-search-border: 3px solid $teal;
 				border-bottom: $mobile-search-border;
@@ -188,7 +189,7 @@
 			// We need the padding on this to match the padding set on the siteSearchFrom
 			// that accounts for the back to menu button.  Since this is in em and will thusly
 			// change based on font size, we also needed to capture the font-size in a var
-			padding: 10px 0px 0px $siteSearchFormPadding/$swKeywordFontSize;
+			padding: 10px 0px 0px #{$siteSearchFormPadding/$swKeywordFontSize}em;
 			font-size: $swKeywordFontSize;
 			z-index: 80; //needs to be below the menu-btn
 			background-color: #444;
@@ -312,6 +313,10 @@
         }
 
 		/* Level Styles */
+		.lvl-1, .lvl-2, .lvl-3 { 
+			font-weight: normal; 
+			background-color: #E9E9E7;
+		}
         /* list item spacing through the hierarchy */
 		.lvl-1, .lvl-2 { // called level 0 in the mocks
 			display: block;
@@ -339,7 +344,6 @@
 				padding-bottom: 11px;
 			}
 		}
-		.lvl-1, .lvl-2, .lvl-3 { font-weight: normal; }
 
 		.contains-current {
 			font-weight: bold;
