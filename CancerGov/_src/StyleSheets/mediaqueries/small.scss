@@ -2,39 +2,39 @@
 /* MOBILE STYLES (SMALL) */
 /* *************************************************************************/
 @media only screen and (max-width :640px) {
-        .nci-logo {
-            background-image: url($logos + "NIH-red-logo-smartphone.png");
-            font-size: 16px;
-            line-height: 1.1;
-        }
-        .nci-logo a {
-            padding-left: 70px;
-        }
-        .nci-logo a span {
-            font-size: 0.75em;
-        }
+		.nci-logo {
+			background-image: url($logos + "NIH-red-logo-smartphone.png");
+			font-size: 16px;
+			line-height: 1.1;
+		}
+		.nci-logo a {
+			padding-left: 70px;
+		}
+		.nci-logo a span {
+			font-size: 0.75em;
+		}
 
-        figure.image-right-medium,  figure.image-right-small {
-            width: 100%;
-            margin: 0 0 1em 0;
-        }
+		figure.image-right-medium,	figure.image-right-small {
+			width: 100%;
+			margin: 0 0 1em 0;
+		}
 
 
-            .main-content {
-            background: none;
-        }
+			.main-content {
+			background: none;
+		}
 				.hero-slot {
 					display: none;
 				}
-        /* remove padding on language links to fit all on one line */
-            .sitewide-language {
-            padding-right: 0;
-        }
-        /* no gutter on left and right in mobile */
-            .card, .card-thumbnail div {
-            padding-right: 0;
-            padding-left: 0;
-        }
+		/* remove padding on language links to fit all on one line */
+			.sitewide-language {
+			padding-right: 0;
+		}
+		/* no gutter on left and right in mobile */
+			.card, .card-thumbnail div {
+			padding-right: 0;
+			padding-left: 0;
+		}
 	.ui-accordion .ui-accordion-header {
 		margin: 0;
 	}
@@ -80,18 +80,18 @@
 	.feature-primary p, .feature-secondary p, .card-thumbnail p {
 		display: none;
 	}
-        /* the portal pages needed these items to not hit the edge of screen on mobile only */
-        .feature-primary h3,  .feature-primary p,  .feature-secondary h3,  .feature-secondary p, .multimedia h3, .multimedia p, .other-sites-carousel h3, .row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
-            padding-left: 15px;
-        }
+		/* the portal pages needed these items to not hit the edge of screen on mobile only */
+		.feature-primary h3,	.feature-primary p,	.feature-secondary h3,	.feature-secondary p, .multimedia h3, .multimedia p, .other-sites-carousel h3, .row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
+			padding-left: 15px;
+		}
 	.feature-primary .featured-text {
 		display: none;	
 	}
 	table .article-image-enlarge {
-    font-size: 7px;
-    margin-top: -5px;
-    padding-left: 3px !important;
-    padding-right: 24px !important;
+	font-size: 7px;
+	margin-top: -5px;
+	padding-left: 3px !important;
+	padding-right: 24px !important;
 }
 	.guide-card {
 		padding: 0;	
@@ -101,12 +101,12 @@
 	}
 	/** CTHP styles **/
 	.cthp-body {
-    float: none;
-    width: 100%;
+	float: none;
+	width: 100%;
 }
-    .cthp-title {
-        margin-top: 0;
-    }
+	.cthp-title {
+		margin-top: 0;
+	}
 	.cthp-card-container {
 	margin-top: 0;
 		padding-left: 0.9375em;
@@ -126,42 +126,42 @@
 .cthp-screening,
 .cthp-survival,
 .cthp-general {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 		.cthp-content {
 		background: white;
 	}
 	
 	.cthp-content h1 {
-    color: #606060;
+	color: #606060;
 }
 	.cthp-version-toggle {
-    float: none;
-    background: white $circle-arrow-blue-small 98% no-repeat;
-    display: inline-block;
+	float: none;
+	background: white $circle-arrow-blue-small 98% no-repeat;
+	display: inline-block;
 		padding: 0 40px 0px 0;
 		margin-top: 0;
 		&:hover, &:focus {
-        background: white $circle-arrow-red-small 98% no-repeat;
-    }
+		background: white $circle-arrow-red-small 98% no-repeat;
+	}
 	}
 	.cthp-version-toggle a {
-   color: #606060;
+	 color: #606060;
 }
 	.row .tp20 {
-  margin-top: 0;
+	margin-top: 0;
 	
 }
 	/** END CTHP styles **/
 //** BEGIN PDQ Styles **/
 .on-this-page {
-        display: none;
-    }
+		display: none;
+	}
 //** END PDQ Styles **/
 //** BEGIN Dynamic List Styles **/
 	.dynamic {
-        padding: 0 15px;
-    }
+		padding: 0 15px;
+	}
 	.large-8 .list .container.image + .container.title {
 		width: 100%; 
 	}
