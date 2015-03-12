@@ -100,53 +100,7 @@ jQuery(document).ready(function(jQuery) {
 
     /*** BEGIN mobile nav ("off-canvas flyout functionality") ***/
     (function($) {
-        // set the height of the mobile nav to the window height
-        $(window).on('load resize', function() {
-            $('#mobile-nav').css('height', $(window).height());
-        });
-
-        function openNav() {
-            $("html").addClass("openNav");
-            $("#mobile-nav").attr('aria-hidden', 'false');
-            $('.fixedtotop.scroll-to-fixed-fixed').css('left', "80%");
-			$(".openNav #mega-nav").offset({"top": $(".fixedtotop").offset().top, "left": "0px"});
-
-            // Enable swiping to close
-            $("#page").swipe({
-                swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
-                    closeNav();
-                },
-                threshold: 10 // default is 75 (for 75px)
-            });
-        }
-
-        function closeNav() {
-            $("html").removeClass("openNav");
-            $("#mobile-nav").attr('aria-hidden', 'true');
-            $('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
-			$("#mega-nav").removeAttr("style");
-
-            // Disable swiping to close
-            $("#page").swipe("destroy");
-        }
-
-        $(".open-panel").click(function () {
-            if ($('html').hasClass('openNav')) {
-                // if the mobile menu is open, we want to close it
-                closeNav();
-            } else {
-                // if the mobile menu is closed, we want to open it
-                openNav();
-            }
-        });
-
-        $("#content, header, footer, .headroom-area").click(function (e) {
-            if ($('html').hasClass('openNav')) {
-                // if the mobile menu is open, we want to close it
-                closeNav();
-            }
-        });
-
+		NCI.Nav.init();
         NCI.Search.init();
     })(jQuery);
     /*** END mobile nav ***/
@@ -358,17 +312,6 @@ jQuery(document).ready(function(jQuery) {
                 .addClass('scrollable-y');
     })(jQuery);
     /*** END form controls ***/
-
-    /*** BEGIN Mobile Menu ***/
-    (function($) {
-        $(window).scroll(function(e){
-            if($('html').hasClass("openNav")){
-                $("#mega-nav").offset({"top": $(".fixedtotop").offset().top, "left": "0px"});
-            }
-        });
-    })(jQuery);
-    /*** END Mobile Menu ***/
-
 
 	/*** BEGIN accordionizer ***/
 	(function($) {

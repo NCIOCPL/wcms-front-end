@@ -263,6 +263,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		classname: "searching",
 		init: function() {
 			$(".nav-search").click(NCI.Search.mobile.show);
+
 		},
 		mobile: {
 			clear: function() {
@@ -271,15 +272,96 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			show: function(e) {
 				var menu_btn = $(".open-panel");
 				$("#nvcgSlMainNav").addClass(NCI.Search.classname);
-				$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
-				NCI.Search.showMenuClick = menu_btn.click;
-				menu_btn.click(function(e){ e.stopPropagation(); });
-				$(".nav-menu").click(NCI.Search.mobile.hide);
+				if (!$("#searchclear").length) {
+					$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
+				}
+				menu_btn.unbind("click").click( NCI.Search.mobile.hide );
 			},
 			hide: function(e) {
-				$("#nvcgSlMainNav").removeClass(NCI.Search.classname);
-				$(".open-panel").click(NCI.Search.showMenuClick);
+				$("#nvcgSlMainNav").removeClass( NCI.Search.classname );
+				NCI.Nav.$openPanelBtn.unbind("click").click( NCI.Nav.open );
 			}
+		}
+	},
+
+	
+	Nav: {
+		openClass: "openNav",
+		openPanelClass: "open-panel",
+		mobile: "#mobile-nav",
+		/* visible only on mobile, this is the menu bar itself, with hamburger & search buttons */
+		mega: "#mega-nav",
+		/* Mega Nav is the huge RawHTML content block on desktop, but becomes the menu tree on mobile */
+		$mobile: $(), // This will hold a ref to the jQuery object, saving us a lookup.
+		$mega: $(), // This will hold a ref to the jQuery object, saving us a lookup.
+		$openPanelBtn: $(),
+		init: function() {
+			var n = NCI.Nav;
+			// Since we can't guarantee that our doc is ready when this script is loaded,
+			// we'll need to initialize on document.ready() in all.js
+
+			n.$mobile = $(n.mobile);
+			n.$mega = $(n.mega);
+			n.$openPanelBtn = $("."+n.openPanelClass);
+			n.$openPanelBtn.click(n.toggleMobileMenu);
+
+			$(window).on('load resize', n.resize);
+
+			$("#content, header, footer, .headroom-area").click(n.close);
+
+			$(window).scroll(function(e){
+				if(NCI.Nav.isOpen()){
+					NCI.Nav.$mega.offset({
+						"top": $(".fixedtotop").offset().top,
+						"left": "0px"
+					});
+				}
+			});
+
+			NCI.Nav = n;
+		},
+		isOpen: function () { return $("html").hasClass(NCI.Nav.openClass); },
+		open: function () {
+			if (!NCI.Nav.isOpen()) {
+				$("html").addClass(NCI.Nav.openClass);
+				NCI.Nav.$mobile.attr('aria-hidden', 'false');
+				$('.fixedtotop.scroll-to-fixed-fixed').css('left', "80%");
+				$("."+NCI.Nav.openClass+" "+NCI.Nav.mega).offset({
+					"top": $(".fixedtotop").offset().top, 
+					"left": "0px"
+				});
+
+				// Enable swiping to close
+				$("#page").swipe({
+					swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
+						closeNav();
+					},
+					threshold: 10 // default is 75 (for 75px)
+				});
+			}
+        },
+		close: function() {
+			if (NCI.Nav.isOpen()) {
+				$("html").removeClass(NCI.Nav.openClass);
+				NCI.Nav.$mobile.attr('aria-hidden', 'true');
+				$('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
+				setTimeout(function() { 
+					NCI.Nav.$mega.removeAttr("style"); 
+				}, 1000);
+
+				// Disable swiping to close
+				$("#page").swipe("destroy");
+			}
+        },
+		toggleMobileMenu: function() {
+			if (NCI.Nav.isOpen()) {
+				NCI.Nav.close();
+			} else {
+				NCI.Nav.open();
+			}
+		},
+		resize: function() {
+			NCI.Nav.$mobile.css('height', $(window).height());
 		}
 	}
 };
