@@ -300,8 +300,7 @@ $plusminus-bg-color-accordion-odd: #8fd4db;
 		@include toggle-color($plusminus-color-default, $plusminus-bg-color-default);
 	}
 	
-	.accordion div:nth-child(odd) > .ui-accordion-header > .toggle,
-	.accordion section:nth-child(odd) > .ui-accordion-header > .toggle {
+	.ui-accordion-header.even .toggle {
 		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
 	}
 
