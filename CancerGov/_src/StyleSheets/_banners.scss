@@ -45,11 +45,14 @@ $notice-banner-line-height-mobile: 14px;
 		color: white;
 
 		a {
-			text-decoration: underline;
+			padding-right:em-calc(40px);
 			color: white;
-
+			overflow:visible;
+			background: $circle-arrow-off-cream-small 100% 0 no-repeat;
+			
 			&:hover {
-				color: #cae2f4;
+				text-decoration: underline;
+				
 			}
 		}
 	}
