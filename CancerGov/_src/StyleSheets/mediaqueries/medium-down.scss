@@ -355,13 +355,8 @@
 			color: #ffffff;
 			font-weight: bold;
 
-			a {
+			> div > a {
 				color: #ffffff;
-			}
-
-			+ li, li {
-				display: block;
-				background-color: #E9E9E7;
 			}
 		}
 		.lvl-1.contains-current .lvl-2, 
