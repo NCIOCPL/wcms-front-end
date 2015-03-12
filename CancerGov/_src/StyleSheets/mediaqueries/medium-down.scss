@@ -295,34 +295,7 @@
             border-top: 1px solid #898987;
         }
 
-        /* list item spacing through the hierarchy */
-        li > div > a,
-        li li > div > a {
-            padding-left: 31px;
-            font-size: 1.17em;
-            padding-top: 12px;
-            padding-bottom: 12px;
-        }
-        li li li > div > a {
-            padding-left: 44px;
-            font-size: 0.91em;
-            padding-top: 14px;
-            padding-bottom: 11px;
-        }
-        li li li li > div > a {
-            padding-left: 62px;
-            font-size: 0.78em;
-            font-weight: bold;
-            padding-top: 12px;
-            padding-bottom: 15px;
-        }
-        /* remove padding on HOME link to appear as a level 0 item */
-        .nav-menu > li > div > a {
-            padding-left: 17px;
-            //color: #606060;
-            padding-top: 14px;
-        }
-         
+        
         /* clicked link state */
         .nav-menu li > div > a:active {
             /*
@@ -337,24 +310,42 @@
             margin: 0;
             width: 100%;
         }
-		.lvl-1 { // called level 0 in the mocks
-			text-transform: uppercase;
+
+		/* Level Styles */
+        /* list item spacing through the hierarchy */
+		.lvl-1, .lvl-2 { // called level 0 in the mocks
 			display: block;
+			text-transform: uppercase;
+
+			a {
+				padding-left: 17px;
+				font-size: 1.17em;
+				padding-top: 12px;
+				padding-bottom: 12px;
+			}
 		}
 		.lvl-2 { // level 1 in the mocks
-			text-transform: uppercase;
 			display: none;
+
+			a { padding-left: 31px; }
 		}
 		.lvl-3 { // level 2 in the mocks
-			text-transform: none;
 			display: none;
+			text-transform: none;
+			a {
+				padding-left: 44px;
+				font-size: 0.91em;
+				padding-top: 14px;
+				padding-bottom: 11px;
+			}
 		}
 		.lvl-1, .lvl-2, .lvl-3 { font-weight: normal; }
+
 		.contains-current {
 			font-weight: bold;
 			display: block;
 
-			+ li {
+			> .mobile-item > li {
 				display: block;
 			}
 		}
@@ -372,6 +363,12 @@
 				display: block;
 				background-color: #E9E9E7;
 			}
+		}
+		.lvl-1.contains-current .lvl-2, 
+		.lvl-2.contains-current .lvl-3,
+		.lvl-1.current-page .lvl-2,
+		.lvl-2.current-page .lvl-3 {
+			display: block;
 		}
         .nav-item-title {
             position: relative;
@@ -453,15 +450,17 @@
         padding-top: 0.625em;
         padding-bottom: 0.625em;
         background-color: #186d89;
+		> a {
+			color: #FFFFFF;
+			margin-left: 0.8888em;
+			margin-right: 3.3888em;
+			text-transform: uppercase;
+		}
+
     }
-    .section-nav .level-0 > div > a {
-        color: #FFFFFF;
-        margin-left: 0.8888em;
-        margin-right: 3.3888em;
-    }
-    /* level 1 */
+    .section-nav .level-0 > div     /* level 1 */
     .section-nav .level-1 > div > a {
-        text-transform: uppercase;
+        text-transform: none;
         margin-left: 1em;
     }
     .section-nav .level-1.contains-current {
