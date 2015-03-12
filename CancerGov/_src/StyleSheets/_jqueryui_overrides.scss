@@ -113,12 +113,13 @@ $ui-selectmenu-maxitems: 7;
 }
 
 /* accordion zebra styling */
-.accordion div:nth-child(odd) > .ui-accordion-header, .accordion section:nth-child(odd) > .ui-accordion-header {
-	background: #bcedf2;
-}
-.accordion div:nth-child(even) > .ui-accordion-header, .accordion section:nth-child(even) > .ui-accordion-header {
-	background: #dbf4f6;
-}
+.ui-accordion-header.odd {
+			background: #bcedf2;
+		}
+.ui-accordion-header.even {
+			background: #dbf4f6;
+		}
+
 /* end accordion zebra styling */
 .ui-accordion .ui-accordion-header {
 	color: #606060;
