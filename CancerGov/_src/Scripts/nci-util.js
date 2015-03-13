@@ -318,11 +318,16 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				}
 			});
 
+			// wire up the +/- buttons on the menu
+		    var btn = $('<button aria-expanded="false" class="toggle" type="button"><span class="hidden">Open child elements</span></button>');
+			n.$mega.find(".has-children").append(btn);
+
 			NCI.Nav = n;
 		},
 		isOpen: function () { return $("html").hasClass(NCI.Nav.openClass); },
 		open: function () {
-			if (!NCI.Nav.isOpen()) {
+			var n = NCI.Nav;
+			if (!n.isOpen()) {
 				$("html").addClass(NCI.Nav.openClass);
 				NCI.Nav.$mobile.attr('aria-hidden', 'false');
 				$('.fixedtotop.scroll-to-fixed-fixed').css('left', "80%");
@@ -334,31 +339,35 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				// Enable swiping to close
 				$("#page").swipe({
 					swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
-						closeNav();
-					},
+						this.close()
+					}.bind(NCI.Nav),
 					threshold: 10 // default is 75 (for 75px)
 				});
 			}
         },
 		close: function() {
-			if (NCI.Nav.isOpen()) {
-				$("html").removeClass(NCI.Nav.openClass);
-				NCI.Nav.$mobile.attr('aria-hidden', 'true');
+			var n = NCI.Nav;
+			if (n.isOpen()) {
+				$("html").removeClass(n.openClass);
 				$('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
+				n.$mobile.attr('aria-hidden', 'true');
+
+				// We do a timeout here, because we have no way of knowing when
+				// the CSS animation of the menu is done. We have to remove the
+				// style in case the browser is made to be dekstop width, at which
+				// point the applied style would affect the mega menu display
 				setTimeout(function() { 
-					NCI.Nav.$mega.removeAttr("style"); 
-				}, 1000);
+					this.$mega.removeAttr("style"); 
+				}.bind(n), 1000);
 
 				// Disable swiping to close
 				$("#page").swipe("destroy");
 			}
         },
 		toggleMobileMenu: function() {
-			if (NCI.Nav.isOpen()) {
-				NCI.Nav.close();
-			} else {
-				NCI.Nav.open();
-			}
+			var n = NCI.Nav;
+			if (n.isOpen()) { n.close(); } 
+			else { n.open(); }
 		},
 		resize: function() {
 			NCI.Nav.$mobile.css('height', $(window).height());
