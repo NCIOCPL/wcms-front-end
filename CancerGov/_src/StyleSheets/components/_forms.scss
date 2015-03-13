@@ -252,6 +252,11 @@ textarea {
   }
 }
 
+input[size] {
+	width: initial;
+	display: inline-block;
+}
+
 textarea[rows] {
   height: initial;
 }
@@ -286,6 +291,15 @@ fieldset {
 }
 .legend {
   @extend legend;
+}
+
+form fieldset {
+	margin-top: 40px;
+}
+
+fieldset div.row 
+{
+	padding-bottom: 20px;
 }
 
 /* Error Handling */
@@ -445,4 +459,22 @@ html.borderradius.generatedcontent {
       }
     }
   }
+}
+
+/* unique form element styling */
+.roundy-box 
+{
+	border: 1px solid;
+	border-color: rgb(0, 0, 0);
+	border-color: rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+ .scrolling-list 
+{        
+	overflow: scroll;
+	white-space: nowrap;
+	max-height: 200px;
 }
