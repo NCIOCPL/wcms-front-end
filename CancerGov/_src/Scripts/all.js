@@ -315,29 +315,29 @@ jQuery(document).ready(function(jQuery) {
 
 	/*** BEGIN accordionizer ***/
 	(function($) {
-		var accordionize = function() {
+		var targets = {
+			//'selector' : 'header'
+			'.accordion' : 'h2',
+			'#nvcgRelatedResourcesArea' : 'h6',
+			'#cgvCitationSl' : 'h6'
+		};
+		var targetsSelector = Object.keys(targets).join(', ');
+		var targetsBuiltAccordion = [],
+				targetsHeader = [],
+				accordion;
+
+		for(var target in targets) {
+			if(targets.hasOwnProperty(target)) {
+				targetsBuiltAccordion.push(target + '.ui-accordion');
+				targetsHeader.push(target + ' ' + targets[target]);
+			}
+		}
+		var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(', ');
+		var targetsHeaderSelector = targetsHeader.join(', ');
+
+		function accordionize() {
 			/* determine window width */
 			var width = window.innerWidth || $(window).width();
-
-			var targets = {
-				//'selector' : 'header'
-				'.accordion' : 'h2',
-				'#nvcgRelatedResourcesArea' : 'h6',
-				'#cgvCitationSl' : 'h6'
-			};
-			var targetsSelector = Object.keys(targets).join(', ');
-			var targetsBuiltAccordion = [],
-					targetsHeader = [],
-					accordion;
-
-			for(var target in targets) {
-				if(targets.hasOwnProperty(target)) {
-					targetsBuiltAccordion.push(target + '.ui-accordion');
-					targetsHeader.push(target + ' ' + targets[target]);
-				}
-			}
-			var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(', ');
-			var targetsHeaderSelector = targetsHeader.join(', ');
 
 			/* If the width is less than or equal to 640px (small screens)
 			 * AND if the accordion(s) isn't (aren't) already built */
@@ -357,11 +357,12 @@ jQuery(document).ready(function(jQuery) {
 
 				// after all accordions have been built, add appropriate odd/even classes to the accordion headers
 				var builtAccordionHeaders = $('.ui-accordion-header');
-				for(var i = 0; i < builtAccordionHeaders.length; i++) {
+				console.log(builtAccordionHeaders);
+				for(var i = 1; i <= builtAccordionHeaders.length; i++) {
 					if(i % 2 === 0) {
-						builtAccordionHeaders.get(i).className += ' ' + 'even';
+						builtAccordionHeaders.get(i-1).className += ' ' + 'even';
 					} else {
-						builtAccordionHeaders.get(i).className += ' ' + 'odd';
+						builtAccordionHeaders.get(i-1).className += ' ' + 'odd';
 					}
 				}
 
@@ -376,10 +377,11 @@ jQuery(document).ready(function(jQuery) {
 		};
 
 		$(window).on('resize', function() {
-			accordionize();
+			accordionize()
 		});
 
 		accordionize();
 	})(jQuery);
+	/*** END accordionizer ***/
 	
 });
