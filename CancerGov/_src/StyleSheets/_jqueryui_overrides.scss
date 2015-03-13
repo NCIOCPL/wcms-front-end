@@ -113,10 +113,10 @@ $ui-selectmenu-maxitems: 7;
 }
 
 /* accordion zebra styling */
-.ui-accordion-header.odd {
+.ui-accordion-header.odd, .ui-accordion .ui-accordion-header.odd.ui-state-active {
 	background: #bcedf2;
 }
-.ui-accordion-header.even {
+.ui-accordion-header.even, .ui-accordion .ui-accordion-header.even.ui-state-active {
 	background: #dbf4f6;
 }
 
