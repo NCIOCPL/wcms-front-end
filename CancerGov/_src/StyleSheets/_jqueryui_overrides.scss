@@ -23,7 +23,7 @@
 		background: #1D5E86;
 		color: #fff;
 		margin: 0 -0.9375em;
-		padding: 10px 50px 10px 20px;
+		padding: 10px 70px 10px 20px;
 	}
 	&.columns .ui-accordion-header {
 		margin: 0;
@@ -134,6 +134,16 @@ border-top-width: 0;
 	background: white;
 	color: #8fd4db;
 }
+/* this overcomes p tag Percussion is putting inside h2 */
+.ui-accordion-header > p {
+margin: 0;
+line-height: inherit;
+}
+@media only screen and (max-width: 640px) {
+  .qnas.accordion, #cgvCitationsSl, #nvcgRelatedResourcesArea {
+  margin: 0 -0.9375em;
+	}
+ }
 /* begin CTHP accordion styling rules */
 .cthp-content.ui-accordion .ui-accordion-header {
 	color: white;
