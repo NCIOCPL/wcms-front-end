@@ -221,19 +221,23 @@ form .button {
 $plusminus-desktop-color-collapsed: #454545;
 $plusminus-desktop-color-expanded: #009b9d;
 
-$plusminus-color-default: white;
-$plusminus-bg-color-default: #b2dcdf;
-
 $plusminus-color-accordion-odd: white;
 $plusminus-bg-color-accordion-odd: #8fd4db;
 
+$plusminus-color-accordion-even: white;
+$plusminus-bg-color-accordion-even: #b2dcdf;
+
 
 // color mixin
-@mixin toggle-color($color:$plusminus-color-default, $bg-color:$plusminus-bg-color-default) {
-	color: $color;
-	background-color: $bg-color;
+@mixin toggle-color($color, $bg-color) {
+	&[aria-expanded="false"] .toggle,
+	.toggle[aria-expanded="false"] {
+		color: $color;
+		background-color: $bg-color;
+	}
 
-	&:hover, &:focus {
+	&[aria-expanded="true"] .toggle,
+	.toggle[aria-expanded="true"] {
 		color: $bg-color;
 		background-color: $color;
 	}
@@ -297,11 +301,14 @@ $plusminus-bg-color-accordion-odd: #8fd4db;
 			top: 50%;
 			margin-top: -0.5em;
 		}
-		@include toggle-color($plusminus-color-default, $plusminus-bg-color-default);
 	}
 	
-	.ui-accordion-header.even .toggle {
+	.ui-accordion-header.odd {
 		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
+	}
+	
+	.ui-accordion-header.even {
+		@include toggle-color($plusminus-color-accordion-even, $plusminus-bg-color-accordion-even);
 	}
 
 	// MOBILE: "hamburger" plus/minus buttons
