@@ -272,30 +272,17 @@
 			width: 100%;
 			box-sizing: border-box;
 			border-top: 1px solid #888;
+			font-weight: normal;
+			background-color: #E9E9E7;
 
 			a {
 				display: inline-block;
-				min-height: 1.5em;
-				width: 75%;
-				text-decoration: none;
-				padding-top: .6em;
-				font-size: 1.1em;
+				width: 100%;
+				min-height: 50px;
+				padding-right: 70px;
 				color: #606060;
 			}
 		}
-        li > div > a {
-            width: 75%;
-            /* If we add "has-children", change to 100% */
-        }
-        /* Re-add if we add "has-children"
-        li.has-children > div > a {
-            width: 75%;
-        }
-        */
-
-        li {
-            border-top: 1px solid #898987;
-        }
 
         
         /* clicked link state */
@@ -314,35 +301,40 @@
         }
 
 		/* Level Styles */
-		.lvl-1, .lvl-2, .lvl-3 { 
-			font-weight: normal; 
-			background-color: #E9E9E7;
+		.lvl-1, .lvl-2, .lvl-3 {
 		}
         /* list item spacing through the hierarchy */
-		.lvl-1, .lvl-2 { // called level 0 in the mocks
+		.lvl-1 { // level 0 in the mocks
 			display: block;
 			text-transform: uppercase;
 
 			a {
+				font-size: 1.2em;
 				padding-left: 17px;
-				font-size: 1.17em;
-				padding-top: 12px;
-				padding-bottom: 12px;
+				padding-top: 10px;
+				padding-bottom: 10px;
 			}
 		}
 		.lvl-2 { // level 1 in the mocks
 			display: none;
+			text-transform: uppercase;
 
-			a { padding-left: 31px; }
+			a {
+				font-size: 1.05em;
+				padding-left: 31px;
+				padding-top: 11.5px;
+				padding-bottom: 11.5px;
+			}
 		}
 		.lvl-3 { // level 2 in the mocks
 			display: none;
-			text-transform: none;
+			// text-transform: none;
+
 			a {
+				font-size: 0.84em;
 				padding-left: 44px;
-				font-size: 0.91em;
-				padding-top: 14px;
-				padding-bottom: 11px;
+				padding-top: 15px;
+				padding-bottom: 15px;
 			}
 		}
 
