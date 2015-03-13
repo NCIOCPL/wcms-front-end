@@ -114,11 +114,11 @@ $ui-selectmenu-maxitems: 7;
 
 /* accordion zebra styling */
 .ui-accordion-header.odd {
-			background: #bcedf2;
-		}
+	background: #bcedf2;
+}
 .ui-accordion-header.even {
-			background: #dbf4f6;
-		}
+	background: #dbf4f6;
+}
 
 /* end accordion zebra styling */
 .ui-accordion .ui-accordion-header {
@@ -140,8 +140,8 @@ margin: 0;
 line-height: inherit;
 }
 @media only screen and (max-width: 640px) {
-  .qnas.accordion, #cgvCitationsSl, #nvcgRelatedResourcesArea {
-  margin: 0 -0.9375em;
+  .qnas.accordion, #cgvCitationSl, #nvcgRelatedResourcesArea {
+  	margin: 0 -0.9375em;
 	}
  }
 /* begin CTHP accordion styling rules */
