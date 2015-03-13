@@ -130,9 +130,6 @@
         <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="row" /></div>
         <!-- End nav-search bar -->
 
-        <!-- Begin section menu clicker (on mobile) -->
-        <div></div>
-        <!-- End section menu clicker (on mobile) -->
         <!-- END NAVIGATION -->
     </div><!-- END Global nav/utility bar/language -->
 

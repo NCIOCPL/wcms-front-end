@@ -7,13 +7,11 @@ $(document).ready(function() {
 	/* if there IS a section nav */
 	if($sectionNav.length > 0) {
 		// make the button to open the section nav
-		$('.nav-search-bar').append(
-			$(document.createElement('a'))
-				.attr('id', sectionNavButton)
-				.attr('href', '#')
-				.text('Section Menu')
-		);
-		var $sectionNavButton = $('#' + sectionNavButton);
+		var $sectionNavButton = $('<a>')
+			.attr('id', sectionNavButton)
+			.attr('href', '#')
+			.text('Section Menu')
+			.insertAfter('.fixedtotop');
 		// add margin to prevent the button from overlaying the page header
 		$('.contentzone').addClass('has-section-nav');
 
@@ -102,7 +100,7 @@ $(document).ready(function() {
 				$sectionNav.show();
 				// remove some mobile-only classes
 				$sectionNav.removeClass('open');
-				$sectioNavButton.removeClass('open');
+				$sectionNavButton.removeClass('open');
 			}
 			oldWidth = curWidth;
 		}).trigger('resize');
