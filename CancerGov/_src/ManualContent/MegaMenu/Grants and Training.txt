@@ -10,33 +10,34 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">NCI Grants Process</a> 
+	<li><a href="/grants-training/grants-process" class="sub-nav-group-header">NCI Grants Process</a> 
 		<ul>
-			<li><a href="#">Quick Overview</a></li>
-			<li><a href="#">Application Development Submission &amp; Award</a></li>
-			<li><a href="#">Research Funding Mechanisms</a></li>
-			<li><a href="#">Research Performance Progress Report</a></li>
-			<li><a href="#">Grants Closeout</a></li>
+			<li><a href="/grants-training/grants-process/overview">Quick Overview</a></li>
+			<li><a href="/grants-training/grants-process/application">Application Development Submission &amp; Award</a></li>
+			<li><a href="/grants-training/grants-process/mechanisms">Research Funding Mechanisms</a></li>
+			<li><a href="/grants-training/grants-process/rppr">Research Performance Progress Report</a></li>
+			<li><a href="/grants-training/grants-process/grant-closeout">Grants Closeout</a></li>
 		</ul>
 	</li>
 </ul> 
 
 
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">NCI Grants Management</a> 
+	<li><a href="/grants-training/grants-management" class="sub-nav-group-header">NCI Grants Management</a> 
 		<ul>
-			<li><a href="#">Legal Requirements</a></li>
-			<li><a href="#">Cross-Cutting Public Policies</a></li>
-			<li><a href="#">Grant Management Contacts</a></li>
+			<li><a href="/grants-training/grants-management/legal">Legal Requirements</a></li>
+			<li><a href="/grants-training/grants-management/policies">Cross-Cutting Public Policies</a></li>
+			<li><a href="/grants-training/grants-management/">Grant Management Contacts</a></li>
 		</ul>
 	</li>
 	<br/><br/>
-	<li><a href="#" class="sub-nav-group-header">Other Funding</a> 
+	<li><a href="/grants-training/grants-management" class="sub-nav-group-header">Other Funding</a> 
 		<ul>
-			<li><a href="#">Find NCI funding for small business innovation, technology transfer, and contracts</a></li>
+			<li><a href="/grants-training/grants-management">Find NCI funding for small business innovation, technology transfer, and contracts</a></li>
 		</ul>
 	</li>
 </ul>
+
 <ul class="sub-nav-group">
 	<li><a href="#" class="sub-nav-group-header">Funding for Training</a> 
 		<ul>

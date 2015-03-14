@@ -12,29 +12,29 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">NCI Research Areas</a>
+	<li><a href="/researchandfunding/areas" class="sub-nav-group-header">NCI Research Areas</a>
 		<ul>
-			<li><a href="#">Cancer Biology</a></li>
-			<li><a href="#">Cancer Genomics</a></li>
-			<li><a href="#">Causes of Cancer</a></li>
-			<li><a href="#">Clinical Trials</a></li>
-			<li><a href="#">Diagnosis &amp; Treatment</a></li>
-			<li><a href="#">Global Health</a></li>
-			<li><a href="#">Health Disparities</a></li>
-			<li><a href="#">Prevention</a></li>
-			<li><a href="#">Public Health &amp; Cancer</a></li>
-			<li><a href="#">Screening &amp; Early Detection</a></li>
+			<li><a href="/researchandfunding/areas/biology">Cancer Biology</a></li>
+			<li><a href="/researchandfunding/areas/genomics">Cancer Genomics</a></li>
+			<li><a href="/researchandfunding/areas/causes">Causes of Cancer</a></li>
+			<li><a href="/researchandfunding/areas/clinical-trials">Clinical Trials</a></li>
+			<li><a href="/researchandfunding/areas/diagnosis">Diagnosis &amp; Treatment</a></li>
+			<li><a href="/researchandfunding/areas/global-health">Global Health</a></li>
+			<li><a href="/researchandfunding/areas/disparities">Health Disparities</a></li>
+			<li><a href="/researchandfunding/areas/prevention">Prevention</a></li>
+			<li><a href="/researchandfunding/areas/public-health">Public Health &amp; Cancer</a></li>
+			<li><a href="/researchandfunding/areas/screening">Screening &amp; Early Detection</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Priority Initiatives</a>
+	<li><a href="/researchandfunding/priorities" class="sub-nav-group-header">Priority Initiatives</a>
 		<ul>
-			<li><a href="#">Read about some of NCI's major research initiatives</a></li>
+			<li><a href="/researchandfunding/priorities">Read about some of NCI's major research initiatives</a></li>
 		</ul>
 	</li>
 	<br/><br/>
-	<li><a href="#" class="sub-nav-group-header">R&amp;D Resources</a>
+	<li><a href="/researchandfunding/priorities" class="sub-nav-group-header">R&amp;D Resources</a>
 		<ul>
 			<li><a href="#">Tools and data sets for researchers</a></li>
 		</ul>
@@ -49,10 +49,10 @@
 <ul class="sub-nav-group">
 	<li><a href="#" class="sub-nav-group-header">Progress</a>
 		<ul>
-			<li><a href="#">Cancer Snapshots</a></li>
-			<li><a href="#">Statistical Trends</a></li>
-			<li><a href="#">Stories of Discovery</a></li>
-			<li><a href="#">Cancer Advances Timeline</a></li>
+			<li><a href="/researchandfunding/progress/snapshots">Cancer Snapshots</a></li>
+			<li><a href="/researchandfunding/">Statistical Trends</a></li>
+			<li><a href="/researchandfunding/discovery">Stories of Discovery</a></li>
+			<li><a href="/researchandfunding/">Cancer Advances Timeline</a></li>
 		</ul>
 	</li>
 </ul>

@@ -5,9 +5,9 @@
 <ul class="sub-nav-group">
 	<li><a href="/cancertopics/causes-prevention" class="sub-nav-group-header">Causes &amp; Prevention</a>
 		<ul>
-			<li><a href="/cancertopics/causes-prevention/risk-factors">Risk Factors</a></li>
-			<li><a href="#">Genetics</a></li>
-			<li><a href="#">Cancer Prevention Overview</a></li>
+			<li><a href="/cancertopics/causes-prevention/risk">Risk Factors</a></li>
+			<li><a href="/cancertopics/causes-prevention/genetics">Genetics</a></li>
+			<li><a href="/cancertopics/causes-prevention/prevention-overview-pdq">Cancer Prevention Overview</a></li>
 		</ul>
 	</li>
 </ul>
@@ -34,9 +34,9 @@
 		<ul>
 			<li><a href="/cancertopics/treatment/types">Types of Treatment</a></li>
 			<li><a href="/cancertopics/treatment/side-effects/">Side Effects</a></li>
-			<li><a href="#">Clinical Trials</a></li>
-			<li><a href="#">Cancer Drugs</a></li>
-			<li><a href="#">Complementary &amp; Alternative Medicine</a></li>
+			<li><a href="/cancertopics/treatment/clinical-trials">Clinical Trials</a></li>
+			<li><a href="/cancertopics/treatment/drugs">Cancer Drugs</a></li>
+			<li><a href="/cancertopics/treatment/cam">Complementary &amp; Alternative Medicine</a></li>
 		</ul>
 	</li>
 </ul>
@@ -56,10 +56,13 @@
 <ul class="sub-nav-group">
 	<li><a href="/cancertopics/advanced-cancer" class="sub-nav-group-header">Advanced Cancer</a>
 		<ul>
-			<li><a href="#">Talking about Advanced Cancer</a></li>
-			<li><a href="#">Making Choices about Care</a></li>
-			<li><a href="#">Coping with Advanced Cancer</a></li>
-			<li><a href="#">End of Life</a></li>
+			<li><a href="/cancertopics/advanced-cancer/care-choices">Choices About Care</a></li>
+			<li><a href="/cancertopics/advanced-cancer/talking">Talking About Advanced Cancer</a></li>
+			<li><a href="/cancertopics/advanced-cancer/feelings">Coping With Your Feelings</a></li>
+			<li><a href="/cancertopics/advanced-cancer/planning">Planning for Advanced Cancer</a></li>
+			<li><a href="/cancertopics/advanced-cancer/caregivers">Advanced Cancer and Caregivers</a></li>
+			<li><a href="/cancertopics/advanced-cancer/questions">Questions to Ask Your Doctor About Advanced Cancer</a></li>
+
 		</ul>
 	</li>
 </ul>
