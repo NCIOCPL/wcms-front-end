@@ -60,25 +60,35 @@ table.table-default caption {
     @include font-montserrat;
       font-weight: normal;
       text-transform: uppercase;
+	  color: #606060;
     text-align: left;
     padding: 20px 0 10px;
     font-size: 1.375em;
     /* using padding instead of margin due to problem in Safari */
 }
 table.table-default th {
-    background-color: #f2f3f7;
-      font-weight: bold;
-      @include font-montserrat;
+	@include font-noto;
+	font-weight: bold;
+	color: #606060;
+    background-color: #d0f1f2;
     /*text-align: left;*/
 }
 table.table-default tr {
     background-color: #fff;
+	
+	&:nth-child(even) {
+		background-color: #e8f3f6;
+	}
 }
 table.table-default td,
 table.table-default th {
-    border: 1px solid #bdbdbd;
-    padding: 10px;
+	/* both definitions are for #bgbgbg at 0.28 opacity */
+    border: 1px solid rgb(236, 236, 236);
+	border: 1px solid rgba(189, 189, 189, 0.28);
+    padding: 20px;
     border-spacing: 0;
+	-webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
 table.table-default td p:first-child {
     margin-top: 0;
