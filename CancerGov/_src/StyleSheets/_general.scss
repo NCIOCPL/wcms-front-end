@@ -100,6 +100,12 @@ table.table-default th p:last-child {
 table.table-default ul {
     padding-left: 4px;
 }
+
+/* genetics-professional-specific fix to prevent table captions from wrapping */
+geneticsprofessional table.table-default caption {
+	white-space: nowrap;
+}
+
 /* end default content table styling */
 
 .bcrumbs {
