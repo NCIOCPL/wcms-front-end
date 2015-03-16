@@ -33,10 +33,15 @@
   background: white;	
 }
 .cthp-body {
-	float: left; width: 55%;
+	float:left; 
+	width: 55%; 
+	display: block; 
+	clear: left;
 }
 .cthp-body h3 {
 	margin-top: 0px;
+	float:left; 
+	width: 55%;
 }
 .large-12.columns.cthp-intro-multimedia.clearfix {
 	padding-top: 5px;
