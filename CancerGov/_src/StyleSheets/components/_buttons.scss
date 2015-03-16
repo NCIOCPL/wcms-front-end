@@ -144,7 +144,7 @@ form a.button:hover, {
 }
 
 form button,
-form .button {
+.button {
 	@include button-base;
 	@include button-size;
 	@include button-style;

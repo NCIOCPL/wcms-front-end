@@ -479,4 +479,9 @@ html.borderradius.generatedcontent {
 	overflow: scroll;
 	white-space: nowrap;
 	max-height: 200px;
+	
+	&.tall {
+		max-height: initial;
+		overflow: initial;
+	}
 }
