@@ -204,13 +204,13 @@ table.no-bullet-padding ul {
 }
 .key-points {
     overflow: auto;
-    margin: 1em 0 0.3em;
+    margin: 1em 0 0.3em 0.9375em;
 }
 .key-points h3 {
     /* Key Points header */
     display: block;
-    margin: 0 auto 0.75em;
-    padding: 0.8em 0 0 0.5em;
+    margin: 0 0 0.75em;
+    padding: 0.8em 0 0;
     text-transform: uppercase;
     font-size: 1.25em;
     @include font-montserrat;
@@ -222,7 +222,6 @@ table.no-bullet-padding ul {
 }
 .key-points li:before
 /* Defining the bullet styles */
-
 {
     content: "\2022";
     display: inline-block;
@@ -235,9 +234,8 @@ table.no-bullet-padding ul {
 .key-points li {
     list-style-type: none;
     color: #606060;
-    font-size: 18px;
     font-weight: 100;
-        margin-left: 1em;
+    margin-left: 1em;
 }
 /*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
 .key-facts {
