@@ -48,6 +48,15 @@
 	padding-bottom: 10px;
 	padding-left: 20px;
 }
+@media only screen and (max-width: 640px) {
+	.large-12.columns.cthp-intro-multimedia.clearfix {
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0.9375em;
+}
+	
+}
+
 .cthp-content h1 {
   color: white;	
 }
