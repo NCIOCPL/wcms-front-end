@@ -87,7 +87,46 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
             }
         }
     },
-
+	
+	/*======================================================================================================
+	 * function buildOTP
+	 *
+	 * This function can be used to create an "On This Page" section on any content with a raw HTML or Ephox
+	 * body field. 
+	 *
+	 * returns: null
+	 * parameters:
+	 *  target["h2"]		(string)(jQuery selector)		Selector that identifies element used to create the
+	 *														"on this page" block
+	 *====================================================================================================*/
+	buildOTP: function(target) {	
+		// Get items inside div where id="cgvBody" and type equals value of 'target' (h2 by default).
+		var $otpItems = $('#cgvBody ' + (target || 'h2'));
+		
+		// Create the 'On This Page' element		
+		var otpTitle;
+		if ($('html').attr("lang") === "es") {  
+			otpTitle = 'En Este P&aacute;gina';
+		} else {
+			otpTitle = 'On This Page';
+		}
+		var otp = $('<nav>').addClass('on-this-page'); // Create nav 
+		otp.append($('<h6>').text(otpTitle)); // Add titles as <h6>
+		
+		// Create a list out of the items found by $otpItems
+		var otpList = $('<ul>'); 
+		var otpItem; 
+		for(var i = 0; i < $otpItems.length; i++) { 
+			otpItem = $otpItems.get(i); // Get each item found by $otpItems
+			// Add each to the OTP list; use header text for link text; link to the ID of the target header or parent
+			$('<li>').append( 
+				$('<a>').attr('href', ('#' + (otpItem.id || otpItem.parentElement.id))).text(otpItem.textContent.trim()) 
+			).appendTo(otpList); 
+		} 
+		otpList.appendTo(otp); // Add list to 'On This Page' nav element
+		otp.prependTo('#cgvBody > .slot-item:first'); // Add nav element inside "cgvBody" div
+	},
+	
     /*======================================================================================================
     * function doAccordion
     *
