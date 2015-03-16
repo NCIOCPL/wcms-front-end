@@ -106,7 +106,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		// Create the 'On This Page' element		
 		var otpTitle;
 		if ($('html').attr("lang") === "es") {  
-			otpTitle = 'En Este P&aacute;gina';
+			otpTitle = 'En Este Página';
 		} else {
 			otpTitle = 'On This Page';
 		}
