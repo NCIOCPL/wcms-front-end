@@ -1,0 +1,11 @@
+<div class="error-page">
+<div class="row">
+<div class="large-12 columns">
+<h1>Invalid Search ID</h1>
+<p>
+The URL you used for clinical trials search results is either invalid or has expired. Links to certain search results pages expire after 90 days. To perform a new search, go to
+<a href="/clinicaltrials/search" class="arrow-link"> www.cancer.gov/clinicaltrials/search</a>
+</p>
+</div>
+</div>
+</div>
