@@ -62,8 +62,4 @@
         display: inline;
     }
 }
-html[lang="es"] .on-this-page:before {
-    @extend .on-this-page:before;
-    content: "En este pagina";
-}
 /* End On This Page */
