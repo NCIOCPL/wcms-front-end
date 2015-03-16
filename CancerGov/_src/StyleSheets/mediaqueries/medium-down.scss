@@ -241,13 +241,20 @@
 
     /* Move nav off screen, setup transitions */
     #mega-nav {
+		// Menu Colors:
+		$white: #ffffff;
+		$beige: #f3f3f2;
+		$taupe: #c3c1b4;
+		$teal:	#0498a1;
+		$dteal: #017c84;
+
         z-index: 1000;
         position: fixed;
         left: -80%;
         top: 0;
         width: 80%;
         height: 100%;
-        background-color: #E9E9E7;
+        background-color: $beige;
         -webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
         -moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
         box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
@@ -273,7 +280,11 @@
 			box-sizing: border-box;
 			border-top: 1px solid #888;
 			font-weight: normal;
-			background-color: #E9E9E7;
+			background-color: $beige;
+
+			> div {
+				position: relative;
+			}
 
 			a {
 				display: inline-block;
@@ -287,11 +298,7 @@
         
         /* clicked link state */
         .nav-menu li > div > a:active {
-            /*
-            background-color: #BB0E3C;
-            background-image: none;
-            */
-            color: #fff;
+            color: $white;
         }
 
         /* remove margin from lists */
@@ -299,6 +306,20 @@
             margin: 0;
             width: 100%;
         }
+
+		/* Toggle buttons (+/-) */
+		.toggle {
+			// Plus Buttons
+			&[aria-expanded="false"] {
+				color: $white;
+				background-color: $taupe;
+			}
+			// Minus buttons
+			&[aria-expanded="true"] {
+				color: $taupe;
+				background-color: $white;
+			}
+		}
 
 		/* Level Styles */
 		.lvl-1, .lvl-2, .lvl-3 {
@@ -314,6 +335,9 @@
 				padding-top: 10px;
 				padding-bottom: 10px;
 			}
+
+			.toggle {
+			}
 		}
 		.lvl-2 { // level 1 in the mocks
 			display: none;
@@ -325,6 +349,9 @@
 				padding-top: 11.5px;
 				padding-bottom: 11.5px;
 			}
+
+			.toggle {
+			}
 		}
 		.lvl-3 { // level 2 in the mocks
 			display: none;
@@ -335,6 +362,9 @@
 				padding-left: 44px;
 				padding-top: 15px;
 				padding-bottom: 15px;
+			}
+
+			.toggle {
 			}
 		}
 
@@ -348,12 +378,24 @@
 		}
 		.current-page {
 			display: block;
-			background-color: #0498a1;
-			color: #ffffff;
+			background-color: $teal;
+			color: $white;
 			font-weight: bold;
 
 			> div > a {
-				color: #ffffff;
+				color: $white;
+			}
+
+			.toggle {
+				&[aria-expanded="false"] {
+					color: $white;
+					background-color: $dteal;
+
+				}
+				&[aria-expanded="true"] {
+					color: $dteal;
+					background-color: $white;
+				}
 			}
 		}
 		.lvl-1.contains-current .lvl-2, 

@@ -309,8 +309,9 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
                 $("#swKeyword").val("");
             },
             show: function(e) {
-                var menu_btn = $(".open-panel");
-                $("#nvcgSlMainNav").addClass(NCI.Search.classname);
+                var menu_btn = $(".open-panel"),
+					s = NCI.Search;
+                $("#nvcgSlMainNav").addClass(s.classname);
                 if (!$("#searchclear").length) {
                     $("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
                 }
@@ -327,7 +328,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
     Nav: {
         openClass: "openNav",
         openPanelClass: "open-panel",
-        mobile: "#mobile-nav",
+        mobile: "#mega-nav > .nav-menu",
         /* visible only on mobile, this is the menu bar itself, with hamburger & search buttons */
         mega: "#mega-nav",
         /* Mega Nav is the huge RawHTML content block on desktop, but becomes the menu tree on mobile */
@@ -339,15 +340,19 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
             // Since we can't guarantee that our doc is ready when this script is loaded,
             // we'll need to initialize on document.ready() in all.js
 
+			// init our jquery object references
             n.$mobile = $(n.mobile);
             n.$mega = $(n.mega);
             n.$openPanelBtn = $("."+n.openPanelClass);
             n.$openPanelBtn.click(n.toggleMobileMenu);
 
+			// wire up our resize function
             $(window).on('load resize', n.resize);
 
+			// wire up the "close button" (anything that's outside the mobile menu)
             $("#content, header, footer, .headroom-area").click(n.close);
 
+			// wire up the scroll event for the mobile menu positioning
             $(window).scroll(function(e){
                 if(NCI.Nav.isOpen()){
                     NCI.Nav.$mega.offset({
@@ -357,11 +362,17 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
                 }
             });
 
-            // wire up the +/- buttons on the menu
+            // insert the +/- buttons into the menu
             var btn = $('<button aria-expanded="false" class="toggle" type="button"><span class="hidden">Open child elements</span></button>');
-            n.$mega.find(".has-children > div").append(btn);
+            n.$mega.find(".has-children > div")
+				.append(btn)
+			// wire up +/- button click events
+				.find(".toggle").click(n.toggleClick);
 
-            NCI.Nav = n;
+			// expand all children of the current page or contains-current
+			n.$mega.find(".current-page > div > .toggle, .contains-current > div > .toggle")
+				.attr("aria-expanded","true");
+
         },
         isOpen: function () { return $("html").hasClass(NCI.Nav.openClass); },
         open: function () {
@@ -379,7 +390,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
                 $("#page").swipe({
                     swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
                         this.close()
-                    }.bind(NCI.Nav),
+                    }.bind(n),
                     threshold: 10 // default is 75 (for 75px)
                 });
             }
@@ -408,6 +419,37 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
             if (n.isOpen()) { n.close(); } 
             else { n.open(); }
         },
+		toggleClick: function(e) {
+			e.stopPropagation();
+            var t = $(this);
+            var closest = t.closest("li");
+            var aria_expanded = t.attr('aria-expanded');
+            // If the toggle is open, do this
+            if (aria_expanded == 'true' ) {
+                closest.find("button[aria-expanded='true']").closest("li").children("ul").slideToggle("slow", function() {
+                    //Animation complete
+                });
+                closest.find(".toggle").attr('aria-expanded','false');
+                // Stop processing
+                return;
+            }
+            else if (aria_expanded == 'false' ) { // If the toggle is closed, do this
+                // close any open siblings and their children...
+                closest.siblings().children("div").children("button[aria-expanded='true']").closest("li").children("ul").slideToggle( "slow", function() {
+                    //Animation complete
+                });
+                // ...and add proper ARIA to indicate those siblings and children are closed
+                closest.siblings().children("div").children("button").attr('aria-expanded','false');
+                // slide open list of nav elements for selected button
+                closest.children("ul").slideToggle( "slow", function() {
+                    // Animation complete.
+                });
+                // add ARIA to indicate this section has been opened
+                t.attr('aria-expanded','true');
+                return;
+            }
+
+		},
         resize: function() {
             NCI.Nav.$mobile.css('height', $(window).height());
         }
