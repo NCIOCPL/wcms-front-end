@@ -3,6 +3,28 @@
 	font-size: 1.125em;
 	background: #f7FBF8;
 	h1 {
+		color: #876EC1;
 		font-size: 4.125em;
+	}
+	a.arrow-link {
+		color: #876EC1;
+		display: inline;
+	}
+	.row {
+		padding: 0 400px 0 100px;
+	}
+}
+.spanish-error {
+	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat top right;
+	padding-bottom: 50px;
+	margin-top: 50px;
+	color: #CBEDF2;
+	h1, a.arrow-link {
+		color: #CBEDF2;
+	}
+}
+@media only screen and (max-width: 640px) {
+	.error-page .row {
+		padding: 0;
 	}
 }
