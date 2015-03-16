@@ -1,0 +1,17 @@
+<div class="error-page">
+<h1>Page Not Found</h1>
+<p>
+You have entered an invalid URL or followed a link to a page that no longer exists. Please check your spellilng or return to the previous page. Follow the link below to help you find the page you were looking for.
+</p>
+<p>
+<a href="#" class="arrow-link">Cancer.gov Help</a>
+</p>
+<div class="spanish-error">
+<h1>No Se Encontro La Pagina</h1>
+<p>
+El URL que escribio no valido o el enlace lleva a una pagina que ya no existe. Favor de verificar lo escrito o regresar a la pagina anterior. A continuacion encontrara enlaces que peuden ayudarle a encontrar la pagina que busca.
+</p>
+<p>
+<a href="#" class="arrow-link">Ayuda</a>
+</div>
+</div>
