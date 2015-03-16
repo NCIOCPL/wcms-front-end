@@ -1,159 +1,182 @@
-// Managed List styles...
+// Managed List styles
 
 .list {
-    position: relative;
-    margin: 1.5em 0em 3em 0em;
-    
-    > .title {
-        @include font-montserrat;
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 24px;
-        text-transform: uppercase;
-        color: $dgrey00;
-    }
+	position: relative;
+	margin: 1.5em 0 3em 0;
 
-    .description {
-        font-size: 16px;
-        line-height: 20px;
-    }
- 
-    ul {
-        list-style-type: none;
-        padding: 0px;
+	> .title {
+		@include font-montserrat;
+		font-weight: normal;
+		font-size: 1.25em;
+		line-height: 1.2em;
+	}
 
-        > li {
-            padding: 0.75em 0px;
-            margin: 0px;
-            clear: both;
+	.description {
+		font-size: 1em;
+		line-height: 1.5em;
 
-            &:before {
-                content: "";
-                display: none;
-            }
+		> .date, > .body {
+			margin: 0.25em 0;
+		}
+	}
 
-        }
-    }
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
 
-    .container {
-        display: inline-block;
-        vertical-align: top;
+		> li {
+			margin: 1.875em 0;
+			clear: both;
 
-        &.image {
-            width: 190px;
-            padding-bottom: 16px;
-			padding-top: 5px;
+			&:before {
+				content: "";
+				display: none;
+			}
+		}
+	}
+	&.has-images ul > li {
+		margin-top: 2.5em;
+		margin-bottom: 2.5em;
 
-            + .container.title {
-                width: 78%;
-                padding-left: 1.25em;
-            }
-        }
+		&:first-child {
+			margin-top: 1.875em;
+		}
+	}
 
-        .title {
-            @include font-montserrat;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 20px;
-            color: $dteal00;
-        }
+	.container {
+		display: inline-block;
+		vertical-align: top;
 
-        .desc {
-            font-size: inherit;
-            font-family: inherit;
-            color: inherit;
-        }
-    }
+		&.image {
+			width: 190px;
+			margin-top: 5px;
 
-    // List Item Types
-    .general { }
+			+ .container.title {
+				width: 78%;
+				padding-left: 1.25em;
+			}
+		}
 
-    .video {
-        &.carousel {}
-    }
+		.title {
+			@include font-montserrat;
+			font-weight: normal;
+			font-size: 1.125em;
+			line-height: 1.1111em;
+		}
 
-    .infographic {}
+		.desc {
+			font-size: inherit;
+			font-family: inherit;
+			color: inherit;
+		}
+	}
 
-    .file {
-        .filesize {
-            color: $dgrey00;
-        }
+	// List Item Types
+	.general {}
 
-        .filetype {
-            position: relative;
-            display: inline-block;
-            top: 5px;
-            height: calc(1em + 2px);
-            width: calc(1em + 2px);
-            padding: 0px;
-            margin: 0px;
-            background: white;
-            background-image: url($icons+"nci-sprite.png");
-            background-position-x: -71px;
+	.video {
+		&.carousel {}
+	}
 
-            &.pdf { background-position-y: -474px; }
-            &.exe { background-position-y: -506px; }
-            &.txt { background-position-y: -506px; }
-            &.ebook { background-position-y: -537px; }
-            &.ppt { background-position-y: -568px; }
-            &.word { background-position-y: -598px; }
-            &.excel { background-position-y: -630px; }
-        }
-    }
+	.infographic {}
 
-    /* this is because of a bug in other code.
-     * TODO: REMOVE THIS */
-    .pdf { background: inherit; }
+	.file {
+		.filesize, .filetype {
+			color: $dgrey00;
+		}
 
-    // Title,!DATE,!DESC,!IMAGE
-    // Title,!DATE, Desc,!IMAGE
-    // Title,!DATE, Desc, Image
-    // Title, Date, Desc,!IMAGE
-    // Title, Date, Desc, Image
+		.filetype {
+			position: relative;
+			top: 0.25em;
+			display: inline-block;
+			height: 20px;
+			margin-left: 16px;
+			background: #fff url($icons + "nci-sprite.png");
+
+			&.pdf {
+				background-position: -71px -475px;
+				width: 18px;
+			}
+			&.exe {
+				background-position: -74px -507px;
+				width: 19px;
+			}
+			&.txt {
+				background-position: -74px -507px;
+				width: 19px;
+			}
+			&.ebook {
+				background-position: -72px -537px;
+				width: 19px;
+			}
+			&.ppt {
+				background-position: -71px -568px;
+				width: 20px;
+			}
+			&.word {
+				background-position: -71px -598px;
+				width: 20px;
+			}
+			&.excel {
+				background-position: -71px -630px;
+				width: 21px;
+			}
+			&.unknown {
+				top: 0;
+				height: auto;
+				background: none;
+			}
+		}
+	}
+
+	// Title,!DATE,!DESC,!IMAGE
+	// Title,!DATE, Desc,!IMAGE
+	// Title,!DATE, Desc, Image
+	// Title, Date, Desc,!IMAGE
+	// Title, Date, Desc, Image
 }
 
-// Dynamic List Styles
+// Dynamic List styles
 
 // Fix for wrapping width issues on Dynamic Lists combined with right nav
 .large-8 .list .container.image + .container.title {
-    width: 65%; }
+	width: 65%;
+}
 p.date.dynamic-date {
-	margin: 0; }
+	margin: 0;
+}
 p.description.dynamic-description {
-	margin: 0; }
-
-.accessibility-text { 
-    position: absolute;
-    top: -99999px;
+	margin: 0;
 }
 
-/*  A to Z menu Start                 */
-/*  uses include Cancer Types A to Z  */
-/*  and Drug Dictionary A to Z        */
+/*  A to Z menu Start				 */
+/*  uses include Cancer Types A to Z */
+/*  and Drug Dictionary A to Z		 */
 .az-list {
 	&.inline {
 		display: inline-block;
 		margin-left: 1em;
-		
+
 		> ul {
 			margin-bottom: inherit;
 		}
 	}
 
-  > ul > li {
-    @include font-montserrat;
-    margin-left: 0;
-    margin-right: 1em;
-    display: inline-block;
+	> ul > li {
+		@include font-montserrat;
+		margin-left: 0;
+		margin-right: 1em;
+		display: inline-block;
 
-    &:before {
-      content: none;
-    }
-  }
-  
-  &.narrow > ul > li {
-	margin-right: 0.5em;
-  }
+		&:before {
+			content: none;
+		}
+	}
+
+	&.narrow > ul > li {
+		margin-right: 0.5em;
+	}
 }
 
 .azMenu {
