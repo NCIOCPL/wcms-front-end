@@ -9,33 +9,4 @@ jQuery(document).ready(function(jQuery) {
 		}
 	})(jQuery);
 	/*** END CTHP Cards ***/
-	
-	/*** BEGIN CTHP Cards Accordionizer
-	 * Make the CTHP page an accordion below desktop size
-	 ***/
-	(function($) {
-		var accordionContainer = '.cthp-content';
-		var header = 'h3';
-		var targetsBuiltAccordionSelector = accordionContainer + '.ui-accordion';
-
-		var accordionize = function() {
-			var width = window.innerWidth || $(window).width();
-			/* If the width is less than or equal to 640px (small screen)
-			 * AND if the accordion(s) isn't (aren't) already built */
-			if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
-				NCI.doAccordion(accordionContainer, {'header': header});
-			} else if(width >= 641) {
-				NCI.undoAccordion(accordionContainer, {'header': header});
-			}
-		};
-
-		/* on window load AND resize */
-		$(document).on('ready', function() {
-			accordionize();
-		});
-		$(window).on('resize', function() {
-			accordionize();
-		});
-	})(jQuery);
-	/*** END CTHP Cards Accordionizer ***/
 });

@@ -319,7 +319,8 @@ jQuery(document).ready(function(jQuery) {
 			//'selector' : 'header'
 			'.accordion' : 'h2',
 			'#nvcgRelatedResourcesArea' : 'h6',
-			'#cgvCitationSl' : 'h6'
+			'#cgvCitationSl' : 'h6',
+			'.cthp-content' : 'h3'
 		};
 		var targetsSelector = Object.keys(targets).join(', ');
 		var targetsBuiltAccordion = [],
