@@ -136,7 +136,10 @@ ul.pdq-address-block li {
 	background: none;
 	list-style-type: none;
 	padding: 0;
-	margin: 0;
+	margin-bottom: 0;
+}
+.contentzone ul.pdq-address-block > li:before {
+	content: none;
 }
 /* new styles */
 .trial-sites h4 {
