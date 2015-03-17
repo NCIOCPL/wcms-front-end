@@ -662,8 +662,8 @@ $(function() {
   // The default TOC header for the document level TOC is 'On this page:'
   $("#pdq-toc-article").stoc( { search: "article", 
                                 start: 2, depth: 3,
-                                tocTitleEn: "On this page:", 
-                                tocTitleEs: "En esta p&#225;gina:" });
+                                tocTitleEn: "On this page", 
+                                tocTitleEs: "En esta p&#225;gina" });
 
   // Secondly creating the TOC container for sections
   // Note: This will only be used for TOC, not if Keypoints exist for the
