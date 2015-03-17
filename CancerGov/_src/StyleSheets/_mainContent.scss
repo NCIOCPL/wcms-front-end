@@ -169,6 +169,7 @@ ol {
 .contentzone li {
     margin-bottom: 0.5em;
     margin-left: 2em;
+	position: relative;
 }
 .contentzone ul.no-bullets > li,
 .contentzone ol.no-bullets > li {
@@ -181,9 +182,9 @@ ol {
         &:before {
             content: "\2022";
             display: inline-block;
-            position: relative;
-            left: -.5em;
-            top: 0.1em;
+            position: absolute;
+            left: -0.5em;
+            top: -0.05em;
             margin: 0 -.2em;
             font-size: 1.1em;
         }
