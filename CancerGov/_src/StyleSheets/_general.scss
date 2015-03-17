@@ -221,4 +221,11 @@ figcaption {
 	width: 80%;
 	overflow: auto;
 }
+
+/* prevent outlines on tab content */
+div[tabindex]:focus,
+p[tabindex]:focus {
+	outline: none;
+}
+
 /********************* END General Styles ******************************************/
