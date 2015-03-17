@@ -34,7 +34,7 @@ $em-base: 16px !default;
   $max: length($values); // Get the total number of parameters passed
 
   // If there is only 1 parameter, then return it as an integer.
-  // This is done because a list can't be multiplied or divided even if it contains a single value
+  // This is done because a list can''t be multiplied or divided even if it contains a single value
   @if $max == 1 { @return convert-to-em(nth($values, 1), $base-value); }
 
   $emValues: (); // This will eventually store the converted $values in a list
@@ -125,6 +125,7 @@ $include-html-label-classes: false;
 
 // Media Queries
 
+$xsmall-screen: 390px;
 $small-screen: 641px;
 $medium-screen: 1025px;
 $large-screen: 1440px;
