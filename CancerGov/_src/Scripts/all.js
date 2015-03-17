@@ -121,6 +121,23 @@ jQuery(document).ready(function(jQuery) {
     })(jQuery);
     /*** END Headroom initializer ***/
 
+    /*** BEGIN deeplinking fix
+     * This script fixes the scroll position for deeplinking.
+     ***/
+    (function($) {
+        var doScroll = function() {
+            if(location.hash !== '') {
+                NCI.scrollTo(location.hash);
+            }
+        };
+
+        $(window).on('hashchange', function(e) {
+            doScroll();
+        });
+        doScroll();
+    })(jQuery);
+    /*** END deeplinking fix ***/
+
     /*** BEGIN Exit Disclaimer
      * This script looks for URLs where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link. The image itself links to the exit disclaimer page.
      ***/

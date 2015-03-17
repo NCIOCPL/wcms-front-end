@@ -40,9 +40,16 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
      * TODO: make this script work for PDQ deeplinks
      *====================================================================================================*/
     scrollTo: function(anchor) {
-        if(anchor.indexOf("#") < 0) {
-            anchor = "#" + anchor;
+        if(anchor.indexOf('#') < 0) {
+            anchor = '#' + anchor;
         }
+
+        // PDQ CIS
+        if(anchor === "#section/all") {
+            anchor = "#pdq-toc-article";
+        }
+        anchor = anchor.replace(/#.+\//, '#');
+
         // get the anchor's jQuery element
         var $anchor = $(anchor);
         // get the sticky nav jQuery element
@@ -50,7 +57,11 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
         // get the sticky nav's height
         var headerHeight = $header.outerHeight();
 
+        $('.headroom-area').addClass('frozen');
         window.scrollTo(0, $anchor.offset().top - headerHeight);
+        setTimeout(function() {
+            $('.headroom-area').removeClass('frozen');
+        }, 1);
     },
 
     /*======================================================================================================
