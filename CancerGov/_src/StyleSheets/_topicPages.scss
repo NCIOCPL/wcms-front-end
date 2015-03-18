@@ -1,25 +1,30 @@
 /****************** BEGIN Topic Pages ********************/
 
 div.cc-main-pages {
-  border-bottom: 1px solid #BDBDBD;
-  padding: 0.625em 0 0.625em 0.625em;
+	padding: 0.625em 0 0.625em 0.625em;
 }
 
 div.cc-main-pages div.title-red-arrow {
-  float: left;
-  width: 31.25em;
+	float: left;
+	width: 31.25em;
 }
 
 .landing-thumb-image {
-  float: left;
-  width: 30%;
-  margin-right: 3%;
+	width: 190px;
+	margin-top: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.landing-thumb-image figure.image-center-full{
+	margin: 0 auto;
 }
 
 .landing-thumb-text {
-  float: right;
-  width: 67%;
-  padding-top: .5em;
+	width: 78%;
+	padding-left: 1.25em;
+	display: inline-block;
+	vertical-align: top;
 }
 
 

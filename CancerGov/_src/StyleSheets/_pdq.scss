@@ -182,6 +182,9 @@ table.drug-combination td.drug-combo-letter {
 	text-align: right;
 	font-weight: bold;
 }
+.two-columns.brand-fda {
+  width: 40%;
+}
 .brand-fda .column1 {
 	width: 150px !important; /* move under column1, and then the important can be removed, because this will override the 48% width based on it coming after that one is declared */
 	font-weight: bold;
