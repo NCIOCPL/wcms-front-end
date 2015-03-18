@@ -22,7 +22,7 @@ figure {
 	
     a.article-image-enlarge {
       background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
-			background-color: rgba(18, 62, 88, 0.8);
+			background-color: rgba(18, 62, 88, 0.7);
     	font-size: 0.875em !important;
 			@extend %enlarge-infographic;
     }
