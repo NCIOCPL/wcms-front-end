@@ -111,14 +111,20 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dist.scripts %>min',
                 src: ['<%= dirs.src.scripts %>**/*.js']
             },
-			{
-				expand: true,
-				flatten: true,
-				dest: '<%= dirs.dist.scripts %>nci-util.min.js',
-				src: '<%= dirs.src.scripts %>NCI/*.js'
-			}
+			{ 
+				
+			: ['<%= dirs.src.scripts %>NCI/*.js']},
 			]
-        }
+        }/*,
+		nci_util: {
+			files: [{
+				expand: true,
+				ext: ".min.js",
+				extDot: "last",
+				src: '<%= dirs.src.scripts %>NCI/*.js',
+				dest: '<%= dirs.dist.scripts %>nci-util.min.js'
+			}]
+		}*/
     });
 
     /*****************************************
