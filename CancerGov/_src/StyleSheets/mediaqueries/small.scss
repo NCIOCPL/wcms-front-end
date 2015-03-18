@@ -73,11 +73,16 @@
 		padding: 0.625em 30px;
 		margin: 0em;
 	}
-	.card-thumbnail {
-		padding-left: 1.9375em;
-		padding-right: 1.9375em;
+	.card-thumbnail .small-2 {
+		width: 0;
 	}
-	.feature-primary p, .feature-secondary p, .card-thumbnail p {
+	.card-thumbnail .small-10 {
+		width: 100%;
+	}
+	.card-thumbnail h3 {
+		margin-top: 0;	
+	}
+	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
 		display: none;
 	}
 		/* the portal pages needed these items to not hit the edge of screen on mobile only */
