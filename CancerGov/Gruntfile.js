@@ -104,13 +104,12 @@ module.exports = function(grunt) {
             preserveComments: false,
         },
         js: {
-            files: [
-			{
+            files: [{
                 expand: true,
                 flatten: true,
                 dest: '<%= dirs.dist.scripts %>min',
                 src: ['<%= dirs.src.scripts %>**/*.js']
-            }
+            }]
         }/*,
 		nci_util: {
 			files: [{
