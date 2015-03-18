@@ -54,7 +54,9 @@ a.definition:hover, a.definition:focus {
 	text-align: center;
 	padding: 10px 5px 0;
 
-	> .icon-back-to-top {
+	&:before {
+		content: " ";
+		display: block;
 		background: transparent url($icons + "nci-sprite.png") no-repeat -311px -80px;
 		height: 51px;
 		width: 51px;
@@ -62,7 +64,7 @@ a.definition:hover, a.definition:focus {
 	&:hover {
 		color: #000;
 
-		> .icon-back-to-top {
+		&:before {
 			background-position: -389px -80px;
 		}
 	}
