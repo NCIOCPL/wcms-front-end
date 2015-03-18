@@ -110,11 +110,7 @@ module.exports = function(grunt) {
                 flatten: true,
                 dest: '<%= dirs.dist.scripts %>min',
                 src: ['<%= dirs.src.scripts %>**/*.js']
-            },
-			{ 
-				
-			: ['<%= dirs.src.scripts %>NCI/*.js']},
-			]
+            }
         }/*,
 		nci_util: {
 			files: [{
