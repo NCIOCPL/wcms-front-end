@@ -104,12 +104,19 @@ module.exports = function(grunt) {
             preserveComments: false,
         },
         js: {
-            files: [{
+            files: [
+			{
                 expand: true,
                 flatten: true,
-                dest: '<%= dirs.dist.scripts %>/min',
+                dest: '<%= dirs.dist.scripts %>min',
                 src: ['<%= dirs.src.scripts %>**/*.js']
-            }]
+            },
+			{
+				expand: true,
+				flatten: true,
+				dest: '<%= dirs.dist.scripts %>nci-util.min.js
+			}
+			]
         }
     });
 
@@ -123,12 +130,16 @@ module.exports = function(grunt) {
             },
             bake: {
                 files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
-                tasks: ['bake:build']
+                tasks: ['svn_fetch', 'bake:build']
             },
             css: {
                 files: '<%= dirs.src.styles %>**/*.scss',
-                tasks: ['sass']
-            }
+                tasks: ['svn_fetch', 'sass']
+            },
+			js: {
+				files: '<%= dirs.src.scripts %>*.js',
+				tasks: ['svn_fetch', 'copy', 'uglify']
+			}
     });
 
     // Tasks

@@ -343,9 +343,11 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
         /* visible only on mobile, this is the menu bar itself, with hamburger & search buttons */
         mega: "#mega-nav",
         /* Mega Nav is the huge RawHTML content block on desktop, but becomes the menu tree on mobile */
+		hasChildren: ".has-children",
         $mobile: $(), // This will hold a ref to the jQuery object, saving us a lookup.
         $mega: $(), // This will hold a ref to the jQuery object, saving us a lookup.
         $openPanelBtn: $(),
+		$hasChildren: $(),
         init: function() {
             var n = NCI.Nav;
             // Since we can't guarantee that our doc is ready when this script is loaded,
@@ -356,6 +358,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
             n.$mega = $(n.mega);
             n.$openPanelBtn = $("."+n.openPanelClass);
             n.$openPanelBtn.click(n.toggleMobileMenu);
+			n.$hasChildren = $(n.hasChildren);
 
 			// wire up our resize function
             $(window).on('load resize', n.resize);
@@ -431,11 +434,39 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
             else { n.open(); }
         },
 		toggleClick: function(e) {
+			// Business Logic:
+			// * there is no active state, and no highlight state anymore. Current Page is highlighted always
+			// * Cannot collapse the current page.
 			e.stopPropagation();
-            var t = $(this);
-            var closest = t.closest("li");
-            var aria_expanded = t.attr('aria-expanded');
-            // If the toggle is open, do this
+            var $this = $(this),
+				yes = 'true',
+				no = 'false',
+				aria = "aria-expanded",
+				item = ".mobile-item",
+				expanded = "["+aria+"='"+yes+"']",
+				closed = "["+aria+"='"+no+"']",
+				li = $this.closest(".has-children"),
+				isExpanded = $this.attr(aria);
+
+			switch (isExpanded) {
+				case yes: // CLOSING
+					li.find(expanded).attr(aria, no); // set the button state 
+					// hide the child menu-item of the parent li of the button we clicked
+					li.children(".menu-item").slideToggle("slow",Function.prototype);
+					break;
+				case no: // EXPANDING
+					// First we need to close all the expanded things
+					$("#mega-nav "+expanded).attr(aria, no)
+						.closest(".has-children").children(item).slideToggle("slow", Function.prototype);
+					// Open the menu-item that is the child of the li that is the parent of the clicked button
+					$this.attr(aria, yes); // set the button state
+					li.find(".mobile-item li").show();
+					
+					break;
+				default:
+					return e;
+			}
+			/*
             if (aria_expanded == 'true' ) {
                 closest.find("button[aria-expanded='true']").closest("li").children("ul").slideToggle("slow", function() {
                     //Animation complete
@@ -459,11 +490,25 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
                 t.attr('aria-expanded','true');
                 return;
             }
+			*/
 
 		},
         resize: function() {
-            NCI.Nav.$mobile.css('height', $(window).height());
+			if (NCI.Nav.isOpen()) {
+				//NCI.Nav.$mobile.css('height', $(window).height());
+			}
         }
-    }
+    },
+	breakpoints: {
+		small: 480,
+		medium: 640,
+		large: 1024,
+		xlarge: 1280,
+		init: function() {
+			// Create the #breakpoints element
+			// read the content from it into the vars
+			// Destroy the #breakpoints element
+		}
+	}
 };
 
