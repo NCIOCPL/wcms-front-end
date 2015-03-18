@@ -1,11 +1,11 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Research Projects Grants</a>
+	<li><a href="/grants-training/rpg" class="sub-nav-group-header">Research Projects Grants</a>
 		<ul>
-			<li><a href="#">Funding Opportunities</a></li>
-			<li><a href="#">Funding Strategy &amp; Paylines</a></li>
-			<li><a href="#">Announcements Under Development</a></li>
-			<li><a href="#">Research Program Contacts</a></li>
+			<li><a href="/grants-training/rpg/funding-opportunities">Funding Opportunities</a></li>
+			<li><a href="/grants-training/rpg/strategy-paylines">Funding Strategy &amp; Paylines</a></li>
+			<li><a href="/grants-training/rpg/announcements">Announcements Under Development</a></li>
+			<li><a href="/grants-training/rpg/contacts">Research Program Contacts</a></li>
 		</ul>
 	</li>
 </ul>
@@ -27,25 +27,25 @@
 		<ul>
 			<li><a href="/grants-training/grants-management/legal">Legal Requirements</a></li>
 			<li><a href="/grants-training/grants-management/policies">Cross-Cutting Public Policies</a></li>
-			<li><a href="/grants-training/grants-management/">Grant Management Contacts</a></li>
+			<li><a href="/grants-training/grants-management/policies/contacts">Grant Management Contacts</a></li>
 		</ul>
 	</li>
 	<br/><br/>
-	<li><a href="/grants-training/grants-management" class="sub-nav-group-header">Other Funding</a> 
+	<li><a href="/grants-training/other-funding" class="sub-nav-group-header">Other Funding</a> 
 		<ul>
-			<li><a href="/grants-training/grants-management">Find NCI funding for small business innovation, technology transfer, and contracts</a></li>
+			<li><a href="/grants-training/other-funding">Find NCI funding for small business innovation, technology transfer, and contracts</a></li>
 		</ul>
 	</li>
 </ul>
 
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Funding for Training</a> 
+	<li><a href="/grants-training/training" class="sub-nav-group-header">Funding for Training</a> 
 		<ul>
-			<li><a href="#">Cancer Research Training at NCI (Intramural)</a></li>
+			<li><a href="/grants-training/training/at-nci">Cancer Research Training at NCI (Intramural)</a></li>
 			<li><a href="#">Opportunities for Minority Researchers</a></li>
-			<li><a href="#">Funding for Cancer Research Training (Extramural)</a></li>
-			<li><a href="#">Other Fellowships &amp; Internships</a></li>
-			<li><a href="#">Training Program Contacts</a></li>
+			<li><a href="/grants-training/training/funding">Funding for Cancer Research Training (Extramural)</a></li>
+			<li><a href="/grants-training/training/other">Other Fellowships &amp; Internships</a></li>
+			<li><a href="/grants-training/training/contacts">Training Program Contacts</a></li>
 		</ul>
 	</li>
 </ul>

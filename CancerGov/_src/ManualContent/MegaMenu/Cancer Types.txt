@@ -1,6 +1,6 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Common Cancer Types</a>
+	<li><a href="/types/commoncancers" class="sub-nav-group-header">Common Cancer Types</a>
 		<ul>
 			<li><a href="/types/bladder">Bladder Cancer</a></li>
 			<li><a href="/types/breast">Breast Cancer</a></li>
@@ -30,7 +30,7 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">All Cancer Types</a>
+	<li><a href="/types" class="sub-nav-group-header">All Cancer Types</a>
 		<ul>
 			<li><a href="/types">A to Z List of Cancers</a></li>
 			<li><a href="/types/by-body-location">Cancers by Body Location</a></li>

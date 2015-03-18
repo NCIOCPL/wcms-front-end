@@ -1,46 +1,46 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/overview" class="sub-nav-group-header">Overview</a>
+	<li><a href="/about-nci/overview" class="sub-nav-group-header">Overview</a>
 		<ul>
-			<li><a href="/aboutnci/overview/">History of NCI</a></li>
-			<li><a href="/aboutnci/overview/">Contributing to Cancer Research</a></li>
+			<li><a href="/about-nci/overview/history">History of NCI</a></li>
+			<li><a href="/about-nci/overview/contributing">Contributing to Cancer Research</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/director" class="sub-nav-group-header">Director</a>
+	<li><a href="/about-nci/director" class="sub-nav-group-header">Director</a>
 		<ul>
-			<li><a href="/aboutnci/director/speeches">Comments &amp; Commentary</a></li>
-			<li><a href="/aboutnci/director/messages">Messages to the Research Community</a></li>
+			<li><a href="/about-nci/director/speeches">Comments &amp; Commentary</a></li>
+			<li><a href="/about-nci/director/messages">Messages to the Research Community</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/organization" class="sub-nav-group-header">NCI Organization</a>
+	<li><a href="/about-nci/organization" class="sub-nav-group-header">NCI Organization</a>
 		<ul>
-			<li><a href="/aboutnci/organization">Divisions, Offices &amp; Centers</a></li>
+			<li><a href="/about-nci/organization">Divisions, Offices &amp; Centers</a></li>
 			<li><a href="#">NCI at Frederick</a></li>
 			<li><a href="#">Senior Leadership</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/" class="sub-nav-group-header">Advisory Boards &amp; Groups</a></li>
+	<li><a href="/about-nci/advisory-boards" class="sub-nav-group-header">Advisory Boards &amp; Groups</a></li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/budget" class="sub-nav-group-header">Budget</a>
+	<li><a href="/about-nci/budget" class="sub-nav-group-header">Budget</a>
 		<ul>
-			<li><a href="/aboutnci/budget/">Current Year Budget</a></li>
-			<li><a href="/aboutnci/budget/fact-book">NCI Budget Fact Book</a></li>
-			<li><a href="/aboutnci/budget/plan-2016/budget">Annual Plan &amp; Professional Judgement Budget</a></li>
-			<li><a href="/aboutnci/budget/cj">Congressional Justification</a></li>
+			<li><a href="/about-nci/budget/">Current Year Budget</a></li>
+			<li><a href="/about-nci/budget/fact-book">NCI Budget Fact Book</a></li>
+			<li><a href="/about-nci/budget/plan-2016/budget">Annual Plan &amp; Professional Judgement Budget</a></li>
+			<li><a href="/about-nci/budget/cj">Congressional Justification</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/careers-at-nci" class="sub-nav-group-header">Careers at NCI</a></li>
+	<li><a href="/about-nci/careers" class="sub-nav-group-header">Careers at NCI</a></li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/aboutnci/visitor" class="sub-nav-group-header">Visitor Information</a></li>
+	<li><a href="/about-nci/visit" class="sub-nav-group-header">Visitor Information</a></li>
 </ul>
 </div></div>
