@@ -283,12 +283,25 @@ table.no-bullet-padding ul {
 }
 
 .article-citation  li p{
- display: inline; }
+	display: inline; }
 
+
+hr.ps-divider {
+	border: solid #7d7d7d; 
+	border-width: 1px 0 0; }  
+
+.public-use {
+	padding: 0;
+	font-style: italic;
+	clear: both; }
+
+.public-use, .syndication p{
+	margin-top: 0; }
+
+/* this is to prevent the border from writing over a floated element */
 .syndication {
-	overflow: hidden;
-	/* this is to prevent the border from writing over a floated element */
-}
+	overflow: hidden; }
+
 /* icon that goes with syndication image */
 
 .syndication-image {
