@@ -3,18 +3,18 @@
 *******************************************/
 
 #_toc_article {
-    /* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
-    * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
-    * So, we can safely assume that if a div has this ID, it is an on-this-page style section, but on a PDQ page.
-    * Enforcing width: inherit will allow the on-this-page to be full width. Everywhere else, 50% width.
-    */
-    width: inherit;
+	/* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
+	* Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
+	* So, we can safely assume that if a div has this ID, it is an on-this-page style section, but on a PDQ page.
+	* Enforcing width: inherit will allow the on-this-page to be full width. Everywhere else, 50% width.
+	*/
+	width: inherit;
 }
 .on-this-page > h2,
 .on-this-page > h3 {
-    display: none;
-    margin: 0;
-    padding: 0;
+	display: none;
+	margin: 0;
+	padding: 0;
 }
 /* hiding default h3 that PDQ spits out, for the more modular pseudo-element.
 * This allows for separation of style and content, as the header treatment is a style change, not a content one.
@@ -22,44 +22,36 @@
 */
 
 .on-this-page {
-    /* important set in display because the hide-medium-down has a display that is overriding this */
-    /* display: inline-block !important; */
-    padding: 0 0 0 15px;
-    margin: 1.2em 0 1.7em;
+	/* important set in display because the hide-medium-down has a display that is overriding this */
+	/* display: inline-block !important; */
+	padding: 0 0 0 15px;
+	margin: 1.2em 0 1.7em;
 }
 .on-this-page h6 {
-    /* Key Points header */
-    display: block;
-    margin: 0 auto 1.25em;
-    padding: 0.8em 0 0 0.5em;
-    text-transform: uppercase;
-    font-size: 1.25em;
-    @include font-montserrat;
-    font-weight: bold;
+	/* Key Points header */
+	display: block;
+	margin: 0 auto 1.25em;
+	padding: 0.8em 0 0 0.5em;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	@include font-montserrat;
+	font-weight: bold;
 }
 .on-this-page ul {
-    padding: 0;
-    margin: -0.312em 0 0;
+	padding: 0;
+	margin: -0.312em 0 0;
 }
 .on-this-page li:before {
-    /* Defining the bullet disc styles */
-    content: "\2022";
-    display: inline-block;
-    position: relative;
-    left: -.5em;
-    top: 0.1em;
-    margin: 0 -.2em;
-    font-size: 1.1em;
-    color: #186e88;
+	color: #186e88;
 }
 .on-this-page li {
-    list-style-type: none;
-    color: #606060;
-    padding: 0;
-    margin: 0.25em 0 0 1.25em;
+	color: #606060;
+	padding: 0;
+	margin: 0.25em 0 0 1.25em;
 
-    p {
-        display: inline;
-    }
+	p {
+		/* Ephox puts <p> tags around the titles, e.g. on Factsheets */
+		display: inline;
+	}
 }
 /* End On This Page */
