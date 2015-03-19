@@ -61,7 +61,7 @@ click: function(e) {
             // the various level <li>s themselves are hidden with CSS... 
             li.find(".lvl-"+lvl+", .level-"+lvl).show();
             // expand current pages and contains current
-            $(".contains-current .nav-item-title [" + aria + "='" + no + "'], .current-page .nav-item-title [" + aria + "='" + no + "']")
+            $(".contains-current > .nav-item-title [" + aria + "='" + no + "'], .current-page > .nav-item-title [" + aria + "='" + no + "']")
                 .attr(aria, yes).children('span').text(t._innerText[t.lang][yes])
             .closest("has-children").children("ul").slideToggle("slow", Function.prototype);
             break;
