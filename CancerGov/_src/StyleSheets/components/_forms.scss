@@ -255,11 +255,13 @@ textarea {
 }
 
 input[size] {
+	width: auto;
 	width: initial;
 	display: inline-block;
 }
 
 textarea[rows] {
+	height: auto;
 	height: initial;
 }
 
@@ -277,7 +279,10 @@ input[type="file"] {
 }
 
 #recaptcha_area input {
+	height: auto;
 	height: initial;
+
+	display: inline-block;
 	display: initial;
 }
 
@@ -437,7 +442,7 @@ html.borderradius.generatedcontent {
 	.radio {
 		@include radiocheck('radio');
 
-		input[type=radio] {
+		input[type="radio"] {
 			+ label:before {
 				@include radius($custom-form-radio-radius);
 			}
@@ -454,7 +459,7 @@ html.borderradius.generatedcontent {
 	.checkbox {
 		@include radiocheck('checkbox');
 
-		input[type=checkbox] {
+		input[type="checkbox"] {
 			+ label:before {
 				@include radius($custom-form-checkbox-radius);
 			}
@@ -466,6 +471,13 @@ html.borderradius.generatedcontent {
 					color: $custom-form-checkbox-checked-text-color;
 				}
 			}
+		}
+	}
+	.scrolling-list {
+		input[type="checkbox"] + label,
+		input[type="radio"] + label {
+			position: absolute;
+			// this is to prevent the checkbox/radio from going to a new line when it's supposed to wrap
 		}
 	}
 }
@@ -486,7 +498,9 @@ html.borderradius.generatedcontent {
 	max-height: 200px;
 
 	&.tall {
+		max-height: none;
 		max-height: initial;
+		overflow: visible;
 		overflow: initial;
 	}
 }
