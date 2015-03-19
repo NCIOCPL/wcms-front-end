@@ -117,7 +117,7 @@ module.exports = function(grunt) {
                 preserveComments: false
             },
             files: {
-                '<%= dirs.dist.scripts %>nci-util.min.js': ['<%= dirs.src.scripts %>NCI/*.js']
+                '<%= dirs.dist.scripts %>nci-util.js': ['<%= dirs.src.scripts %>NCI/*.js']
             }
         }
     });
