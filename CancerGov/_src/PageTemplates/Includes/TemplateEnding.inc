@@ -3,9 +3,7 @@
     This include is the bottom of all templates.
 -->
 <!--(bake-end)-->
-
         </div> <!-- END Page -->
-        <!-- END MAIN CONTENT -->
 
         <!-- FOOTER -->
         <footer class="site-footer">
