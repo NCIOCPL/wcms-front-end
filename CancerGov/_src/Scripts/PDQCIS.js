@@ -367,7 +367,9 @@ $(function() {
  // JQuery Function: stoc()
  // This function creates the table of contents for the article and
  // for the individual sections.
- // Document level TOC also includes a title 'On this page:' and all
+ // This is also called the "On-this-page" navigation.
+ //
+ // Document level TOC also includes a title 'On this page' and all
  // TOCs are wrapped in a <nav> element.
  // The TOC starts on H-level 3 and goes 2 levels deep for sections.
  // The TOC starts on H-level 2 and goes 3 levels deep for the article.
@@ -608,6 +610,10 @@ $(function() {
 
 // *** END Functions *** ****************************************
 
+  //$('a').click(function () {
+  //    console.log("Hier bin ich");
+  //    this.focus();
+  //    });
 
   // Creating the Section Nav in the pdq-toptoc DIV
   // All content within the article tag is used
@@ -872,6 +878,8 @@ routie({
                                                         .addClass("selected");
         // Lastly move to the target
         $("#"+rid).get(0).scrollIntoView();
+        $("[tabindex='1']").removeAttr("tabindex");
+        $("#"+rid).attr("tabindex", 1).focus();
 
         // According to Bryan positioning the link target below the 
         // sticky menu is not part of this story
