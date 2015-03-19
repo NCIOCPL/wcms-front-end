@@ -114,7 +114,8 @@ module.exports = function(grunt) {
         nci_util: {
             options: {
                 compress: false,
-                preserveComments: false
+                preserveComments: false,
+                mangle: false
             },
             files: {
                 '<%= dirs.dist.scripts %>nci-util.js': ['<%= dirs.src.scripts %>NCI/*.js']
