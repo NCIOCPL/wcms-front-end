@@ -26,6 +26,9 @@
         content: $circle-arrow-blue-small;
     }
 }
+.cthp-breadcrumb {
+	padding-left: 0;
+}
 .cthp-content {
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 350px;
 }
