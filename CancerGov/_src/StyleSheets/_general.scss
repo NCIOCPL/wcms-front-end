@@ -169,7 +169,7 @@ margin: 0 0 1em 1em;
 }
 .pullquote, .pullquote-right, .pullquote-left {
 color: #29768c;
-font-family: montserrat;
+font-family: font-family: #{$montserrat-font-stack};;
 font-weight: bold;
 line-height: 25px;
 	p:before {
