@@ -193,8 +193,9 @@ jQuery(document).ready(function(jQuery) {
 
         var originalFontSize = $("body").css('font-size'); // find the body's original size
 
-        $(".po-font-resize").click(function(){ // click font resizer button
-            var currentFontSizeM = $(".resize-content").css('font-size'); // returns 16px, 19px, 23px, 28px, 34px
+        $(".po-font-resize a").click(function(e){ // click font resizer button
+            e.preventDefault(); //prevent linking
+			var currentFontSizeM = $(".resize-content").css('font-size'); // returns 16px, 19px, 23px, 28px, 34px
             var currentFontSizeNumM = parseFloat(currentFontSizeM, 10); // returns 16, 19, 23, 28, 34
             if (currentFontSizeNumM < 30 ) {
                 var newFontSizeM = currentFontSizeNumM*1.2;
