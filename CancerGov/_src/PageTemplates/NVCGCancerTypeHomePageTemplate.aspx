@@ -3,8 +3,8 @@
 <div class="main-content" id="content">
 <!-- slots -->
 <div class="row">
-	<div class="large-12 columns cthp-breadcrumb">
-		<NCI:TemplateSlot ID="cgvSlBreadcrumb" CssClass="medium-8 columns bcrumbs" runat="server" />
+	<div class="large-12 columns">
+		<NCI:TemplateSlot ID="cgvSlBreadcrumb" CssClass="medium-8 columns bcrumbs cthp-breadcrumb" runat="server" />
 	</div>
 	<!-- END "row" -->
 </div>
