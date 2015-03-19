@@ -119,7 +119,17 @@ module.exports = function(grunt) {
                 beautify: true
             },
             files: {
-                '<%= dirs.dist.scripts %>nci-util.js': ['<%= dirs.src.scripts %>NCI/NCI.js','<%= dirs.src.scripts %>NCI/*.js']
+                '<%= dirs.dist.scripts %>nci-util.js': [ 
+                // Specifying file names here will allow us to order the concatenation
+                // otherwise, we have no control of the order, and it's important.
+                // This would be a good place to use require.js and AMD compatible modules.
+                // Ideally, we never have to specify file names here...just a bad place to dictate this.
+                    '<%= dirs.src.scripts %>NCI/NCI.js',
+                    '<%= dirs.src.scripts %>NCI/NCI.Buttons.js',
+                    '<%= dirs.src.scripts %>NCI/NCI.Buttons.toggle.js',
+                    '<%= dirs.src.scripts %>NCI/NCI.Nav.js',
+                    '<%= dirs.src.scripts %>NCI/*.js' // CATCH ALL. Must Go LAST
+                ],
             }
         }
     });
