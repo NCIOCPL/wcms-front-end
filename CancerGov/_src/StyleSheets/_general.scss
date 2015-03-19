@@ -152,6 +152,44 @@ figcaption {
     display: block;
 }
 
+/* Pullquotes */
+.pullquote {
+width: 75%;
+margin: 0 auto;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+.pullquote-left {
+width: 40%;
+margin: 0 1em 1em 0;
+}
+.pullquote-right {
+width: 40%;
+margin: 0 0 1em 1em;
+}
+.pullquote, .pullquote-right, .pullquote-left {
+color: #29768c;
+font-family: montserrat;
+font-weight: bold;
+line-height: 25px;
+	p:before {
+	content: "\201c"
+	}
+	p:after {
+	content: "\201d"
+	}
+	.author {
+	text-align: right;
+	font-style: italic;
+	}
+	p.author:before {
+	content: "\2014"
+	}
+	p.author:after {
+	content: none;
+	}
+}
+
 
 // skip navigation styles
 .skip a, .skip a:hover, .skip a:visited {
