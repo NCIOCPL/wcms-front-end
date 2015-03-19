@@ -110,16 +110,16 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dist.scripts %>min',
                 src: ['<%= dirs.src.scripts %>**/*.js']
             }]
-        }/*,
-		nci_util: {
-			files: [{
-				expand: true,
-				ext: ".min.js",
-				extDot: "last",
-				src: '<%= dirs.src.scripts %>NCI/*.js',
-				dest: '<%= dirs.dist.scripts %>nci-util.min.js'
-			}]
-		}*/
+        },
+        nci_util: {
+            options: {
+                compress: false,
+                preserveComments: false
+            },
+            files: {
+                '<%= dirs.dist.scripts %>nci-util.min.js': ['<%= dirs.src.scripts %>NCI/*.js']
+            }
+        }
     });
 
     /*****************************************
@@ -138,10 +138,10 @@ module.exports = function(grunt) {
                 files: '<%= dirs.src.styles %>**/*.scss',
                 tasks: ['svn_fetch', 'sass']
             },
-			js: {
-				files: '<%= dirs.src.scripts %>*.js',
-				tasks: ['svn_fetch', 'copy', 'uglify']
-			}
+            js: {
+                files: '<%= dirs.src.scripts %>*.js',
+                tasks: ['svn_fetch', 'copy', 'uglify']
+            }
     });
 
     // Tasks
