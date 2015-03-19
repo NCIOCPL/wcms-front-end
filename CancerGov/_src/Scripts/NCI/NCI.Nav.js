@@ -102,6 +102,3 @@ NCI.Nav = {
     }
 };
 
-NCI.Nav.toggle = function() {
-
-}
