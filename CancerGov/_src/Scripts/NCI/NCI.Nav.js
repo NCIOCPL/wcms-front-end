@@ -38,12 +38,9 @@ NCI.Nav = {
             }
         });
 
-        // insert the +/- buttons into the menu
+        // insert the +/- buttons into the menu and wire up +/- button click events
         var toggle = NCI.Buttons.toggle;
-        n.$mega.find(".has-children > div")
-            .append(toggle.html)
-        // wire up +/- button click events
-            .find(toggle.sel).click(toggle.click);
+        toggle.createFor(n.$mega.find(".has-children > div"));
 
         // expand all children of the current page or contains-current
         n.$mega.find(".current-page > div > "+toggle.sel+", .contains-current > div > "+toggle.sel)
