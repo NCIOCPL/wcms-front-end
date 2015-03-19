@@ -48,8 +48,7 @@ a.definition:hover, a.definition:focus {
 	position: fixed;
 	right: 0.5em;
 	bottom: 1em;
-
-	color: #000;
+	color: #606060;
 	font-weight: bold;
 	text-align: center;
 	padding: 10px 5px 0;
@@ -62,7 +61,7 @@ a.definition:hover, a.definition:focus {
 		width: 51px;
 	}
 	&:hover {
-		color: #000;
+		color: #606060;
 
 		&:before {
 			background-position: -389px -80px;
