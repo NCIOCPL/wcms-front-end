@@ -44,7 +44,7 @@ NCI.Nav = {
 
         // expand all children of the current page or contains-current
         n.$mega.find(".current-page > div > "+toggle.sel+", .contains-current > div > "+toggle.sel)
-            .attr("aria-expanded","true");
+            .attr("aria-expanded","true").children('span').text(toggle._innerText[toggle.lang]['true']);
 
     },
     isOpen: function () { return $("html").hasClass(NCI.Nav.openClass); },
