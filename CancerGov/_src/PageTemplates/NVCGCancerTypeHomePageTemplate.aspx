@@ -1,4 +1,6 @@
 <!--(bake Includes/TemplateIntro.inc template_name="NVCGCancerTypeHomePageTemplate.aspx")-->
+<!-- Begin MAIN CONTENT AREA -->
+<div class="main-content" id="content">
 <!-- slots -->
 <div class="row">
 	<div class="large-12 columns">
@@ -6,7 +8,7 @@
 	</div>
 	<!-- END "row" -->
 </div>
-<div class="cthp-content" id="content">
+<div class="cthp-content" id="content" tabindex="0">
 	<div class="row">
 		<div class="large-12 columns resize-content">
 			<!--(bake Includes/PageTitle.inc)-->
@@ -18,4 +20,5 @@
 		</div>
 	</div>
 </div>
+</div> <!-- End MAIN CONTENT AREA -->
 <!--(bake Includes/TemplateEnding.inc)-->

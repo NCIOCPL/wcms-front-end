@@ -1,5 +1,6 @@
 <!--(bake Includes/TemplateIntro.inc template_name="NVCGTopicPageTemplate.aspx")-->
-
+		<!-- Begin MAIN CONTENT AREA -->
+		<div class="main-content" id="content" tabindex="0">
             <div class="row general-page-body-container collapse">
                 <div class="large-12 columns">
                     <div class="row">
@@ -32,6 +33,5 @@
                     </div> <!-- END Main -->
                 </div> <!-- END "row" -->
             </div> <!-- END "row general-page-body-container collapse" -->
-
-
+		</div> <!-- End MAIN CONTENT AREA -->
 <!--(bake Includes/TemplateEnding.inc)-->

@@ -150,6 +150,3 @@
 
         <!-- END NAVIGATION -->
     </div><!-- END Global nav/utility bar/language -->
-
-    <!-- Begin MAIN CONTENT AREA -->
-    <div class="main-content" id="content" tabindex="0">

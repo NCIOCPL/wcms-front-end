@@ -4,7 +4,6 @@
 -->
 <!--(bake-end)-->
 
-</div> <!-- END Content -->
         </div> <!-- END Page -->
         <!-- END MAIN CONTENT -->
 
