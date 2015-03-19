@@ -13,8 +13,8 @@ click: function(e) {
         $this = $(this),
         li = $this.closest(".has-children"), // parent LI of the clicked button
         ul = li.children("ul"), // UL menu item we are hiding / showing
-        lvl = 0,
-    ;
+        lvl = 0;
+
     if (li.hasClass("lvl-1") || li.hasClass("level-1")) { lvl = 2; }
     if (li.hasClass("lvl-2") || li.hasClass("level-2")) { lvl = 3; }
     
