@@ -31,25 +31,25 @@ figure {
     &.image-right-small {
         float: right;
         width: 25%;
-        margin: 2.5em 0 2.5em 2.5em;
+        margin: 0 0 2.5em 2.5em;
     }
     /* image right 40% width */
     &.image-right-medium {
         float: right;
         width: 40%;
-         margin: 2.5em 0 2.5em 2.5em;
+         margin: 0 0 2.5em 2.5em;
     }
     /* image left 25% width */
     &.image-left-small {
         float: left;
         width: 25%;
-        margin: 2.5em 2.5em 2.5em 0;
+        margin: 0 2.5em 2.5em 0;
     }
     /* image left 40% width */
     &.image-left-medium {
         float: left;
         width: 40%;
-        margin: 2.5em 2.5em 2.5em 0;
+        margin: 0 2.5em 2.5em 0;
     }
     /* image center 75% width */
     &.image-center {
