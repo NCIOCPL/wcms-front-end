@@ -33,5 +33,6 @@ click: function(e) {
     }
 
     ul.slideToggle("slow", Function.prototype); // Function.prototype allows us to supply a function param without creating a new one.
+}
 };
 
