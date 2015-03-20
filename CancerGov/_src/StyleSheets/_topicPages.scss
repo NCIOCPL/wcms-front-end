@@ -11,7 +11,7 @@ div.cc-main-pages div.title-red-arrow {
 
 .landing-thumb-image {
 	width: 190px;
-	margin-top: 5px;
+	margin-top: 1.8125em;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -27,6 +27,10 @@ div.cc-main-pages div.title-red-arrow {
 	vertical-align: top;
 }
 
-
+@media only screen and (max-width: 1024px){
+.landing-thumb-image {
+	display: none;
+}
+}
 
 /****************** END Topic Pages ********************/
