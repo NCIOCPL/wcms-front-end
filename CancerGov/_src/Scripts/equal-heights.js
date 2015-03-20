@@ -4,6 +4,7 @@ function equalHeights() {
 		var isStacked = false;
 		// get the '.equalheight' items to equalize them
 		var items = $(this).find('.equalheight');
+		if(items.length === 0) return;
 		// get the top-offset of the first item, to check for stacking
 		var firstTopOffset = items.first().offset().top;
 
