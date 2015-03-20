@@ -388,13 +388,6 @@ select {
 		z-index: 1;
 		cursor: pointer;
 
-		&:focus {
-			+ label:before {
-				outline-color: initial;
-				outline-style: auto;
-			}
-		}
-
 		+ label {
 			position: relative;
 			margin-left: $custom-form-radiocheck-spacing;
