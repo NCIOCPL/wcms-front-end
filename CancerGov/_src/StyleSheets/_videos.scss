@@ -9,15 +9,18 @@
 .video-carousel-video {
 }
 /* Video Titles */
-h3.video50title {
+.video > h4 {
+	font-weight: normal;
+}
+h4.video50title {
 	padding: 0;
 	font-size:14px;
 }
-h3.video75title {
+h4.video75title {
 	padding: 0;
 	font-size:16px;
 }
-h3.video100title {
+h4.video100title {
 	padding: 0;
 	font-size:18px;
 }
