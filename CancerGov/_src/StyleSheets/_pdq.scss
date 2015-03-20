@@ -253,7 +253,11 @@ form .row .view-content-for-container {
 	margin-right: 20px;
 }
 .ct-results-go {
-
+}
+.cts-results-container .row .checkbox {
+	float: right;
+	margin-right: 0.5em;
+	line-height: 1.25;
 }
 /* end clinical trial search results */
 
