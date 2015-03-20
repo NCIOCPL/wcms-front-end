@@ -77,7 +77,7 @@ $legend-lineheight: em-calc(25px, 22px);
 
 // common (radios and checkboxes)
 $custom-form-radiocheck-size: 1em;
-$custom-form-radiocheck-spacing: 0.25em;
+$custom-form-radiocheck-spacing: 0.4em;
 $custom-form-radiocheck-bg-color: white;
 $custom-form-radiocheck-border-size: 2px;
 $custom-form-radiocheck-border-color: #186d89;
@@ -395,7 +395,7 @@ select {
 			&:before {
 				content: "";
 				position: absolute;
-				left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing);
+				left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing/2);
 
 				display: inline-block;
 				text-align: center;
