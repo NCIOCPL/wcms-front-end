@@ -325,7 +325,13 @@ jQuery(document).ready(function(jQuery) {
     /*** BEGIN form controls ***/
     (function($) {
         $('select:not([multiple])')
-            .selectmenu()
+            .selectmenu({
+                change: function(event, ui) {
+                    //This calls the parent change event so that .NET dropdowns can
+                    //autopostback.
+                    ui.item.element.change();
+                }
+            })
             .selectmenu('menuWidget')
                 .addClass('scrollable-y');
     })(jQuery);
