@@ -224,8 +224,12 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		if($target.length > 0) {
 			/* destroy the accordion if it's already been initialized */
 			$(target).each(function() {
-				if (typeof $(this).data("ui-accordion") != "undefined") {
+				if (typeof $(this).data("ui-accordion") !== "undefined") {
 					$(this).accordion("destroy");
+					if(typeof equalHeights === "function") {
+						// if we're on home, landing page, or accordion
+						equalHeights();
+					}
 				}
 			});
 		}
