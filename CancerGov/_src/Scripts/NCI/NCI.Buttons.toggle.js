@@ -50,23 +50,39 @@ click: function(e) {
                 .attr(aria,no).children('span').text(t._innerText[t.lang][yes]).parent()
                 .find(expanded)
                     .attr(aria,no).children('span').text(t._innerText[t.lang][yes]);
+                ul.slideUp("slow", Function.prototype); // Function.prototype allows us to supply a function param without creating a new one.
             break;
         case no: // EXPANDING
             // collapse all the expanded siblings
-            li.siblings(".has-children").children(".nav-item-title").children("button[aria-expanded='true']")
+            var siblings = li.siblings(".has-children");
+            var sib_titles = siblings.children(".nav-item-title");
+            var sib_btns = sib_titles.children("button[aria-expanded='true']");
+            var sib_spans = sib_btns.children("span");
+            var sib_uls = siblings.children("ul");
+
+            sib_btns.attr(aria, no);
+            sib_spans.text(t._innerText[t.lang][no]);
+            sib_uls.slideUp("slow");
+
+            /* li.siblings(".has-children").children(".nav-item-title").children("button[aria-expanded='true']")
                 .attr(aria, no).children('span').text(t._innerText[t.lang][no])
-                .parents(".has-children").children("ul").slideToggle("slow");
+                .closest(".has-children").children("ul").slideToggle("slow"); 
+            */
+            
+            // expand current pages and contains current
+            var curr_li = $(".contains-current, .current-page");
+            var curr_nit = curr_li.children(".nav-item-title");
+            var curr_btn = curr_nit.children("[" + aria + "='" + no + "']");
+            curr_btn.attr(aria, yes).children('span').text(t._innerText[t.lang][yes]);
+            curr_li.children("ul").slideDown("slow");
+
             // expand the one we clicked
             $this.attr(aria, yes).children('span').text(t._innerText[t.lang][yes]);
             // the various level <li>s themselves are hidden with CSS... 
             li.find(".lvl-"+lvl+", .level-"+lvl).show();
-            // expand current pages and contains current
-            $(".contains-current > .nav-item-title [" + aria + "='" + no + "'], .current-page > .nav-item-title [" + aria + "='" + no + "']")
-                .attr(aria, yes).children('span').text(t._innerText[t.lang][yes])
-            .closest("has-children").children("ul").slideToggle("slow", Function.prototype);
+            ul.slideDown("slow");
             break;
     }
 
-    ul.slideToggle("slow", Function.prototype); // Function.prototype allows us to supply a function param without creating a new one.
 }
 };
