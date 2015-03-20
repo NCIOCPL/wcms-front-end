@@ -402,8 +402,7 @@ select {
 			&:before {
 				content: "";
 				position: absolute;
-				left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing * 2);
-				top: 0.5em + em-calc($custom-form-radiocheck-border-size);
+				left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing);
 
 				display: inline-block;
 				text-align: center;
