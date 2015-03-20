@@ -29,8 +29,8 @@
     }
 
     #mega-nav {
-        nav-item.contains-current > .nav-item-title > a, 
-        nav-item.current-page > .nav-item-title > a { 
+        .nav-item.contains-current > .nav-item-title > a, 
+        .nav-item.current-page > .nav-item-title > a { 
             background-color: #fff  ; 
             /* the height of the border bottom (7px) is already set. Here we are only changing its color 
             /* from transparent to teal. If the border height ever changes, it's changed in one place, not two. 
