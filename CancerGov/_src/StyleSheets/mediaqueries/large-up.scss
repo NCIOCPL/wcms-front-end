@@ -27,6 +27,17 @@
     #mega-nav .toggle {
         display: none;
     }
+
+    #mega-nav {
+        nav-item.contains-current > .nav-item-title > a, 
+        nav-item.current-page > .nav-item-title > a { 
+            background-color: #fff  ; 
+            /* the height of the border bottom (7px) is already set. Here we are only changing its color 
+            /* from transparent to teal. If the border height ever changes, it's changed in one place, not two. 
+            */ 
+            border-bottom-color: #039B9C;
+            color: #2f2f2f;
+        }
     /*** END Megamenus/Search styles ***/
 
     /*** BEGIN desktop section nav ("left nav") styles ***/
@@ -56,9 +67,9 @@
     .section-nav .current-page:after {
         left: 100%;
         top: 50%;
-		margin-top: -12px;
-		border: 12px solid transparent;
-		border-right-style: dotted;
+        margin-top: -12px;
+        border: 12px solid transparent;
+        border-right-style: dotted;
         border-left-color: #009b9d;
         content: " ";
         height: 0;
@@ -88,11 +99,11 @@
     .section-nav .level-0 > div {
         font-size: 19px;
         font-weight: bold;
-		line-height: 21px;
+        line-height: 21px;
         padding-top: 0.625em;
         padding-bottom: 0.625em;
         background-color: #186d89;
-		text-transform: uppercase;
+        text-transform: uppercase;
     }
     .section-nav .level-0 > div > a {
         color: #FFFFFF;
@@ -100,8 +111,8 @@
 
     /* level 1 */
     .section-nav .level-1 {
-		font-size: 15px;
-		line-height: 17px;
+        font-size: 15px;
+        line-height: 17px;
         border-top: 1px solid #d5d5d2;
     }
     .section-nav .level-1 > div > a {
@@ -185,9 +196,9 @@
         .feature-primary a:hover h3 {
             color: white;
         }
-		.feature-primary-title {
-			display: none; 
-		}
+        .feature-primary-title {
+            display: none; 
+        }
         /** End Feature Primary Row **/
     .medium-1 {
         position: relative;
