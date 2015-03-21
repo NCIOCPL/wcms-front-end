@@ -674,28 +674,6 @@
         line-height: 1;
         margin: 0.2em;
     }
-    .guide-card {
-        margin-bottom: 0;
-        margin-top: -35px;
-    }
-    .guide-card .card,
-    .guide-card .featured-card {
-        background: #1d5e86;
-        padding-top: 0;
-        padding-bottom: 0;
-        margin: 0;
-    }
-    .guide-card .card h3 {
-        color: white;
-        background: url($buttons + "small-arrow.png") 95% center no-repeat;
-        border-bottom: 1px solid black;
-        padding: 0.3em 0.9375em;
-        margin: 0;
-    }
-    .guide-card .card h3.last {
-        border-bottom: none;
-    }
-    
     .feature-zone-image img {
         display: block;
         margin: 0 auto;
