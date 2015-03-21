@@ -145,38 +145,3 @@ line-height: inherit;
   	margin: 0 -0.9375em;
 	}
  }
-/* begin CTHP accordion styling rules */
-/* h3.ui-accordion-header {
-	margin-left: -1.64em;
-	margin-right: -1.64em;
-	border: 5px solid red;
-} */
-.cthp-content.ui-accordion .ui-accordion-header {
-	color: white;
-	font-weight: bold;
-}
-.cthp-intro-multimedia .ui-accordion-header.ui-state-active {
-	background-color: #198dae;
-}
-.cthp-treatment .ui-accordion-header.ui-state-active {
-	background-color:	#2ec799;
-}
-.cthp-research .ui-accordion-header.ui-state-active {
-	background-color:	#0886d0;
-}
-.cthp-causes .ui-accordion-header.ui-state-active {
-	background-color:	#7f3796;
-}
-.cthp-screening .ui-accordion-header.ui-state-active {
-	background-color:	#aa3d65;
-}
-.cthp-survival .ui-accordion-header.ui-state-active {
-	background-color:	#cf871a;
-}
-.cthp-general .ui-accordion-header.ui-state-active {
-	background-color:	#3c8c9c;
-}
-.cthp-genetics .ui-accordion-header.ui-state-active {
-	background-color:	#009095;
-}
-/* end CTHP accordion styling rules */
