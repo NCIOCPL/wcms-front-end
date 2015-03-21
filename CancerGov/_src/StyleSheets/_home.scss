@@ -129,6 +129,12 @@
 .feature-primary a h3 {
     color: white;
 }
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+	.feature-primary a,
+	.feature-primary a h3 {
+  	color: #186e88;
+	}
+}
 .feature-primary h3 {
     font-weight: normal;
     color: white;
