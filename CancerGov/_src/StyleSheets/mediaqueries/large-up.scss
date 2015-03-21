@@ -78,11 +78,13 @@
 		position: absolute;
 		pointer-events: none;
 	}
-	.section-nav .current-page + ul {
-		display: block !important; /* TODO: FIX THIS (JAVASCRIPT) */
+	.section-nav .current-page + ul,
+	.section-nav .contains-current > ul {
+		display: block !important;
 	}
-	.section-nav .current-page > .toggle {
-		display: none;
+	.section-nav .current-page > .toggle,
+	.section-nav .contains-current > div > .toggle {
+		display: none !important;
 	}
 	.section-nav div > a {
 		display: inline-block;
