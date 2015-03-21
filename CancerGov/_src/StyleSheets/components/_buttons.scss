@@ -221,11 +221,22 @@ form button,
 $plusminus-desktop-color-collapsed: #454545;
 $plusminus-desktop-color-expanded: #009b9d;
 
+// accordion
 $plusminus-color-accordion-odd: white;
 $plusminus-bg-color-accordion-odd: #8fd4db;
 
 $plusminus-color-accordion-even: white;
 $plusminus-bg-color-accordion-even: #b2dcdf;
+
+// navigation
+$plusminus-color-nav-default: white;
+$plusminus-bg-color-nav-default: #c3c1b4;
+
+$plusminus-color-nav-greyish: white;
+$plusminus-bg-color-nav-greyish: #d4d2e3;
+
+$plusminus-color-nav-current: white;
+$plusminus-bg-color-nav-current: #017c84;
 
 
 // color mixin
@@ -302,11 +313,11 @@ $plusminus-bg-color-accordion-even: #b2dcdf;
 			margin-top: -0.5em;
 		}
 	}
-	
+
 	.ui-accordion-header.odd {
 		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
 	}
-	
+
 	.ui-accordion-header.even {
 		@include toggle-color($plusminus-color-accordion-even, $plusminus-bg-color-accordion-even);
 	}
@@ -317,6 +328,19 @@ $plusminus-bg-color-accordion-even: #b2dcdf;
 		-webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 		-moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+	}
+
+	#mega-nav, .section-nav {
+		@include toggle-color($plusminus-color-nav-default, $plusminus-bg-color-nav-default);
+
+		.current-page > div {
+			@include toggle-color($plusminus-color-nav-current, $plusminus-bg-color-nav-current);
+		}
+	}
+	.section-nav {
+		.level-1.contains-current > div {
+			@include toggle-color($plusminus-color-nav-greyish, $plusminus-bg-color-nav-greyish);
+		}
 	}
 }
 

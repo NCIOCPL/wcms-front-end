@@ -15,80 +15,80 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-    .bcrumbs {
-        display: none;
-    }
-    .shareBtn {
-        margin-top: 0;
-    }
-    .shareComponent {
-        float: right;
-        width: initial;
-    }
-    .section-head {
-        float: none;
-        width: 100%;
-    }
-    figure.image-left-medium {
-        width: 100%
-    }
-    .feature-primary {
-        .card {
-            background: white;
-        }
-        a {
-            color: #606060;
-        }
-        h3 {
-            color: #076f88;
-        }
-    }
-    /* hide the TOC on small/medium screens. The accordion serves the same purpose */
-    /* hide the key-points on small/medium screens. Because, reasons^^^^ (the same reasons). 2014-11-05 SJC #OCECREATIV-879 */
-    .toc-container,
-    .key-points {
-        display: none;
-    }
-    .back-to-top {
-        display: none !important;
-    }
-    /*** BEGIN Megamenus/Search Styles ***/
-    #content {
-        padding-top: 0;
-    }
-    /* Reveal open/close buttons */
-    a.open-panel,
-    a.close-panel {
-        display: inline;
-    }
-    .close-panel {
-        position: relative;
-        top: .5em;
-        left: 1em;
-    }
-    #page, #mega-nav {
-        position: relative;
-        left: 0;
-        -webkit-transition: left 500ms ease;
-        -moz-transition: left 500ms ease;
-        -o-transition: left 500ms ease;
-        transition: left 500ms ease;
-    }
-    .openNav #page {
-        left: 80%;
-    }
-    .fixedtotop {
-        -webkit-transition: left 500ms ease;
-        -moz-transition: left 500ms ease;
-        -o-transition: left 500ms ease;
-        transition: left 500ms ease;
-    }
+		.bcrumbs {
+				display: none;
+		}
+		.shareBtn {
+				margin-top: 0;
+		}
+		.shareComponent {
+				float: right;
+				width: initial;
+		}
+		.section-head {
+				float: none;
+				width: 100%;
+		}
+		figure.image-left-medium {
+				width: 100%
+		}
+		.feature-primary {
+				.card {
+						background: white;
+				}
+				a {
+						color: #606060;
+				}
+				h3 {
+						color: #076f88;
+				}
+		}
+		/* hide the TOC on small/medium screens. The accordion serves the same purpose */
+		/* hide the key-points on small/medium screens. Because, reasons^^^^ (the same reasons). 2014-11-05 SJC #OCECREATIV-879 */
+		.toc-container,
+		.key-points {
+				display: none;
+		}
+		.back-to-top {
+				display: none !important;
+		}
+		/*** BEGIN Megamenus/Search Styles ***/
+		#content {
+				padding-top: 0;
+		}
+		/* Reveal open/close buttons */
+		a.open-panel,
+		a.close-panel {
+				display: inline;
+		}
+		.close-panel {
+				position: relative;
+				top: .5em;
+				left: 1em;
+		}
+		#page, #mega-nav {
+				position: relative;
+				left: 0;
+				-webkit-transition: left 500ms ease;
+				-moz-transition: left 500ms ease;
+				-o-transition: left 500ms ease;
+				transition: left 500ms ease;
+		}
+		.openNav #page {
+				left: 80%;
+		}
+		.fixedtotop {
+				-webkit-transition: left 500ms ease;
+				-moz-transition: left 500ms ease;
+				-o-transition: left 500ms ease;
+				transition: left 500ms ease;
+		}
 
-    /* When the panel is closed, transition the page back to the left */
-    /* hide search on mobile */
-    .search {
-        display: none;
-    }
+		/* When the panel is closed, transition the page back to the left */
+		/* hide search on mobile */
+		.search {
+				display: none;
+		}
 
 	#nvcgSlMainNav {
 		.mobile-menu-bar {
@@ -100,10 +100,10 @@
 	#nvcgSlMainNav.searching {
 		// This .searching class is applied with javascript
 		// by NCI.Search.mobile.search(); in nci-utils.js
-		
+
 		// We want to control as much as we can with CSS
 		// instead of relying on JavaScript. The reasons
-		// for this are many. 
+		// for this are many.
 
 		// We set 'pos:rel' here so that we have a baseline
 		// for the rest of the absolute positioning we're
@@ -115,9 +115,9 @@
 			height: 100%; // We still need the height for the menu button we're about to borrow.
 
 			.menu-btn {
-				// we borrow & transform this 
+				// we borrow & transform this
 				// into our back to menu button
-				position: absolute; 
+				position: absolute;
 				left: 100%; // Get back here!
 				background-color: #444;
 				background-position: 80% 50%; // move icon into place
@@ -185,7 +185,7 @@
 			margin-top: 0px;
 			margin-bottom: 10px;
 			margin-left: 0%;
-			margin-right: 0%;	
+			margin-right: 0%;
 			// We need the padding on this to match the padding set on the siteSearchFrom
 			// that accounts for the back to menu button.  Since this is in em and will thusly
 			// change based on font size, we also needed to capture the font-size in a var
@@ -235,12 +235,12 @@
 		}
 	}
 	// This is necessary to make the suggested search terms match the spec.
-	.ui-autocomplete { 
-		font-size: 2em; 
+	.ui-autocomplete {
+		font-size: 2em;
 	}
 
-    /* Move nav off screen, setup transitions */
-    #mega-nav {
+		/* Move nav off screen, setup transitions */
+		#mega-nav {
 		// Menu Colors:
 		$white: #ffffff;
 		$beige: #f3f3f2;
@@ -248,33 +248,33 @@
 		$teal:	#0498a1;
 		$dteal: #017c84;
 
-        z-index: 1000;
-        position: fixed;
-        left: -80%;
-        top: 0;
-        width: 80%;
-        height: 100%;
-        background-color: $beige;
-        -webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-        -moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-        box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+				z-index: 1000;
+				position: fixed;
+				left: -80%;
+				top: 0;
+				width: 80%;
+				height: 100%;
+				background-color: $beige;
+				-webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+				-moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+				box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 
-        .openNav & {
-            left: 0.01%;
-        }
+				.openNav & {
+						left: 0.01%;
+				}
 
 
 
-        > ul > li:first-child {
-            display: inherit;
-        }
+				> ul > li:first-child {
+						display: inherit;
+				}
 
-        /* Display nav items vertically */
-        ul.menu {
-            border-top: 1px solid #888;
-            overflow-y: auto;
-            height: 100%;
-        }
+				/* Display nav items vertically */
+				ul.menu {
+						border-top: 1px solid #888;
+						overflow-y: auto;
+						height: 100%;
+				}
 		li {
 			width: 100%;
 			box-sizing: border-box;
@@ -295,36 +295,22 @@
 			}
 		}
 
-        
-        /* clicked link state */
-        .nav-menu li > div > a:active {
-            color: $white;
-        }
 
-        /* remove margin from lists */
-        ul {
-            margin: 0;
-            width: 100%;
-        }
+				/* clicked link state */
+				.nav-menu li > div > a:active {
+						color: $white;
+				}
 
-		/* Toggle buttons (+/-) */
-		.toggle {
-			// Plus Buttons
-			&[aria-expanded="false"] {
-				color: $white;
-				background-color: $taupe;
-			}
-			// Minus buttons
-			&[aria-expanded="true"] {
-				color: $taupe;
-				background-color: $white;
-			}
-		}
+				/* remove margin from lists */
+				ul {
+						margin: 0;
+						width: 100%;
+				}
 
 		/* Level Styles */
 		.lvl-1, .lvl-2, .lvl-3 {
 		}
-        /* list item spacing through the hierarchy */
+				/* list item spacing through the hierarchy */
 		.lvl-1 { // level 0 in the mocks
 			display: block;
 			text-transform: uppercase;
@@ -385,106 +371,94 @@
 			> div > a {
 				color: $white;
 			}
-
-			.toggle {
-				&[aria-expanded="false"] {
-					color: $white;
-					background-color: $dteal;
-
-				}
-				&[aria-expanded="true"] {
-					color: $dteal;
-					background-color: $white;
-				}
-			}
 		}
-		.lvl-1.contains-current .lvl-2, 
+		.lvl-1.contains-current .lvl-2,
 		.lvl-2.contains-current .lvl-3,
 		.lvl-1.current-page .lvl-2,
 		.lvl-2.current-page .lvl-3 {
 			display: block;
 		}
-        .nav-item-title {
-            position: relative;
-        }
-    }
-    .sub-nav-mega {
-        display: none;
-    }
-    .hidden-sibling {
-        display: none;
-    }
-    .hidden {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-    }
-    /*** END Megamenus/Search Styles ***/
-    /*** BEGIN mobile section nav ("tongue") styles ***/
-    /* fix the margin (on mobile) for pages with a section nav */
-    .has-section-nav {
-        margin-top: 1.5em;
-    }
-    /* container width */
-    .main-content .general-page-body-container .local-navigation {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    .section-nav {
-        display: none;
-        position: absolute;
-        top: 1.9375em;
-        z-index: 999;
-        width: 90%;
-        background: white;
-    }
-    .section-nav,
-    .section-nav ul,
-    .section-nav ul li {
-        margin: 0;
-    }
-    .section-nav div {
-        position: relative;
-        font-size: 0.875em;
-        line-height: 1.2;
-        padding-top: 14.5px;
-        padding-bottom: 14.5px;
-    }
-    .section-nav .contains-current > div {
-        font-weight: bold;
-    }
-    .section-nav div > a {
-        display: inline-block;
-    }
-    .section-nav ul li {
-        border-top: 1px solid #d5d5d2;
-    }
-    .section-nav ul > li:first-child {
-        border: none;
-    }
-    /* these will not apply to the top-level item (currently in blue) */
-    .section-nav ul div > a {
-        margin-right: 3.8125em;
-        color: #606060;
-        line-height: 1.5;
-        vertical-align: middle;
-    }
-    .section-nav div.current-page > a {
-        color: white;
-        font-weight: bold;
-    }
+				.nav-item-title {
+						position: relative;
+				}
+		}
+		.sub-nav-mega {
+				display: none;
+		}
+		.hidden-sibling {
+				display: none;
+		}
+		.hidden {
+				position: absolute;
+				left: -10000px;
+				top: auto;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+		}
+		/*** END Megamenus/Search Styles ***/
+		/*** BEGIN mobile section nav ("tongue") styles ***/
+		/* fix the margin (on mobile) for pages with a section nav */
+		.has-section-nav {
+				margin-top: 1.5em;
+		}
+		/* container width */
+		.main-content .general-page-body-container .local-navigation {
+				padding-left: 5%;
+				padding-right: 5%;
+		}
+		.section-nav {
+				display: none;
+				position: absolute;
+				top: 1.9375em;
+				z-index: 999;
+				width: 90%;
+				background: white;
+		}
+		.section-nav,
+		.section-nav ul,
+		.section-nav ul li {
+				margin: 0;
+		}
+		.section-nav div {
+				position: relative;
+				font-size: 0.875em;
+				line-height: 1.2;
+				padding-top: 14.5px;
+				padding-bottom: 14.5px;
+		}
+		.section-nav .contains-current > div {
+				font-weight: bold;
+		}
+		.section-nav div > a {
+				display: inline-block;
+		}
+		.section-nav ul li {
+				border-top: 1px solid #d5d5d2;
+		}
+		.section-nav ul > li:first-child {
+				border: none;
+		}
+		/* these will not apply to the top-level item (currently in blue) */
+		.section-nav ul div > a {
+				margin-right: 3.8125em;
+				color: #606060;
+				line-height: 1.5;
+				vertical-align: middle;
+		}
+		.section-nav div.current-page > a {
+				color: white;
+				font-weight: bold;
+		}
 
-    /** BEGIN level-by-level styling **/
-    /* level 0 */
-    .section-nav .level-0 > div {
-        font-size: 1.125em;
-        font-weight: bold;
-        padding-top: 0.625em;
-        padding-bottom: 0.625em;
-        background-color: #186d89;
+		/** BEGIN level-by-level styling **/
+		/* level 0 */
+		.section-nav .level-0 > div {
+				font-size: 1.125em;
+				font-weight: bold;
+				padding-top: 0.625em;
+				padding-bottom: 0.625em;
+				background-color: #186d89;
 		> a {
 			color: #FFFFFF;
 			margin-left: 0.8888em;
@@ -492,230 +466,230 @@
 			text-transform: uppercase;
 		}
 
-    }
+		}
 
 	/* level 1 */
-    .section-nav .level-1 > div > a { 
-        text-transform: none;
-        margin-left: 1em;
-    }
-    .section-nav .level-1.contains-current {
-        background-color: #eeedf4;
-    }
+		.section-nav .level-1 > div > a {
+				text-transform: none;
+				margin-left: 1em;
+		}
+		.section-nav .level-1.contains-current {
+				background-color: #eeedf4;
+		}
 
-    /* level 2 */
-    .section-nav .level-2 > div > a {
-        margin-left: 1.875em;
-        font-family: Noto, Arial;
-    }
-    .section-nav .level-2 > ul {
-        z-index: 1;
-        position: absolute;
-        background: #c7c7d3;
-    }
+		/* level 2 */
+		.section-nav .level-2 > div > a {
+				margin-left: 1.875em;
+				font-family: Noto, Arial;
+		}
+		.section-nav .level-2 > ul {
+				z-index: 1;
+				position: absolute;
+				background: #c7c7d3;
+		}
 
-    /* level 3 */
-    .section-nav .level-3 > div > a {
-        margin-left: 2.3em;
-        margin-right: 2.0833em;
-        font-size: 0.9em;
-    }
-    /** END level-by-level styling **/
+		/* level 3 */
+		.section-nav .level-3 > div > a {
+				margin-left: 2.3em;
+				margin-right: 2.0833em;
+				font-size: 0.9em;
+		}
+		/** END level-by-level styling **/
 
-    /* this rule to be below the level-by-level styles */
-    .section-nav div.current-page {
-        background: #009b9d;
-    }
-    /* style section menu clicker on mobile */
-    #section-menu-button {
-        position: absolute;
-        z-index: 999;
-        cursor: pointer;
-        text-align: right;
-        color: #fff;
-        font-size: 0.625em;
-        line-height: 1.6;
-        min-height: 1.5em;
-        padding: 0.75em 2.5em 0.75em 0.75em;
-        right: 5%;
-        background: #186d89 95% 50% no-repeat;
-        background-image: url($buttons + "section-menu-down-arrow.png");
-        font-family: 'Montserrat', Arial;
-        text-transform: uppercase;
-    }
-    #section-menu-button.open {
-        background-image: url($buttons + "section-menu-up-arrow.png");
-    }
-    /* Fallbacks */
-    .no-js .section-nav ul {
-        display: none;
-    }
-    .no-js .section-nav:hover ul, .no-js .section-nav:focus ul {
-        display: block;
-    }
-    /* section nav grey page overlay - http://css-tricks.com/snippets/jquery/append-site-overlay-div/ */
-    #overlay {
-        opacity: 0.4;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: black;
-        width: 100%;
-        z-index: 998;
-    }
-    /*** END Section Nav Styles ***/
-    header {
-        padding: 1em 0;
-    }
-    .language-bar {
-        background: #2a71a5;
-        color: white;
-    }
-    .sitewide-language a {
-        color: white;
-    }
-    /* begin mobile menu styles */
-    .navigation {
-    }
-    .mobile-menu-bar {
-        margin-top: 0.5em;
-    }
-    .mobile-menu-bar h2 {
-        padding-top: 35px;
-    }
-    .nav-search-bar {
-        line-height: 0;
-    }
-    $mobile-menu-color: #fff;
-    .nav-header,
-    .nav-contact,
-    .nav-dictionary,
-    .nav-search {
-        float: left;
-        font-size: .8em;
-        color: $mobile-menu-color;
-        padding: 2em 0 0 0;
-        width: 24%;
-        text-align: center;
+		/* this rule to be below the level-by-level styles */
+		.section-nav div.current-page {
+				background: #009b9d;
+		}
+		/* style section menu clicker on mobile */
+		#section-menu-button {
+				position: absolute;
+				z-index: 999;
+				cursor: pointer;
+				text-align: right;
+				color: #fff;
+				font-size: 0.625em;
+				line-height: 1.6;
+				min-height: 1.5em;
+				padding: 0.75em 2.5em 0.75em 0.75em;
+				right: 5%;
+				background: #186d89 95% 50% no-repeat;
+				background-image: url($buttons + "section-menu-down-arrow.png");
+				font-family: 'Montserrat', Arial;
+				text-transform: uppercase;
+		}
+		#section-menu-button.open {
+				background-image: url($buttons + "section-menu-up-arrow.png");
+		}
+		/* Fallbacks */
+		.no-js .section-nav ul {
+				display: none;
+		}
+		.no-js .section-nav:hover ul, .no-js .section-nav:focus ul {
+				display: block;
+		}
+		/* section nav grey page overlay - http://css-tricks.com/snippets/jquery/append-site-overlay-div/ */
+		#overlay {
+				opacity: 0.4;
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				background-color: black;
+				width: 100%;
+				z-index: 998;
+		}
+		/*** END Section Nav Styles ***/
+		header {
+				padding: 1em 0;
+		}
+		.language-bar {
+				background: #2a71a5;
+				color: white;
+		}
+		.sitewide-language a {
+				color: white;
+		}
+		/* begin mobile menu styles */
+		.navigation {
+		}
+		.mobile-menu-bar {
+				margin-top: 0.5em;
+		}
+		.mobile-menu-bar h2 {
+				padding-top: 35px;
+		}
+		.nav-search-bar {
+				line-height: 0;
+		}
+		$mobile-menu-color: #fff;
+		.nav-header,
+		.nav-contact,
+		.nav-dictionary,
+		.nav-search {
+				float: left;
+				font-size: .8em;
+				color: $mobile-menu-color;
+				padding: 2em 0 0 0;
+				width: 24%;
+				text-align: center;
 
-        a {
-            color: $mobile-menu-color;
-        }
-    }
-    .nav-header {
-        background: transparent url($icons + "menu-icon.png") no-repeat center 0;
-    }
-    .nav-contact {
-        background: transparent url($icons + "phone-mobile.png") no-repeat center 0;
-    }
-    .nav-dictionary {
-        background: transparent url($icons + "dictionary-mobile.png") no-repeat center 0;
-    }
-    .nav-search {
-        background: transparent url($icons + "search-mobile.png") no-repeat center 0;
-    }
-    /* end mobile menu styles */
+				a {
+						color: $mobile-menu-color;
+				}
+		}
+		.nav-header {
+				background: transparent url($icons + "menu-icon.png") no-repeat center 0;
+		}
+		.nav-contact {
+				background: transparent url($icons + "phone-mobile.png") no-repeat center 0;
+		}
+		.nav-dictionary {
+				background: transparent url($icons + "dictionary-mobile.png") no-repeat center 0;
+		}
+		.nav-search {
+				background: transparent url($icons + "search-mobile.png") no-repeat center 0;
+		}
+		/* end mobile menu styles */
 
-    /* begin carousel styles */
+		/* begin carousel styles */
 @import "_carousel-mediumdown";
-    /* end carousel styles */
-    .main-content {
-        background: #f7f8f3;
-    }
-    
-    .contentzone .document-dates,
-    .contentzone .document-dates.horizontal {
-        ul > li {
-            display: block;
-            &:before {
-                content: none;
-                display: none;
-            }
-        }
-    }
+		/* end carousel styles */
+		.main-content {
+				background: #f7f8f3;
+		}
 
-    .public-use{
-        font-size: 0.875em;
-    }
+		.contentzone .document-dates,
+		.contentzone .document-dates.horizontal {
+				ul > li {
+						display: block;
+						&:before {
+								content: none;
+								display: none;
+						}
+				}
+		}
 
-    .syndication{
-        font-size: 0.875em;
-    }
+		.public-use{
+				font-size: 0.875em;
+		}
 
-    .site-footer {
-        background-position: 120% 150px;
-    }
-    .footer-utility .columns {
-        width: 100%;
-    }
-    .agencies ul {
-        text-align: left;
-    }
-    .agencies ul li {
-        display: block;
-        background: none;
-        padding-right: 0;
-        margin-right: 0;
-    }
-    .hero-text {
-        position: absolute;
-        bottom: 0;
-        color: white;
-        background-color: rgba(51, 102, 153, 0.5);
-        font-size: 1.2em;
-        font-weight: bold;
-        width: 100%;
-        padding: 0 0.8em;
-        left: 0;
-        top: auto;
-    }
-    .hero-text p {
-        line-height: 1;
-        margin: 0.2em;
-    }
-    .feature-zone-image img {
-        display: block;
-        margin: 0 auto;
-    }
-    .featured-zone {
-        margin-right: 0;
-    }
-    .home-director-stories,
-    .infographic {
-        background: none
-    }
-    .key-facts,
-    .key-points {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        float: none;
-    }
-    /* since these items are still in columns at tablet, this reverses previous move for these classes */
-    .feature-primary h3,
-    .feature-primary p,
-    .feature-secondary h3,
-    .feature-secondary p,
-    .other-sites-carousel h3,
-    .contentzone .page-options {
-        padding-left: 0;
-    }
-    /* Multimedia row does need padding in tablet */
-    .multimedia h3,
-        .multimedia p {
-             padding-left: 15px;
-    }
-    /*** BEGIN PDQ Styles ***/
-    .toptoc {
-        display: none;
-    }
-    div#_toc_article {
-        display: none;
-    }
-    section.hide {
-        display: block;
-    }
-    /*** END PDQ Styles ***/
-    @import "lists-mediumdown";
+		.syndication{
+				font-size: 0.875em;
+		}
+
+		.site-footer {
+				background-position: 120% 150px;
+		}
+		.footer-utility .columns {
+				width: 100%;
+		}
+		.agencies ul {
+				text-align: left;
+		}
+		.agencies ul li {
+				display: block;
+				background: none;
+				padding-right: 0;
+				margin-right: 0;
+		}
+		.hero-text {
+				position: absolute;
+				bottom: 0;
+				color: white;
+				background-color: rgba(51, 102, 153, 0.5);
+				font-size: 1.2em;
+				font-weight: bold;
+				width: 100%;
+				padding: 0 0.8em;
+				left: 0;
+				top: auto;
+		}
+		.hero-text p {
+				line-height: 1;
+				margin: 0.2em;
+		}
+		.feature-zone-image img {
+				display: block;
+				margin: 0 auto;
+		}
+		.featured-zone {
+				margin-right: 0;
+		}
+		.home-director-stories,
+		.infographic {
+				background: none
+		}
+		.key-facts,
+		.key-points {
+				width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+				float: none;
+		}
+		/* since these items are still in columns at tablet, this reverses previous move for these classes */
+		.feature-primary h3,
+		.feature-primary p,
+		.feature-secondary h3,
+		.feature-secondary p,
+		.other-sites-carousel h3,
+		.contentzone .page-options {
+				padding-left: 0;
+		}
+		/* Multimedia row does need padding in tablet */
+		.multimedia h3,
+				.multimedia p {
+						 padding-left: 15px;
+		}
+		/*** BEGIN PDQ Styles ***/
+		.toptoc {
+				display: none;
+		}
+		div#_toc_article {
+				display: none;
+		}
+		section.hide {
+				display: block;
+		}
+		/*** END PDQ Styles ***/
+		@import "lists-mediumdown";
 }
