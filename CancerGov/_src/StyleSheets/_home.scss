@@ -109,10 +109,11 @@
 .feature-primary .featured-text {
     padding: 15px;
     background: white;
-    color: #186e88;
+    color: #186e88 !important;
     // this is needed to overcome padding that was put in cards anchor tag
     a {
-        padding: 0; 
+        padding: 0;
+				color: #606060;
     }
     a:hover, a:focus {
         color: #bb0e3d;
