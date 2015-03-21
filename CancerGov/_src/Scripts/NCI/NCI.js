@@ -226,8 +226,8 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			$(target).each(function() {
 				if (typeof $(this).data("ui-accordion") !== "undefined") {
 					$(this).accordion("destroy");
-					if(typeof equalHeights === "function") {
-						// if we're on home, landing page, or accordion
+					if (typeof equalHeights === "function") {
+						// if we're on homepage, landing page, or CTHP
 						equalHeights();
 					}
 				}
