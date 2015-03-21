@@ -25,7 +25,8 @@ NCI.Buttons.toggle = {
 	},
 
 	clickMega: function(e) {
-		var t = NCI.Buttons.toggle;
+		var t = NCI.Buttons.toggle,
+			n = NCI.Nav;
 		e.stopPropagation();
 
 		var yes = 'true', // init true / false values
@@ -66,7 +67,7 @@ NCI.Buttons.toggle = {
 				*/
 
 				// expand current pages and contains current
-				var curr_li = $(".contains-current, .current-page");
+				var curr_li = n.$mega.find(".contains-current, .current-page");
 				var curr_nit = curr_li.children(".nav-item-title");
 				var curr_btn = curr_nit.children("[" + aria + "='" + no + "']");
 				curr_btn.attr(aria, yes).children('span').text(t._innerText[t.lang][yes]);
@@ -75,7 +76,7 @@ NCI.Buttons.toggle = {
 				// expand the one we clicked
 				$this.attr(aria, yes).children('span').text(t._innerText[t.lang][yes]);
 				// the various level <li>s themselves are hidden with CSS...
-				li.find(".lvl-"+lvl+", .level-"+lvl).show();
+				li.find(".lvl-" + lvl + ", .level-" + lvl).show();
 				ul.slideDown("slow");
 				break;
 		}
