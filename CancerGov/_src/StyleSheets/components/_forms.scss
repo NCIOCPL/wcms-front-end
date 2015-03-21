@@ -88,7 +88,8 @@ $custom-form-radio-checked-bg-color-disabled: #ccc;
 $custom-form-radio-radius: 0.5em;
 // checkboxes only
 $custom-form-checkbox-checked-bg-color: $custom-form-radiocheck-bg-color;
-$custom-form-checkbox-checked-text-color: $body-font-color;
+$custom-form-checkbox-checked-text-color: $custom-form-radiocheck-border-color;
+$custom-form-checkbox-checked-text-color-disabled: #ccc;
 $custom-form-checkbox-radius: 0;
 
 @mixin input-placeholder() {
@@ -454,6 +455,8 @@ html.borderradius.generatedcontent {
 		input[type="checkbox"] {
 			+ label:before {
 				@include radius($custom-form-checkbox-radius);
+				line-height: 0.75em;
+				font-weight: bold;
 			}
 			&:checked {
 				+ label:before {
@@ -461,6 +464,9 @@ html.borderradius.generatedcontent {
 
 					background-color: $custom-form-checkbox-checked-bg-color;
 					color: $custom-form-checkbox-checked-text-color;
+				}
+				&:disabled + label:before {
+					color: $custom-form-checkbox-checked-text-color-disabled;
 				}
 			}
 		}
