@@ -50,6 +50,7 @@ a.definition:hover, a.definition:focus {
 	bottom: 1em;
 	color: #606060;
 	font-weight: bold;
+	text-decoration: none;
 	text-align: center;
 	padding: 10px 5px 0;
 
@@ -60,8 +61,9 @@ a.definition:hover, a.definition:focus {
 		height: 51px;
 		width: 51px;
 	}
-	&:hover {
+	&:hover, &:focus {
 		color: #606060;
+		text-decoration: none;
 
 		&:before {
 			background-position: -389px -80px;
@@ -289,8 +291,8 @@ table.no-bullet-padding ul {
 
 
 hr.ps-divider {
-	border: solid #7d7d7d; 
-	border-width: 1px 0 0; }  
+	border: solid #7d7d7d;
+	border-width: 1px 0 0; }
 
 .public-use {
 	padding: 0;
