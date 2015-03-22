@@ -13,7 +13,7 @@ NCI.Nav.Section = {
 
 		_s.$section = $(_s.sel);
 
-		if(_s.$section) {
+		if(_s.$section.length > 0) {
 			// make the button to open the section nav
 			_s.$openerButton = $('<a>')
 				.attr('id', _s.idOpenerButton)
