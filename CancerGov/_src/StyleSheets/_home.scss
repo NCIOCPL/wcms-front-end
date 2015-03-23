@@ -113,7 +113,7 @@
     // this is needed to overcome padding that was put in cards anchor tag
     a {
         padding: 0;
-				color: #606060;
+                color: #606060;
     }
     a:hover, a:focus {
         color: #bb0e3d;
@@ -130,10 +130,10 @@
     color: white;
 }
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
-	.feature-primary a,
-	.feature-primary a h3 {
-  	color: #186e88;
-	}
+    .feature-primary a,
+    .feature-primary a h3 {
+    color: #186e88;
+    }
 }
 .feature-primary h3 {
     font-weight: normal;
@@ -143,7 +143,7 @@
 }
 .feature-primary p {
     margin-bottom: 0;
-	font-size: em-calc(18px);
+    font-size: em-calc(18px);
 }
 // the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
 .feature-primary .columns {
@@ -171,12 +171,12 @@
 }
 .feature-secondary a:hover h3, 
 .feature-secondary a:focus h3 {
-	color: #bb0e3d;
+    color: #bb0e3d;
 }
 .feature-secondary p {
      margin-bottom: 0;
-	color: #606060;
-	font-size: em-calc(18px);
+    color: #606060;
+    font-size: em-calc(18px);
 }
 // the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
 .feature-secondary .columns {
@@ -235,7 +235,7 @@ a.arrow-link:hover, a.arrow-link:focus,
 a.arrow-link-white:hover, a.arrow-link-white:focus {
     background-image: url($buttons + "small-red-circle-arrow.png");
     color: #bd153c;
-	text-decoration: none;
+    text-decoration: none;
 }
 a.learn-more {
     margin-top: 1em;
@@ -291,11 +291,11 @@ a.learn-more {
 @media only screen and (max-width: 640px) {
   .multimedia-slot {
     padding: 1em; }
-	.multimedia-slot p, .multimedia-slot ul {
+    .multimedia-slot p, .multimedia-slot ul {
     display: none; }
-	.multimedia-feature-card {
-		margin-right: 15px;
-	}
+    .multimedia-feature-card {
+        margin-right: 15px;
+    }
  }
 .multimedia {
     .card {
@@ -369,10 +369,6 @@ a.learn-more {
 // these rules are to fix the autoheight problems in multimedia row
 .card > .slot-item, .multimedia-feature-card, .multimedia .feature-card {
     height: 100%;
-}
-.multimedia-feature-card a:hover h3, .multimedia-feature-card a:focus h3,
-.feature-primary a:hover h3, .feature-primary a:focus h3 {
-    color: #bb0e3d;
 }
 .multimedia-feature-card a, .multimedia .feature-card a {
     display: block;
