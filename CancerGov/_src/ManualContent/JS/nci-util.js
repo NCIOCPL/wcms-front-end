@@ -46,23 +46,26 @@ var NCI = NCI || {
         }
     },
     buildOTP: function(target) {
-        var $otpItems = $("#cgvBody " + (target || "h2"));
-        var otpTitle;
-        if ($("html").attr("lang") === "es") {
-            otpTitle = "En Este Página";
-        } else {
-            otpTitle = "On This Page";
+        var $otp = $("#cgvBody [data-otp-selector]");
+        $otpItems = $otp.find($otp.attr("data-otp-selector") || "h2").not('[data-otp="false"]');
+        if ($otpItems.length > 0) {
+            var otpTitle;
+            if ($("html").attr("lang") === "es") {
+                otpTitle = "En Este Página";
+            } else {
+                otpTitle = "On This Page";
+            }
+            var otp = $("<nav>").addClass("on-this-page");
+            otp.append($("<h6>").text(otpTitle));
+            var otpList = $("<ul>");
+            var otpItem;
+            for (var i = 0; i < $otpItems.length; i++) {
+                otpItem = $otpItems[i];
+                $("<li>").append($("<a>").attr("href", "#" + (otpItem.id || otpItem.parentElement.id)).text(otpItem.textContent.trim())).appendTo(otpList);
+            }
+            otpList.appendTo(otp);
+            otp.prependTo("#cgvBody > .slot-item:first");
         }
-        var otp = $("<nav>").addClass("on-this-page");
-        otp.append($("<h6>").text(otpTitle));
-        var otpList = $("<ul>");
-        var otpItem;
-        for (var i = 0; i < $otpItems.length; i++) {
-            otpItem = $otpItems.get(i);
-            $("<li>").append($("<a>").attr("href", "#" + (otpItem.id || otpItem.parentElement.id)).text(otpItem.textContent.trim())).appendTo(otpList);
-        }
-        otpList.appendTo(otp);
-        otp.prependTo("#cgvBody > .slot-item:first");
     },
     doAccordion: function(target, opts) {
         var defaultOptions = {
