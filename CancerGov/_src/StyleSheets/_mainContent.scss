@@ -185,8 +185,8 @@ ol {
 	margin-left: 0;
 }
 .contentzone ul {
-	list-style-type: none;
 	& > li {
+		list-style: none;
 		position: relative;
 		&:before {
 			content: "\2022";
@@ -194,7 +194,7 @@ ol {
 			position: absolute;
 			left: -0.5em;
 			top: -0.05em;
-			margin: 0 -.2em;
+			margin: 0 -0.2em;
 			font-size: 1.1em;
 		}
 	}
@@ -273,8 +273,9 @@ table.no-bullet-padding ul {
 		display: inline;
 		&:before {
 			content: "|";
+			position: relative;
 			display: inline;
-			left: -0.1em;
+			left: 0;
 			top: -0.1em;
 			margin: 0 0.4em;
 			font-size: 1em;
