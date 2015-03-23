@@ -25,7 +25,8 @@
         font-size: 1em;
         font-weight: normal;
         text-transform: uppercase;
-				@include font-noto;
+        @include font-noto;
+        margin-bottom: 1em;
     }
 
     a,
@@ -95,7 +96,7 @@
 }
 
 .agencies {
-	clear: both;
+    clear: both;
     ul {
         text-align: center;
     }
