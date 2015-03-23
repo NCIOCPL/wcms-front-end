@@ -254,8 +254,8 @@ NCI.Buttons.toggle = {
             if (windowWidth <= 1024) {
                 sib_uls.slideUp("slow", Function.prototype);
             } else {
-                sib_urls.not(".section-nav .contains-current > ul").slideUp("slow", Function.prototype);
-                sib_urls.filter(".section-nav .contains-current > ul").css("display", "none");
+                sib_uls.not(".section-nav .contains-current > ul").slideUp("slow", Function.prototype);
+                sib_uls.filter(".section-nav .contains-current > ul").css("display", "none");
             }
             $this.attr(aria, yes).children("span").text(t._innerText[t.lang][yes]);
             ul.slideDown("slow", Function.prototype);
