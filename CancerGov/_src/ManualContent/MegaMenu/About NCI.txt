@@ -8,10 +8,10 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/about-nci/director" class="sub-nav-group-header">Director</a>
+	<li><a href="/about-nci/leadership" class="sub-nav-group-header">Senior Leadership</a>
 		<ul>
-			<li><a href="/about-nci/director/speeches">Comments &amp; Commentary</a></li>
-			<li><a href="/about-nci/director/messages">Messages to the Research Community</a></li>
+			<li><a href="/about-nci/leadership/director">Director</a></li>
+			<li><a href="/about-nci/leadership/previous-directors">Past Directors</a></li>
 		</ul>
 	</li>
 </ul>
@@ -20,7 +20,6 @@
 		<ul>
 			<li><a href="/about-nci/organization">Divisions, Offices &amp; Centers</a></li>
 			<li><a href="#">NCI at Frederick</a></li>
-			<li><a href="#">Senior Leadership</a></li>
 		</ul>
 	</li>
 </ul>
@@ -38,7 +37,7 @@
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/about-nci/careers" class="sub-nav-group-header">Careers at NCI</a></li>
+	<li><a href="/about-nci/careers" class="sub-nav-group-header">Careers</a></li>
 </ul>
 <ul class="sub-nav-group">
 	<li><a href="/about-nci/visit" class="sub-nav-group-header">Visitor Information</a></li>
