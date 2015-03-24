@@ -128,6 +128,7 @@ module.exports = function(grunt) {
                     '<%= dirs.src.scripts %>NCI/NCI.Buttons.js',
                     '<%= dirs.src.scripts %>NCI/NCI.Buttons.toggle.js',
                     '<%= dirs.src.scripts %>NCI/NCI.Nav.js',
+                    '<%= dirs.src.scripts %>NCI/NCI.PageOptions.js',
                     '<%= dirs.src.scripts %>NCI/*.js' // CATCH ALL. Must Go LAST
                 ],
             }
