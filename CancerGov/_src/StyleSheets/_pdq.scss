@@ -1,122 +1,122 @@
 /*** BEGIN PDQ Styles ***/
 
 .toptoc {
-	@include font-montserrat;
-	width: 24%;
-	float: right;
-	margin: 0 -1.2em 10px 2em;
-	border-bottom: 12px solid #1e73a6;
-	font-size: 0.8em;
-	margin-bottom: 3em;
+    @include font-montserrat;
+    width: 24%;
+    float: right;
+    margin: 0 -1.2em 10px 2em;
+    border-bottom: 12px solid #1e73a6;
+    font-size: 0.8em;
+    margin-bottom: 3em;
 }
 .toptoc h3 {
-	background-color: #1e73a6;
-	color: white;
-	font-size: 1em;
-	margin: 0;
-	padding: 10px 12px;
-	font-weight: bold;
-	text-transform: uppercase;
+    background-color: #1e73a6;
+    color: white;
+    font-size: 1em;
+    margin: 0;
+    padding: 10px 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 /* set font size of all content in TOC to the same size */
 
 .toptoc ul {
-	margin-bottom: 0;
-	line-height: 1.2em;
+    margin-bottom: 0;
+    line-height: 1.2em;
 }
 .toptoc li {
-	list-style-type: none;
-	background: none;
-	padding: 0.5em 1em;
-	margin: 0;
-	border-bottom: 1px solid #d5d5d2;
+    list-style-type: none;
+    background: none;
+    padding: 0.5em 1em;
+    margin: 0;
+    border-bottom: 1px solid #d5d5d2;
 }
 .toptoc li:hover {
-	cursor: pointer; // this doesn't make sense for focus state, so I've applied it only to hover state [Wade, 01/14/2015]
+    cursor: pointer; // this doesn't make sense for focus state, so I've applied it only to hover state [Wade, 01/14/2015]
 }
 .toptoc li:hover, .toptoc li:focus {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 .toptoc li:before {
-	display: none;
-	/* removes the bullets for toptoc li menu items */
+    display: none;
+    /* removes the bullets for toptoc li menu items */
 }
 .toptoc li.selected {
-	background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
-	font-weight: bold;
+    background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
+    font-weight: bold;
 }
 .toptoc .enlarge-link {
-	display: none;
+    display: none;
 }
 .toptoc li.viewall span {
-	background: url($icons + "view-entire-summary.png") no-repeat scroll 0 50% #fffffb;
-	padding: 5px 0 5px 20px;
-	display: block;
+    background: url($icons + "view-entire-summary.png") no-repeat scroll 0 50% #fffffb;
+    padding: 5px 0 5px 20px;
+    display: block;
 }
 .next-link {
-	text-align: right;
+    text-align: right;
 }
 .previous-next-links {
-	clear: both;
+    clear: both;
 }
 .enlarge-link {
-	display: block;
-	color: #9c3303;
-	text-align: right;
-	text-decoration: underline;
+    display: block;
+    color: #9c3303;
+    text-align: right;
+    text-decoration: underline;
 }
 .large {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	right: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
 }
 .pdq-link-enlarge {
-	color: #9c3303;
-	display: block;
-	margin: 20px 0 -10px;
-	text-align: right;
-	text-decoration: underline;
+    color: #9c3303;
+    display: block;
+    margin: 20px 0 -10px;
+    text-align: right;
+    text-decoration: underline;
 }
 table .pdq-link-enlarge {
-	margin: 0;
+    margin: 0;
 }
 .pdq-image-table-enlarge {
-	background: none repeat scroll 0 0 #fff;
-	box-shadow: 0 0 5px 5px #808080;
-	left: 10px;
-	margin-top: 20px;
-	position: absolute;
-	right: 10px;
+    background: none repeat scroll 0 0 #fff;
+    box-shadow: 0 0 5px 5px #808080;
+    left: 10px;
+    margin-top: 20px;
+    position: absolute;
+    right: 10px;
 }
 .pdq-image-table-enlarge table caption {
-	padding: 20px 0 10px 10px;
+    padding: 20px 0 10px 10px;
 }
 table.table-default {
-	border-collapse: collapse;
-	margin: 15px 0;
+    border-collapse: collapse;
+    margin: 15px 0;
 }
 tfoot.pdq-footer {
-	margin: 0;
-	padding: 10px;
+    margin: 0;
+    padding: 10px;
 }
 tfoot.pdq-footer td {
-	background: none repeat scroll 0 0 #ddd;
-	border: medium none;
-	font-style: italic;
-	padding: 5px;
+    background: none repeat scroll 0 0 #ddd;
+    border: medium none;
+    font-style: italic;
+    padding: 5px;
 }
 table tfoot {
-	font-weight: normal;
-	background-color: #cfcfcf;
+    font-weight: normal;
+    background-color: #cfcfcf;
 }
 /* removing padding for nested ul elements inside an accordion */
 
 #accordion li > ul,
 .accordion li > ul,
 .key-points li > ul {
-	margin-bottom: 0;
-	padding-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 /* per ticket OCECREATIV-905 */
 
@@ -125,74 +125,76 @@ table tfoot {
 
 }
 .pdq-list-title {
-	font-weight: bold;
-	font-style: italic;
+    font-weight: bold;
+    font-style: italic;
 }
 
 ul.pdq-address-block {
 
 }
 ul.pdq-address-block li {
-	background: none;
-	list-style-type: none;
-	padding: 0;
-	margin-bottom: 0;
+    background: none;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
 }
 .contentzone ul.pdq-address-block > li:before {
-	content: none;
+    content: none;
 }
 /* new styles */
 .trial-sites h4 {
-	background: #E6E6E2;
-	padding: 3px 0;
-	/* font-size: 16px; */
+    background: #E6E6E2;
+    padding: 3px 0;
+    /* font-size: 16px; */
 }
 .trial-sites h5 {
-	color: #993333;
-	font-size: 15px;
-	margin: 10px 0;
+    color: #993333;
+    font-size: 15px;
+    margin: 10px 0;
 }
 .trial-sites h6 {
-	/* font-size: 14px; */
-	font-style: normal;
-	margin: 5px 0 10px;
+    /* font-size: 14px; */
+    font-style: normal;
+    margin: 5px 0 10px;
 }
 .trial-sites .two-columns {
-	margin: 0 30px;
+    margin: 0 30px;
 }
 .definition-term {
-	line-height: 1em;
+    line-height: 1em;
 }
 .definition-term-image {
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 figure.definition-image {
-	width: 25%;
-	display: block;
+    width: 25%;
+    display: block;
 }
 table.drug-combination {
-	margin-left: 20px;
-	width: 100%;
-}
-table.drug-combination td {
-	padding: 5px;
-}
-table.drug-combination td.drug-combo-letter {
-	text-align: right;
-	font-weight: bold;
+    margin-left: 0px; //removed 20px per OCEPROJECT-2527
+    width: 100%;
+
+    td {
+        padding: 5px;
+
+        &.drug-combo-letter {
+            text-align: right;
+            font-weight: bold;
+        }
+    }
 }
 .two-columns.brand-fda {
   width: 40%;
 }
 .brand-fda .column1 {
-	width: 150px !important; /* move under column1, and then the important can be removed, because this will override the 48% width based on it coming after that one is declared */
-	font-weight: bold;
+    width: 150px !important; /* move under column1, and then the important can be removed, because this will override the 48% width based on it coming after that one is declared */
+    font-weight: bold;
 }
 table.table-default tfoot td {
   border: none;
   font-style: normal;
-  margin: 0; 
+  margin: 0;
   padding: 8px 10px;
   background: #F2F3F7;
 }
@@ -202,71 +204,71 @@ table.table-default tfoot td {
 
 /* begin clinical trial search results */
 form .row .clinical-trial-individual-result {
-	margin-bottom: 75px;
+    margin-bottom: 75px;
 }
-.row .row .ct-results-form	{
-	margin: 60px 20px 30px 0;
+.row .row .ct-results-form  {
+    margin: 60px 20px 30px 0;
 }
 form .row .view-content-for-container {
-	border: 1px solid #bdbdbd;
-	border-top: 4px solid #00cccc;
-	padding: 10px;
+    border: 1px solid #bdbdbd;
+    border-top: 4px solid #00cccc;
+    padding: 10px;
 }
 .ct-results-help {
-	text-align:right;
+    text-align:right;
 }
 .search-criteria-box {
-	display: inline-block;
-	border: 1px solid #bdbdbd;
-	padding: 5px;
-	margin: 0 0 30px;
+    display: inline-block;
+    border: 1px solid #bdbdbd;
+    padding: 5px;
+    margin: 0 0 30px;
 }
 .ct-results-top-search-options {
-	margin-top: 30px
+    margin-top: 30px
 }
 .hide-criteria-link {
-	border-bottom: 1px solid #bdbdbd;
-		a:after {
-			background: url($icons + "nci-sprite.png") no-repeat -488px -186px; width: 8px; height: 5px;
-		}
+    border-bottom: 1px solid #bdbdbd;
+        a:after {
+            background: url($icons + "nci-sprite.png") no-repeat -488px -186px; width: 8px; height: 5px;
+        }
 }
 .show-criteria-link {
-		a:after {
-			background: url($icons + "nci-sprite.png") no-repeat -460px -186px; width: 8px; height: 5px;
-		}
+        a:after {
+            background: url($icons + "nci-sprite.png") no-repeat -460px -186px; width: 8px; height: 5px;
+        }
 }
 .hide-criteria-link a, .show-criteria-link a {
-	padding: 0 10px;
+    padding: 0 10px;
 }
 .clinicaltrials-results-criteria-display {
-	padding: 5px 10px;
+    padding: 5px 10px;
 }
 .ct-results-lower-control {
-	margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 .ct-results-bottom-action {
 }
 .ct-results-top-control {
-	margin: 10px 0 50px 0;
+    margin: 10px 0 50px 0;
 }
 .ct-results-select-all, .ct-results-sort, .ct-results-show {
-	margin-right: 20px;
+    margin-right: 20px;
 }
 .ct-results-go {
 }
 .cts-results-container .row .checkbox {
-	float: right;
-	margin-right: 0.5em;
-	line-height: 1.25;
+    float: right;
+    margin-right: 0.5em;
+    line-height: 1.25;
 }
 /* end clinical trial search results */
 
 /* Protocol search results */
 .study-site-city {
-	margin-left: 15px;
+    margin-left: 15px;
 }
 .study-site-name {
-	font-weight: bold;
+    font-weight: bold;
 }
 /* end Protocol search results */
 
