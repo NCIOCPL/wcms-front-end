@@ -14,7 +14,7 @@
 <ul class="sub-nav-group">
 	<li><a href="/about-cancer/screening" class="sub-nav-group-header">Screening</a>
 		<ul>
-			<li><a href="/about-cancer/screening">Cancer Screening</a></li>
+			<li><a href="/about-cancer/screening/screening-overview-pdq">Cancer Screening Overview</a></li>
 			<li><a href="/about-cancer/screening/screening-tests">Screening Tests</a></li>
 		</ul>
 	</li>
@@ -49,7 +49,7 @@
 			<li><a href="/about-cancer/coping/day-to-day">Day to Day Life</a></li>
 			<li><a href="/about-cancer/coping/survivorship">Survivorship</a></li>
 			<li><a href="/about-cancer/coping/family-friends">For Family &amp; Friends</a></li>
-			<li><a href="#">Questions to Ask Your Doctor</a></li>
+			<li><a href="#">Questions to Ask About Cancer</a></li>
 		</ul>
 	</li>
 </ul>
@@ -61,7 +61,6 @@
 			<li><a href="/about-cancer/advanced-cancer/feelings">Coping With Your Feelings</a></li>
 			<li><a href="/about-cancer/advanced-cancer/planning">Planning for Advanced Cancer</a></li>
 			<li><a href="/about-cancer/advanced-cancer/caregivers">Advanced Cancer and Caregivers</a></li>
-			<li><a href="/about-cancer/advanced-cancer/questions">Questions to Ask Your Doctor About Advanced Cancer</a></li>
 
 		</ul>
 	</li>
