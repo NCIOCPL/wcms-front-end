@@ -54,15 +54,6 @@
 .cthp-intro-multimedia .image-right-medium {
 	margin-left: 0;
 }
-@media only screen and (max-width: 640px) {
-	.large-12.columns.cthp-intro-multimedia.clearfix {
-	padding-top: 0;
-	padding-bottom: 0;
-	padding-left: 0.9375em;
-}
-	
-}
-
 .cthp-content h1 {
   color: white;	
 }
@@ -97,103 +88,112 @@
     margin: 0;
     text-transform: uppercase;
 }
-.cthp-content .cthp-intro-multimedia h3 {
-    background: #198dae !important;
-}
-.cthp-content .cthp-intro-multimedia h3 span {
-    background: #0e718d !important;
-}
-.cthp-content .cthp-intro-multimedia h3.ui-state-active span {
-    color: #0e718d !important;
-	background: #fff !important;
-}
-
-
-
 .cthp-content .cthp-treatment h3 {
-    background: #2ec799 url($backgrounds + "CTHP-green-waves.jpg") repeat-x !important;
+    background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
 }
-.cthp-content .cthp-treatment h3 span {
-    background: #119f7d !important;
+.cthp-content .cthp-research h3 {
+    background: #008eb0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
 }
-.cthp-content .cthp-treatment h3.ui-state-active span {
-    color: #119f7d !important;
-		background: #fff !important;
+.cthp-content .cthp-causes h3 {
+    background: #008eb0 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
 }
-
-
-.cthp-content .cthp-research h3.ui-accordion-header {
-    background: #0886d0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x !important;
-}
-.cthp-content .cthp-research h3 span {
-    background: #036eab !important;
-}
-.cthp-content .cthp-research h3.ui-state-active span {
-    color: #036eab !important;
-	background: #fff !important;
-}
-
-
-
-.cthp-content .cthp-causes h3.ui-accordion-header {
-    background: #7f3796 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x !important;
-}
-.cthp-content .cthp-causes h3 span {
-    background: #753190 !important;
-}
-.cthp-content .cthp-causes h3.ui-state-active span {
-    color: #753190 !important;
-}
-
-
-
 .cthp-content .cthp-genetics h3 {
-    background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x !important;
+    background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
 }
-.cthp-content .cthp-genetics h3 span {
-    background: #248f92 !important;
-}
-.cthp-content .cthp-genetics h3.ui-state-active span {
-    color: #248f92 !important;
-	background: #fff !important;
-}
-
-
-
 .cthp-content .cthp-screening h3 {
-    background: #aa3d65 url($backgrounds + "CTHP-pink-triangles.jpg") repeat !important;
+    background: #008eb0 url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
 }
-.cthp-content .cthp-screening h3 span {
-    background: #9e2f54 !important;
-}
-.cthp-content .cthp-screening h3.ui-state-active span {
-    color: #9e2f54 !important;
-	background: #fff !important;
-}
-
-
-
 .cthp-content .cthp-survival h3 {
-    background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x !important;
+    background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
 }
-.cthp-content .cthp-survival h3 span {
-    background: #b77704 !important;
-}
-.cthp-content .cthp-survival h3.ui-state-active span {
-    color: #b77704 !important;
-	background: #fff !important;
-}
-
-
 .cthp-content .cthp-general h3 {
-    background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x !important;
+    background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
-.cthp-content .cthp-general h3 span {
-    background: #29768c !important;
-}
-.cthp-content .cthp-general h3.ui-state-active span {
-    color: #29768c !important;
-	background: #fff !important;
+@media only screen and (max-width: 640px) {
+	.large-12.columns.cthp-intro-multimedia.clearfix {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 0.9375em;
+	}
+	.cthp-content .cthp-intro-multimedia h3 {
+    background: #198dae !important;
+	}
+	.cthp-content .cthp-intro-multimedia h3 span {
+			background: #0e718d !important;
+	}
+	.cthp-content .cthp-intro-multimedia h3.ui-state-active span {
+		color: #0e718d !important;
+		background: #fff !important;
+	}
+	.cthp-content .cthp-treatment h3 {
+			background: #2ec799 url($backgrounds + "CTHP-green-waves.jpg") repeat-x !important;
+	}
+	.cthp-content .cthp-treatment h3 span {
+			background: #119f7d !important;
+	}
+	.cthp-content .cthp-treatment h3.ui-state-active span {
+			color: #119f7d !important;
+			background: #fff !important;
+	}
+	.cthp-content .cthp-research h3.ui-accordion-header {
+			background: #0886d0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x !important;
+	}
+	.cthp-content .cthp-research h3 span {
+			background: #036eab !important;
+	}
+	.cthp-content .cthp-research h3.ui-state-active span {
+			color: #036eab !important;
+		background: #fff !important;
+	}
+	.cthp-content .cthp-causes h3.ui-accordion-header {
+			background: #7f3796 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x !important;
+	}
+	.cthp-content .cthp-causes h3 span {
+			background: #753190 !important;
+	}
+	.cthp-content .cthp-causes h3.ui-state-active span {
+			color: #753190 !important;
+	}
+	.cthp-content .cthp-genetics h3 {
+			background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x !important;
+	}
+	.cthp-content .cthp-genetics h3 span {
+			background: #248f92 !important;
+	}
+	.cthp-content .cthp-genetics h3.ui-state-active span {
+			color: #248f92 !important;
+		background: #fff !important;
+	}
+	.cthp-content .cthp-screening h3 {
+			background: #aa3d65 url($backgrounds + "CTHP-pink-triangles.jpg") repeat !important;
+	}
+	.cthp-content .cthp-screening h3 span {
+			background: #9e2f54 !important;
+	}
+	.cthp-content .cthp-screening h3.ui-state-active span {
+			color: #9e2f54 !important;
+		background: #fff !important;
+	}
+	.cthp-content .cthp-survival h3 {
+			background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x !important;
+	}
+	.cthp-content .cthp-survival h3 span {
+			background: #b77704 !important;
+	}
+	.cthp-content .cthp-survival h3.ui-state-active span {
+			color: #b77704 !important;
+		background: #fff !important;
+	}
+	.cthp-content .cthp-general h3 {
+			background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x !important;
+	}
+	.cthp-content .cthp-general h3 span {
+			background: #29768c !important;
+	}
+	.cthp-content .cthp-general h3.ui-state-active span {
+			color: #29768c !important;
+		background: #fff !important;
+	}
 }
 /* end CTHP accordion styling rules */
 
