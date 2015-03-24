@@ -191,29 +191,29 @@
 /* BEGIN GUIDE CARDS ROW */
 .guide-card {
     margin-bottom: 1em;
-}
-.guide-card h3 {
-    font-weight: normal;
-    color: #606060;
-    font-size: 1.375em;
-    line-height: 1.272;
-}
-.guide-card .card {
-    padding: em-calc(38px 32px 34px);
-}
-.guide-card .card ul {
-    margin-bottom: 0;
-}
-.guide-card .card h2 {
-    margin-top: 0;
+    h3 {
+        font-weight: normal;
+        color: #606060;
+        font-size: 1.375em;
+        line-height: 1.272;
+    }
+    .card {
+        padding: em-calc(38px 32px 34px);
+
+        ul {
+            margin-bottom: 0;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    }
 }
 .featured-card {
     background: #dbf2f8;
-}
-.featured-card h3,
-.featured-card a,
-.featured-card a.arrow-link-white {
-    color: #2f2f2f;
+
+    h3, a, a.arrow-link-white {
+        color: #2f2f2f;
+    }
 }
 a.arrow-link {
     background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
@@ -222,6 +222,12 @@ a.arrow-link {
     display: block;
     color: #606060;
     text-decoration: none;
+
+    &:hover, &:focus {
+        background-image: url($buttons + "small-red-circle-arrow.png");
+        color: #bd153c;
+        text-decoration: none;
+    }
 }
 a.arrow-link-white {
     background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
@@ -230,12 +236,10 @@ a.arrow-link-white {
     display: block;
     color: #606060;
     text-decoration: none;
-}
-a.arrow-link:hover, a.arrow-link:focus,
-a.arrow-link-white:hover, a.arrow-link-white:focus {
-    background-image: url($buttons + "small-red-circle-arrow.png");
-    color: #bd153c;
-    text-decoration: none;
+
+    &:hover, &:focus {
+        @extend a.arrow-link:hover;
+    }
 }
 a.learn-more {
     margin-top: 1em;
@@ -247,9 +251,10 @@ a.learn-more {
     padding-right: 0;
     width: 2.5em;
     height: 2.3em;
-}
-.card ul.cancer-types li a:hover, .card ul.cancer-types li a:focus {
-    color: #bb0e3d;
+
+    a:hover, a:focus {
+        color: #bb0e3d;
+    }
 }
 /* END GUIDE CARDS ROW */
 
@@ -259,12 +264,12 @@ a.learn-more {
     background: white;
     padding-top: 1em;
     padding-bottom: 1em;
-}
-.card-thumbnail h3 {
-    font-weight: normal;
-}
-.card-thumbnail img {
-    margin-top: 1em;
+    h3 {
+        font-weight: normal;
+    }
+    img {
+        margin-top: 1em;
+    }
 }
 /* END THUMBNAIL CARDS ROW */
 
@@ -285,6 +290,12 @@ a.learn-more {
             font-weight: normal;
             line-height: 1.272;
             color: #186e88;
+        }
+
+        &:hover {
+            h3 {
+                color: $cranberry;
+            }
         }
     }
 }
