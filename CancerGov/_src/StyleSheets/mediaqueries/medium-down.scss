@@ -237,6 +237,7 @@
     // This is necessary to make the suggested search terms match the spec.
     .ui-autocomplete {
         font-size: 2em;
+        z-index: 99999; // this is so that the autocomplete is never covered by another elem.
     }
 
         /* Move nav off screen, setup transitions */
