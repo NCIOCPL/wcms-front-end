@@ -100,7 +100,7 @@ jQuery(document).ready(function(jQuery) {
 
     /*** BEGIN mobile nav ("off-canvas flyout functionality") ***/
     (function($) {
-		NCI.Nav.init();
+        NCI.Nav.init();
         NCI.Search.init();
     })(jQuery);
     /*** END mobile nav ***/
@@ -185,34 +185,14 @@ jQuery(document).ready(function(jQuery) {
     })(jQuery);
     /*** END Site-Wide Search ***/
 
-    /*** BEGIN Font Resizer
+    /*** BEGIN Page Options
      * This functions the font resizer.
      ***/
+     // MOVED TO NCI.PageOptions.FontResizer.js
     (function($) {
-        /* font resizer */
-
-        var originalFontSize = $("body").css('font-size'); // find the body's original size
-
-        $(".po-font-resize a").click(function(e){ // click font resizer button
-            e.preventDefault(); //prevent linking
-			var currentFontSizeM = $(".resize-content").css('font-size'); // returns 16px, 19px, 23px, 28px, 34px
-            var currentFontSizeNumM = parseFloat(currentFontSizeM, 10); // returns 16, 19, 23, 28, 34
-            if (currentFontSizeNumM < 30 ) {
-                var newFontSizeM = currentFontSizeNumM*1.2;
-                $(".resize-content").css('font-size', newFontSizeM);
-            } else {
-                $(".resize-content").css('font-size', originalFontSize);
-            }
-            equalHeights();
-            return false;
-        });
-
-        $(".po-print a").click(function(e) { 
-            e.preventDefault();
-            window.print(); 
-        });
+        NCI.PageOptions.init();
     })(jQuery);
-    /*** END Font Resizer **/
+    /*** END Page Options **/
 
     /*** BEGIN table toggling
      * This allows for toggling between tables.
@@ -337,79 +317,79 @@ jQuery(document).ready(function(jQuery) {
     })(jQuery);
     /*** END form controls ***/
 
-	/*** BEGIN accordionizer ***/
-	(function($) {
-		var targets = {
-			//'selector' : 'header'
-			'.accordion' : 'h2',
-			'#nvcgRelatedResourcesArea' : 'h6',
-			'#cgvCitationSl' : 'h6',
-			'.cthp-content' : 'h3'
-		};
-		var targetsSelector = Object.keys(targets).join(', ');
-		var targetsBuiltAccordion = [],
-				targetsHeader = [],
-				accordion;
+    /*** BEGIN accordionizer ***/
+    (function($) {
+        var targets = {
+            //'selector' : 'header'
+            '.accordion' : 'h2',
+            '#nvcgRelatedResourcesArea' : 'h6',
+            '#cgvCitationSl' : 'h6',
+            '.cthp-content' : 'h3'
+        };
+        var targetsSelector = Object.keys(targets).join(', ');
+        var targetsBuiltAccordion = [],
+                targetsHeader = [],
+                accordion;
 
-		for(var target in targets) {
-			if(targets.hasOwnProperty(target)) {
-				targetsBuiltAccordion.push(target + '.ui-accordion');
-				targetsHeader.push(target + ' ' + targets[target]);
-			}
-		}
-		var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(', ');
-		var targetsHeaderSelector = targetsHeader.join(', ');
+        for(var target in targets) {
+            if(targets.hasOwnProperty(target)) {
+                targetsBuiltAccordion.push(target + '.ui-accordion');
+                targetsHeader.push(target + ' ' + targets[target]);
+            }
+        }
+        var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(', ');
+        var targetsHeaderSelector = targetsHeader.join(', ');
 
-		function accordionize() {
-			/* determine window width */
-			var width = window.innerWidth || $(window).width();
+        function accordionize() {
+            /* determine window width */
+            var width = window.innerWidth || $(window).width();
 
-			/* If the width is less than or equal to 640px (small screens)
-			 * AND if the accordion(s) isn't (aren't) already built */
-			if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
-				// verify that the accordion will build correctly
-				$('.accordion h2').each(function() {
-					if($(this).nextAll().length > 1) {
-						$(this).nextUntil('h2').wrapAll('<div class="clearfix"></div>');
-					}
-				});
+            /* If the width is less than or equal to 640px (small screens)
+             * AND if the accordion(s) isn't (aren't) already built */
+            if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
+                // verify that the accordion will build correctly
+                $('.accordion h2').each(function() {
+                    if($(this).nextAll().length > 1) {
+                        $(this).nextUntil('h2').wrapAll('<div class="clearfix"></div>');
+                    }
+                });
 
-				for(accordion in targets) {
-					if(targets.hasOwnProperty(accordion)) {
-						NCI.doAccordion(accordion, {'header': targets[accordion]});
-					}
-				}
+                for(accordion in targets) {
+                    if(targets.hasOwnProperty(accordion)) {
+                        NCI.doAccordion(accordion, {'header': targets[accordion]});
+                    }
+                }
 
-				// after all accordions have been built, add appropriate odd/even classes to the accordion headers
-				var builtAccordionHeaders = $('.ui-accordion-header');
-				console.log(builtAccordionHeaders);
-				for(var i = 1; i <= builtAccordionHeaders.length; i++) {
-					if(i % 2 === 0) {
-						builtAccordionHeaders.get(i-1).className += ' ' + 'even';
-					} else {
-						builtAccordionHeaders.get(i-1).className += ' ' + 'odd';
-					}
-				}
+                // after all accordions have been built, add appropriate odd/even classes to the accordion headers
+                var builtAccordionHeaders = $('.ui-accordion-header');
+                console.log(builtAccordionHeaders);
+                for(var i = 1; i <= builtAccordionHeaders.length; i++) {
+                    if(i % 2 === 0) {
+                        builtAccordionHeaders.get(i-1).className += ' ' + 'even';
+                    } else {
+                        builtAccordionHeaders.get(i-1).className += ' ' + 'odd';
+                    }
+                }
 
-				/* else, the window must be large */
-			} else if(width > 640) {
-				for(accordion in targets) {
-					if(targets.hasOwnProperty(accordion)) {
-						NCI.undoAccordion(accordion, {'header': targets[accordion]});
-					}
-				}
-			}
-		};
+                /* else, the window must be large */
+            } else if(width > 640) {
+                for(accordion in targets) {
+                    if(targets.hasOwnProperty(accordion)) {
+                        NCI.undoAccordion(accordion, {'header': targets[accordion]});
+                    }
+                }
+            }
+        };
 
-		$(window).on('resize', function() {
-			accordionize()
-		});
+        $(window).on('resize', function() {
+            accordionize()
+        });
 
-		accordionize();
-	})(jQuery);
-	/*** END accordionizer ***/
+        accordionize();
+    })(jQuery);
+    /*** END accordionizer ***/
 
-	// Run this script to dynamically generate an "On This Page" block at the top of the page if it's specified the HTML
-	// TODO: move this to a different location when cleaning up the JavaScript for a future release.
-	NCI.buildOTP();
+    // Run this script to dynamically generate an "On This Page" block at the top of the page if it's specified the HTML
+    // TODO: move this to a different location when cleaning up the JavaScript for a future release.
+    NCI.buildOTP();
 });
