@@ -272,8 +272,9 @@ a.learn-more {
     }
 }
 @media only screen and (min-width: 1024px) {
-.card-thumbnail {
-    padding-left: 6px; // OCEPROJECT-2634
+    .card-thumbnail {
+        padding-left: 6px; /* OCEPROJECT-2634 */
+    }
 }
 /* END THUMBNAIL CARDS ROW */
 
