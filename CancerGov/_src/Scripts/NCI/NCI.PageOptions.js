@@ -5,7 +5,6 @@ NCI.PageOptions = {
         this.FontResizer.init();
         this.Print.init();
     },
-    FontResizer: NCI.PageOptions.FontResizer || {},
     Print: {
         init: function() {
             $(".po-print a").click(this.click);
