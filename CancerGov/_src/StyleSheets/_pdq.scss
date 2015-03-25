@@ -226,7 +226,7 @@ form .row .view-content-for-container {
 .ct-results-top-search-options {
     margin-top: 30px
 }
-.show-criteria-link a:after {
+%criteria-link {
     content: " ";
     background: url($icons + "nci-sprite.png") no-repeat -460px -186px;
     display: inline-block;
@@ -237,11 +237,14 @@ form .row .view-content-for-container {
     margin-bottom: 2px;
     padding: 0 10px;
 }
+.show-criteria-link a:after {
+    @extend %criteria-link;
+}
 .hide-criteria-link {
     border-bottom: 1px solid #bdbdbd;
 
     a:after {
-        @extend: .show-criteria-link a:after;
+        @extend %criteria-link;
         background-position: -488px -186px;
     }
 }
