@@ -226,19 +226,24 @@ form .row .view-content-for-container {
 .ct-results-top-search-options {
     margin-top: 30px
 }
+.show-criteria-link a:after {
+    content: " ";
+    background: url($icons + "nci-sprite.png") no-repeat -460px -186px;
+    display: inline-block;
+    position: relative;
+    width: 8px;
+    height: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    padding: 0 10px;
+}
 .hide-criteria-link {
     border-bottom: 1px solid #bdbdbd;
-        a:after {
-            background: url($icons + "nci-sprite.png") no-repeat -488px -186px; width: 8px; height: 5px;
-        }
-}
-.show-criteria-link {
-        a:after {
-            background: url($icons + "nci-sprite.png") no-repeat -460px -186px; width: 8px; height: 5px;
-        }
-}
-.hide-criteria-link a, .show-criteria-link a {
-    padding: 0 10px;
+
+    a:after {
+        @extend: .show-criteria-link a:after;
+        background-position: -488px -186px;
+    }
 }
 .clinicaltrials-results-criteria-display {
     padding: 5px 10px;
