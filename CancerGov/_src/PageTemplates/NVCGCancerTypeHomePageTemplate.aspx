@@ -3,14 +3,14 @@
 <div class="main-content" id="content">
 <!-- slots -->
 <div class="row">
-	<div class="large-12 columns">
+	<div class="large-12 columns cthp-padding">
 		<NCI:TemplateSlot ID="cgvSlBreadcrumb" CssClass="medium-8 columns bcrumbs cthp-breadcrumb" runat="server" />
 	</div>
 	<!-- END "row" -->
 </div>
 <div class="cthp-content" id="content" tabindex="0">
 	<div class="row">
-		<div class="large-12 columns resize-content">
+		<div class="large-12 columns resize-content cthp-padding">
 			<!--(bake Includes/PageTitle.inc)-->
 			<!--(bake Includes/PageOptions-Inner.inc)-->
 			<!-- Body slot -->
