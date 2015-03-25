@@ -26,9 +26,6 @@
         content: $circle-arrow-blue-small;
     }
 }
-.cthp-breadcrumb {
-	padding-left: 0;
-}
 .cthp-content {
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 350px;
 }
@@ -108,6 +105,14 @@
 }
 .cthp-content .cthp-general h3 {
     background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
+}
+@media only screen and (min-width: 1025px) {
+	.cthp-breadcrumb {
+		padding-left: 0;
+	}
+	.cthp-padding { 
+		padding-left: em-calc(8px);
+	}
 }
 @media only screen and (max-width: 640px) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
