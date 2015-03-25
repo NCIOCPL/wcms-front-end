@@ -711,26 +711,39 @@ $(function() {
                            .wrapAll("<div class='accordion'></div>");
 
 
-  // Set the URL for the link for printing to the JS-window.print()
-  // This will print just the text that's currently viewed.
-  // --------------------------------------------------------------
-  // This is now done in all.js
-  //$("li.po-print a").attr("href", "javascript:window.print()");
-
-  // Set the meta-tag for 'og:url' to
-  
   // Temporarily reset the URL for the email/facebook/etc. buttons
   // Only attempt the replace if the print button exists on the page
   // ---------------------------------------------------------------
   var urlEmail = $("li.po-email a").attr("href");
-  var newEmailUrl = urlEmail.replace(/docurl=.*&language/i, 
+
+  //// Aarti will add a meta-tag to the PP output that could then be
+  //// used instead of the urlEmail to test against PP
+  //var ppx = $('meta[name="publishpreview"]');
+  //console.log(ppx);
+
+  // PublishPreview doesn't include the print/email/etc. buttons
+  if ( urlEmail ) {
+     pp = false
+  }
+  else {
+     pp = "true"
+  }
+  if ( !pp ) {
+      var newEmailUrl = urlEmail.replace(/docurl=.*&language/i, 
                                      'docurl=#&language');
+  }
+  
+  // Set the meta-tag for 'og:url' to
   var currentDoc = $('meta[property="og:url"]').attr('content');
   var fullDoc = $('meta[name="page"]').attr('content');
   if (!fullDoc || 0 === fullDoc.length) {
       fullDoc = currentDoc;
   }
-  fullDoc.replace(/http:\/\/.*\//, '/');
+  // PublishPreview doesn't include the print/email/etc. buttons
+  if ( !pp ) {
+      // Replace absolute to relative links
+      fullDoc.replace(/http:\/\/.*\//, '/');
+  }
   //var urlFacebook = $("li.po-facebook a").attr("href");
   //var urlTwitter = $("li.po-twitter a").attr("href");
   //var urlGooglePlus = $("li.po-googleplus a").attr("href");
@@ -740,11 +753,10 @@ $(function() {
   // Don't do this if we don't have the buttons available, i.e. 
   // for PublishPreview
   // -------------------------------------------------------------------
-  if ( urlEmail ) {
+  if ( !pp ) {
       if ($('meta[name="content-language"]').attr('content') == 'en' ) {
           var thisSection = $('section.show').attr('id');
           var openSections = $('section.show');
-          //console.log(openSections.length);
           if (openSections.length > 1) {
               newEmailUrl.replace('#', fullDoc+
                                           '%23section%2fall&language');
@@ -773,8 +785,6 @@ $(function() {
       else {
           var newEmailUrl = urlEmail.replace('&language', '#email&language');
       }
-      //console.log(newEmailUrl);
-      // $("li.po-email a").attr("href", newEmailUrl);
   }
 
 // Section to setup re-routing of URLs
@@ -797,10 +807,6 @@ routie({
         // ---------------------------------------------------------
         var currentDoc = $('meta[property="og:url"]').attr('content');
         var fullDoc = $('meta[name="page"]').attr('content');
-        //console.log('current:');
-        //console.log(currentDoc);
-        //console.log('full:');
-        //console.log(fullDoc);
 
         // Saving the document URL if it doesn't exist yet this makes
         // it easier to create the new current URL
@@ -856,10 +862,6 @@ routie({
 
             $('meta[property="og:url"]').attr('content', fullDoc+'#section/'
                                                                 +sid);
-  //var urlEmail = $("li.po-email a").attr("href");
-  //            var newEmailUrl = urlEmail.replace('&language', 
-  //                                 '%23section%2f'+thisSection+'&language');
-  //    $("li.po-email a").attr("href", newEmailUrl);
           }
     },
     'link/:rid': function(rid) {
@@ -881,16 +883,6 @@ routie({
         $("[tabindex='1']").removeAttr("tabindex");
         $("#"+rid).attr("tabindex", 1).focus();
 
-        // According to Bryan positioning the link target below the 
-        // sticky menu is not part of this story
-        // ------------------------------------------------------------
-        // var myPos = Math.floor( $("div.nav-search-bar").position().top);
-        // var myHeight = Math.floor( $("div.nav-search-bar").height() );
-        // console.log("dada3");
-        // console.log(myPos);
-        // console.log(myHeight);
-        // $("#"+rid)[0].scrollIntoView();
-        // document.body.scrollTop -= myPos//+myHeight;
     },
     'cit/:cid': function(cid) {
         // Hide all open sections
@@ -913,27 +905,16 @@ routie({
     // ----------------------------------------------------------
     ':lid': function(lid) { 
         if ( lid == 'print' || lid == 'imprimir') {
-            //console.log('call routie-print');
-            //window.print();
             var thisSection = $('section.show').attr('id');
             var openSections = $('section.show');
-            //console.log(openSections.length);
-            //if (openSections.length > 1) {
-            //    routie('section/all');
-            //}
-            //else {
-            //    routie('section/'+thisSection);
-            //}
         }
         else {
             var goodLink = $("#"+lid);
             var citLink = $("li[id='"+lid+"']");
-            //console.log('goodLink');
             if ( goodLink.length == 0 && citLink.length == 0 ) {
                 routie ('section/all');
             }
             else {
-                //console.log(lid.substring(0,7));
                 if ( lid.substring(0, 8) == 'section_' ) {
                     routie ('cit/'+lid); 
                 }
