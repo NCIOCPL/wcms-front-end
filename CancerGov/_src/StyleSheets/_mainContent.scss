@@ -187,15 +187,18 @@ ol {
 .contentzone ul {
     & > li {
         list-style-type: none;
-        position: relative;
         &:before {
             content: "\2022";
             display: inline;
-            position: absolute;
+            position: relative;
             left: -0.5em;
             top: -0.05em;
             margin: 0 -0.2em;
             font-size: 1.1em;
+        }
+
+        p:first-child() {
+            display: inline;
         }
     }
 }
