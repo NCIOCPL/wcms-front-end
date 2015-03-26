@@ -1,15 +1,15 @@
 /********************* BEGIN Header Styles ******************************************/
+// desktop (general)
 header {
     padding-top: 1em;
     @include font-montserrat;
     background: #fcfcfa;
 }
-// desktop (general)
 .nci-logo {
-    font-weight: bold;
-    line-height: 0.8;
-    background: url($logos + "NIH-red-logo.png") no-repeat 5px 0;
-    font-size: 30px;
+	font-weight: bold;
+	line-height: 0.8;
+	font-size: 30px;
+	background: url($logos + "NIH-red-logo.png") no-repeat 5px 0;
 	min-height: 54px;
 
 	&.columns {
@@ -20,39 +20,44 @@ header {
 	a {
 		color: #bb0e3d;
 		padding-left: 100px;
+		padding-top: 16px;
 		display: block;
 
 		span {
+			display: none;
 			color: #5d5d5d;
 			font-size: 0.6em;
 		}
 	}
 }
+
 // desktop-only
 @media only screen and (min-width: 1025px) {
 	header {
 		padding-top: 1.7em;
 	}
 }
+
 // tablet
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
     .nci-logo {
 		background-image: url($logos + "NIH-red-logo-tablet.png");
 		font-size: 24px;
-		min-height: 47px;
+		min-height: 36px;
 
 		a {
 			padding-left: 90px;
 		}
 	}
 }
+
 // smartphone
 @media only screen and (max-width: 640px) {
 	.nci-logo {
 		background-image: url($logos + "NIH-red-logo-smartphone.png");
 		font-size: 16px;
 		line-height: 1.1;
-		min-height: 35px;
+		min-height: 28px;
 
 		a {
 			padding-left: 70px;
@@ -63,5 +68,70 @@ header {
 		}
 	}
 }
+
+// x-small 
+@media only screen and (max-width: 390px) {
+	.nci-logo {
+		font-size: 13px;
+	}
+}
+
+
+/* begin mobile menu bar styles */
+// smartphone + tablet
+@media only screen and (max-width: 1024px) {
+	.navigation {
+	}
+	.mobile-menu-bar {
+		margin-top: 0.5em;
+	}
+	.mobile-menu-bar h2 {
+		padding-top: 35px;
+	}
+	.nav-search-bar {
+		line-height: 0;
+	}
+	$mobile-menu-color: #fff;
+	.nav-header,
+	.nav-contact,
+	.nav-dictionary,
+	.nav-search {
+		float: left;
+		font-size: .8em;
+		color: $mobile-menu-color;
+		padding: 2em 0 0 0;
+		width: 24%;
+		text-align: center;
+		background: transparent no-repeat center 0;
+
+		a {
+			color: $mobile-menu-color;
+		}
+	}
+	.nav-header {
+		background-image: url($icons + "menu-icon.png");
+	}
+	.nav-contact {
+		background-image: url($icons + "phone-mobile.png");
+	}
+	.nav-dictionary {
+		background-image: url($icons + "dictionary-mobile.png");
+	}
+	.nav-search {
+		background-image: url($icons + "search-mobile.png");
+	}Ra
+}
+
+// x-small 
+@media only screen and (max-width: 390px) {
+    .nav-header,
+    .nav-contact,
+    .nav-dictionary,
+    .nav-search {
+        font-size: .5em;
+        padding: 3.2em 0 0 0;
+    }
+}
+/* end mobile menu styles */
 /********************* END Header Styles ******************************************/
 

@@ -539,59 +539,7 @@
                 width: 100%;
                 z-index: 998;
         }
-        /*** END Section Nav Styles ***/
-        header {
-                padding: 1em 0;
-        }
-        .language-bar {
-                background: #2a71a5;
-                color: white;
-        }
-        .sitewide-language a {
-                color: white;
-        }
-        /* begin mobile menu styles */
-        .navigation {
-        }
-        .mobile-menu-bar {
-                margin-top: 0.5em;
-        }
-        .mobile-menu-bar h2 {
-                padding-top: 35px;
-        }
-        .nav-search-bar {
-                line-height: 0;
-        }
-        $mobile-menu-color: #fff;
-        .nav-header,
-        .nav-contact,
-        .nav-dictionary,
-        .nav-search {
-                float: left;
-                font-size: .8em;
-                color: $mobile-menu-color;
-                padding: 2em 0 0 0;
-                width: 24%;
-                text-align: center;
-
-                a {
-                        color: $mobile-menu-color;
-                }
-        }
-        .nav-header {
-                background: transparent url($icons + "menu-icon.png") no-repeat center 0;
-        }
-        .nav-contact {
-                background: transparent url($icons + "phone-mobile.png") no-repeat center 0;
-        }
-        .nav-dictionary {
-                background: transparent url($icons + "dictionary-mobile.png") no-repeat center 0;
-        }
-        .nav-search {
-                background: transparent url($icons + "search-mobile.png") no-repeat center 0;
-        }
-        /* end mobile menu styles */
-
+        
         /* begin carousel styles */
 @import "_carousel-mediumdown";
         /* end carousel styles */
