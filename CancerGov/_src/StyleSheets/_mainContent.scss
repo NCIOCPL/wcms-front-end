@@ -172,19 +172,26 @@ ol {
     }
 }
 .contentzone ul,
-.contentzone ol {
+.contentzone ol,
+.rawHtml ul,
+.rawHtml ol {
     margin-bottom: 1em;
 }
-.contentzone li {
+.contentzone li,
+.rawHtml li {
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
     margin-left: 2em;
 }
 .contentzone ul.no-bullets > li,
-.contentzone ol.no-bullets > li {
+.contentzone ol.no-bullets > li,
+.rawHtml ul.no-bullets > li,
+.rawHtml ol.no-bullets > li {
     margin-bottom: 0.25em;
     margin-left: 0;
 }
-.contentzone ul {
+.contentzone ul,
+.rawHtml ul {
     & > li {
         list-style-type: none;
         &:before {
