@@ -154,6 +154,7 @@
     margin-bottom: 30px;
 }
 .slick-dots {
+    $dotBlue: #2A72A5;
     list-style: none;
     display: block;
     text-align: center;
@@ -176,10 +177,10 @@
             width: 20px;
             background-color: $white;
             border-radius: 50%;
-            border-top-color: $teal;
-            border-left-color: $teal;
-            border-bottom-color: $teal;
-            border-right-color: $teal;
+            border-top-color: $dotBlue;
+            border-left-color: $dotBlue;
+            border-bottom-color:$dotBlue;
+            border-right-color: $dotBlue;
             border-width: 0px;
             outline: none;
             line-height: 0;
@@ -197,7 +198,7 @@
                 position: absolute;
                 display: block;
                 content: " ";
-                border: 3px solid #2BA6CB;
+                border: 3px solid $dotBlue;
                 top: 0;
                 left: 0;
             }
@@ -207,12 +208,12 @@
             }
 
             &:active, &:focus {
-                background-color: $teal;
+                background-color: $dotBlue;
             }
         }
 
         &.slick-active button {
-            background: $teal;
+            background: $dotBlue;
         }
 
             
