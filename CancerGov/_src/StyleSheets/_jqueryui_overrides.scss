@@ -95,21 +95,21 @@ $ui-selectmenu-maxitems: 7;
     }
     .ui-state-focus {
         color: #fff;
-        background: #bb0e3d;
+        background: $lcranberry;
     }
 }
 
 /* autocomplete */
 .ui-autocomplete {
-    opacity: 0.9;
 
     .ui-menu-item {
+        background-color: $beige;
+        background-color: rgba($beige, 0.9);
         color: #606060;
-        background-color: #fff;
     }
     .ui-state-focus {
         color: #fff;
-        background: #bb0e3d;
+        background: $lcranberry;
     }
 }
 
@@ -144,10 +144,9 @@ line-height: inherit;
 @media only screen and (max-width: 1024px) {
     .ui-autocomplete {
         height: 100%; 
-        background-color: #EAEAE8;
+        background-color: $beige;
 
         .ui-menu-item {
-            background-color: #EAEAE8;
             border-bottom: 1px solid #606060;
             padding-right: 3em;
         }
