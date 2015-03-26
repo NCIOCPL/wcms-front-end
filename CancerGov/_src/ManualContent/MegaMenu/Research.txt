@@ -1,6 +1,6 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="/research/nci-role" class="sub-nav-group-header">How Cancer Research Works</a>
+	<li><a href="/research/nci-role" class="sub-nav-group-header">NCI's Role in Cancer Research</a>
 		<ul>
 			<li><a href="/research/nci-role/extramural">Extramural Research</a></li>
 			<li><a href="/research/nci-role/intramural">Intramural Research</a></li>
@@ -18,13 +18,13 @@
 			<li><a href="/research/areas/genomics">Cancer Genomics</a></li>
 			<li><a href="/research/areas/causes">Causes of Cancer</a></li>
 			<li><a href="/research/areas/clinical-trials">Clinical Trials</a></li>
-			<li><a href="/research/areas/diagnosis">Diagnosis &amp; Treatment</a></li>
-			<li><a href="/research/areas/global-health">Global Health</a></li>
-			<li><a href="/research/areas/disparities">Health Disparities</a></li>
-			<li><a href="/research/areas/prevention">Prevention</a></li>
-			<li><a href="/research/areas/public-health">Public Health &amp; Cancer</a></li>
+			<li><a href="/research/areas/diagnosis">Diagnosis</a></li> 			<li><a href="/research/areas/prevention">Prevention</a></li>
 			<li><a href="/research/areas/screening">Screening &amp; Early Detection</a></li>
-		</ul>
+			<li><a href="/research/areas/treatment">Treatment</a></li>
+			<li><a href="/research/areas/public-health">Public Health &amp; Cancer</a></li>
+			<li><a href="/research/areas/global-health">Global Health</a></li>
+			<li><a href="/research/areas/disparities">Cancer Health Disparities</a></li>
+	</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
@@ -49,10 +49,10 @@
 <ul class="sub-nav-group">
 	<li><a href="#" class="sub-nav-group-header">Progress</a>
 		<ul>
-			<li><a href="/research/progress/snapshots">Cancer Snapshots</a></li>
-			<li><a href="/research/">Statistical Trends</a></li>
 			<li><a href="/research/progress/discovery">Stories of Discovery</a></li>
-			<li><a href="/research/">Cancer Advances Timeline</a></li>
+			<li><a href="/research/progress/snapshots">Cancer Snapshots</a></li>
+			<li><a href="/research/arn">Annual Report to the Nation</a></li>
+			<li><a href="/research/progress/250-years-advances">Cancer Advances Timeline</a></li>
 		</ul>
 	</li>
 </ul>
