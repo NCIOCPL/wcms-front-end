@@ -7,9 +7,10 @@
     margin-bottom: 1em;
     padding-left: 0;
     padding-right: 0;
-    -webkit-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    $shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
 }
 .hero-inner-page {
     position: relative;
@@ -21,138 +22,150 @@
     position: absolute;
     top: 49px;
     left: 90px;
-    color: white;
+    color: $white;
     width: 23%;
     font-size: 1.55em;
     font-weight: bold;
-}
-.hero-text p {
-    line-height: 1.1;
-    top-margin: 0.7em;
-    font-weight: bold;
-}
-.hero-text a {
-    color: white;
-}
-.hero-text a:hover, .hero-text a:focus {
-    text-decoration: none;
+
+    p {
+        line-height: 1.1;
+        top-margin: 0.7em;
+        font-weight: bold;
+    }
+
+    a {
+        color: $white;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
 }
 .hero-call-to-action {
     font-size: 18px;
     background: url($buttons + "hero-arrow.png") no-repeat center right;
     display: inline-block;
     padding-right: 1em;
-    -webkit-transition: padding-right 0.4s ease-in-out;
-    -moz-transition: padding-right 0.4s ease-in-out;
-    -ms-transition: padding-right 0.4s ease-in-out;
-    -o-transition: padding-right 0.4s ease-in-out;
-    transition: padding-right 0.4s ease-in-out;
-}
-.hero-call-to-action:hover, .hero-call-to-action:focus {
-    padding-right: 1.5em;
+    $transition: padding-right 0.4s ease-in-out;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+
+    &:hover, &:focus {
+        padding-right: 1.5em;
+    }
 }
 /* END Hero Section */
 
 /* BEGIN Featured Slick Carousel Row */
-
 .slick-dots {
     text-align: center;
 }
 /* END Featured Slick Carousel Row */
 
 /* BEGIN CARDS GENERAL RULES */
-
 .body-banner {
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
 }
+%card-link-hover {
+    &:hover, &:focus {
+        color: $lcranberry;
+        text-decoration: none;
+    }
+}
+%card-clickable {
+// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
+    .columns {
+        padding: 0;
+        a {
+            padding: em-calc(30px);
+            display: block;
+        }
+    }
+}
 /* equal height cards for desktop, visually push a div to the bottom of it's container */
-.card.equalheight > div, .card.equalheight > div > a {
-    height: 100%;
-}
-
-.card-row .card a {
-    color: #606060;
-}
 .card {
     padding-top: 1em;
-    background: white; /* for IE browsers that don't understand rgba */
-    background: rgba(255, 255, 255, 0.8);
-}
-.card a:hover, .card a:focus {
-    text-decoration: none;
-}
-.feature-secondary a:hover, .feature-secondary a:focus,
-.multimedia h3 a:hover, .multimedia h3 a:focus,
-.card-thumbnail h3 a:hover, .card-thumbnail h3 a:focus {
-    color: #bb0e3d;
-    text-decoration: none;
-}
-// default styling for Card image behavior on hover
-.card:hover .image-hover {
-    background-color: #000;
-}
-.card:hover .image-hover img {
-    opacity: 0.8;
+    background-color: $white; /* for IE browsers that don't understand rgba */
+    background-color: rgba($white, 0.8);
+
+    &:hover {
+        .image-hover {
+        // default styling for Card image behavior on hover
+            background-color: $black;
+
+            img {
+                opacity: 0.8;
+            }
+        }
+    }
+    a:hover, a:focus{
+        text-decoration: none;
+    }
+    .equalheight > div {
+        &, > a {
+            height: 100%;
+        }
+    }
+    .card-row & a {
+        color: $dgrey00;
+    }
 }
 /* END CARDS GENERAL RULES */
 
 /* BEGIN FEATURE PRIMARY CARDS ROW */
 .feature-primary {
     margin-bottom: 1em;
-}
-.feature-primary .card {
-    background: #178da9;
-}
-// featured-text is used for the funding opportunities box
-.feature-primary .featured-text {
-    padding: 15px;
-    background: white;
-    color: #186e88 !important;
-    // this is needed to overcome padding that was put in cards anchor tag
+
     a {
-        padding: 0;
-                color: #606060;
-    }
-    a:hover, a:focus {
-        color: #bb0e3d;
+        &, h3 {
+            color: $white;
+        }
     }
     h3 {
-        color: #666;
+        font-weight: normal;
+        color: $white;
+        font-size: 1.375em;
+        line-height: 1.272;
     }
     p {
-        margin-top: 1em; 
+        margin-bottom: 0;
+        font-size: em-calc(18px);
+        line-height: em-calc(21px);
     }
+    .card {
+        background: $dteal;
+    }
+    .featured-text {
+    // featured-text is used for the funding opportunities box
+        padding: 15px;
+        background: $white;
+        color: $dteal00 !important;
+        // this is needed to overcome padding that was put in cards anchor tag
+        a {
+            padding: 0;
+            color: $dgrey00;
+            @extend %card-link-hover;
+        }
+        h3 {
+            color: $dgrey00;
+        }
+        p {
+            margin-top: 1em;
+        }
+    }
+    @extend %card-clickable;
 }
-.feature-primary a,
-.feature-primary a h3 {
-    color: white;
-}
+
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
     .feature-primary a,
     .feature-primary a h3 {
     color: #186e88;
     }
-}
-.feature-primary h3 {
-    font-weight: normal;
-    color: white;
-    font-size: 1.375em;
-    line-height: 1.272;
-}
-.feature-primary p {
-    margin-bottom: 0;
-    font-size: em-calc(18px);
-	line-height: em-calc(21px);
-}
-// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
-.feature-primary .columns {
-    padding: 0;
-}
-.feature-primary .columns a {
-    padding: em-calc(30px);
-    display: block;
 }
 /* END FEATURE PRIMARY CARDS ROW */
 
@@ -160,32 +173,30 @@
 
 .feature-secondary {
     margin-bottom: 1em;
-}
-.feature-secondary .card {
-    background: white;
-}
-.feature-secondary a h3 {
-    font-weight: normal;
-    color: #186e88;
-    font-size: 1.375em;
-    line-height: 1.272;
-}
-.feature-secondary a:hover h3, 
-.feature-secondary a:focus h3 {
-    color: #bb0e3d;
-}
-.feature-secondary p {
-     margin-bottom: 0;
-    color: #606060;
-    font-size: em-calc(18px);
-}
-// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
-.feature-secondary .columns {
-    padding: 0;
-}
-.feature-secondary .columns a {
-    padding: em-calc(30px);
-    display: block;
+
+    .card {
+        background: $white;
+    }
+    a {
+        h3 {
+            font-weight: normal;
+            color: $dteal00;
+            font-size: 1.375em;
+            line-height: 1.272;
+        }
+        &:hover, &:focus {
+            h3 {
+                color: $lcranberry;
+            }
+        }
+        @extend %card-link-hover;
+    }
+    p {
+        margin-bottom: 0;
+        color: $dgrey00;
+        font-size: em-calc(18px);
+    }
+    @extend %card-clickable;
 }
 /* END FEATURE SECONDARY CARDS ROW */
 
@@ -194,7 +205,7 @@
     margin-bottom: 1em;
     h3 {
         font-weight: normal;
-        color: #606060;
+        color: $dgrey00;
         font-size: 1.375em;
         line-height: 1.272;
     }
@@ -208,12 +219,22 @@
             margin-top: 0;
         }
     }
-}
-.featured-card {
-    background: #dbf2f8;
+    .featured-card {
+        // this is the first card in the guide cards row.
+        background: #dbf2f8;
 
-    h3, a, a.arrow-link-white {
-        color: #2f2f2f;
+        h3, a, a.arrow-link-white {
+            color: #2f2f2f;
+        }
+    }
+    ul.cancer-types li {
+        background: none;
+        float: left;
+        padding-right: 0;
+        width: 2.5em;
+        height: 2.3em;
+
+        a { @extend %card-link-hover; }
     }
 }
 a.arrow-link {
@@ -221,56 +242,41 @@ a.arrow-link {
     padding-right: 2em;
     width: 100%;
     display: block;
-    color: #606060;
+    color: $dgrey00;
     text-decoration: none;
+    @extend %card-link-hover;
 
     &:hover, &:focus {
         background-image: url($buttons + "small-red-circle-arrow.png");
-        color: #bd153c;
-        text-decoration: none;
     }
 }
 a.arrow-link-white {
+    @extend a.arrow-link;
     background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
     padding-right: 1em;
-    width: 100%;
-    display: block;
-    color: #606060;
-    text-decoration: none;
-
-    &:hover, &:focus {
-        @extend a.arrow-link:hover;
-    }
 }
 a.learn-more {
     margin-top: 1em;
     /* adding padding per #OCECREATIV-783 --sjc */
-}
-.card ul.cancer-types li {
-    background: none;
-    float: left;
-    padding-right: 0;
-    width: 2.5em;
-    height: 2.3em;
-
-    a:hover, a:focus {
-        color: #bb0e3d;
-    }
 }
 /* END GUIDE CARDS ROW */
 
 /* BEGIN THUMBNAIL CARDS ROW */
 
 .card-thumbnail {
-    background: white;
+    background: $white;
     padding-top: 1em;
     padding-bottom: 1em;
     h3 {
         font-weight: normal;
+        a {
+            @extend %card-link-hover;
+        }
     }
     img {
         margin-top: 1em;
     }
+    @extend %card-clickable;
 }
 @media only screen and (min-width: 1024px) {
     .card-thumbnail {
@@ -287,7 +293,7 @@ a.learn-more {
     margin-bottom: 1em;
 
     .feature-card {
-        background: white;
+        background: $white;
         padding-bottom: 1em;
 
         h3, p, ul { padding: 0 15px; }
@@ -295,7 +301,7 @@ a.learn-more {
             font-size: 1.375em;
             font-weight: normal;
             line-height: 1.272;
-            color: #186e88;
+            color: $dteal00;
         }
 
         &:hover {
@@ -319,9 +325,18 @@ a.learn-more {
         background: none;
         opacity: 1;
 
-        a { color: #606060; }
+        a {
+            color: #606060;
+        }
+        &:hover {
+            h3 { color: $lcranberry; }
+        }
+    }
+    h3 a {
+        @extend %card-link-hover;
     }
 }
+
 @mixin call-to-action-corner() {
     text-transform: uppercase;
     position: absolute;
@@ -345,15 +360,14 @@ a.learn-more {
     transform:
         rotate($call-to-action-rotation)
         translate(0, -#{$call-to-action-max-width});
-
 }
 .multimedia-feature-card {
-    background: white;
+    background: $white;
     padding-bottom: 1em;
     position: relative;
 
     a {
-        color: #606060;
+        color: $dgrey00;
 
         &:before { @include call-to-action-corner(); }
     }
@@ -361,7 +375,7 @@ a.learn-more {
         font-size: 1.375em;
         font-weight: normal;
         line-height: 1.272;
-        color: #186e88;
+        color: $dteal00;
     }
     h3, p, ul { padding: 0 15px; }
 
@@ -384,48 +398,52 @@ a.learn-more {
     }
 }
 // these rules are to fix the autoheight problems in multimedia row
-.card > .slot-item, .multimedia-feature-card, .multimedia .feature-card {
+%autoheight-fix {
     height: 100%;
 }
-.multimedia-feature-card a, .multimedia .feature-card a {
-    display: block;
-    height: 100%;
+.multimedia-feature-card, .multimedia .feature-card {
+    @extend %autoheight-fix;
+    a {
+        display: block;
+        height: 100%;
+    }
+}
+.card > .slot-item {
+    @extend %autoheight-fix;
 }
 /* END MULIMEDIA ROW */
 
 /* BEGIN Director's Row */
 
 .directors-row {
-}
-.directors-row h3 {
-    color: white;
+    h3 {
+        color: $white;
+    }
 }
 .infographic {
     position: relative;
     /* allows for appearance of equal height cards on home page */
-    background: white;
+    background: $white;
+    figcaption {
+        padding: 0.5em 1em;
+    }
 }
 .infographic-enlarge {
     position: absolute;
     top: 0;
     right: 0;
-    color: white;
-}
-.infographic-enlarge a {
-    color: white;
-    padding: 1em 2em 1em 1em;
-    display: block;
-    background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
-}
-.infographic-enlarge a:hover, .infographic-enlarge a:focus {
-    text-decoration: none;
-    background-color: #bb0e3d;
-}
-.infographic figcaption {
-    padding: 0.5em 1em;
+    color: $white;
+
+    a {
+        color: $white;
+        padding: 1em 2em 1em 1em;
+        display: block;
+        background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+        @extend %card-link-hover;
+    }
 }
 .home-director-stories {
-    background: white;
+    background: $white;
     padding: 0.5em 1em 0.2em;
     margin-top: -10px;
 }
