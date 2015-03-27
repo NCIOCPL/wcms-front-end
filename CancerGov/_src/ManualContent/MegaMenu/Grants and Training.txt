@@ -42,7 +42,7 @@
 	<li><a href="/grants-training/training" class="sub-nav-group-header">Funding for Training</a> 
 		<ul>
 			<li><a href="/grants-training/training/at-nci">Cancer Research Training at NCI (Intramural)</a></li>
-			<li><a href="#">Opportunities for Minority Researchers</a></li>
+			<li><a href="/about-nci/organization/crchd">Opportunities for Minority Researchers</a></li>
 			<li><a href="/grants-training/training/funding">Funding for Cancer Research Training (Extramural)</a></li>
 			<li><a href="/grants-training/training/other">Other Fellowships &amp; Internships</a></li>
 			<li><a href="/grants-training/training/contacts">Training Program Contacts</a></li>
