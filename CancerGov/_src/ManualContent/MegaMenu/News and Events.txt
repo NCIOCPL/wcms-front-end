@@ -1,13 +1,13 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="/news-events" class="sub-nav-group-header">All Press Releases</a>
+	<li><a href="/news-events/press-releases" class="sub-nav-group-header">All Press Releases</a>
 		<ul>
-			<li><a href="/news-events/2015">2015</a></li>
-			<li><a href="/news-events/2014">2014</a></li>
-			<li><a href="/news-events/2013">2013</a></li>
-			<li><a href="/news-events/2012">2012</a></li>
-			<li><a href="/news-events/2011">2011</a></li>
-			<li><a href="/news-events/2010">2010</a></li>
+			<li><a href="/news-events/press-releases/2015">2015</a></li>
+			<li><a href="/news-events/press-releases/2014">2014</a></li>
+			<li><a href="/news-events/press-releases/2013">2013</a></li>
+			<li><a href="/news-events/press-releases/2012">2012</a></li>
+			<li><a href="/news-events/press-releases/2011">2011</a></li>
+			<li><a href="/news-events/press-releases/2010">2010</a></li>
 		</ul>
 	</li>
 </ul>
@@ -15,16 +15,13 @@
 	<li><a href="/news-events/media-resources" class="sub-nav-group-header">Media Resources</a>
 		<ul>
 			<li><a href="/news-events/media-resources/contacts">Media Contacts</a></li>
-			<li><a href="/news-events/media-resources/">B-Roll</a></li>
 			<li><a href="/news-events/media-resources/multicultural">Multicultural Media</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
 	<li><a href="/news-events/events" class="sub-nav-group-header">Events</a>
-		<ul>
-			<li><a href="/news-events/events/">Social Media Events</a></li>
-		</ul>
+		
 	</li>
 </ul>
 <ul class="sub-nav-group">
