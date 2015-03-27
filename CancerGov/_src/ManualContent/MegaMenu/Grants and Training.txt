@@ -27,7 +27,7 @@
 		<ul>
 			<li><a href="/grants-training/grants-management/legal">Legal Requirements</a></li>
 			<li><a href="/grants-training/grants-management/policies">Cross-Cutting Public Policies</a></li>
-			<li><a href="/grants-training/grants-management/policies/contacts">Grant Management Contacts</a></li>
+			<li><a href="/grants-training/grants-management/contacts">Grant Management Contacts</a></li>
 		</ul>
 	</li>
 	<br/><br/>
