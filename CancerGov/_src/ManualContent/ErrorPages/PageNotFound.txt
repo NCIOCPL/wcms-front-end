@@ -3,7 +3,7 @@
 <div class="large-12 columns">
 <h1>Page Not Found</h1>
 <p>
-You have entered an invalid URL or followed a link to a page that no longer exists. Please check your spellilng or return to the previous page. Follow the link below to help you find the page you were looking for.
+You have entered an invalid URL or followed a link to a page that no longer exists. Please check your spelling or return to the previous page. Follow the link below to help you find the page you were looking for.
 </p>
 <p>
 <a href="#" class="arrow-link">Cancer.gov Help</a>
@@ -13,9 +13,9 @@ You have entered an invalid URL or followed a link to a page that no longer exis
 <div class="spanish-error">
 <div class="row">
 <div class="large-12 columns">
-<h1>No Se Encontro La Pagina</h1>
+<h1>No se encontró la página</h1>
 <p>
-El URL que escribio no valido o el enlace lleva a una pagina que ya no existe. Favor de verificar lo escrito o regresar a la pagina anterior. A continuacion encontrara enlaces que peuden ayudarle a encontrar la pagina que busca.
+El URL que escribió no es válido o el enlace lleva a una página que ya no existe. Favor de verificar lo escrito o regresar a la página anterior. A continuación encontrará enlaces que pueden ayudarle a encontrar la página que busca.
 </p>
 <p>
 <a href="#" class="arrow-link">Ayuda</a>
