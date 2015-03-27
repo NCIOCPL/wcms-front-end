@@ -310,16 +310,18 @@ jQuery(document).ready(function(jQuery) {
 
 	/*** BEGIN form controls ***/
 	(function($) {
-		$('select:not([multiple])')
-			.selectmenu({
+		$('select:not([multiple])').each(function() {
+			var $this = $(this);
+			$this.selectmenu({
 				change: function(event, ui) {
-					//This calls the parent change event so that .NET dropdowns can
-					//autopostback.
+					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 					ui.item.element.change();
-				}
+				},
+				width: $this.hasClass('fullwidth') ? '100%' : null
 			})
 			.selectmenu('menuWidget')
 				.addClass('scrollable-y');
+		});
 	})(jQuery);
 	/*** END form controls ***/
 
