@@ -129,28 +129,9 @@ a.definition:hover, a.definition:focus {
 }
 
 /* BEGIN general content page styles */
-%no-bullets{
-    padding: 0;
-    & > li {
-        background: none;
-        list-style-type: none;
-        padding: 0;
-        &:before {
-            display: none;
-            content: none;
-        }
-    }
-    ul {
-        margin: 5px 0 8px;
-        & > li {
-            padding: 0 0 0 10px;
-            margin: 0 0 5px;
-        }
-    }
-}
-
 ul,
-.contentzone ul {
+.contentzone ul,
+.rawHtml ul {
     &.no-bullets {
         @extend %no-bullets;
     }
@@ -187,6 +168,7 @@ ol {
 .contentzone ol.no-bullets > li,
 .rawHtml ul.no-bullets > li,
 .rawHtml ol.no-bullets > li {
+    margin-top: 0.25em;
     margin-bottom: 0.25em;
     margin-left: 0;
 }
@@ -210,8 +192,29 @@ ol {
     }
 }
 
+%no-bullets {
+    padding: 0;
+    & > li {
+        background: none;
+        list-style-type: none;
+        padding: 0;
+        &:before {
+            display: none;
+            content: none;
+        }
+    }
+    ul {
+        margin: 5px 0 8px;
+        & > li {
+            padding: 0 0 0 10px;
+            margin: 0 0 5px;
+        }
+    }
+}
+
 .toptoc ul > li:before {
     content: none;
+    display: none;
 }
 
 table.no-bullet-padding ul {

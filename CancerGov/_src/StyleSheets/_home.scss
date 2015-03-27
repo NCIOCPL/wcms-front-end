@@ -59,12 +59,6 @@
 }
 /* END Hero Section */
 
-/* BEGIN Featured Slick Carousel Row */
-.slick-dots {
-    text-align: center;
-}
-/* END Featured Slick Carousel Row */
-
 /* BEGIN CARDS GENERAL RULES */
 .body-banner {
     max-width: 100%;
@@ -114,6 +108,13 @@
     .card-row & a {
         color: $dgrey00;
     }
+	ul {
+		@extend %no-bullets;
+
+		> li {
+			margin: 0;
+		}
+	}
 }
 /* END CARDS GENERAL RULES */
 
