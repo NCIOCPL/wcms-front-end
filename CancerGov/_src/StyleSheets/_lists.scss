@@ -52,10 +52,12 @@
 	.container {
 		display: inline-block;
 		vertical-align: top;
+		padding: 0 0 1.875em;
 
 		&.image {
 			width: 190px;
-			margin-top: 5px;
+			margin-top: 4px;
+			padding: 0 0 2.5em;
 
 			+ .container.title {
 				width: 78%;
