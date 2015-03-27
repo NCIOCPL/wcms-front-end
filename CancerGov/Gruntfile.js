@@ -159,9 +159,12 @@ module.exports = function(grunt) {
 
     // Tasks
     // We should ALWAYS define the 'default' task
-    grunt.registerTask('default', ['svn_fetch', 'sass', 'copy', 'bake:build', 'watch']);
-    grunt.registerTask('build', ['svn_fetch', 'sass', 'copy', 'uglify', 'bake:build']);
-    grunt.registerTask('force-build', ['sass', 'copy', 'uglify', 'bake:build']);
+    var tasks = ['sass', 'copy', 'uglify', 'bake:build'];
+    grunt.registerTask('force-build', tasks);
+    tasks.unshift("svn_fetch");
+    grunt.registerTask('build',tasks);
+    tasks.push("watch");
+    grunt.registerTask('default', tasks);
     // watch should run last so that it's not running over things twice
 };
 
