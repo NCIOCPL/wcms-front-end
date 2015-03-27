@@ -51,7 +51,7 @@
 		<ul>
 			<li><a href="/research/progress/discovery">Stories of Discovery</a></li>
 			<li><a href="/research/progress/snapshots">Cancer Snapshots</a></li>
-			<li><a href="/research/arn">Annual Report to the Nation</a></li>
+			<li><a href="/research/progress/arn">Annual Report to the Nation</a></li>
 			<li><a href="/research/progress/250-years-advances">Cancer Advances Timeline</a></li>
 		</ul>
 	</li>
