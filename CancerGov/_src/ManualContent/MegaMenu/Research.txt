@@ -40,14 +40,14 @@
 		</ul>
 	</li>
 	<br/><br/>
-	<li><a href="#" class="sub-nav-group-header">Research by Cancer Type</a>
+	<li><a href="/types" class="sub-nav-group-header">Research by Cancer Type</a>
 		<ul>
-			<li><a href="#">Find research about a specific cancer type</a></li>
+			<li><a href="/types">Find research about a specific cancer type</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header">Progress</a>
+	<li><a href="/research/progress" class="sub-nav-group-header">Progress</a>
 		<ul>
 			<li><a href="/research/progress/discovery">Stories of Discovery</a></li>
 			<li><a href="/research/progress/snapshots">Cancer Snapshots</a></li>
