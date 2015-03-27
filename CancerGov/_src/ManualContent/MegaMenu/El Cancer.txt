@@ -1,1 +1,76 @@
-<div class="sub-nav-group-wrapper"> <div class="sub-nav-group-subwrapper"> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">¿Qué es el cáncer?</a> <ul> <li><a href="#">Causas del cáncer</a></li> <li><a href="#">Tipos de cáncer</a></li> <li><a href="#" >Cambios en los tejidos que no son cáncer</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Causas y prevención</a> <ul> <li><a href="#" >Factores de riesgo</a></li> <li><a href="#">Aspectos generales de la prevención del cáncer</a></li> <li><a href="#" >Investigación sobre causas y prevención</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Detección</a> <ul> <li><a href="#" >Exámenes de detección del cáncer</a></li> <li><a href="#" >Exámenes de detección</a></li> <li><a href="#" >Investigación sobre exámenes de detección</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Diagnóstico y estadificación</a> <ul> <li><a href="#" >Síntomas</a></li> <li><a href="#" >Diagnóstico</a></li> <li><a href="#" >Estadificación</a></li> <li><a href="#" >Pronóstico</a></li> <li><a href="#" >Preguntas que se pueden hacer sobre el diagnóstico y la estadificación</a></li> <li><a href="#" >Investigación sobre diagnóstico y estadificación</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Tratamiento</a> <ul> <li><a href="#" >Tipos de tratamiento</a></li> <li><a href="#" >Medicamentos contra el cáncer</a></li> <li><a href="#" >Efectos secundarios</a></li> <li><a href="#" >Medicina complementaria y alternativa</a></li> <li><a href="#" >Guía para pacientes sobre estudios clínicos</a></li> <li><a href="#" >Preguntas que se pueden hacer sobre el tratamiento</a></li> <li><a href="#" >Investigación sobre tratamiento</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Manejo y apoyo</a> <ul> <li><a href="#" >Sus sentimientos y el cáncer</a></li> <li><a href="#" >Cómo hablar sobre el cáncer</a></li> <li><a href="#" >Imagen propia y sexualidad</a></li> <li><a href="#" >Vida diaria</a></li> <li><a href="#" >Después del tratamiento</a></li> <li><a href="#" >Para familiares y amigos</a></li> <li><a href="#" >Investigación sobre manejo y apoyo</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Cáncer avanzado</a> <ul> <li><a href="#" >Toma de decisiones acerca de la atención médica y de apoyo</a></li> <li><a href="#" >Cómo hacer frente al cáncer avanzado</a></li> <li><a href="#" >Etapa final de la vida</a></li> <li><a href="#" >Preguntas que se pueden hacer sobre el cáncer avanzado</a></li> <li><a href="#" >Investigación sobre cáncer avanzado</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Asistencia para el cuidado del cáncer</a> <ul> <li><a href="#" >Búsqueda de servicios de salud</a></li> <li><a href="#" >Seguro de salud y costos económicos</a></li> <li><a href="#" >Instrucciones por adelantado</a></li> <li><a href="#" >Cómo evitar las estafas</a></li> </ul> </li> </ul> </div> </div>
+<div class="sub-nav-group-wrapper"> <div class="sub-nav-group-subwrapper"> <ul class="sub-nav-group"> 
+
+<li><a href="/espanol/cancer/que-es/" class="sub-nav-group-header">¿Qué es el cáncer?</a></li>
+</ul>
+
+<ul class="sub-nav-group">
+
+<li><a href="/espanol/cancer/causas-prevencion/" class="sub-nav-group-header">Causas y prevención</a>
+		<ul>
+			<li><a href="/espanol/cancer/causas-prevencion/riesgo">Factores de riesgo</a></li>
+			<li><a href="/espanol/cancer/causas-prevencion/genetica">Genética</a></li>
+			<li><a href="/espanol/cancer/causas-prevencion/aspectos-generales-prevencion-pdq">Aspectos generales de la prevención del cáncer</a></li>
+		</ul>
+	</li>
+
+</ul>
+<ul class="sub-nav-group">
+	<li><a href="/espanol/cancer/deteccion" class="sub-nav-group-header">Detección</a>
+		<ul>
+			<li><a href="/espanol/cancer/deteccion/aspectos-generales-deteccion-pdq">Aspectos generales de la detección del cáncer</a></li>
+			<li><a href="/espanol/cancer/deteccion/examenes-de-deteccion">Exámenes de detección del cáncer</a></li>
+		</ul>
+	</li>
+
+</ul>
+<ul class="sub-nav-group">
+	<li><a href="/espanol/cancer/diagnostico-estadificacion/" class="sub-nav-group-header">Diagnóstico y estadificación</a>
+		<ul>
+			<li><a href="/espanol/cancer/diagnostico-estadificacion/sintomas">Síntomas</a></li>
+			<li><a href="/espanol/cancer/diagnostico-estadificacion/diagnostico">Diagnóstico</a></li>
+			<li><a href="/espanol/cancer/diagnostico-estadificacion/estadificacion">Estadificación</a></li>
+			<li><a href="/espanol/cancer/diagnostico-estadificacion/pronostico</a></li>
+		</ul>
+	</li>
+</ul>
+
+<ul class="sub-nav-group">
+	<li><a href="/espanol/cancer/tratamiento/" class="sub-nav-group-header">Tratamiento</a>
+		<ul>
+			<li><a href="/espanol/cancer/tratamiento/tipos-de-tratamiento">Tipos de tratamiento</a></li>
+			<li><a href="/espanol/cancer/tratamiento/efectos-secundarios">Efectos secundarios</a></li>
+			<li><a href="/espanol/cancer/tratamiento/estudios-clinicos">Estudios clínicos</a></li>
+			<li><a href="/espanol/cancer/tratamiento/medicamentos">Medicamentos contra el cáncer</a></li>
+			<li><a href="/espanol/cancer/tratamiento/cam">Medicina complementaria y alternativa</a></li>
+		</ul>
+	</li>
+</ul>
+
+<ul class="sub-nav-group">
+	<li><a href="/espanol/cancer/sobrellevar" class="sub-nav-group-header">Cómo hacer frente al cáncer </a>
+		<ul>
+			<li><a href="/espanol/cancer/sobrellevar/sentimientos">Los sentimientos y el cáncer</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/adaptacion-al-cancer">La adaptación al cáncer</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/imagen-propia">Imagen propia y sexualidad</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/dia-a-dia">La vida día a día</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/supervivencia/">Supervivencia</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/familia-y-amigos">Para la familia y los amigos</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/preguntas">Preguntas sobre el cáncer</a></li>
+		</ul>
+	</li>
+</ul>
+
+<ul class="sub-nav-group">
+	<li><a href="/espanol/cancer/cancer-avanzado" class="sub-nav-group-header">Cáncer avanzado</a></li>
+</ul>
+
+<ul class="sub-nav-group">
+	<li><a href="/espanol/cancer/manejo-del-cancer" class="sub-nav-group-header">Manejo para atenderse el cáncer</a>
+		<ul>
+			<li><a href="/espanol/cancer/manejo-del-cancer/servicios">Localización de servicios médicos</a></li>
+			<li><a href="/espanol/cancer/manejo-del-cancer/instrucciones-adelantadas</a></li>
+			<li><a href="/espanol/cancer/manejo-del-cancer/uso-de-recursos-fidedignos">Uso de recursos fidedignos</a></li>
+		</ul>
+	</li>
+</ul>
+</div></div>
