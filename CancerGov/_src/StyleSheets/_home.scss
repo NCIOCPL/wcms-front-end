@@ -119,6 +119,9 @@
 /* END CARDS GENERAL RULES */
 
 /* BEGIN FEATURE PRIMARY CARDS ROW */
+.feature-primary .rawHtml, .feature-primary .rawHtml .featured-text {
+	height: 100%;
+}
 .feature-primary {
     margin-bottom: 1em;
 
@@ -146,10 +149,10 @@
         padding: 15px;
         background: $white;
         color: $dteal00 !important;
-        // this is needed to overcome padding that was put in cards anchor tag
+				// this is needed to overcome padding that was put in cards anchor tag
         a {
-            padding: 0;
-            color: $dgrey00;
+            padding: 0 !important; //needed to overcome specificity
+            color: #186e88;
             @extend %card-link-hover;
         }
         h3 {
@@ -157,6 +160,7 @@
         }
         p {
             margin-top: 1em;
+						margin-bottom: 0.5em;
         }
     }
     @extend %card-clickable;
@@ -171,7 +175,6 @@
 /* END FEATURE PRIMARY CARDS ROW */
 
 /* BEGIN FEATURE SECONDARY CARDS ROW */
-
 .feature-secondary {
     margin-bottom: 1em;
 
