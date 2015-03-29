@@ -1,7 +1,4 @@
-<div class="sub-nav-group-wrapper"> <div class="sub-nav-group-subwrapper"> 
-<ul class="sub-nav-group"> 
-
-
+<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
 	<li><a href="/espanol/investigacion/progreso" class="sub-nav-group-header">Progreso</a>
 		<ul>
