@@ -5,7 +5,7 @@
 			<li><a href="/research/nci-role/extramural">Extramural Research</a></li>
 			<li><a href="/research/nci-role/intramural">Intramural Research</a></li>
 			<li><a href="/research/nci-role/fnlcr">Frederick National Lab</a></li>
-			<li><a href="/research/nci-role/find-a-cancer-center">NCI-Designated Cancer Centers</a></li>
+			<li><a href="/research/nci-role/cancer-centers">NCI-Designated Cancer Centers</a></li>
 			<li><a href="/research/nci-role/partner">Partners &amp; Collaborators</a></li>
 			<li><a href="/research/nci-role/spotlight">Spotlight on Scientists</a></li>
 		</ul>
@@ -17,6 +17,7 @@
 			<li><a href="/research/areas/biology">Cancer Biology</a></li>
 			<li><a href="/research/areas/genomics">Cancer Genomics</a></li>
 			<li><a href="/research/areas/causes">Causes of Cancer</a></li>
+		       <li><a href="/research/areas/childhood">Childhood Cancer</a></li>
 			<li><a href="/research/areas/clinical-trials">Clinical Trials</a></li>
 			<li><a href="/research/areas/diagnosis">Diagnosis</a></li> 			<li><a href="/research/areas/prevention">Prevention</a></li>
 			<li><a href="/research/areas/screening">Screening &amp; Early Detection</a></li>
@@ -51,7 +52,7 @@
 		<ul>
 			<li><a href="/research/progress/discovery">Stories of Discovery</a></li>
 			<li><a href="/research/progress/snapshots">Cancer Snapshots</a></li>
-			<li><a href="/research/progress/arn">Annual Report to the Nation</a></li>
+			<li><a href="/research/progress/annual-report-nation">Annual Report to the Nation</a></li>
 			<li><a href="/research/progress/250-years-advances">Cancer Advances Timeline</a></li>
 		</ul>
 	</li>
