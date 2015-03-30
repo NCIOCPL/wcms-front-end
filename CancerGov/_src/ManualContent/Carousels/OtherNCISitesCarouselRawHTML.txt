@@ -1,7 +1,7 @@
 <!-- BEGIN Other NCI Sites slick carousel -->
 <div class="row carousel-title">
 	<div class="large-6 columns">
-		<h2>Other NCI Sites</h2>
+		<h2>NCI Divisions, Offices, and Centers</h2>
 	</div>
 	<div class="large-6 columns arrows arrows-for-other-nci-sites clearfix">
 		<button type="button" class="previous"><span class="hidden">Previous</span></button>
