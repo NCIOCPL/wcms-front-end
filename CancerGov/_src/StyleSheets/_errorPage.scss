@@ -4,7 +4,8 @@
 	background: #f7FBF8;
 	h1 {
 		color: #876EC1;
-		font-size: 4.125em;
+		font-size: em-calc(66px, 1.125*$em-base);
+		line-height: em-calc(73px, em-calc(66px, 1.125*$em-base));
 	}
 	a.arrow-link {
 		color: #876EC1;
