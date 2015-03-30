@@ -1,12 +1,13 @@
 /********** BEGIN News Page Styles ******************************************/
 a.arrow-link.news-footer {
-  width: 125px; }
+  display: inline;
+}
 
 .news-share {
   margin-bottom: 10px; }
 
 .news-share a:before {
-  background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0px;
+  background: url($icons + "nci-sprite.png") no-repeat 0 0px;
   content: " ";
   display: inline-block;
   width: 30px;
