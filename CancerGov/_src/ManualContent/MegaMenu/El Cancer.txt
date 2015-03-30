@@ -27,7 +27,7 @@
 			<li><a href="/espanol/cancer/diagnostico-estadificacion/sintomas">Síntomas</a></li>
 			<li><a href="/espanol/cancer/diagnostico-estadificacion/diagnostico">Diagnóstico</a></li>
 			<li><a href="/espanol/cancer/diagnostico-estadificacion/estadificacion">Estadificación</a></li>
-			<li><a href="/espanol/cancer/diagnostico-estadificacion/pronostico</a></li>
+			<li><a href="/espanol/cancer/diagnostico-estadificacion/pronostico">Pronostico</a></li>
 		</ul>
 	</li>
 </ul>
@@ -62,7 +62,7 @@
 	<li><a href="/espanol/cancer/manejo-del-cancer" class="sub-nav-group-header">Manejo para atenderse el cáncer</a>
 		<ul>
 			<li><a href="/espanol/cancer/manejo-del-cancer/servicios">Localización de servicios médicos</a></li>
-			<li><a href="/espanol/cancer/manejo-del-cancer/instrucciones-adelantadas</a></li>
+			<li><a href="/espanol/cancer/manejo-del-cancer/instrucciones-adelantadas">Instrucciones adelantadas</a></li>
 			<li><a href="/espanol/cancer/manejo-del-cancer/uso-de-recursos-fidedignos">Uso de recursos fidedignos</a></li>
 		</ul>
 	</li>
