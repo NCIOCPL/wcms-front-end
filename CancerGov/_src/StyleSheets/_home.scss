@@ -222,6 +222,14 @@
         h2 {
             margin-top: 0;
         }
+		a {
+			font-size: em-calc(18px);
+			line-height: em-calc(22px, 18px);
+		}
+		li {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
     }
     .featured-card {
         // this is the first card in the guide cards row.
