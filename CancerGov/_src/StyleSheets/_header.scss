@@ -24,7 +24,8 @@ header {
 		display: block;
 
 		span {
-			text-indent: -9999px;       
+			position: absolute;
+			left: -10000px;       
 			color: #5d5d5d;
 			font-size: 0.6em;
 		}
