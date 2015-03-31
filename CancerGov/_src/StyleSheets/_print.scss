@@ -19,6 +19,12 @@
 	.nci-logo a, .columns.contentzone, .cthp-content .columns {
 		padding-left: 0;
 	}
+	.nci-logo {background: none;}
+	.nci-logo a span {
+		display: block;
+		position: relative;
+		left: 0;      
+	}
 	#nvcgSlCTHPIntro .row, .cthp-card-container {
 		margin-left: 0 !important; margin-right: 0 !important;
 	}
