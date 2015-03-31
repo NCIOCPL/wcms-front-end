@@ -20,10 +20,20 @@
   margin: 0.5em 0.5em 0 0.5em;
 	float: left;
 	padding: 0.3em 0 0.6em;
+	
+	a {
+		padding-top: 1px;
+		padding-left: 80px;
+	}
 }
-.nci-logo a {
-	padding-top: 1px;
-	padding-left: 80px;
+@media screen and (min-width: 641px) {
+	.popup .nci-logo {
+  	
+		a {
+			padding-top: 1px;
+			padding-left: 95px;
+		}
+	}
 }
 .popup .caption-container {
   display: none;
