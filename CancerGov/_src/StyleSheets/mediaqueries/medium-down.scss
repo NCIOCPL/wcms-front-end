@@ -310,6 +310,9 @@
 
         /* Level Styles */
         .lvl-1, .lvl-2, .lvl-3 {
+		    a {
+                font-family: 'Montserrat', Arial;
+            }
         }
                 /* list item spacing through the hierarchy */
         .lvl-1 { // level 0 in the mocks
