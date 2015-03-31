@@ -1,47 +1,46 @@
 /****************** BEGIN Pop-ups ********************/
-
-
-
 .popup div.heading {
-    font-size: 1.0625em;
-    font-weight: bold;
-    margin: 0 0 0 2.1875em;
+  font-size: 1.0625em;
+  font-weight: bold;
+  margin: 0 0 0 2.1875em;
 }
 .popup .audioPronounceLink {
-    margin: 1.5625em 0 0 2.1875em;
+  margin: 1.5625em 0 0 2.1875em;
 }
 .audioPronounceLink .term {
-    font-weight: bold;
+  font-weight: bold;
 }
 .popup .definition {
-    margin: 1.25em 0 0 2.1875em;
+  margin: 1.25em 0 0 2.1875em;
 }
 .popup .definitionImage {
-    margin: 0 0 0 2.1875em;
+  margin: 0 0 0 2.1875em;
 }
-
 .popup .nci-logo {
-    margin: 0.5em 0.5em 0px 0.5em;
+  margin: 0.5em 0.5em 0 0.5em;
 	float: left;
 	padding: 0.3em 0 0.6em;
 }
+.nci-logo a {
+	padding-top: 1px;
+	padding-left: 80px;
+}
 .popup .caption-container {
-    display: none;
+  display: none;
 }
 .popup-close a {
-    background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -414px -256px;  
-    width: 1.1875em;  
+  background: url($icons + "nci-sprite.png") no-repeat -414px -256px;  
+  width: 1.1875em;  
 	height: 1.1875em;  
 	display: inline-block;  
 	position: relative;  
-	
 }
 .popup .popup-close {
-    float: right;
-    margin-right:  0.625em;
+  float: right;
+  margin-right:  0.625em;
 	margin-top: 0.625em;
 }
-
-.popup .CDR_audiofile { margin-left: 0.625em;}
-
+.popup .CDR_audiofile { 
+	margin-left: 0.625em;
+}
 /****************** END Pop-ups ********************/
