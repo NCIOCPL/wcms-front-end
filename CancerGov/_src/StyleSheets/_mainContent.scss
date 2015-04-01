@@ -327,7 +327,7 @@ hr.ps-divider {
     margin: 0 0.7em 0.5em 0.5em;
     float: left;
 }
-/* hidden elements */
+/* hidden elements */ 
 
 .hidden {
     position: absolute;
@@ -336,6 +336,9 @@ hr.ps-divider {
     width: 1px;
     height: 1px;
     overflow: hidden;
+}
+.hide-desktop {
+    display: none;
 }
 ::-webkit-input-placeholder {
     color: #fff;
