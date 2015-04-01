@@ -865,12 +865,18 @@ routie({
           }
     },
     'link/:rid': function(rid) {
-        // Hide all open sections
-        $(".summary-sections section.show").removeClass("show")
-                                           .addClass("hide");
-        // Find parent (top level section) of current element
-        $("#"+rid).closest("section.hide").removeClass("hide")
-                                          .addClass("show");
+        // Hide all open sections unless we are in the 'View all' section
+        if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
+        console.log('all');
+        }
+        else {
+        console.log('section');
+            $(".summary-sections section.show").removeClass("show")
+                                               .addClass("hide");
+            // Find parent (top level section) of current element
+            $("#"+rid).closest("section.hide").removeClass("hide")
+                                              .addClass("show");
+        }
         // ... and set the section navigation properly
         $("#pdq-toptoc li.selected").removeClass("selected");
         var thisSection = $("section.show").children("h2")
@@ -919,8 +925,8 @@ routie({
                     routie ('cit/'+lid); 
                 }
                 else {
-                    $("#"+lid).get(0).scrollIntoView();
-                    //routie ('link/'+lid); 
+                    //$("#"+lid).get(0).scrollIntoView();
+                    routie ('link/'+lid); 
                 }
             };
         }
