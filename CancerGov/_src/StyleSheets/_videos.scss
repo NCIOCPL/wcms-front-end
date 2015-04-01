@@ -48,13 +48,13 @@ h4.video100title {
 	margin-top:5px;
 	border-top: 1px solid #BDBDBD;
 }
-.size50 .media-caption {
+.video.size50 .media-caption {
 	font-size:11px;
 }
-.size75 .media-caption {
+.video.size75 .media-caption {
 	font-size:12px;
 }
-.size100 .media-caption {
+.video.size100 .media-caption {
 	font-size:13px;
 }
 .video-carousel-caption {
@@ -69,21 +69,30 @@ h4.video100title {
 	padding-left: 5px;
 }
 .video-carousel-caption .size75 {
-	font-size:13pt;
+	font-size: 13px;
 }
 .video-carousel-caption .size100 {
-	font-size:14pt;
+	font-size: 14px;
 }
 /* End Video Captions */
 /* Video Sizes */
-.size50 {
+.video.size50 {
 	width:45%;
 }
-.size75 {
+.video.size75 {
 	width:70%;
 }
-.size100 {
+.video.size100 {
 	width:100%;
+}
+// all videos to be 100% width from tablet to mobile
+@media only screen and (max-width: 1024px) {
+	.video.size50, .video.size75 {
+		width:100%;
+		float: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 /* End Video Sizes */
 /* Video Alignment */
