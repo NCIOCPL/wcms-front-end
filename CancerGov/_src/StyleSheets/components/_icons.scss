@@ -70,7 +70,6 @@ $icon-sitewide-search-submit-height: 16px;
 	right: 1em;
 }
 
-$icon-deletelist-bg-color: #186e88;
 .pseudo-icon-deletelist {
 	// reset general <button> styling
 	border: none;
@@ -81,13 +80,11 @@ $icon-deletelist-bg-color: #186e88;
 	margin-right: 0.5em;
 	border-radius: 1em;
 	padding: 0 0.25em;
-	background-color: $icon-deletelist-bg-color;
 
-	&:hover {
-		background-color: darken($icon-deletelist-bg-color, 10%);
-	}
-	
 	&:before {
-		content: "x";
+		content: "";
+		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
+		width: 15px;
+		height: 15px;	
 	}
 }
