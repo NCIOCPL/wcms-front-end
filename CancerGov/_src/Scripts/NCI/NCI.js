@@ -35,30 +35,30 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 *  anchor[]    (string)(jQuery selector)    Selector of the anchor to be scrolled to.
 	 *
 	 * TODO: move JS from inside "js/pdq-linking.js" to here
-	 * TODO: make this script freeze Headroom?
 	 * TODO: make this script work for mobile accordions
-	 * TODO: make this script work for PDQ deeplinks
 	 *====================================================================================================*/
 	scrollTo: function(anchor) {
-		if(anchor.indexOf('#') < 0) {
-			anchor = '#' + anchor;
+		// get the sticky nav jQuery element
+		var headerHeight = $('.fixedtotop').outerHeight();
+
+		// remove hash
+		if(anchor.indexOf('#') === 0) {
+			anchor = anchor.substring(1, anchor.length);
 		}
-		var anchorTop,
-				willFreeze = true;
+		var anchorTop = window.scrollY + headerHeight,
+			willFreeze = true;
 
 		// PDQ CIS
-		if(anchor.match(/^#section\//i)) {
+		if(anchor.match(/^section\//i)) {
 			anchorTop = 0;
 			willFreeze = false;
 		} else {
-			anchor = anchor.replace(/^#.+\//, '#');
-			anchorTop = $(anchor).offset().top;
+			anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
+			var $anchor = $(anchor);
+			if($anchor.length > 0) {
+				anchorTop = $anchor.offset().top;
+			}
 		}
-
-		// get the sticky nav jQuery element
-		var $header = $('.fixedtotop');
-		// get the sticky nav's height
-		var headerHeight = $header.outerHeight();
 
 		if(willFreeze) {
 			$('.headroom-area').addClass('frozen');
@@ -120,7 +120,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		// Get items inside div where id="cgvBody" and "data-otp-selector" attribute is not false.
 		var $otp = $("#cgvBody [data-otp-selector]");
 		$otpItems = $otp.find($otp.attr('data-otp-selector') || 'h2').not('[data-otp="false"]');
-	
+
 		// Create 'On This Page' element
 		if($otpItems.length > 0) {
 			var otpTitle;
@@ -131,7 +131,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			}
 			var otp = $("<nav>").addClass("on-this-page");
 			otp.append($("<h6>").text(otpTitle));
-			
+
 			// Create a list out of the items found by $otpItems
 			var otpList = $("<ul>");
 			var otpItem;
@@ -142,7 +142,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			}
 			otpList.appendTo(otp); // Add list to 'On This Page' nav element
 			otp.prependTo("#cgvBody > .slot-item:first"); // Add nav element inside "cgvBody" div
-		} 
+		}
 	},
 
 	/*======================================================================================================
