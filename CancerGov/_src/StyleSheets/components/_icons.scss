@@ -2,26 +2,28 @@
 // Icons
 //
 
-$text-icon-help-size: 28px;
+$text-icon-help-size: 25px;
+$text-icon-help-border-size: 2px;
 .text-icon-help,
 .main-content .text-icon-help {
-	font-size: em-calc(18px);
+	font-size: em-calc(16px);
 	line-height: 1;
 	@include font-montserrat;
 	font-weight: bold;
-	color: white;
-	background-color: #186e88;
+	color: #186e88;
+	background-color: white;
 	display: inline-block;
-	height: em-calc($text-icon-help-size, 18px);
-	width: em-calc($text-icon-help-size, 18px);
-	padding: (em-calc($text-icon-help-size, 18px) - 1em) / 2;
+	height: em-calc($text-icon-help-size, 16px);
+	width: em-calc($text-icon-help-size, 16px);
+	padding: (em-calc($text-icon-help-size, 16px) - 1em) / 2 - em-calc($text-icon-help-border-size, 16px)/2;
 	text-align: center;
-
+	border: $text-icon-help-border-size solid #186e88;
+	border-radius: 1em;
 	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
 
 	&:hover, &:focus {
-		color: white;
-		background-color: #bb0e3d;
+		color: #bb0e3d;
+		border-color: #bb0e3d;
 		text-decoration: none;
 	}
 }
@@ -85,6 +87,6 @@ $icon-sitewide-search-submit-height: 16px;
 		content: "";
 		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
 		width: 15px;
-		height: 15px;	
+		height: 15px;
 	}
 }
