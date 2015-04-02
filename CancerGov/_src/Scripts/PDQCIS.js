@@ -151,7 +151,7 @@ $(function() {
                                                //same level (e.g. h3 and 
                                                //stay on it)
 						appHTML = appHTML + "</li><li>"+ beforeTxt 
-                                          + "<span show=\""
+                                          + "<span  tabindex='0' show=\""
                                           + id + "\">" + txt 
                                           + "</span>";
 					break;
@@ -173,7 +173,7 @@ $(function() {
 			i++;
 		});
         appHTML = appHTML + "<li class='viewall'>"
-                          + "<span>"
+                          + "<span tabindex='0'>"
                           + strViewAll
                           + "</span>"
                           + "</li>";
@@ -628,6 +628,10 @@ $(function() {
   // ------------------------------------------------------------
   $("div.summary-sections").previousNext( { footer: "Prev/Next" } );
 
+  // Creating the Enlarge button for tables
+  // --------------------------------------
+  $("table.expandable-container").supersizeme( );
+
   // // Showing the previous/next section when the link is clicked
   // // Also, setting the corresponding section nav item to selected.
   // // ------------------------------------------------------------
@@ -867,10 +871,10 @@ routie({
     'link/:rid': function(rid) {
         // Hide all open sections unless we are in the 'View all' section
         if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
-        console.log('all');
+        // console.log('all');
         }
         else {
-        console.log('section');
+        // console.log('section');
             $(".summary-sections section.show").removeClass("show")
                                                .addClass("hide");
             // Find parent (top level section) of current element
