@@ -513,6 +513,7 @@ html.borderradius.generatedcontent {
     overflow: scroll;
     white-space: nowrap;
     max-height: 200px;
+		padding: 0.5em 2em 0.5em 1em;
 
     &.tall {
         max-height: none;
@@ -520,6 +521,13 @@ html.borderradius.generatedcontent {
         overflow: visible;
         overflow: initial;
     }
+		
+		p:first-child {
+			margin-top: 0;	
+		}
+		p:last-child {
+			margin-bottom: 0;	
+		}
 }
 
 @media only screen and (min-width: 1025px) {
