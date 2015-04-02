@@ -302,9 +302,10 @@ line-height: 25px;
 }
 
 /* prevent outlines on tab content */
-div[tabindex]:focus,
-p[tabindex]:focus {
-	outline: none;
+div, p, section {
+	&[tabindex]:focus{
+		outline: none;
+	}
 }
 
 /********************* END General Styles ******************************************/
