@@ -15,14 +15,12 @@
                         <!-- ********************************* BEGIN Page Content ********************************** -->
                         <article>
                             <!--(bake Includes/PublicArchiveBanner.inc)-->
-
-                            <!--(bake Includes/PageTitle.inc)-->
-
-                            <!--(bake Includes/PageOptions-Inner.inc)-->
-
-                            <NCI:TemplateSlot ID="cgvBody" runat="server" />
-                            <!--(bake includes/ArticleFooter.inc pagination="true")-->
-
+							<div class ="resize-content"> <!-- Begin resizeable area -->
+								<!--(bake Includes/PageTitle.inc)-->
+								<!--(bake Includes/PageOptions-Inner.inc)-->
+								<NCI:TemplateSlot ID="cgvBody" runat="server" />
+								<!--(bake includes/ArticleFooter.inc pagination="true")-->
+							</div> <!-- End resizeable area -->
                         </article>
                         <!-- ********************************* END Page Content ********************************** -->
                     </div> <!-- END Main -->
