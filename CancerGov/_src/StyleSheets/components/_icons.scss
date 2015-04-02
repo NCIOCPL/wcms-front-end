@@ -84,7 +84,7 @@ $icon-sitewide-search-submit-height: 16px;
 	padding: 0 0.25em;
 
 	&:before {
-		content: "";
+		content: ' ';
 		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
 		width: 15px;
 		height: 15px;
