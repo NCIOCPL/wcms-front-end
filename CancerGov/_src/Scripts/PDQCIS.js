@@ -3,7 +3,7 @@ $(function() {
 //(function($) {
   // Add the container DIV to insert the SectionNav list
   // as the first element of the DIV.summary-sections container
-  var topTocDiv = "<div id='pdq-toptoc' class='toptoc'></div>";
+  var topTocDiv = "<div id='pdq-toptoc' class='toptoc no-resize-pdq-section'></div>";
   $( ".summary-sections > section:eq( 0 )" ).before(topTocDiv);
 
   // JQuery Function: topToc()
