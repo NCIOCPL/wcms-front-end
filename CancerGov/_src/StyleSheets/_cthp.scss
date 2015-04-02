@@ -113,6 +113,9 @@
 	.cthp-padding { 
 		padding-left: em-calc(8px);
 	}
+	.cthp-content h1 {
+		margin-right: 9.5em;
+	}
 }
 @media only screen and (max-width: 640px) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
