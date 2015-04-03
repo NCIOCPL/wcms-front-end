@@ -148,6 +148,9 @@ form button,
     @include button-base;
     @include button-size;
     @include button-style;
+    -webkit-appearance: none;
+	  -moz-appearance: none;
+    appearance: none;
 
     &[type=submit],
     &.submit {
