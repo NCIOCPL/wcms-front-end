@@ -38,36 +38,59 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 * TODO: make this script work for mobile accordions
 	 *====================================================================================================*/
 	scrollTo: function(anchor) {
-		// get the sticky nav jQuery element
-		var headerHeight = $('.fixedtotop').outerHeight();
-
-		// remove hash
+		// remove initial hash
 		if(anchor.indexOf('#') === 0) {
 			anchor = anchor.substring(1, anchor.length);
 		}
-		var anchorTop = window.scrollY + headerHeight,
-			willFreeze = true;
+		var isSection = anchor.match(/^section\//i);
+		anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
 
-		// PDQ CIS
-		if(anchor.match(/^section\//i)) {
-			anchorTop = 0;
-			willFreeze = false;
-		} else {
-			anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
-			var $anchor = $(anchor);
-			if($anchor.length > 0) {
-				anchorTop = $anchor.offset().top;
+		var $anchor = $(anchor),
+			$accordionPanel = $anchor.closest('.ui-accordion-content'),
+			$accordion = $accordionPanel.closest('.ui-accordion'),
+			accordionIndex;
+
+		if($accordion.length > 0) {
+			accordionIndex = $accordion.data('ui-accordion').headers.index($accordionPanel.prev());
+		}
+
+		function doTheScroll() {
+			// get the sticky nav jQuery element
+			var headerHeight = $('.fixedtotop').outerHeight(),
+				anchorTop = window.scrollY + headerHeight,
+				willFreeze = true;
+
+			// PDQ CIS
+			if(isSection && $accordion.length === 0) {
+				anchorTop = 0;
+				willFreeze = false;
+			} else {
+				if($anchor.length > 0) {
+					anchorTop = $anchor.offset().top;
+				}
 			}
+
+			if(willFreeze) {
+				$('.headroom-area').addClass('frozen');
+			}
+			window.scrollTo(0, anchorTop - headerHeight);
+			if(willFreeze) {
+				setTimeout(function() {
+					$('.headroom-area').removeClass('frozen');
+				}, 50);
+			}
+			$accordion.off('accordionactivate');
 		}
 
-		if(willFreeze) {
-			$('.headroom-area').addClass('frozen');
-		}
-		window.scrollTo(0, anchorTop - headerHeight);
-		if(willFreeze) {
-			setTimeout(function() {
-				$('.headroom-area').removeClass('frozen');
-			}, 50);
+		if($accordion.length > 0) {
+			$accordion.on('accordionactivate', function(e) { doTheScroll(); });
+			if(!$accordionPanel.hasClass('accordion-content-active')) {
+				$accordion.accordion('option', 'active', accordionIndex);
+			} else {
+				doTheScroll();
+			}
+		} else {
+			doTheScroll();
 		}
 	},
 
@@ -157,13 +180,14 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	*
 	*====================================================================================================*/
 	doAccordion: function(target, opts) {
+		var $target = $(target);
 		var defaultOptions = {
 			heightStyle: "content",
 			header: "h2",
 			collapsible: true,
 			active: false,
 			/* override default functionality of accordion that only allows for a single pane to be open
-			* source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
+			 * original source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
 			beforeActivate: function (event, ui) {
 				var icons = $(this).accordion('option', 'icons');
 				// The accordion believes a panel is being opened
@@ -189,9 +213,13 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				// Toggle the panel's content
 				currContent.toggleClass('accordion-content-active', !isPanelSelected);
 				if (isPanelSelected) {
-					currContent.slideUp();
+					currContent.slideUp(function() {
+						$target.trigger('accordionactivate', ui);
+					});
 				} else {
-					currContent.slideDown();
+					currContent.slideDown(function() {
+						$target.trigger('accordionactivate', ui);
+					});
 				}
 
 				return false; // Cancels the default action
@@ -201,11 +229,10 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				"activeHeader": "toggle"
 			}
 		};
-		var options = $.extend({}, defaultOptions, opts || {});
+		var options = $.extend({}, defaultOptions, opts);
 
-		var $target = $(target);
 		if($target.length > 0) {
-			$(target).accordion(options);
+			$target.accordion(options);
 		}
 	},
 
