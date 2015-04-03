@@ -56,6 +56,7 @@ $icon-sitewide-search-submit-width: 16px;
 $icon-sitewide-search-submit-height: 16px;
 #sitesearch {
 	// reset general <button> styling
+	background: none;
 	border: none;
 	box-shadow: none;
 	transition: none;
@@ -74,19 +75,21 @@ $icon-sitewide-search-submit-height: 16px;
 
 .pseudo-icon-deletelist {
 	// reset general <button> styling
+	background: none;
 	border: none;
 	box-shadow: none;
+	transition: none;
 	padding: 0;
 	margin: 0;
 
 	margin-right: 0.5em;
-	border-radius: 1em;
 	padding: 0 0.25em;
 
 	&:before {
-		content: ' ';
+		content: "";
 		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
 		width: 15px;
 		height: 15px;
+		display: inline-block;
 	}
 }
