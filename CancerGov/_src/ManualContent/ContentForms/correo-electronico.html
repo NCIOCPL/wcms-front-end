@@ -6,7 +6,7 @@
 		var theresponse = '';
 
 		if (document.contactNCI.__from.value === '') {
-			saywhat += "Por favor escriba una dirección de correo electrónica válida: (p.ej. xxxxx@xxxxx.com).\n";
+			saywhat += "Por favor escriba una direcci&oacute;n de correo electr&oacute;nica v&aacute;lida: (p.ej. xxxxx@xxxxx.com).\n";
 		} else {
 			theresponse = '';
 			theresponse += CheckEmail(document.contactNCI.__from.value);
@@ -18,11 +18,11 @@
 		}
 
 		if (document.contactNCI.__email_confirm.value === '') {
-			saywhat += "Por favor escriba un correo electrónico de confirmación válido.\n";
+			saywhat += "Por favor escriba un correo electr&oacute;nico de confirmaci&oacute;n v&aacute;lido.\n";
 		}
 
 		if (email !== document.contactNCI.__email_confirm.value) {
-			saywhat += "Por favor asegúrese de que ambas direcciones de correo electrónico sean las mismas.\n";
+			saywhat += "Por favor aseg&uacute;rese de que ambas direcciones de correo electr&oacute;nico sean las mismas.\n";
 		}
 
 		if (document.contactNCI.Message.value === '') {
@@ -46,11 +46,11 @@
 		var error = '';
 		var emailFilter = /^.+@.+\..{2,3}$/;
 		if (!(emailFilter.test(strng))) {
-			error = "Por favor escriba una dirección de correo electrónica válida.\n";
+			error = "Por favor escriba una direcci&oacute;n de correo electr&oacute;nica v&aacute;lida.\n";
 		} else {
 			var illegalChars = /[\(\)\,\;\:\\\"\[\]]/;
 			if (strng.match(illegalChars)) {
-				error = "Por favor escriba una dirección de correo electrónica válida.\n";
+				error = "Por favor escriba una direcci&oacute;n de correo electr&oacute;nica v&aacute;lida.\n";
 			}
 		}
 		return error;
@@ -58,11 +58,11 @@
 </script>
 
 
-<p>Para comunicarse con el Instituto Nacional del Cáncer (NCI), sírvase llenar este formulario. Sus respuestas nos ayudarán a darle la información más útil posible. La información personal será considerada confidencial y se utilizará solamente para responder a sus preguntas.</p>
-<p>La información que se suministra a través del Servicio de Información sobre el Cáncer del NCI no sustituye las recomendaciones de su médico personal. <strong>Por favor de no enviar o añadir fotos o reportes médicos.</strong> Si necesita consejos médicos, por favor consulte a su proveedor de atención médica.</p>
+<p>Para comunicarse con el Instituto Nacional del C&aacute;ncer (NCI), s&iacute;rvase llenar este formulario. Sus respuestas nos ayudar&aacute;n a darle la informaci&oacute;n m&aacute;s &uacute;til posible. La informaci&oacute;n personal ser&aacute; considerada confidencial y se utilizar&aacute; solamente para responder a sus preguntas.</p>
+<p>La informaci&oacute;n que se suministra a trav&eacute;s del Servicio de Informaci&oacute;n sobre el C&aacute;ncer del NCI no sustituye las recomendaciones de su m&eacute;dico personal. <strong>Por favor de no enviar o a&ntilde;adir fotos o reportes m&eacute;dicos.</strong> Si necesita consejos m&eacute;dicos, por favor consulte a su proveedor de atenci&oacute;n m&eacute;dica.</p>
 
 <div class="callout-box">
-	¿Preferiría hablar con uno de nuestros especialistas en información sobre el cáncer?<br>
+	&iquest;Preferir&iacute;a hablar con uno de nuestros especialistas en informaci&oacute;n sobre el c&aacute;ncer?<br>
 	<b>1-800-4-CANCER (1-800-422-6237)</b><br>
 	8 a.m. a 8 p.m. hora del Este de EE. UU., lunes a viernes
 </div>
@@ -75,7 +75,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__from" class="right inline">Dirección de correo electrónico:*</label>
+			<label for="a__from" class="right inline">Direcci&oacute;n de correo electr&oacute;nico:*</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__from" name="__from" type="email" maxlength="60" required>
@@ -84,7 +84,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__email_confirm" class="right inline">Repita su dirección de correo electrónico para confirmarla:*</label>
+			<label for="a__email_confirm" class="right inline">Repita su direcci&oacute;n de correo electr&oacute;nico para confirmarla:*</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__email_confirm" name="__email_confirm" type="email" maxlength="60" required>
@@ -93,7 +93,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__zipcode" class="right inline">Código postal (si reside en Estados Unidos):</label>
+			<label for="a__zipcode" class="right inline">C&oacute;digo postal (si reside en Estados Unidos):</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__zipcode" name="your_zipcode" type="text" maxlength="5">
@@ -102,7 +102,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__country" class="right inline">País (si reside fuera de Estados Unidos):</label>
+			<label for="a__country" class="right inline">Pa&iacute;s (si reside fuera de Estados Unidos):</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__country" name="your_country" type="text" maxlength="30">
@@ -111,7 +111,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__subject" class="right inline">Tema de su correo electrónico:</label>
+			<label for="a__subject" class="right inline">Tema de su correo electr&oacute;nico:</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__subject" name="__subject" type="text" maxlength="50">
@@ -127,7 +127,7 @@
 		</div>
 		<div class="medium-8 columns">
 			<textarea id="message" name="Message" rows="10" required></textarea>
-			<p>Si su mensaje requiere de una respuesta, espere recibirla en cinco días laborales.</p>
+			<p>Si su mensaje requiere de una respuesta, espere recibirla en cinco d&iacute;as laborales.</p>
 		</div>
 	</div>
 
@@ -150,8 +150,8 @@
 </form>
 
 <p>* Campo obligatorio</p>
-<p><a href="/espanol/global/politicas/confidencialidad">Política de confidencialidad sobre correos electrónicos enviados al sitio web del Instituto Nacional del Cáncer</a></p>
+<p><a href="/espanol/global/politicas/confidencialidad">Pol&iacute;tica de confidencialidad sobre correos electr&oacute;nicos enviados al sitio web del Instituto Nacional del C&aacute;ncer</a></p>
 <div class="callout-box">
-	<p>Se calcula que la carga pública para suministrar esta información es en promedio de 10 minutos por respuesta, e incluye el tiempo para leer las instrucciones, revisar las fuentes de información existentes, recopilar y mantener los datos necesarios, y concluir y revisar la información recogida. <strong>Ninguna agencia puede realizar ni patrocinar la recolección de información, y no se requiere que ninguna persona responda a tal recolección de información, a menos que ésta tenga un número de control OMB válido vigente.</strong> Envíe sus comentarios acerca de esta carga estimada o sobre cualquier otro aspecto de esta recolección de información y sus sugerencias para reducir el tiempo invertido en esta tarea a: NIH, Project Clearance Branch, 6705 Rockledge Drive, MSC 7974, Bethesda, MD 20892-7974, ATTN: PRA (0925-0046-17). No envíe el formulario completo a esta dirección.
+	<p>Se calcula que la carga p&uacute;blica para suministrar esta informaci&oacute;n es en promedio de 10 minutos por respuesta, e incluye el tiempo para leer las instrucciones, revisar las fuentes de informaci&oacute;n existentes, recopilar y mantener los datos necesarios, y concluir y revisar la informaci&oacute;n recogida. <strong>Ninguna agencia puede realizar ni patrocinar la recolecci&oacute;n de informaci&oacute;n, y no se requiere que ninguna persona responda a tal recolecci&oacute;n de informaci&oacute;n, a menos que &eacute;sta tenga un n&uacute;mero de control OMB v&aacute;lido vigente.</strong> Env&iacute;e sus comentarios acerca de esta carga estimada o sobre cualquier otro aspecto de esta recolecci&oacute;n de informaci&oacute;n y sus sugerencias para reducir el tiempo invertido en esta tarea a: NIH, Project Clearance Branch, 6705 Rockledge Drive, MSC 7974, Bethesda, MD 20892-7974, ATTN: PRA (0925-0046-17). No env&iacute;e el formulario completo a esta direcci&oacute;n.
 	</p>
 </div>
