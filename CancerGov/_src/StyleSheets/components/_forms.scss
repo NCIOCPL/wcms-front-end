@@ -77,7 +77,7 @@ $input-prefix-border-type: none;
 
 // common (radios and checkboxes)
 $custom-form-radiocheck-size: 1em;
-$custom-form-radiocheck-spacing: 0.4em;
+$custom-form-radiocheck-spacing: 0.5em;
 $custom-form-radiocheck-bg-color: white;
 $custom-form-radiocheck-border-size: 2px;
 $custom-form-radiocheck-border-color: #186d89;
@@ -401,21 +401,21 @@ select {
 
 @mixin radiocheck($type) {
 	input[type="#{$type}"] {
-		position: relative;
-		top: $custom-form-radiocheck-border-size / 2;
+		position: absolute;
 		left: 0;
 		opacity: 0;
 		z-index: 1;
 		cursor: pointer;
+		margin: 0;
 
 		+ label {
 			position: relative;
-			margin-left: $custom-form-radiocheck-spacing;
+			margin-left: $custom-form-radiocheck-size + $custom-form-radiocheck-spacing;
 
 			&:before {
 				content: "";
 				position: absolute;
-				left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing/2);
+				left: -($custom-form-radiocheck-size + $custom-form-radiocheck-spacing);
 
 				display: inline-block;
 				text-align: center;
@@ -451,6 +451,9 @@ html.borderradius.generatedcontent {
 	.radio, .checkbox {
 		position: relative;
 	}
+	span.radio input[type="radio"], span.checkbox input[type="checkbox"] {
+		margin-top: $custom-form-radiocheck-size / 2;
+	}
 	.radio {
 		@include radiocheck('radio');
 
@@ -472,6 +475,8 @@ html.borderradius.generatedcontent {
 		@include radiocheck('checkbox');
 
 		input[type="checkbox"] {
+			margin-top: $custom-form-radiocheck-size / 2;
+
 			+ label:before {
 				@include radius($custom-form-checkbox-radius);
 				line-height: 0.75em;
@@ -490,13 +495,13 @@ html.borderradius.generatedcontent {
 			}
 		}
 	}
-	.scrolling-list {
+	/*.scrolling-list {
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			position: absolute;
 			// this is to prevent the checkbox/radio from going to a new line when it's supposed to wrap
 		}
-	}
+	}*/
 }
 
 /* unique form element styling */
@@ -540,9 +545,9 @@ html.borderradius.generatedcontent {
 .columns.legend {
 	text-align: right;
 }
-.checkbox label {
+/*.checkbox label {
 	padding-left: 5px;
-}
+}*/
 .cts-location 
 {
 	padding: 10px;
