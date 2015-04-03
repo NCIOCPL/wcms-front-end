@@ -1,6 +1,6 @@
 <div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
-	<li><a href="/grants-training/rpg" class="sub-nav-group-header">Research Projects Grants</a>
+	<li><a href="/grants-training/rpg" class="sub-nav-group-header">Research Grants</a>
 		<ul>
 			<li><a href="/grants-training/rpg/funding-opportunities">Funding Opportunities</a></li>
 			<li><a href="/grants-training/rpg/strategy-paylines">Funding Strategy &amp; Paylines</a></li>
