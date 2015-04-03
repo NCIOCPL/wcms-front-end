@@ -310,6 +310,7 @@ fieldset {
 	@include fieldset;
 
 	legend {
+	 	margin-#{$default-float}: 0;
 		font-family: $legend-font-family;
 		font-size: $legend-font-size;
 		line-height: $legend-lineheight;
@@ -515,7 +516,7 @@ html.borderradius.generatedcontent {
 }
 
 .scrolling-list {
-	overflow: scroll;
+	overflow: auto;
 	white-space: nowrap;
 	max-height: 200px;
 		padding: 0.5em 2em 0.5em 1em;
@@ -544,6 +545,12 @@ html.borderradius.generatedcontent {
 }
 .columns.legend {
 	text-align: right;
+	padding-right: 0;
+}
+#legend-location-zip + div {
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 15px;
 }
 /*.checkbox label {
 	padding-left: 5px;
@@ -551,12 +558,30 @@ html.borderradius.generatedcontent {
 .cts-location 
 {
 	padding: 10px;
-	border-top: 3px solid #00B5BC;
+	border-top: 3px solid rgba(0, 0, 0, 0.35); // color was #00B5BC
 }
 .cts-location>div 
 {
-		padding: 12px;
-}   
+		padding: 12px 0;
+} 
+.ct-zip-row {
+	margin-top: 10px;
+	padding-bottom: 0 !important;
+}
+.ct-zip-row .ui-selectmenu-button {
+	margin-right: 20px;
+}
+.ct-zip {
+	margin-left: 15px;
+	width: 140px !important;
+}
+.ct-zip-lookup {
+	display: block;
+	text-align: right;
+}
+.ct-zip-row .icon-exit-notification {
+	display: none;
+}
 fieldset fieldset 
 {
 		background: #E2F5F9;                
