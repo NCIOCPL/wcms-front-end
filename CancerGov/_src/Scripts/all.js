@@ -350,15 +350,17 @@ jQuery(document).ready(function(jQuery) {
 
 		function accordionize() {
 			/* determine window width */
-			var width = window.innerWidth || $(window).width();
+			var width = window.innerWidth || $(window).width(),
+				accordion;
 
 			/* If the width is less than or equal to 640px (small screens)
 			 * AND if the accordion(s) isn't (aren't) already built */
 			if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
 				// verify that the accordion will build correctly
-				$('.accordion h2').each(function() {
-					if($(this).nextAll().length > 1) {
-						$(this).nextUntil('h2').wrapAll('<div class="clearfix"></div>');
+				$(targetsHeaderSelector).each(function() {
+					var $this = $(this);
+					if($this.nextAll().length > 1 || $this.next().is('ul, ol')) {
+						$this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
 					}
 				});
 
@@ -370,7 +372,6 @@ jQuery(document).ready(function(jQuery) {
 
 				// after all accordions have been built, add appropriate odd/even classes to the accordion headers
 				var builtAccordionHeaders = $('.ui-accordion-header');
-				console.log(builtAccordionHeaders);
 				for(var i = 1; i <= builtAccordionHeaders.length; i++) {
 					if(i % 2 === 0) {
 						builtAccordionHeaders.get(i-1).className += ' ' + 'even';
@@ -387,10 +388,10 @@ jQuery(document).ready(function(jQuery) {
 					}
 				}
 			}
-		};
+		}
 
 		$(window).on('resize', function() {
-			accordionize()
+			accordionize();
 		});
 
 		accordionize();
