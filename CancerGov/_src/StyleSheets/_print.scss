@@ -2,7 +2,7 @@
     html, body {
     }
 
-    nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle, .hero, .carousel-title, .other-nci-sites {
+    nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, #section-menu-button, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle, .hero, .carousel-title, .other-nci-sites {
       display: none !important; // important used because in some places foundation classes are overwriting
 		}
 	a {
