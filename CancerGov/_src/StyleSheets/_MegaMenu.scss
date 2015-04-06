@@ -150,8 +150,14 @@
 		}
 		> li {
 			border-right: 1px solid #000;
+
 			> ul {
 				width: 100%/3 - 2%;
+				margin-right: -4px;
+
+				&:first-child {
+					margin-right: 0px;
+				}
 			}
 		}
 	}
