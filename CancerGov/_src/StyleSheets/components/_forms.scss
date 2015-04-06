@@ -535,17 +535,28 @@ html.borderradius.generatedcontent {
 			margin-bottom: 0;
 		}
 }
-
-@media only screen and (min-width: 1025px) {
-	fieldset {
-		label.field {
-			float: right;
-		}
+fieldset {
+	label.field {
+		float: right;
 	}
 }
 .columns.legend {
 	text-align: right;
-	padding-right: 0;
+	padding-right: 0.9375em;
+	margin-bottom: 15px;
+}
+@media only screen and (max-width: 640px) {
+	.columns.legend {
+		text-align: left;
+	}
+	.clinical-trials-search-form .field {
+		margin-bottom: 10px;	
+	}
+	fieldset {
+		label.field {
+			float: left;
+		}
+	}
 }
 #legend-location-zip + div, #legend-location-citystate + div {
 	display: inline-block;
@@ -557,6 +568,11 @@ html.borderradius.generatedcontent {
 }
 .ct-country-area {
 	margin-bottom: 10px;
+}
+@media only screen and (max-width: 640px) {
+	.ct-country-area .ui-selectmenu-button  {
+		width: 200px !important;	
+	}
 }
 .ct-state-list {
 	background: white;
@@ -585,6 +601,14 @@ html.borderradius.generatedcontent {
 }
 .ct-zip-row .ui-selectmenu-button {
 	margin-right: 20px;
+}
+@media only screen and (max-width: 1024px) {
+	.ct-zip-row span {
+		display: block;
+	}
+	.ct-zip-row .ui-selectmenu-button {
+		margin-bottom: 15px;
+	}
 }
 .ct-zip {
 	margin-left: 15px;
