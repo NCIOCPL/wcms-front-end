@@ -547,10 +547,25 @@ html.borderradius.generatedcontent {
 	text-align: right;
 	padding-right: 0;
 }
-#legend-location-zip + div {
+#legend-location-zip + div, #legend-location-citystate + div {
 	display: inline-block;
 	margin-left: 15px;
 	margin-top: 15px;
+}
+#legend-location-hospital + div, #legend-location-NIH + div {
+	margin-top: 15px;
+}
+.ct-country-area {
+	margin-bottom: 10px;
+}
+.ct-state-list {
+	background: white;
+}
+.ct-country-label, .ct-city-label {
+	width: 70px;
+}
+#showInterventionListButtonArea {
+	margin-top: 10px;
 }
 /*.checkbox label {
 	padding-left: 5px;
