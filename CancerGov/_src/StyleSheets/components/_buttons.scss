@@ -168,7 +168,7 @@ form button,
         background-image: url($icons + "nci-sprite.png");
         background-position: -233px -343px;
         padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
-        line-height: 1.45em;
+        line-height: normal;
     }
 
     &.left-align {
