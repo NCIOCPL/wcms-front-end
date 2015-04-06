@@ -144,9 +144,17 @@
     }
 
     /* vertical line for Cancer Types menu */
-    .cancer-types-border-container > li {
-        border-right: 1px solid #000;
-    }
+    .cancer-types-border-container {
+		.sub-nav-mega & { // to override '.sub-nav-mega .sub-nav-group' styling
+			width: 66%;
+		}
+		> li {
+			border-right: 1px solid #000;
+			> ul {
+				width: 100%/3 - 2%;
+			}
+		}
+	}
 
     /* mega menu group links (level 3) */
     .sub-nav-group ul li a {
