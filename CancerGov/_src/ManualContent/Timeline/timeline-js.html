@@ -1,0 +1,485 @@
+<style type="text/css">
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Skin Type: flexible
+Description: The default skin for the Nivo Slider.
+Version: 1.0
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+*/
+
+.theme-default .nivoSlider {
+	position:relative;
+	background:#fff no-repeat 50% 50%;
+}
+.theme-default .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-default .nivoSlider a {
+	border:0;
+	display:block;
+}
+.theme-default .nivo-controlNav {
+	position:absolute;
+	/*left:50%;*/
+	top:45px;
+	/*margin-left:-40px;  Tweak this to center bullets */
+	/*background: #FFF url(http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/timeline-bg.gif);*/
+	height: 53px;
+	width: 661px;
+	overflow: visible;
+	z-index: 999;
+}
+.theme-default .nivo-controlNav a {
+	display:block;
+	width:27px;
+	height:27px;
+	background: url(http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/time-off.gif) no-repeat;
+	margin: 12px 0 0 0;
+	text-indent:-9999px;
+	border:0;
+	float:left;
+}
+.theme-default .nivo-controlNav a.active {
+	/*background-position:0 -22px;*/
+	background: url(http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/time-on.gif) no-repeat;
+	height: 54px;
+}
+.theme-default .nivo-directionNav a {
+	display:block;
+	/*width:30px;
+	height:30px;
+	background:url(arrows.png) no-repeat;
+	text-indent:-9999px;*/
+	border:0;
+}
+/* timeline markers placement */
+/* year 1884 */
+a#time0 {
+	left: 31px;
+}
+/* year 1930 */
+a#time1 {
+	left: 201px;
+}
+/* year 1930s */
+a#time2 {
+	left: 226px;
+}
+/* year 1937 */
+a#time3 {
+	left: 251px;
+}
+/* year 1944 */
+a#time4 {
+	left: 281px;
+}
+/* year 1960 */
+a#time5 {
+	left: 326px;
+}
+/* year 1967 */
+a#time6 {
+	left: 351px;
+}
+/* year 1970 */
+a#time7 {
+	left: 376px;
+}
+/* year 1971 */
+a#time8 {
+	left: 401px;
+}
+/* year 1972-1975 */
+a#time9 {
+	left: 426px;
+}
+/* year 1981-1992 */
+a#time10 {
+	left: 511px;
+}
+/* year 2003-2010 */
+a#time11 {
+	left: 576px;
+}
+/* year 2011 */
+a#time12 {
+	left: 601px;
+}
+.theme-default a.nivo-nextNav {
+	padding-right: 10px;
+	background: transparent url('/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/timeline-nav-next-arrow-bg.png') no-repeat right;
+	right:32px;
+}
+.theme-default a.nivo-prevNav {
+	padding-left: 10px;
+	background: transparent url('/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/timeline-nav-previous-arrow-bg.png') no-repeat 0 3px;
+	left:25px;
+}
+/*
+ * jQuery Nivo Slider v2.7.1
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2011, Gilbert Pellegrom
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * March 2010
+ */
+ 
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+}
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	background:none;
+	opacity:1; /* Overridden by captionOpacity setting */
+	width:100%;
+	z-index:8;
+	/* correct IE anti-alias issue */
+	filter: 0!important;
+}
+.nivo-caption p {
+	font-size:12px!important;
+	padding: 3px 15px 5px 15px;
+	/* correct IE anti-alias issue */
+	filter: 0!important;
+}
+.nivo-caption > p {
+	margin-top: 106px;
+	/* target IE7 and below */
+	*margin-top: 120px;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-caption-imgcaption span {
+	font-size: 11px!important;
+	margin-top: 4px;
+}
+.nivo-html-caption {
+	display:none;
+}
+.nivo-caption img {
+	position: relative!important;
+	display: inline!important;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	bottom: 25px;
+	z-index:9;
+	cursor:pointer;
+	text-decoration: underline;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a {
+	position:absolute;
+	z-index:999;
+	cursor:pointer;
+}
+/*=================================*/
+/* Nivo Slider Demo
+/* November 2010
+/* By: Gilbert Pellegrom
+/* http://dev7studios.com
+/*=================================*/
+
+/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+caption, th, td {
+	text-align:left;
+	font-weight:normal;
+}
+/* HTML5 tags */
+header, section, footer, aside, nav, article, figure {
+	display: block;
+}
+.theme-default #slider {
+	margin:0 auto;
+	width:661px; /* Make sure your images are the same size */
+	height:467px; /* Make sure your images are the same size */
+}
+.theme-pascal.slider-wrapper, .theme-orman.slider-wrapper {
+	margin-top:150px;
+}
+.clear {
+	clear:both;
+}
+</style>
+<div id="wrapper">
+  <div class="slider-wrapper theme-default">
+    <div class="ribbon"></div>
+    <div id="slider" class="nivoSlider"><img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide1" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide2" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide3" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide4" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide5" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide6" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide7" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide8" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide9" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide10" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide11" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide12" /><img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide13" /> </div>
+    <h3 style="font-size: 14px; color: #474747; z-index: 999; margin: -465px 0 0 10px; position: absolute;">Timeline</h3>
+    <div id="slide1" class="nivo-html-caption">
+      <p style="font-size:14px!important;"><strong>1884-1897 &nbsp;&nbsp;&nbsp;The Beginnings of Cancer Research and the Birth of the NCI</strong></p>
+      <p>Three cancer research centers, <a href="http://cancer.gov/researchandfunding/extramural/cancercenters/find-a-cancer-center/roswellpark">Roswell Park Cancer Institute</a> in Buffalo, N.Y.; <a href="http://cancer.gov/researchandfunding/extramural/cancercenters/find-a-cancer-center/memorialsloankettering">Memorial Sloan-Kettering Cancer Center</a> in New York City; and the <a href="http://cancer.gov/researchandfunding/extramural/cancercenters/find-a-cancer-center/wistar">Wistar Institute</a> in Philadelphia, are formed.</p>
+      <br>
+      <div class="nivo-caption-imgcaption" style="padding-left:20px; float:left; margin:10px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1884_1.html', '_blank', 'width=603,height=547'); return false" />
+        <div style="width: 171px; height: 125px; position: relative; margin-bottom:10px;"><img style="padding: 1px; border: 1px solid #b8b7b5; " src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1884_1.png" alt="Roswell Park" />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"></a><span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        <span>Roswell Park</span></div>
+      <div class="nivo-caption-imgcaption" style="float:left; margin:10px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1884_2.html', '_blank', 'width=663,height=538'); return false" />
+        <div style="width: 192px; height: 125px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1884_2.png" alt="MSKCC's famous round ward"  />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>MSKCC's famous round ward</span></div>
+      <div class="nivo-caption-imgcaption" style="float:left; margin:10px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1884_3.html', '_blank', 'width=507,height=499'); return false" />
+        <div style="width: 157px; height: 125px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1884_3.png" alt="Wistar Institute"  />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>Wistar Institute</span></div>
+    </div>
+    <div id="slide2" class="nivo-html-caption">
+      <p style="font-size:14px!important;"><strong>1930 &nbsp;&nbsp;&nbsp;Congress Creates the National Institutes of Health</strong></p>
+      <p>Congress passes the Ransdell Act, introduced by Sen. Joseph E. Ransdell, which created the National Institute of Health. (NIH)<br>
+      <div class="nivo-caption-imgcaption" style="padding-left:240px; float:none; "><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930.html', '_blank', 'width=363,height=627'); return false" />
+        <div style="width: 135px; height: 199px; position: relative; margin-bottom:10px;"> <img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930.png" alt="Sen. Joseph E. Ransdell" />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>Sen. Joseph E. Ransdell</span></div>
+      </p>
+    </div>
+    <div id="slide3" class="nivo-html-caption">
+      <p style="font-size:14px!important;"><strong>1930's &nbsp;&nbsp;&nbsp;Building the NIH and NCI </strong></p>
+      <br>
+      <div class="nivo-caption-imgcaption" style="float:left; margin:10px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930s_1.html', '_blank', 'width=528,height=457'); return false" />
+        <div style="width: 129px; height: 85px; position: relative; margin-bottom:10px;"><img style="padding: 1px; border: 1px solid #b8b7b5; " src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930s_1.jpg" alt="The National Cancer Institute's first home, Building 6." />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"></a><span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        <span>1939: The National Cancer <br>
+        Institute's first home, <br>
+        Building 6.</span></div>
+      <div class="nivo-caption-imgcaption" style="float:left; margin-top:10px;margin-left:3px;margin-right:3px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930s_2.html', '_blank', 'width=815,height=278'); return false" />
+        <div style="width: 307px; height: 85px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930s_2.jpg" alt="The Marine Hospital Service Stapleton Staten Island 19th century, where the single room lab of hygiene was located, is renamed the NIH."  />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>The Marine Hospital Service Stapleton Staten Island 19th century, <br>
+        where the single room lab of hygiene was located, is renamed <br>
+        the NIH.</span> </div>
+      <div class="nivo-caption-imgcaption" style="float:left; margin:10px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930s_3.html', '_blank', 'width=615,height=530'); return false" />
+        <div style="width: 125px; height: 85px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930s_3.jpg" alt="Cornerstone laying for NCI's building 6."  />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>Cornerstone laying for NCI's <br>
+        building 6.</span></div>
+    </div>
+    <div id="slide4" class="nivo-html-caption">
+      <p style="font-size:14px!important;"><strong>1937 &nbsp;&nbsp;&nbsp;The National Cancer Institute Is Formed</strong></p>
+      <div class="nivo-caption-imgcaption" style="float:right; padding:10px;"><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1937.html', '_blank', 'width=515,height=612'); return false" />
+        <div style="width: 140px; height: 100px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" alt="Washington Post Headline August 6 1937" src="/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1937_2.jpg" width="140" alt="Washington Post Headline August 6, 1937 passage of the Act." />
+          <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"><span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>Washington Post Headline <br>
+        August 6, 1937 passage of<br>
+        the Act.</span> </div>
+      <p>Cancer research labs in Washington and Boston are joined to form the nucleus of the National Cancer Institute (NCI), which was enacted into law by President Roosevelt in 1937, with an annual budget of $700,000. The National Cancer Institute Act of 1937 authorized NCI to engage in certain fundamental activities:
+      <ul type="disc">
+        <li>Conduct and foster cancer research;</li>
+        <li>Review and approve grant-in-aid applications to support promising research projects
+          
+          on the causes, prevention, diagnosis, and treatment of cancer;</li>
+        <li>Collect, analyze, and disseminate the results of cancer research conducted in the United States and elsewhere; and </li>
+        <li>Train and instruct physicians and other health professionals on the diagnosis and treatment of cancer</li>
+      </ul>
+      </p>
+    </div>
+    <div id="slide5" class="nivo-html-caption">
+      <p style="font-size:14px!important;"><strong>1944&nbsp;&nbsp;&nbsp;Institutes Join Together to Further Medical Research.</strong></p>
+      <p>The NCI becomes a division of the National Institutes of Health under Public Health Service legislation.</p>
+      <div class="nivo-caption-imgcaption"; style="margin-left:90px; float:left"> <a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1944_1.html', '_blank', 'width=187,height=331'); return false" />
+        <div style="width: 123px; height: 175px; position: relative; margin-bottom:10px;"> <img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1944_1.jpg" height="175" alt="Warren G. Magnuson introduces the National Cancer Institute Act of 1937 in the House." />
+          <div style=" background-color:#ffffff;
+                                                    border:1px solid black;
+                                                    opacity:0.8;
+                                                    filter:alpha(opacity=80); /* For IE8 and earlier */
+                                                    position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span> </div>
+        </div>
+        </a> <span> Warren G. Magnuson introduces <br>
+        the National Cancer Institute <br>
+        Act of 1937 in the House.</span></div>
+      <div class="nivo-caption-imgcaption"; style="margin-left:55px; float:left"> <a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1944_2.html', '_blank', 'width=663,height=547'); return false" />
+        <div style="width: 263px; height: 175px; position: relative; margin-bottom:10px;"> <img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1944_2.jpg" height="175" alt="Image of NIH campus in 1940. NCI occupied 'Building Six.'" />
+          <div style=" background-color:#ffffff;
+                                                  border:1px solid black;
+                                                  opacity:0.8;
+                                                  filter:alpha(opacity=80); /* For IE8 and earlier */
+                                                  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+        </div>
+        </a> <span>Image of NIH campus in 1940. NCI occupied "Building Six."</span></div>
+    </div>
+  </div>
+  <div id="slide6" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>1960&nbsp;&nbsp;&nbsp;Beginnings of the NCI Cancer Centers Model</strong></p>
+    <div class="nivo-caption-imgcaption"; style="float:right; margin:10px; "><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1960.html', '_blank', 'width=562,height=795'); return false" />
+      <div style="width: 125px; height: 155px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1960.jpg" width="125" alt="Dr. Carl Baker, Director of the NCI 1970-1972." />
+        <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+      </div>
+      </a> <span> Dr. Carl Baker, Director<br>
+      of the NCI 1970-1972.</span></div>
+    <p>Congress recommends the creation of government-supported cancer centers and an NIH task force chaired by Dr. Carl Baker, future Director of NCI, concludes that specially designated cancer research centers could:</p>
+    <ul type="disc">
+      <li>Create a unity of purpose not possible in a traditional academic setting</li>
+      <li>Improve access to research infrastructure</li>
+      <li>Foster stability for cancer research careers</li>
+      <li>Provide a centralized home for education and training in cancer research</li>
+    </ul>
+    <p>NCI begins providing grants to cancer-focused interdisciplinary centers that had already been created with state or private funds, upon the recommendation of the NIH Task Force on Categorical Research Centers.</p>
+  </div>
+  <div id="slide7" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>1967&nbsp;&nbsp;&nbsp;The NCI Cancer Centers Program Grows</strong></p>
+    <p>Eight centers begin receiving research support from NCI. Although modest, the cancer center grants were instrumental in broadening the base of multidisciplinary cancer research activity at those institutions, some of which had previously specialized in a single area of cancer research.</p>
+  </div>
+  <div id="slide8" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>1970&nbsp;&nbsp;&nbsp;The Nation Develops a Program "for the Conquest of Cancer"</strong></p>
+    <div class="nivo-caption-imgcaption" style="float:right; margin:10px; "><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1970.html', '_blank', 'width=194,height=341'); return false" />
+      <div style="width: 150px; height: 191px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1970.jpg" width="150" alt="Senator Ralph W. Yarborough" />
+        <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+      </div>
+      </a> <span>Senator Ralph W. Yarborough</span></div>
+    <p>The Yarborough Committee, headed by Senator Ralph W. Yarborough, Chairman of the Senate Labor and Public Welfare Committee begins work on developing a national program for cancer research. The Committee's report, "National Program for the Conquest of Cancer," becomes the basis for the National Cancer Act. It identifies comprehensive cancer centers as the best organizational structure for expanding efforts to address cancer.</p>
+  </div>
+  <div id="slide9" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>1971&nbsp;&nbsp;&nbsp;NCI Cancer Center Program Launched</strong></p><div class="nivo-caption-imgcaption" style="float:right; margin:10px; "><a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1971.html', '_blank', 'width=619,height=545'); return false" />
+      <div style="width: 200px; height: 143px; position: relative; margin-bottom:10px;"><img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1971_1.jpg" alt="Signing the National Cancer Act" />
+        <div style=" background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.8;
+  filter:alpha(opacity=80); /* For IE8 and earlier */
+  position: absolute; right: 1px; bottom: 1px; color: #333;"> <span>&nbsp;&nbsp;Enlarge +&nbsp;&nbsp;</span></div>
+      </div>
+      </a> <span>Signing the National Cancer Act</span></div>
+    <p> President Nixon signs the landmark National Cancer Act, authorizing $1.5 billion for a National Cancer Program and the establishment of 15 new cancer centers. "Just as cancer represents a grim threat to men and women and children in all parts of the world," the president says, "so the launching of our great crusade against cancer should be a cause for new hope among people everywhere." The Act establishes the National Cancer Program, which would include a network of 15 multidisciplinary cancer care institutions – NCI-designated cancer centers – distributed throughout the United States based on population, geography, and medical-scientific expertise. Their mandate was to conduct "clinical research, training, and demonstration of advanced diagnostic and treatment methods relating to cancer."
+    </p>
+  </div>
+  <div id="slide10" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>1972-75&nbsp;&nbsp;&nbsp;A Period of Expansion</strong></p>
+    <p>1972 - The U.S. House of Representatives notes that "particularly attention will be paid to improving [cancer centers'] presently inadequate geographic distribution…." The Senate appropriates $100 million for an expanded cancer research program, $10 million of which is expected to be used to construct more centers.</p>
+    <p>1973 - NCI recognizes eight cancer centers as "comprehensive," according to criteria established by the National Cancer Advisory Board, and their overriding mission is to bring research results as rapidly as possible to the maximum number of people.</p>
+    <p>1975 - The Senate endorses the establishment of 30 to 35 comprehensive cancer centers to permit an estimated 80 percent of the U.S. population access within a reasonable driving distance.</p>
+  </div>
+  <div id="slide11" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>1981-1992&nbsp;&nbsp;&nbsp;The Centers Continue to Evolve</strong></p>
+    <p>1981 - Congress emphasizes the importance of the peer review process for distribution of cancer centers core grants, rather than the application of a formula-based system.</p>
+    <p>1985 - The National Cancer Advisory Board establishes a subcommittee to review the role and effectiveness of the Cancer Centers Program, criteria for comprehensive cancer centers, and other programmatic and operational issues including organizational location.</p>
+    <p>1989 - The Institute of Medicine conducts an evaluation of the Cancer Centers Program and recommends increased funding, organizational relocation, and new program directions.</p>
+    <p>1992 - The NCI-designated cancer centers become "institutional," integrating research programs across organizational boundaries. A requirement for centralized scientific review and prioritization of all cancer clinical protocols is implemented.</p>
+  </div>
+  <div id="slide12" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>2003-2010&nbsp;&nbsp;&nbsp;Reports and Recommendations Improve the Program</strong></p>
+    <p>2003 - The Report of the Ad Hoc P30/P50 Working Group of the National Cancer Advisory Board is released, with recommendations as to how the NCI-designated centers and Specialized Programs of Research Excellence (SPORE) award mechanisms might best be positioned to support new opportunities in research discovery, development, and delivery.</p>
+    <p>2004 - New guidelines are released which introduced guidelines for consortium centers, allowed salary support for clinical staff investigators, and provided the option for limited, as opposed to full, site visits as part of the review process.</p>
+    <p>2010 - A Funding Opportunity Announcement is published for the first time in the NIH Guide for P30 Cancer Center Support Grant applications. Prior to this time, applications were directly scheduled by the Cancer Centers Program.</p>
+  </div>
+  <div id="slide13" class="nivo-html-caption">
+    <p style="font-size:14px!important;"><strong>2011-2012&nbsp;&nbsp;&nbsp;Raising the Bar</strong></p>
+    <p>The NCI-designated cancer centers receive $261 million in base funding for the 2011 fiscal year, and the research infrastructure that these grants provide is now available to more than 15,000 center investigators. The majority of all NCI training awards go to the cancer centers, as well. NCI-designated cancer centers diagnose cancer in 250,000 patients every year and provide treatment to an even larger number of patients. They enroll thousands of patients in cancer treatment clinical trials. The rapid pace of discovery and improved cancer treatment they help pioneer has resulted in a more than fourfold increase in the number of cancer survivors in the United States, from three million people 40 years ago to an estimated 12 million people living with cancer today. The 67 NCI-designated cancer centers in 2011 include 41 comprehensive cancer centers and 26 cancer centers, located in 34 states and the District of Columbia. Today, many non-designated cancer research centers are actively building up their resources and attempting to negotiate the requirements to join the NCI program. The centers continually update and reshape themselves, even as they are transformed by new scientific discoveries.</p>
+  </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">/*
+ * jQuery Nivo Slider v2.7.1
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2011, Gilbert Pellegrom
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * March 2010
+ */
+
+(function(a){var b=function(b,c){var d=a.extend({},a.fn.nivoSlider.defaults,c);var e={currentSlide:0,currentImage:"",totalSlides:0,running:false,paused:false,stop:false};var f=a(b);f.data("nivo:vars",e);f.css("position","relative");f.addClass("nivoSlider");var g=f.children();g.each(function(){var b=a(this);var c="";if(!b.is("img")){if(b.is("a")){b.addClass("nivo-imageLink");c=b}b=b.find("img:first")}var d=b.width();if(d==0)d=b.attr("width");var g=b.height();if(g==0)g=b.attr("height");if(d>f.width()){f.width(d)}if(g>f.height()){f.height(g)}if(c!=""){c.css("display","none")}b.css("display","none");e.totalSlides++});if(d.startSlide>0){if(d.startSlide>=e.totalSlides)d.startSlide=e.totalSlides-1;e.currentSlide=d.startSlide}if(a(g[e.currentSlide]).is("img")){e.currentImage=a(g[e.currentSlide])}else{e.currentImage=a(g[e.currentSlide]).find("img:first")}if(a(g[e.currentSlide]).is("a")){a(g[e.currentSlide]).css("display","block")}f.css("background",'url("'+e.currentImage.attr("src")+'") no-repeat');f.append(a('<div class="nivo-caption"><p></p></div>').css({display:"none",opacity:d.captionOpacity}));a(".nivo-caption",f).css("opacity",0);var h=function(b){var c=a(".nivo-caption",f);if(e.currentImage.attr("title")!=""&&e.currentImage.attr("title")!=undefined){var d=e.currentImage.attr("title");if(d.substr(0,1)=="#")d=a(d).html();if(c.css("opacity")!=0){c.find("p").stop().fadeTo(b.animSpeed,0,function(){a(this).html(d);a(this).stop().fadeTo(b.animSpeed,1)})}else{c.find("p").html(d)}c.stop().fadeTo(b.animSpeed,b.captionOpacity)}else{c.stop().fadeTo(b.animSpeed,0)}};h(d);var i=0;if(!d.manualAdvance&&g.length>1){i=setInterval(function(){o(f,g,d,false)},d.pauseTime)}if(d.directionNav){f.append('<div class="nivo-directionNav"><a class="nivo-prevNav">'+d.prevText+'</a><a class="nivo-nextNav">'+d.nextText+"</a></div>");if(d.directionNavHide){a(".nivo-directionNav",f).hide();f.hover(function(){a(".nivo-directionNav",f).show()},function(){a(".nivo-directionNav",f).hide()})}a("a.nivo-prevNav",f).live("click",function(){if(e.running)return false;clearInterval(i);i="";e.currentSlide-=2;o(f,g,d,"prev")});a("a.nivo-nextNav",f).live("click",function(){if(e.running)return false;clearInterval(i);i="";o(f,g,d,"next")})}if(d.controlNav){var j=a('<div class="nivo-controlNav"></div>');f.append(j);for(var k=0;k<g.length;k++){if(d.controlNavThumbs){var l=g.eq(k);if(!l.is("img")){l=l.find("img:first")}if(d.controlNavThumbsFromRel){j.append('<a class="nivo-control" rel="'+k+'" id="time'+k+'"><img src="'+l.attr("rel")+'" alt="" /></a>')}else{j.append('<a class="nivo-control" rel="'+k+'" id="time'+k+'"><img src="'+l.attr("src").replace(d.controlNavThumbsSearch,d.controlNavThumbsReplace)+'" alt="" /></a>')}}else{j.append('<a class="nivo-control" rel="'+k+'" id="time'+k+'">'+(k+1)+"</a>")}}a(".nivo-controlNav a:eq("+e.currentSlide+")",f).addClass("active");a(".nivo-controlNav a",f).live("click",function(){if(e.running)return false;if(a(this).hasClass("active"))return false;clearInterval(i);i="";f.css("background",'url("'+e.currentImage.attr("src")+'") no-repeat');e.currentSlide=a(this).attr("rel")-1;o(f,g,d,"control")})}if(d.keyboardNav){a(window).keypress(function(a){if(a.keyCode=="37"){if(e.running)return false;clearInterval(i);i="";e.currentSlide-=2;o(f,g,d,"prev")}if(a.keyCode=="39"){if(e.running)return false;clearInterval(i);i="";o(f,g,d,"next")}})}if(d.pauseOnHover){f.hover(function(){e.paused=true;clearInterval(i);i=""},function(){e.paused=false;if(i==""&&!d.manualAdvance){i=setInterval(function(){o(f,g,d,false)},d.pauseTime)}})}f.bind("nivo:animFinished",function(){e.running=false;a(g).each(function(){if(a(this).is("a")){a(this).css("display","none")}});if(a(g[e.currentSlide]).is("a")){a(g[e.currentSlide]).css("display","block")}if(i==""&&!e.paused&&!d.manualAdvance){i=setInterval(function(){o(f,g,d,false)},d.pauseTime)}d.afterChange.call(this)});var m=function(b,c,d){for(var e=0;e<c.slices;e++){var f=Math.round(b.width()/c.slices);if(e==c.slices-1){b.append(a('<div class="nivo-slice"></div>').css({left:f*e+"px",width:b.width()-f*e+"px",height:"0px",opacity:"0",background:'url("'+d.currentImage.attr("src")+'") no-repeat -'+(f+e*f-f)+"px 0%"}))}else{b.append(a('<div class="nivo-slice"></div>').css({left:f*e+"px",width:f+"px",height:"0px",opacity:"0",background:'url("'+d.currentImage.attr("src")+'") no-repeat -'+(f+e*f-f)+"px 0%"}))}}};var n=function(b,c,d){var e=Math.round(b.width()/c.boxCols);var f=Math.round(b.height()/c.boxRows);for(var g=0;g<c.boxRows;g++){for(var h=0;h<c.boxCols;h++){if(h==c.boxCols-1){b.append(a('<div class="nivo-box"></div>').css({opacity:0,left:e*h+"px",top:f*g+"px",width:b.width()-e*h+"px",height:f+"px",background:'url("'+d.currentImage.attr("src")+'") no-repeat -'+(e+h*e-e)+"px -"+(f+g*f-f)+"px"}))}else{b.append(a('<div class="nivo-box"></div>').css({opacity:0,left:e*h+"px",top:f*g+"px",width:e+"px",height:f+"px",background:'url("'+d.currentImage.attr("src")+'") no-repeat -'+(e+h*e-e)+"px -"+(f+g*f-f)+"px"}))}}}};var o=function(b,c,d,e){var f=b.data("nivo:vars");if(f&&f.currentSlide==f.totalSlides-1){d.lastSlide.call(this)}if((!f||f.stop)&&!e)return false;d.beforeChange.call(this);if(!e){b.css("background",'url("'+f.currentImage.attr("src")+'") no-repeat')}else{if(e=="prev"){b.css("background",'url("'+f.currentImage.attr("src")+'") no-repeat')}if(e=="next"){b.css("background",'url("'+f.currentImage.attr("src")+'") no-repeat')}}f.currentSlide++;if(f.currentSlide==f.totalSlides){f.currentSlide=0;d.slideshowEnd.call(this)}if(f.currentSlide<0)f.currentSlide=f.totalSlides-1;if(a(c[f.currentSlide]).is("img")){f.currentImage=a(c[f.currentSlide])}else{f.currentImage=a(c[f.currentSlide]).find("img:first")}if(d.controlNav){a(".nivo-controlNav a",b).removeClass("active");a(".nivo-controlNav a:eq("+f.currentSlide+")",b).addClass("active")}h(d);a(".nivo-slice",b).remove();a(".nivo-box",b).remove();var g=d.effect;if(d.effect.indexOf(",")!=-1){var i=d.effect.split(",");g=i[Math.floor(Math.random()*i.length)];if(g==undefined)g="fade"}if(f.currentImage.attr("data-transition")){g=f.currentImage.attr("data-transition")}f.running=true;if(g=="fade"){m(b,d,f);var q=a(".nivo-slice:first",b);q.css({height:"100%",width:b.width()+"px"});q.animate({opacity:"1.0"},d.animSpeed*2,"",function(){b.trigger("nivo:animFinished")})}};var p=function(a){for(var b,c,d=a.length;d;b=parseInt(Math.random()*d),c=a[--d],a[d]=a[b],a[b]=c);return a};var q=function(a){if(this.console&&typeof console.log!="undefined")console.log(a)};this.stop=function(){if(!a(b).data("nivo:vars").stop){a(b).data("nivo:vars").stop=true;q("Stop Slider")}};this.start=function(){if(a(b).data("nivo:vars").stop){a(b).data("nivo:vars").stop=false;q("Start Slider")}};d.afterLoad.call(this);return this};a.fn.nivoSlider=function(c){return this.each(function(d,e){var f=a(this);if(f.data("nivoslider"))return f.data("nivoslider");var g=new b(this,c);f.data("nivoslider",g)})};a.fn.nivoSlider.defaults={effect:"fade",slices:15,boxCols:8,boxRows:4,animSpeed:100,pauseTime:3e3,startSlide:0,directionNav:true,directionNavHide:false,controlNav:true,controlNavThumbs:false,controlNavThumbsFromRel:false,controlNavThumbsSearch:".jpg",controlNavThumbsReplace:"_thumb.jpg",keyboardNav:true,pauseOnHover:true,manualAdvance:true,captionOpacity:1,prevText:"Previous",nextText:"Next",randomStart:false,beforeChange:function(){},afterChange:function(){},slideshowEnd:function(){},lastSlide:function(){},afterLoad:function(){}};a.fn._reverse=[].reverse})(jQuery)</script> 
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+    });
+});
+</script>
