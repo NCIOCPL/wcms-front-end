@@ -30,7 +30,7 @@
 		<ul>
 			<li><a href="/about-nci/budget/">Current Year Budget</a></li>
 			<li><a href="/about-nci/budget/fact-book">NCI Budget Fact Book</a></li>
-			<li><a href="/about-nci/budget/plan-2016">Annual Plan &amp; Professional Judgement Budget</a></li>
+			<li><a href="/about-nci/budget/plan-2016">Annual Plan &amp; Professional Judgment Budget</a></li>
 			<li><a href="/about-nci/budget/cj">Congressional Justification</a></li>
 		</ul>
 	</li>
