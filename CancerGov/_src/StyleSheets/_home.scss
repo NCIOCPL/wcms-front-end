@@ -256,9 +256,8 @@ a.arrow-link {
     display: block;
     color: $dgrey00;
     text-decoration: none;
-    @extend %card-link-hover;
 
-    &:hover, &:focus {
+    &:hover {
         background-image: url($buttons + "small-red-circle-arrow.png");
     }
 }
