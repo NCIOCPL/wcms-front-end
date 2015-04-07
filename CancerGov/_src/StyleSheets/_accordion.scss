@@ -3,10 +3,9 @@
 	.ui-accordion .ui-accordion-header {
 		margin: 0;
 	}
-	.accordion h2.ui-accordion-header {
+	.accordion h2.ui-accordion-header, .accordion h2.ui-accordion-header + div {
 		margin-left: -32px;
 		margin-right: -32px;
-		border: 1px solid orange;
 	}
 }
 /* end accordion styles */
