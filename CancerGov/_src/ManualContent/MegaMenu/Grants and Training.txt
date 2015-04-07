@@ -4,7 +4,6 @@
 		<ul>
 			<li><a href="/grants-training/rpg/funding-opportunities">Funding Opportunities</a></li>
 			<li><a href="/grants-training/rpg/strategy-paylines">Funding Strategy &amp; Paylines</a></li>
-			<li><a href="/grants-training/rpg/announcements">Announcements Under Development</a></li>
 			<li><a href="/grants-training/rpg/contacts">Research Program Contacts</a></li>
 		</ul>
 	</li>
