@@ -1,1 +1,12 @@
-accordion
+/* begin accordion styles */
+@media only screen and (max-width :640px) {
+	.ui-accordion .ui-accordion-header {
+		margin: 0;
+	}
+	.accordion h2.ui-accordion-header {
+		margin-left: -32px;
+		margin-right: -32px;
+		border: 1px solid orange;
+	}
+}
+/* end accordion styles */
