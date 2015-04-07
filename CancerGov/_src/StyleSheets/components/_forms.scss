@@ -558,6 +558,9 @@ fieldset {
 		}
 	}
 }
+.clinical-trials-search-form fieldset {
+	outline: 0;
+}
 #legend-location-zip + div, #legend-location-citystate + div {
 	display: inline-block;
 	margin-left: 15px;
@@ -573,6 +576,10 @@ fieldset {
 	.ct-country-area .ui-selectmenu-button  {
 		width: 200px !important;	
 	}
+}
+.ct-state-label {
+	width: 72px;
+	float: left;
 }
 .ct-state-list {
 	background: white;
