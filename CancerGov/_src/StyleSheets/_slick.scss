@@ -150,7 +150,7 @@
 */
 
 /* Dots */
- .slick-slider {
+.slick-slider {
     margin-bottom: 30px;
 }
 ul.slick-dots {
@@ -176,48 +176,42 @@ ul.slick-dots {
             display: block;
             height: 20px;
             width: 20px;
-            background-color: $white;
-            border-radius: 50%;
-            border-top-color: $dotBlue;
-            border-left-color: $dotBlue;
-            border-bottom-color:$dotBlue;
-            border-right-color: $dotBlue;
+            background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -320px -259px;
             border-width: 0px;
             outline: none;
             line-height: 0;
             font-size: 0;
-            color: transparent;
             padding: 5px;
             cursor: pointer;
 
             // This takes care of the border on the button
             // seems there's a default shadow border on buttons.
             &:before {
-                border-radius: 50%;
                 height: 20px;
                 width: 20px;
                 position: absolute;
                 display: block;
                 content: " ";
-                border: 3px solid $dotBlue;
                 top: 0;
                 left: 0;
             }
 
+            &:focus {
+                outline: dotted 1px $dotBlue;
+            }
+			
             &:hover {
-                background-color: $lblue;
+                background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -364px -297px;
             }
 
-            &:active, &:focus {
-                background-color: $dotBlue;
+            &:active {
+                background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -347px -259px;
             }
         }
 
         &.slick-active button {
-            background: $dotBlue;
+            background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -347px -259px;
         }
-
-            
     }
 }
 
@@ -230,4 +224,3 @@ ul.slick-dots {
         text-align: left;
     }
 }
-
