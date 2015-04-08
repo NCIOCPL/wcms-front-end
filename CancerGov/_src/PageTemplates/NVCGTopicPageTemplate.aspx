@@ -1,4 +1,4 @@
-<!--(bake Includes/TemplateIntro.inc template_name="NVCGTopicPageTemplate.aspx")-->
+<!--(bake Includes/TemplateIntro.inc template_name="NVCGTopicPageTemplate.aspx" skipto_id="main")-->
 		<!-- Begin MAIN CONTENT AREA -->
 		<div class="main-content" id="content" tabindex="0">
             <div class="row general-page-body-container collapse">

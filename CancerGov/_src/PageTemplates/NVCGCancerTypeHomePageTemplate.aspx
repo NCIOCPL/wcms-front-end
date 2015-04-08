@@ -1,4 +1,4 @@
-<!--(bake Includes/TemplateIntro.inc template_name="NVCGCancerTypeHomePageTemplate.aspx")-->
+<!--(bake Includes/TemplateIntro.inc template_name="NVCGCancerTypeHomePageTemplate.aspx" skipto_id="content")-->
 <!-- Begin MAIN CONTENT AREA -->
 <div class="main-content" id="content">
 <!-- slots -->
