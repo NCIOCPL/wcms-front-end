@@ -137,10 +137,9 @@ jQuery(document).ready(function(jQuery) {
 			}
 		};
 
-		$(window).on('hashchange', function(e) {
+		$(window).on('load hashchange', function(e) {
 			doScroll();
 		});
-		doScroll();
 	})(jQuery);
 	/*** END deeplinking fix ***/
 
