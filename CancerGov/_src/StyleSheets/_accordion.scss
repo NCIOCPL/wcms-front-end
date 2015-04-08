@@ -1,4 +1,4 @@
-/* begin accordion styles */
+/* begin accordion stretching styles */
 @media only screen and (max-width :640px) {
 	.ui-accordion .ui-accordion-header {
 		margin: 0;
@@ -7,5 +7,18 @@
 		margin-left: -32px;
 		margin-right: -32px;
 	}
+	// factsheet pages
+	.qnas.accordion h2.ui-accordion-header, .qnas.accordion h2.ui-accordion-header + div {
+    margin-left: -15px;
+		margin-right: -15px;
+  }
+	// factsheet pages
+	#cgvCitationSl h6.ui-accordion-header, 
+	#nvcgRelatedResourcesArea h6.ui-accordion-header,
+	#cgvCitationSl h6.ui-accordion-header + div, 
+	#nvcgRelatedResourcesArea h6.ui-accordion-header + div{
+    margin-left: -15px;
+		margin-right: -15px;
+  }
 }
-/* end accordion styles */
+/* end accordion stretching styles */
