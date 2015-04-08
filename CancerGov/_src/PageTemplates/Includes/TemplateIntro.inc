@@ -44,7 +44,7 @@
     <!--[if lt IE 9]>
     <script src="/PublishedContent/js/respond.js"></script>
     <![endif]-->
-<div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
+<div class="skip"><a title="Skip to content" href="#<!--(bake-start _if="skipto_id")-->{{skipto_id}}<!--(bake-end)--><!--(bake-start _if="!skipto_id")-->content<!--(bake-end)-->">Skip to content</a></div>
 <!-- NOTIFICATION AREA -->
 <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" CssClass="notification-banner" />
 <NCI:TemplateSlot ID="nvcgColo" runat="server"  CssClass="notification-banner" />
