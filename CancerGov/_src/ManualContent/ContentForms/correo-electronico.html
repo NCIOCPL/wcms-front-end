@@ -68,14 +68,14 @@
 </div>
 
 <!-- end function validateEmail() -->
-<form action="/forms/FormEmailerWithCaptcha.aspx" id="Form1" method="post" name="contactNCI" onsubmit="return(validateEmail());">
+<form action="/forms/FormEmailerWithCaptcha.aspx" id="Form1" method="post" name="contactNCI" class="email-us-form" onsubmit="return(validateEmail());">
 	<input name="__recipient" id="Hidden1" type="hidden" value="ContactEmailRecipientEsp">
 	<input name="__redirectto" id="Hidden2" type="hidden" value="/PublishedContent/ErrorMessages/Thankyou.html">
 	<input name="__splitFields" type="hidden" value="describe_yourself,your_question_is_about">
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__from" class="right inline">Direcci&oacute;n de correo electr&oacute;nico:*</label>
+			<label for="a__from" class="inline">Direcci&oacute;n de correo electr&oacute;nico:*</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__from" name="__from" type="email" maxlength="60" required>
@@ -84,7 +84,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__email_confirm" class="right inline">Repita su direcci&oacute;n de correo electr&oacute;nico para confirmarla:*</label>
+			<label for="a__email_confirm" class="inline">Repita su direcci&oacute;n de correo electr&oacute;nico para confirmarla:*</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__email_confirm" name="__email_confirm" type="email" maxlength="60" required>
@@ -93,7 +93,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__zipcode" class="right inline">C&oacute;digo postal (si reside en Estados Unidos):</label>
+			<label for="a__zipcode" class="inline">C&oacute;digo postal (si reside en Estados Unidos):</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__zipcode" name="your_zipcode" type="text" maxlength="5">
@@ -102,7 +102,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__country" class="right inline">Pa&iacute;s (si reside fuera de Estados Unidos):</label>
+			<label for="a__country" class="inline">Pa&iacute;s (si reside fuera de Estados Unidos):</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__country" name="your_country" type="text" maxlength="30">
@@ -111,7 +111,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__subject" class="right inline">Tema de su correo electr&oacute;nico:</label>
+			<label for="a__subject" class="inline">Tema de su correo electr&oacute;nico:</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__subject" name="__subject" type="text" maxlength="50">
@@ -120,7 +120,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="message" class="right inline">
+			<label for="message" class="inline">
 				Mensaje<br>
 				(por favor limite su mensaje a 2000 caracteres):*
 			</label>

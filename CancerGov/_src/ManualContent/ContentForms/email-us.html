@@ -69,14 +69,14 @@
 	</p>
 </div>
 
-<form action="/forms/FormEmailerWithCaptcha.aspx" id="Form1" method="post" name="contactNCI" onsubmit="return(validateEmail());">
+<form action="/forms/FormEmailerWithCaptcha.aspx" id="Form1" method="post" name="contactNCI" class="email-us-form" onsubmit="return(validateEmail());">
 	<input name="__recipient" id="Hidden1" type="hidden" value="ContactEmailRecipient">
 	<input name="__redirectto" id="Hidden2" type="hidden" value="/PublishedContent/ErrorMessages/Thankyou.html">
 	<input name="__splitFields" type="hidden" value="describe_yourself,your_question_is_about">
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__from" class="right inline">E-mail address:*</label>
+			<label for="a__from" class="inline">E-mail address:*</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__from" name="__from" type="email" maxlength="60" required>
@@ -85,7 +85,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__email_confirm" class="right inline">Enter e-mail address again to confirm:*</label>
+			<label for="a__email_confirm" class="inline">Enter e-mail address again to confirm:*</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__email_confirm" name="__email_confirm" type="email" maxlength="60" required>
@@ -94,7 +94,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__zipcode" class="right inline">Zip code (if U.S. resident):</label>
+			<label for="a__zipcode" class="inline">Zip code (if U.S. resident):</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__zipcode" name="your_zipcode" type="text" maxlength="5">
@@ -103,7 +103,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__country" class="right inline">Country (if outside the U.S.):</label>
+			<label for="a__country" class="inline">Country (if outside the U.S.):</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__country" name="your_country" type="text" maxlength="100">
@@ -112,7 +112,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="a__subject" class="right inline">Enter the subject of your e-mail:</label>
+			<label for="a__subject" class="inline">Enter the subject of your e-mail:</label>
 		</div>
 		<div class="medium-8 columns">
 			<input id="a__subject" name="__subject" type="text" maxlength="50">
@@ -121,7 +121,7 @@
 
 	<div class="row">
 		<div class="medium-4 columns">
-			<label for="message" class="right inline">
+			<label for="message" class="inline">
 				Message<br>
 				(please limit your message to 2,000 characters):*
 			</label>
