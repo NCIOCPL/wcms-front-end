@@ -150,7 +150,14 @@ label, .label {
 .label {
 	margin: 0 0 1em 0;
 }
-
+.email-us-form label {
+	float: right;
+}
+@media only screen and (max-width: 640px) {
+	.email-us-form label {
+		float: left;
+	}
+}
 /* Attach elements to the beginning or end of an input */
 .prefix,
 .postfix {
