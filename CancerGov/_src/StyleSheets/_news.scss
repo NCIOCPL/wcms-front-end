@@ -1,27 +1,42 @@
 /********** BEGIN News Page Styles ******************************************/
 a.arrow-link.news-footer {
-  display: inline;
+	display: inline;
 }
 
 .news-share {
-  margin-bottom: 10px; }
+	margin-bottom: 10px;
+}
 
 .news-share a:before {
-  background: url($icons + "nci-sprite.png") no-repeat 0 0px;
-  content: " ";
-  display: inline-block;
-  width: 30px;
-  height: 20px;
-  margin-left: 2px;
-  }
-
+	background: url($icons + "nci-sprite.png") no-repeat 0 0;
+	content: " ";
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+	margin-left: 2px;
+}
 .news-share a.news-twitter:before {
-  background-position: -16px -196px; }
-
+	background-position: -16px -196px;
+}
 .news-share a.news-youtube:before {
-  height: 22px;
-  background-position: -19px -335px; }
-  
+	height: 22px;
+	background-position: -19px -335px;
+}
 .news-share a.news-rss:before {
-  background-position: -20px -376px; }
+	background-position: -20px -376px;
+}
+
+@media only screen and (min-width: 1025px) {
+	.news .large-8.gutter {
+		width: 66%;
+	}
+
+	.news .card {
+		margin-bottom: 1em;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+		padding-top: 0em;
+	}
+}
+
 /********** END News Page Styles ******************************************/
