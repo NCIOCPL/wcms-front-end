@@ -3,111 +3,111 @@
 /* BEGIN Hero Section */
 
 .row .hero {
-    position: relative;
-    margin-bottom: 1em;
-    padding-left: 0;
-    padding-right: 0;
-    $shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: $shadow;
-    -moz-box-shadow: $shadow;
-    box-shadow: $shadow;
+	position: relative;
+	margin-bottom: 1em;
+	padding-left: 0;
+	padding-right: 0;
+	$shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	box-shadow: $shadow;
 }
 .hero-inner-page {
-    position: relative;
-    margin-bottom: 1em;
-    padding-left: 0;
-    padding-right: 0;
+	position: relative;
+	margin-bottom: 1em;
+	padding-left: 0;
+	padding-right: 0;
 }
 .hero-text {
-    position: absolute;
-    top: 49px;
-    left: 90px;
-    color: $white;
-    width: 23%;
-    font-size: 1.55em;
-    font-weight: bold;
+	position: absolute;
+	top: 49px;
+	left: 90px;
+	color: $white;
+	width: 23%;
+	font-size: 1.55em;
+	font-weight: bold;
 
-    p {
-        line-height: 1.1;
-        top-margin: 0.7em;
-        font-weight: bold;
-    }
+	p {
+		line-height: 1.1;
+		top-margin: 0.7em;
+		font-weight: bold;
+	}
 
-    a {
-        color: $white;
+	a {
+		color: $white;
 
-        &:hover, &:focus {
-            text-decoration: none;
-        }
-    }
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+	}
 }
 .hero-call-to-action {
-    font-size: 18px;
-    background: url($buttons + "hero-arrow.png") no-repeat center right;
-    display: inline-block;
-    padding-right: 1em;
-    $transition: padding-right 0.4s ease-in-out;
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -ms-transition: $transition;
-    -o-transition: $transition;
-    transition: $transition;
+	font-size: 18px;
+	background: url($buttons + "hero-arrow.png") no-repeat center right;
+	display: inline-block;
+	padding-right: 1em;
+	$transition: padding-right 0.4s ease-in-out;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
 
-    &:hover, &:focus {
-        padding-right: 1.5em;
-    }
+	&:hover, &:focus {
+		padding-right: 1.5em;
+	}
 }
 /* END Hero Section */
 
 /* BEGIN CARDS GENERAL RULES */
 .body-banner {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
 }
 %card-link-hover {
-    &:hover, &:focus {
-        color: $lcranberry;
-        text-decoration: none;
-    }
+	&:hover, &:focus {
+		color: $lcranberry;
+		text-decoration: none;
+	}
 }
-%card-clickable {
-// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
-    .columns {
-        padding: 0;
-        a {
-            padding: em-calc(30px);
-            display: block;
-        }
-    }
+@mixin card-clickable {
+	// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
+	.columns {
+		padding: 0;
+		a {
+			padding: em-calc(30px);
+			display: block;
+		}
+	}
 }
 /* equal height cards for desktop, visually push a div to the bottom of it's container */
 .card {
-    padding-top: 1em;
-    background-color: $white; /* for IE browsers that don't understand rgba */
-    background-color: rgba($white, 0.8);
+	padding-top: 1em;
+	background-color: $white; /* for IE browsers that don't understand rgba */
+	background-color: rgba($white, 0.8);
 
-    &:hover {
-        .image-hover {
-        // default styling for Card image behavior on hover
-            background-color: $black;
+	&:hover {
+		.image-hover {
+			// default styling for Card image behavior on hover
+			background-color: $black;
 
-            img {
-                opacity: 0.8;
-            }
-        }
-    }
-    a:hover, a:focus{
-        text-decoration: none;
-    }
-    .equalheight > div {
-        &, > a {
-            height: 100%;
-        }
-    }
-    .card-row & a {
-        color: $dgrey00;
-    }
+			img {
+				opacity: 0.8;
+			}
+		}
+	}
+	a:hover, a:focus{
+		text-decoration: none;
+	}
+	.equalheight > div {
+		&, > a {
+			height: 100%;
+		}
+	}
+	.card-row & a {
+		color: $dgrey00;
+	}
 	ul {
 		@extend %no-bullets;
 
@@ -123,105 +123,105 @@
 	height: 100%;
 }
 .feature-primary {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 
-    a {
-        &, h3 {
-            color: $white;
-        }
-    }
-    h3 {
-        font-weight: normal;
-        color: $white;
-        font-size: 1.375em;
-        line-height: 1.272;
-    }
-    p {
-        margin-bottom: 0;
-        font-size: em-calc(18px);
-        line-height: em-calc(21px);
-    }
-    .card {
-        background: $dteal;
-    }
-    .featured-text {
-    // featured-text is used for the funding opportunities box
-        padding: 15px;
-        background: $white;
-        color: $dteal00 !important;
-				// this is needed to overcome padding that was put in cards anchor tag
-        a {
-            padding: 0 !important; //needed to overcome specificity
-            color: #186e88;
-            @extend %card-link-hover;
-        }
-        h3 {
-            color: $dgrey00;
-        }
-        p {
-            margin-top: 1em;
-						margin-bottom: 0.5em;
-        }
-    }
-    @extend %card-clickable;
+	a {
+		&, h3 {
+			color: $white;
+		}
+	}
+	h3 {
+		font-weight: normal;
+		color: $white;
+		font-size: 1.375em;
+		line-height: 1.272;
+	}
+	p {
+		margin-bottom: 0;
+		font-size: em-calc(18px);
+		line-height: em-calc(21px);
+	}
+	.card {
+		background: $dteal;
+	}
+	.featured-text {
+		// featured-text is used for the funding opportunities box
+		padding: 15px;
+		background: $white;
+		color: $dteal00 !important;
+		// this is needed to overcome padding that was put in cards anchor tag
+		a {
+			padding: 0 !important; //needed to overcome specificity
+			color: #186e88;
+			@extend %card-link-hover;
+		}
+		h3 {
+			color: $dgrey00;
+		}
+		p {
+			margin-top: 1em;
+			margin-bottom: 0.5em;
+		}
+	}
+	@include card-clickable;
 }
 
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
-    .feature-primary a,
-    .feature-primary a h3 {
-    color: #186e88;
-    }
+	.feature-primary a,
+	.feature-primary a h3 {
+	color: #186e88;
+	}
 }
 /* END FEATURE PRIMARY CARDS ROW */
 
 /* BEGIN FEATURE SECONDARY CARDS ROW */
 .feature-secondary {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 
-    .card {
-        background: $white;
-    }
-    a {
-        h3 {
-            font-weight: normal;
-            color: $dteal00;
-            font-size: 1.375em;
-            line-height: 1.272;
-        }
-        &:hover, &:focus {
-            h3 {
-                color: $lcranberry;
-            }
-        }
-        @extend %card-link-hover;
-    }
-    p {
-        margin-bottom: 0;
-        color: $dgrey00;
-        font-size: em-calc(18px);
-    }
-    @extend %card-clickable;
+	.card {
+		background: $white;
+	}
+	a {
+		h3 {
+			font-weight: normal;
+			color: $dteal00;
+			font-size: 1.375em;
+			line-height: 1.272;
+		}
+		&:hover, &:focus {
+			h3 {
+				color: $lcranberry;
+			}
+		}
+		@extend %card-link-hover;
+	}
+	p {
+		margin-bottom: 0;
+		color: $dgrey00;
+		font-size: em-calc(18px);
+	}
+	@include card-clickable;
 }
 /* END FEATURE SECONDARY CARDS ROW */
 
 /* BEGIN GUIDE CARDS ROW */
 .guide-card {
-    margin-bottom: 1em;
-    h3 {
-        font-weight: normal;
-        color: $dgrey00;
-        font-size: 1.375em;
-        line-height: 1.272;
-    }
-    .card {
-        padding: em-calc(38px 32px 34px);
+	margin-bottom: 1em;
+	h3 {
+		font-weight: normal;
+		color: $dgrey00;
+		font-size: 1.375em;
+		line-height: 1.272;
+	}
+	.card {
+		padding: em-calc(38px 32px 34px);
 
-        ul {
-            margin-bottom: 0;
-        }
-        h2 {
-            margin-top: 0;
-        }
+		ul {
+			margin-bottom: 0;
+		}
+		h2 {
+			margin-top: 0;
+		}
 		a {
 			font-size: em-calc(18px);
 			line-height: em-calc(22px, 18px);
@@ -230,54 +230,54 @@
 			margin-top: 0.5em;
 			margin-bottom: 0.5em;
 		}
-    }
-    .featured-card {
-        // this is the first card in the guide cards row.
-        background: #dbf2f8;
+	}
+	.featured-card {
+		// this is the first card in the guide cards row.
+		background: #dbf2f8;
 
-        h3, a, a.arrow-link-white {
-            color: #2f2f2f;
-        }
-    }
-    ul.cancer-types li {
-        background: none;
-        float: left;
-        padding-right: 0;
-        width: 2.5em;
-        height: 2.3em;
+		h3, a, a.arrow-link-white {
+			color: #2f2f2f;
+		}
+	}
+	ul.cancer-types li {
+		background: none;
+		float: left;
+		padding-right: 0;
+		width: 2.5em;
+		height: 2.3em;
 
-        a { @extend %card-link-hover; }
-    }
+		a { @extend %card-link-hover; }
+	}
 }
 a.arrow-link {
-    background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
-    padding-right: 2em;
-    width: 100%;
-    display: block;
-    color: $dgrey00;
-    text-decoration: none;
+	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
+	padding-right: 2em;
+	width: 100%;
+	display: block;
+	color: $dgrey00;
+	text-decoration: none;
 
-    &:hover {
-        background-image: url($buttons + "small-red-circle-arrow.png");
-    }
+	&:hover {
+		background-image: url($buttons + "small-red-circle-arrow.png");
+	}
 }
 a.arrow-link-white {
-    @extend a.arrow-link;
-    background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
-    padding-right: 1em;
+	@extend a.arrow-link;
+	background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
+	padding-right: 1em;
 }
 a.learn-more {
-    margin-top: 1em;
-    /* adding padding per #OCECREATIV-783 --sjc */
+	margin-top: 1em;
+	/* adding padding per #OCECREATIV-783 --sjc */
 }
 /* END GUIDE CARDS ROW */
 
 /* BEGIN THUMBNAIL CARDS ROW */
 
 .card-thumbnail {
-    background: $white;
-    padding-top: 1em;
-    padding-bottom: 1em;
+	background: $white;
+	padding-top: 1em;
+	padding-bottom: 1em;
 	.small-2 {
 		&:hover {
 			.image-hover {
@@ -289,182 +289,185 @@ a.learn-more {
 		}
 		margin-top: 1em;
 	}
-    h3 {
-        font-weight: normal;
-        a {
-            @extend %card-link-hover;
-        }
-    }
-    @extend %card-clickable;
+	h3 {
+		font-weight: normal;
+		a {
+			@extend %card-link-hover;
+		}
+	}
+	@media screen and (max-width: 640px) {
+		@include card-clickable;
+	}
 }
-@media only screen and (min-width: 1024px) {
-    .card-thumbnail {
-        padding-left: 6px; /* OCEPROJECT-2634 */
-    }
-}
+
 /* END THUMBNAIL CARDS ROW */
 
 /* BEGIN MULTIMEDIA ROW */
 .multimedia-slot {
-    background: #099;
-    /*margin-bottom: 1em;*/
-    padding: 1em 0;
-    margin-bottom: 1em;
+	background: #099;
+	/*margin-bottom: 1em;*/
+	padding: 1em 0;
+	margin-bottom: 1em;
 
-    .feature-card {
-        background: $white;
-        padding-bottom: 1em;
+	.feature-card {
+		background: $white;
+		padding-bottom: 1em;
 
-        h3, p, ul { padding: 0 15px; }
-        h3 {
-            font-size: 1.375em;
-            font-weight: normal;
-            line-height: 1.272;
-            color: $dteal00;
-        }
+		h3, p, ul { padding: 0 15px; }
+		h3 {
+			font-size: 1.375em;
+			font-weight: normal;
+			line-height: 1.272;
+			color: $dteal00;
+		}
 
-        &:hover {
-            h3 {
-                color: $lcranberry;
-            }
-        }
-    }
+		&:hover {
+			h3 {
+				color: $lcranberry;
+			}
+		}
+	}
 }
 @media only screen and (max-width: 640px) {
-  .multimedia-slot {
-    padding: 1em; }
-    .multimedia-slot p, .multimedia-slot ul {
-    display: none; }
-    .multimedia-feature-card {
-        margin-right: 15px;
-    }
+  
+	.multimedia-slot p, .multimedia-slot ul {
+	display: none; }
+	.multimedia-feature-card {
+		margin-right: 15px;
+	}
+ }
+ @media only screen and (max-width: 1024px) {
+	.multimedia-slot {
+		padding: 1em; 
+	}
  }
 .multimedia {
-    .card {
-        background: none;
-        opacity: 1;
+	.card {
+		background: none;
+		opacity: 1;
+		padding-left: 0;
 
-        a {
-            color: #606060;
-        }
-        &:hover {
-            h3 { color: $lcranberry; }
-        }
-    }
-    h3 a {
-        @extend %card-link-hover;
-    }
+		a {
+			color: #606060;
+		}
+		&:hover {
+			h3 { color: $lcranberry; }
+		}
+	}
+	h3 a {
+		@extend %card-link-hover;
+	}
 }
 
 @mixin call-to-action-corner() {
-    text-transform: uppercase;
-    position: absolute;
-    z-index: 88;
-    padding: 0.62em;
-    color: #FFFFFF;
-    background-color: #403f3f;
+	text-transform: uppercase;
+	position: absolute;
+	z-index: 88;
+	padding: 0.62em;
+	color: #FFFFFF;
+	background-color: #403f3f;
 
-    // rotate the call to action:
-    $call-to-action-max-width: 424px;
-    left: calc(100% - #{$call-to-action-max-width});
-    -webkit-transform-origin: top left;
-    transform-origin: top left;
-    $call-to-action-rotation: 90deg;
-    -webkit-transform: 
-        rotate($call-to-action-rotation)
-        translate(0, -#{$call-to-action-max-width});
-    -ms-transform: 
-        rotate($call-to-action-rotation)
-        translate(0, -#{$call-to-action-max-width});
-    transform:
-        rotate($call-to-action-rotation)
-        translate(0, -#{$call-to-action-max-width});
+	// rotate the call to action:
+	$call-to-action-max-width: 424px;
+	left: calc(100% - #{$call-to-action-max-width});
+	-webkit-transform-origin: top left;
+	transform-origin: top left;
+	$call-to-action-rotation: 90deg;
+	-webkit-transform: 
+		rotate($call-to-action-rotation)
+		translate(0, -#{$call-to-action-max-width});
+	-ms-transform: 
+		rotate($call-to-action-rotation)
+		translate(0, -#{$call-to-action-max-width});
+	transform:
+		rotate($call-to-action-rotation)
+		translate(0, -#{$call-to-action-max-width});
 }
 .multimedia-feature-card {
-    background: $white;
-    padding-bottom: 1em;
-    position: relative;
+	background: $white;
+	padding-bottom: 1em;
+	position: relative;
 
-    a {
-        color: $dgrey00;
+	a {
+		color: $dgrey00;
 
-        &:before { @include call-to-action-corner(); }
-    }
-    h3 {
-        font-size: 1.375em;
-        font-weight: normal;
-        line-height: 1.272;
-        color: $dteal00;
-    }
-    h3, p, ul { padding: 0 15px; }
+		&:before { @include call-to-action-corner(); }
+	}
+	h3 {
+		font-size: 1.375em;
+		font-weight: normal;
+		line-height: 1.272;
+		color: $dteal00;
+	}
+	h3, p, ul { padding: 0 15px; }
 
-    &.cgvInfographic {
-        a:before { content: "Infographic";
-            html[lang="es"] & { content: "Infograf\00ed a" }
-        }
-    }
-    &.gloVideo {
-        a:before { content: "Video";
-            html[lang="es"] & { content: "Video" }
-        }
-    }
+	&.cgvInfographic {
+		a:before { content: "Infographic";
+			html[lang="es"] & { content: "Infograf\00ed a" }
+		}
+	}
+	&.gloVideo {
+		a:before { content: "Video";
+			html[lang="es"] & { content: "Video" }
+		}
+	}
 
-    &.gloVideoCarousel {
-        a:before { content: "Video Playlist";
-            html[lang="es"] & {
-                content: "Lista de reproducci\00f3 n de videos" }
-        }
-    }
+	&.gloVideoCarousel {
+		a:before { content: "Video Playlist";
+			html[lang="es"] & {
+				content: "Lista de reproducci\00f3 n de videos" }
+		}
+	}
 }
 // these rules are to fix the autoheight problems in multimedia row
 %autoheight-fix {
-    height: 100%;
+	height: 100%;
 }
 .multimedia-feature-card, .multimedia .feature-card {
-    @extend %autoheight-fix;
-    a {
-        display: block;
-        height: 100%;
-    }
+	@extend %autoheight-fix;
+	a {
+		display: block;
+		height: 100%;
+	}
 }
 .card > .slot-item {
-    @extend %autoheight-fix;
+	@extend %autoheight-fix;
 }
 /* END MULIMEDIA ROW */
 
 /* BEGIN Director's Row */
 
 .directors-row {
-    h3 {
-        color: $white;
-    }
+	h3 {
+		color: $white;
+	}
 }
 .infographic {
-    position: relative;
-    /* allows for appearance of equal height cards on home page */
-    background: $white;
-    figcaption {
-        padding: 0.5em 1em;
-    }
+	position: relative;
+	/* allows for appearance of equal height cards on home page */
+	background: $white;
+	figcaption {
+		padding: 0.5em 1em;
+	}
 }
 .infographic-enlarge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: $white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: $white;
 
-    a {
-        color: $white;
-        padding: 1em 2em 1em 1em;
-        display: block;
-        background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
-        @extend %card-link-hover;
-    }
+	a {
+		color: $white;
+		padding: 1em 2em 1em 1em;
+		display: block;
+		background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		@extend %card-link-hover;
+	}
 }
 .home-director-stories {
-    background: $white;
-    padding: 0.5em 1em 0.2em;
-    margin-top: -10px;
+	background: $white;
+	padding: 0.5em 1em 0.2em;
+	margin-top: -10px;
 }
 /* END Director's Row */
 /********************* END Home Page Styles ******************************************/
