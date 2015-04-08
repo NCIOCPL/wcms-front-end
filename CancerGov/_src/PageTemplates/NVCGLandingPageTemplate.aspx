@@ -1,1 +1,1 @@
-<!--(bake Includes/HomeLanding.inc template_name="NVCGLandingPageTemplate.aspx" title="true")-->
+<!--(bake Includes/HomeLanding.inc template_name="NVCGLandingPageTemplate.aspx" title="true" skipto_id="content")-->
