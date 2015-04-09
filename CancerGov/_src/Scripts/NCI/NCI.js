@@ -174,7 +174,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	*  will generate an accordion using jQuery UI
 	*
 	* returns: null
-	* paramenters:
+	* parameters:
 	*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
 	*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
 	*
@@ -242,7 +242,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	*  will destroy an accordion using jQuery UI
 	*
 	* returns: null
-	* paramenters:
+	* parameters:
 	*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
 	*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
 	*
@@ -262,6 +262,86 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			});
 		}
 	},
+	
+	/*======================================================================================================
+	* function undoAccordion
+	*
+	*  will generate all possible accordions on the page
+	*
+	* returns: null
+	* parameters: null
+	*
+	*====================================================================================================*/
+	makeAllAccordions: function() {
+		var targets = {
+			//'selector' : 'header'
+			'.accordion' : 'h2',
+			'#nvcgRelatedResourcesArea' : 'h6',
+			'#cgvCitationSl' : 'h6',
+			'.cthp-content' : 'h3'
+		};
+		var targetsSelector = Object.keys(targets).join(', ');
+		var targetsBuiltAccordion = [],
+				targetsHeader = [],
+				accordion;
+
+		for(var target in targets) {
+			if(targets.hasOwnProperty(target)) {
+				targetsBuiltAccordion.push(target + '.ui-accordion');
+				targetsHeader.push(target + ' ' + targets[target]);
+			}
+		}
+		var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(', ');
+		var targetsHeaderSelector = targetsHeader.join(', ');
+
+		function accordionize() {
+			/* determine window width */
+			var width = window.innerWidth || $(window).width(),
+				accordion;
+
+			/* If the width is less than or equal to 640px (small screens)
+			 * AND if the accordion(s) isn't (aren't) already built */
+			if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
+				// verify that the accordion will build correctly
+				$(targetsHeaderSelector).each(function() {
+					var $this = $(this);
+					if($this.nextAll().length > 1 || $this.next().is('ul, ol')) {
+						$this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
+					}
+				});
+
+				for(accordion in targets) {
+					if(targets.hasOwnProperty(accordion)) {
+						NCI.doAccordion(accordion, {'header': targets[accordion]});
+					}
+				}
+
+				// after all accordions have been built, add appropriate odd/even classes to the accordion headers
+				var builtAccordionHeaders = $('.ui-accordion-header');
+				for(var i = 1; i <= builtAccordionHeaders.length; i++) {
+					if(i % 2 === 0) {
+						builtAccordionHeaders.get(i-1).className += ' ' + 'even';
+					} else {
+						builtAccordionHeaders.get(i-1).className += ' ' + 'odd';
+					}
+				}
+
+				/* else, the window must be large */
+			} else if(width > 640) {
+				for(accordion in targets) {
+					if(targets.hasOwnProperty(accordion)) {
+						NCI.undoAccordion(accordion, {'header': targets[accordion]});
+					}
+				}
+			}
+		}
+
+		$(window).on('resize', function() {
+			accordionize();
+		});
+
+		accordionize();
+	},
 
 	/*======================================================================================================
 	* function doAutocomplete
@@ -269,7 +349,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	*  will generate an autocomplete box for an <input type="text"> element, using jQuery UI
 	*
 	* returns: null
-	* paramenters:
+	* parameters:
 	*  !target[]            (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
 	*  !url[]               (string)                     URL of the autocomplete service.
 	*  contains[false]      (boolean)                    Boolean variable describing whether the autocomplete is for "starts with" (false) or "contains" (true).

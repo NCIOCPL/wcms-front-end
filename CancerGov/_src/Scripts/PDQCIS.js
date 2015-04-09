@@ -676,6 +676,7 @@ $(function() {
   // --------------------------------------------------------------
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
+  NCI.makeAllAccordions();
 
 
   // Temporarily reset the URL for the email/facebook/etc. buttons
