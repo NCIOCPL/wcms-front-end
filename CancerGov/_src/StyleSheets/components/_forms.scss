@@ -168,7 +168,7 @@ label, .label {
 .postfix.button {
 	@include button-size(false, false, false);
 	@include postfix(false, true);
-	height: 2.4375em;
+	height: 2.8125em;
 }
 .prefix.button {
 	@include button-size(false, false, false);
