@@ -2,42 +2,41 @@
 /* MOBILE STYLES (SMALL) */
 /* *************************************************************************/
 @media only screen and (max-width :640px) {
-		figure.image-right-medium,	figure.image-right-small {
-			width: 100%;
-			margin: 0 0 1em 0;
-		}
+	figure.image-right-medium,	figure.image-right-small {
+		width: 100%;
+		margin: 0 0 1em 0;
+	}
 
-
-			.main-content {
-			background: none;
-		}
-				.hero-slot {
-					display: none;
-				}
-		/* remove padding on language links to fit all on one line */
-			.sitewide-language {
-			padding-right: 0;
-		}
-		/* no gutter on left and right in mobile */
-			.card, .card-thumbnail div {
-			padding-right: 0;
-			padding-left: 0;
-		}
+	.main-content {
+		background: none;
+	}
+	.hero-slot {
+		display: none;
+	}
+	/* remove padding on language links to fit all on one line */
+	.sitewide-language {
+		padding-right: 0;
+	}
+	/* no gutter on left and right in mobile */
+	.card, .card-thumbnail div {
+		padding-right: 0;
+		padding-left: 0;
+	}
 	.bcrumbs {
-	display: none;
+		display: none;
 	}
 	.site-footer {
-        background-position: -120% 150px;
-    }
+		background-position: -120% 150px;
+	}
 	.feature-primary {
-	margin-bottom: 0;	
+		margin-bottom: 0;
 	}
 	.feature-primary .card {
 		background: #178DAA;
 	}
 	.feature-primary .columns a, .feature-secondary .columns a {
-	padding-bottom: 15px;
-	padding-top: 15px;	
+		padding-bottom: 15px;
+		padding-top: 15px;
 		overflow: auto;
 	}
 	.feature-primary .image-hover, .feature-secondary .image-hover {
@@ -45,17 +44,17 @@
 		width: 30%;
 	}
 	.feature-primary h3, .feature-secondary h3 {
-	margin-top: 0;	
+		margin-top: 0;
 		float: right;
 		width: 70%;
-		font-size: 1.13em; 
+		font-size: 1.13em;
 	}
-	.feature-primary a:hover h3, 
+	.feature-primary a:hover h3,
 	.feature-primary a:hover h3	{
-		color: white; 
+		color: white;
 	}
 	.feature-primary-title {
-		background: #178DAA; 
+		background: #178DAA;
 	}
 	.feature-primary-title h3 {
 		font-size: 1.375em;
@@ -70,124 +69,123 @@
 		width: 100%;
 	}
 	.card-thumbnail h3 {
-		margin-top: 0;	
+		margin-top: 0;
 	}
 	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
 		display: none;
 	}
 		/* the portal pages needed these items to not hit the edge of screen on mobile only */
-		.feature-primary h3,	.feature-primary p,	.feature-secondary h3,	.feature-secondary p, .other-sites-carousel h3, .row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
-			padding-left: 15px;
-		}
+	.feature-primary h3, .feature-primary p,
+	.feature-secondary h3, .feature-secondary p,
+	.other-sites-carousel h3,
+	.row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
+		padding-left: 15px;
+	}
 	.feature-primary .featured-text {
-		display: none;	
+		display: none;
 	}
 	table .article-image-enlarge {
-	font-size: 7px;
-	margin-top: -5px;
-	padding-left: 3px !important;
-	padding-right: 24px !important;
-}
+		font-size: 7px;
+		margin-top: -5px;
+		padding-left: 3px !important;
+		padding-right: 24px !important;
+	}
 	.guide-card {
-		padding: 0;	
+		padding: 0;
 	}
 	.guide-title h2 {
-		display: none; 
+		display: none;
 	}
 	/** CTHP styles **/
 	.cthp-body {
-	float: none;
-	width: 100%;
-}
+		float: none;
+		width: 100%;
+	}
 	.cthp-title {
 		margin-top: 0;
 	}
 	.cthp-card-container {
-	margin-top: 0;
+		margin-top: 0;
 		padding-left: 0.9375em;
 		padding-right: 0.9375em;
 	}
 	.cthp-card-container img {
-	display: none;
+		display: none;
 	}
 	.cthp-intro-multimedia h3 {
-	text-transform: uppercase;	
+		text-transform: uppercase;
 	}
-	
+
 	.cthp-treatment,
-.cthp-research,
-.cthp-causes,
-.cthp-genetics,
-.cthp-screening,
-.cthp-survival,
-.cthp-general {
-	margin-bottom: 0;
-}
-		.cthp-content {
+	.cthp-research,
+	.cthp-causes,
+	.cthp-genetics,
+	.cthp-screening,
+	.cthp-survival,
+	.cthp-general {
+		margin-bottom: 0;
+	}
+	.cthp-content {
 		background: white;
 	}
-	
+
 	.cthp-content h1 {
-	color: #606060;
-}
+		color: $header-font-color;
+	}
 	.cthp-version-toggle {
-	float: none;
-	background: white $circle-arrow-blue-small 98% no-repeat;
-	display: inline-block;
+		float: none;
+		background: white $circle-arrow-blue-small 98% no-repeat;
+		display: inline-block;
 		padding: 0 40px 0px 0;
 		margin-top: 0;
 		&:hover, &:focus {
-		background: white $circle-arrow-red-small 98% no-repeat;
+			background: white $circle-arrow-red-small 98% no-repeat;
+		}
 	}
-	}
-	.cthp-version-toggle a {
-	 color: #606060;
-}
 	.row .tp20 {
-	margin-top: 0;
-	
-}
-/** END CTHP styles **/
-/** BEGIN Home Page styles **/
+		margin-top: 0;
+	}
+	/** END CTHP styles **/
+	/** BEGIN Home Page styles **/
 	.multimedia-feature-card h3, .multimedia-slot .feature-card h3 {
 		font-size: 0.875em;
 	}
-/** END Home Page styles **/
-//** BEGIN PDQ Styles **/
-.on-this-page {
+	/** END Home Page styles **/
+	//** BEGIN PDQ Styles **/
+	.on-this-page {
 		display: none;
 	}
-//** END PDQ Styles **/
-//** BEGIN Dynamic List Styles **/
+	//** END PDQ Styles **/
+	//** BEGIN Dynamic List Styles **/
 	.dynamic {
 		padding: 0 15px;
 	}
 	.large-8 .list .container.image + .container.title {
-		width: 100%; 
+		width: 100%;
 	}
 	.news-share {
 		margin: 0;
 	}
-//** END Dynamic List Styles **/	
-	    .guide-card {
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-    .guide-card .card,
-    .guide-card .featured-card {
-        background: #1d5e86;
-        padding-top: 0;
-        padding-bottom: 0;
-        margin: 0;
-    }
-    .guide-card .card h3 {
-        color: white;
-        background: url($buttons + "small-arrow.png") 95% center no-repeat;
-        border-bottom: 1px solid black;
-        padding: 0.3em 0.9375em;
-        margin: 0;
-    }
-    .guide-card .card h3.last {
-        border-bottom: none;
-    }
+	//** END Dynamic List Styles **/
+	.guide-card {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	.guide-card .card,
+	.guide-card .featured-card {
+		background: #1d5e86;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin: 0;
+	}
+	.guide-card .card h3 {
+		color: white;
+		background: url($buttons + "small-arrow.png") 95% center no-repeat;
+		border-bottom: 1px solid black;
+		padding: 0.3em 0.9375em;
+		margin: 0;
+	}
+	.guide-card .card h3.last {
+		border-bottom: none;
+	}
 }

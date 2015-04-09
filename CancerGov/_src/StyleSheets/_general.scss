@@ -71,7 +71,7 @@ table.table-default {
 	caption {
 		@include font-montserrat;
 		font-weight: normal;
-		color: #606060;
+		color: $header-font-color;
 		text-align: left;
 		padding: 20px 0 10px;
 		font-size: 1.375em;
@@ -92,7 +92,7 @@ table.table-default {
 	th {
 		@include font-noto;
 		font-weight: bold;
-		color: #606060;
+		color: $body-font-color;
 		background-color: #d0f1f2;
 		/*text-align: left;*/
 	}

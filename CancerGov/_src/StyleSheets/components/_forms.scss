@@ -12,11 +12,11 @@ $form-spacing: em-calc(16);
 $form-label-display: inline-block;
 // $form-label-font-size: em-calc(14);
 $form-label-font-weight: normal;
-$form-label-font-color: #606060;
+$form-label-font-color: $body-font-color;
 $form-label-line-height: 1em;
 // $form-label-bottom-margin: em-calc(3);
 // $input-font-family: inherit;
-$input-font-color: #606060;
+$input-font-color: $body-font-color;
 $input-font-size: em-calc(16);
 $input-placeholder-font-family: inherit;
 $input-placeholder-font-color: lighten($input-font-color, 30%);
@@ -558,7 +558,7 @@ fieldset {
 		text-align: left;
 	}
 	.clinical-trials-search-form .field {
-		margin-bottom: 10px;	
+		margin-bottom: 10px;
 	}
 	fieldset {
 		label.field {
@@ -581,8 +581,8 @@ fieldset {
 	margin-bottom: 10px;
 }
 @media only screen and (max-width: 640px) {
-	.ct-country-area .ui-selectmenu-button  {
-		width: 200px !important;	
+	.ct-country-area .ui-selectmenu-button	{
+		width: 200px !important;
 	}
 }
 .ct-state-label {
@@ -601,15 +601,15 @@ fieldset {
 /*.checkbox label {
 	padding-left: 5px;
 }*/
-.cts-location 
+.cts-location
 {
 	padding: 10px;
 	border-top: 3px solid rgba(0, 0, 0, 0.35); // color was #00B5BC
 }
-.cts-location>div 
+.cts-location>div
 {
 		padding: 12px 0;
-} 
+}
 .ct-zip-row {
 	margin-top: 10px;
 	padding-bottom: 0 !important;
@@ -636,15 +636,15 @@ fieldset {
 .ct-zip-row .icon-exit-notification {
 	display: none;
 }
-fieldset fieldset 
+fieldset fieldset
 {
-		background: #E2F5F9;                
+		background: #E2F5F9;
 		margin: 0;
 		padding: 18px;
 }
-fieldset fieldset .legend 
-{   
+fieldset fieldset .legend
+{
 		font-size: 1.2em;
-		color: #606060;
+		color: $header-font-color;
 		background: transparent;
-} 
+}

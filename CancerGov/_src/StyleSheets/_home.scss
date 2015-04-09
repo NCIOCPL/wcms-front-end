@@ -106,7 +106,7 @@
 		}
 	}
 	.card-row & a {
-		color: $dgrey00;
+		color: $body-font-color;
 	}
 	ul {
 		@extend %no-bullets;
@@ -156,7 +156,7 @@
 			@extend %card-link-hover;
 		}
 		h3 {
-			color: $dgrey00;
+			color: $header-font-color;
 		}
 		p {
 			margin-top: 1em;
@@ -197,7 +197,7 @@
 	}
 	p {
 		margin-bottom: 0;
-		color: $dgrey00;
+		color: $body-font-color;
 		font-size: em-calc(18px);
 	}
 	@include card-clickable;
@@ -209,7 +209,7 @@
 	margin-bottom: 1em;
 	h3 {
 		font-weight: normal;
-		color: $dgrey00;
+		color: $header-font-color;
 		font-size: 1.375em;
 		line-height: 1.272;
 	}
@@ -254,7 +254,7 @@ a.arrow-link {
 	padding-right: 2em;
 	width: 100%;
 	display: block;
-	color: $dgrey00;
+	color: $body-font-color;
 	text-decoration: none;
 
 	&:hover {
@@ -329,7 +329,7 @@ a.learn-more {
 	}
 }
 @media only screen and (max-width: 640px) {
-  
+
 	.multimedia-slot p, .multimedia-slot ul {
 	display: none; }
 	.multimedia-feature-card {
@@ -338,7 +338,7 @@ a.learn-more {
  }
  @media only screen and (max-width: 1024px) {
 	.multimedia-slot {
-		padding: 1em; 
+		padding: 1em;
 	}
  }
 .multimedia {
@@ -348,7 +348,7 @@ a.learn-more {
 		padding-left: 0;
 
 		a {
-			color: #606060;
+			color: $body-font-color;
 		}
 		&:hover {
 			h3 { color: $lcranberry; }
@@ -373,10 +373,10 @@ a.learn-more {
 	-webkit-transform-origin: top left;
 	transform-origin: top left;
 	$call-to-action-rotation: 90deg;
-	-webkit-transform: 
+	-webkit-transform:
 		rotate($call-to-action-rotation)
 		translate(0, -#{$call-to-action-max-width});
-	-ms-transform: 
+	-ms-transform:
 		rotate($call-to-action-rotation)
 		translate(0, -#{$call-to-action-max-width});
 	transform:
@@ -389,7 +389,7 @@ a.learn-more {
 	position: relative;
 
 	a {
-		color: $dgrey00;
+		color: $body-font-color;
 
 		&:before { @include call-to-action-corner(); }
 	}

@@ -17,9 +17,9 @@
 	padding: 0;
 }
 /* hiding default h3 that PDQ spits out, for the more modular pseudo-element.
-* This allows for separation of style and content, as the header treatment is a style change, not a content one.
-*  - sjc - 2014-11-10
-*/
+ * This allows for separation of style and content, as the header treatment is a style change, not a content one.
+ * - sjc - 2014-11-10
+ */
 
 .on-this-page {
 	/* important set in display because the hide-medium-down has a display that is overriding this */
@@ -45,7 +45,7 @@
 	color: #186e88;
 }
 .on-this-page li {
-	color: #606060;
+	color: $body-font-color;
 	padding: 0;
 	margin: 0 0 0 1.25em;
 	line-height: 1.375em;

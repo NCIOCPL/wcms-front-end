@@ -6,41 +6,41 @@
 	background-color: #fff;
 }
 .relatedcontent {
-    &:hover a, a:hover,
-    &:focus a, a:focus {
-			color: #bb0e3d;
-			text-decoration: none;
-    }
+	&:hover a, a:hover,
+	&:focus a, a:focus {
+		color: #bb0e3d;
+		text-decoration: none;
+	}
 
-    a:after {
-			content: $circle-arrow-red-small;
-			vertical-align: middle;
-			padding-top: 7px;
-			padding-left: 7px;
-			top: 4px;
-			position: relative;
-    }
+	a:after {
+		content: $circle-arrow-red-small;
+		vertical-align: middle;
+		padding-top: 7px;
+		padding-left: 7px;
+		top: 4px;
+		position: relative;
+	}
 
-    &:hover a:after,
-    &:focus a:after {
-			content: $circle-arrow-blue-small;
-    }
+	&:hover a:after,
+	&:focus a:after {
+		content: $circle-arrow-blue-small;
+	}
 }
 .cthp-content {
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 350px;
 }
 .cthp-intro-multimedia {
-  background: white;	
+	background: white;
 }
 .cthp-body {
-	float:left; 
-	width: 55%; 
-	display: block; 
+	float:left;
+	width: 55%;
+	display: block;
 	clear: left;
 }
 .cthp-body h3 {
 	margin-top: 0px;
-	float:left; 
+	float:left;
 	width: 55%;
 }
 .large-12.columns.cthp-intro-multimedia.clearfix {
@@ -59,7 +59,7 @@
 	margin-left: 0;
 }
 .cthp-content h1 {
-  color: white;	
+	color: white;
 }
 .normal li {
 	background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
@@ -93,46 +93,46 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	color: #186e88;
 }
 .main-content a.viewAll {
-    color: #606060;
+	color: $body-font-color;
 }
 .main-content a.viewAll:hover, .main-content a.viewAll:focus {
-    text-decoration: none;
+	text-decoration: none;
 }
 .guide h3 {
-    color: #fff;
+	color: #fff;
 }
 .cthp-version-toggle {
-    float: right;
-    background: #dbf2f8 $circle-arrow-off-cream-small 98% no-repeat;
-    color: #fff;
-    padding: 0.625em 3.6em 0.625em 0.7em;
-		margin: -55px 0 20px 0;
+	float: right;
+	background: #dbf2f8 $circle-arrow-off-cream-small 98% no-repeat;
+	color: #fff;
+	padding: 0.625em 3.6em 0.625em 0.7em;
+	margin: -55px 0 20px 0;
 
-    &:hover, &:focus {
-        background-image: $circle-arrow-red-small;
-    }
-
-    a {
-			color: #606060;
+	&:hover, &:focus {
+		background-image: $circle-arrow-red-small;
 	}
-  &:hover a, &:focus a {
+
+	a {
+		color: $body-font-color;
+	}
+	&:hover a, &:focus a {
 		text-decoration: none;
 		color: #bd153c;
-  }
+	}
 }
 .bp20 {
-  padding-bottom: 1.25em;
+	padding-bottom: 1.25em;
 }
 .alphalist {
-  padding: 1.2em 0;
-  overflow: auto;
+	padding: 1.2em 0;
+	overflow: auto;
 }
 .alphalist li {
-  float: left;
-  font-size: 1.625em;
-  font-family: 'Montserrat', Arial;
-  margin-right: 1em;
-  color: #606060;
+	float: left;
+	font-size: 1.625em;
+	font-family: 'Montserrat', Arial;
+	margin-right: 1em;
+	color: $body-font-color;
 }
 .cthp-content.ui-accordion .ui-accordion-header {
 	color: white;
@@ -145,7 +145,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-screening,
 .cthp-survival,
 .cthp-general {
-  margin-bottom: 1.25em;
+	margin-bottom: 1.25em;
 }
 .cthp-treatment h3,
 .cthp-research h3,
@@ -155,38 +155,38 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-survival h3,
 .cthp-general h3 {
 	color: #fff;
-  padding: 0.47em 0.6em;
-  margin: 0;
-  text-transform: uppercase;
+	padding: 0.47em 0.6em;
+	margin: 0;
+	text-transform: uppercase;
 }
 /* Begin CTHP Card styling */
 .cthp-content .cthp-treatment h3 {
-  background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
+	background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
 }
 .cthp-content .cthp-research h3 {
-  background: #008eb0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
+	background: #008eb0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
 }
 .cthp-content .cthp-causes h3 {
-  background: #008eb0 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
+	background: #008eb0 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
 }
 .cthp-content .cthp-genetics h3 {
-  background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
+	background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
 }
 .cthp-content .cthp-screening h3 {
-  background: #008eb0 url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
+	background: #008eb0 url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
 }
 .cthp-content .cthp-survival h3 {
-  background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
+	background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
 }
 .cthp-content .cthp-general h3 {
-  background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
+	background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
 /* End CTHP Card styling */
 @media only screen and (min-width: 1025px) {
 	.cthp-breadcrumb {
 		padding-left: 0;
 	}
-	.cthp-padding { 
+	.cthp-padding {
 		padding-left: em-calc(8px);
 	}
 	.cthp-content h1 {

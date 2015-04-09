@@ -21,9 +21,9 @@
 	overflow-x: auto;
 }
 figure.table figcaption {
-	font-family: 'Montserrat', Arial, sans-serif;
+	@include font-montserrat;
 	font-weight: normal;
-	color: #606060;
+	color: $header-font-color;
 	text-align: left;
 	padding: 0 3.25em 10px 0;
 	font-size: 1.375em;
