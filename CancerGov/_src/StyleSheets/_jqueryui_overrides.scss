@@ -77,7 +77,7 @@ $ui-selectmenu-maxitems: 7;
 
 		height: 11px;
 		width: 8px;
-		background: #186e88 url($icons + "nci-sprite.png") no-repeat -378.5px -172px;
+		background: $color-link url($icons + "nci-sprite.png") no-repeat -378.5px -172px;
 	}
 	span.ui-selectmenu-text {
 		@include ui-selectmenu-padding();

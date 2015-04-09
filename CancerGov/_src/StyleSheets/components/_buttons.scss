@@ -29,7 +29,7 @@ $button-font-align: center;
 // We use these to control button background styles.
 
 $button-background-color-submit: #0eb5bb;
-$button-background-color-reset: #186e88;
+$button-background-color-reset: $color-link;
 $button-background-color-otheraction: #620788;
 
 // We use these to control various hover effects.

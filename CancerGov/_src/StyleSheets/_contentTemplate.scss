@@ -4,14 +4,14 @@
     display: none;
 }
 .shareBtn {
-    color: #186e88;
+    color: $color-link;
     margin: 1.25em 0 0 2.4em;
     padding-left: 1.875em;
     background: url($buttons + "share_plus.png") no-repeat center left;
     cursor: pointer;
 }
 .shareBtnOpen {
-    color: #186e88;
+    color: $color-link;
     margin: 1.25em 0 0 2.4em;
     padding-left: 1.875em;
     background: url($buttons + "share_minus.png") no-repeat center left;
