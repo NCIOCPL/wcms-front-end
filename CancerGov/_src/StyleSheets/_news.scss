@@ -26,7 +26,11 @@ a.arrow-link.news-footer {
 	background-position: -20px -376px;
 }
 
-@media only screen and (min-width: 1025px) {
+.news .card {
+	padding-top: 0em;
+}
+
+@media only screen and (min-width: 641px) {
 	.news .large-8.gutter {
 		width: 66%;
 	}
@@ -35,7 +39,6 @@ a.arrow-link.news-footer {
 		margin-bottom: 1em;
 		padding-left: 0.9375em;
 		padding-right: 0.9375em;
-		padding-top: 0em;
 	}
 }
 
