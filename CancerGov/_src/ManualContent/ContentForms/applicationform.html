@@ -1,6 +1,6 @@
 <noscript>
 	<div>
-		<h4 class="error">Please enable JavaScript to submit this form</h4>
+		<h4 class="error">Please enable JavaScript to submit this form.</h4>
 	</div>
 </noscript>
 <!-- form validation -->
@@ -13,8 +13,8 @@
 
 	function validateGeneticsDirectoryForm() {
 		var validationMessage = "",
-		    validResponse,
-		    elements = document.forms['GeneticsForm'].elements;
+			validResponse,
+			elements = document.forms['GeneticsForm'].elements;
 
 		if (elements['Name'].value === '') {
 			validationMessage += "Please enter your Name. Question #1\n";
@@ -194,7 +194,10 @@
 	<input name="__splitFields" type="hidden" value="Service_Provided_For,Genetics_Expertise,Memberships,Type_of_specialty,Type_of_health_care_professional">
 
 	<fieldset>
-		<legend>1. Please provide your full name, including middle initial, and the complete address, telephone number, fax number, and email address where you can be contacted for annual verification of your information:</legend>
+		<div class="row">
+			<div class="large-4 columns legend">1.</div>
+			<div class="large-8 columns">Please provide your full name, including middle initial, and the complete address, telephone number, fax number, and email address where you can be contacted for annual verification of your information:</div>
+		</div>
 		<input name="Question 1" type="hidden" value="Please provide your full name, including middle initial, and the complete address, telephone number, fax number, and email address where you can be contacted for annual verification of your information">
 		<input name="__linebreak1" type="hidden">
 
@@ -204,7 +207,7 @@
 				<label for="Name" class="required inline right">Name:*</label>
 			</div>
 			<div class="medium-8 columns">
-				<input id="Name" name="Name" type="text" maxlength="64" required>
+				<input id="Name" name="Name" type="text" maxlength="64">
 			</div>
 		</div>
 
@@ -213,7 +216,7 @@
 				<label for="Institution" class="required inline right">Institution:*</label>
 			</div>
 			<div class="medium-8 columns">
-				<input id="Institution" name="Institution" type="text" maxlength="64" required>
+				<input id="Institution" name="Institution" type="text" maxlength="64">
 			</div>
 		</div>
 
@@ -222,7 +225,7 @@
 				<label for="Address" class="required inline right">Address:*</label>
 			</div>
 			<div class="medium-8 columns">
-				<textarea id="Address" name="Address" rows="5" required></textarea>
+				<textarea id="Address" name="Address" rows="5"></textarea>
 			</div>
 		</div>
 
@@ -231,7 +234,7 @@
 				<label for="Telephone_Number" class="required inline right">Telephone Number:*</label>
 			</div>
 			<div class="medium-8 columns">
-				<input id="Telephone_Number" name="Telephone_Number" type="tel" maxlength="20">
+				<input id="Telephone_Number" name="Telephone_Number" type="text" maxlength="20">
 			</div>
 		</div>
 
@@ -249,11 +252,11 @@
 				<label for="Email_Address" class="required inline right">Email Address:*</label>
 			</div>
 			<div class="medium-8 columns">
-				<input id="Email_Address" name="Email_Address" type="email" maxlength="64" required>
+				<input id="Email_Address" name="Email_Address" type="text" maxlength="64">
 			</div>
 		</div>
 
-		<fieldset class="row" aria-labelledby="Publish_Email_in_CGSS_label">
+		<div class="row">
 			<div class="medium-4 columns">
 				<span id="Publish_Email_in_CGSS_label" class="label required right">Publish your email address in the NCI Cancer Genetics Services Directory?*</span>
 			</div>
@@ -267,7 +270,7 @@
 					<label for="Publish_Email_in_CGSS[No]">No</label>
 				</span>
 			</div>
-		</fieldset>
+		</div>
 
 		<div class="row">
 			<div class="medium-4 columns">
@@ -278,7 +281,7 @@
 			</div>
 		</div>
 
-		<fieldset class="row" aria-labelledby="Provide_services_at_this_location_label">
+		<div>
 			<div class="row">
 				<div class="medium-4 columns">
 					<span id="Provide_services_at_this_location_label" class="label right">Do you provide services at this location?</span>
@@ -295,9 +298,9 @@
 				</div>
 			</div>
 
-			<fieldset class="row" aria-labelledby="Service_location_label">
+			<div>
 				<div class="row">
-					<div class="medium-12 columns">
+					<div class="medium-8 columns right">
 						<span id="Service_location_label" class="label">If no, please provide information for service location:</span>
 					</div>
 				</div>
@@ -325,7 +328,7 @@
 						<label for="Service_Phone_Number" class="required inline right">Telephone Number:*</label>
 					</div>
 					<div class="medium-8 columns">
-						<input id="Service_Phone_Number" name="Service_Phone_Number" type="tel" maxlength="20">
+						<input id="Service_Phone_Number" name="Service_Phone_Number" type="text" maxlength="20">
 					</div>
 				</div>
 
@@ -337,11 +340,14 @@
 						<textarea id="Additional_Locations" name="Additional_Locations" rows="5"></textarea>
 					</div>
 				</div>
-			</fieldset>
-		</fieldset>
+			</div>
+		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">2. * What type of health care professional are you?</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 2.</div>
+			<div class="large-8 columns">What type of health care professional are you?</div>
+		</div>
 		<input name="__linebreak2a" type="hidden">
 		<input name="Question 2" type="hidden" value="What type of health care professional are you?">
 		<input name="__linebreak2" type="hidden">
@@ -398,7 +404,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">3a. * What is/are your specialties? (Choose one or more)</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 3a.</div>
+			<div class="large-8 columns">What is/are your specialties? (Choose one or more)</div>
+		</div>
 		<input name="__linebreak3a" type="hidden">
 		<input name="Question 3a" type="hidden" value="What is/are your specialties?">
 		<input name="__linebreak3" type="hidden">
@@ -465,7 +474,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">3b. * Are you board certified in your specialty?</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 3b.</div>
+			<div class="large-8 columns">Are you board certified in your specialty?</div>
+		</div>
 		<input name="__linebreak3b" type="hidden">
 		<input name="Question 3b" type="hidden" value="Are you board certified in your specialty?">
 		<input name="__linebreak3c" type="hidden">
@@ -483,16 +495,16 @@
 			</div>
 		</div>
 
-		<fieldset class="row">
+		<div class="row">
 			<div class="medium-4 columns">
 				<label for="Specialty_board" class="inline right">If yes, please specify specialty board:</label>
 			</div>
 			<div class="medium-8 columns">
 				<input id="Specialty_board" name="Specialty_board" type="text" maxlength="40">
 			</div>
-		</fieldset>
+		</div>
 
-		<fieldset class="row">
+		<div>
 			<div class="row">
 				<div class="medium-4 columns">
 					<span id="Board_Eligible_label" class="label right">If no, are you board eligible?</span>
@@ -507,20 +519,23 @@
 						<label for="Board_Eligible[No]">No</label>
 					</span>
 				</div>
-			</div class="row">
+			</div>
 
-			<fieldset class="row">
+			<div class="row">
 				<div class="medium-4 columns">
 					<label for="Year_Became_Eligible" class="inline right">If yes, please provide the year you became eligible:</label>
 				</div>
 				<div class="medium-8 columns">
 					<input id="Year_Became_Eligible" name="Year_Became_Eligible" type="text" minlength="4" maxlength="4">
 				</div>
-			</fieldset>
-		</fieldset>
+			</div>
+		</div>
 	</fieldset>
 	<fieldset>
-		<legend>4. What specific training or professional experience do you have in cancer genetics? Please include information about all of the following that apply:</legend>
+		<div class="row">
+			<div class="large-4 columns legend">4.</div>
+			<div class="large-8 columns">What specific training or professional experience do you have in cancer genetics? Please include information about all of the following that apply:</div>
+		</div>
 		<input name="__linebreak4" type="hidden">
 		<input name="Question 4" type="hidden" value="What specific training or professional experience do you have in cancer genetics? Please include information about all of the following that apply:">
 		<input name="__linebreak4" type="hidden">
@@ -591,7 +606,10 @@
 
 	</fieldset>
 	<fieldset>
-		<legend class="required">5. * Are you a member of or affiliated with an interdisciplinary team with substantial expertise in cancer genetics?</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 5.</div>
+			<div class="large-8 columns">Are you a member of or affiliated with an interdisciplinary team with substantial expertise in cancer genetics?</div>
+		</div>
 		<input name="__linebreak5" type="hidden">
 		<input name="Question 5" type="hidden" value="Are you a member of or affiliated with an interdisciplinary team with substantial expertise in cancer genetics?">
 		<input name="__linebreak5a" type="hidden">
@@ -610,7 +628,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">6. * For which of the following do you or members of your team provide expertise in relation to cancer genetics? (Choose one or more)</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 6.</div>
+			<div class="large-8 columns">For which of the following do you or members of your team provide expertise in relation to cancer genetics? (Choose one or more)</div>
+		</div>
 		<input name="__linebreak6a" type="hidden">
 		<input name="Question 6" type="hidden" value="For which of the following do you or members of your team provide expertise in relation to cancer genetics">
 		<input name="__linebreak6" type="hidden">
@@ -641,11 +662,14 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">7. * Do you currently provide professional services to individuals or families seeking familial cancer risk counseling or genetic susceptibility testing? (Please note that if you do not provide services, you cannot be added to the directory.)</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 7.</div>
+			<div class="large-8 columns">Do you currently provide professional services to individuals or families seeking familial cancer risk counseling or genetic susceptibility testing? (Please note that if you do not provide services, you cannot be added to the directory.)</div>
+		</div>
 		<input name="__linebreak7a" type="hidden">
 		<input name="Question 7" type="hidden" value="Do you currently provide professional services to individuals or families seeking familial cancer risk counseling or genetic susceptibility testing?">
 		<input name="__linebreak7" type="hidden">
-		
+
 		<div class="row">
 			<div class="medium-8 columns right">
 				<span class="radio">
@@ -660,7 +684,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">8. * Are you willing to accept calls or email from individuals seeking familial cancer risk counseling and/or genetic susceptibility testing?</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 8.</div>
+			<div class="large-8 columns">Are you willing to accept calls or email from individuals seeking familial cancer risk counseling and/or genetic susceptibility testing?</div>
+		</div>
 		<input name="__linebreak8a" type="hidden">
 		<input name="Question 8" type="hidden" value="Are you willing to accept calls or email from individuals seeking familial cancer risk counseling and/or genetic susceptibility testing?">
 		<input name="__linebreak8" type="hidden">
@@ -679,7 +706,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">9. * Are there restrictions or limitations to services provided (i.e., a person must be eligible for a clinical trial in order to receive services)?</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 9.</div>
+			<div class="large-8 columns">Are there restrictions or limitations to services provided (i.e., a person must be eligible for a clinical trial in order to receive services)?</div>
+		</div>
 		<input name="__linebreak9a" type="hidden">
 		<input name="Question 9" type="hidden" value="Are there restrictions or limitations to services provided (i.e., a person must be eligible for a clinical trial in order to receive services)?">
 		<input name="__linebreak9" type="hidden">
@@ -697,23 +727,26 @@
 			</div>
 		</div>
 
-		<fieldset class="row">
+		<div class="row">
 			<div class="medium-4 columns">
 				<label for="Service_Limitations_explanation" class="inline right">If yes, explain:</label>
 			</div>
 			<div class="medium-8 columns">
 				<input id="Service_limitations_explanation" name="Service_Limitations_explanation" type="text" maxlength="100">
 			</div>
-		</fieldset>
+		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">10. * Please verify the familial cancer predisposing syndromes for which you provide services. A list of cancer sites and types associated with each syndrome will also be provided for searching in the directory. (Choose one or more)</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 10.</div>
+			<div class="large-8 columns">Please verify the familial cancer predisposing syndromes for which you provide services. A list of cancer sites and types associated with each syndrome will also be provided for searching in the directory. (Choose one or more)</div>
+		</div>
 		<input name="__linebreak10a" type="hidden">
 		<input name="Question 10" type="hidden" value="Please specify the familial cancer-predisposing syndromes for which professional services are provided. A list of cancer sites and types associated with each syndrome will also be provided for searching in the directory.">
 		<input name="__linebreak10" type="hidden">
 
 		<div class="row">
-			<div class="medium-8 columns right scrollable-y" style="max-height: 200px;">
+			<div class="medium-8 columns right roundy-box scrolling-list">
 				<div class="checkbox">
 					<input id="Service_Provided_For[1]" name="Service_Provided_For" type="checkbox" value="Ataxia-telangiectasia">
 					<label for="Service_Provided_For[1]">Ataxia-telangiectasia</label>
@@ -915,7 +948,7 @@
 					<label for="Service_Provided_For[50]">von Hippel-Lindau syndrome</label>
 				</div>
 				<div class="checkbox">
-					<input id="Service_Provided_For[51]" name="Service_Provided_For" type="checkbox" value="Waldenstr&ouml;m macroglobulinemia familial">
+					<input id="Service_Provided_For[51]" name="Service_Provided_For" type="checkbox" value="Waldenström macroglobulinemia familial">
 					<label for="Service_Provided_For[51]">Waldenstr&ouml;m macroglobulinemia, familial</label>
 				</div>
 				<div class="checkbox">
@@ -938,7 +971,10 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend class="required">11. * Please note your membership in any of the following national societies or special interest groups. (Choose one or more)</legend>
+		<div class="row">
+			<div class="large-4 columns legend">* 11.</div>
+			<div class="large-8 columns">Please note your membership in any of the following national societies or special interest groups. (Choose one or more)</div>
+		</div>
 		<input name="__linebreak11a" type="hidden">
 		<input name="Question 11" type="hidden" value="Please note your membership in any of the following national societies or special interest groups:">
 		<input name="__linebreak11" type="hidden">
@@ -993,25 +1029,27 @@
 		</div>
 	</fieldset>
 	<fieldset>
-		<legend>12. Please click the Submit button to complete your application.</legend>
-		<p>We will process your application within a week and send you an email with a link to your listing on the Cancer.gov Web site. Please review the listing and let us know if any changes need to be made. You will also receive a verification request by email once a year.</p>
-		<p>For more information about the directory or help with the application, please contact the Directory Coordinator at <a href="mailto:geneticsdirectory@cancer.gov">GeneticsDirectory@cancer.gov</a>.</p>
-
 		<div class="row">
-			<div class="medium-8 columns right">
-				<!-- Recaptcha set up -->
-				<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LcQe-MSAAAAAAG-lHJXWqCfOQQVVx9JMkv0rzDO"></script>
-				<noscript>
-					<iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcQe-MSAAAAAAG-lHJXWqCfOQQVVx9JMkv0rzDO" height="300" width="500" frameborder="0"></iframe>
-					<textarea name="recaptcha_challenge_field" rows="3"></textarea>
-					<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
-				</noscript>
+			<div class="medium-4 columns legend">12.</div>
+			<div class="medium-8 columns">
+				<span>Please click the Submit button to complete your application.</span><p>We will process your application within a week and send you an email with a link to your listing on the Cancer.gov Web site. Please review the listing and let us know if any changes need to be made. You will also receive a verification request by email once a year.</p>
+				<p>For more information about the directory or help with the application, please contact the Directory Coordinator at <a href="mailto:geneticsdirectory@cancer.gov">GeneticsDirectory@cancer.gov</a>.</p>
+
+				<div class="row captcha-row">
+					<!-- Recaptcha set up -->
+					<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LcQe-MSAAAAAAG-lHJXWqCfOQQVVx9JMkv0rzDO"></script>
+					<noscript>
+						<iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcQe-MSAAAAAAG-lHJXWqCfOQQVVx9JMkv0rzDO" height="300" width="500" frameborder="0"></iframe>
+						<textarea name="recaptcha_challenge_field" rows="3"></textarea>
+						<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+					</noscript>
+				</div>
+
+				<div class="row">
+					<button id="submitBtn" type="submit" class="submit button">Submit</button>
+					<button type="reset" class="reset button">Clear</button>
+				</div>
 			</div>
-		</div>
-
-		<div class="row">
-			<button id="submitBtn" type="submit" class="submit button">Submit</button>
-			<button type="reset" class="reset button">Clear</button>
 		</div>
 	</fieldset>
 </form>
