@@ -231,18 +231,6 @@ $(function() {
                 }
                 else if ( $( this ).hasClass("viewall")) {
                     routie('section/all');
-                    // $( ".selected").removeClass("selected");
-                    // $( this ).addClass("selected");
-                    // $("section.hide").removeClass("hide")
-                    //                  .addClass("show");
-                    // // Hide all the TOCs (section and doc level)
-                    // $("div nav.on-this-page").addClass("hide");
-                    // // ... and then just show the doc level TOC
-                    // $("#pdq-toc-article nav.on-this-page").removeClass("hide")
-                    //                                       .addClass("show");
-                    // // ... and hide the Previous/Next navigation links
-                    // $("div.next-link").addClass("hide");
-                    // $("div.previous-link").addClass("hide");
                 }
                 else {
                     // Display of SummarySections
@@ -250,32 +238,7 @@ $(function() {
                                           .attr("show");
                     var secId = $("h2#"+jumpTo).closest("section")
                                               .attr("id");
-
                     routie('section/'+secId);
-
-                    // // Highlighting of the section nav elements
-                    // $( ".selected").removeClass("selected");
-                    // $( this ).addClass("selected");
-                    // 
-                    // // Display of SummarySections
-                    // var jumpTo = $( this ).find("span")
-                    //                       .attr("show");
-                    // $( "section.show").removeClass("show")
-                    //                   .addClass("hide");
-                    // // Show all the TOCs (section and doc level)
-                    // $("div nav.on-this-page").removeClass("hide");
-                    // // ... and then hide just the doc level TOC
-                    // $("#pdq-toc-article nav.on-this-page").removeClass("show")
-                    //                                       .addClass("hide");
-                    // // ... and show the Previous/Next navigation links
-                    // $("div.next-link").removeClass("hide");
-                    // $("div.previous-link").removeClass("hide");
-                    // 
-                    // openSection = "#" + jumpTo;
-                    // //alert(openSection);
-                    // $(openSection).parent()
-                    //               .removeClass("hide")
-                    //               .addClass("show");
                 }
             });
         });
@@ -630,7 +593,7 @@ $(function() {
 
   // Creating the Enlarge button for tables
   // --------------------------------------
-  $("table.expandable-container").supersizeme( );
+  // $("table.expandable-container").supersizeme( );
 
   // // Showing the previous/next section when the link is clicked
   // // Also, setting the corresponding section nav item to selected.
@@ -800,6 +763,8 @@ routie({
         //console.log('all');
         routie('section/all');
     },
+    // Handling of links clicked in the section navigation
+    // ---------------------------------------------------
     'section/:sid': function(sid) {
         $(document).scrollTop(0);
 
@@ -868,26 +833,31 @@ routie({
                                                                 +sid);
           }
     },
+    // Handling of links clicked in the 'On this page' navigation or 
+    // within the document
+    // -------------------------------------------------------------
     'link/:rid': function(rid) {
         // Hide all open sections unless we are in the 'View all' section
         if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
-        // console.log('all');
+            var nothingToDo = 0;
+         console.log('link all');
         }
         else {
-        // console.log('section');
+         console.log('link section');
             $(".summary-sections section.show").removeClass("show")
                                                .addClass("hide");
             // Find parent (top level section) of current element
             $("#"+rid).closest("section.hide").removeClass("hide")
                                               .addClass("show");
-        }
-        // ... and set the section navigation properly
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        var thisSection = $("section.show").children("h2")
-                                           .attr("id");
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            var thisSection = $("section.show").children("h2")
+                                               .attr("id");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
                                                         .addClass("selected");
+        }
+
+        // ... and set the section navigation properly
         // Lastly move to the target
         $("#"+rid).get(0).scrollIntoView();
         $("[tabindex='1']").removeAttr("tabindex");
@@ -895,18 +865,26 @@ routie({
 
     },
     'cit/:cid': function(cid) {
-        // Hide all open sections
-        $(".summary-sections section.show").removeClass("show")
-                                           .addClass("hide");
-        // Find parent (top level section) of current element
-        $("li[id='"+cid+"']").closest("section.hide").removeClass("hide")
-                                          .addClass("show");
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        var thisSection = $("section.show").children("h2")
-                                           .attr("id");
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+        // Hide all open sections unless we are in the 'View all' section
+        if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
+            var nothingToDo = 0;
+         console.log('cit all');
+        }
+        else {
+         console.log('cit section');
+            // Hide all open sections
+            $(".summary-sections section.show").removeClass("show")
+                                               .addClass("hide");
+            // Find parent (top level section) of current element
+            $("li[id='"+cid+"']").closest("section.hide").removeClass("hide")
+                                              .addClass("show");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            var thisSection = $("section.show").children("h2")
+                                               .attr("id");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
                                                         .addClass("selected");
+        }
         $("li[id='"+cid+"']")[0].scrollIntoView();
     },
 
