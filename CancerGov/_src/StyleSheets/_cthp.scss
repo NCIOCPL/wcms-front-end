@@ -182,10 +182,14 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
 /* End CTHP Card styling */
-@media only screen and (min-width: 1025px) {
+
+@media only screen and (min-width: 640px) {
 	.cthp-breadcrumb {
-		padding-left: 0;
+		padding-left: 0 !important;
 	}
+}
+@media only screen and (min-width: 1025px) {
+	
 	.cthp-padding {
 		padding-left: em-calc(8px);
 	}
