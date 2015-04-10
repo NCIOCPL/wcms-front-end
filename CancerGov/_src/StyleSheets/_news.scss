@@ -5,25 +5,30 @@ a.arrow-link.news-footer {
 
 .news-share {
 	margin-bottom: 10px;
-}
 
-.news-share a:before {
-	background: url($icons + "nci-sprite.png") no-repeat 0 0;
-	content: " ";
-	display: inline-block;
-	width: 30px;
-	height: 20px;
-	margin-left: 2px;
-}
-.news-share a.news-twitter:before {
-	background-position: -16px -196px;
-}
-.news-share a.news-youtube:before {
-	height: 22px;
-	background-position: -19px -335px;
-}
-.news-share a.news-rss:before {
-	background-position: -20px -376px;
+	a:before {
+		background: url($icons + "nci-sprite.png") no-repeat 0 0;
+		content: " ";
+		display: inline-block;
+		width: 19px;
+		height: 21px;
+		margin-right: 0.25em;
+	}
+
+	a.news-twitter:before {
+		background-position: -16px -201px;
+		height: 16px;
+	}
+
+	a.news-youtube:before {
+		background-position: -19px -336px;
+		height: 21px;
+	}
+
+	a.news-rss:before {
+		background-position: -20px -381px;
+		height: 16px;
+	}
 }
 
 .news .card {
