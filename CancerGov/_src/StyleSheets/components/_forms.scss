@@ -566,6 +566,7 @@ fieldset {
 		}
 	}
 }
+// Begin clinical trial search form
 .clinical-trials-search-form fieldset {
 	outline: 0;
 }
@@ -648,3 +649,7 @@ fieldset fieldset .legend
 		color: $header-font-color;
 		background: transparent;
 }
+#drugListSubBox .radio {
+	display: block;
+}
+// End clinical trial search form
