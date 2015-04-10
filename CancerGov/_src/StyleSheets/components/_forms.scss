@@ -615,8 +615,13 @@ fieldset {
 	margin-top: 10px;
 	padding-bottom: 0 !important;
 }
+.ct-zip-area {
+	display: inline-block;
+	position: relative;
+}
 .ct-zip-row .ui-selectmenu-button {
 	margin-right: 10px;
+	margin-bottom: 10px;
 }
 @media only screen and (max-width: 1024px) {
 	.ct-zip-row span {
@@ -628,10 +633,14 @@ fieldset {
 }
 .ct-zip {
 	margin-left: 15px;
+	margin-bottom: 30px;
 	width: 140px !important;
 }
 .ct-zip-lookup {
 	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 	text-align: right;
 }
 .ct-zip-row .icon-exit-notification {
@@ -639,28 +648,25 @@ fieldset {
 }
 fieldset fieldset
 {
-		background: #E2F5F9;
-		margin: 0;
-		padding: 18px;
+	background: #E2F5F9;
+	margin: 0;
+	padding: 18px;
 }
 fieldset fieldset .legend
 {
-		font-size: 1.2em;
-		color: $header-font-color;
-		background: transparent;
+	font-size: 1.2em;
+	color: $header-font-color;
+	background: transparent;
 }
 #drugListSubBox .radio {
 	display: block;
 }
-
 .ct-popup-form {
 	margin-left: 1em;
 }
-
 .ct-popup-line {
 	margin-top: 1em;
 }
-
 .ct-popup-label {
 	font-weight: bold;
 }
