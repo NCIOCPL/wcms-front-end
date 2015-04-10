@@ -41,6 +41,10 @@
 			display: inline;
 		}
 	}
+
+	@media only screen and (max-width:640px) {
+		display: none;
+	}
 }
 .key-points h3, .on-this-page h6 {
 	display: block;

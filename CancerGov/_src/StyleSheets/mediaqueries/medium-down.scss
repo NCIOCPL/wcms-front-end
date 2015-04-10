@@ -45,9 +45,7 @@
 		}
 	}
 	/* hide the TOC on small/medium screens. The accordion serves the same purpose */
-	/* hide the key-points on small/medium screens. Because, reasons^^^^ (the same reasons). 2014-11-05 SJC #OCECREATIV-879 */
-	.toc-container,
-	.key-points {
+	.toc-container {
 		display: none;
 	}
 	.back-to-top {
