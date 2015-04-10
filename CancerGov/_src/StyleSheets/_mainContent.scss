@@ -225,43 +225,6 @@ table.no-bullet-padding ul {
 		padding: 0 0 0 10px;
 	}
 }
-.key-points {
-	overflow: auto;
-	margin: 1em 0 0.3em 0.9375em;
-}
-.key-points h3 {
-	/* Key Points header */
-	display: block;
-	margin: 0 0 0.75em;
-	padding: 0.8em 0 0;
-	text-transform: uppercase;
-	font-size: 1.25em;
-	@include font-montserrat;
-	font-weight: bold;
-}
-.key-points ul {
-	padding: 0 1.5em 1.5em 0;
-	margin: 0;
-	line-height: 1.5em;
-}
-.key-points li:before
-/* Defining the bullet styles */
-{
-	content: "\2022";
-	display: inline-block;
-	position: relative;
-	left: -.5em;
-	top: 0.1em;
-	margin: 0 -.2em;
-	font-size: 1.1em;
-}
-.key-points li {
-	list-style-type: none;
-	color: $body-font-color;
-	font-weight: 100;
-	margin-left: 1em;
-	line-height: 1.375em;
-}
 /*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
 .key-facts {
 	background: #d7f9fa;
