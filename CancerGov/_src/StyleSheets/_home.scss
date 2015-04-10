@@ -87,13 +87,15 @@
 	background-color: $white; /* for IE browsers that don't understand rgba */
 	background-color: rgba($white, 0.8);
 
-	&:hover {
-		.image-hover {
-			// default styling for Card image behavior on hover
-			background-color: $black;
+	a {
+		&:hover, &:focus {
+			.image-hover {
+				// default styling for Card image behavior on hover
+				background-color: $black;
 
-			img {
-				opacity: 0.8;
+				img {
+					opacity: 0.8;
+				}
 			}
 		}
 	}
@@ -279,7 +281,7 @@ a.learn-more {
 	padding-top: 1em;
 	padding-bottom: 1em;
 	.small-2 {
-		&:hover {
+		&:hover, &:focus {
 			.image-hover {
 				background-color: #000;
 			}
