@@ -19,11 +19,19 @@
 .popup .nci-logo {
 	margin: 0.5em 0.5em 0 0.5em;
 	float: left;
-	padding: 0.3em 0 0.2em;
+	padding: 0 0 0.2em;
 	
 	a {
-		padding-top: 1px;
-		padding-left: 80px;
+		padding-top: 13px;
+		padding-left: 105px;
+	}
+}
+@media only screen and (max-width: 640px) {
+	.popup .nci-logo {
+		a {
+			padding-top: 3px;	
+			padding-left: 85px;
+		}
 	}
 }
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
@@ -32,15 +40,6 @@
 		a {
 			padding-top: 6px;
 			padding-left: 95px;
-		}
-	}
-}
-@media only screen and (min-width: 1025px) {
-	.popup .nci-logo {
-  	
-		a {
-			padding-top: 1px;
-			padding-left: 110px;
 		}
 	}
 }
