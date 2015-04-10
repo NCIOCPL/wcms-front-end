@@ -1,10 +1,10 @@
 /********************* BEGIN Header Styles ******************************************/
 // desktop (general)
 header {
-    padding-top: 1em;
-		padding-bottom: 1em;
-    @include font-montserrat;
-    background: #fcfcfa;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	@include font-montserrat;
+	background: #fcfcfa;
 }
 .nci-logo {
 	font-weight: bold;
@@ -25,7 +25,7 @@ header {
 
 		span {
 			position: absolute;
-			left: -10000px;       
+			left: -10000px;
 			color: #5d5d5d;
 			font-size: 0.6em;
 		}
@@ -34,11 +34,11 @@ header {
 
 // tablet
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
-    .nci-logo {
+	.nci-logo {
 		background: url($logos + "NIH-red-logo-tablet.png") no-repeat 30px 0;
 		font-size: 24px;
 		min-height: 36px;
-		
+
 		a {
 			padding-left: 95px;
 			padding-top: 9px;
@@ -60,7 +60,7 @@ header {
 	}
 }
 
-// x-small 
+// x-small
 @media only screen and (max-width: 390px) {
 	.nci-logo {
 		font-size: 13px;
@@ -74,7 +74,6 @@ header {
 	.navigation {
 	}
 	.mobile-menu-bar {
-		margin-top: 0.5em;
 	}
 	.mobile-menu-bar h2 {
 		padding-top: 35px;
@@ -113,16 +112,15 @@ header {
 	}
 }
 
-// x-small 
+// x-small
 @media only screen and (max-width: 390px) {
-    .nav-header,
-    .nav-contact,
-    .nav-dictionary,
-    .nav-search {
-        font-size: .5em;
-        padding: 3.2em 0 0 0;
-    }
+	.nav-header,
+	.nav-contact,
+	.nav-dictionary,
+	.nav-search {
+		font-size: .5em;
+		padding: 3.2em 0 0 0;
+	}
 }
 /* end mobile menu styles */
 /********************* END Header Styles ******************************************/
-

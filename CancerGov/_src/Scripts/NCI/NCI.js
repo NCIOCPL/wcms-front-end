@@ -262,7 +262,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			});
 		}
 	},
-	
+
 	/*======================================================================================================
 	* function undoAccordion
 	*
@@ -358,50 +358,56 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	*  opts{}               (object)                     Other options to pass to jQuery UI's autocomplete function.
 	*
 	*====================================================================================================*/
+
 	doAutocomplete: function(target, url, contains, queryParam, queryString, opts) {
-		var $target = $(target);
-		var queryParameter = queryParam || "term";
-		var regexIsContains = contains || false;
-		var defaultOptions = {
-			// Set AJAX service source
-			source: (function() {
-				var xhr;
+		var appendTo = null,
+			$target = $(target);
+		if(target !== "#swKeyword") {
+			appendTo = $target.parent();
+		}
+		var queryParameter = queryParam || "term",
+			regexIsContains = contains || false,
+			defaultOptions = {
+				appendTo: appendTo,
+				// Set AJAX service source
+				source: (function() {
+					var xhr;
 
-				return function( request, response ) {
-					var dataQuery = $.extend({}, queryString || {});
-					dataQuery[queryParameter] = request.term;
+					return function( request, response ) {
+						var dataQuery = $.extend({}, queryString || {});
+						dataQuery[queryParameter] = request.term;
 
-					if ( xhr ) {
-						xhr.abort();
-					}
-					xhr = $.ajax({
-						url: url,
-						data: dataQuery,
-						dataType: "json",
-						success: function( data ) {
-							response( data );
-						},
-						error: function() {
-							response([]);
+						if ( xhr ) {
+							xhr.abort();
 						}
-					});
-				};
-			})(),
+						xhr = $.ajax({
+							url: url,
+							data: dataQuery,
+							dataType: "json",
+							success: function( data ) {
+								response( data );
+							},
+							error: function() {
+								response([]);
+							}
+						});
+					};
+				})(),
 
-			// Start autocomplete only after three characters are typed
-			minLength: 3,
+				// Start autocomplete only after three characters are typed
+				minLength: 3,
 
-			focus: function(event, ui) {
-				event.preventDefault();
-				event.stopPropagation();
-				$target.val(ui.item.item);
-			},
-			select: function(event, ui) {
-				event.preventDefault();
-				event.stopPropagation();
-				$target.val(ui.item.item);
-			}
-		};
+				focus: function(event, ui) {
+					event.preventDefault();
+					event.stopPropagation();
+					$target.val(ui.item.item);
+				},
+				select: function(event, ui) {
+					event.preventDefault();
+					event.stopPropagation();
+					$target.val(ui.item.item);
+				}
+			};
 
 		var options = $.extend({}, defaultOptions, opts || {});
 

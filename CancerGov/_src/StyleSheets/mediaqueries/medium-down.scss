@@ -91,10 +91,9 @@
 
 	#nvcgSlMainNav {
 		.mobile-menu-bar {
-		left: 0px;
-		position: relative;
+			left: 0px;
+			position: relative;
 		}
-
 	}
 	#nvcgSlMainNav.searching {
 		// This .searching class is applied with javascript
@@ -123,7 +122,6 @@
 				width: 71px;
 				color: rgba(0,0,0,0); // get rid of the text
 				z-index: 90; // needs to be above search
-				top: -11px;
 
 				&:before {
 					/* The arrow in the back to menu button */
@@ -157,7 +155,6 @@
 		// need to do any more nesting. All we're trying
 		// to catch is the .searching that we're applying
 		// with javascript on the parent.
-		$siteSearchFormPadding: 6.5em;
 		#siteSearchForm {
 			background-color: #444;
 
@@ -166,10 +163,8 @@
 				display: block;
 				width: calc(100% - #{$siteSearchFormPadding});
 				height: 10px;
-				$mobile-search-border: 3px solid $teal;
-				border-bottom: $mobile-search-border;
-				border-left: $mobile-search-border;
-				border-right: $mobile-search-border;
+				border: 2px solid $teal;
+				border-top: none;
 				background-color: transparent;
 				left: 90px;
 				position: absolute;
@@ -178,17 +173,13 @@
 		}
 
 		#swKeyword {
-			$swKeywordFontSize: 2em;
 			height: 100%;
 			width: 100%;
-			margin-top: 0px;
-			margin-bottom: 10px;
-			margin-left: 0%;
-			margin-right: 0%;
-			// We need the padding on this to match the padding set on the siteSearchFrom
-			// that accounts for the back to menu button.	Since this is in em and will thusly
+			margin: 0;
+			// We need the padding on this to match the padding set on the siteSearchForm
+			// that accounts for the back to menu button. Since this is in em and will thusly
 			// change based on font size, we also needed to capture the font-size in a var
-			padding: 10px 0px 0px #{$siteSearchFormPadding/$swKeywordFontSize}em;
+			padding: 10px ($siteSearchFormPadding / $swKeywordFontSize + 0em) 0px;
 			font-size: $swKeywordFontSize;
 			z-index: 80; //needs to be below the menu-btn
 			background-color: #444;
@@ -211,32 +202,27 @@
 			right: 0px;
 			bottom: 0px;
 			background-color: transparent;
-			height: 64px;
-			width: 64px;
-			top: 0px;
+			height: 48px;
+			width: 48px;
+			top: 6px;
 			border: none;
 			box-shadow: none;
 
 			&:before {
 				content: "+";
 				@include font-noto;
-				font-size: 64px;
-				font-weight: 100;
+				font-size: 48px;
+				font-weight: normal;
 				color: #888;
 				display: block;
 				position: absolute;
-				height: 64px;
-				width: 64px;
+				height: 48px;
+				width: 48px;
 				top: 0px;
 				left: 0px;
 				@include transform(rotate(45deg));
 			}
 		}
-	}
-	// This is necessary to make the suggested search terms match the spec.
-	.ui-autocomplete {
-		font-size: 2em;
-		z-index: 99999; // this is so that the autocomplete is never covered by another elem.
 	}
 
 	/* Move nav off screen, setup transitions */

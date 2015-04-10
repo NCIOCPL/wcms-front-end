@@ -105,10 +105,40 @@ $ui-selectmenu-maxitems: 7;
 		background-color: $beige;
 		background-color: rgba($beige, 0.9);
 		color: $body-font-color;
+
+		list-style: none;
+		&:before {
+			content: none;
+			display: none;
+		}
+
+		@media only screen and (max-width:1024px) {
+			background-color: transparent;
+			border-bottom: 1px solid $body-font-color;
+			padding: 0.5em 3em 0.5em #{$siteSearchFormPadding/$swKeywordFontSize}em;
+
+			.dictionary-search & {
+				padding-left: 0.5em;
+			}
+		}
 	}
+
 	.ui-state-focus {
 		color: #fff;
 		background: $lcranberry;
+	}
+
+	@media only screen and (max-width:1024px) {
+		z-index: 99999; // this is so that the autocomplete is never covered by another element
+		height: 100%;
+		background-color: rgb(233, 234, 232);
+		background-color: rgba(230, 232, 230, 0.9);
+		font-size: $swKeywordFontSize;
+
+		.dictionary-search & {
+			height: auto;
+			font-size: 1em;
+		}
 	}
 }
 
@@ -138,16 +168,4 @@ $ui-selectmenu-maxitems: 7;
 .ui-accordion-header > p {
 	margin: 0;
 	line-height: inherit;
-}
-
-@media only screen and (max-width: 1024px) {
-	.ui-autocomplete {
-		height: 100%;
-		background-color: $beige;
-
-		.ui-menu-item {
-			border-bottom: 1px solid $body-font-color;
-			padding-right: 3em;
-		}
-	}
 }
