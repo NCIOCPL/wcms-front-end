@@ -25,6 +25,10 @@
 	.bcrumbs {
 		display: none;
 	}
+	/* Hide 'On This Page' section on PDQ pages */
+	#pdq-toc-article nav.on-this-page {
+		display: none; 
+	}  
 	.site-footer {
 		background-position: -120% 150px;
 	}
