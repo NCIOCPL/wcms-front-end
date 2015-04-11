@@ -18,11 +18,6 @@
 	clear: both;
 }
 
-a.open-panel,
-a.close-panel {
-	display: none;
-}
-
 #siteSearchForm {
 	margin: 0 0 0 -4px;
 	height: 100%;
@@ -72,7 +67,7 @@ html[lang="es"] .search {
 /*** Dictionaries ***/
 .dictionary-search .columns,
 .dictionary-search .column {
-    padding-left: 0;
+		padding-left: 0;
 }
 
 /********************* END Megamenus/Search Styles ******************************************/

@@ -71,55 +71,46 @@ header {
 /* begin mobile menu bar styles */
 // smartphone + tablet
 @media only screen and (max-width: 1024px) {
-	.navigation {
-	}
-	.mobile-menu-bar {
-	}
-	.mobile-menu-bar h2 {
-		padding-top: 35px;
-	}
 	.nav-search-bar {
 		line-height: 0;
 	}
-	$mobile-menu-color: #fff;
-	.nav-header,
-	.nav-contact,
-	.nav-dictionary,
-	.nav-search {
-		float: left;
-		font-size: .8em;
-		color: $mobile-menu-color;
-		padding: 2em 0 0 0;
-		width: 24%;
-		text-align: center;
-		background: transparent no-repeat center 0;
 
-		a {
-			color: $mobile-menu-color;
+	.mobile-menu-bar a {
+		display: inline-block;
+		width: 25%;
+		padding: 3.5em 0 0 0;
+		margin: 1em 0;
+		background: transparent no-repeat center 0;
+		@include font-montserrat;
+		font-weight: bold;
+		font-size: 0.8em;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+
+		&:hover, &:focus {
+			color: #fff;
 		}
 	}
-	.nav-header {
+	a.nav-header {
 		background-image: url($icons + "menu-icon.png");
 	}
-	.nav-contact {
+	a.nav-contact {
 		background-image: url($icons + "phone-mobile.png");
 	}
-	.nav-dictionary {
+	a.nav-dictionary {
 		background-image: url($icons + "dictionary-mobile.png");
 	}
-	.nav-search {
+	a.nav-search {
 		background-image: url($icons + "search-mobile.png");
 	}
 }
 
 // x-small
 @media only screen and (max-width: 390px) {
-	.nav-header,
-	.nav-contact,
-	.nav-dictionary,
-	.nav-search {
-		font-size: .5em;
-		padding: 3.2em 0 0 0;
+	.mobile-menu-bar a {
+		font-size: 0.5em;
+		padding: 5em 0 0 0;
 	}
 }
 /* end mobile menu styles */
