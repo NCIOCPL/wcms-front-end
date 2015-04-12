@@ -71,28 +71,37 @@ header {
 /* begin mobile menu bar styles */
 // smartphone + tablet
 @media only screen and (max-width: 1024px) {
-	.nav-search-bar {
-		line-height: 0;
-	}
-
-	.mobile-menu-bar a {
-		display: inline-block;
-		width: 25%;
-		padding: 3.5em 0 0 0;
-		margin: 1em 0;
-		background: transparent no-repeat center 0;
-		@include font-montserrat;
-		font-weight: bold;
-		font-size: 0.8em;
-		color: #fff;
-		text-transform: uppercase;
-		text-align: center;
-
-		&:hover, &:focus {
+	.mobile-menu-bar {
+		> a,
+		> button {
+			display: inline-block;
+			background: transparent no-repeat center 0;
+			width: 25%;
+			padding: 3em 0 0 0;
+			margin: 1em 0;
+			@include font-montserrat;
+			line-height: 1;
+			font-weight: bold;
+			font-size: 0.8em;
 			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+
+			&:hover, &:focus {
+				color: #fff;
+			}
+		}
+		> button {
+			-webkit-appearance: none;
+			appearance: none;
+			border: none;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
-	a.nav-header {
+	button.nav-header {
 		background-image: url($icons + "menu-icon.png");
 	}
 	a.nav-contact {
@@ -101,16 +110,19 @@ header {
 	a.nav-dictionary {
 		background-image: url($icons + "dictionary-mobile.png");
 	}
-	a.nav-search {
+	button.nav-search {
 		background-image: url($icons + "search-mobile.png");
 	}
 }
 
 // x-small
 @media only screen and (max-width: 390px) {
-	.mobile-menu-bar a {
-		font-size: 0.5em;
-		padding: 5em 0 0 0;
+	.mobile-menu-bar {
+		> a,
+		> button {
+			font-size: 0.5em;
+			padding: 4em 0 0 0;
+		}
 	}
 }
 /* end mobile menu styles */
