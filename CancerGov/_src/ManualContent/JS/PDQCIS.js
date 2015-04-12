@@ -3,7 +3,7 @@ $(function() {
 //(function($) {
   // Add the container DIV to insert the SectionNav list
   // as the first element of the DIV.summary-sections container
-  var topTocDiv = "<div id='pdq-toptoc' class='toptoc'></div>";
+  var topTocDiv = "<div id='pdq-toptoc' class='toptoc no-resize-pdq-section'></div>";
   $( ".summary-sections > section:eq( 0 )" ).before(topTocDiv);
 
   // JQuery Function: topToc()
@@ -151,7 +151,7 @@ $(function() {
                                                //same level (e.g. h3 and 
                                                //stay on it)
 						appHTML = appHTML + "</li><li>"+ beforeTxt 
-                                          + "<span show=\""
+                                          + "<span  tabindex='0' show=\""
                                           + id + "\">" + txt 
                                           + "</span>";
 					break;
@@ -173,7 +173,7 @@ $(function() {
 			i++;
 		});
         appHTML = appHTML + "<li class='viewall'>"
-                          + "<span>"
+                          + "<span tabindex='0'>"
                           + strViewAll
                           + "</span>"
                           + "</li>";
@@ -231,18 +231,6 @@ $(function() {
                 }
                 else if ( $( this ).hasClass("viewall")) {
                     routie('section/all');
-                    // $( ".selected").removeClass("selected");
-                    // $( this ).addClass("selected");
-                    // $("section.hide").removeClass("hide")
-                    //                  .addClass("show");
-                    // // Hide all the TOCs (section and doc level)
-                    // $("div nav.on-this-page").addClass("hide");
-                    // // ... and then just show the doc level TOC
-                    // $("#pdq-toc-article nav.on-this-page").removeClass("hide")
-                    //                                       .addClass("show");
-                    // // ... and hide the Previous/Next navigation links
-                    // $("div.next-link").addClass("hide");
-                    // $("div.previous-link").addClass("hide");
                 }
                 else {
                     // Display of SummarySections
@@ -250,32 +238,7 @@ $(function() {
                                           .attr("show");
                     var secId = $("h2#"+jumpTo).closest("section")
                                               .attr("id");
-
                     routie('section/'+secId);
-
-                    // // Highlighting of the section nav elements
-                    // $( ".selected").removeClass("selected");
-                    // $( this ).addClass("selected");
-                    // 
-                    // // Display of SummarySections
-                    // var jumpTo = $( this ).find("span")
-                    //                       .attr("show");
-                    // $( "section.show").removeClass("show")
-                    //                   .addClass("hide");
-                    // // Show all the TOCs (section and doc level)
-                    // $("div nav.on-this-page").removeClass("hide");
-                    // // ... and then hide just the doc level TOC
-                    // $("#pdq-toc-article nav.on-this-page").removeClass("show")
-                    //                                       .addClass("hide");
-                    // // ... and show the Previous/Next navigation links
-                    // $("div.next-link").removeClass("hide");
-                    // $("div.previous-link").removeClass("hide");
-                    // 
-                    // openSection = "#" + jumpTo;
-                    // //alert(openSection);
-                    // $(openSection).parent()
-                    //               .removeClass("hide")
-                    //               .addClass("show");
                 }
             });
         });
@@ -628,6 +591,10 @@ $(function() {
   // ------------------------------------------------------------
   $("div.summary-sections").previousNext( { footer: "Prev/Next" } );
 
+  // Creating the Enlarge button for tables
+  // --------------------------------------
+  // $("table.expandable-container").supersizeme( );
+
   // // Showing the previous/next section when the link is clicked
   // // Also, setting the corresponding section nav item to selected.
   // // ------------------------------------------------------------
@@ -709,28 +676,42 @@ $(function() {
   // --------------------------------------------------------------
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
+  NCI.makeAllAccordions();
 
 
-  // Set the URL for the link for printing to the JS-window.print()
-  // This will print just the text that's currently viewed.
-  // --------------------------------------------------------------
-  // This is now done in all.js
-  //$("li.po-print a").attr("href", "javascript:window.print()");
-
-  // Set the meta-tag for 'og:url' to
-  
   // Temporarily reset the URL for the email/facebook/etc. buttons
   // Only attempt the replace if the print button exists on the page
   // ---------------------------------------------------------------
   var urlEmail = $("li.po-email a").attr("href");
-  var newEmailUrl = urlEmail.replace(/docurl=.*&language/i, 
+
+  //// Aarti will add a meta-tag to the PP output that could then be
+  //// used instead of the urlEmail to test against PP
+  //var ppx = $('meta[name="publishpreview"]');
+  //console.log(ppx);
+
+  // PublishPreview doesn't include the print/email/etc. buttons
+  if ( urlEmail ) {
+     pp = false
+  }
+  else {
+     pp = "true"
+  }
+  if ( !pp ) {
+      var newEmailUrl = urlEmail.replace(/docurl=.*&language/i, 
                                      'docurl=#&language');
+  }
+  
+  // Set the meta-tag for 'og:url' to
   var currentDoc = $('meta[property="og:url"]').attr('content');
   var fullDoc = $('meta[name="page"]').attr('content');
   if (!fullDoc || 0 === fullDoc.length) {
       fullDoc = currentDoc;
   }
-  fullDoc.replace(/http:\/\/.*\//, '/');
+  // PublishPreview doesn't include the print/email/etc. buttons
+  if ( !pp ) {
+      // Replace absolute to relative links
+      fullDoc.replace(/http:\/\/.*\//, '/');
+  }
   //var urlFacebook = $("li.po-facebook a").attr("href");
   //var urlTwitter = $("li.po-twitter a").attr("href");
   //var urlGooglePlus = $("li.po-googleplus a").attr("href");
@@ -740,11 +721,10 @@ $(function() {
   // Don't do this if we don't have the buttons available, i.e. 
   // for PublishPreview
   // -------------------------------------------------------------------
-  if ( urlEmail ) {
+  if ( !pp ) {
       if ($('meta[name="content-language"]').attr('content') == 'en' ) {
           var thisSection = $('section.show').attr('id');
           var openSections = $('section.show');
-          //console.log(openSections.length);
           if (openSections.length > 1) {
               newEmailUrl.replace('#', fullDoc+
                                           '%23section%2fall&language');
@@ -773,8 +753,6 @@ $(function() {
       else {
           var newEmailUrl = urlEmail.replace('&language', '#email&language');
       }
-      //console.log(newEmailUrl);
-      // $("li.po-email a").attr("href", newEmailUrl);
   }
 
 // Section to setup re-routing of URLs
@@ -786,6 +764,8 @@ routie({
         //console.log('all');
         routie('section/all');
     },
+    // Handling of links clicked in the section navigation
+    // ---------------------------------------------------
     'section/:sid': function(sid) {
         $(document).scrollTop(0);
 
@@ -797,10 +777,6 @@ routie({
         // ---------------------------------------------------------
         var currentDoc = $('meta[property="og:url"]').attr('content');
         var fullDoc = $('meta[name="page"]').attr('content');
-        //console.log('current:');
-        //console.log(currentDoc);
-        //console.log('full:');
-        //console.log(fullDoc);
 
         // Saving the document URL if it doesn't exist yet this makes
         // it easier to create the new current URL
@@ -856,55 +832,60 @@ routie({
 
             $('meta[property="og:url"]').attr('content', fullDoc+'#section/'
                                                                 +sid);
-  //var urlEmail = $("li.po-email a").attr("href");
-  //            var newEmailUrl = urlEmail.replace('&language', 
-  //                                 '%23section%2f'+thisSection+'&language');
-  //    $("li.po-email a").attr("href", newEmailUrl);
           }
     },
+    // Handling of links clicked in the 'On this page' navigation or 
+    // within the document
+    // -------------------------------------------------------------
     'link/:rid': function(rid) {
-        // Hide all open sections
-        $(".summary-sections section.show").removeClass("show")
-                                           .addClass("hide");
-        // Find parent (top level section) of current element
-        $("#"+rid).closest("section.hide").removeClass("hide")
-                                          .addClass("show");
-        // ... and set the section navigation properly
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        var thisSection = $("section.show").children("h2")
-                                           .attr("id");
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+        // Hide all open sections unless we are in the 'View all' section
+        if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
+            var nothingToDo = 0;
+         console.log('link all');
+        }
+        else {
+         console.log('link section');
+            $(".summary-sections section.show").removeClass("show")
+                                               .addClass("hide");
+            // Find parent (top level section) of current element
+            $("#"+rid).closest("section.hide").removeClass("hide")
+                                              .addClass("show");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            var thisSection = $("section.show").children("h2")
+                                               .attr("id");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
                                                         .addClass("selected");
+        }
+
+        // ... and set the section navigation properly
         // Lastly move to the target
         $("#"+rid).get(0).scrollIntoView();
         $("[tabindex='1']").removeAttr("tabindex");
         $("#"+rid).attr("tabindex", 1).focus();
 
-        // According to Bryan positioning the link target below the 
-        // sticky menu is not part of this story
-        // ------------------------------------------------------------
-        // var myPos = Math.floor( $("div.nav-search-bar").position().top);
-        // var myHeight = Math.floor( $("div.nav-search-bar").height() );
-        // console.log("dada3");
-        // console.log(myPos);
-        // console.log(myHeight);
-        // $("#"+rid)[0].scrollIntoView();
-        // document.body.scrollTop -= myPos//+myHeight;
     },
     'cit/:cid': function(cid) {
-        // Hide all open sections
-        $(".summary-sections section.show").removeClass("show")
-                                           .addClass("hide");
-        // Find parent (top level section) of current element
-        $("li[id='"+cid+"']").closest("section.hide").removeClass("hide")
-                                          .addClass("show");
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        var thisSection = $("section.show").children("h2")
-                                           .attr("id");
-        $("#pdq-toptoc li.selected").removeClass("selected");
-        $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
+        // Hide all open sections unless we are in the 'View all' section
+        if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
+            var nothingToDo = 0;
+         console.log('cit all');
+        }
+        else {
+         console.log('cit section');
+            // Hide all open sections
+            $(".summary-sections section.show").removeClass("show")
+                                               .addClass("hide");
+            // Find parent (top level section) of current element
+            $("li[id='"+cid+"']").closest("section.hide").removeClass("hide")
+                                              .addClass("show");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            var thisSection = $("section.show").children("h2")
+                                               .attr("id");
+            $("#pdq-toptoc li.selected").removeClass("selected");
+            $("#pdq-toptoc li > span[show="+thisSection+"]").closest("li")
                                                         .addClass("selected");
+        }
         $("li[id='"+cid+"']")[0].scrollIntoView();
     },
 
@@ -913,33 +894,22 @@ routie({
     // ----------------------------------------------------------
     ':lid': function(lid) { 
         if ( lid == 'print' || lid == 'imprimir') {
-            //console.log('call routie-print');
-            //window.print();
             var thisSection = $('section.show').attr('id');
             var openSections = $('section.show');
-            //console.log(openSections.length);
-            //if (openSections.length > 1) {
-            //    routie('section/all');
-            //}
-            //else {
-            //    routie('section/'+thisSection);
-            //}
         }
         else {
             var goodLink = $("#"+lid);
             var citLink = $("li[id='"+lid+"']");
-            //console.log('goodLink');
             if ( goodLink.length == 0 && citLink.length == 0 ) {
                 routie ('section/all');
             }
             else {
-                //console.log(lid.substring(0,7));
                 if ( lid.substring(0, 8) == 'section_' ) {
                     routie ('cit/'+lid); 
                 }
                 else {
-                    $("#"+lid).get(0).scrollIntoView();
-                    //routie ('link/'+lid); 
+                    //$("#"+lid).get(0).scrollIntoView();
+                    routie ('link/'+lid); 
                 }
             };
         }

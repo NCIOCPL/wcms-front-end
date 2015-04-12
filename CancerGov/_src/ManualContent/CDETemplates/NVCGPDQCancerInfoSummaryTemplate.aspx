@@ -38,7 +38,7 @@
     <!--[if lt IE 9]>
     <script src="/PublishedContent/js/respond.js"></script>
     <![endif]-->
-<div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
+<div class="skip"><a title="Skip to content" href="#main">Skip to content</a></div>
 <!-- NOTIFICATION AREA -->
 <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" CssClass="notification-banner" />
 <NCI:TemplateSlot ID="nvcgColo" runat="server"  CssClass="notification-banner" />
@@ -165,113 +165,111 @@
                             <NCI:TemplateSlot ID="cgvPublicArchiveBannerSl" runat="server" CssClass="row collapse" AdditionalSnippetClasses="large-12 columns" />
                             <!-- END PUBLIC ARCHIVE BANNER -->
                             
+							<div class ="resize-content"> <!-- Begin resizeable area -->
+
+								<!-- PAGE TITLE -->
+								<h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
+								<NCI:TemplateSlot ID="nvcgSubTitle" runat="server" />
+								<!-- END PAGE TITLE -->
+								
 
 
-                            <!-- PAGE TITLE -->
-                            <h1><NCI:CDEField scope="Page" fieldName="long_title" runat="server" /></h1>
-                            <NCI:TemplateSlot ID="nvcgSubTitle" runat="server" />
-                            <!-- END PAGE TITLE -->
-                            
+								<!-- PAGE OPTIONS -->
+								<NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="page-options no-resize" runat="server">
+								    <PageOptionsButtonLanguages>
+								        <NCI:PageOptionsButtonLanguageItem Language="en">
+								            <ButtonsCollection>
+
+								                <NCI:LinkButtonItem
+								                    Title="Resize font"
+								                    CssClass="po-font-resize"
+								                    AlternateContentVersionKey="fontResize" />
+								                <NCI:LinkButtonItem Title="Print"
+								                                    CssClass="po-print"
+								                                    AlternateContentVersionKey="print"
+								                                    WebAnalytics="NCIAnalytics.PrintLink(this);" />
+								                <NCI:EmailButtonItem Title="Email"
+								                                     CssClass="po-email"
+								                                     AlternateContentVersionKey="email"
+								                                     WebAnalytics="NCIAnalytics.eMailLink(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="facebook"
+								                                                  Title="Facebook"
+								                                                  CssClass="po-facebook"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="twitter"
+								                                                  Title="Twitter"
+								                                                  CssClass="po-twitter"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
+								                                                  Title="Google+"
+								                                                  CssClass="po-googleplus"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
+								                                                  Title="Pinterest"
+								                                                  CssClass="po-pinterest"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								            </ButtonsCollection>
+								        </NCI:PageOptionsButtonLanguageItem>
+								        <NCI:PageOptionsButtonLanguageItem Language="es">
+								            <ButtonsCollection>
+
+								                <NCI:LinkButtonItem
+								                    Title="Control de tama&ntilde;o de fuente"
+								                    CssClass="po-font-resize"
+								                    AlternateContentVersionKey="fontResize" />
+								                <NCI:LinkButtonItem
+								                    Title="Imprimir"
+								                    CssClass="po-print"
+								                    AlternateContentVersionKey="print"
+								                    WebAnalytics="NCIAnalytics.PrintLink(this);" />
+								                <NCI:EmailButtonItem
+								                    Title="Enviar por correo electr&oacute;nico"
+								                    CssClass="po-email"
+								                    AlternateContentVersionKey="email"
+								                    WebAnalytics="NCIAnalytics.eMailLink(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="facebook"
+								                                                  Title="Facebook"
+								                                                  CssClass="po-facebook"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="twitter"
+								                                                  Title="Twitter"
+								                                                  CssClass="po-twitter"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
+								                                                  Title="Google+"
+								                                                  CssClass="po-googleplus"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								                <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
+								                                                  Title="Pinterest"
+								                                                  CssClass="po-pinterest"
+								                                                  AlternateContentVersionKey="bookmarkshare"
+								                                                  WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
+								            </ButtonsCollection>
+								        </NCI:PageOptionsButtonLanguageItem>
+								    </PageOptionsButtonLanguages>
+								</NCI:PageOptionsControl>
+								<!-- END PAGE OPTIONS -->
+								
+								<NCI:TemplateSlot ID="cgvBody" runat="server" />
+
+								<footer class="article-footer">
 
 
+								    <NCI:TemplateSlot ID="cgvDate" runat="server" />
 
-                            <!-- PAGE OPTIONS -->
-                            <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="page-options no-resize" runat="server">
-                                <PageOptionsButtonLanguages>
-                                    <NCI:PageOptionsButtonLanguageItem Language="en">
-                                        <ButtonsCollection>
+								    <NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
+								    <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
+								    <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
 
-                                            <NCI:LinkButtonItem
-                                                Title="Resize font"
-                                                CssClass="po-font-resize"
-                                                AlternateContentVersionKey="fontResize" />
-                                            <NCI:LinkButtonItem Title="Print"
-                                                                CssClass="po-print"
-                                                                AlternateContentVersionKey="print"
-                                                                WebAnalytics="NCIAnalytics.PrintLink(this);" />
-                                            <NCI:EmailButtonItem Title="Email"
-                                                                 CssClass="po-email"
-                                                                 AlternateContentVersionKey="email"
-                                                                 WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="facebook"
-                                                                              Title="Facebook"
-                                                                              CssClass="po-facebook"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="twitter"
-                                                                              Title="Twitter"
-                                                                              CssClass="po-twitter"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
-                                                                              Title="Google+"
-                                                                              CssClass="po-googleplus"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
-                                                                              Title="Pinterest"
-                                                                              CssClass="po-pinterest"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                        </ButtonsCollection>
-                                    </NCI:PageOptionsButtonLanguageItem>
-                                    <NCI:PageOptionsButtonLanguageItem Language="es">
-                                        <ButtonsCollection>
-
-                                            <NCI:LinkButtonItem
-                                                Title="Control de tama&ntilde;o de fuente"
-                                                CssClass="po-font-resize"
-                                                AlternateContentVersionKey="fontResize" />
-                                            <NCI:LinkButtonItem
-                                                Title="Imprimir"
-                                                CssClass="po-print"
-                                                AlternateContentVersionKey="print"
-                                                WebAnalytics="NCIAnalytics.PrintLink(this);" />
-                                            <NCI:EmailButtonItem
-                                                Title="Enviar por correo electr&oacute;nico"
-                                                CssClass="po-email"
-                                                AlternateContentVersionKey="email"
-                                                WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="facebook"
-                                                                              Title="Facebook"
-                                                                              CssClass="po-facebook"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="twitter"
-                                                                              Title="Twitter"
-                                                                              CssClass="po-twitter"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
-                                                                              Title="Google+"
-                                                                              CssClass="po-googleplus"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                            <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
-                                                                              Title="Pinterest"
-                                                                              CssClass="po-pinterest"
-                                                                              AlternateContentVersionKey="bookmarkshare"
-                                                                              WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                                        </ButtonsCollection>
-                                    </NCI:PageOptionsButtonLanguageItem>
-                                </PageOptionsButtonLanguages>
-                            </NCI:PageOptionsControl>
-                            <!-- END PAGE OPTIONS -->
-                            
-
-                            <NCI:TemplateSlot ID="cgvBody" runat="server" />
-
-                            <footer class="article-footer">
-
-
-                                <NCI:TemplateSlot ID="cgvDate" runat="server" />
-
-                                <NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
-                                <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
-                                <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
-
-                            </footer>
-
+								</footer>
+							</div> <!-- End resizeable area -->
                         </article>
                         <!-- ********************************* END Page Content ********************************** -->
                     </div> <!-- END Main -->

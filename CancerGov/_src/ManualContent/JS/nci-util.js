@@ -11,27 +11,47 @@ var NCI = NCI || {
         document.getElementById("swKeyword").focus();
     },
     scrollTo: function(anchor) {
-        if (anchor.indexOf("#") < 0) {
-            anchor = "#" + anchor;
+        if (anchor.indexOf("#") === 0) {
+            anchor = anchor.substring(1, anchor.length);
         }
-        var anchorTop, willFreeze = true;
-        if (anchor.match(/^#section\//i)) {
-            anchorTop = 0;
-            willFreeze = false;
+        var isSection = anchor.match(/^section\//i);
+        anchor = "#" + anchor.replace(/^.+\//, "").replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, "\\$1");
+        var $anchor = $(anchor), $accordionPanel = $anchor.closest(".ui-accordion-content"), $accordion = $accordionPanel.closest(".ui-accordion"), accordionIndex;
+        if ($accordion.length > 0) {
+            accordionIndex = $accordion.data("ui-accordion").headers.index($accordionPanel.prev());
+        }
+        function doTheScroll() {
+            var headerHeight = $(".fixedtotop").outerHeight(), anchorTop = window.scrollY + headerHeight, willFreeze = true;
+            if (isSection && $accordion.length === 0) {
+                anchorTop = 0;
+                willFreeze = false;
+            } else {
+                if ($anchor.length > 0) {
+                    anchorTop = $anchor.offset().top;
+                }
+            }
+            if (willFreeze) {
+                $(".headroom-area").addClass("frozen");
+            }
+            window.scrollTo(0, anchorTop - headerHeight);
+            if (willFreeze) {
+                setTimeout(function() {
+                    $(".headroom-area").removeClass("frozen");
+                }, 50);
+            }
+            $accordion.off("accordionactivate");
+        }
+        if ($accordion.length > 0) {
+            $accordion.on("accordionactivate", function(e) {
+                doTheScroll();
+            });
+            if (!$accordionPanel.hasClass("accordion-content-active")) {
+                $accordion.accordion("option", "active", accordionIndex);
+            } else {
+                doTheScroll();
+            }
         } else {
-            anchor = anchor.replace(/^#.+\//, "#");
-            anchorTop = $(anchor).offset().top;
-        }
-        var $header = $(".fixedtotop");
-        var headerHeight = $header.outerHeight();
-        if (willFreeze) {
-            $(".headroom-area").addClass("frozen");
-        }
-        window.scrollTo(0, anchorTop - headerHeight);
-        if (willFreeze) {
-            setTimeout(function() {
-                $(".headroom-area").removeClass("frozen");
-            }, 50);
+            doTheScroll();
         }
     },
     buildTOC: function(toc_selector, content_selector, section_selector, title_selector, list_type) {
@@ -68,6 +88,7 @@ var NCI = NCI || {
         }
     },
     doAccordion: function(target, opts) {
+        var $target = $(target);
         var defaultOptions = {
             heightStyle: "content",
             header: "h2",
@@ -89,9 +110,13 @@ var NCI = NCI || {
                 }
                 currContent.toggleClass("accordion-content-active", !isPanelSelected);
                 if (isPanelSelected) {
-                    currContent.slideUp();
+                    currContent.slideUp(function() {
+                        $target.trigger("accordionactivate", ui);
+                    });
                 } else {
-                    currContent.slideDown();
+                    currContent.slideDown(function() {
+                        $target.trigger("accordionactivate", ui);
+                    });
                 }
                 return false;
             },
@@ -100,10 +125,9 @@ var NCI = NCI || {
                 activeHeader: "toggle"
             }
         };
-        var options = $.extend({}, defaultOptions, opts || {});
-        var $target = $(target);
+        var options = $.extend({}, defaultOptions, opts);
         if ($target.length > 0) {
-            $(target).accordion(options);
+            $target.accordion(options);
         }
     },
     undoAccordion: function(target) {
@@ -119,11 +143,69 @@ var NCI = NCI || {
             });
         }
     },
+    makeAllAccordions: function() {
+        var targets = {
+            ".accordion": "h2",
+            "#nvcgRelatedResourcesArea": "h6",
+            "#cgvCitationSl": "h6",
+            ".cthp-content": "h3"
+        };
+        var targetsSelector = Object.keys(targets).join(", ");
+        var targetsBuiltAccordion = [], targetsHeader = [], accordion;
+        for (var target in targets) {
+            if (targets.hasOwnProperty(target)) {
+                targetsBuiltAccordion.push(target + ".ui-accordion");
+                targetsHeader.push(target + " " + targets[target]);
+            }
+        }
+        var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(", ");
+        var targetsHeaderSelector = targetsHeader.join(", ");
+        function accordionize() {
+            var width = window.innerWidth || $(window).width(), accordion;
+            if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
+                $(targetsHeaderSelector).each(function() {
+                    var $this = $(this);
+                    if ($this.nextAll().length > 1 || $this.next().is("ul, ol")) {
+                        $this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
+                    }
+                });
+                for (accordion in targets) {
+                    if (targets.hasOwnProperty(accordion)) {
+                        NCI.doAccordion(accordion, {
+                            header: targets[accordion]
+                        });
+                    }
+                }
+                var builtAccordionHeaders = $(".ui-accordion-header");
+                for (var i = 1; i <= builtAccordionHeaders.length; i++) {
+                    if (i % 2 === 0) {
+                        builtAccordionHeaders.get(i - 1).className += " " + "even";
+                    } else {
+                        builtAccordionHeaders.get(i - 1).className += " " + "odd";
+                    }
+                }
+            } else if (width > 640) {
+                for (accordion in targets) {
+                    if (targets.hasOwnProperty(accordion)) {
+                        NCI.undoAccordion(accordion, {
+                            header: targets[accordion]
+                        });
+                    }
+                }
+            }
+        }
+        $(window).on("resize", function() {
+            accordionize();
+        });
+        accordionize();
+    },
     doAutocomplete: function(target, url, contains, queryParam, queryString, opts) {
-        var $target = $(target);
-        var queryParameter = queryParam || "term";
-        var regexIsContains = contains || false;
-        var defaultOptions = {
+        var appendTo = null, $target = $(target);
+        if (target !== "#swKeyword") {
+            appendTo = $target.parent();
+        }
+        var queryParameter = queryParam || "term", regexIsContains = contains || false, defaultOptions = {
+            appendTo: appendTo,
             source: function() {
                 var xhr;
                 return function(request, response) {
@@ -345,6 +427,22 @@ NCI.Nav = {
     }
 };
 
+NCI.PageOptions = {
+    init: function() {
+        this.FontResizer.init();
+        this.Print.init();
+    },
+    Print: {
+        init: function() {
+            $(".po-print a").click(this.click);
+        },
+        click: function(e) {
+            e.preventDefault();
+            window.print();
+        }
+    }
+};
+
 NCI.Nav.Section = {
     sel: ".section-nav",
     selWithChildren: ".section-nav .has-children",
@@ -390,6 +488,34 @@ NCI.Nav.Section = {
                 $("#overlay").remove();
             }
         });
+    }
+};
+
+NCI.PageOptions.FontResizer = {
+    selector: ".po-font-resize a",
+    $content: $(),
+    originalSize: 0,
+    currentSize: 0,
+    multiplier: 1.2,
+    init: function() {
+        this.originalSize = parseFloat($("body").css("font-size"), 10);
+        $(this.selector).click(this.click);
+        this.$content = $(".resize-content");
+    },
+    click: function(e) {
+        var self = NCI.PageOptions.FontResizer;
+        e.preventDefault();
+        self.setCurrentFontSize();
+        var newSize = self.currentSize * self.multiplier;
+        newSize = newSize > 30 ? self.originalSize : newSize;
+        $content.css("font-size", newSize + "px");
+        if (typeof equalHeights === typeof Function.prototype) {
+            equalHeights();
+        }
+        return false;
+    },
+    setCurrentFontSize: function() {
+        this.currentSize = parseFloat($content.css("font-size"), 10);
     }
 };
 
