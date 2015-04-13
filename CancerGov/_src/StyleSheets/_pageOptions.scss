@@ -12,7 +12,7 @@
 	li {
 		display: inline-block;
 		margin: 0;
-		background-image: url($icons + "page-options-sprites.png"); /* Sprites */
+		background-image: url($icons + "nci-sprite.png"); /* Sprites */
 		background-repeat: no-repeat;
 	}
 }
@@ -46,19 +46,39 @@
 			display: none;
 		}
 		.po-email {
-			background-position: 0 -337px;
-		}
+			background-position: -183px -12px;
+			
+			&:hover {
+        background-position: -243px -12px;
+			}
+    }
 		.po-facebook {
-			background-position: 0 -397px;
+			background-position: -183px -56px;
+			
+			&:hover {
+        background-position: -243px -56px;
+			}
 		}
 		.po-twitter {
-			background-position: 0 -457px;
+			background-position: -183px -102px;
+			
+			&:hover {
+        background-position: -243px -102px;
+			}
 		}
 		.po-googleplus {
-			background-position: 0 -517px;
+			background-position: -183px -147px;
+			
+			&:hover {
+        background-position: -243px -147px;
+			}
 		}
 		.po-pinterest {
-			background-position: 0 -577px;
+			background-position: -183px -192px;
+			
+			&:hover {
+        background-position: -243px -192px;
+			}
 		}
 	}
 }
@@ -101,43 +121,43 @@
 			background-position: 0 0px;
 		}
 		.po-font-resize {
-			background-position: 0 -37px;
+			background-position: -17px -16px;
 			& > a, & img {
 				width: 22px;
 			}
 		}
 		.po-print {
-			background-position: 0 -79px;
+			background-position: -16px -62px;
 			& > a, & img {
 				width: 23px;
 			}
 		}
 		.po-email {
-			background-position: 0 -121px;
+			background-position: -16px -105px;
 			& > a, & img {
-				width: 20px;
+				width: 23px;
 			}
 		}
 		.po-facebook {
-			background-position: 0 -162px;
+			background-position: -25px -151px;
 			& > a, & img {
 				width: 8px;
 			}
 		}
 		.po-twitter {
-			background-position: 0 -203px;
+			background-position: -16px -195px;
 			& > a, & img {
 				width: 19px;
 			}
 		}
 		.po-googleplus {
-			background-position: 0 -245px;
+			background-position: -16px -241px;
 			& > a, & img {
 				width: 19px;
 			}
 		}
 		.po-pinterest {
-			background-position: 0 -289px;
+			background-position: -20px -287px;
 			& > a, & img {
 				width: 15px;
 			}
