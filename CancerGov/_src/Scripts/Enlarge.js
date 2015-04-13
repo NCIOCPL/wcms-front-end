@@ -5,159 +5,238 @@
 // display a table or image using the entire window area
 // --------------------------------------------------------------
 (function($) {
-    $.fn.supersizeme = function( options ) {
-        // Adding some default settings
-        var settings = $.extend({
-            text: "Default Text",
-            color: null
-        }, options); 
 
-    // Select the language tag to pick the proper text for headings
-    // TBD:  Are KeyPoints H3 or H4???
-    // ------------------------------------------------------------
-    var enlargeTxt = "Enlarge";
-    var collapseTxt = "Collapse";
-    if ($('meta[name="content-language"]').attr('content') == 'es') {
-       //defaults.stocTitle = '<h3>' + defaults.text + '</h3>';
-       enlargeTxt = "Ampliar";
-       collapseTxt = "Reducir";
-       }
+    function getFigOrMakeOne(element) {
+        var fig = false;
 
-    // Creating the "Enlarge" link above the table or figure
-    // -----------------------------------------------------------
-    return this.each( function() { 
-            //"cache" our target and search objects
-		    myObj = $(this); //target
-
-            // Create the anchor link with the link text and add it
-            // before the selected element (table or figure)
-            // ----------------------------------------------------
-            var linkLabel = "<a href='javascript:void(0)'>" + 
-                             enlargeTxt + "</a>";
-
-            // Adding the Enlarge button 
-            myObj.before( linkLabel );
-
-            // Adding the scrollbar div for tables.
-            // Also adding a (unnecessary) div for figures so that it's
-            // simpler to handle both, figures and tables with the same
-            // code
-            // ---------------------------------------------------------
-            if ( myObj[0].tagName == 'FIGURE' ) {
-                myObj.wrap("<div class='pdq-figure'></div>"); 
+        if (element.parents('figure').length <= 0) {
+            fig = $('<figure></figure>');
+            fig.addClass("table");
+            fig.insertBefore(element);
+            element.appendTo(fig);
+            //Get the caption
+            var tcaption = element.find("caption");
+            //If there is table caption, make that the figure caption.
+            if (tcaption) {
+                var fcaption = $('<figcaption></figcaption>');
+                //Add ID, base it on table id if there is one.
+                var table_id = element.attr("id");
+                if (table_id) {
+                    fcaption.attr("id", table_id + "_cap");
+                } else {
+                    fcaption.attr("id", $.uniqueId()); //Note jQueryUI function
+                }
+                //Add aria-labelledby to table
+                element.attr("aria-labelledby", fcaption.attr("id"));
+                //Move contents of caption to figcaption and remove old caption
+                fcaption.append(tcaption.contents());
+                tcaption.remove();
+                //Set the title on the table for later use.
+                element.data("caption", fcaption.contents());
+                //Add the caption to the figure - make sure it is first.
+                fig.append(fcaption)
             }
-            else {
-                myObj.wrap("<div class='pdq-table-scrollbar'></div>"); 
+            //Add the table to the caption
+            fig.append(element);
+        } else {
+            //Grab fig...
+        }
+
+        return fig;
+
+    }
+
+    function enlargeTable(fig, settings) {
+        //Enlarge Table
+        fig.data('scrollWrapper').removeClass('has-scroll');
+        fig.data('scrollWrapper').removeClass('scrollable');
+
+        fig.dialog({
+            width: $(window).width() - 40,
+            height: fig.height(),
+            draggable: false,
+            resizable: false,
+            modal: false,
+            title: '', //No title, we are hiding it anyway...
+            dialogClass: 'table-enlarged',
+            create: function (event, ui) {
+                //Make the window's scrollbars go away
+                //$("body").css({ overflow: 'hidden'});
+                //hide enlarge button
+                if (fig.data('enlargeBtn')) {
+                    fig.data('enlargeBtn').hide();
+                }
+                //add close block
+                var closeBlock = $("<div/>", {
+                    'class': 'popup-close'
+                });
+                //setup close link
+                var closeLink = $("<a/>", {
+                    'href': '#'
+                }).append($("<span/>", {
+                    'class': 'hidden',
+                    'html': settings.closeTxt
+                }));
+                //Setup click handler to close the dialog
+                closeLink.click(function () {
+                    fig.dialog('close');
+                    return false;
+                });
+                closeBlock.append(closeLink);
+                fig.prepend(closeBlock);
+            },
+            beforeClose: function (event, ui) {
+                //Make the window's scrollbars come back
+                //$("body").css({ overflow: 'inherit'});
+                //remove close
+                fig.find(".popup-close").remove();
+                //show enlarge button
+                if (fig.data('enlargeBtn')) {
+                    fig.data('enlargeBtn').show();
+                }
+            },
+            open: function () {
+                $(this).scrollTop(0);
+                //Replace Enlarge?
+            },
+            close: function (event, ui) {
+                //This removes the dialog and puts the contents back where it got it from
+                $(this).dialog('destroy');
+                fig.data('scrollWrapper').addClass('has-scroll');
+                fig.data('scrollWrapper').addClass('scrollable');
             }
+        });
+    }
 
-            var objectID = myObj.attr("id") + "_e";
-            myObj.parent()
-                 .prev("a")
-                 .attr("id", objectID )
-                 .attr("href", "#" + objectID)
-                 .addClass("pdq-link-enlarge");
+    /**
+     * Function for adding in large table capabilities.  This is the scrolling and enlarge button.
+     *
+     */
+    function enhanceLargeTable(fig, settings) {
 
-            // Add the "normal" class to each element to indicate
-            // an element *not* being enlarged
-            // --------------------------------------------------
-            myObj.parent()
-                 .addClass("normal");
+        //Add wrapper to indicate table has scroll area
+        fig.data('scrollWrapper').addClass('has-scroll');
+
+        //Determine the current width.
+        var curWidth = window.innerWidth || $(window).width();
+
+        if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
+            //Less than the threshold for enlarging.  Don't do anything?
+        } else {
+            //Add Enlarge button before scroll wrapper.
+            var enlargeButton = $('<a/>', {
+                'class': 'article-image-enlarge no-resize',
+                'href': '#',
+                'onclick': 'return false;',
+                'html': settings.enlargeTxt
+            }).insertBefore(fig.data('scrollWrapper'));
+
+            //Set the enlarge button as data on the figure for easy retrieval
+            fig.data('enlargeBtn', enlargeButton);
 
             // Create the click event on the Enlarge link
             // -------------------------------------------
-            $("a.pdq-link-enlarge").unbind().click(function() {
-                // Clicking on the 'Enlarge' link
-                if ( $(this).next().hasClass("normal") ) {
-                    // Make sure no other object is enlarged
-                    $( "#_spacer").detach();
+            enlargeButton.unbind().click(function () {
+                enlargeTable(fig, settings);
+            });
+        }
+    }
 
-                    // Close all other open images (only one should exist)
-                    if ( $(".pdq-image-table-enlarge").length > 0 ) {
-                        $(".pdq-image-table-enlarge")
-                                 .removeClass("pdq-image-table-enlarge")
-                                 .removeClass("enlarged")
-                                 .addClass("normal");
-                        $("a.pdq-link-enlarge").text(enlargeTxt);
+    /**
+     * Helper to remove enlarge button
+     */
+    function removeEnlargeButton(fig) {
+        var enlarge = fig.data('enlargeBtn');
+        if (enlarge) {
+            enlarge.remove();
+            fig.data('enlargeBtn', false);
+        }
+    }
+
+    /**
+     * Initialization function for plugin
+     */
+    $.fn.overflowEnlarge = function( options ) {
+
+        // Adding some default settings
+        var settings = $.extend({
+            text: "Default Text",
+            color: null,
+            enlargeTxt : ($('meta[name="content-language"]').attr('content') == 'es') ? "Ampliar" : "Enlarge",
+            collapseTxt : ($('meta[name="content-language"]').attr('content') == 'es') ? "Cerrar" : "Close",
+            thresholdForEnlarge : 1024
+        }, options);
+
+        // Creating the "Enlarge" link above the table or figure
+        // -----------------------------------------------------------
+        return this.each( function() {
+
+            var element = $(this);
+
+            //We want the table to be in a figure tag and for its table caption to be
+            //a figcaption.  If the table is already in a figure, we do not want to do this.
+            var fig = getFigOrMakeOne(element);
+
+            // Create the wrapper element
+            var scrollWrapper = $('<div />', {
+                'class': 'scrollable',
+                'html': '<div />' // The inner div is needed for styling
+            }).insertBefore(element);
+
+            // Move the scrollable element inside the wrapper element
+            element.appendTo(scrollWrapper.find('div'));
+
+            //Set a reference on the figure for the table.
+            fig.data('theTable',element);
+
+            // Store a reference to the wrapper element
+            fig.data('scrollWrapper', scrollWrapper);
+
+            // Check if the element is wider than its parent and thus needs to be scrollable
+            if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
+                //It meets our conditions, enlargify the contents
+                enhanceLargeTable(fig, settings);
+            }
+
+
+            // When the viewport size is changed, check again if the element needs to be scrollable
+            $(window).on('resize orientationchange', function () {
+                var curWidth = window.innerWidth || $(window).width();
+
+                //If popup is open and the curWidth < [Threshold for Enlarging], close the window
+                if (fig.dialog("instance") != undefined) { //Since we always destroy dialog, instance means exists and open
+
+                    if (curWidth <= settings.thresholdForEnlarge) {
+                        //Smaller than desktop breakpoint, close window
+                        fig.dialog('close');
+
+                        //Remove Enlarge
+                        removeEnlargeButton(fig);
+
+                        //Now we must check to see if the table is no longer too big.
+
+
+                    } else {
+                        //If the window is going to be larger than the current available space,
+                        //then resize the window
                     }
+                } else {
+                    if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
+                        enhanceLargeTable(fig, settings);
+                    } else {
+                        // We are no longer too wide for our container.
 
-                    // Create our shim, enlarge the element and move
-                    // all text down by inserting the shim.
-                    // Finally, change the button text.
-                    // ---------------------------------------------
-                    var addTShim = "<div id='_spacer'></div>";
+                        //Remove Scroll Classes
+                        fig.data('scrollWrapper').removeClass('has-scroll');
+                        fig.data('scrollWrapper').removeClass('scrollable');
 
-                    // Compute the height of the old table + padding
-                    var eHght = $( this ).height();
-
-                    $( this ).next()
-                             .removeClass("normal")
-                             .addClass("pdq-image-table-enlarge")
-                             .addClass("enlarged");
-                             //.css("background-color", "pink");
-                    $( this ).next()
-                             .after(addTShim);
-                    $( this ).text(collapseTxt);
-
-                    // The class pdq-image-table-enlarge works well for
-                    // large tables but what if the enlarged table isn't 
-                    // really that big?  Check if the table needs 
-                    // to be centered because its size is smaller than the
-                    // window size.
-                    var winSize = $( window ).width();
-
-                    var tabSize = $( this ).next().children("table").width();
-                    var figSize = $( this ).next().children("figure").width();
-
-                    var tabLeft = (winSize - tabSize) / 2;
-                    var figLeft = (winSize - figSize) / 2;
-
-                    if (tabLeft < 50) {
-                        // do nothing; keep the predefined class definition
+                        //Remove Enlarge
+                        if (curWidth < settings.thresholdForEnlarge) {
+                            removeEnlargeButton(fig);
+                        }
                     }
-                    else {
-                        // Adjusting CSS for small tables
-                        $( this ).next().css("left", tabLeft)
-                                        .css("right", tabLeft);
-                    }
-
-                    // Adjusting CSS for Figures
-                    if ( $( this ).next().children("figure").length > 0 ) {
-                        $( this ).next().css("left", figLeft)
-                                        .css("right", figLeft);
-                        $( this ).next().children("figure")
-                                 .css("width", "100%");
-                    }
-
-
-                    // The table could become shorter when enlarging
-                    // takes place due to changing line breaks
-                    // We need to adjust the table shim if that happens
-                    // or just set it to the new table height.
-                    // Note: The caption and margins are not counted in 
-                    //       the table height, so we need some padding.
-                    var nHght = $( this ).next()
-                                            .outerHeight();
-                    var nCapHght = $( this ).next()
-                                            .find("caption")
-                                            .height();
-                    var nDivHght = nHght + nCapHght + 10;
-                    $( "#_spacer").height(nDivHght);
                 }
-                // Clicking on the 'Collapse' link
-                else {
-                    $( "#_spacer").detach();
-
-                    $( this ).next()
-                             .removeClass("pdq-image-table-enlarge")
-                             .css("width", "")
-                             .css("right", "")
-                             .css("left", "")
-                             .removeClass("enlarged")
-                             .addClass("normal");
-                    $( this ).text(enlargeTxt);
-                    $( this ).next().find("figure").css("width", "");
-                }
-            });    
+            });
 
         });
     };
