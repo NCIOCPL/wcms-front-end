@@ -281,16 +281,19 @@ a.learn-more {
 	background: $white;
 	padding-top: 1em;
 	padding-bottom: 1em;
+
 	.small-2 {
+		margin-top: 1em;
+	}
+	.image-hover {
+		display: inline-block;
+		
 		&:hover, &:focus {
-			.image-hover {
-				background-color: #000;
-			}
-			img {
+			background-color: #000;
+			> img {
 				opacity: 0.8;
 			}
 		}
-		margin-top: 1em;
 	}
 	h3 {
 		font-weight: normal;
