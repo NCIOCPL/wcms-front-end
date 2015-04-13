@@ -1,5 +1,7 @@
 NCI.Nav = {
-	openClass: "openNav",
+	movingClass: "nav-moving",
+	movingTimeout: setTimeout(function() {}),
+	openClass: "nav-open",
 	openPanelClass: "open-panel",
 	mobile: "#mega-nav > .nav-menu",
 	/* visible only on mobile, this is the menu bar itself, with hamburger & search buttons */
@@ -10,6 +12,7 @@ NCI.Nav = {
 	$mega: $(), // This will hold a ref to the jQuery object, saving us a lookup.
 	$openPanelBtn: $(),
 	$hasChildren: $(),
+
 	init: function() {
 		var n = NCI.Nav;
 		// Since we can't guarantee that our doc is ready when this script is loaded,
@@ -50,23 +53,29 @@ NCI.Nav = {
 
 	},
 	isOpen: function () {
-		return $("html").hasClass(NCI.Nav.openClass);
+		return $('html').hasClass(NCI.Nav.openClass);
 	},
 	open: function () {
 		var n = NCI.Nav;
 		if (!n.isOpen()) {
-			$("html").addClass(NCI.Nav.openClass);
-			NCI.Nav.$mobile.attr('aria-hidden', 'false');
+			clearTimeout(n.movingTimeout);
+			n.$mobile.attr('aria-hidden', 'false');
+			$('html').addClass(n.movingClass).addClass(n.openClass);
+			// focus the first focusable item in the menu
+			n.$mobile.find(':tabbable:first').focus();
+			n.$mega.offset({
+					"top": $(".fixedtotop").offset().top,
+					"left": "0px"
+				});
 			$('.fixedtotop.scroll-to-fixed-fixed').css('left', "80%");
-			$("."+NCI.Nav.openClass+" "+NCI.Nav.mega).offset({
-				"top": $(".fixedtotop").offset().top,
-				"left": "0px"
-			});
+			n.movingTimeout = setTimeout(function() {
+				$('html').removeClass(n.movingClass);
+			}, 500);
 
 			// Enable swiping to close
 			$("#page").swipe({
 				swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
-					this.close()
+					this.close();
 				}.bind(n),
 				threshold: 10 // default is 75 (for 75px)
 			});
@@ -75,17 +84,21 @@ NCI.Nav = {
 	close: function() {
 		var n = NCI.Nav;
 		if (n.isOpen()) {
-			$("html").removeClass(n.openClass);
-			$('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
+			clearTimeout(n.movingTimeout);
 			n.$mobile.attr('aria-hidden', 'true');
+			$('html').addClass(n.movingClass).removeClass(n.openClass);
+			// focus the menu button
+			n.$openPanelBtn.focus();
+			$('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
 
 			// We do a timeout here, because we have no way of knowing when
 			// the CSS animation of the menu is done. We have to remove the
 			// style in case the browser is made to be dekstop width, at which
 			// point the applied style would affect the mega menu display
-			setTimeout(function() {
-				this.$mega.removeAttr("style");
-			}.bind(n), 1000);
+			n.movingTimeout = setTimeout(function() {
+				$('html').removeClass(n.movingClass);
+				n.$mega.removeAttr("style");
+			}, 500);
 
 			// Disable swiping to close
 			$("#page").swipe("destroy");

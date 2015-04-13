@@ -63,7 +63,7 @@
 		-o-transition: left 500ms ease;
 		transition: left 500ms ease;
 	}
-	.openNav #page {
+	html.nav-open #page {
 		left: 80%;
 	}
 	.fixedtotop {
@@ -103,14 +103,11 @@
 			height: 100%; // We still need the height for the menu button we're about to borrow.
 
 			.menu-btn {
-				// we borrow & transform this
-				// into our back to menu button
 				position: absolute;
 				left: 100%; // Get back here!
-				background-color: #444;
 				background-position: 80% 50%; // move icon into place
 				width: 71px;
-				color: rgba(0,0,0,0); // get rid of the text
+				color: transparent; // get rid of the text
 				z-index: 90; // needs to be above search
 
 				&:before {
@@ -120,7 +117,7 @@
 					left: 25%;
 					display: block;
 					top: calc(50% - 9px); // a good way to position, uses 1/2 the height.
-					background: url($icons + "nci-sprite.png")no-repeat -349px -178px;
+					background: url($icons + "nci-sprite.png") no-repeat -349px -178px;
 					width: 11px;
 					height: 18px; //adjust 'top' calc() value if your change this.
 					// This really should be a mixin:
@@ -224,6 +221,7 @@
 		$teal:	#0498a1;
 		$dteal: #017c84;
 
+		visibility: hidden;
 		z-index: 1000;
 		position: fixed;
 		left: -80%;
@@ -235,10 +233,13 @@
 		-moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 
-		.openNav & {
+		html.nav-open & {
+			visibility: visible;
 			left: 0.01%;
 		}
-
+		html.nav-moving & {
+			visibility: visible;
+		}
 
 
 		> ul > li:first-child {

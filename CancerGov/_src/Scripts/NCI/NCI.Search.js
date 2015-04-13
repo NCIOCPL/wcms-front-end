@@ -1,27 +1,36 @@
 NCI.Search = {
 	classname: "searching",
-	init: function() {
-		$(".nav-search").click(NCI.Search.mobile.show);
+	searchBtnClass: "nav-search",
+	$input: $(),
+	$searchBtn: $(),
 
+	init: function() {
+		var s = NCI.Search;
+		s.$input = $('#swKeyword');
+		s.$searchBtn = $('.' + s.searchBtnClass);
+
+		s.$searchBtn.click(s.mobile.show);
 	},
 	mobile: {
 		clear: function() {
-			$("#swKeyword").val("");
+			NCI.Search.$input.val("");
 		},
 		show: function(e) {
-			var menu_btn = $(".open-panel"),
-				s = NCI.Search;
+			var s = NCI.Search,
+				n = NCI.Nav;
 			$("#nvcgSlMainNav").addClass(s.classname);
-			if (!$("#searchclear").length) {
+			s.$input.focus();
+			if ($("#searchclear").length === 0) {
 				$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
 			}
-			menu_btn.unbind("click").click( NCI.Search.mobile.hide );
+			n.$openPanelBtn.unbind("click").click( s.mobile.hide );
 		},
 		hide: function(e) {
-			$("#nvcgSlMainNav").removeClass( NCI.Search.classname );
-			NCI.Nav.$openPanelBtn.unbind("click").click( NCI.Nav.open );
+			var s = NCI.Search,
+				n = NCI.Nav;
+			s.$searchBtn.focus();
+			$("#nvcgSlMainNav").removeClass( s.classname );
+			n.$openPanelBtn.unbind("click").click( n.toggleMobileMenu );
 		}
 	}
 };
-
-
