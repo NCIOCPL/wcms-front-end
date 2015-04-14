@@ -58,7 +58,7 @@ NCI.Search = {
 		focusOutHandler: function(event) {
 			var n = NCI.Nav,
 				s = NCI.Search;
-			if (s.$form.has(event.relatedTarget).length > 0 || event.relatedTarget === n.$openPanelBtn) {
+			if (s.$form.has(event.relatedTarget).length > 0 || event.relatedTarget === n.$openPanelBtn.get(0)) {
 				return;
 			}
 			s.mobile.hide();
