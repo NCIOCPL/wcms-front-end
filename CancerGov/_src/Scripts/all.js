@@ -309,6 +309,11 @@ jQuery(document).ready(function(jQuery) {
 
 	/*** BEGIN form controls ***/
 	(function($) {
+		var setAriaLabel = function($select) {
+			var $widget = $select.selectmenu('widget');
+			$widget.attr('aria-labelledby', $select.data('ui-selectmenu').label.uniqueId().attr('id'));
+			console.log($select.data('ui-selectmenu').label.uniqueId().attr('id'));
+		};
 		$('select:not([multiple])').each(function() {
 			var $this = $(this);
 			$this.selectmenu({
@@ -316,10 +321,17 @@ jQuery(document).ready(function(jQuery) {
 					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 					ui.item.element.change();
 				},
+				select: function(event, ui) {
+					// override jQuery UI changing the ARIA label
+					//setAriaLabel($this);
+				},
 				width: $this.hasClass('fullwidth') ? '100%' : null
 			})
 			.selectmenu('menuWidget')
 				.addClass('scrollable-y');
+
+			$this.data('ui-selectmenu').label.attr('for', null);
+			setAriaLabel($this);
 		});
 	})(jQuery);
 	/*** END form controls ***/
