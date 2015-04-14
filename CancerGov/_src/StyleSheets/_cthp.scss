@@ -181,6 +181,43 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-content .cthp-general h3 {
 	background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
+
+/* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
+.cthp-treatment div,
+.cthp-research div,
+.cthp-causes div,
+.cthp-genetics div,
+.cthp-screening div,
+.cthp-survival div,
+.cthp-general div,
+.cthp-treatment div:hover p,
+.cthp-research div:hover p,
+.cthp-causes div:hover p,
+.cthp-genetics div:hover p,
+.cthp-screening div:hover p,
+.cthp-survival div:hover p,
+.cthp-general div:hover p,
+.cthp-content .cardBody:hover {
+	background-color: white; 
+}
+.cthp-treatment div:hover,
+.cthp-research div:hover,
+.cthp-causes div:hover,
+.cthp-genetics div:hover,
+.cthp-screening div:hover,
+.cthp-survival div:hover,
+.cthp-general div:hover {
+	background-color: black; 
+}
+.cthp-treatment div:hover img,
+.cthp-research div:hover img,
+.cthp-causes div:hover img,
+.cthp-genetics div:hover img,
+.cthp-screening div:hover img,
+.cthp-survival div:hover img,
+.cthp-general div:hover img {
+	opacity: 0.8; 
+}
 /* End CTHP Card styling */
 
 @media only screen and (min-width: 640px) {
