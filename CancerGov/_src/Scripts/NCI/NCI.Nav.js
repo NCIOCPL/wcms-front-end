@@ -21,7 +21,7 @@ NCI.Nav = {
 		// init our jquery object references
 		n.$mobile = $(n.mobile);
 		n.$mega = $(n.mega);
-		n.$openPanelBtn = $("."+n.openPanelClass);
+		n.$openPanelBtn = $("." + n.openPanelClass);
 		n.$openPanelBtn.click(n.toggleMobileMenu);
 		n.$hasChildren = $(n.hasChildren);
 
@@ -32,8 +32,8 @@ NCI.Nav = {
 		$("#content, header, footer, .headroom-area").click(n.close);
 
 		// wire up the scroll event for the mobile menu positioning
-		$(window).scroll(function(e){
-			if(NCI.Nav.isOpen()){
+		$(window).scroll(function(e) {
+			if (NCI.Nav.isOpen()) {
 				NCI.Nav.$mega.offset({
 					"top": $(".fixedtotop").offset().top,
 					"left": "0px"
@@ -46,16 +46,16 @@ NCI.Nav = {
 		toggle.createFor(n.$mega.find(".has-children > div")).on('click', toggle.clickMega);
 
 		// expand all children of the current page or contains-current
-		n.$mega.find(".current-page > div > "+toggle.sel+", .contains-current > div > "+toggle.sel)
-			.attr("aria-expanded","true").children('span').text(toggle._innerText[toggle.lang]['true']);
+		n.$mega.find(".current-page > div > " + toggle.sel + ", .contains-current > div > " + toggle.sel)
+			.attr("aria-expanded", "true").children('span').text(toggle._innerText[toggle.lang]['true']);
 
 		n.Section.init();
 
 	},
-	isOpen: function () {
+	isOpen: function() {
 		return $('html').hasClass(NCI.Nav.openClass);
 	},
-	open: function () {
+	open: function() {
 		var n = NCI.Nav;
 		if (!n.isOpen()) {
 			clearTimeout(n.movingTimeout);
@@ -64,9 +64,9 @@ NCI.Nav = {
 			// focus the first focusable item in the menu
 			n.$mobile.find(':tabbable:first').focus();
 			n.$mega.offset({
-					"top": $(".fixedtotop").offset().top,
-					"left": "0px"
-				});
+				"top": $(".fixedtotop").offset().top,
+				"left": "0px"
+			});
 			$('.fixedtotop.scroll-to-fixed-fixed').css('left', "80%");
 			n.movingTimeout = setTimeout(function() {
 				$('html').removeClass(n.movingClass);
@@ -74,10 +74,15 @@ NCI.Nav = {
 
 			// Enable swiping to close
 			$("#page").swipe({
-				swipeLeft: function (event, direction, distance, duration, fingerCount, fingerData) {
+				swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
 					this.close();
 				}.bind(n),
 				threshold: 10 // default is 75 (for 75px)
+			});
+
+			// Enable focusing out to close
+			n.$mega.on('focusout.NCI.Nav', function(event) {
+				n.focusOutHandler(event);
 			});
 		}
 	},
@@ -85,6 +90,9 @@ NCI.Nav = {
 		var n = NCI.Nav;
 		if (n.isOpen()) {
 			clearTimeout(n.movingTimeout);
+			// Disable focusing out to close, before changing the focus
+			n.$mega.off('focusout.NCI.Nav');
+
 			n.$mobile.attr('aria-hidden', 'true');
 			$('html').addClass(n.movingClass).removeClass(n.openClass);
 			// focus the menu button
@@ -104,10 +112,20 @@ NCI.Nav = {
 			$("#page").swipe("destroy");
 		}
 	},
+	focusOutHandler: function(event) {
+		var n = NCI.Nav;
+		if (n.$mega.has(event.relatedTarget).length > 0) {
+			return;
+		}
+		n.close();
+	},
 	toggleMobileMenu: function() {
 		var n = NCI.Nav;
-		if (n.isOpen()) { n.close(); }
-		else { n.open(); }
+		if (n.isOpen()) {
+			n.close();
+		} else {
+			n.open();
+		}
 	},
 	resize: function() {
 		if (NCI.Nav.isOpen()) {
