@@ -323,7 +323,7 @@ jQuery(document).ready(function(jQuery) {
 				},
 				select: function(event, ui) {
 					// override jQuery UI changing the ARIA label
-					//setAriaLabel($this);
+					setAriaLabel($this);
 				},
 				width: $this.hasClass('fullwidth') ? '100%' : null
 			})
