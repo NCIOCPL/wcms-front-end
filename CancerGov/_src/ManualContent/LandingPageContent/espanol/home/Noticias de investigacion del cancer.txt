@@ -1,0 +1,14 @@
+
+<div class="rxbodyfield" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:st2="urn:www.microsoft.com/smarttags2" xmlns:w="urn:www.microsoft.com/word" xmlns:x="urn:www.microsoft.com/excel">
+<div style=" margin-bottom: 6px; width: 100%; border: 1px solid #bdbdbd;">
+<div style=" padding: 2px 5px; border-bottom: 1px solid #bdbdbd; font-weight: bold; background: #3c3c3c; margin: 0; color: #fff; font-size: 12px;">Noticias de investigación del cáncer</div>
+
+<div style=" padding: 10px;"><a href="/espanol/noticias/boletin/101111/page2">Estudio de vacuna del VPH en Costa Rica: nuevos conocimientos sobre prevención del cáncer</a><a class="navigation-dark-red" href="/espanol/noticias/boletin/091311/page2"></a></div>
+
+<div style=" padding: 10px;"><a href="/espanol/noticias/boletin/101111/page10">La FDA aprueba nuevos fármacos para tratar cánceres de piel, sangre y pulmón</a><a class="navigation-dark-red" href="/espanol/noticias/boletin/091311/page3"></a></div>
+
+<div style=" padding: 10px;"><a href="/espanol/noticias/boletin/101111/page5">Fumadores tienen mayor riesgo de contraer cáncer de vejiga de lo que se pensaba</a><a class="navigation-dark-red" href="/espanol/noticias/boletin/091311/page5"></a></div>
+
+<div style=" padding: 10px; border-top: 1px solid #bdbdbd;"><a class="navigation-dark-red" href="/espanol/noticias"><strong>Visite la página de Noticias del NCI</strong></a></div>
+</div>
+</div>
