@@ -233,7 +233,7 @@ form .row .view-content-for-container {
 .search-criteria-box {
 	display: inline-block;
 	border: 1px solid #bdbdbd;
-	padding: 5px;
+	padding: 10px 15px;
 	margin: 0 0 30px;
 }
 .ct-results-top-search-options {
@@ -250,19 +250,24 @@ form .row .view-content-for-container {
 	margin-bottom: 2px;
 	padding: 0 10px;
 }
+.show-criteria-link a {
+	color: #606060;
+}
 .show-criteria-link a:after {
 	@extend %criteria-link;
 }
 .hide-criteria-link {
 	border-bottom: 1px solid #bdbdbd;
 
+	a {color: #606060;}
+	
 	a:after {
 		@extend %criteria-link;
 		background-position: -488px -186px;
 	}
 }
 .clinicaltrials-results-criteria-display {
-	padding: 5px 10px;
+	padding: 10px 0px;
 }
 .ct-results-lower-control {
 	margin-bottom: 40px;
