@@ -241,6 +241,10 @@
 		h3, a, a.arrow-link-white {
 			color: #2f2f2f;
 		}
+		
+		a.arrow-link-white:hover {
+			@extend %card-link-hover;	
+		}
 	}
 	ul.cancer-types li {
 		background: none;
