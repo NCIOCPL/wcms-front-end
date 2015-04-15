@@ -1,8 +1,9 @@
-<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+﻿<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 <ul class="sub-nav-group">
 	<li><a href="/espanol/investigacion/progreso" class="sub-nav-group-header">Progreso</a>
 		<ul>
 			<li><a href="/espanol/investigacion/progreso/instantaneas">Instantáneas de cáncer</a></li>
+<li><a href="/espanol/investigacion/informe-anual-nacion">Informe Anual a la Nación</a></li>
 		</ul>
 	</li>
 </ul>

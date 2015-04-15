@@ -1,14 +1,18 @@
-<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
-<ul class="sub-nav-group">
-	<li><a href="/espanol/instituto/general" class="sub-nav-group-header">Información general</a>
-		<ul>
-			<li><a href="/espanol/instituto/general/historia">Historia</a></li>
-			<li><a href="/about-nci/overview/contributing">Contributing to Cancer Research</a></li>
-		</ul>
-	</li>
-</ul>
+﻿<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 
 <ul class="sub-nav-group">
-	<li><a href="#" class="sub-nav-group-header"> Información para visitantes</a></li>
-</ul>
+
+	<li><a href="/espanol/instituto/aspectos-generales" class="sub-nav-group-header">Aspectos generales del NCI</a>
+
+		<ul>
+
+			<li><a href="/espanol/instituto/vistazo/infografia-nci">Infografía: Un vistazo al NCI</a></li>
+
+			<li><a href="/espanol/instituto/director">Página del director</a></li>
+
+		</ul>
+
+	</li>
+
+
 </div></div>

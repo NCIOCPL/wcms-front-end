@@ -1,4 +1,4 @@
-<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+﻿<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
 
 <ul class="sub-nav-group"> 
 	<li><a href="/espanol/cancer/que-es/" class="sub-nav-group-header">¿Qué es el cáncer?</a></li>
@@ -16,7 +16,7 @@
 <ul class="sub-nav-group">
 	<li><a href="/espanol/cancer/deteccion" class="sub-nav-group-header">Detección</a>
 		<ul>
-			<li><a href="/espanol/cancer/deteccion/aspectos-generales-deteccion-pdq">Aspectos generales de la detección del cáncer</a></li>
+			<li><a href="/espanol/cancer/deteccion/aspectos-generales-deteccion-pdq">Aspectos generales de los exámenes de detección del cáncer</a></li>
 			<li><a href="/espanol/cancer/deteccion/examenes-de-deteccion">Exámenes de detección del cáncer</a></li>
 		</ul>
 	</li>
@@ -50,13 +50,23 @@
 			<li><a href="/espanol/cancer/sobrellevar/imagen-propia">Imagen propia y sexualidad</a></li>
 			<li><a href="/espanol/cancer/sobrellevar/dia-a-dia">La vida día a día</a></li>
 			<li><a href="/espanol/cancer/sobrellevar/supervivencia/">Supervivencia</a></li>
+
 			<li><a href="/espanol/cancer/sobrellevar/familia-y-amigos">Para la familia y los amigos</a></li>
-			<li><a href="/espanol/cancer/sobrellevar/preguntas">Preguntas sobre el cáncer</a></li>
+			<li><a href="/espanol/cancer/sobrellevar/preguntas">Preguntas para hacer sobre el cáncer</a></li>
 		</ul>
 	</li>
 </ul>
 <ul class="sub-nav-group">
-	<li><a href="/espanol/cancer/cancer-avanzado" class="sub-nav-group-header">Cáncer avanzado</a></li>
+	<li><a href="/espanol/cancer/cancer-avanzado" class="sub-nav-group-header">Cáncer avanzado</a>		<ul>
+			<li><a href="/espanol/cancer/cancer-avanzado/opciones-de-atencion ">Opciones para su atención médica 
+</a></li>
+			<li><a href="/espanol/cancer/cancer-avanzado/conversacion ">Conversación sobre el cáncer avanzado </a></li>
+			<li><a href="/espanol/cancer/cancer-avanzado/sentimientos ">Superar sus sentimientos</a></li>
+			<li><a href="/espanol/cancer/cancer-avanzado/planes ">Hacer planes para un cáncer avanzado </a></li>
+			<li><a href="/espanol/cancer/cancer-avanzado/cuidadores ">Cáncer avanzado y quienes cuidan </a></li>
+			<li><a href="/espanol/cancer/cancer-avanzado/preguntas ">Preguntas para el doctor sobre el cáncer avanzado</a></li>
+		</ul>
+	</li>
 </ul>
 <ul class="sub-nav-group">
 	<li><a href="/espanol/cancer/manejo-del-cancer" class="sub-nav-group-header">Manejo para atenderse el cáncer</a>
