@@ -1,0 +1,17 @@
+<div class="rxbodyfield" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:st2="urn:www.microsoft.com/smarttags2" xmlns:w="urn:www.microsoft.com/word" xmlns:x="urn:www.microsoft.com/excel">
+<h2 class="hide-for-medium-down">NCI Research Areas</h2>
+<ul class="hide-for-medium-down">
+<li><a class="arrow-link" href="/research/areas/biology">Cancer Biology</a></li>
+<li><a class="arrow-link" href="/research/areas/genomics">Cancer Genomics</a></li>
+<li><a class="arrow-link" href="/research/areas/causes">Causes of Cancer</a></li>
+<li><a class="arrow-link" href="/research/areas/childhood">Childhood Cancer</a></li>
+<li><a class="arrow-link" href="/research/areas/clinical-trials">Clinical Trials</a></li>
+<li><a class="arrow-link" href="/research/areas/diagnosis">Diagnosis</a></li>
+<li><a class="arrow-link" href="/research/areas/prevention">Prevention</a></li>
+<li><a class="arrow-link" href="/research/areas/screening">Screening &#38; Early Detection</a></li>
+<li><a class="arrow-link" href="/research/areas/treatment">Treatment</a></li>
+<li><a class="arrow-link" href="/research/areas/public-health">Cancer &#38; Public Health</a></li>
+<li><a class="arrow-link" href="/research/areas/global-health">Global Health</a></li>
+<li><a class="arrow-link" href="/research/areas/disparities">Cancer Health Disparities</a></li>
+</ul>
+</div>

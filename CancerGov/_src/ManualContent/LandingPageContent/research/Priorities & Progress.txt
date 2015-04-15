@@ -1,0 +1,10 @@
+<div class="rxbodyfield" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:st2="urn:www.microsoft.com/smarttags2" xmlns:w="urn:www.microsoft.com/word" xmlns:x="urn:www.microsoft.com/excel">
+<h2 class="hide-for-medium-down">Priorities &#38; Progress</h2>
+<ul class="hide-for-medium-down">
+<li><a class="arrow-link" href="/research/priorities">Priority Research Initiatives</a></li>
+<li><a class="arrow-link" href="/research/progress/discovery">Stories of Discovery</a></li>
+<li><a class="arrow-link" href="/research/progress/snapshots">Cancer Snapshots</a></li>
+<li><a class="arrow-link" href="/research/progress/annual-report-nation">Annual Report to the Nation</a></li>
+<li><a class="arrow-link" href="/research/progress/250-years-advances">Cancer Advances Timeline</a></li>
+</ul>
+</div>
