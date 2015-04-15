@@ -312,26 +312,29 @@ jQuery(document).ready(function(jQuery) {
 		var setAriaLabel = function($select) {
 			var $widget = $select.selectmenu('widget');
 			$widget.attr('aria-labelledby', $select.data('ui-selectmenu').label.uniqueId().attr('id'));
-			console.log($select.data('ui-selectmenu').label.uniqueId().attr('id'));
 		};
 		$('select:not([multiple])').each(function() {
 			var $this = $(this);
 			$this.selectmenu({
-				change: function(event, ui) {
-					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
-					ui.item.element.change();
+				create: function(event, ui) {
+					$this.data('ui-selectmenu').label.attr('for', null);
+					setAriaLabel($this);
+				},
+				open: function(event, ui) {
+					setAriaLabel($this);
 				},
 				select: function(event, ui) {
 					// override jQuery UI changing the ARIA label
 					setAriaLabel($this);
 				},
+				change: function(event, ui) {
+					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
+					ui.item.element.change();
+				},
 				width: $this.hasClass('fullwidth') ? '100%' : null
 			})
 			.selectmenu('menuWidget')
 				.addClass('scrollable-y');
-
-			$this.data('ui-selectmenu').label.attr('for', null);
-			setAriaLabel($this);
 		});
 	})(jQuery);
 	/*** END form controls ***/
