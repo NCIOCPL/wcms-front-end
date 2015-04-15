@@ -141,7 +141,7 @@
 	p {
 		margin-bottom: 0;
 		font-size: em-calc(18px);
-		line-height: em-calc(21px);
+		line-height: 1.167em;
 	}
 	.card {
 		background: $dteal;
@@ -201,6 +201,7 @@
 		margin-bottom: 0;
 		color: $body-font-color;
 		font-size: em-calc(18px);
+		line-height: 1.167em;
 	}
 	@include card-clickable;
 }
