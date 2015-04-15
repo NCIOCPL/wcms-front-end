@@ -1,0 +1,10 @@
+
+<div class="rxbodyfield" xmlns:w="urn:www.microsoft.com/word" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:x="urn:www.microsoft.com/excel" xmlns:st2="urn:www.microsoft.com/smarttags2">
+<div class="right-content-box">
+<h3>NCI Update</h3>
+
+<p>A blog featuring news and research updates from the National Cancer Institute.</p>
+
+<p><a href="http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&#38;sys_variantid=2054&#38;sys_revision=5&#38;sys_contentid=860259&#38;sys_context=0&#38;sys_siteid=305" inlinetype="rxhyperlink" rxinlineslot="103" sys_dependentid="860259" sys_dependentvariantid="2054" sys_relationshipid="5398530" sys_siteid="305">Latest blog posts</a></p>
+</div>
+</div>

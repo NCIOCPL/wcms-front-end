@@ -1,0 +1,10 @@
+<!-- News Raw HTML - Blog -->
+<div class="news-share">
+<div class="row card">
+	<h2>NCI Update</h2>
+	<ul>
+		<li>Find the latest news and research updates from the National Cancer Institute.</li>
+		<li><a class="news-rss" href="http://feeds.feedburner.com/nciupdate">Subscribe</a></li>
+	</ul>
+</div>
+</div>
