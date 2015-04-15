@@ -23,6 +23,12 @@ dl {
 		> .date, > .body {
 			margin: 0.25em 0;
 		}
+
+		@media only screen and (max-width: 1024px) {
+			> .body {
+				display: none;
+			}
+		}
 	}
 
 	ul {
@@ -62,6 +68,15 @@ dl {
 			+ .container.title {
 				width: 78%;
 				padding-left: 1.25em;
+
+				@media only screen and (max-width: 1024px) {
+					width: 100%;
+					padding: 0;
+				}
+			}
+
+			@media only screen and (max-width: 1024px) {
+				display: none;
 			}
 		}
 
