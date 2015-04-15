@@ -1,0 +1,8 @@
+
+<div class="rxbodyfield">
+<ul>
+<li>Biografía</li>
+
+<li>Mensajes y comentarios</li>
+</ul>
+</div>
