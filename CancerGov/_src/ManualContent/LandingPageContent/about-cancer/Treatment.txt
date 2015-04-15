@@ -1,0 +1,16 @@
+
+<div class="rxbodyfield">
+<ul>
+<li><a href="/about-cancer/treatment/types" class="arrow-link">Types of Treatment</a></li>
+
+<li><a href="/about-cancer/treatment/side-effects" class="arrow-link">Side Effects</a></li>
+
+<li><a href="/about-cancer/treatment/clinical-trials" class="arrow-link">Patient Guide to Clinical Trials</a></li>
+
+<li><a href="/about-cancer/treatment/drugs" class="arrow-link">Cancer Drugs</a></li>
+
+<li><a href="/about-cancer/treatment/cam" class="arrow-link">Complimentary &#38; Alternative Medicine</a></li>
+</ul>
+
+<p><a class="arrow-link learn-more" href="/about-cancer/treatment">Learn more about treatment</a></p>
+</div>
