@@ -1,0 +1,56 @@
+
+<div class="rxbodyfield" xmlns:w="urn:www.microsoft.com/word" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:x="urn:www.microsoft.com/excel" xmlns:st2="urn:www.microsoft.com/smarttags2">
+<ul class="cancer-types">
+<li><a href="/types#a">A</a></li>
+
+<li><a href="/types#b">B</a></li>
+
+<li><a href="/types#c">C</a></li>
+
+<li><a href="/types#d">D</a></li>
+
+<li><a href="/types#e">E</a></li>
+
+<li><a href="/types#f">F</a></li>
+
+<li><a href="/types#g">G</a></li>
+
+<li><a href="/types#h">H</a></li>
+
+<li><a href="/types#i">I</a></li>
+
+<li>J</li>
+
+<li><a href="/types#k">K</a></li>
+
+<li><a href="/types#l">L</a></li>
+
+<li><a href="/types#m">M</a></li>
+
+<li><a href="/types#n">N</a></li>
+
+<li><a href="/types#q">O</a></li>
+
+<li><a href="/types#p">P</a></li>
+
+<li>Q</li>
+
+<li><a href="/types#r">R</a></li>
+
+<li><a href="/types#s">S</a></li>
+
+<li><a href="/types#t">T</a></li>
+
+<li><a href="/types#u">U</a></li>
+
+<li><a href="/types#v">V</a></li>
+
+<li><a href="/types#w">W</a></li>
+
+<li>X</li>
+
+<li><a href="/types#y">Y</a></li>
+
+<li>Z</li>
+</ul>
+</div>

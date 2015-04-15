@@ -1,0 +1,17 @@
+<div class="rxbodyfield" xmlns:w="urn:www.microsoft.com/word" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:st2="urn:www.microsoft.com/smarttags2" xmlns:x="urn:www.microsoft.com/excel">
+<ul>
+<li><a class="arrow-link" href="/cancertopics/what-is-cancer">What is Cancer</a></li>
+
+<li><a class="arrow-link" href="/cancertopics/diagnosis-staging/prognosis">Prognosis</a></li>
+
+<li><a class="arrow-link" href="/cancertopics/aya/treatment">Treatment &#38; Clinical Trials</a></li>
+
+<li><a class="arrow-link" href="/clinicaltrials/search">Find a Clinical Trial</a></li>
+
+<li><a class="arrow-link" href="/cancertopics/coping">Coping with Cancer</a></li>
+
+<li><a class="arrow-link" href="/cancertopics/pdq">PDQ® Cancer Information</a></li>
+
+<li><a class="arrow-link learn-more" href="/cancertopics">Learn more about cancer</a></li>
+</ul>
+</div>
