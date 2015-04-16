@@ -58,7 +58,7 @@ dl {
 	.container {
 		display: inline-block;
 		vertical-align: top;
-		padding: 0 0 1.875em;
+		padding: 0; // was 0 0 1.875em; but the 1.875em bottom padding was creating double spacing when combined with the margin for the li
 
 		&.image {
 			width: 190px;
