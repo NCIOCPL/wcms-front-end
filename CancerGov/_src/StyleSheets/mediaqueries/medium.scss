@@ -2,6 +2,18 @@
 /* TABLET STYLES (MEDIUM) */
 /* *************************************************************************/
 @media only screen and (min-width : 641px) and (max-width :1024px) {
+	button.nav-header, a.nav-contact, a.nav-dictionary,  button.nav-search {
+		width: 13%;
+	}
+	button.nav-header {
+		margin-right: 8%;
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin: 0 8% 0;
+	}
+	button.nav-search {
+		margin-left: 8%
+	}
 	/** Hide feature card title on tablets and up **/
 	.feature-primary-title {
 		display: none; 

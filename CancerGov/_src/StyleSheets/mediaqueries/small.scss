@@ -6,7 +6,18 @@
 		width: 100%;
 		margin: 0 0 1em 0;
 	}
-
+	button.nav-header, a.nav-contact, a.nav-dictionary,  button.nav-search {
+		width: 19%;
+	}
+	button.nav-header {
+		margin-right: 4%;
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin: 0 4% 0;
+	}
+	button.nav-search {
+		margin-left: 4%
+	}
 	.hero-slot {
 		display: none;
 	}
