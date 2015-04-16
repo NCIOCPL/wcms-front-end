@@ -308,7 +308,14 @@ a.learn-more {
 	/*margin-bottom: 1em;*/
 	padding: 1em 0;
 	margin-bottom: 1em;
-
+	
+	a {
+			&:hover, &:focus {
+				h3 {
+				color: $lcranberry;
+				}
+			}
+	}
 	.feature-card {
 		background: $white;
 		padding-bottom: 1em;
@@ -320,13 +327,10 @@ a.learn-more {
 			line-height: 1.272;
 			color: $color-link;
 		}
-
-		&:hover {
-			h3 {
-				color: $lcranberry;
-			}
+		
+		@extend %card-link-hover;
 		}
-	}
+		
 }
 @media only screen and (max-width: 640px) {
 
