@@ -5,16 +5,30 @@
 	&::-webkit-input-placeholder { @content; }
 }
 
-@mixin transform($transforms) {
+@mixin transition($transitions...) {
+	-webkit-transition: $transitions;
+	-moz-transition: $transitions;
+	-o-transition: $transitions;
+	transition: $transitions;
+}
+
+@mixin transform($transforms...) {
 	-webkit-transform: $transforms;
 	-moz-transform: $transforms;
 	-ms-transform: $transforms;
+	-o-transform: $transforms;
 	transform: $transforms;
 }
+@mixin transform-origin($transform-origin) {
+	-webkit-transform-origin: $transform-origin;
+	-moz-transform-origin: $transform-origin;
+	-ms-transform-origin: $transform-origin;
+	-o-transform-origin: $transform-origin;
+	transform-origin: $transform-origin;
+}
 
-@mixin box-shadow($shadow) {
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	-ms-box-shadow: $shadow;
-	box-shadow: $shadow;
+@mixin box-shadow($shadows...) {
+	-webkit-box-shadow: $shadows;
+	-moz-box-shadow: $shadows;
+	box-shadow: $shadows;
 }

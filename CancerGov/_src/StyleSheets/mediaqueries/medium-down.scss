@@ -58,19 +58,13 @@
 	#page, #mega-nav {
 		position: relative;
 		left: 0;
-		-webkit-transition: left 500ms ease;
-		-moz-transition: left 500ms ease;
-		-o-transition: left 500ms ease;
-		transition: left 500ms ease;
+		@include transition(left 500ms ease);
 	}
 	html.nav-open #page {
 		left: 80%;
 	}
 	.fixedtotop {
-		-webkit-transition: left 500ms ease;
-		-moz-transition: left 500ms ease;
-		-o-transition: left 500ms ease;
-		transition: left 500ms ease;
+		@include transition(left 500ms ease);
 	}
 
 	/* When the panel is closed, transition the page back to the left */
@@ -121,9 +115,7 @@
 					width: 11px;
 					height: 18px; //adjust 'top' calc() value if your change this.
 					// This really should be a mixin:
-					-webkit-transform: rotate(180deg);
-					-ms-transform: rotate(180deg);
-					transform: rotate(180deg);
+					@include transform(rotate(180deg));
 				}
 			}
 		}
@@ -193,7 +185,7 @@
 			width: 48px;
 			top: 6px;
 			border: none;
-			box-shadow: none;
+			@include box-shadow(none);
 
 			&:before {
 				content: "+";
@@ -229,9 +221,7 @@
 		width: 80%;
 		height: 100%;
 		background-color: $beige;
-		-webkit-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-		-moz-box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
-		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
+		@include box-shadow(-15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset);
 
 		html.nav-open & {
 			visibility: visible;

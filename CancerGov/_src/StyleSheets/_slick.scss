@@ -2,7 +2,7 @@
  .other-nci-sites {
     margin-left: -10px;
  }
- 
+
  .slick-slider {
     position: relative;
     display: block;
@@ -37,11 +37,7 @@
     }
 }
 .slick-slider .slick-list, .slick-track, .slick-slide, .slick-slide img {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    @include transform (translate3d(0, 0, 0));
 }
 .slick-track {
     position: relative;
@@ -102,7 +98,7 @@
         }
     }
 }
-/* Icons 
+/* Icons
 @font-face { font-family: "slick"; src: url('fonts/slick.eot'); src: url('fonts/slick.eot?#iefix') format("embedded-opentype"), url('fonts/slick.woff') format("woff"), url('fonts/slick.ttf') format("truetype"), url('fonts/slick.svg#slick') format("svg"); font-weight: normal; font-style: normal; }
 */
 
@@ -199,7 +195,7 @@ ul.slick-dots {
             &:focus {
                 outline: dotted 1px $dotBlue;
             }
-			
+
             &:hover {
                 background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -364px -297px;
             }

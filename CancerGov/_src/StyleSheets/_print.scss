@@ -1,10 +1,10 @@
 @media print {
-    html, body {
-    }
+  html, body {
+  }
 
-    nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, #section-menu-button, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle, .hero, .carousel-title, .other-nci-sites {
-      display: none !important; // important used because in some places foundation classes are overwriting
-		}
+  nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, #section-menu-button, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle, .hero, .carousel-title, .other-nci-sites {
+    display: none !important; // important used because in some places foundation classes are overwriting
+	}
 	a {
 		text-decoration: none !important;
 		border-bottom: none !important;
@@ -23,13 +23,13 @@
 	.nci-logo a span {
 		display: block;
 		position: relative;
-		left: 0;      
+		left: 0;
 	}
 	#nvcgSlCTHPIntro .row, .cthp-card-container {
 		margin-left: 0 !important; margin-right: 0 !important;
 	}
 	.general-page-body-container {
-		box-shadow: none;
+		@include box-shadow(none);
 	}
 	.cthp-content h1 {
 		color: inherit;

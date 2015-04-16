@@ -19,7 +19,7 @@ $text-icon-help-border-size: 2px;
 	text-align: center;
 	border: $text-icon-help-border-size solid $color-link;
 	border-radius: 1em;
-	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
+	@include box-shadow(0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset);
 
 	&:hover, &:focus {
 		color: #bb0e3d;
@@ -58,8 +58,8 @@ $icon-sitewide-search-submit-height: 16px;
 	// reset general <button> styling
 	background: none;
 	border: none;
-	box-shadow: none;
-	transition: none;
+	@include box-shadow(none);
+	@include transition(none);
 	padding: 0;
 	margin: 0;
 
@@ -77,8 +77,8 @@ $icon-sitewide-search-submit-height: 16px;
 	// reset general <button> styling
 	background: none;
 	border: none;
-	box-shadow: none;
-	transition: none;
+	@include box-shadow(none);
+	@include transition(none);
 	padding: 0;
 	margin: 0;
 

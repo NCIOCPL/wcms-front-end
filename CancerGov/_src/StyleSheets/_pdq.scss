@@ -94,7 +94,7 @@ table .pdq-link-enlarge {
 }
 .pdq-image-table-enlarge {
 	background: none repeat scroll 0 0 #fff;
-	box-shadow: 0 0 5px 5px #808080;
+	@include box-shadow(0 0 5px 5px #808080);
 	left: 10px;
 	margin-top: 20px;
 	position: absolute;
@@ -260,7 +260,7 @@ form .row .view-content-for-container {
 	border-bottom: 1px solid #bdbdbd;
 
 	a {color: #606060;}
-	
+
 	a:after {
 		@extend %criteria-link;
 		background-position: -488px -186px;

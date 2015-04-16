@@ -7,10 +7,7 @@
 	margin-bottom: 1em;
 	padding-left: 0;
 	padding-right: 0;
-	$shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	box-shadow: $shadow;
+	@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
 }
 .hero-inner-page {
 	position: relative;
@@ -46,12 +43,7 @@
 	background: url($buttons + "hero-arrow.png") no-repeat center right;
 	display: inline-block;
 	padding-right: 1em;
-	$transition: padding-right 0.4s ease-in-out;
-	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	-ms-transition: $transition;
-	-o-transition: $transition;
-	transition: $transition;
+	@include transition(padding-right 0.4s ease-in-out);
 
 	&:hover, &:focus {
 		padding-right: 1.5em;
@@ -346,12 +338,12 @@ a.learn-more {
 	.multimedia-feature-card {
 		margin-right: 15px;
 	}
- }
- @media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 1024px) {
 	.multimedia-slot {
 		padding: 1em;
 	}
- }
+}
 .multimedia {
 	.card {
 		background: none;
@@ -380,19 +372,10 @@ a.learn-more {
 
 	// rotate the call to action:
 	right: 0;
-	-webkit-transform-origin: top left;
-	-ms-transform-origin: top left;
-	transform-origin: top left;
-	$call-to-action-rotation: 90deg;
-	-webkit-transform:
-		rotate($call-to-action-rotation)
-		translate(100%, -1px);
-	-ms-transform:
-		rotate($call-to-action-rotation)
-		translate(100%, -1px);
-	transform:
-		rotate($call-to-action-rotation)
-		translate(100%, -1px);
+	@include transform-origin(top right);
+	@include transform(
+		rotate(90deg)
+		translate(100%, -1px)); // -1px to fix rendering issues
 }
 .multimedia-feature-card {
 	background: $white;
