@@ -278,6 +278,12 @@ textarea:focus {
 	@include box-shadow(none);
 }
 
+input[type="text"]::-ms-clear {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
 input[size] {
 	width: auto;
 	width: initial;
