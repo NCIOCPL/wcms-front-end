@@ -30,6 +30,10 @@ dl {
 			}
 		}
 	}
+	
+.title a.title:hover, .title a.title:focus {
+	color: $lcranberry;
+}	
 
 	ul {
 		list-style-type: none;
