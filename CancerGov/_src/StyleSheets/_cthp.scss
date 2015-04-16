@@ -200,6 +200,16 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-content .cardBody:hover {
 	background-color: white; 
 }
+.cthp-treatment:hover li a.arrow-link,
+.cthp-research:hover li a.arrow-link,
+.cthp-causes:hover li a.arrow-link,
+.cthp-genetics:hover li a.arrow-link,
+.cthp-screening:hover li a.arrow-link,
+.cthp-survival:hover li a.arrow-link,
+.cthp-general:hover li a.arrow-link {
+	color: #bb0e3d;
+	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
+} 
 .cthp-treatment div:hover,
 .cthp-research div:hover,
 .cthp-causes div:hover,
