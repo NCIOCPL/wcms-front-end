@@ -250,7 +250,7 @@
 }
 a.arrow-link {
 	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
-	padding-right: 2em;
+	padding: 1px 2em 1px 0;
 	width: 100%;
 	display: block;
 	color: $body-font-color;
@@ -265,6 +265,11 @@ a.arrow-link-white {
 	@extend a.arrow-link;
 	background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
 	padding-right: 1em;
+}
+@media only screen and (max-width: 640px) {
+	a.arrow-link-white {
+		background: url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
+	}
 }
 a.learn-more {
 	margin-top: 1em;
