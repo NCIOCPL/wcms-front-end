@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cde:Module_SearchResultPageInfo xsi:schemaLocation="http://www.example.org/CDESchema CDESchema.xsd" xmlns:cde="http://www.example.org/CDESchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SearchPagePrettyUrl>/about-cancer/causes-prevention/genetics/directory</SearchPagePrettyUrl>
+	<SearchResultsPrettyUrl>/about-cancer/causes-prevention/genetics/directory/results</SearchResultsPrettyUrl>
+	<DetailedViewSearchResultPagePrettyUrl>/about-cancer/causes-prevention/genetics/directory/view</DetailedViewSearchResultPagePrettyUrl>
+</cde:Module_SearchResultPageInfo>
