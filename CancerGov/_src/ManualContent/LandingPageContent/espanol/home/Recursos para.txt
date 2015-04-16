@@ -9,10 +9,6 @@
 
 <li><a href="#" class="arrow-link">Investigadores</a></li>
 
-<li><a href="#" class="arrow-link">Defensores del paciente y diseñadores de políticas</a></li>
 
-<li><a href="#" class="arrow-link">Socios internacionales</a></li>
-
-<li><a href="#" class="arrow-link">Industria</a></li>
 </ul>
 </div>
