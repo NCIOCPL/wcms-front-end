@@ -29,9 +29,6 @@
 	.page-options {
 		li {
 			margin: 0 0.875em 0 0;
-		}
-
-		a, img {
 			width: 35px;
 			height: 35px;
 		}
@@ -110,9 +107,6 @@
 
 		li {
 			margin: 0 0 0 0.875em;
-		}
-
-		a, img {
 			height: 25px;
 			width: 25px;
 		}
@@ -128,39 +122,27 @@
 		}
 		.po-print {
 			background-position: -16px -62px;
-			& > a, & img {
-				width: 23px;
-			}
+			width: 23px;
 		}
 		.po-email {
 			background-position: -16px -105px;
-			& > a, & img {
-				width: 23px;
-			}
+			width: 23px;
 		}
 		.po-facebook {
 			background-position: -25px -151px;
-			& > a, & img {
-				width: 8px;
-			}
+			width: 8px;
 		}
 		.po-twitter {
 			background-position: -16px -195px;
-			& > a, & img {
-				width: 19px;
-			}
+			width: 19px;
 		}
 		.po-googleplus {
 			background-position: -16px -241px;
-			& > a, & img {
-				width: 19px;
-			}
+			width: 19px;
 		}
 		.po-pinterest {
 			background-position: -20px -287px;
-			& > a, & img {
-				width: 15px;
-			}
+			width: 15px;
 		}
 	}
 }
