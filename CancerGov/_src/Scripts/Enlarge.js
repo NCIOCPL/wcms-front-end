@@ -119,7 +119,7 @@
                 my: 'top',
                 at: 'top',
                 collision: 'none', //Important so it goes on top of wrapper
-                of: figWrapper
+                of: fig.data('anchorPoint')
             },
             create: function (event, ui) {
                 //Make the window's scrollbars go away
@@ -242,6 +242,12 @@
             //We want the table to be in a figure tag and for its table caption to be
             //a figcaption.  If the table is already in a figure, we do not want to do this.
             var fig = getFigOrMakeOne(element);
+
+            var figAnchorPoint = $('<div />', {
+                height: 1
+            }).insertBefore(fig);
+
+            fig.data('anchorPoint', figAnchorPoint);
 
             // Create the wrapper element
             var scrollWrapper = $('<div />', {
