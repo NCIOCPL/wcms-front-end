@@ -125,9 +125,7 @@
                 //Make the window's scrollbars go away
                 //$("body").css({ overflow: 'hidden'});
                 //hide enlarge button
-                console.log("WouldHideBTN");
                 if (fig.data('enlargeBtn')) {
-                    console.log("HidingBTN");
                     fig.data('enlargeBtn').hide();
                 }
                 //add close block
@@ -201,7 +199,6 @@
         if (enlarge) {
             enlarge.remove();
             fig.data('enlargeBtn', false);
-            console.log("Removed Enlarge");
         }
     }
 
