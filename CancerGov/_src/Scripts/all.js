@@ -309,32 +309,28 @@ jQuery(document).ready(function(jQuery) {
 
 	/*** BEGIN form controls ***/
 	(function($) {
-		var setAriaLabel = function($select) {
-			var $widget = $select.selectmenu('widget');
-			$widget.attr('aria-labelledby', $select.data('ui-selectmenu').label.uniqueId().attr('id'));
+		$.ui.selectmenu.prototype._setAria = function( item ) {
+			var id = this.menuItems.eq( item.index ).attr( "id" );
+
+			this.button.attr( {
+				"aria-activedescendant": id
+			} );
+			this.menu.attr( "aria-activedescendant", id );
 		};
 		$('select:not([multiple])').each(function() {
 			var $this = $(this);
+
 			$this.selectmenu({
 				create: function(event, ui) {
-					$this.data('ui-selectmenu').label.attr('for', null);
-					setAriaLabel($this);
-				},
-				open: function(event, ui) {
-					setAriaLabel($this);
-				},
-				select: function(event, ui) {
-					// override jQuery UI changing the ARIA label
-					setAriaLabel($this);
+					// this sets the label's 'for' attribute to null, assigns it a unqiue id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique ID
+					$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', null).uniqueId().attr('id'));
 				},
 				change: function(event, ui) {
 					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 					ui.item.element.change();
 				},
 				width: $this.hasClass('fullwidth') ? '100%' : null
-			})
-			.selectmenu('menuWidget')
-				.addClass('scrollable-y');
+			}).selectmenu('menuWidget').addClass('scrollable-y');
 		});
 	})(jQuery);
 	/*** END form controls ***/
@@ -352,11 +348,11 @@ jQuery(document).ready(function(jQuery) {
 
 // BEGIN Table Resizing
 jQuery(window).on('load', function () {
-    //Table enlarging & scrollbar adding.
-    //This marks all tables as scrollable, but only adds a shadow to the right side if it is scrolling.
-    //Inspired by http://www.456bereastreet.com/archive/201309/responsive_scrollable_tables/
-    (function ($) {
-        $("#content table").overflowEnlarge();
-    })(jQuery);
+	//Table enlarging & scrollbar adding.
+	//This marks all tables as scrollable, but only adds a shadow to the right side if it is scrolling.
+	//Inspired by http://www.456bereastreet.com/archive/201309/responsive_scrollable_tables/
+	(function ($) {
+		$("#content table").overflowEnlarge();
+	})(jQuery);
 });
 // END Table Resizing
