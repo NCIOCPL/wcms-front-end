@@ -321,7 +321,7 @@ fieldset {
 	@include fieldset;
 
 	legend {
-	 	margin-#{$default-float}: 0;
+		 margin-#{$default-float}: 0;
 		font-family: $legend-font-family;
 		font-size: $legend-font-size;
 		line-height: $legend-lineheight;
@@ -675,3 +675,23 @@ fieldset fieldset .legend
 	font-weight: bold;
 }
 // End clinical trial search form
+
+// Begin Cancer Genetics Services Directory search form
+// TODO: remove this HACK and fix the markup: /about-cancer/causes-prevention/genetics/directory
+//mobile-first (smartphone+tablet)
+.directory-search [name="searchBtn"] {
+	margin-left: 0.9375em;
+}
+//desktop
+@media only screen and (min-width:1025px) {
+	.directory-search [name="searchBtn"] {
+		margin-left: (((9 / 12) * (strip-unit(62.5em) * $em-base)) - (strip-unit(3.125em + 0.9375em) * $em-base)) * (4 / 12) + (strip-unit(0.9375em) * $em-base) + 0px;
+	}
+}
+//xl desktop
+@media only screen and (min-width:1440px) {
+	.directory-search [name="searchBtn"] {
+		margin-left: (((9 / 12) * (1200px)) - (strip-unit(3.125em + 0.9375em) * $em-base)) * (4 / 12) + (strip-unit(0.9375em) * $em-base) + 0px;
+	}
+}
+// End Cancer Genetics Services Directory search form
