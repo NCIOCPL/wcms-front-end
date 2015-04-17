@@ -321,8 +321,9 @@ fieldset {
 	@include fieldset;
 
 	legend {
-		 margin-#{$default-float}: 0;
+		margin-#{$default-float}: 0;
 		font-family: $legend-font-family;
+		color: $header-font-color;
 		font-size: $legend-font-size;
 		line-height: $legend-lineheight;
 	}
@@ -395,6 +396,8 @@ label.error {
 select {
 	width: auto;
 	font-size: inherit;
+	@include font-noto;
+	color: $body-font-color;
 	line-height: 1;
 	@include ui-selectmenu-padding($left:$ui-selectmenu-padding-left - 0.25em);
 
@@ -678,7 +681,7 @@ fieldset fieldset .legend
 
 // Begin Cancer Genetics Services Directory search form
 // TODO: remove this HACK and fix the markup: /about-cancer/causes-prevention/genetics/directory
-//mobile-first (smartphone+tablet)
+//mobile-first (smartphone + tablet), since that's how Foundation does it
 .directory-search [name="searchBtn"] {
 	margin-left: 0.9375em;
 }
