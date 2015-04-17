@@ -6,6 +6,48 @@
 // --------------------------------------------------------------
 (function($) {
 
+    /**
+     * Function for adding in large table capabilities.  This is the scrolling and enlarge button.
+     *
+     */
+    function enhanceLargeTable(fig, settings) {
+
+        //Add wrapper to indicate table has scroll area
+        fig.data('scrollWrapper').addClass('has-scroll');
+
+        //Determine the current width.
+        var curWidth = window.innerWidth || $(window).width();
+
+        if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
+            //Less than the threshold for enlarging.  Don't do anything?
+        } else {
+
+            //Set the width of the table to be the same as it would be if the
+            //table were expanded.  This should minimize re-flowing of content
+            //and thus keep the height the same.
+            fig.data('theTable').width(calculateTableWidth(settings));
+
+            if (!fig.data('enlargeBtn')) {
+                //Add Enlarge button before scroll wrapper.
+                var enlargeButton = $('<a/>', {
+                    'class': 'article-image-enlarge no-resize',
+                    'href': '#',
+                    'onclick': 'return false;',
+                    'html': settings.enlargeTxt
+                }).insertBefore(fig.data('scrollWrapper'));
+
+                //Set the enlarge button as data on the figure for easy retrieval
+                fig.data('enlargeBtn', enlargeButton);
+            }
+
+            // Create the click event on the Enlarge link
+            // -------------------------------------------
+            enlargeButton.unbind().click(function () {
+                enlargeTable(fig, settings);
+            });
+        }
+    }
+
     function getFigOrMakeOne(element) {
         var fig = false;
 
@@ -46,24 +88,46 @@
 
     }
 
+
     function enlargeTable(fig, settings) {
-        //Enlarge Table
+        //Remove drop shadow and scroller
         fig.data('scrollWrapper').removeClass('has-scroll');
         fig.data('scrollWrapper').removeClass('scrollable');
 
+        if (!fig.data('figWrapper')) {
+            //Add in a wrapper to push down the page contents
+            //when enlarged.  This is mostly for PDQ references
+            var figWrapper = $('<div />', {
+                'class': 'enlarge-table-wrapper',
+            }).insertBefore(fig);
+
+            fig.data('figWrapper', figWrapper);
+        }
+
+        //Show is asynchronous, so we must pass a complete function at the end which will open the popup.
+        //fig.data('figWrapper').show(0, function() {
+
         fig.dialog({
-            width: $(window).width() - 40,
-            height: fig.height(),
+            width: calculateDialogWidth(settings),
+            height: calculateDialogHeight(fig, settings),
             draggable: false,
             resizable: false,
             modal: false,
             title: '', //No title, we are hiding it anyway...
             dialogClass: 'table-enlarged',
+            position: {
+                my: 'top',
+                at: 'top',
+                collision: 'none', //Important so it goes on top of wrapper
+                of: figWrapper
+            },
             create: function (event, ui) {
                 //Make the window's scrollbars go away
                 //$("body").css({ overflow: 'hidden'});
                 //hide enlarge button
+                console.log("WouldHideBTN");
                 if (fig.data('enlargeBtn')) {
+                    console.log("HidingBTN");
                     fig.data('enlargeBtn').hide();
                 }
                 //add close block
@@ -72,7 +136,8 @@
                 });
                 //setup close link
                 var closeLink = $("<a/>", {
-                    'href': '#'
+                    'href': '#',
+                    'onclick': 'return false;'
                 }).append($("<span/>", {
                     'class': 'hidden',
                     'html': settings.closeTxt
@@ -90,67 +155,66 @@
                 //$("body").css({ overflow: 'inherit'});
                 //remove close
                 fig.find(".popup-close").remove();
+
+                //		fig.data('figWrapper').hide()
+
                 //show enlarge button
                 if (fig.data('enlargeBtn')) {
                     fig.data('enlargeBtn').show();
                 }
             },
             open: function () {
-                $(this).scrollTop(0);
-                //Replace Enlarge?
+                //$(this).scrollTop(0);
+
+                var wrap = fig.data('figWrapper');
+
+                if (wrap) {
+                    wrap.height($(this).outerHeight() + 20); //Give 20px of padding between popup and references/content
+                }
+
             },
             close: function (event, ui) {
+
+                var wrap = fig.data('figWrapper');
+
+                if (wrap) {
+                    wrap.height(1); //Give 20px of padding between popup and references/content
+                }
+
                 //This removes the dialog and puts the contents back where it got it from
                 $(this).dialog('destroy');
                 fig.data('scrollWrapper').addClass('has-scroll');
                 fig.data('scrollWrapper').addClass('scrollable');
             }
         });
+        //});
+
     }
 
-    /**
-     * Function for adding in large table capabilities.  This is the scrolling and enlarge button.
-     *
-     */
-    function enhanceLargeTable(fig, settings) {
-
-        //Add wrapper to indicate table has scroll area
-        fig.data('scrollWrapper').addClass('has-scroll');
-
-        //Determine the current width.
-        var curWidth = window.innerWidth || $(window).width();
-
-        if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
-            //Less than the threshold for enlarging.  Don't do anything?
-        } else {
-            //Add Enlarge button before scroll wrapper.
-            var enlargeButton = $('<a/>', {
-                'class': 'article-image-enlarge no-resize',
-                'href': '#',
-                'onclick': 'return false;',
-                'html': settings.enlargeTxt
-            }).insertBefore(fig.data('scrollWrapper'));
-
-            //Set the enlarge button as data on the figure for easy retrieval
-            fig.data('enlargeBtn', enlargeButton);
-
-            // Create the click event on the Enlarge link
-            // -------------------------------------------
-            enlargeButton.unbind().click(function () {
-                enlargeTable(fig, settings);
-            });
-        }
-    }
 
     /**
      * Helper to remove enlarge button
      */
     function removeEnlargeButton(fig) {
         var enlarge = fig.data('enlargeBtn');
+
         if (enlarge) {
             enlarge.remove();
             fig.data('enlargeBtn', false);
+            console.log("Removed Enlarge");
         }
+    }
+
+    function calculateDialogWidth(settings) {
+        return $(window).width() - (settings.dialogLRMargin * 2);
+    }
+
+    function calculateDialogHeight(fig,settings) {
+        return fig.height() + 14;
+    }
+
+    function calculateTableWidth(settings) {
+        return calculateDialogWidth(settings) - (settings.dialogLRInnerPadding * 2);
     }
 
     /**
@@ -164,7 +228,9 @@
             color: null,
             enlargeTxt : ($('meta[name="content-language"]').attr('content') == 'es') ? "Ampliar" : "Enlarge",
             collapseTxt : ($('meta[name="content-language"]').attr('content') == 'es') ? "Cerrar" : "Close",
-            thresholdForEnlarge : 1024
+            thresholdForEnlarge : 1024,
+            dialogLRMargin : 20,
+            dialogLRInnerPadding : 16
         }, options);
 
         // Creating the "Enlarge" link above the table or figure
@@ -213,12 +279,37 @@
                         //Remove Enlarge
                         removeEnlargeButton(fig);
 
-                        //Now we must check to see if the table is no longer too big.
-
-
                     } else {
                         //If the window is going to be larger than the current available space,
                         //then resize the window
+
+                        //Sizing the dialog has issues.  Basically we can increase and decrease the width of the table and dialog,
+                        //but then the height becomes a problem because the figure's height is no longer fixed, but overflowed to
+                        //fit the dialog.  For now it is best to just destroy the dialog and reopen.
+
+                        //Close the dialog
+                        fig.dialog('close');
+
+                        //resize the table
+                        fig.data("theTable").width(calculateTableWidth(settings));
+
+                        if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
+
+                            //Re-open the dialog
+                            enlargeTable(fig, settings);
+
+                        } else {
+                            //Remove Scroll Classes
+                            fig.data('scrollWrapper').removeClass('has-scroll');
+                            fig.data('scrollWrapper').removeClass('scrollable');
+
+                            //Remove Enlarge
+                            if (curWidth < settings.thresholdForEnlarge) {
+                                removeEnlargeButton(fig);
+                            }
+
+                        }
+
                     }
                 } else {
                     if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
