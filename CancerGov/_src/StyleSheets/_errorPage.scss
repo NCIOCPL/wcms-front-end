@@ -11,21 +11,30 @@
 		color: #876EC1;
 		display: inline;
 	}
-	.row {
-		padding: 0 400px 0 100px;
+	.columns {
+		padding: 0 35% 0 10%;
 	}
+	p {
+		padding-right: 15%;
+	}
+
+	@media only screen and (max-width: 640px) {
+		.columns {
+			padding: 0 0.9375em;
+		}
+		p {
+			padding-right: 0;
+		}
+	}
+
 }
 .spanish-error {
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat top right;
 	padding-bottom: 50px;
 	margin-top: 50px;
 	color: #CBEDF2;
+
 	h1, a.arrow-link {
 		color: #CBEDF2;
-	}
-}
-@media only screen and (max-width: 640px) {
-	.error-page .row {
-		padding: 0;
 	}
 }
