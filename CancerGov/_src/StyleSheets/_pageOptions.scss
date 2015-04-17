@@ -15,9 +15,15 @@
 		background-image: url($icons + "nci-sprite.png"); /* Sprites */
 		background-repeat: no-repeat;
 	}
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
 }
 .contentzone .page-options li:before {
 		content: none;
+		display: none;
 }
 
 /* MOBILE page options */
@@ -25,7 +31,7 @@
 	.cthp-desktop.page-options {
 		display: none;
 	}
-	
+
 	.page-options {
 		li {
 			margin: 0 0.875em 0 0;
@@ -44,37 +50,37 @@
 		}
 		.po-email {
 			background-position: -183px -12px;
-			
+
 			&:hover {
-        background-position: -243px -12px;
+				background-position: -243px -12px;
 			}
-    }
+		}
 		.po-facebook {
 			background-position: -183px -56px;
-			
+
 			&:hover {
-        background-position: -243px -56px;
+				background-position: -243px -56px;
 			}
 		}
 		.po-twitter {
 			background-position: -183px -102px;
-			
+
 			&:hover {
-        background-position: -243px -102px;
+				background-position: -243px -102px;
 			}
 		}
 		.po-googleplus {
 			background-position: -183px -147px;
-			
+
 			&:hover {
-        background-position: -243px -147px;
+				background-position: -243px -147px;
 			}
 		}
 		.po-pinterest {
 			background-position: -183px -192px;
-			
+
 			&:hover {
-        background-position: -243px -192px;
+				background-position: -243px -192px;
 			}
 		}
 	}
@@ -116,9 +122,7 @@
 		}
 		.po-font-resize {
 			background-position: -17px -16px;
-			& > a, & img {
-				width: 22px;
-			}
+			width: 22px;
 		}
 		.po-print {
 			background-position: -16px -62px;
