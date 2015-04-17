@@ -73,10 +73,11 @@ header {
 @media only screen and (max-width: 1024px) {
 	.mobile-menu-bar {
 		> a,
-		> button {
+		> button,
+		> h2 {
 			display: inline-block;
 			background: transparent no-repeat center 0;
-			width: 25%;
+			width: 13%;
 			padding: 3em 0 0 0;
 			margin: 1em 0;
 			@include font-montserrat;
@@ -100,18 +101,66 @@ header {
 				cursor: pointer;
 			}
 		}
+
+		// TODO: remove this HACK (it's a CSS "fix" until OCEPROJECT-2911 is fixed) -Wade, 4/16/2015
+		> a > h2 {
+			padding: 0;
+			margin: 0;
+			font-size: 1em;
+			line-height: 1;
+			color: #fff;
+		}
 	}
-	button.nav-header {
+	button.nav-header, h2.nav-header {
 		background-image: url($icons + "menu-icon.png");
+		margin-right: 8%;
 	}
-	a.nav-contact {
+	a.nav-contact, a[href="/global/contact"] {
 		background-image: url($icons + "phone-mobile.png");
+		margin-left: 8%;
+		margin-right: 8%;
 	}
-	a.nav-dictionary {
+	a[href="/global/contact"] { // TODO: remove this HACK
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+	}
+	a.nav-dictionary, a[href="/dictionary"] {
 		background-image: url($icons + "dictionary-mobile.png");
+		margin-left: 8%;
+		margin-right: 8%;
 	}
-	button.nav-search {
+	a[href="/dictionary"] { // TODO: remove this HACK
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+	}
+	button.nav-search, h2.nav-search {
 		background-image: url($icons + "search-mobile.png");
+		margin-left: 8%;
+	}
+}
+
+// small
+@media only screen and (max-width:640px) {
+	.mobile-menu-bar {
+		> a,
+		> button,
+		> h2 {
+			width: 19%;
+		}
+	}
+	button.nav-header, h2.nav-header {
+		margin-right: 4%;
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+	a[href="/global/contact"], a[href="/dictionary"] { // TODO: remove this HACK
+		margin-left: (19/6) + 0%;
+		margin-right: (19/6) + 0%;
+	}
+	button.nav-search, h2.nav-search {
+		margin-left: 4%;
 	}
 }
 
@@ -119,7 +168,8 @@ header {
 @media only screen and (max-width: 390px) {
 	.mobile-menu-bar {
 		> a,
-		> button {
+		> button,
+		> h2 {
 			font-size: 0.5em;
 			padding: 4em 0 0 0;
 		}
