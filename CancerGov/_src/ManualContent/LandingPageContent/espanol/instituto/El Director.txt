@@ -1,8 +1,6 @@
 
 <div class="rxbodyfield">
 <ul>
-<li>Biografía</li>
-
-<li>Mensajes y comentarios</li>
+<li><a href="/espanol/instituto/director">Página del director</a></li>
 </ul>
 </div>
