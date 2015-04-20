@@ -841,10 +841,10 @@ routie({
         // Hide all open sections unless we are in the 'View all' section
         if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
             var nothingToDo = 0;
-         console.log('link all');
+         //console.log('link all');
         }
         else {
-         console.log('link section');
+         //console.log('link section');
             $(".summary-sections section.show").removeClass("show")
                                                .addClass("hide");
             // Find parent (top level section) of current element
@@ -869,10 +869,10 @@ routie({
         // Hide all open sections unless we are in the 'View all' section
         if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
             var nothingToDo = 0;
-         console.log('cit all');
+         //console.log('cit all');
         }
         else {
-         console.log('cit section');
+         //console.log('cit section');
             // Hide all open sections
             $(".summary-sections section.show").removeClass("show")
                                                .addClass("hide");
