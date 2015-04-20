@@ -1,8 +1,7 @@
 
 <div class="rxbodyfield">
 <ul>
-<li>Overview</li>
+<li><a href="/espanol/instituto/aspectos-generales">Aspectos generales del NCI</a></li>
 
-<li>Historia</li>
 </ul>
 </div>
