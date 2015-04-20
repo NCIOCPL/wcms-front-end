@@ -38,6 +38,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 * TODO: make this script work for mobile accordions
 	 *====================================================================================================*/
 	scrollTo: function(anchor) {
+		var width = window.innerWidth || $(window).width();
 		// remove initial hash
 		if(anchor.indexOf('#') === 0) {
 			anchor = anchor.substring(1, anchor.length);
@@ -61,7 +62,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				willFreeze = true;
 
 			// PDQ CIS
-			if(isSection && $accordion.length === 0) {
+			if(width > NCI.Breakpoints.large && isSection) {
 				anchorTop = 0;
 				willFreeze = false;
 			} else {
