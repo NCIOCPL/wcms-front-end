@@ -99,1775 +99,748 @@
                 </ul>
             </div>
 
-            <h3 id="a" tabindex="0">A</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "/espanol/tipos/ano">
-                    Ano</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumores-carcinodes-gi">
-                    Apéndice - ver Tumores carcinoides gastrointestinales</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/cerebro">
-                    Astrocitomas infantiles</a>
-                </li>
-            </ul>
-
-            <h3 id="b" tabindex="0">B</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "/espanol/tipos/vesicula-biliar">
-                    Biliar, vesícula</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_229">
-                    Blastoma pleuropulmonar infantil</a>
-                </li>
-
-                <li>
-                    "Boca"
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_65">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_212">
-                    Bronquiales, tumores, infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/informa">
-                    Burkitt, linfoma de - ver Linfoma no Hodgkin</a>
-                </li>
-            </ul>
-
-            <h3 id="c" tabindex="0">C</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "/espanol/tipos/cabeza-cuello">
-                    Cabeza y cuello</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/cabeza-cuello">
-                    Cáncer escamoso metastásico de cuello con tumor primario
-                    oculto</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=1219&amp;sys_revision=191&amp;sys_contentid=9033&amp;sys_context=0">
-                    Cánceres poco comunes en la niñez</a>
-                </li>
-
-                <li>Carcinoide, tumor
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320879&amp;sys_context=0&amp;sys_siteid=305">
-                            Gastrointestinal</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_419">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Carcinoma de células basales - ver Cáncer de piel (no
-                    melanoma)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Carcinoma de células de Merkel</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Carcinoma de células escamosas - ver Cáncer de piel (no
-                    melanoma)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_188">
-                    Carcinoma de estructuras de la línea media con cambios en
-                    el gen NUT</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=15&amp;sys_contentid=320769&amp;sys_context=0&amp;sys_siteid=305">
-                    Carcinoma de corteza suprarrenal</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_336">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Carcinoma de piel, células de Merkel</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=21&amp;sys_contentid=15147&amp;sys_context=0">
-                    Carcinoma de tumor primario desconocido</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_588">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/seno/HealthProfessional/page4">Carcinoma
-                    ductal in situ</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320775&amp;sys_context=0&amp;sys_siteid=305">
-                    Carcinoma tímico y timoma</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=40&amp;sys_contentid=14860&amp;sys_context=0">
-                    Cavidad nasal y de seno paranasal</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=320776&amp;sys_context=0&amp;sys_siteid=305">
-                    Cavidad oral y labio</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=153790&amp;sys_context=0&amp;sys_siteid=305">
-                    Célula renal (riñón)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Células basales, carcinoma de - ver Cáncer de piel (no
-                    melanoma)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=1219&amp;sys_revision=94&amp;sys_contentid=10834&amp;sys_context=0">
-                    Células de Langerhans, histiocitosis de</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/celulas-de-transicion">Células de
-                    transición de pelvis renal y de uréter</a>
-                </li>
-
-                <li>Células germinativas
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=14&amp;sys_contentid=320772&amp;sys_context=0&amp;sys_siteid=305">
-                            Cáncer de testículo</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">
-                            Tumor extracraneal infantil de</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">
-                            Tumor extragonadal de</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0&amp;sys_siteid=305">
-                            Tumor del sistema nervioso central infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                            Tumor de ovario</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=28&amp;sys_contentid=152351&amp;sys_context=0&amp;sys_siteid=305">
-                    Células no pequeñas, cáncer de pulmón de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=28&amp;sys_contentid=152351&amp;sys_context=0&amp;sys_siteid=305">
-                    Células pequeñas, cáncer de pulmón de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                    Células pilosas, leucemia de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Cerebro</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                            Infantil</a>
-
-                            <ul>
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Astrocitomas</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Cerebro y médula espinal, tumores de</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Craneofaringioma</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Ependimoma</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Glioma del tronco encefálico</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Teratoideo/rabdoideo atípico del sistema
-                                    nervioso central, tumor</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=990&amp;sys_revision=42&amp;sys_contentid=185256&amp;sys_context=0&amp;sys_siteid=305">
-                                    Tumores de células germinativas del sistema
-                                    nervioso central infantil</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Tumores embrionarios del sistema nervioso
-                                    central</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul><a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=45&amp;sys_contentid=14691&amp;sys_context=0">Cérvix
-                    (cuello uterino)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/HealthProfessional/page5#Section_209">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=54&amp;sys_contentid=153786&amp;sys_context=0&amp;sys_siteid=305">
-                    Colon</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=54&amp;sys_contentid=153786&amp;sys_context=0&amp;sys_siteid=305">
-                    Colorrectal</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_396">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_297">
-                    Corazón, tumores, infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_579">
-                    Cordoma, infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=15&amp;sys_contentid=320769&amp;sys_context=0&amp;sys_siteid=305">
-                    Corteza suprarrenal</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_336">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Craneofaringioma infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=40&amp;sys_contentid=14860&amp;sys_context=0">
-                    Cuello con tumor primario oculto metastásico</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=45&amp;sys_contentid=14691&amp;sys_context=0">
-                    Cuello del útero o uterino</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/HealthProfessional/page5#Section_209">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="e" tabindex="0">E</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                    Embarazo y cáncer de seno (mama)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=23&amp;sys_contentid=153791&amp;sys_context=0&amp;sys_siteid=305">
-                    Endometrio</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Ependimoma infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                    Epitelial de ovarios</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=19&amp;sys_contentid=153818&amp;sys_context=0&amp;sys_siteid=305">
-                    Esófago</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_263">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_59">
-                    Estesioneuroblastoma infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=21&amp;sys_contentid=151378&amp;sys_context=0&amp;sys_siteid=305">
-                    Estómago (gástrico)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_355">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/sarcoma-de-tejido-blando">Estroma
-                    gastrointestinal</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_437">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/sarcoma-de-ewing">Ewing, sarcoma
-                    de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">
-                    Extracraneal, tumor de célula germinativa, infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">
-                    Extragonadal, tumor de célula germinativa</a>
-                </li>
-            </ul>
-
-            <h3 id="f" tabindex="0">F</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href="/espanol/tipos/ovario">Falopio, trompa de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320770&amp;sys_context=0&amp;sys_siteid=305">
-                    Feocromocitoma y paraganglioma</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://www.cancer.gov/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_656">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="g" tabindex="0">G</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href="/espanol/tipos/garganta">Garganta</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=21&amp;sys_contentid=151378&amp;sys_context=0&amp;sys_siteid=305">
-                    Gástrico (estómago)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_355">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>Germinativa, tumor de célula
-
-                    <ul class="no-bullets">
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">
-                            Extracraneal infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">
-                            Extragonadal</a>
-                        </li>
-
-                        <li>
-                            <a href="/espanol/tipos/cerebro">Sistema nervioso
-                            central infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=40&amp;sys_contentid=14860&amp;sys_context=0">
-                    Glándula salival</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_68">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Glioblastoma - ver Tumores cerebrales en adultos</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Glioma - ver Cáncer cerebral</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                            Tronco encefálico infantil</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="h" tabindex="0">H</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=153792&amp;sys_context=0&amp;sys_siteid=305">
-                    Hígado (primario)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://www.cancer.gov/espanol/pdq/tratamiento/higadoinfantil/HealthProfessional">
-                    Higado infantil</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/garganta">Hipofaringe</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=15&amp;sys_contentid=320771&amp;sys_context=0&amp;sys_siteid=305">
-                    Hipófisis</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=30&amp;sys_contentid=12984&amp;sys_context=0">
-                    Histiocitoma fibroso maligno óseo y osteosarcoma
-                    (hueso)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=1219&amp;sys_revision=94&amp;sys_contentid=10834&amp;sys_context=0">
-                    Histiocitosis de células de Langerhans</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=23&amp;sys_contentid=152374&amp;sys_context=0&amp;sys_siteid=305">
-                    Hodgkin, linfoma de</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/hueso">Hueso</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=30&amp;sys_contentid=12984&amp;sys_context=0">
-                            Osteosarcoma e histiocitoma fibroso maligno,
-                            óseo</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://www.cancer.gov/espanol/tipos/hueso">Tumores
-                            de la familia del sarcoma de Ewing</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="i" tabindex="0">I</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=13905&amp;sys_context=0">
-                    Infantil, cáncer</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=16&amp;sys_contentid=320761&amp;sys_context=0&amp;sys_siteid=305">
-                    Intestino delgado</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumores-de-celulas-de-los-islotes">Islotes
-                    células de, tumores neuroendocrinos de páncreas</a>
-                </li>
-            </ul>
-
-            <h3 id="k" tabindex="0">K</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=25&amp;sys_contentid=13370&amp;sys_context=0">
-                    Kaposi, sarcoma de</a>
-                </li>
-            </ul>
-
-            <h3 id="l" tabindex="0">L</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=320776&amp;sys_context=0&amp;sys_siteid=305">
-                    Labio y cavidad oral</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=1219&amp;sys_revision=94&amp;sys_contentid=10834&amp;sys_context=0">
-                    Langerhans, histiocitosis de células de</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/garganta">Laringe</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_166">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                    Leucemia</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                            Células pilosas</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                            Linfoblástica aguda (LLA)</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                            Linfocítica crónica (LLC)</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                            Mielógena crónica (LMC)</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=14921&amp;sys_context=0">
-                            Mieloide aguda (LMA)</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>Linfoma
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                            Burkitt, linfoma de - ver Linfoma no Hodgkin</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                            Células T, cutáneo - ver Micosis fungoide y
-                            síndrome de Sézary</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=23&amp;sys_contentid=152374&amp;sys_context=0&amp;sys_siteid=305">
-                            Hodgkin</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                            No Hodgkin</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                            Primario del sistema nervioso central (SNC)</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=25&amp;sys_contentid=13370&amp;sys_context=0&amp;sys_siteid=305">
-                            Sida, linfoma relacionado</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="m" tabindex="0">M</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                    Mama (seno)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                            Embarazo y cáncer de seno (mama)</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_195">
-                            Infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                            Masculino</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=13913&amp;sys_context=0">
-                    Melanoma</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">
-                            Infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=13913&amp;sys_context=0">
-                            Ocular uveal</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Merkel, carcinoma de células de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=12&amp;sys_contentid=320774&amp;sys_context=0&amp;sys_siteid=305">
-                    Mesotelioma maligno</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_317">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                    Micosis fungoide</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=14156&amp;sys_context=0">
-                    Mielodisplásicas o mieloproliferativas, neoplasias</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=15351&amp;sys_context=0">
-                    Mieloma múltiple</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=14156&amp;sys_context=0">
-                    Mieloproliferativas crónicas, neoplasias</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=32&amp;sys_contentid=12918&amp;sys_context=0">
-                    Mujeres, cánceres en</a>
-                </li>
-            </ul>
-
-            <h3 id="n" tabindex="0">N</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=40&amp;sys_contentid=14860&amp;sys_context=0">
-                    Nasal, cavidad</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/garganta">Nasofaringe</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_56">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_512">
-                    Neoplasia endocrina múltiple (NEM) infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=15351&amp;sys_context=0">
-                    Neoplasias de células plasmáticas y mieloma multiple</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=14156&amp;sys_context=0">
-                    Neoplasias mielodisplásicas o mieloproliferativas</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=14156&amp;sys_context=0&amp;sys_siteid=305">
-                    Neoplasias mieloproliferativas crónicas</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/neuroblastoma">Neuroblastoma</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=20&amp;sys_contentid=153794&amp;sys_context=0&amp;sys_siteid=305">
-                    Neuroendocrinos del páncreas (células de los islotes),
-                    tumores</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=1219&amp;sys_revision=191&amp;sys_contentid=9033&amp;sys_context=0">
-                    Niñez, cánceres poco comunes de la</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                    No Hodgkin, linfoma</a>
-                </li>
-            </ul>
-
-            <h3 id="o" tabindex="0">O</h3>
-
-            <ul class="cancer-list">
-                <li>Ojo
-
-                    <ul>
-                        <li>
-                            <a href="/espanol/tipos/melanoma">Melanoma ocular
-                            uveal</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/retinoblastoma">Retinoblastoma</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=320776&amp;sys_context=0&amp;sys_siteid=305">
-                    Oral</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_65">
-                            Infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=320776&amp;sys_context=0&amp;sys_siteid=305">
-                            Labio y cavidad oral</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/garganta">Orofaringe</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=30&amp;sys_contentid=12984&amp;sys_context=0">
-                    Osteosarcoma e histiocitoma fibroso maligno óseo
-                    (hueso)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                    Ovario</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                            Bajo potencial maligno, tumor de</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                            Células germinativas, tumor de</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                            Epitelial, cáncer</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_482">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="p" tabindex="0">P</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=20&amp;sys_contentid=153794&amp;sys_context=0&amp;sys_siteid=305">
-                    Páncreas</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumores-de-celulas-de-los-islotes">Células
-                            de los islotes, tumores de</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_373">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_166">
-                    Papilomatosis infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320770&amp;sys_context=0&amp;sys_siteid=305">
-                    Paraganglioma</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://www.cancer.gov/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_656">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=12&amp;sys_contentid=320768&amp;sys_context=0&amp;sys_siteid=305">
-                    Paratiroides</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/celulas-de-transicion">Pelvis renal
-                    y uréter, células de transición</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=14&amp;sys_contentid=320773&amp;sys_context=0&amp;sys_siteid=305">
-                    Pene</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                    Piel</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                            Células de Merkel</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">
-                            Infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=31&amp;sys_contentid=13913&amp;sys_context=0">
-                            Melanoma</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13948&amp;sys_context=0">
-                            No melanoma</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/ovario">Primario de peritoneo,
-                    cáncer de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=21&amp;sys_contentid=15147&amp;sys_context=0">
-                    Primario desconocido, carcinoma de tumor</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_588">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=36&amp;sys_contentid=153785&amp;sys_context=0&amp;sys_siteid=305">
-                    Próstata</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=28&amp;sys_contentid=152351&amp;sys_context=0&amp;sys_siteid=305">
-                    Pulmón</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=28&amp;sys_contentid=152351&amp;sys_context=0&amp;sys_siteid=305">
-                            Células no pequeñas</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=28&amp;sys_contentid=152351&amp;sys_context=0&amp;sys_siteid=305">
-                            Células pequeñas</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://www.cancer.gov/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_645">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="r" tabindex="0">R</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Rabdoideo/teratoideo atípico del sistema nervioso central
-                    infantil, tumor</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/rabdomiosarcoma-infantil">Rabdomiosarcoma
-                    infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=54&amp;sys_contentid=153786&amp;sys_context=0&amp;sys_siteid=305">
-                    Recto</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=153790&amp;sys_context=0&amp;sys_siteid=305">
-                    Renal, célula</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/retinoblastoma">Retinoblastoma</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=153790&amp;sys_context=0&amp;sys_siteid=305">
-                    Riñón</a>
-
-                    <ul style=" list-style-type: circle;">
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=153790&amp;sys_context=0&amp;sys_siteid=305">
-                            Célula renal</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/celulas-de-transicion">Células de
-                            transición de pelvis renal y uréter, cáncer de</a>
-                        </li>
-
-                        <li>
-                            <a href="/espanol/tipos/tumor-de-wilms">Tumor de
-                            Wilms y otros tumores renales infantiles</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="s" tabindex="0">S</h3>
-
-            <ul class="cancer-list">
-                <li>Sarcoma
-
-                    <ul>
-                        <li>
-                            <a href="/espanol/tipos/sarcoma-de-ewing">Ewing</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=25&amp;sys_contentid=13370&amp;sys_context=0">
-                            Kaposi</a>
-                        </li>
-
-                        <li>
-                            <a href="/espanol/tipos/hueso">Osteosarcoma e
-                            histiocitoma fibroso maligno óseo</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/rabdomiosarcoma-infantil">Rabdomiosarcoma
-                            infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/sarcoma-de-tejido-blando">Tejido
-                            blando</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320767&amp;sys_context=0&amp;sys_siteid=305">
-                            Útero o uterino</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                    Seno (mama)</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                            Embarazo y cáncer de seno (mama)</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_195">
-                            Infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=59&amp;sys_contentid=13002&amp;sys_context=0">
-                            Masculino</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=40&amp;sys_contentid=14860&amp;sys_context=0">
-                    Seno paranasal y de cavidad nasal</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                    Sézary, síndrome de</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=25&amp;sys_contentid=13370&amp;sys_context=0&amp;sys_siteid=305">
-                    Sida, cánceres relacionados</a>
-                </li>
-
-                <li>Síndrome
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=24&amp;sys_contentid=14156&amp;sys_context=0">
-                            Mielodisplásicos</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_512">
-                            Neoplasia endocrina múltiple (NEM) infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                            Sézary</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>Sistema nervioso central
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=26&amp;sys_contentid=153783&amp;sys_context=0&amp;sys_siteid=305">
-                            Linfoma primario</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                            Tumor teratoideo/rabdoideo atípico, infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://www.cancer.gov/espanol/pdq/tratamiento/celulasgerminales-SNCinfantil/healthprofessional">
-                            Tumores de las células germinales infantiles</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                            Tumores embrionarios infantiles</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=21&amp;sys_contentid=15147&amp;sys_context=0">
-                    Sitio primario desconocido, carcinoma de</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_588">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="t" tabindex="0">T</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Teratoideo/rabdoideo atípico del sistema nervioso central
-                    infantil, tumor</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=14&amp;sys_contentid=320772&amp;sys_context=0&amp;sys_siteid=305">
-                    Testículo</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_469">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320775&amp;sys_context=0&amp;sys_siteid=305">
-                    Timoma y carcinoma tímico</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_280">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=21&amp;sys_contentid=153789&amp;sys_context=0&amp;sys_siteid=305">
-                    Tiroides</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_62">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>Tumor carcinoide
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320879&amp;sys_context=0&amp;sys_siteid=305">
-                            Gastrointestinal</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_419">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Tumor cerebral</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                            Infantil</a>
-
-                            <ul>
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Astrocitomas</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Cerebro y médula espinal, tumores de</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Craneofaringioma</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Ependimoma</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Glioma del tronco encefálico</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Teratoideo/rabdoideo atípico del sistema
-                                    nervioso central</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=990&amp;sys_revision=42&amp;sys_contentid=185256&amp;sys_context=0&amp;sys_siteid=305">
-                                    Tumores de células germinativas del sistema
-                                    nervioso central infantil</a>
-                                </li>
-
-                                <li>
-                                    <a href=
-                                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                                    Tumores embrionarios del sistema nervioso
-                                    central</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>Tumor de células germinativas
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">
-                            Extracraneal infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">
-                            Extragonadal</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                            Ovario</a>
-                        </li>
-
-                        <li>
-                            <a href="/espanol/tipos/cerebro">Sistema nervioso
-                            central infantil</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=14&amp;sys_contentid=320772&amp;sys_context=0&amp;sys_siteid=305">
-                            Testículo</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/sarcoma-de-tejido-blando">Tumor del
-                    estroma gastrointestinal</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_437">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=15&amp;sys_contentid=320771&amp;sys_context=0&amp;sys_siteid=305">
-                    Tumor de hipófisis</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153795&amp;sys_context=0&amp;sys_siteid=305">
-                    Tumor de ovario de bajo potencial maligno</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/tumor-de-wilms">Tumor de Wilms y
-                    otros tumores renales infantiles</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">
-                    Tumor extracraneal de células germinativas infantil</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">
-                    Tumor extragonadal de células germinativas</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://www.cancer.gov/espanol/tipos/trofoblastico-gestacion">
-                    Trofoblástica de la gestación, enfermedad</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "/espanol/tipos/tumores-de-celulas-de-los-islotes">Tumores
-                    de células de los islotes (páncreas endocrino)</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=37&amp;sys_contentid=13395&amp;sys_context=0">
-                    Tumores embrionarios infantiles del sistema nervioso
-                    central</a>
-                </li>
-            </ul>
-
-            <h3 id="u" tabindex="0">U</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href="/espanol/tipos/celulas-de-transicion">Uréter y
-                    pelvis renal, células de transición</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=16&amp;sys_contentid=152046&amp;sys_context=0&amp;sys_siteid=305">
-                    Uretra</a>
-                </li>
-
-                <li>Útero o uterino
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=45&amp;sys_contentid=14691&amp;sys_context=0">
-                            Cuello de</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=23&amp;sys_contentid=153791&amp;sys_context=0&amp;sys_siteid=305">
-                            Endometrio</a>
-                        </li>
-
-                        <li>
-                            <a href=
-                            "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=11&amp;sys_contentid=320767&amp;sys_context=0&amp;sys_siteid=305">
-                            Sarcoma de</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 id="v" tabindex="0">V</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=14&amp;sys_contentid=320764&amp;sys_context=0&amp;sys_siteid=305">
-                    Vagina</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_505">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=22&amp;sys_contentid=153793&amp;sys_context=0&amp;sys_siteid=305">
-                    Vejiga</a>
-
-                    <ul>
-                        <li>
-                            <a href=
-                            "/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_450">
-                            Infantil</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=15&amp;sys_contentid=320762&amp;sys_context=0&amp;sys_siteid=305">
-                    Vesícula biliar</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=13&amp;sys_contentid=320763&amp;sys_context=0&amp;sys_siteid=305">
-                    Vías biliares extrahepáticas</a>
-                </li>
-
-                <li>
-                    <a href=
-                    "http://percussion-qa.cancer.gov/Rhythmyx/assembler/render?sys_authtype=0&amp;sys_variantid=814&amp;sys_revision=13&amp;sys_contentid=320765&amp;sys_context=0&amp;sys_siteid=305">
-                    Vulva</a>
-                </li>
-            </ul>
-
-            <h3 id="w" tabindex="0">W</h3>
-
-            <ul class="cancer-list">
-                <li>
-                    <a href=
-                    "http://www.cancer.gov/espanol/tipos/nohodgkin">Waldenström,
-                    macroglobulinemia de - ver Linfoma no Hodgkin</a>
-                </li>
-
-                <li>
-                    <a href="/espanol/tipos/tumor-de-wilms">Wilms, tumor de</a>
-                </li>
-            </ul>
+    <h3 id="a" tabindex="0">A</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/ano">Ano</a></li>
+
+<li><a href="/espanol/tipos/tumores-carcinoides-gi">Apéndice - ver Tumores carcinoides gastrointestinales</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Astrocitomas infantiles</a></li>
+</ul>
+
+<h3 id="b" tabindex="0">B</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/vesicula-biliar">Biliar, vesícula</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_229">Blastoma pleuropulmonar infantil</a></li>
+
+<li>Boca
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_65">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_212">Bronquiales, tumores, infantil</a></li>
+
+<li><a href="/espanol/tipos/linfoma">Burkitt, linfoma de - ver Linfoma no Hodgkin</a></li>
+</ul>
+
+<h3 id="c" tabindex="0">C</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/cabeza-cuello">Cabeza y cuello</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/cabeza-cuello">Cáncer escamoso metastásico de cuello con tumor primario oculto</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes">Cánceres poco comunes en la niñez</a></li>
+
+<li>Carcinoide, tumor
+
+<ul>
+<li><a href="/espanol/tipos/tumores-carcinoides-gi">Gastrointestinal</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_419">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/piel">Carcinoma de células basales - ver Cáncer de piel (no melanoma)</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/piel">Carcinoma de células de Merkel</a></li>
+
+<li><a href="/espanol/tipos/piel">Carcinoma de células escamosas - ver Cáncer de piel (no melanoma)</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_188">Carcinoma de estructuras de la línea media con cambios en el gen NUT</a></li>
+
+<li><a href="/espanol/tipos/suprarrenal">Carcinoma de corteza suprarrenal</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_336">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/piel">Carcinoma de piel, células de Merkel</a></li>
+
+<li><a href="/espanol/tipos/primario-desconocido">Carcinoma de tumor primario desconocido</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_588">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/seno/HealthProfessional/page4">Carcinoma ductal in situ</a></li>
+
+<li><a href="/espanol/tipos/timoma">Carcinoma tímico y timoma</a></li>
+
+<li><a href="/espanol/tipos/cabeza-cuello">Cavidad nasal y de seno paranasal</a></li>
+
+<li>Cavidad oral y labio</li>
+
+<li><a href="/espanol/tipos/rinon">Célula renal (riñón)</a></li>
+
+<li><a href="/espanol/tipos/piel">Células basales, carcinoma de - ver Cáncer de piel (no melanoma)</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/histiocl">Células de Langerhans, histiocitosis de</a></li>
+
+<li><a href="/espanol/tipos/celulas-de-transicion">Células de transición de pelvis renal y de uréter</a></li>
+
+<li>Células germinativas
+
+<ul>
+<li><a href="/espanol/tipos/testiculo">Cáncer de testículo</a></li>
+
+<li><a href="/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">Tumor extracraneal infantil de</a></li>
+
+<li><a href="/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">Tumor extragonadal de</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Tumor del sistema nervioso central infantil</a></li>
+
+<li><a href="/espanol/tipos/ovario">Tumor de ovario</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/pulmon">Células no pequeñas, cáncer de pulmón de</a></li>
+
+<li><a href="/espanol/tipos/pulmon">Células pequeñas, cáncer de pulmón de</a></li>
+
+<li><a href="/espanol/tipos/leucemia">Células pilosas, leucemia de</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Cerebro</a>
+<ul>
+<li><a href="/espanol/tipos/cerebro">Infantil</a>
+<ul>
+<li><a href="/espanol/tipos/cerebro">Astrocitomas</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Cerebro y médula espinal, tumores de</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Craneofaringioma</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Ependimoma</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Glioma del tronco encefálico</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Teratoideo/rabdoideo atípico del sistema nervioso central, tumor</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/celulasgerminales-SNCinfantil/healthprofessional">Tumores de células germinativas del sistema nervioso central infantil</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Tumores embrionarios del sistema nervioso central</a></li>
+</ul>
+</li>
+</ul>
+
+<a href="/espanol/tipos/cuello-uterino">Cérvix (cuello uterino)</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/HealthProfessional/page5#Section_209">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/colorrectal">Colon</a></li>
+
+<li><a href="/espanol/tipos/colorrectal">Colorrectal</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_396">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_297">Corazón, tumores, infantil</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_579">Cordoma, infantil</a></li>
+
+<li><a href="/espanol/tipos/suprarrenal">Corteza suprarrenal</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_336">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/cerebro">Craneofaringioma infantil</a></li>
+
+<li><a href="/espanol/tipos/cabeza-cuello">Cuello con tumor primario oculto metastásico</a></li>
+
+<li><a href="/espanol/tipos/cuello-uterino">Cuello del útero o uterino</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/HealthProfessional/page5#Section_209">Infantil</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="e" tabindex="0">E</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/seno">Embarazo y cáncer de seno (mama)</a></li>
+
+<li><a href="/espanol/tipos/uterino">Endometrio</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Ependimoma infantil</a></li>
+
+<li><a href="/espanol/tipos/ovario">Epitelial de ovarios</a></li>
+
+<li><a href="/espanol/tipos/esofago">Esófago</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_263">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_59">Estesioneuroblastoma infantil</a></li>
+
+<li><a href="/espanol/tipos/estomago">Estómago (gástrico)</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_355">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Estroma gastrointestinal</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_437">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/sarcoma-de-ewing">Ewing, sarcoma de</a></li>
+
+<li><a href="/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">Extracraneal, tumor de célula germinativa, infantil</a></li>
+
+<li><a href="/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">Extragonadal, tumor de célula germinativa</a></li>
+</ul>
+
+<h3 id="f" tabindex="0">F</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/ovario">Falopio, trompa de</a></li>
+
+<li><a href="/espanol/tipos/feocromocitoma">Feocromocitoma y paraganglioma</a>
+<ul>
+<li><a href="http://www.cancer.gov/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_656">Infantil</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="g" tabindex="0">G</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/garganta">Garganta</a></li>
+
+<li><a href="/espanol/tipos/estomago">Gástrico (estómago)</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_355">Infantil</a></li>
+</ul>
+</li>
+
+<li>Germinativa, tumor de célula
+
+<ul class="no-bullets">
+<li><a href="/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">Extracraneal infantil</a></li>
+
+<li><a href="/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">Extragonadal</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Sistema nervioso central infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/cabeza-cuello">Glándula salival</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_68">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/cerebro">Glioblastoma - ver Tumores cerebrales en adultos</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Glioma - ver Cáncer cerebral</a>
+<ul>
+<li><a href="/espanol/tipos/cerebro">Tronco encefálico infantil</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="h" tabindex="0">H</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/higado">Hígado (primario)</a></li>
+
+<li><a href="http://www.cancer.gov/espanol/pdq/tratamiento/higadoinfantil/HealthProfessional">Higado infantil</a></li>
+
+<li><a href="/espanol/tipos/garganta">Hipofaringe</a></li>
+
+<li><a href="/espanol/tipos/hipofisis">Hipófisis</a></li>
+
+<li><a href="/espanol/tipos/hueso">Histiocitoma fibroso maligno óseo y osteosarcoma (hueso)</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/histiocl">Histiocitosis de células de Langerhans</a></li>
+
+<li>Hodgkin, linfoma de</li>
+
+<li><a href="/espanol/tipos/hueso">Hueso</a>
+<ul>
+<li><a href="/espanol/tipos/hueso">Osteosarcoma e histiocitoma fibroso maligno, óseo</a></li>
+
+<li><a href="http://www.cancer.gov/espanol/tipos/hueso">Tumores de la familia del sarcoma de Ewing</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="i" tabindex="0">I</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/infantil">Infantil, cáncer</a></li>
+
+<li><a href="/espanol/tipos/intestino-delgado">Intestino delgado</a></li>
+
+<li><a href="/espanol/tipos/tumores-de-celulas-de-los-islotes">Islotes células de, tumores neuroendocrinos de páncreas</a></li>
+</ul>
+
+<h3 id="k" tabindex="0">K</h3>
+
+<ul class="cancer-list">
+<li>Kaposi, sarcoma de</li>
+</ul>
+
+<h3 id="l" tabindex="0">L</h3>
+
+<ul class="cancer-list">
+<li>Labio y cavidad oral</li>
+
+<li><a href="/espanol/pdq/tratamiento/histiocl">Langerhans, histiocitosis de células de</a></li>
+
+<li><a href="/espanol/tipos/garganta">Laringe</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_166">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/leucemia">Leucemia</a>
+<ul>
+<li><a href="/espanol/tipos/leucemia">Células pilosas</a></li>
+
+<li><a href="/espanol/tipos/leucemia">Linfoblástica aguda (LLA)</a></li>
+
+<li><a href="/espanol/tipos/leucemia">Linfocítica crónica (LLC)</a></li>
+
+<li><a href="/espanol/tipos/leucemia">Mielógena crónica (LMC)</a></li>
+
+<li><a href="/espanol/tipos/leucemia">Mieloide aguda (LMA)</a></li>
+</ul>
+</li>
+
+<li>Linfoma
+
+<ul>
+<li><a href="/espanol/tipos/linfoma">Burkitt, linfoma de - ver Linfoma no Hodgkin</a></li>
+
+<li><a href="/espanol/tipos/linfoma">Células T, cutáneo - ver Micosis fungoide y síndrome de Sézary</a></li>
+
+<li>Hodgkin</li>
+
+<li><a href="/espanol/tipos/linfoma">No Hodgkin</a></li>
+
+<li><a href="/espanol/tipos/linfoma">Primario del sistema nervioso central (SNC)</a></li>
+
+<li>Sida, linfoma relacionado</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="m" tabindex="0">M</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/seno">Mama (seno)</a>
+<ul>
+<li><a href="/espanol/tipos/seno">Embarazo y cáncer de seno (mama)</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_195">Infantil</a></li>
+
+<li><a href="/espanol/tipos/seno">Masculino</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/ojo">Melanoma</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">Infantil</a></li>
+
+<li><a href="/espanol/tipos/ojo">Ocular uveal</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/piel">Merkel, carcinoma de células de</a></li>
+
+<li><a href="/espanol/tipos/mesotelioma">Mesotelioma maligno</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_317">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/linfoma">Micosis fungoide</a></li>
+
+<li><a href="/espanol/tipos/mieloproliferativas">Mielodisplásicas o mieloproliferativas, neoplasias</a></li>
+
+<li><a href="/espanol/tipos/mieloma-multiple">Mieloma múltiple</a></li>
+
+<li><a href="/espanol/tipos/mieloproliferativas">Mieloproliferativas crónicas, neoplasias</a></li>
+
+<li>Mujeres, cánceres en</li>
+</ul>
+
+<h3 id="n" tabindex="0">N</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/cabeza-cuello">Nasal, cavidad</a></li>
+
+<li><a href="/espanol/tipos/garganta">Nasofaringe</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_56">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_512">Neoplasia endocrina múltiple (NEM) infantil</a></li>
+
+<li><a href="/espanol/tipos/mieloma-multiple">Neoplasias de células plasmáticas y mieloma multiple</a></li>
+
+<li><a href="/espanol/tipos/mieloproliferativas">Neoplasias mielodisplásicas o mieloproliferativas</a></li>
+
+<li><a href="/espanol/tipos/mieloproliferativas">Neoplasias mieloproliferativas crónicas</a></li>
+
+<li><a href="/espanol/tipos/neuroblastoma">Neuroblastoma</a></li>
+
+<li><a href="/espanol/tipos/pancreas">Neuroendocrinos del páncreas (células de los islotes), tumores</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes">Niñez, cánceres poco comunes de la</a></li>
+
+<li><a href="/espanol/tipos/linfoma">No Hodgkin, linfoma</a></li>
+</ul>
+
+<h3 id="o" tabindex="0">O</h3>
+
+<ul class="cancer-list">
+<li>Ojo
+
+<ul>
+<li><a href="/espanol/tipos/melanoma">Melanoma ocular uveal</a></li>
+
+<li><a href="/espanol/tipos/retinoblastoma">Retinoblastoma</a></li>
+</ul>
+</li>
+
+<li>Oral
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_65">Infantil</a></li>
+
+<li>Labio y cavidad oral</li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/garganta">Orofaringe</a></li>
+
+<li><a href="/espanol/tipos/hueso">Osteosarcoma e histiocitoma fibroso maligno óseo (hueso)</a></li>
+
+<li><a href="/espanol/tipos/ovario">Ovario</a>
+<ul>
+<li><a href="/espanol/tipos/ovario">Bajo potencial maligno, tumor de</a></li>
+
+<li><a href="/espanol/tipos/ovario">Células germinativas, tumor de</a></li>
+
+<li><a href="/espanol/tipos/ovario">Epitelial, cáncer</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_482">Infantil</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="p" tabindex="0">P</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/pancreas">Páncreas</a>
+<ul>
+<li><a href="/espanol/tipos/tumores-de-celulas-de-los-islotes">Células de los islotes, tumores de</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_373">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_166">Papilomatosis infantil</a></li>
+
+<li><a href="/espanol/tipos/feocromocitoma">Paraganglioma</a>
+<ul>
+<li><a href="http://www.cancer.gov/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_656">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/paratiroides">Paratiroides</a></li>
+
+<li><a href="/espanol/tipos/celulas-de-transicion">Pelvis renal y uréter, células de transición</a></li>
+
+<li><a href="/espanol/tipos/pene">Pene</a></li>
+
+<li><a href="/espanol/tipos/piel">Piel</a>
+<ul>
+<li><a href="/espanol/tipos/piel">Células de Merkel</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_541">Infantil</a></li>
+
+<li><a href="/espanol/tipos/ojo">Melanoma</a></li>
+
+<li><a href="/espanol/tipos/piel">No melanoma</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/ovario">Primario de peritoneo, cáncer de</a></li>
+
+<li><a href="/espanol/tipos/primario-desconocido">Primario desconocido, carcinoma de tumor</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_588">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/prostata">Próstata</a></li>
+
+<li><a href="/espanol/tipos/pulmon">Pulmón</a>
+<ul>
+<li><a href="/espanol/tipos/pulmon">Células no pequeñas</a></li>
+
+<li><a href="/espanol/tipos/pulmon">Células pequeñas</a></li>
+
+<li><a href="http://www.cancer.gov/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_645">Infantil</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="r" tabindex="0">R</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/cerebro">Rabdoideo/teratoideo atípico del sistema nervioso central infantil, tumor</a></li>
+
+<li><a href="/espanol/tipos/rabdomiosarcoma-infantil">Rabdomiosarcoma infantil</a></li>
+
+<li><a href="/espanol/tipos/colorrectal">Recto</a></li>
+
+<li><a href="/espanol/tipos/rinon">Renal, célula</a></li>
+
+<li><a href="/espanol/tipos/retinoblastoma">Retinoblastoma</a></li>
+
+<li><a href="/espanol/tipos/rinon">Riñón</a>
+<ul style=" list-style-type: circle;">
+<li><a href="/espanol/tipos/rinon">Célula renal</a></li>
+
+<li><a href="/espanol/tipos/celulas-de-transicion">Células de transición de pelvis renal y uréter, cáncer de</a></li>
+
+<li><a href="/espanol/tipos/tumor-de-wilms">Tumor de Wilms y otros tumores renales infantiles</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="s" tabindex="0">S</h3>
+
+<ul class="cancer-list">
+<li>Sarcoma
+
+<ul>
+<li><a href="/espanol/tipos/sarcoma-de-ewing">Ewing</a></li>
+
+<li>Kaposi</li>
+
+<li><a href="/espanol/tipos/hueso">Osteosarcoma e histiocitoma fibroso maligno óseo</a></li>
+
+<li><a href="/espanol/tipos/rabdomiosarcoma-infantil">Rabdomiosarcoma infantil</a></li>
+
+<li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Tejido blando</a></li>
+
+<li>Útero o uterino</li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/seno">Seno (mama)</a>
+<ul>
+<li><a href="/espanol/tipos/seno">Embarazo y cáncer de seno (mama)</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_195">Infantil</a></li>
+
+<li><a href="/espanol/tipos/seno">Masculino</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/cabeza-cuello">Seno paranasal y de cavidad nasal</a></li>
+
+<li><a href="/espanol/tipos/linfoma">Sézary, síndrome de</a></li>
+
+<li>Sida, cánceres relacionados</li>
+
+<li>Síndrome
+
+<ul>
+<li><a href="/espanol/tipos/mieloproliferativas">Mielodisplásicos</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_512">Neoplasia endocrina múltiple (NEM) infantil</a></li>
+
+<li><a href="/espanol/tipos/linfoma">Sézary</a></li>
+</ul>
+</li>
+
+<li>Sistema nervioso central
+
+<ul>
+<li><a href="/espanol/tipos/linfoma">Linfoma primario</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Tumor teratoideo/rabdoideo atípico, infantil</a></li>
+
+<li><a href="http://www.cancer.gov/espanol/pdq/tratamiento/celulasgerminales-SNCinfantil/healthprofessional">Tumores de las células germinales infantiles</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Tumores embrionarios infantiles</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/primario-desconocido">Sitio primario desconocido, carcinoma de</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page7#Section_588">Infantil</a></li>
+</ul>
+</li>
+</ul>
+
+<h3 id="t" tabindex="0">T</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/cerebro">Teratoideo/rabdoideo atípico del sistema nervioso central infantil, tumor</a></li>
+
+<li><a href="/espanol/tipos/testiculo">Testículo</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_469">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/timoma">Timoma y carcinoma tímico</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page4#Section_280">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/tiroides">Tiroides</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page3#Section_62">Infantil</a></li>
+</ul>
+</li>
+
+<li>Tumor carcinoide
+
+<ul>
+<li><a href="/espanol/tipos/tumores-carcinoides-gi">Gastrointestinal</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_419">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/cerebro">Tumor cerebral</a>
+<ul>
+<li><a href="/espanol/tipos/cerebro">Infantil</a>
+<ul>
+<li><a href="/espanol/tipos/cerebro">Astrocitomas</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Cerebro y médula espinal, tumores de</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Craneofaringioma</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Ependimoma</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Glioma del tronco encefálico</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Teratoideo/rabdoideo atípico del sistema nervioso central</a></li>
+
+<li><a href="/espanol/pdq/tratamiento/celulasgerminales-SNCinfantil/healthprofessional">Tumores de células germinativas del sistema nervioso central infantil</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Tumores embrionarios del sistema nervioso central</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li>Tumor de células germinativas
+
+<ul>
+<li><a href="/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">Extracraneal infantil</a></li>
+
+<li><a href="/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">Extragonadal</a></li>
+
+<li><a href="/espanol/tipos/ovario">Ovario</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Sistema nervioso central infantil</a></li>
+
+<li><a href="/espanol/tipos/testiculo">Testículo</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Tumor del estroma gastrointestinal</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page5#Section_437">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/hipofisis">Tumor de hipófisis</a></li>
+
+<li><a href="/espanol/tipos/ovario">Tumor de ovario de bajo potencial maligno</a></li>
+
+<li><a href="/espanol/tipos/tumor-de-wilms">Tumor de Wilms y otros tumores renales infantiles</a></li>
+
+<li><a href="/espanol/tipos/tumor-extracraneal-de-celulas-germinativas">Tumor extracraneal de células germinativas infantil</a></li>
+
+<li><a href="/espanol/tipos/tumor-extragonadal-de-celulas-germinativas">Tumor extragonadal de células germinativas</a></li>
+
+<li><a href="http://www.cancer.gov/espanol/tipos/trofoblastico-gestacion">Trofoblástica de la gestación, enfermedad</a></li>
+
+<li><a href="/espanol/tipos/tumores-de-celulas-de-los-islotes">Tumores de células de los islotes (páncreas endocrino)</a></li>
+
+<li><a href="/espanol/tipos/cerebro">Tumores embrionarios infantiles del sistema nervioso central</a></li>
+</ul>
+
+<h3 id="u" tabindex="0">U</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/celulas-de-transicion">Uréter y pelvis renal, células de transición</a></li>
+
+<li><a href="/espanol/tipos/uretra">Uretra</a></li>
+
+<li>Útero o uterino
+
+<ul>
+<li><a href="/espanol/tipos/cuello-uterino">Cuello de</a></li>
+
+<li><a href="/espanol/tipos/uterino">Endometrio</a></li>
+
+<li>Sarcoma de</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="v" tabindex="0">V</h3>
+
+<ul class="cancer-list">
+<li><a href="/espanol/tipos/vagina">Vagina</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_505">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/vejiga">Vejiga</a>
+<ul>
+<li><a href="/espanol/pdq/tratamiento/canceres-infantiles-poco-comunes/Patient/page6#Section_450">Infantil</a></li>
+</ul>
+</li>
+
+<li><a href="/espanol/tipos/vesicula-biliar">Vesícula biliar</a></li>
+
+<li><a href="/espanol/tipos/vulva">Vulva</a></li>
+</ul>
+
+<h3 id="w" tabindex="0">W</h3>
+
+<ul class="cancer-list">
+<li><a href="http://www.cancer.gov/espanol/tipos/nohodgkin">Waldenström, macroglobulinemia de - ver Linfoma no Hodgkin</a></li>
+
+<li><a href="/espanol/tipos/tumor-de-wilms">Wilms, tumor de</a></li>
+</ul>
         </div>
     </div>
