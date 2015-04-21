@@ -33,17 +33,6 @@
 	figure.image-left-medium {
 		width: 100%
 	}
-	.feature-primary {
-		.card {
-			background: white;
-		}
-		a {
-			color: $body-font-color;
-		}
-		h3 {
-			color: #076f88;
-		}
-	}
 	/* hide the TOC on small/medium screens. The accordion serves the same purpose */
 	.toc-container {
 		display: none;
