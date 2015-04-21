@@ -152,7 +152,7 @@ $(function() {
                                                //stay on it)
 						appHTML = appHTML + "</li><li>"+ beforeTxt
                                           + "<span  tabindex='0' show=\""
-                                          + id + "\">" + txt
+                                          + id + "\">" + txt.replace(/([\/\\])/g, '$1&#8203;')
                                           + "</span>";
 					break;
 				case (tagNumber < previous) : //it means that we went up but
