@@ -159,11 +159,53 @@
 	}
 	@include card-clickable;
 }
-
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
-	.feature-primary a,
-	.feature-primary a h3 {
-	color: $color-link;
+@media only screen and (max-width :640px) {
+	.feature-primary {
+		margin-bottom: 0;
+	}
+	.feature-primary .card {
+		background: #178DAA;
+	}
+	.feature-primary .columns a, .feature-secondary .columns a {
+		padding-bottom: 15px;
+		padding-top: 15px;
+		overflow: auto;
+	}
+	.feature-primary .image-hover, .feature-secondary .image-hover {
+		float: left;
+		width: 30%;
+	}
+	.feature-primary h3, .feature-secondary h3 {
+		margin-top: 0;
+		float: right;
+		width: 70%;
+		font-size: 1.13em;
+	}
+	.feature-primary a:hover h3,
+	.feature-primary a:hover h3	{
+		color: white;
+	}
+	.feature-primary-title {
+		background: #178DAA;
+	}
+	.feature-primary-title h3 {
+		font-size: 1.375em;
+		color: white;
+		padding: 0.625em 30px;
+		margin: 0em;
+	}
+	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
+		display: none;
+	}
+		/* the portal pages needed these items to not hit the edge of screen on mobile only */
+	.feature-primary h3, .feature-primary p,
+	.feature-secondary h3, .feature-secondary p,
+	.other-sites-carousel h3,
+	.row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
+		padding-left: 15px;
+	}
+	.feature-primary .featured-text {
+		display: none;
 	}
 }
 /* END FEATURE PRIMARY CARDS ROW */
