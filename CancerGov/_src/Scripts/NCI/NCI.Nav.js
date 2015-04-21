@@ -114,10 +114,14 @@ NCI.Nav = {
 	},
 	focusOutHandler: function(event) {
 		var n = NCI.Nav;
-		if (n.$mega.has(event.relatedTarget).length > 0) {
-			return;
-		}
-		n.close();
+
+		setTimeout(function() {
+			if (n.$mega.has(document.activeElement).length > 0) {
+				return;
+			}
+			if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
+			n.close();
+		}, 0);
 	},
 	toggleMobileMenu: function() {
 		var n = NCI.Nav;
