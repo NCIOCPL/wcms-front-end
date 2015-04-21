@@ -47,12 +47,12 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
 
 		var $anchor = $(anchor),
-			$accordionPanel = $anchor.closest('.ui-accordion-content'),
+			$accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
 			$accordion = $accordionPanel.closest('.ui-accordion'),
 			accordionIndex;
 
 		if($accordion.length > 0) {
-			accordionIndex = $accordion.data('ui-accordion').headers.index($accordionPanel.prev());
+			accordionIndex = $accordion.data('ui-accordion').headers.index($accordionPanel.prev('.ui-accordion-header'));
 		}
 
 		function doTheScroll() {

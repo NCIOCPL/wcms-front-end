@@ -8,8 +8,8 @@ $(function() {
 
   // JQuery Function: topToc()
   // This function selects the H2 elements from the "article" container
-  // element and creates a one-level table of content 
-  // It's also called the "Section Navigation" because it opens the 
+  // element and creates a one-level table of content
+  // It's also called the "Section Navigation" because it opens the
   // sections to be displayed.
   // ------------------------------------------------------------------
   // Function formerly known as TOPTOC.js
@@ -20,7 +20,7 @@ $(function() {
 	var defaults = {
 		search:    "body",     //where we will search for titles
 		depth:     1,          //how many hN should we search
-		start:     2,          //which hN will be the first (and after it we 
+		start:     2,          //which hN will be the first (and after it we
                                //go just deeper)
 		stocTitle: "Contents", //what to display before our box
 		listType: "ul",        //could be ul or ol
@@ -38,14 +38,14 @@ $(function() {
     // ------------------------------------------------------------
     var strViewAll = "";
     if ($('meta[name="content-language"]').attr('content') == 'es') {
-       defaults.stocTitle = "<h3 do-not-show='toc'>" 
-                            + defaults.tocTitleEs 
+       defaults.stocTitle = "<h3 do-not-show='toc'>"
+                            + defaults.tocTitleEs
                             + "</h3>";
        strViewAll = "Ver todas las secciones";
     }
     else {
-       defaults.stocTitle = "<h3 do-not-show='toc'>" 
-                            + defaults.tocTitleEn 
+       defaults.stocTitle = "<h3 do-not-show='toc'>"
+                            + defaults.tocTitleEn
                             + "</h3>";
        strViewAll = "View All Sections";
     };
@@ -58,21 +58,21 @@ $(function() {
         // if container is not found.
         if (!src || 0 === src.length) {
             return;
-        } 
+        }
 
-		//let's declare some variables. We need this var declaration to 
+		//let's declare some variables. We need this var declaration to
         //create them as local variables (not global)
-		var appHTML = "", 
-            tagNumber = 0, 
-            txt = "", 
-            id = "", 
-            beforeTxt = options.beforeText, 
-            afterTxt = options.afterText, 
-            previous = options.start, 
-            start = options.start, 
-            depth = options.depth, 
-            i = 0, 
-            srcTags = "h" + options.start, 
+		var appHTML = "",
+            tagNumber = 0,
+            txt = "",
+            id = "",
+            beforeTxt = options.beforeText,
+            afterTxt = options.afterText,
+            previous = options.start,
+            start = options.start,
+            depth = options.depth,
+            i = 0,
+            srcTags = "h" + options.start,
             cacheHN = "";
         //    kp = options.kp;
 
@@ -92,7 +92,7 @@ $(function() {
             return;
         }
 
-        found.each(function() { 
+        found.each(function() {
 			//we will cache our current H element
 			cacheHN = $(this);
 			//if we are on h1, 2, 3...
@@ -102,7 +102,7 @@ $(function() {
             //if it doesn't have one, of course
             // --------------------------------------------------
 			id = cacheHN.attr('id');
-            if (id == "" || typeof id === "undefined") { 
+            if (id == "" || typeof id === "undefined") {
 				id = "stoc_h" + tagNumber + "_" + i;
 				cacheHN.attr('id', id);
 			}
@@ -111,7 +111,7 @@ $(function() {
 
             // Suppressing certain sections from TOC
             // The KeyPoint headings are only displayed in the KeyPoint
-            // boxes (section level TOC) but not in the document 
+            // boxes (section level TOC) but not in the document
             // level TOC.  That means we'll have to suppress the KP
             // headings when searching on the body or article level but
             // need to include them at the section level.
@@ -130,42 +130,42 @@ $(function() {
             // in the TOC, i.e. Key Points, References, Nav Headings.
             // These are identified by a "do-not-show='toc'" attribute.
             // ---------------------------------------------------------
-            //if (txt == 'References' || txt == 'Key Points for This Section' 
+            //if (txt == 'References' || txt == 'Key Points for This Section'
             //                        || hAttr == 'keypoint') {
             //    txt = '';
             // }
-            if (txt != 'References' && txt != 'Key Points for This Section' 
+            if (txt != 'References' && txt != 'Key Points for This Section'
                                     && hAttr != 'keypoint') {
 
-			switch(true) {                    //with switch(true) we can do 
+			switch(true) {                    //with switch(true) we can do
                                               //comparisons in each case
-				case (tagNumber > previous) : //it means that we went down 
+				case (tagNumber > previous) : //it means that we went down
                                               //one level (e.g. from h2 to h3)
 						appHTML = appHTML + "<" + options.listType +"><li>"
                                           + beforeTxt +"<a href=\"#"
-                                          + id + "\">" + txt 
+                                          + id + "\">" + txt
                                           + "</a>";
 						previous = tagNumber;
 					break;
-				case (tagNumber == previous) : //it means that stay on the 
-                                               //same level (e.g. h3 and 
+				case (tagNumber == previous) : //it means that stay on the
+                                               //same level (e.g. h3 and
                                                //stay on it)
-						appHTML = appHTML + "</li><li>"+ beforeTxt 
+						appHTML = appHTML + "</li><li>"+ beforeTxt
                                           + "<span  tabindex='0' show=\""
-                                          + id + "\">" + txt 
+                                          + id + "\">" + txt
                                           + "</span>";
 					break;
-				case (tagNumber < previous) : //it means that we went up but 
-                                              //we don't know how much levels  
+				case (tagNumber < previous) : //it means that we went up but
+                                              //we don't know how much levels
                                               //(e.g. from h3 to h2)
 						while(tagNumber != previous) {
-							appHTML = appHTML + "</" + options.listType 
+							appHTML = appHTML + "</" + options.listType
                                        +"></li>";
 							previous--;
 						}
-						appHTML = appHTML + "<li>"+ beforeTxt 
+						appHTML = appHTML + "<li>"+ beforeTxt
                                           + "<a href=\"#"
-                                          + id + "\">" + txt 
+                                          + id + "\">" + txt
                                           + "</a>";
 					break;
 			}
@@ -209,7 +209,7 @@ $(function() {
         var settings = $.extend({
             text: "Default Text",
             color: null
-        }, options); 
+        }, options);
 
 
         return this.each( function() {
@@ -295,7 +295,7 @@ $(function() {
        var pnDivR = "</div>";
 
        // Extract the section ID and section title of previous/next section
-       // including the section ID will trigger routie.js to open the 
+       // including the section ID will trigger routie.js to open the
        // appropriate section.
        // -----------------------------------------------------------------
        var prevTitle = $(this).prev("section").children("h2").text();
@@ -309,13 +309,13 @@ $(function() {
        var pnFooter = ""
        pnFooter = pnFooter + pnDivL + pDivL;
        if ( prevId ) {
-           pnFooter = pnFooter 
+           pnFooter = pnFooter
                       + pLinkL + prevId + pLinkR
                       + pTitleL + prevTitle + pTitleR;
        }
        pnFooter = pnFooter + pDivR + nDivL;
        if ( nextId ) {
-           pnFooter = pnFooter 
+           pnFooter = pnFooter
                       + nLinkL + nextId + nLinkR
                       + nTitleL + nextTitle + nTitleR;
        }
@@ -469,7 +469,7 @@ $(function() {
             // ---------------------------------------------------------
             var tocDNS = cacheHN.attr("do-not-show");
 
-            //if (txt != 'References' 
+            //if (txt != 'References'
             //        && txt.substring(0, 14) != 'Key Points for'
             //        && txt.substring(0, 10) != 'Bibliograf'
             //        && txt.substring(0, 14) != 'Puntos importa'
@@ -633,9 +633,9 @@ $(function() {
   $("div#pdq-toptoc").after(tocArticle);
   // Then insert the list
   // The default TOC header for the document level TOC is 'On this page:'
-  $("#pdq-toc-article").stoc( { search: "article", 
+  $("#pdq-toc-article").stoc( { search: "article",
                                 start: 2, depth: 3,
-                                tocTitleEn: "On this page", 
+                                tocTitleEn: "On this page",
                                 tocTitleEs: "En esta p&#225;gina" });
 
   // Secondly creating the TOC container for sections
@@ -660,13 +660,13 @@ $(function() {
       var hasKeyPoints = $(this).find("div.key-points");
 
       // Section-level TOC are not created if KeyPoints exist
-      // Note: The default TOC header gets suppressed for 
+      // Note: The default TOC header gets suppressed for
       //       section level TOC
       // ----------------------------------------------------
       if (hasKeyPoints.length === 0) {
-          $("#_toc"+tocId).stoc( { search: "#"+sectionId, 
+          $("#_toc"+tocId).stoc( { search: "#"+sectionId,
                                    start: 3, depth: 2,
-                                   tocTitleEn: "", 
+                                   tocTitleEn: "",
                                    tocTitleEs: "" });
       }
   });
@@ -677,6 +677,7 @@ $(function() {
   $("div.summary-sections").children("section")
                            .wrapAll("<div class='accordion'></div>");
   NCI.makeAllAccordions();
+  NCI.scrollTo(location.hash);
 
 
   // Temporarily reset the URL for the email/facebook/etc. buttons
@@ -697,10 +698,10 @@ $(function() {
      pp = "true"
   }
   if ( !pp ) {
-      var newEmailUrl = urlEmail.replace(/docurl=.*&language/i, 
+      var newEmailUrl = urlEmail.replace(/docurl=.*&language/i,
                                      'docurl=#&language');
   }
-  
+
   // Set the meta-tag for 'og:url' to
   var currentDoc = $('meta[property="og:url"]').attr('content');
   var fullDoc = $('meta[name="page"]').attr('content');
@@ -718,7 +719,7 @@ $(function() {
   //var urlPinterest = $("li.po-pinterest a").attr("href");
 
   //console.log(urlEmail);
-  // Don't do this if we don't have the buttons available, i.e. 
+  // Don't do this if we don't have the buttons available, i.e.
   // for PublishPreview
   // -------------------------------------------------------------------
   if ( !pp ) {
@@ -728,25 +729,25 @@ $(function() {
           if (openSections.length > 1) {
               newEmailUrl.replace('#', fullDoc+
                                           '%23section%2fall&language');
-              //var newFacebookUrl = urlFacebook.replace('#', 
+              //var newFacebookUrl = urlFacebook.replace('#',
               //                            '%23section%2fall&language');
-              //var newTwitterUrl = urlTwitter.replace('#', 
+              //var newTwitterUrl = urlTwitter.replace('#',
               //                            '%23section%2fall&language');
-              //var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
+              //var newGooglePlusUrl = urlGooglePlus.replace('&tt=0',
               //                            '%23section%2fall&tt=0');
-              //var newPinterestUrl = urlPinterest.replace('#', 
+              //var newPinterestUrl = urlPinterest.replace('#',
               //                            '%23section%2fall&language');
           }
           else {
               newEmailUrl.replace('#', fullDoc+
                                    '%23section%2f'+thisSection+'&language');
-              //var newFacebookUrl = urlFacebook.replace('#', 
+              //var newFacebookUrl = urlFacebook.replace('#',
               //                     '%23section%2f'+thisSection+'&language');
-              //var newTwitterUrl = urlTwitter.replace('#', 
+              //var newTwitterUrl = urlTwitter.replace('#',
               //                     '%23section%2f'+thisSection+'&language');
-              //var newGooglePlusUrl = urlGooglePlus.replace('&tt=0', 
+              //var newGooglePlusUrl = urlGooglePlus.replace('&tt=0',
               //                     '%23section%2f'+thisSection+'&tt=0');
-              //var newPinterestUrl = urlPinterest.replace('#', 
+              //var newPinterestUrl = urlPinterest.replace('#',
               //                     '%23section%2f'+thisSection+'&language');
           }
       }
@@ -770,9 +771,9 @@ routie({
         $(document).scrollTop(0);
 
         // When we're routing to a new section we're setting the
-        // meta-tag for 'og:url' to the current section so that 
+        // meta-tag for 'og:url' to the current section so that
         // the social media share buttons - retrieving the URL from
-        // this tag - will grab and display the correct section 
+        // this tag - will grab and display the correct section
         // instead of displaying the default section One
         // ---------------------------------------------------------
         var currentDoc = $('meta[property="og:url"]').attr('content');
@@ -803,7 +804,7 @@ routie({
 
             // Finally, set the meta tag used by the AddThis JS to set the
             // proper URL
-            
+
             $('meta[property="og:url"]').attr('content', fullDoc+'#section/'
                                                                 +'all');
         }
@@ -834,7 +835,7 @@ routie({
                                                                 +sid);
           }
     },
-    // Handling of links clicked in the 'On this page' navigation or 
+    // Handling of links clicked in the 'On this page' navigation or
     // within the document
     // -------------------------------------------------------------
     'link/:rid': function(rid) {
@@ -892,7 +893,7 @@ routie({
     // Check if the supplied ID exists.  If it doesn't exist open
     // the full document.
     // ----------------------------------------------------------
-    ':lid': function(lid) { 
+    ':lid': function(lid) {
         if ( lid == 'print' || lid == 'imprimir') {
             var thisSection = $('section.show').attr('id');
             var openSections = $('section.show');
@@ -905,11 +906,11 @@ routie({
             }
             else {
                 if ( lid.substring(0, 8) == 'section_' ) {
-                    routie ('cit/'+lid); 
+                    routie ('cit/'+lid);
                 }
                 else {
                     //$("#"+lid).get(0).scrollIntoView();
-                    routie ('link/'+lid); 
+                    routie ('link/'+lid);
                 }
             };
         }
