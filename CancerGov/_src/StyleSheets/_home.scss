@@ -159,6 +159,17 @@
 	}
 	@include card-clickable;
 }
+@media only screen and (max-width :1024px) {
+	.feature-primary-title {
+		background: #178DAA;
+	}
+	.feature-primary-title h3 {
+		font-size: 1.375em;
+		color: white;
+		padding: 0.625em 30px;
+		margin: 0em;
+	}	
+}
 @media only screen and (max-width :640px) {
 	.feature-primary {
 		margin-bottom: 0;
@@ -184,15 +195,6 @@
 	.feature-primary a:hover h3,
 	.feature-primary a:hover h3	{
 		color: white;
-	}
-	.feature-primary-title {
-		background: #178DAA;
-	}
-	.feature-primary-title h3 {
-		font-size: 1.375em;
-		color: white;
-		padding: 0.625em 30px;
-		margin: 0em;
 	}
 	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
 		display: none;
