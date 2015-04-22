@@ -1,5 +1,33 @@
 // This file is for the PDQ Cancer Information Summary UX functionality
 $(function() {
+
+    //Navigation state variable for handling in page nav events
+    var navigationState = "UNINITIALIZED";
+
+    //Helper function to do insternal redirects (i.e. changing a has from an ID to a specific route)
+    function internalRedirect(path) {
+        if (navigationState != "UNINITIALIZED") {
+            navigationState = "REDIRECT"
+        }
+        routie(path);
+    }
+
+    //Event handler to determine when to fire PDQINPAGENAV event.
+    $(window).on("hashchange", function() {
+        if (navigationState == "UNINITIALIZED") { //This is the hashchange event after the initial load
+            navigationState = "INITIALIZED";
+        } else if (navigationState == "REDIRECT") { //This is a hashchange event before a redirect.
+            navigationState = "INITIALIZED";
+        } else if (navigationState == "IN_SECTION") { //Navigating within and open page
+            navigationState = "INITIALIZED";
+        } else {
+            //The page is initialized, so we are doing an inpage navigation
+            $(window).trigger("pdqinpagenav");
+        }
+    });
+
+
+
 //(function($) {
   // Add the container DIV to insert the SectionNav list
   // as the first element of the DIV.summary-sections container
@@ -763,7 +791,7 @@ $(function() {
 routie({
     'all': function() {
         //console.log('all');
-        routie('section/all');
+        internalRedirect('section/all');
     },
     // Handling of links clicked in the section navigation
     // ---------------------------------------------------
@@ -842,9 +870,11 @@ routie({
         // Hide all open sections unless we are in the 'View all' section
         if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
             var nothingToDo = 0;
-         //console.log('link all');
-        }
-        else {
+            navigationState = "IN_SECTION";
+        } else if ($("#"+rid).closest("section.show").length > 0) {
+            //Do nothing here, we are navigating within the open section
+            navigationState = "IN_SECTION";
+        } else {
          //console.log('link section');
             $(".summary-sections section.show").removeClass("show")
                                                .addClass("hide");
@@ -870,10 +900,11 @@ routie({
         // Hide all open sections unless we are in the 'View all' section
         if ( $("#pdq-toptoc li.viewall").hasClass("selected") ) {
             var nothingToDo = 0;
-         //console.log('cit all');
-        }
-        else {
-         //console.log('cit section');
+            navigationState = "IN_SECTION";
+        } else if ($("li[id='"+cid+"']").closest("section.show").length > 0) {
+            //Do nothing here, we are navigating within the open section
+            navigationState = "IN_SECTION";
+        } else {
             // Hide all open sections
             $(".summary-sections section.show").removeClass("show")
                                                .addClass("hide");
@@ -902,17 +933,25 @@ routie({
             var goodLink = $("#"+lid);
             var citLink = $("li[id='"+lid+"']");
             if ( goodLink.length == 0 && citLink.length == 0 ) {
-                routie ('section/all');
+                internalRedirect ('section/all');
             }
             else {
                 if ( lid.substring(0, 8) == 'section_' ) {
-                    routie ('cit/'+lid);
+                    internalRedirect ('cit/'+lid);
                 }
                 else {
                     //$("#"+lid).get(0).scrollIntoView();
-                    routie ('link/'+lid);
+                    internalRedirect ('link/'+lid);
                 }
             };
+        }
+    },
+    //Handle a normal load.
+    '': function() {
+        //Just make sure that the state gets set to initialized because we are displaying something
+        //Note, a request for the URL or URL# will enter this, but will not fire a onhashchange event.
+        if (navigationState == 'UNINITIALIZED') {
+            navigationState = "INITIALIZED"
         }
     }
 });
