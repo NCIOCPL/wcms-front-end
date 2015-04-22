@@ -16,15 +16,17 @@
 	}
 
 	h2, h3, h4 {
+		font-size: em-calc(20px);
+		line-height: em-calc(24px);
 		margin-top: 40px;
 		margin-bottom: 30px;
 	}
 
 	.results-count {
-		font-family: #{$montserrat-font-stack};
+		@include font-montserrat;
 		font-weight: bold;
-		font-size: em-calc(28px);
-		line-height: em-calc(35px);
+		font-size: em-calc(20px);
+		line-height: em-calc(24px);
 	}
 
 	.result .row + .row {
@@ -44,6 +46,22 @@
 	}
 	.url {
 		font-size: 0.875em;
+	}
+	&.featured {
+		overflow: auto;
+		background: #dbf2f8;
+		padding: 2.5%;
+
+		h2 {
+			margin-top: 0;
+		}
+		.title {
+			@include font-noto;
+			font-size: 1em;
+		}
+		.list, .list-item {
+			margin-bottom: 0;
+		}
 	}
 }
 
