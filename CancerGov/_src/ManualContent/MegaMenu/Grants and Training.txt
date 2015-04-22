@@ -80,13 +80,13 @@
 
 <ul class="sub-nav-group">
 
-	<li><a href="/grants-training/training" class="sub-nav-group-header">Funding for Training</a> 
+	<li><a href="/grants-training/training" class="sub-nav-group-header">Training</a> 
 
 		<ul>
 
 			<li><a href="/grants-training/training/at-nci">Cancer Research Training at NCI (Intramural)</a></li>
 
-			<li><a href="/about-nci/organization/crchd">Opportunities for Minority Researchers</a></li>
+			<li><a href="/about-nci/organization/crchd">Diversity Training Programs</a></li>
 
 			<li><a href="/grants-training/training/funding">Funding for Cancer Research Training (Extramural)</a></li>
 
