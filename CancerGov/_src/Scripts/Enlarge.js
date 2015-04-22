@@ -42,7 +42,7 @@
 
             // Create the click event on the Enlarge link
             // -------------------------------------------
-            enlargeButton.unbind().click(function () {
+            fig.data('enlargeBtn').unbind().click(function () {
                 enlargeTable(fig, settings);
             });
         }
@@ -269,7 +269,7 @@
 
 
             // When the viewport size is changed, check again if the element needs to be scrollable
-            $(window).on('resize orientationchange', function () {
+            $(window).on('resize orientationchange accordionactivate pdqinpagenav', function () {
                 var curWidth = window.innerWidth || $(window).width();
 
                 //If popup is open and the curWidth < [Threshold for Enlarging], close the window
