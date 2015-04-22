@@ -31,7 +31,6 @@ Author URI: http://dev7studios.com
 	left: 30px;
 	bottom: 422px;
 	/*margin-left:-40px;  Tweak this to center bullets */
-	/*background: #FFF url(http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/timeline-bg.gif);*/
 	height: 53px;
 	width: 661px;
 	overflow: visible;
@@ -42,7 +41,7 @@ Author URI: http://dev7studios.com
 	display:block;
 	width:27px;
 	height:27px;
-	background: url(http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/time-off.gif) no-repeat;
+	background: url('/PublishedContent/Images/research/nci-role/cancer-centers/about/history/time-off.gif') no-repeat;
 	margin: 12px 0 0 0;
 	text-indent:-9999px;
 	border:0;
@@ -50,7 +49,7 @@ Author URI: http://dev7studios.com
 }
 .theme-default .nivo-controlNav a.active {
 	/*background-position:0 -22px;*/
-	background: url(http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/time-on.gif) no-repeat;
+	background: url('/PublishedContent/Images/research/nci-role/cancer-centers/about/history/time-on.gif') no-repeat;
 	height: 54px;
 }
 .theme-default .nivo-directionNav a {
@@ -64,65 +63,69 @@ Author URI: http://dev7studios.com
 /* timeline markers placement */
 /* year 1884 */
 a.nivo-control.time0 {
-	left: 12px;
+	left: 0;
 }
 /* year 1930 */
 a.nivo-control.time1 {
-	left: 182px;
+	left: 171px;
 }
 /* year 1930s */
 a.nivo-control.time2 {
-	left: 207px;
+	left: 196px;
 }
 /* year 1937 */
 a.nivo-control.time3 {
-	left: 232px;
+	left: 221px;
 }
 /* year 1944 */
 a.nivo-control.time4 {
-	left: 262px;
+	left: 251px;
 }
 /* year 1960 */
 a.nivo-control.time5 {
-	left: 307px;
+	left: 296px;
 }
 /* year 1967 */
 a.nivo-control.time6 {
-	left: 332px;
+	left: 321px;
 }
 /* year 1970 */
 a.nivo-control.time7 {
-	left: 357px;
+	left: 346px;
 }
 /* year 1971 */
 a.nivo-control.time8 {
-	left: 382px;
+	left: 371px;
 }
 /* year 1972-1975 */
 a.nivo-control.time9 {
-	left: 407px;
+	left: 396px;
 }
 /* year 1981-1992 */
 a.nivo-control.time10 {
-	left: 492px;
+	left: 481px;
 }
 /* year 2003-2010 */
 a.nivo-control.time11 {
-	left: 557px;
+	left: 546px;
 }
 /* year 2011 */
 a.nivo-control.time12 {
-	left: 582px;
+	left: 571px;
 }
 .theme-default a.nivo-nextNav {
 	padding-right: 10px;
-	background: transparent url('/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/timeline-nav-next-arrow-bg.png') no-repeat right;
+	background: transparent url('/PublishedContent/Images/research/nci-role/cancer-centers/about/history/timeline-nav-next-arrow-bg.png') no-repeat right;
 	right:32px;
 }
 .theme-default a.nivo-prevNav {
 	padding-left: 10px;
-	background: transparent url('/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/timeline-nav-previous-arrow-bg.png') no-repeat 0 3px;
+	background: transparent url('/PublishedContent/Images/research/nci-role/cancer-centers/about/history/timeline-nav-previous-arrow-bg.png') no-repeat 0 3px;
 	left:25px;
+}
+.slider-wrapper.theme-default {
+	float: left;
+	padding: 0 300px 0 0;
 }
 /*
  * jQuery Nivo Slider v2.7.1
@@ -929,36 +932,37 @@ header, section, footer, aside, nav, article, figure {
 <div id="wrapper">
 	<div class="slider-wrapper theme-default">
 	
-		<div class="ribbon"> </div>
+		<div class="ribbon"><p/></div>
 		
 		<div id="slider" class="nivoSlider">
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide1" /> <img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide2" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide3" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide4" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide5" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide6" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide7" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide8" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide9" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide10" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide11" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide12" />
-			<img src="http://www.cancer.gov/publishedcontent/images/researchandfunding/extramural/cancercenters/about/history/bg-two.png" alt="" title="#slide13" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide1" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide2" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide3" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide4" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide5" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide6" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide7" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide8" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide9" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide10" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide11" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide12" />
+			<img src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/bg-two.png" alt="" title="#slide13" />
 		</div>
 		
-		<h3 style="font-size: 14px; color: #474747; z-index: 10; margin: -510px 0 0 25px; position: absolute;">Timeline</h3>
+		<h3 style="font-size: 14px; color: #474747; z-index: 10; margin: -510px 0 0 9px; position: absolute;">Timeline</h3>
 
 		<div id="slide1" class="nivo-html-caption">
 			<p style="font-size:14px!important;">
 				<strong>1884-1897 &nbsp;&nbsp;&nbsp;The Beginnings of Cancer Research and the Birth of the NCI</strong>
 			</p>
-			<p>Three cancer research centers, <a href="http://cancer.gov/researchandfunding/extramural/cancercenters/find-a-cancer-center/roswellpark">Roswell Park Cancer Institute</a> in Buffalo, N.Y.; <a href="http://cancer.gov/researchandfunding/extramural/cancercenters/find-a-cancer-center/memorialsloankettering">Memorial Sloan-Kettering Cancer Center</a> in New York City; and the <a href="http://cancer.gov/researchandfunding/extramural/cancercenters/find-a-cancer-center/wistar">Wistar Institute</a> in Philadelphia, are formed.
+			<p>Three cancer research centers, <a href="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/roswellpark">Roswell Park Cancer Institute</a> in Buffalo, N.Y.; <a href="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/memorialsloankettering">Memorial Sloan-Kettering Cancer Center</a> in New York City; and the <a href="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/wistar">Wistar Institute</a> in Philadelphia, are formed.
 			</p>
 			<br>
 			<div class="nivo-caption-imgcaption" style="padding-left:20px; float:left; margin:10px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1884_1.html', '_blank', 'width=603,height=547'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1884_1.html', '_blank', 'width=603,height=547'); return false">
 					<div style="width: 171px; height: 125px; position: relative; margin-bottom:10px;">
-					<img style="padding: 1px; border: 1px solid #b8b7b5; " src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1884_1.png" alt="Roswell Park" />
+					<img style="padding: 1px; border: 1px solid #b8b7b5; " src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1884_1.png" alt="Roswell Park" />
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -971,9 +975,9 @@ header, section, footer, aside, nav, article, figure {
 				<span>Roswell Park</span>
 			</div>
 			<div class="nivo-caption-imgcaption" style="float:left; margin:10px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1884_2.html', '_blank', 'width=663,height=538'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1884_2.html', '_blank', 'width=663,height=538'); return false">
 					<div style="width: 192px; height: 125px; position: relative; margin-bottom:10px;">
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1884_2.png" alt="MSKCC's famous round ward"  />
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1884_2.png" alt="MSKCC's famous round ward"  />
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -986,9 +990,9 @@ header, section, footer, aside, nav, article, figure {
 				<span>MSKCC's famous round ward</span>
 			</div>
 			<div class="nivo-caption-imgcaption" style="float:left; margin:10px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1884_3.html', '_blank', 'width=507,height=499'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1884_3.html', '_blank', 'width=507,height=499'); return false">
 					<div style="width: 157px; height: 125px; position: relative; margin-bottom:10px;">
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1884_3.png" alt="Wistar Institute"  />
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1884_3.png" alt="Wistar Institute"  />
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -1006,9 +1010,9 @@ header, section, footer, aside, nav, article, figure {
 			<p style="font-size:14px!important;"><strong>1930 &nbsp;&nbsp;&nbsp;Congress Creates the National Institutes of Health</strong></p>
 			<p>Congress passes the Ransdell Act, introduced by Sen. Joseph E. Ransdell, which created the National Institute of Health. (NIH)<br>
 				<div class="nivo-caption-imgcaption" style="padding-left:240px; float:none; ">
-					<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930.html', '_blank', 'width=363,height=627'); return false">
+					<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1930.html', '_blank', 'width=363,height=627'); return false">
 						<div style="width: 135px; height: 199px; position: relative; margin-bottom:10px;">
-							<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930.png" alt="Sen. Joseph E. Ransdell" />
+							<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1930.png" alt="Sen. Joseph E. Ransdell" />
 							<div style=" background-color:#ffffff;
 								border:1px solid black;
 								opacity:0.8;
@@ -1027,9 +1031,9 @@ header, section, footer, aside, nav, article, figure {
 			<p style="font-size:14px!important;"><strong>1930's &nbsp;&nbsp;&nbsp;Building the NIH and NCI </strong></p>
 			<br>
 			<div class="nivo-caption-imgcaption" style="width: 125px; float:left; margin:10px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930s_1.html', '_blank', 'width=528,height=457'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1930s_1.html', '_blank', 'width=528,height=457'); return false">
 					<div style="width: 129px; height: 85px; position: relative; margin-bottom:10px;">
-						<img style="padding: 1px; border: 1px solid #b8b7b5; " src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930s_1.jpg" alt="The National Cancer Institute's first home, Building 6." />
+						<img style="padding: 1px; border: 1px solid #b8b7b5; " src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1930s_1.jpg" alt="The National Cancer Institute's first home, Building 6." />
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -1044,9 +1048,9 @@ header, section, footer, aside, nav, article, figure {
 				</a>
 			</div>
 			<div class="nivo-caption-imgcaption" style="width: 307px; float:left; margin-top:10px;margin-left:12px;margin-right:8px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930s_2.html', '_blank', 'width=815,height=278'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1930s_2.html', '_blank', 'width=815,height=278'); return false">
 					<div style="width: 307px; height: 85px; position: relative; margin-bottom:10px;">
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930s_2.jpg" alt="The Marine Hospital Service Stapleton Staten Island 19th century, where the single room lab of hygiene was located, is renamed the NIH."/>
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1930s_2.jpg" alt="The Marine Hospital Service Stapleton Staten Island 19th century, where the single room lab of hygiene was located, is renamed the NIH."/>
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -1059,9 +1063,9 @@ header, section, footer, aside, nav, article, figure {
 				<span>The Marine Hospital Service Stapleton Staten Island 19th century, where the single room lab of hygiene was located, is renamed the NIH.</span>
 			</div>
 			<div class="nivo-caption-imgcaption" style="width: 125px; float:left; margin:10px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1930s_3.html', '_blank', 'width=615,height=530'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1930s_3.html', '_blank', 'width=615,height=530'); return false">
 					<div style="width: 125px; height: 85px; position: relative; margin-bottom:10px;">
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1930s_3.jpg" alt="Cornerstone laying for NCI's building 6."/>
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1930s_3.jpg" alt="Cornerstone laying for NCI's building 6."/>
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -1078,9 +1082,9 @@ header, section, footer, aside, nav, article, figure {
 		<div id="slide4" class="nivo-html-caption">
 			<p style="font-size:14px!important;"><strong>1937 &nbsp;&nbsp;&nbsp;The National Cancer Institute Is Formed</strong></p>
 			<div class="nivo-caption-imgcaption" style="width: 160px; float:right; padding:10px;">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1937.html', '_blank', 'width=515,height=612'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1937.html', '_blank', 'width=515,height=612'); return false">
 					<div style="width: 140px; height: 100px; position: relative; margin-bottom:10px;">
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" alt="Washington Post Headline August 6 1937" src="/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1937_2.jpg" width="140px" alt="Washington Post Headline August 6, 1937 passage of the Act." />
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" alt="Washington Post Headline August 6 1937" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1937_2.jpg" width="140px" alt="Washington Post Headline August 6, 1937 passage of the Act." />
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -1107,9 +1111,9 @@ header, section, footer, aside, nav, article, figure {
 			<p style="font-size:14px!important;"><strong>1944&nbsp;&nbsp;&nbsp;Institutes Join Together to Further Medical Research.</strong></p>
 			<p>The NCI becomes a division of the National Institutes of Health under Public Health Service legislation.</p>
 			<div class="nivo-caption-imgcaption"; style="width: 170px; margin-left:90px; float:left">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1944_1.html', '_blank', 'width=187,height=331'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1944_1.html', '_blank', 'width=187,height=331'); return false">
 					<div style="width: 123px; height: 175px; position: relative; margin-bottom:10px;"> 
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1944_1.jpg" height="175" alt="Warren G. Magnuson introduces the National Cancer Institute Act of 1937 in the House." />
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1944_1.jpg" height="175" alt="Warren G. Magnuson introduces the National Cancer Institute Act of 1937 in the House." />
 							<div style=" background-color:#ffffff;
 								border:1px solid black;
 								opacity:0.8;
@@ -1122,9 +1126,9 @@ header, section, footer, aside, nav, article, figure {
 				<span> Warren G. Magnuson introduces the National Cancer Institute Act of 1937 in the House.</span>
 			</div>
 			<div class="nivo-caption-imgcaption"; style="margin-left:55px; float:left">
-				<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1944_2.html', '_blank', 'width=663,height=547'); return false">
+				<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1944_2.html', '_blank', 'width=663,height=547'); return false">
 					<div style="width: 263px; height: 175px; position: relative; margin-bottom:10px;">
-						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1944_2.jpg" height="175" alt="Image of NIH campus in 1940. NCI occupied 'Building Six.'" />
+						<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1944_2.jpg" height="175" alt="Image of NIH campus in 1940. NCI occupied 'Building Six.'" />
 						<div style=" background-color:#ffffff;
 							border:1px solid black;
 							opacity:0.8;
@@ -1142,9 +1146,9 @@ header, section, footer, aside, nav, article, figure {
 	<div id="slide6" class="nivo-html-caption">
 		<p style="font-size:14px!important;"><strong>1960&nbsp;&nbsp;&nbsp;Beginnings of the NCI Cancer Centers Model</strong></p>
 		<div class="nivo-caption-imgcaption"; style="width: 125px; float:right; margin:10px; ">
-			<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1960.html', '_blank', 'width=562,height=795'); return false">
+			<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1960.html', '_blank', 'width=562,height=795'); return false">
 				<div style="width: 125px; height: 155px; position: relative; margin-bottom:10px;">
-					<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1960.jpg" width="125" alt="Dr. Carl Baker, Director of the NCI 1970-1972." />
+					<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1960.jpg" width="125" alt="Dr. Carl Baker, Director of the NCI 1970-1972." />
 					<div style=" background-color:#ffffff;
 						border:1px solid black;
 						opacity:0.8;
@@ -1174,9 +1178,9 @@ header, section, footer, aside, nav, article, figure {
 	<div id="slide8" class="nivo-html-caption">
 		<p style="font-size:14px!important;"><strong>1970&nbsp;&nbsp;&nbsp;The Nation Develops a Program "for the Conquest of Cancer"</strong></p>
 		<div class="nivo-caption-imgcaption" style="float:right; margin:10px; ">
-			<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1970.html', '_blank', 'width=194,height=341'); return false">
+			<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1970.html', '_blank', 'width=194,height=341'); return false">
 				<div style="width: 150px; height: 191px; position: relative; margin-bottom:10px;">
-					<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1970.jpg" width="150" alt="Senator Ralph W. Yarborough" />
+					<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1970.jpg" width="150" alt="Senator Ralph W. Yarborough" />
 					<div style=" background-color:#ffffff;
 						border:1px solid black;
 						opacity:0.8;
@@ -1194,9 +1198,9 @@ header, section, footer, aside, nav, article, figure {
 	<div id="slide9" class="nivo-html-caption">
 		<p style="font-size:14px!important;"><strong>1971&nbsp;&nbsp;&nbsp;NCI Cancer Center Program Launched</strong></p>
 		<div class="nivo-caption-imgcaption" style="float:right; margin:10px; ">
-			<a href="javascript:;" onClick="window.open('/publishedcontent/Files//researchandfunding/extramural/cancercenters/about/history/1971.html', '_blank', 'width=619,height=545'); return false">
+			<a href="javascript:;" onClick="window.open('/publishedcontent/Files/research/nci-role/cancer-centers/about/history/1971.html', '_blank', 'width=619,height=545'); return false">
 				<div style="width: 200px; height: 143px; position: relative; margin-bottom:10px;">
-					<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="http://cancer.gov/PublishedContent/Images/researchandfunding/extramural/cancercenters/about/history/1971_1.jpg" alt="Signing the National Cancer Act" />
+					<img style=" padding: 1px; border: 1px solid #b8b7b5;" src="/PublishedContent/Images/research/nci-role/cancer-centers/about/history/1971_1.jpg" alt="Signing the National Cancer Act" />
 					<div style=" background-color:#ffffff;
 						border:1px solid black;
 						opacity:0.8;
