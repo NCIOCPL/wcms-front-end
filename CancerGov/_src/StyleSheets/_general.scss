@@ -306,13 +306,27 @@ figcaption {
 	}
 }
 /* END columns by css instead of tables */
-.callout-box {
+.callout-box,
+.callout-box-right,
+.callout-box-left {
 	background: #f2f3f7;
 	border: 1px solid #999;
-	margin: 25px auto;
-	padding: 15px 30px;
-	width: 80%;
 	overflow: auto;
+	padding: 15px 30px
+}
+.callout-box {
+	margin: 25px auto;
+	width: 80%;
+}
+.callout-box-right {
+	float: right;
+	margin: 0 0 15px 15px;
+	width: 40%;
+}
+.callout-box-left {
+	float: left;
+	margin: 0 15px 15px 0;
+	width: 40%;
 }
 
 /* prevent outlines on tab content */
