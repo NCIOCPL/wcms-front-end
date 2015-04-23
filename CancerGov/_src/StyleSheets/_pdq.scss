@@ -122,7 +122,7 @@ table tfoot {
 	font-weight: normal;
 	background-color: #cfcfcf;
 }
-body.pdqcancerinfosummary table.table-default {
+.summary-sections table.table-default {
 	@extend table.complex-table;
 }
 /* removing padding for nested ul elements inside an accordion */
