@@ -74,7 +74,7 @@ header {
 	.mobile-menu-bar {
 		> a,
 		> button,
-		> h2 {
+		> h2 { // TODO: remove the HACK (selector with h2)
 			display: inline-block;
 			background: transparent no-repeat center 0;
 			width: 13%;
@@ -111,29 +111,25 @@ header {
 			color: #fff;
 		}
 	}
-	button.nav-header, h2.nav-header {
+	button.nav-header, h2.nav-header { // TODO: remove the HACK (selector with h2)
 		background-image: url($icons + "menu-icon.png");
 		margin-right: 8%;
 	}
-	a.nav-contact, a[href="/global/contact"] {
+	a.nav-contact, .mobile-menu-bar > h2 + a { // TODO: remove the HACK (selector with h2)
 		background-image: url($icons + "phone-mobile.png");
-		margin-left: 8%;
-		margin-right: 8%;
 	}
-	a[href="/global/contact"] { // TODO: remove this HACK
-		margin-left: 7.5%;
-		margin-right: 7.5%;
-	}
-	a.nav-dictionary, a[href="/dictionary"] {
+	a.nav-dictionary, .mobile-menu-bar > h2 + a + a { // TODO: remove the HACK (selector with h2)
 		background-image: url($icons + "dictionary-mobile.png");
+	}
+	a.nav-contact, a.nav-dictionary {
 		margin-left: 8%;
 		margin-right: 8%;
 	}
-	a[href="/dictionary"] { // TODO: remove this HACK
+	.mobile-menu-bar > h2 + a, .mobile-menu-bar > h2 + a + a { // TODO: remove this HACK
 		margin-left: 7.5%;
 		margin-right: 7.5%;
 	}
-	button.nav-search, h2.nav-search {
+	button.nav-search, h2.nav-search { // TODO: remove the HACK (selector with h2)
 		background-image: url($icons + "search-mobile.png");
 		margin-left: 8%;
 	}
@@ -144,22 +140,22 @@ header {
 	.mobile-menu-bar {
 		> a,
 		> button,
-		> h2 {
+		> h2 { // TODO: remove the HACK (selector with h2)
 			width: 19%;
 		}
 	}
-	button.nav-header, h2.nav-header {
+	button.nav-header, h2.nav-header { // TODO: remove the HACK (selector with h2)
 		margin-right: 4%;
 	}
 	a.nav-contact, a.nav-dictionary {
 		margin-left: 4%;
 		margin-right: 4%;
 	}
-	a[href="/global/contact"], a[href="/dictionary"] { // TODO: remove this HACK
+	.mobile-menu-bar > h2 + a, .mobile-menu-bar > h2 + a + a { // TODO: remove this HACK
 		margin-left: (19/6) + 0%;
 		margin-right: (19/6) + 0%;
 	}
-	button.nav-search, h2.nav-search {
+	button.nav-search, h2.nav-search { // TODO: remove the HACK (selector with h2)
 		margin-left: 4%;
 	}
 }
@@ -169,7 +165,7 @@ header {
 	.mobile-menu-bar {
 		> a,
 		> button,
-		> h2 {
+		> h2 { // TODO: remove the HACK (selector with h2)
 			font-size: 0.5em;
 			padding: 4em 0 0 0;
 		}
