@@ -16,28 +16,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <title></title>
+
+    <!--(bake Favicons.inc)-->
+
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
     <script src="/PublishedContent/js/ie8-polyfills.js"></script>
     <![endif]-->
-	<script type="text/javascript">
-		// Answers Cloud Services Embed Script v1.02
-		// DO NOT MODIFY BELOW THIS LINE *****************************************
-		;(function (g) {
-			var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
-					aex = {
-						"src": "//gateway.answerscloud.com/cancer-gov/production/gateway.min.js",
-						"type": "text/javascript",
-						"async": "true",
-						"data-vendor": "acs",
-						"data-role": "gateway"
-					};
-			for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
-			h.appendChild(am);
-			g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
-		})(window);
-		// DO NOT MODIFY ABOVE THIS LINE *****************************************
-	</script>
+    <script type="text/javascript">
+        // Answers Cloud Services Embed Script v1.02
+        // DO NOT MODIFY BELOW THIS LINE *****************************************
+        ;(function (g) {
+            var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
+                    aex = {
+                        "src": "//gateway.answerscloud.com/cancer-gov/production/gateway.min.js",
+                        "type": "text/javascript",
+                        "async": "true",
+                        "data-vendor": "acs",
+                        "data-role": "gateway"
+                    };
+            for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
+            h.appendChild(am);
+            g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
+        })(window);
+        // DO NOT MODIFY ABOVE THIS LINE *****************************************
+    </script>
 </head>
 
 <body id="Body1" runat="server">
