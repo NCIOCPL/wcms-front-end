@@ -338,4 +338,11 @@ form .row .view-content-for-container {
 }
 /* end Protocol search results */
 
+ul.collaborators {
+	@extend %no-bullets;
+}
+ul.collaborators li {
+	margin-left: 0;
+}
+
 /*** END PDQ Styles ***/
