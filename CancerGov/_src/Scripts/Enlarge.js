@@ -60,7 +60,7 @@
             //Get the caption
             var tcaption = element.find("caption");
             //If there is table caption, make that the figure caption.
-            if (tcaption) {
+            if (tcaption.length > 0) {
                 var fcaption = $('<figcaption></figcaption>');
                 //Add ID, base it on table id if there is one.
                 var table_id = element.attr("id");
