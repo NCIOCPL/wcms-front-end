@@ -308,17 +308,14 @@ figcaption {
 /* END columns by css instead of tables */
 .callout-box,
 .callout-box-right,
-.callout-box-left {
-	background: #f2f3f7;
-	border: 1px solid #999;
-	overflow: auto;
-	padding: 15px 30px
-}
+.callout-box-left,
+.callout-box-full,
 .callout-box-blue {
-	background: #dbf2f8;
+	background: #DBF2F8;
 	overflow: auto;
-	padding: 15px 30px
+	padding: 25px
 }
+ 
 .callout-box,
 .callout-box-blue {
 	margin: 25px auto;
@@ -334,7 +331,10 @@ figcaption {
 	margin: 0 15px 15px 0;
 	width: 40%;
 }
-
+.callout-box-full{
+	margin: 25px auto;
+	width: 100%;
+}
 /* prevent outlines on tab content */
 div, p, section, h1, h2, h3, h4, h5, h6 {
 	&[tabindex]:focus{
