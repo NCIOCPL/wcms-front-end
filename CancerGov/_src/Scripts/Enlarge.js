@@ -14,6 +14,7 @@
 
         //Add wrapper to indicate table has scroll area
         fig.data('scrollWrapper').addClass('has-scroll');
+        fig.data('scrollWrapper').addClass('scrollable');
 
         //Determine the current width.
         var curWidth = window.innerWidth || $(window).width();
@@ -119,7 +120,14 @@
                 my: 'top',
                 at: 'top',
                 collision: 'none', //Important so it goes on top of wrapper
-                of: fig.data('anchorPoint')
+                of: fig.data('anchorPoint'),
+                using: function(pos) {
+                    //Position to the top of the anchorpoint element
+                    $(this).css("top", pos.top);
+
+                    //Position left as window's position + left margin
+                    $(this).css("left", settings.dialogLRMargin);
+                }
             },
             create: function (event, ui) {
                 //Make the window's scrollbars go away
