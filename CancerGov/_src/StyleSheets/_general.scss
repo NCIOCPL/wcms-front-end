@@ -314,7 +314,13 @@ figcaption {
 	overflow: auto;
 	padding: 15px 30px
 }
-.callout-box {
+.callout-box-blue {
+	background: #dbf2f8;
+	overflow: auto;
+	padding: 15px 30px
+}
+.callout-box,
+.callout-box-blue {
 	margin: 25px auto;
 	width: 80%;
 }
