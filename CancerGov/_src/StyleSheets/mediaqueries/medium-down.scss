@@ -106,10 +106,6 @@
 					$searching-menu-arrow-height: 18px;
 					height: $searching-menu-arrow-height;
 					margin-top: -($searching-menu-arrow-height / 2);
-
-					@media only screen and (max-width: 640px) {
-						left: 10%;
-					}
 				}
 			}
 		}
@@ -142,11 +138,6 @@
 				left: 11%;
 				position: absolute;
 				bottom: 10px;
-
-				@media only screen and (max-width: 640px) {
-					width: 80%;
-					left: 16%;
-				}
 			}
 		}
 
@@ -166,11 +157,6 @@
 				height: 100%;
 				position: relative;
 				display: block;
-			}
-
-			@media only screen and (max-width: 640px) {
-				width: 70%;
-				left: 17.5%;
 			}
 		}
 
@@ -194,10 +180,6 @@
 			color: #888;
 			font-size: 3em;
 			line-height: 1;
-
-			@media only screen and (max-width: 390px) {
-				top: 0.0625em;
-			}
 
 			&:before {
 				content: "\00d7";

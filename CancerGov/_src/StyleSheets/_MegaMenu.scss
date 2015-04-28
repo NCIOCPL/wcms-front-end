@@ -196,3 +196,25 @@
 		padding: 14px 20px 8px;
 	}
 }
+
+
+#nvcgSlMainNav.searching {
+	@media only screen and (max-width: 640px) {
+		.mobile-menu-bar .menu-btn:before {
+			left: 10%;
+		}
+		#siteSearchForm:before {
+			width: 80%;
+			left: 16%;
+		}
+		#swKeyword {
+			width: 70%;
+			left: 17.5%;
+		}
+	}
+	#searchclear {
+		@media only screen and (max-width: 390px) {
+			top: 0.0625em;
+		}
+	}
+}
