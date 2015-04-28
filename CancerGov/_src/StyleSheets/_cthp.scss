@@ -197,7 +197,8 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-screening div:hover p,
 .cthp-survival div:hover p,
 .cthp-general div:hover p,
-.cthp-content .cardBody:hover {
+.cthp-content .cardBody:hover,
+.cthp-content .rxbodyfield:hover{
 	background-color: white; 
 }
 .cthp-treatment:hover li a.arrow-link,
