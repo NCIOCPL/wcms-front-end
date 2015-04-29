@@ -31,8 +31,9 @@ dl {
 		}
 	}
 	
-.title a.title:hover, .title a.title:focus {
+.title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus {
 	color: $lcranberry;
+	text-decoration: none;
 }	
 
 	ul {
