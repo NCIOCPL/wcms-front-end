@@ -41,15 +41,19 @@
                 }).insertBefore(fig.data('scrollWrapper'));
 
                 //if there is no caption we need a spacer.
-                if (fig.find('figcaption').length == 0) {
+                if (!fig.data('caption')) {
                     var emptyCaptionShim = $('<div/>', {
                         class: 'emptyCaptionShim',
                         html: '&nbsp;'
                     }).insertBefore(enlargeButton);
+                } else {
+                    //set the width of the caption to be smaller
+                    fig.data('caption').css('padding-right', enlargeButton.outerWidth());
                 }
 
                 //Set the enlarge button as data on the figure for easy retrieval
                 fig.data('enlargeBtn', enlargeButton);
+
             }
 
             // Create the click event on the Enlarge link
@@ -85,10 +89,14 @@
                 //Move contents of caption to figcaption and remove old caption
                 fcaption.append(tcaption.contents());
                 tcaption.remove();
-                //Set the title on the table for later use.
-                element.data("caption", fcaption.contents());
+
+                //Set a reference to the caption for later use.
+                fig.data("caption", fcaption);
+
                 //Add the caption to the figure - make sure it is first.
                 fig.append(fcaption)
+            } else {
+                element.data("caption", false);
             }
             //Add the table to the caption
             fig.append(element);
@@ -219,10 +227,13 @@
         if (enlarge) {
             enlarge.remove();
             fig.data('enlargeBtn', false);
+
+            fig.data('caption').css('padding-right', 0);
         }
 
         //Remove any empty caption shims
         fig.find('.emptyCaptionShim').remove();
+
 
     }
 
