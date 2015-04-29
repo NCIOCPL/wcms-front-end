@@ -25,14 +25,14 @@ figure.table figcaption {
 	font-weight: normal;
 	color: $header-font-color;
 	text-align: left;
-	padding: 0 3.25em 10px 0;
+	padding: 10px 0 10px 0;
 	font-size: 1.375em;
 }
-@media only screen and (max-width: 1024px) {
-	figure.table figcaption {
-		padding: 10px 0 10px 0;
-	}
+
+figure.table figcaption + a.article-image-enlarge {
+  top: 10px;
 }
+
 .ui-front {
 	z-index: 1001 !important;
 }
