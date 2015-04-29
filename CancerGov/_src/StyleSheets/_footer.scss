@@ -60,6 +60,10 @@
         &.twitter {
             @include social-media-icons('-123','-200','19','16');
         }
+			
+				&.instagram {
+            @include social-media-icons('-125','-467','18','18');
+        }
 
         &.googleplus {
             @include social-media-icons('-123','-245','19','19');
