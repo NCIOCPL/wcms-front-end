@@ -57,6 +57,11 @@
 </script>
 <!-- end function validateEmail() -->
 
+<div class="callout-box-right">
+	OMB NO: 0925-0208<br>
+	EXPIRATION DATE: 12/31/2015<br>
+	<a href="#omb-control">Burden Statement</a>
+</div>
 
 <p>Please use this form to contact NCI. Your answers will help us give you the most useful information. Personal information will be kept confidential and used only to respond to your question.</p>
 <p>NOTE: Information provided by the NCI’s Cancer Information Service is not a substitute for personal medical advice. <strong>Do not send or attach photos or medical reports.</strong> If you need medical advice, please consult with your health care provider.</p>
@@ -79,7 +84,7 @@
 			<label for="a__from" class="inline">E-mail address:*</label>
 		</div>
 		<div class="medium-8 columns">
-			<input id="a__from" name="__from" type="email" maxlength="60" required>
+			<input id="a__from" name="__from" type="text" maxlength="60">
 		</div>
 	</div>
 
@@ -88,7 +93,7 @@
 			<label for="a__email_confirm" class="inline">Enter e-mail address again to confirm:*</label>
 		</div>
 		<div class="medium-8 columns">
-			<input id="a__email_confirm" name="__email_confirm" type="email" maxlength="60" required>
+			<input id="a__email_confirm" name="__email_confirm" type="text" maxlength="60">
 		</div>
 	</div>
 
@@ -127,7 +132,7 @@
 			</label>
 		</div>
 		<div class="medium-8 columns">
-			<textarea id="message" name="Message" rows="10" required></textarea>
+			<textarea id="message" name="Message" rows="10"></textarea>
 			<p>Should your message require a response, you may expect one within 5 business days.</p>
 		</div>
 	</div>
@@ -143,17 +148,16 @@
 			</noscript>
 		</div>
 	</div>
-	<fieldset>
-		<div class="row">
-			<div class="medium-8 right columns">
-				<button type="submit" class="submit button">Submit</button>
-				<button type="reset" class="reset button">Clear</button>
-			</div>
+
+	<div class="row">
+		<div class="medium-8 right columns">
+			<button type="submit" class="submit button">Submit</button>
+			<button type="reset" class="reset button">Clear</button>
 		</div>
-	</fieldset>
+	</div>
 </form>
 <p>* Required field</p>
 <p><a href="/policies/page2#email">Privacy Policy on E-mail Messages Sent to the NCI Web Site</a></p>
-<div class="callout-box">
-	<p>Public reporting burden for this collection of information is estimated to average 10 minutes per response, including the time for reviewing instructions, searching existing data sources, gathering and maintaining the data needed, and completing and reviewing the collection of information. <strong>An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number.</strong> Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: NIH, Project Clearance Branch, 6705 Rockledge Drive, MSC 7974, Bethesda, MD 20892-7974, ATTN: PRA (0925-0046-17). Do not return the completed form to this address.</p>
+<div class="callout-box" id="omb-control" tabindex="0">
+	<p>Public reporting burden for this collection of information is estimated to average 10 minutes per response, including the time for reviewing instructions, searching existing data sources, gathering and maintaining the data needed, and completing and reviewing the collection of information. <strong>An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number.</strong> Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: NIH, Project Clearance Branch, 6705 Rockledge Drive, MSC 7974, Bethesda, MD 20892-7974, ATTN: PRA (0925-0208). Do not return the completed form to this address.</p>
 </div>

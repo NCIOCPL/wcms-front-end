@@ -152,9 +152,11 @@ label, .label {
 }
 .email-us-form label {
 	float: right;
+	text-align: right;
 }
 @media only screen and (max-width: 640px) {
 	.email-us-form label {
+		text-align: left;
 		float: left;
 	}
 }
