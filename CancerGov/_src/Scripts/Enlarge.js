@@ -21,10 +21,8 @@
 
         if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
             //Less than the threshold for enlarging.  Remove the enlarge button if needed
-            if (fig.data('enlargeBtn')) {
-                fig.data('enlargeBtn').remove();
-                fig.data('enlargeBtn', false);
-            }
+            removeEnlargeButton(fig);
+
         } else {
 
             //Set the width of the table to be the same as it would be if the
@@ -33,6 +31,7 @@
             fig.data('theTable').width(calculateTableWidth(settings));
 
             if (!fig.data('enlargeBtn')) {
+
                 //Add Enlarge button before scroll wrapper.
                 var enlargeButton = $('<a/>', {
                     'class': 'article-image-enlarge no-resize',
@@ -40,6 +39,14 @@
                     'onclick': 'return false;',
                     'html': settings.enlargeTxt
                 }).insertBefore(fig.data('scrollWrapper'));
+
+                //if there is no caption we need a spacer.
+                if (fig.find('figcaption').length == 0) {
+                    var emptyCaptionShim = $('<div/>', {
+                        class: 'emptyCaptionShim',
+                        html: '&nbsp;'
+                    }).insertBefore(enlargeButton);
+                }
 
                 //Set the enlarge button as data on the figure for easy retrieval
                 fig.data('enlargeBtn', enlargeButton);
@@ -87,6 +94,7 @@
             fig.append(element);
         } else {
             //Grab fig...
+            fig = element.parents('figure');
         }
 
         return fig;
@@ -212,6 +220,10 @@
             enlarge.remove();
             fig.data('enlargeBtn', false);
         }
+
+        //Remove any empty caption shims
+        fig.find('.emptyCaptionShim').remove();
+
     }
 
     function calculateDialogWidth(settings) {
