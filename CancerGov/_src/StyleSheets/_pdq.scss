@@ -8,7 +8,6 @@
 	border-bottom: 12px solid #1e73a6;
 	font-size: 0.8em;
 	margin-bottom: 3em;
-	z-index: 1;
 }
 .toptoc h3 {
 	background-color: #1e73a6;
@@ -26,6 +25,7 @@
 	line-height: 1.2em;
 }
 .toptoc li {
+	z-index: 1;
 	list-style-type: none;
 	background: none;
 	padding: 0.5em 1em;
@@ -39,6 +39,7 @@
 	text-decoration: underline;
 }
 .toptoc li:before {
+	content: none;
 	display: none;
 	/* removes the bullets for toptoc li menu items */
 }
