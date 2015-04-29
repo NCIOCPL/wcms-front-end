@@ -56,7 +56,7 @@
 <!-- HEADER -->
 <header class="push" role="banner">
     <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server"
-                      CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
+                      CssClass="row" AdditionalSnippetClasses="nci-logo-pages large-12 columns" />
 </header>
 <!-- END HEADER -->
 <!-- Begin Page -->
