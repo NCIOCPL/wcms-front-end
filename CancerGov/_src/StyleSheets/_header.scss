@@ -1,11 +1,85 @@
 /********************* BEGIN Header Styles ******************************************/
 // desktop (general)
 header {
-	padding-top: 1em;
-	padding-bottom: 1em;
+  padding-top: 1.5em;
+	margin-left: 2em;	
 	@include font-montserrat;
 	background: #fcfcfa;
 }
+
+/* Regular pages */
+.nci-logo-pages {
+  font-weight: bold;
+  font-size: 37.7px;
+ }
+.nci-logo-pages img {
+	width: 10%; 
+	max-height: 54px; 
+	max-width: 86px;	
+}
+.nci-logo-pages.columns {
+padding-left: 0;
+padding-right: 0; 
+}
+.nci-logo-pages a {
+color: #bb0e3d;
+text-transform: uppercase;
+padding-left: 13px;
+vertical-align: middle;
+}
+.nci-logo-pages a span {
+	position: absolute;
+	left: -10000px;
+	color: #5d5d5d;
+	font-size: 0.6em; 
+}
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+	.nci-logo-pages {
+  font-size: 34px;
+ }
+}
+@media only screen and (max-width: 770px) {
+	.nci-logo-pages {
+  font-size: 30px;
+ }
+}
+@media only screen and (max-width: 690px) {
+	.nci-logo-pages {
+  font-size: 26px;
+ }
+}
+@media only screen and (max-width: 600px) {
+	.nci-logo-pages {
+  font-size: 22px;
+ }
+}
+@media only screen and (max-width: 510px) {
+	.nci-logo-pages {
+  font-size: 18px;
+ }
+}
+@media only screen and (max-width: 420px) {
+	.nci-logo-pages {
+  font-size: 14px;
+ }
+}
+@media only screen and (max-width: 340px) {
+	.nci-logo-pages {
+  font-size: 10px;
+ }
+}
+@media only screen and (max-width: 1024px) {
+	header{
+  padding-bottom: 1em;
+	margin-left: 2em;	
+ }
+}
+
+
+
+
+
+/* popup */
 .nci-logo {
 	font-weight: bold;
 	font-size: 37.7px;
