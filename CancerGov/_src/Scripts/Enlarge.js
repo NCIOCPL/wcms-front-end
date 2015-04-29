@@ -20,7 +20,11 @@
         var curWidth = window.innerWidth || $(window).width();
 
         if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
-            //Less than the threshold for enlarging.  Don't do anything?
+            //Less than the threshold for enlarging.  Remove the enlarge button if needed
+            if (fig.data('enlargeBtn')) {
+                fig.data('enlargeBtn').remove();
+                fig.data('enlargeBtn', false);
+            }
         } else {
 
             //Set the width of the table to be the same as it would be if the
