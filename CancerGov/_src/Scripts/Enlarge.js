@@ -250,6 +250,7 @@
             enlargeTxt : ($('meta[name="content-language"]').attr('content') == 'es') ? "Ampliar" : "Enlarge",
             collapseTxt : ($('meta[name="content-language"]').attr('content') == 'es') ? "Cerrar" : "Close",
             thresholdForEnlarge : 1024,
+            xlThreshold: 1440, //This is when the browser goes into XL mode and the body is wider.
             dialogLRMargin : 20,
             dialogLRInnerPadding : 16
         }, options);
@@ -285,8 +286,15 @@
             // Store a reference to the wrapper element
             fig.data('scrollWrapper', scrollWrapper);
 
+            //There are two body widths on desktop, 1024-1339 & 1440+.  Some tables will not
+            //fit in the body area for 1024-1339, but will for 1440+. Since we do a lot of table
+            //width changing to make sure text flows correctly when enlarged, we need to store
+            //the original width so that if we are XL then we can remove the enlarges and such
+            fig.data('tblOrigWidth', fig.data('theTable').width());
+
             // Check if the element is wider than its parent and thus needs to be scrollable
             if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
+
                 //It meets our conditions, enlargify the contents
                 enhanceLargeTable(fig, settings);
             }
@@ -339,6 +347,12 @@
 
                     }
                 } else {
+                    if (curWidth >= settings.xlThreshold) {
+                        //This should only be done when we have changed the size of a table
+                        //for enlarging.
+                        fig.data('theTable').width(fig.data('tblOrigWidth'));
+                    }
+
                     if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
                         enhanceLargeTable(fig, settings);
                     } else {
@@ -349,11 +363,11 @@
                         fig.data('scrollWrapper').removeClass('scrollable');
 
                         //Remove Enlarge
-                        if (curWidth < settings.thresholdForEnlarge) {
-                            removeEnlargeButton(fig);
-                        }
+                        removeEnlargeButton(fig);
+
                     }
                 }
+
             });
 
         });
