@@ -50,6 +50,10 @@ div.ebook-cover {
 	background-color: #2a72a5;	
 }
 
+.pub-buttons a.free {
+	background-color: #2DC799;	
+}
+
 .pub-buttons a.icon {
 	padding-left: 11px;
 }
@@ -58,6 +62,11 @@ div.ebook-cover {
 	padding-left: 22px;
 	vertical-align: top;
 	display: inline-block;
+}
+
+.pub-buttons a.icon.free span {
+  width: 66px;
+  line-height: 14px;
 }
 
 .pub-buttons a.icon:before {
@@ -86,6 +95,10 @@ background-position: -20px -510px;
 background-position: -20px -548px;
 }
 
+.pub-buttons a.free.icon:before {
+	background-position: -20px -621px;
+	height: 22px;
+}
 
 
 /* End eBook buttons */
