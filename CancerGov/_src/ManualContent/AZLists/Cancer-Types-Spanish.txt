@@ -376,8 +376,6 @@
 <li><a href="/espanol/tipos/linfoma">No Hodgkin</a></li>
 
 <li><a href="/espanol/tipos/linfoma">Primario del sistema nervioso central (SNC)</a></li>
-
-<li>Sida, linfoma relacionado</li>
 </ul>
 </li>
 </ul>
