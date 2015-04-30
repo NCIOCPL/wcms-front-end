@@ -12,28 +12,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <title></title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/publishedcontent/images/images/design-elements/icons/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/publishedcontent/images/images/design-elements/icons/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/publishedcontent/images/images/design-elements/icons/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/publishedcontent/images/images/design-elements/icons/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/publishedcontent/images/images/design-elements/icons/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/publishedcontent/images/images/design-elements/icons/favicons/manifest.json">
+    <link rel="shortcut icon" href="/publishedcontent/images/images/design-elements/icons/favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Cancer.gov">
+    <meta name="application-name" content="Cancer.gov">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/publishedcontent/images/images/design-elements/icons/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/publishedcontent/images/images/design-elements/icons/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
     <script src="/PublishedContent/js/ie8-polyfills.js"></script>
     <![endif]-->
-	<script type="text/javascript">
-		// Answers Cloud Services Embed Script v1.02
-		// DO NOT MODIFY BELOW THIS LINE *****************************************
-		;(function (g) {
-			var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
-					aex = {
-						"src": "//gateway.answerscloud.com/cancer-gov/production/gateway.min.js",
-						"type": "text/javascript",
-						"async": "true",
-						"data-vendor": "acs",
-						"data-role": "gateway"
-					};
-			for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
-			h.appendChild(am);
-			g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
-		})(window);
-		// DO NOT MODIFY ABOVE THIS LINE *****************************************
-	</script>
+    <script type="text/javascript">
+        // Answers Cloud Services Embed Script v1.02
+        // DO NOT MODIFY BELOW THIS LINE *****************************************
+        ;(function (g) {
+            var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
+                    aex = {
+                        "src": "//gateway.answerscloud.com/cancer-gov/production/gateway.min.js",
+                        "type": "text/javascript",
+                        "async": "true",
+                        "data-vendor": "acs",
+                        "data-role": "gateway"
+                    };
+            for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
+            h.appendChild(am);
+            g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
+        })(window);
+        // DO NOT MODIFY ABOVE THIS LINE *****************************************
+    </script>
 </head>
 
 <body id="Body1" runat="server">
@@ -49,7 +73,7 @@
 <!-- HEADER -->
 <header class="push" role="banner">
     <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server"
-                      CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
+                      CssClass="row" AdditionalSnippetClasses="nci-logo-pages large-12 columns" />
 </header>
 <!-- END HEADER -->
 <!-- Begin Page -->

@@ -309,17 +309,163 @@ jQuery(document).ready(function(jQuery) {
 
 	/*** BEGIN form controls ***/
 	(function($) {
+		$.ui.selectmenu.prototype._buttonEvents.keydown = function( event ) {
+			var preventDefault = true;
+			switch ( event.keyCode ) {
+				case $.ui.keyCode.TAB:
+				case $.ui.keyCode.ESCAPE:
+					this.close( event );
+					preventDefault = false;
+					break;
+				case $.ui.keyCode.ENTER:
+					if ( this.isOpen ) {
+						this._selectFocusedItem( event );
+					}
+					break;
+				case $.ui.keyCode.UP:
+					if ( event.altKey ) {
+						this._toggle( event );
+					} else {
+						this._move( "prev", event );
+					}
+					break;
+				case $.ui.keyCode.DOWN:
+					if ( event.altKey ) {
+						this._toggle( event );
+					} else {
+						this._move( "next", event );
+					}
+					break;
+				case $.ui.keyCode.SPACE:
+					if ( this.isOpen ) {
+						this.menu.trigger( event );
+					} else {
+						this._toggle( event );
+					}
+					break;
+				case $.ui.keyCode.LEFT:
+					this._move( "prev", event );
+					break;
+				case $.ui.keyCode.RIGHT:
+					this._move( "next", event );
+					break;
+				case $.ui.keyCode.HOME:
+				case $.ui.keyCode.PAGE_UP:
+					this._move( "first", event );
+					break;
+				case $.ui.keyCode.END:
+				case $.ui.keyCode.PAGE_DOWN:
+					this._move( "last", event );
+					break;
+				default:
+					this.menu.trigger( event );
+					preventDefault = false;
+			}
+
+			if ( preventDefault ) {
+				event.preventDefault();
+			}
+		};
+		$.ui.menu.prototype._keydown = function( event ) {
+			var match, prev, character, skip,
+				preventDefault = true;
+
+			switch ( event.keyCode ) {
+				case $.ui.keyCode.PAGE_UP:
+					this.previousPage( event );
+					break;
+				case $.ui.keyCode.PAGE_DOWN:
+					this.nextPage( event );
+					break;
+				case $.ui.keyCode.HOME:
+					this._move( "first", "first", event );
+					break;
+				case $.ui.keyCode.END:
+					this._move( "last", "last", event );
+					break;
+				case $.ui.keyCode.UP:
+					this.previous( event );
+					break;
+				case $.ui.keyCode.DOWN:
+					this.next( event );
+					break;
+				case $.ui.keyCode.LEFT:
+					this.collapse( event );
+					break;
+				case $.ui.keyCode.RIGHT:
+					if ( this.active && !this.active.is( ".ui-state-disabled" ) ) {
+						this.expand( event );
+					}
+					break;
+				case $.ui.keyCode.ESCAPE:
+					this.collapse( event );
+					break;
+				case $.ui.keyCode.ENTER:
+					this._activate( event );
+					break;
+				default:
+					preventDefault = false;
+					prev = this.previousFilter || "";
+					character = String.fromCharCode( event.keyCode );
+					skip = false;
+
+					clearTimeout( this.filterTimer );
+
+					if ( character === prev ) {
+						skip = true;
+					} else {
+						character = prev + character;
+					}
+
+					match = this._filterMenuItems( character );
+					match = skip && match.index( this.active.next() ) !== -1 ?
+						this.active.nextAll( ".ui-menu-item" ) :
+						match;
+
+					// If no matches on the current filter, reset to the last character pressed
+					// to move down the menu to the first item that starts with that character
+					if ( !match.length ) {
+						character = String.fromCharCode( event.keyCode );
+						match = this._filterMenuItems( character );
+					}
+
+					if ( match.length ) {
+						this.focus( event, match );
+						this.previousFilter = character;
+						this.filterTimer = this._delay(function() {
+							delete this.previousFilter;
+						}, 1000 );
+					} else {
+						delete this.previousFilter;
+					}
+			}
+
+			if ( preventDefault ) {
+				event.preventDefault();
+			}
+		};
+		$.ui.selectmenu.prototype._setAria = function( item ) {
+			var id = this.menuItems.eq( item.index ).attr( "id" );
+
+			this.button.attr( {
+				"aria-activedescendant": id
+			} );
+			this.menu.attr( "aria-activedescendant", id );
+		};
 		$('select:not([multiple])').each(function() {
 			var $this = $(this);
+
 			$this.selectmenu({
+				create: function(event, ui) {
+					// this sets the label's 'for' attribute to null, assigns it a unqiue id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique ID
+					$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', null).uniqueId().attr('id'));
+				},
 				change: function(event, ui) {
 					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 					ui.item.element.change();
 				},
 				width: $this.hasClass('fullwidth') ? '100%' : null
-			})
-			.selectmenu('menuWidget')
-				.addClass('scrollable-y');
+			}).selectmenu('menuWidget').addClass('scrollable-y');
 		});
 	})(jQuery);
 	/*** END form controls ***/
@@ -339,262 +485,9 @@ jQuery(document).ready(function(jQuery) {
 jQuery(window).on('load', function () {
 	//Table enlarging & scrollbar adding.
 	//This marks all tables as scrollable, but only adds a shadow to the right side if it is scrolling.
-	//Inspired by http://www.456bereastreet.com/archive/201309/responsive_scrollable_tables/ 
+	//Inspired by http://www.456bereastreet.com/archive/201309/responsive_scrollable_tables/
 	(function ($) {
-		//Setup Text 
-		var enlargeTxt = "Enlarge";
-		var collapseTxt = "Close";
-		if ($('meta[name="content-language"]').attr('content') == 'es') {
-			enlargeTxt = "Ampliar";
-			collapseTxt = "Cerrar";
-		}
-		$("#content table").each(function () {
-			var element = $(this);
-			//We want the table to be in a figure tag and for its table caption to be
-			//a figcaption.  If the table is already in a figure, we do not want to do this.
-			if (element.parents('figure').length <= 0) {
-				var fig = $('<figure></figure>');
-				fig.addClass("table");
-				fig.insertBefore(element);
-				element.appendTo(fig);
-				//Get the caption
-				var tcaption = element.find("caption");
-				//If there is table caption, make that the figure caption.
-				if (tcaption) {
-					var fcaption = $('<figcaption></figcaption>');
-					//Add ID, base it on table id if there is one.
-					var table_id = element.attr("id");
-					if (table_id) {
-						fcaption.attr("id", table_id + "_cap");
-					} else {
-						fcaption.attr("id", $.uniqueId()); //Note jQueryUI function
-					}
-					//Add aria-labelledby to table					
-					element.attr("aria-labelledby", fcaption.attr("id"));
-					//Move contents of caption to figcaption and remove old caption
-					fcaption.append(tcaption.contents());
-					tcaption.remove();
-					//Set the title on the table for later use.
-					element.data("caption", fcaption.contents());
-					//Add the caption to the figure - make sure it is first.
-					fig.append(fcaption)
-				}
-				//Add the table to the caption
-				fig.append(element);
-			} else {
-				//Grab fig...
-			}
-			//fig
-			fig.data('enlarge-label', enlargeTxt);
-			fig.data('close-label', collapseTxt);
-			// Create the wrapper element
-			var scrollWrapper = $('<div />', {
-				'class': 'scrollable',
-				'html': '<div />' // The inner div is needed for styling
-			}).insertBefore(element);
-			// Store a reference to the wrapper element
-			element.data('scrollWrapper', scrollWrapper);
-			// Move the scrollable element inside the wrapper element
-			element.appendTo(scrollWrapper.find('div'));
-			// Check if the element is wider than its parent and thus needs to be scrollable
-			if (element.outerWidth() > element.parent().outerWidth()) {
-				element.data('scrollWrapper').addClass('has-scroll');
-				//If greater than 1024
-				var curWidth = window.innerWidth || $(window).width();
-				if (curWidth <= 1024) {
-					//Set the enlarge button as data on the figure for easy retrieval
-					fig.data('enlargeBtn', enlargeButton);
-				} else {
-					//Add Enlarge button before scroll wrapper.
-					var enlargeButton = $('<a/>', {
-						'class': 'article-image-enlarge no-resize',
-						'href': '#',
-						'onclick': 'return false;',
-						'html': fig.data('enlarge-label')
-					}).insertBefore(element.data('scrollWrapper'));
-					//Set the enlarge button as data on the figure for easy retrieval
-					fig.data('enlargeBtn', enlargeButton);
-					// Create the click event on the Enlarge link
-					// -------------------------------------------				
-					enlargeButton.unbind().click(function () {
-						scrollWrapper.removeClass('has-scroll');
-						scrollWrapper.removeClass('scrollable');
-						var fixednav = $('fixedtotop');
-						var theNav = false;
-						if (fixednav && fixednav.length > 0) {
-							theNav = fixednav[0];
-						}
-						fig.dialog({
-							create: function (event, ui) {
-								//Make the window's scrollbars go away
-								//$("body").css({ overflow: 'hidden'});
-								//hide enlarge button
-								if (fig.data('enlargeBtn')) {
-									fig.data('enlargeBtn').hide();
-								}
-								//add close block
-								var closeBlock = $("<div/>", {
-									'class': 'popup-close'
-								});
-								//setup close link
-								var closeLink = $("<a/>", {
-									'href': '#'
-								}).append($("<span/>", {
-									'class': 'hidden',
-									'html': fig.data('close-label')
-								}));
-								//Setup click handler to close the dialog
-								closeLink.click(function () {
-									fig.dialog('close');
-									return false;
-								});
-								closeBlock.append(closeLink);
-								fig.prepend(closeBlock);
-							},
-							beforeClose: function (event, ui) {
-								//Make the window's scrollbars come back
-								//$("body").css({ overflow: 'inherit'});
-								//remove close
-								fig.find(".popup-close").remove();
-								//show enlarge button
-								if (fig.data('enlargeBtn')) {
-									fig.data('enlargeBtn').show();
-								}
-							},
-							width: $(window).width() - 40,
-							height: fig.height(),
-							draggable: false,
-							resizable: false,
-							modal: false,
-							title: '', //No title, we are hiding it anyway...
-							dialogClass: 'table-enlarged',
-							open: function () {
-								$(this).scrollTop(0);
-								//Replace Enlarge?
-							},
-							close: function (event, ui) {
-								//This removes the dialog and puts the contents back where it got it from
-								$(this).dialog('destroy');
-								scrollWrapper.addClass('has-scroll');
-								scrollWrapper.addClass('scrollable');
-							}
-						});
-					});
-				}
-			}
-			// When the viewport size is changed, check again if the element needs to be scrollable
-			$(window).on('resize orientationchange', function () {
-				var curWidth = window.innerWidth || $(window).width();
-				//If popup is open and the curWidth < 1024, close the window
-				if (fig.dialog("instance") != undefined) { //Since we always destroy dialog, instance means exists and open
-					console.log('is open');
-					if (curWidth <= 1024) {
-						//Smaller than desktop breakpoint, close window
-						fig.dialog('close');
-						var enlarge = fig.data('enlargeBtn');
-						if (enlarge) {
-							enlarge.remove();
-							fig.data('enlargeBtn', false);
-						}
-					} else {
-						//If the window is going to be larger than the current available space,
-						//then resize the window
-					}
-				} else {
-					if (element.outerWidth() > element.parent().outerWidth()) {
-						element.data('scrollWrapper').addClass('has-scroll');
-						if (curWidth > 1024 && !fig.data('enlargeBtn')) {
-							//Add Enlarge
-							//Add Enlarge button before scroll wrapper.
-							var enlargeButton = $('<a/>', {
-								'class': 'article-image-enlarge no-resize',
-								'href': '#',
-								'onclick': 'return false;',
-								'html': fig.data('enlarge-label')
-							}).insertBefore(element.data('scrollWrapper'));
-							//Set the enlarge button as data on the figure for easy retrieval
-							fig.data('enlargeBtn', enlargeButton);
-							// Create the click event on the Enlarge link
-							// -------------------------------------------				
-							enlargeButton.unbind().click(function () {
-								scrollWrapper.removeClass('has-scroll');
-								scrollWrapper.removeClass('scrollable');
-								var fixednav = $('fixedtotop');
-								var theNav = false;
-								if (fixednav && fixednav.length > 0) {
-									theNav = fixednav[0];
-								}
-								fig.dialog({
-									create: function (event, ui) {
-										//Make the window's scrollbars go away
-										//$("body").css({ overflow: 'hidden'});
-										//hide enlarge button
-										if (fig.data('enlargeBtn')) {
-											fig.data('enlargeBtn').hide();
-										}
-										//add close block
-										var closeBlock = $("<div/>", {
-											'class': 'popup-close'
-										});
-										//setup close link
-										var closeLink = $("<a/>", {
-											'href': '#'
-										}).append($("<span/>", {
-											'class': 'hidden',
-											'html': fig.data('close-label')
-										}));
-										//Setup click handler to close the dialog
-										closeLink.click(function () {
-											fig.dialog('close');
-											return false;
-										});
-										closeBlock.append(closeLink);
-										fig.prepend(closeBlock);
-									},
-									beforeClose: function (event, ui) {
-										//Make the window's scrollbars come back
-										//$("body").css({ overflow: 'inherit'});
-										//remove close
-										fig.find(".popup-close").remove();
-										//show enlarge button
-										if (fig.data('enlargeBtn')) {
-											fig.data('enlargeBtn').show();
-										}
-									},
-									width: $(window).width() - 40,
-									height: fig.height(),
-									draggable: false,
-									resizable: false,
-									modal: false,
-									title: '', //No title, we are hiding it anyway...
-									dialogClass: 'table-enlarged',
-									open: function () {
-										$(this).scrollTop(0);
-										//Replace Enlarge?
-									},
-									close: function (event, ui) {
-										//This removes the dialog and puts the contents back where it got it from
-										$(this).dialog('destroy');
-										scrollWrapper.addClass('has-scroll');
-										scrollWrapper.addClass('scrollable');
-									}
-								});
-							});
-						}
-					} else {
-						element.data('scrollWrapper').removeClass('has-scroll');
-						//Remove Enlarge
-						if (curWidth < 1024) {
-							var enlarge = fig.data('enlargeBtn');
-							if (enlarge) {
-								enlarge.remove();
-								fig.data('enlargeBtn', false);
-							}
-						}
-					}
-				}
-			});
-		});
+		$("#content table").overflowEnlarge();
 	})(jQuery);
 });
 // END Table Resizing

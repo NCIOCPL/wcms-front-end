@@ -11,18 +11,19 @@ var NCI = NCI || {
         document.getElementById("swKeyword").focus();
     },
     scrollTo: function(anchor) {
+        var width = window.innerWidth || $(window).width();
         if (anchor.indexOf("#") === 0) {
             anchor = anchor.substring(1, anchor.length);
         }
         var isSection = anchor.match(/^section\//i);
         anchor = "#" + anchor.replace(/^.+\//, "").replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, "\\$1");
-        var $anchor = $(anchor), $accordionPanel = $anchor.closest(".ui-accordion-content"), $accordion = $accordionPanel.closest(".ui-accordion"), accordionIndex;
+        var $anchor = $(anchor), $accordionPanel = isSection ? $anchor.children(".ui-accordion-content") : $anchor.closest(".ui-accordion-content"), $accordion = $accordionPanel.closest(".ui-accordion"), accordionIndex;
         if ($accordion.length > 0) {
-            accordionIndex = $accordion.data("ui-accordion").headers.index($accordionPanel.prev());
+            accordionIndex = $accordion.data("ui-accordion").headers.index($accordionPanel.prev(".ui-accordion-header"));
         }
         function doTheScroll() {
             var headerHeight = $(".fixedtotop").outerHeight(), anchorTop = window.scrollY + headerHeight, willFreeze = true;
-            if (isSection && $accordion.length === 0) {
+            if (width > NCI.Breakpoints.large && isSection) {
                 anchorTop = 0;
                 willFreeze = false;
             } else {
@@ -350,7 +351,9 @@ NCI.Buttons.toggle = {
 };
 
 NCI.Nav = {
-    openClass: "openNav",
+    movingClass: "nav-moving",
+    movingTimeout: setTimeout(function() {}),
+    openClass: "nav-open",
     openPanelClass: "open-panel",
     mobile: "#mega-nav > .nav-menu",
     mega: "#mega-nav",
@@ -387,32 +390,56 @@ NCI.Nav = {
     open: function() {
         var n = NCI.Nav;
         if (!n.isOpen()) {
-            $("html").addClass(NCI.Nav.openClass);
-            NCI.Nav.$mobile.attr("aria-hidden", "false");
-            $(".fixedtotop.scroll-to-fixed-fixed").css("left", "80%");
-            $("." + NCI.Nav.openClass + " " + NCI.Nav.mega).offset({
+            clearTimeout(n.movingTimeout);
+            n.$mobile.attr("aria-hidden", "false");
+            $("html").addClass(n.movingClass).addClass(n.openClass);
+            n.$mobile.find(":tabbable:first").focus();
+            n.$mega.offset({
                 top: $(".fixedtotop").offset().top,
                 left: "0px"
             });
+            $(".fixedtotop.scroll-to-fixed-fixed").css("left", "80%");
+            n.movingTimeout = setTimeout(function() {
+                $("html").removeClass(n.movingClass);
+            }, 500);
             $("#page").swipe({
                 swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
                     this.close();
                 }.bind(n),
                 threshold: 10
             });
+            n.$mega.on("focusout.NCI.Nav", function(event) {
+                n.focusOutHandler(event);
+            });
         }
     },
     close: function() {
         var n = NCI.Nav;
         if (n.isOpen()) {
-            $("html").removeClass(n.openClass);
-            $(".fixedtotop.scroll-to-fixed-fixed").css("left", "0px");
+            clearTimeout(n.movingTimeout);
+            n.$mega.off("focusout.NCI.Nav");
             n.$mobile.attr("aria-hidden", "true");
-            setTimeout(function() {
-                this.$mega.removeAttr("style");
-            }.bind(n), 1e3);
+            $("html").addClass(n.movingClass).removeClass(n.openClass);
+            n.$openPanelBtn.focus();
+            $(".fixedtotop.scroll-to-fixed-fixed").css("left", "0px");
+            n.movingTimeout = setTimeout(function() {
+                $("html").removeClass(n.movingClass);
+                n.$mega.removeAttr("style");
+            }, 500);
             $("#page").swipe("destroy");
         }
+    },
+    focusOutHandler: function(event) {
+        var n = NCI.Nav;
+        setTimeout(function() {
+            if (n.$mega.has(document.activeElement).length > 0) {
+                return;
+            }
+            if (window.scrollX > 0) {
+                window.scrollTo(0, window.scrollY);
+            }
+            n.close();
+        }, 0);
     },
     toggleMobileMenu: function() {
         var n = NCI.Nav;
@@ -515,30 +542,62 @@ NCI.PageOptions.FontResizer = {
         return false;
     },
     setCurrentFontSize: function() {
+        $content = $(".resize-content");
         this.currentSize = parseFloat($content.css("font-size"), 10);
     }
 };
 
 NCI.Search = {
     classname: "searching",
+    searchBtnClass: "nav-search",
+    $form: $(),
+    $input: $(),
+    $searchBtn: $(),
     init: function() {
-        $(".nav-search").click(NCI.Search.mobile.show);
+        var s = NCI.Search;
+        s.$form = $("#siteSearchForm");
+        s.$input = $("#swKeyword");
+        s.$searchBtn = $("." + s.searchBtnClass);
+        s.$searchBtn.click(s.mobile.show);
     },
     mobile: {
         clear: function() {
-            $("#swKeyword").val("");
+            NCI.Search.$input.val("");
         },
         show: function(e) {
-            var menu_btn = $(".open-panel"), s = NCI.Search;
+            var s = NCI.Search, n = NCI.Nav;
             $("#nvcgSlMainNav").addClass(s.classname);
-            if (!$("#searchclear").length) {
+            s.$input.focus();
+            if ($("#searchclear").length === 0) {
                 $("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
             }
-            menu_btn.unbind("click").click(NCI.Search.mobile.hide);
+            n.$openPanelBtn.unbind("click").click(s.mobile.hide);
+            $(".mobile-menu-bar").children().not(n.$openPanelBtn).each(function(i, el) {
+                var $el = $(el);
+                $el.data("NCI-search-originaltabindex", el.tabIndex || null);
+                $el.prop("tabindex", -1);
+            });
+            s.$form.add(n.$openPanelBtn).on("focusout.NCI.Search", function(event) {
+                s.mobile.focusOutHandler(event);
+            });
         },
         hide: function(e) {
-            $("#nvcgSlMainNav").removeClass(NCI.Search.classname);
-            NCI.Nav.$openPanelBtn.unbind("click").click(NCI.Nav.open);
+            var s = NCI.Search, n = NCI.Nav;
+            s.$form.add(n.$openPanelBtn).off("focusout.NCI.Search");
+            $(".mobile-menu-bar").children().not(n.$openPanelBtn).each(function(i, el) {
+                var $el = $(el);
+                $el.attr("tabindex", $el.data("NCI-search-originaltabindex"));
+            });
+            s.$searchBtn.focus();
+            $("#nvcgSlMainNav").removeClass(s.classname);
+            n.$openPanelBtn.unbind("click").click(n.toggleMobileMenu);
+        },
+        focusOutHandler: function(event) {
+            var n = NCI.Nav, s = NCI.Search;
+            if (s.$form.has(event.relatedTarget).length > 0 || event.relatedTarget === n.$openPanelBtn.get(0)) {
+                return;
+            }
+            s.mobile.hide();
         }
     }
 };

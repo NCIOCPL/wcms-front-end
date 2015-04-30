@@ -38,6 +38,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 * TODO: make this script work for mobile accordions
 	 *====================================================================================================*/
 	scrollTo: function(anchor) {
+		var width = window.innerWidth || $(window).width();
 		// remove initial hash
 		if(anchor.indexOf('#') === 0) {
 			anchor = anchor.substring(1, anchor.length);
@@ -46,12 +47,12 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
 
 		var $anchor = $(anchor),
-			$accordionPanel = $anchor.closest('.ui-accordion-content'),
+			$accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
 			$accordion = $accordionPanel.closest('.ui-accordion'),
 			accordionIndex;
 
 		if($accordion.length > 0) {
-			accordionIndex = $accordion.data('ui-accordion').headers.index($accordionPanel.prev());
+			accordionIndex = $accordion.data('ui-accordion').headers.index($accordionPanel.prev('.ui-accordion-header'));
 		}
 
 		function doTheScroll() {
@@ -61,7 +62,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				willFreeze = true;
 
 			// PDQ CIS
-			if(isSection && $accordion.length === 0) {
+			if(width > NCI.Breakpoints.large && isSection) {
 				anchorTop = 0;
 				willFreeze = false;
 			} else {

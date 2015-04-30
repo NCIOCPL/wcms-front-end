@@ -22,6 +22,7 @@ NCI.PageOptions.FontResizer = {
         return false; //technically unnecessary to return false.
     },
     setCurrentFontSize: function() {
+        $content = $(".resize-content");
         this.currentSize = parseFloat($content.css("font-size"), 10);
     }
 };
