@@ -48,15 +48,15 @@
 <ul class="cancer-list">
 <li><a href="/espanol/tipos/vesicula-biliar">Biliar, vesícula</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Blastoma pleuropulmonar infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Blastoma pleuropulmonar infantil</a></li>
 
 <li><a href="/espanol/tipos/cabeza-cuello">Boca</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Bronquiales, tumores, infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Bronquiales, tumores, infantil</a></li>
 
 <li><a href="/espanol/tipos/linfoma">Burkitt, linfoma de - ver Linfoma no Hodgkin</a></li>
 </ul>
@@ -66,26 +66,26 @@
 <ul class="cancer-list">
 <li><a href="/espanol/tipos/cabeza-cuello">Cabeza y cuello</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
 <li><a href="/espanol/tipos/cabeza-cuello">Cáncer escamoso metastásico de cuello con tumor primario oculto</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Cánceres poco comunes en la niñez</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Cánceres poco comunes en la niñez</a></li>
 
 <li>Carcinoide, tumor
 
 <ul>
 <li><a href="/espanol/tipos/tumores-carcinoides-gi">Gastrointestinal</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
 <li><a href="/espanol/tipos/piel">Carcinoma de células basales - ver Cáncer de piel (no melanoma)</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -93,15 +93,15 @@
 
 <li><a href="/espanol/tipos/piel">Carcinoma de células escamosas - ver Cáncer de piel (no melanoma)</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Carcinoma de estructuras de la línea media con cambios en el gen NUT</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Carcinoma de estructuras de la línea media con cambios en el gen NUT</a></li>
 
 <li><a href="/espanol/tipos/suprarrenal">Carcinoma de corteza suprarrenal</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -109,7 +109,7 @@
 
 <li><a href="/espanol/tipos/primario-desconocido">Carcinoma de tumor primario desconocido</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -175,7 +175,7 @@
 
 <a href="/espanol/tipos/cuello-uterino">Cérvix (cuello uterino)</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -183,17 +183,17 @@
 
 <li><a href="/espanol/tipos/colorrectal">Colorrectal</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Corazón, tumores, infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Corazón, tumores, infantil</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Cordoma, infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Cordoma, infantil</a></li>
 
 <li><a href="/espanol/tipos/suprarrenal">Corteza suprarrenal</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -203,7 +203,7 @@
 
 <li><a href="/espanol/tipos/cuello-uterino">Cuello del útero o uterino</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 </ul>
@@ -221,21 +221,21 @@
 
 <li><a href="/espanol/tipos/esofago">Esófago</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Estesioneuroblastoma infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Estesioneuroblastoma infantil</a></li>
 
 <li><a href="/espanol/tipos/estomago">Estómago (gástrico)</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
 <li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Estroma gastrointestinal</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -253,7 +253,7 @@
 
 <li><a href="/espanol/tipos/feocromocitoma">Feocromocitoma y paraganglioma</a>
 <ul>
-<li><a href="http://www.cancer.gov/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="http://www.cancer.gov/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 </ul>
@@ -265,7 +265,7 @@
 
 <li><a href="/espanol/tipos/estomago">Gástrico (estómago)</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -282,7 +282,7 @@
 
 <li><a href="/espanol/tipos/cabeza-cuello">Glándula salival</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -346,7 +346,7 @@
 
 <li><a href="/espanol/tipos/cabeza-cuello">Laringe</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -387,7 +387,7 @@
 <ul>
 <li><a href="/espanol/tipos/seno">Embarazo y cáncer de seno (mama)</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 
 <li><a href="/espanol/tipos/seno">Masculino</a></li>
 </ul>
@@ -395,7 +395,7 @@
 
 <li><a href="/espanol/tipos/piel">Melanoma</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 
 <li><a href="/espanol/tipos/ojo">Ocular uveal</a></li>
 </ul>
@@ -405,7 +405,7 @@
 
 <li><a href="/espanol/tipos/mesotelioma">Mesotelioma maligno</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -425,11 +425,11 @@
 
 <li><a href="/espanol/tipos/cabeza-cuello">Nasofaringe</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Neoplasia endocrina múltiple (NEM) infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Neoplasia endocrina múltiple (NEM) infantil</a></li>
 
 <li><a href="/espanol/tipos/mieloma-multiple">Neoplasias de células plasmáticas y mieloma multiple</a></li>
 
@@ -441,7 +441,7 @@
 
 <li><a href="/espanol/tipos/pancreas">Neuroendocrinos del páncreas (células de los islotes), tumores</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Niñez, cánceres poco comunes de la</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Niñez, cánceres poco comunes de la</a></li>
 
 <li><a href="/espanol/tipos/linfoma">No Hodgkin, linfoma</a></li>
 </ul>
@@ -460,7 +460,7 @@
 
 <li><a href="/espanol/tipos/cabeza-cuello">Oral</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 
 <li><a href="/espanol/tipos/cabeza-cuello">Labio y cavidad oral</a></li>
 </ul>
@@ -478,7 +478,7 @@
 
 <li><a href="/espanol/tipos/ovario">Epitelial, cáncer</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 </ul>
@@ -490,15 +490,15 @@
 <ul>
 <li><a href="/espanol/tipos/pancreas">Células de los islotes, tumores de</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Papilomatosis infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Papilomatosis infantil</a></li>
 
 <li><a href="/espanol/tipos/feocromocitoma">Paraganglioma</a>
 <ul>
-<li><a href="http://www.cancer.gov/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="http://www.cancer.gov/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -512,7 +512,7 @@
 <ul>
 <li><a href="/espanol/tipos/piel">Células de Merkel</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 
 <li><a href="/espanol/tipos/piel">Melanoma</a></li>
 
@@ -524,7 +524,7 @@
 
 <li><a href="/espanol/tipos/primario-desconocido">Primario desconocido, carcinoma de tumor</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -536,7 +536,7 @@
 
 <li><a href="/espanol/tipos/pulmon">Células pequeñas</a></li>
 
-<li><a href="http://www.cancer.gov/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="http://www.cancer.gov/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 </ul>
@@ -589,7 +589,7 @@
 <ul>
 <li><a href="/espanol/tipos/seno">Embarazo y cáncer de seno (mama)</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 
 <li><a href="/espanol/tipos/seno">Masculino</a></li>
 </ul>
@@ -604,7 +604,7 @@
 <ul>
 <li><a href="/espanol/tipos/mieloproliferativas">Mielodisplásicos</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Neoplasia endocrina múltiple (NEM) infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Neoplasia endocrina múltiple (NEM) infantil</a></li>
 
 <li><a href="/espanol/tipos/linfoma">Sézary</a></li>
 </ul>
@@ -625,7 +625,7 @@
 
 <li><a href="/espanol/tipos/primario-desconocido">Sitio primario desconocido, carcinoma de</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 </ul>
@@ -637,19 +637,19 @@
 
 <li><a href="/espanol/tipos/testiculo">Testículo</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
 <li><a href="/espanol/tipos/timoma">Timoma y carcinoma tímico</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
 <li><a href="/espanol/tipos/tiroides">Tiroides</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -658,7 +658,7 @@
 <ul>
 <li><a href="/espanol/tipos/tumores-carcinoides-gi">Gastrointestinal</a></li>
 
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -703,7 +703,7 @@
 
 <li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Tumor del estroma gastrointestinal</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
@@ -748,13 +748,13 @@
 <ul class="cancer-list">
 <li><a href="/espanol/tipos/vagina">Vagina</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
 <li><a href="/espanol/tipos/vejiga">Vejiga</a>
 <ul>
-<li><a href="/espanol/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
+<li><a href="/espanol/tipos/infantil/paciente/canceres-infantiles-poco-comunes-pdq">Infantil</a></li>
 </ul>
 </li>
 
