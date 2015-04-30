@@ -334,7 +334,7 @@
 <h3 id="k" tabindex="0">K</h3>
 
 <ul class="cancer-list">
-<li>Kaposi, sarcoma de</li>
+<li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Kaposi, sarcoma de</a></li>
 </ul>
 
 <h3 id="l" tabindex="0">L</h3>
@@ -573,7 +573,7 @@
 <ul>
 <li><a href="/espanol/tipos/hueso">Ewing</a></li>
 
-<li>Kaposi</li>
+<li><a href="/espanol/tipos/sarcoma-de-tejido-blando">Kaposi</a></li>
 
 <li><a href="/espanol/tipos/hueso">Osteosarcoma e histiocitoma fibroso maligno óseo</a></li>
 
@@ -598,8 +598,6 @@
 <li><a href="/espanol/tipos/cabeza-cuello">Seno paranasal y de cavidad nasal</a></li>
 
 <li><a href="/espanol/tipos/linfoma">Sézary, síndrome de</a></li>
-
-<li>Sida, cánceres relacionados</li>
 
 <li>Síndrome
 
