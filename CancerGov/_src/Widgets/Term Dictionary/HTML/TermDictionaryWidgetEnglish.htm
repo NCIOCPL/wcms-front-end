@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="content-language" content="en" />
+<title>NCI Dictionary of Cancer Terms</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+<script src="/PublishedContent/js/jquery-ui-1.8.5.custom.min.js" type="text/javascript"></script>
+
+<script src="/PublishedContent/js/TermDictionaryWidgetInnards.js" type="text/javascript"></script> 
+<link href="/PublishedContent/Styles/widget.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+<div id="container">
+	<div class="header">
+	  <!-- <h1 class="title">NCI Dictionary of Cancer Terms</h1> -->
+	  <img src="/PublishedContent/images/images/nci-logo.jpg" alt="National Cancer Institute Dictionary of Cancer Terms">
+	</div>
+    
+    <div id="form" class="content">
+		<div id="searchBlock">
+		<table>
+			<tr>
+				<td><label class="hidden" for="search">Search</label><input type="text" onkeypress="doSearch(event)" id="search" name="search" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></td>
+				<td><label class="hidden" for="Go">Go</label><input type="submit" onclick="doSearch(null)" value="Go" id="Go" name="Go"></td>
+			</tr>
+		</table>
+        </div>
+        <div id="output">
+        Find easy-to-understand definitions of terms related to cancer and medicine.
+        </div>
+    </div>
+    
+    <div class="footer"><a href="http://www.cancer.gov" target="_blank">www.cancer.gov</a>
+     | <a href="#" onclick="$('#disclaimer').css({'visibility':'visible'});">Disclaimer</a></div>
+</div>
+<div id="disclaimer" >
+<p>This widget provides content from the National Cancer Institute (NCI) and is made available as a public service. The use of the widget on a non-NCI website does not indicate endorsement or approval of the website by the NCI.</p> 
+<input type="button" value="Hide" class="close" onclick="$('#disclaimer').css({'visibility':'hidden'});" />
+</div>
+
+<script type="text/javascript">
+<!--
+
+var s_account='nciglobal, ncienglish-all, ncincidictionary'
+
+--></script>
+<script type="text/javascript" src="http://www.cancer.gov/JS/Omniture/s_code.js"></script>
+<script type="text/javascript"><!--
+var s=s_gi(s_account);
+s.linkTrackVars='channel,prop47,prop48,prop51';
+s.channel='Dictionary Widget';
+s.prop47='dictionary widget';
+
+var parentInfo = window.location.href.match(/^[^#]+#([^?]*)\??(.*)/);
+if (parentInfo != null)
+{
+	s.prop48=parentInfo[2] + '_widget dictionary';
+	s.prop51=parentInfo[1];
+}
+
+s.tl(null,'o','Dictionary Widget - English');
+
+var NCIAnalytics = {
+	SiteSearch : function(sender, value) {
+		var s=s_gi(s_account); 
+		s.linkTrackVars='channel,prop11,prop22,events'; 
+		s.linkTrackEvents='event2';
+		s.prop11='widget_dictionary';
+		s.prop22=value;
+		s.channel='Dictionary Widget';
+		s.events='event2';
+		s.tl(this,'o','Dictionary Widget Search - English');
+	}
+};
+
+-->
+</script>
+
+</body>
+</html>
