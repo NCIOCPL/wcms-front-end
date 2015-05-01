@@ -7,7 +7,9 @@
 -->
 <!--(bake-end)-->
 
-<!--(bake TemplateIntro.inc template_name="{{template_name}}")-->
+<!--(bake TemplateIntro.inc template_name="{{template_name}}" skipto_id="content")-->
+<!-- Begin MAIN CONTENT AREA -->
+<div class="main-content" id="content" tabindex="0">
 
 <!--(bake PublicArchiveBanner.inc)-->
 
@@ -31,4 +33,5 @@
 <NCI:TemplateSlot ID="nvcgSlBodyLayout" runat="server" CssClass="nvcgSlBodyLayout" />
 <!-- END CARD CONTAINER -->
 
+</div> <!-- End MAIN CONTENT AREA -->
 <!--(bake TemplateEnding.inc)-->

@@ -16,23 +16,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <title></title>
+
+    <!--(bake Favicons.inc)-->
+
     <!-- IE8 Polyfills -->
     <!--[if lt IE 9]>
     <script src="/PublishedContent/js/ie8-polyfills.js"></script>
-    <script src="/PublishedContent/js/respond.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        // Answers Cloud Services Embed Script v1.02
+        // DO NOT MODIFY BELOW THIS LINE *****************************************
+        ;(function (g) {
+            var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
+                    aex = {
+                        "src": "//gateway.answerscloud.com/cancer-gov/production/gateway.min.js",
+                        "type": "text/javascript",
+                        "async": "true",
+                        "data-vendor": "acs",
+                        "data-role": "gateway"
+                    };
+            for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
+            h.appendChild(am);
+            g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
+        })(window);
+        // DO NOT MODIFY ABOVE THIS LINE *****************************************
+    </script>
 </head>
 
 <body id="Body1" runat="server">
-<div class="skip"><a title="Skip to content" href="#content">Skip to content</a></div>
+    <!--[if lt IE 9]>
+    <script src="/PublishedContent/js/respond.js"></script>
+    <![endif]-->
+<div class="skip"><a title="Skip to content" href="#<!--(bake-start _if="skipto_id")-->{{skipto_id}}<!--(bake-end)--><!--(bake-start _if="!skipto_id")-->content<!--(bake-end)-->">Skip to content</a></div>
 <!-- NOTIFICATION AREA -->
-<NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" />
+<NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" CssClass="notification-banner" />
+<NCI:TemplateSlot ID="nvcgColo" runat="server"  CssClass="notification-banner" />
 <!-- END NOTIFICATION AREA -->
 
 <!-- HEADER -->
 <header class="push" role="banner">
     <NCI:TemplateSlot ID="nvcgSlSiteBanner" runat="server"
-                      CssClass="row" AdditionalSnippetClasses="nci-logo large-12 small-centered columns" />
+                      CssClass="row" AdditionalSnippetClasses="nci-logo-pages large-12 columns" />
 </header>
 <!-- END HEADER -->
 <!-- Begin Page -->
@@ -127,11 +151,5 @@
         <div class="nav-search-bar gradient header"><NCI:TemplateSlot ID="nvcgSlMainNav" runat="server" CssClass="row" /></div>
         <!-- End nav-search bar -->
 
-        <!-- Begin section menu clicker (on mobile) -->
-        <div></div>
-        <!-- End section menu clicker (on mobile) -->
         <!-- END NAVIGATION -->
     </div><!-- END Global nav/utility bar/language -->
-
-    <!-- Begin MAIN CONTENT AREA -->
-    <div class="main-content" id="content" tabindex="0">
