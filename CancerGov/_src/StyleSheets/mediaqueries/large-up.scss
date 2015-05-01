@@ -1,0 +1,300 @@
+/* *************************************************************************/
+/* LARGE AND UP */
+/* We created this medium breakpoint so that items could stack on tablet devices */
+/* *************************************************************************/
+@media only screen and (min-width: 1025px) {
+
+    /* large screen styles for TOC */
+    #my-toc {
+        margin: 10px 0 0 10px;
+    }
+
+    /*** BEGIN Megamenus/Search Styles ***/
+    /* hide mobile nav */
+    #mega-nav .mobile-item, .mobile-menu-bar {
+        display: none;
+    }
+    /*** END Megamenus/Search styles ***/
+
+    /*** BEGIN desktop section nav ("left nav") styles ***/
+    .general-page-body-container .local-navigation {
+        margin-top: 1.3em;
+        padding-left: 0;
+        padding-right: 38px;
+    }
+
+    /* remove default margin to butt menu up against container */
+    .section-nav,
+    .section-nav ul,
+    .section-nav ul li {
+        margin-left: 0;
+    }
+
+    .section-nav div {
+        position: relative;
+        font-size: 0.875em;
+        line-height: 1.2;
+        padding-top: 0.625em;
+        padding-bottom: 0.625em;
+    }
+    .section-nav .contains-current > div {
+        font-weight: bold;
+    }
+    .section-nav .current-page:after {
+        left: 100%;
+        top: 50%;
+        border: dotted transparent;
+        border-left-color: #009b9d;
+        border-left-style: solid;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-width: 12px;
+        margin-top: -12px;
+    }
+    .section-nav .current-page + ul {
+        display: block !important; /* TODO: FIX THIS (JAVASCRIPT) */
+    }
+    .section-nav .current-page > .toggle {
+        display: none;
+    }
+    .section-nav div > a {
+        display: inline-block;
+        color: #606060;
+        margin-left: 20px;
+        margin-right: 45px;
+    }
+    .section-nav div.current-page > a {
+        color: white;
+        font-weight: bold;
+    }
+
+    /** BEGIN button styling **/
+    .section-nav .toggle {
+        color: #454545;
+        font-size: 1.25em;
+        font-weight: bold;
+        height: 1em;
+        width: 1em;
+        top: 50%;
+        right: 4%;
+        position: absolute;
+        margin-top: -0.625em;
+    }
+    .section-nav .toggle[aria-expanded="false"]:after {
+        content: "+";
+    }
+    .section-nav .toggle[aria-expanded="true"]:after {
+        content: "\2212"; /* "2212" is Unicode for the minus sign */
+        color: #009b9d;
+    }
+    /** END button stylign **/
+
+    /** BEGIN level-by-level styling **/
+    /* level 0 */
+    .section-nav .level-0 > div {
+        font-size: 1.125em;
+        font-weight: bold;
+        padding-top: 0.625em;
+        padding-bottom: 0.625em;
+        background-color: #0A6E89;
+    }
+    .section-nav .level-0 > div > a {
+        color: #FFFFFF;
+    }
+
+    /* level 1 */
+    .section-nav .level-1 {
+        border-top: 1px solid #d5d5d2;
+    }
+    .section-nav .level-1 > div > a {
+        text-transform: uppercase;
+    }
+    .section-nav .level-1.contains-current {
+        background-color: #eeedf4;
+    }
+    .section-nav .level-1 > ul {
+        margin-left: 2.0625em;
+    }
+
+    /* level 2 */
+    .section-nav .level-2 div > a {
+        margin-left: 7px;
+    }
+    .section-nav .level-2 > ul {
+        margin-left: 0.875em;
+    }
+    /** END level-by-level styling **/
+
+    /* this rule to be below the level-by-level styles */
+    .section-nav div.current-page {
+        background: #009b9d;
+    }
+
+    /* hide section menu clicker on desktop */
+    #section-menu-button {
+        display: none;
+    }
+    /*** END desktop section nav ("left nav") styles ***/
+
+
+    /* equal height cards for desktop, visually push a div to the bottom of it's container */
+    .equalheight {
+        overflow: hidden;
+    }
+    .equalheight .push-to-bottom-desktop {
+        height: 100%;
+    }
+
+    .cthp-title {
+        margin: 0;
+    }
+
+    .row.hero-slot {
+        max-width: 1350px;
+    }
+    .row .gutter {
+        width: 31%;
+        margin-left: 3.5%;
+    }
+    .row .gutter:first-child {
+        width: 31%;
+        margin-left: 0;
+    }
+    .nvcgSlLayoutGuideB .card:first-child {
+        margin-left: 3.5%;
+    }
+    /* MegaMenu styles for side exits */
+    nav .sub-nav-group-wrapper {
+        max-width: 70em;
+    }
+    nav .sub-nav-group-subwrapper {
+        max-width: 62.5em;
+        margin: 0 auto;
+    }
+    /*CAROUSEL STYLES*/
+    /* desktop arrows */
+    .arrows-for-other-nci-sites .next {
+        background: transparent url($buttons + "blue-arrow-right.png") no-repeat 0 0;
+    }
+    .arrows-for-other-nci-sites .next:hover, .arrows-for-other-nci-sites .next:focus {
+        background: transparent url($buttons + "red-arrow-right.png") no-repeat 0 0;
+    }
+    .arrows-for-other-nci-sites .previous {
+        background: transparent url($buttons + "blue-arrow-left.png") no-repeat 0 0;
+    }
+    .arrows-for-other-nci-sites .previous:hover, .arrows-for-other-nci-sites .previous:focus {
+        background: transparent url($buttons + "red-arrow-left.png") no-repeat 0 0;
+    }
+    /* spacing */
+    .slick-slide .container {
+        margin: 0 11px;
+    }
+    /** BEGIN PDQ Styles **/
+    section.hide, div.hide {
+        display: none;
+    }
+    section.show, div.show {
+        display: block;
+    }
+    /** END PDQ Styles **/
+
+    .medium-1 {
+        position: relative;
+        width: 8.33333%;
+    }
+    .medium-2 {
+        position: relative;
+        width: 16.66667%;
+    }
+    .medium-3 {
+        position: relative;
+        width: 25%;
+    }
+    .medium-4 {
+        position: relative;
+        width: 33.33333%;
+    }
+    .medium-5 {
+        position: relative;
+        width: 41.66667%;
+    }
+    .medium-6 {
+        position: relative;
+        width: 50%;
+    }
+    .medium-7 {
+        position: relative;
+        width: 58.33333%;
+    }
+    .medium-8 {
+        position: relative;
+        width: 66.66667%;
+    }
+    .medium-9 {
+        position: relative;
+        width: 75%;
+    }
+    .medium-10 {
+        position: relative;
+        width: 83.33333%;
+    }
+    .medium-11 {
+        position: relative;
+        width: 91.66667%;
+    }
+    .medium-12 {
+        position: relative;
+        width: 100%;
+    }
+    .row .medium-offset-0 {
+        position: relative;
+        margin-left: 0%;
+    }
+    .row .medium-offset-1 {
+        position: relative;
+        margin-left: 8.33333%;
+    }
+    .row .medium-offset-2 {
+        position: relative;
+        margin-left: 16.66667%;
+    }
+    .row .medium-offset-3 {
+        position: relative;
+        margin-left: 25%;
+    }
+    .row .medium-offset-4 {
+        position: relative;
+        margin-left: 33.33333%;
+    }
+    .row .medium-offset-5 {
+        position: relative;
+        margin-left: 41.66667%;
+    }
+    .row .medium-offset-6 {
+        position: relative;
+        margin-left: 50%;
+    }
+    .row .medium-offset-7 {
+        position: relative;
+        margin-left: 58.33333%;
+    }
+    .row .medium-offset-8 {
+        position: relative;
+        margin-left: 66.66667%;
+    }
+    .row .medium-offset-9 {
+        position: relative;
+        margin-left: 75%;
+    }
+    .row .medium-offset-10 {
+        position: relative;
+        margin-left: 83.33333%;
+    }
+    .row .medium-offset-11 {
+        position: relative;
+        margin-left: 91.66667%;
+    }
+}

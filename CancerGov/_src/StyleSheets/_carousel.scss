@@ -1,0 +1,89 @@
+/* ***************** BEGIN CAROUSEL ***************** */
+
+.slick-slide .container {
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-color: #fff;
+    position: relative;
+    height: 14.25em;
+    display: block;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+.carousel-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.arrows-for-other-nci-sites {
+    // These are the arrows for the carousel
+    // TODO: rename this class to something shorter and more semantic.
+    text-align: right;
+    padding-right: 11px;
+
+    div {
+        display: inline;
+    }
+
+    button {
+        padding: 0;
+        border: 0;
+        height: 56px;
+        width: 56px;
+        background-color: transparent;
+        cursor: pointer;
+        display: inline;
+    }
+}
+
+.site-name {
+    font-size: 1.5em;
+    font-family: Montserrat;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px;
+    margin: 0;
+    line-height: normal;
+}
+
+.site-link {
+    display: block;
+    width: 100%;
+    background: #403e3f url($buttons + "carousel-link-arrow.png") no-repeat 95% 50%;
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+}
+
+.spotlight-on-scientists {
+    .slick-track, .slick-list {
+        height: 15em;
+    }
+}
+
+.other-nci-sites {
+    .slick-slide .container {
+        height: 16.25em;
+    }
+}
+
+/* various patterned background images for slides */
+@mixin nci-bg-pattern($color, $shape) {
+    .#{$color}-#{$shape} {
+        background-image: url($backgrounds + $color + "-" + $shape + ".jpg");
+    }
+}
+@include nci-bg-pattern("blue","circles");
+@include nci-bg-pattern("purple","triangles");
+@include nci-bg-pattern("blue","triangles");
+@include nci-bg-pattern("green","plaid");
+/* End background patterns */
+
+
+/****************** END CAROUSEL STYLES ******************/
