@@ -1,0 +1,50 @@
+/********** BEGIN News Page Styles ******************************************/
+a.arrow-link.news-footer {
+	display: inline;
+}
+
+.news-share {
+	margin-bottom: 10px;
+
+	a:before {
+		background: url($icons + "nci-sprite.png") no-repeat 0 0;
+		content: " ";
+		display: inline-block;
+		width: 19px;
+		height: 21px;
+		margin-right: 0.25em;
+	}
+
+	a.news-twitter:before {
+		background-position: -16px -201px;
+		height: 16px;
+	}
+
+	a.news-youtube:before {
+		background-position: -19px -336px;
+		height: 21px;
+	}
+
+	a.news-rss:before {
+		background-position: -20px -381px;
+		height: 16px;
+	}
+}
+
+.news .card {
+	padding-top: 0em;
+}
+
+@media only screen and (min-width: 641px) {
+	.news .large-8.gutter {
+		width: 66%;
+	}
+
+	.news .card {
+		margin-bottom: 1em;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+	}
+}
+
+/********** END News Page Styles ******************************************/

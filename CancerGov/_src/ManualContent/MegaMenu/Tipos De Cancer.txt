@@ -1,1 +1,33 @@
-<div class="sub-nav-group-wrapper"> <div class="sub-nav-group-subwrapper"> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Tipos comunes de cáncer</a> <ul> <li><a href="#" >Cáncer de vejiga</a></li> <li><a href="#" >Cáncer de seno (mama)</a></li> <li><a href="#" >Cáncer de colon y recto</a></li> <li><a href="#" >Cáncer de endometrio</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li> <ul> <li><a href="#" >Cáncer de riñón (células renales)</a></li> <li><a href="#" >Leucemia</a></li> <li><a href="#">Cáncer de pulmón</a></li> <li><a href="#" >Melanoma</a></li> </ul> </li> </ul> <ul class="sub-nav-group cancer-types-border-container"> <li> <ul> <li><a href="#" >Linfoma no Hodgkin</a></li> <li><a href="#" >Cáncer de páncreas</a></li> <li><a href="#" >Cáncer de próstata</a></li> <li><a href="#" >Cáncer de tiroides</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Todos los tipos de cáncer</a> <ul> <li><a href="#">Lista por tipos de cáncer</a></li> <li><a href="#">Cáncer según su ubicación en el cuerpo</a></li> <li><a href="#">Cáncer infantil</a></li> <li><a href="#">Cáncer en adolescentes y adultos jóvenes</a></li> </ul> </li> </ul> </div> </div>
+<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+<ul class="sub-nav-group cancer-types-border-container">
+<li><a href="/espanol/tipos/comunes-general" class="sub-nav-group-header">Tipos comunes de cáncer</a>
+<ul>
+<li><a href="/espanol/tipos/vejiga">Cáncer de vejiga</a></li>
+<li><a href="/espanol/tipos/seno">Cáncer de seno (mama)</a></li>
+<li><a href="/espanol/tipos/colorrectal">Cáncer de colon y recto</a></li>
+<li><a href="/espanol/tipos/uterino">Cáncer de endometrio</a></li>
+</ul>
+<ul>
+<li><a href="/espanol/tipos/rinon">Cáncer de riñón (células renales)</a></li>
+<li><a href="/espanol/tipos/leucemia">Leucemia</a></li>
+<li><a href="/espanol/tipos/pulmon">Cáncer de pulmón</a></li>
+<li><a href="/espanol/tipos/piel">Cáncer de Piel</a></li>
+</ul>
+<ul>
+<li><a href="/espanol/tipos/linfoma">Linfoma no Hodgkin</a></li>
+<li><a href="/espanol/tipos/pancreas">Cáncer de páncreas</a></li>
+<li><a href="/espanol/tipos/prostata">Cáncer de próstata</a></li>
+<li><a href="/espanol/tipos/tiroides">Cáncer de tiroides</a></li>
+</ul>
+</li>
+</ul>
+<ul class="sub-nav-group">
+<li><a href="/espanol/tipos" class="sub-nav-group-header">Todos los tipos de cáncer</a>
+<ul>
+<li><a href="/espanol/tipos">Lista por tipos de cáncer</a></li>
+<li><a href="/espanol/tipos/por-partes-cuerpo">Cáncer según su ubicación en el cuerpo</a></li>
+<li><a href="/espanol/tipos/infantil">Cáncer infantil</a></li>
+</ul>
+</li>
+</ul>
+</div></div>

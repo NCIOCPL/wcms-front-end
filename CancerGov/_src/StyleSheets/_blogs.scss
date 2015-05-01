@@ -1,40 +1,56 @@
 /********** BEGIN Blogs Styles ******************************************/
+/*Begin Blog Subscribe Button CSS*/
+.subscribeRSS {
+	margin-bottom: 10px;
+}
+
+.subscribeRSS a.blogRSS:before {
+	content: " ";
+	background: url($icons + "nci-sprite.png") no-repeat -14px -377px;
+	width: 22px;
+	height: 21px;
+	display: inline-block;
+}
+
+.subscribeRSS a.blogRSS span {
+	padding-left: 5px;
+	display: inline-block;
+}
+/*End Blog Subscribe Button CSS*/
+
+
 /*Begin Blog Content CSS*/
 .blog-post-publishing-info {
-	font-size:12px;
+	font-size: 12px;
 }
 p.blog-post-publishing-info {
-	margin-top:0;
+	margin-top: 0;
+}
+.blog.body-banner:before {
+	@include call-to-action-corner();
+	content: "Blog";
 }
 .blog-post {
 	border-top: 1px solid #bdbdbd;
 	padding-top: 16px;
-}
-.blog-post:first-child {
-	border-top: none;
-	margin-top: 0;
-	padding-top: 0;
-}
-.blog-post .post-thumb {
-
-}
-.blog-post .post-thumb img {
-	max-width: 100%;
-}
-/* If there is a thumbnail, then set the width to not be 100% */
-.blog-post .post-thumb + .post-info {
-
-}
-.blog-post .post-info .post-title > a {
-	display: block;
-	float: right;
-}
-.blog-post h3 {
-	margin: 0;
-	width: 70%;
-	float: left;
-}
-.blog-post {
+	
+	&:first-child {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+	}
+	h3 {
+		margin: 0;
+		width: 70%;
+		float: left;
+	}
+	.post-info .post-title > a {
+		display: block;
+		float: right;
+	}
+	.post-thumb img {
+		max-width: 100%;
+	}
 }
 .blog-list {
 	margin-top: 24px;
@@ -42,19 +58,30 @@ p.blog-post-publishing-info {
 .blog-pager {
 	border-top: 1px solid #bdbdbd;
 	padding-top: 24px;
+
+	a {
+		display: block;
+
+		&.newer {
+			float: right;
+		}
+		&.older {
+			float: left;
+		}
+	}
 }
-.blog-pager a {
-	display: block;
-}
-.blog-pager a.newer {
-	float: right;
-}
-.blog-pager a.older {
-	float: left;
-}
-.post-title h3 a {
-	color: #333333;
-	text-decoration: none;
+.post-title {
+	> h3 {
+		font-weight: normal;
+	}
+	a {
+		text-decoration: none;
+
+		&:hover, &:focus {
+			text-decoration: none;
+			color: $lcranberry;
+		}
+	}
 }
 a.comment-count {
 	background: url($icons + "comment-icon.png") no-repeat;
@@ -65,25 +92,18 @@ a.comment-count {
 	padding-top: 10px;
 }
 .blog-post-older {
-	float:left;
-	width:30%;
+	float: left;
+	width: 30%;
 }
 .blog-post-newer {
 	width: 30%;
-	text-align:right;
-	float:right;
+	text-align: right;
+	float: right;
 }
-.blog-post-older p {
-	margin-top:0;
-}
+.blog-post-older p,
 .blog-post-newer p {
-	margin-top:0;
+	margin-top: 0;
 }
 /*end Blog Content CSS*/
-
-
-
-
-
 
 /********** END Blogs Styles ******************************************/

@@ -1,0 +1,20 @@
+<div class="error-page">
+<div class="row">
+<div class="large-12 columns">
+<h1>Errors Occured</h1>
+<p>
+Unexpected errors occurred. Our technicians have been notified and are working to correct the situation.
+</p>
+</div>
+</div>
+<div class="spanish-error">
+<div class="row">
+<div class="large-12 columns">
+<h1>Error</h1>
+<p>
+Ocurrieron errores inesperados. Nuestros técnicos ya fueron notificados y están tratando de corregir el problema.
+</p>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,355 @@
+/********************* BEGIN General Styles ******************************************/
+
+body {
+	line-height: 1.375em;
+	/* word-wrap: break-word; */
+	/* done to let long words that are bigger than container wrap within the word */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	p {
+		font-weight: inherit;
+	}
+}
+.section-nav {
+	@include font-montserrat;
+}
+h1 {
+	line-height: 1.1em;
+	font-size: 2em;
+}
+h2 {
+	line-height: 1.215em;
+	font-size: 1.75em;
+}
+h3 {
+	line-height: 1.25em;
+	font-size: 1.5em;
+}
+h4 {
+	line-height: 1.333em;
+	font-size: 1.25em;
+}
+h5 {
+	line-height: 1.333em;
+	font-size: 1.125;
+}
+h6 {
+	line-height: 1.125em;
+	font-size: 1em;
+}
+p {
+	margin: 0.5em 0;
+	line-height: 1.5em;
+	font-size: inherit;
+}
+table caption {
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+	padding: 20px 0 10px;
+	/* using padding instead of margin due to problem in Safari */
+}
+
+.row .header	{
+	font-weight: bold;
+	@include font-montserrat;
+}
+
+/* begin default content table styling */
+table.table-default {
+	border-collapse: collapse;
+	margin: 15px 0;
+
+	caption {
+		@include font-montserrat;
+		font-weight: normal;
+		color: $header-font-color;
+		text-align: left;
+		padding: 20px 0 10px;
+		font-size: 1.375em;
+		/* using padding instead of margin due to problem in Safari */
+
+		geneticsprofessional & {
+			/* genetics-professional-specific fix to prevent table captions from wrapping */
+			white-space: nowrap;
+		}
+	}
+	tr {
+		background-color: #fff;
+
+		&:nth-child(even) {
+			background-color: #e8f3f6;
+		}
+	}
+	th {
+		@include font-noto;
+		font-weight: bold;
+		color: $body-font-color;
+		background-color: #d0f1f2;
+		/*text-align: left;*/
+	}
+	td, th {
+		/* both definitions are for #bgbgbg at 0.28 opacity */
+		border: 1px solid rgb(236, 236, 236);
+		border: 1px solid rgba(189, 189, 189, 0.28);
+		padding: 20px;
+		border-spacing: 0;
+		-webkit-background-clip: padding-box; /* for Safari */
+		background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+
+		p:first-child {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	ul {
+		padding-left: 4px;
+	}
+}
+table.table-default-center-td td {
+	text-align: center;
+}
+table.table-default.complex-table tr {
+	background-color: #fff;
+}
+/* end default content table styling */
+
+.bcrumbs {
+	font-size: 0.8em;
+	margin-bottom: 1.25em;
+	margin-top: 2em;
+	@include font-montserrat;
+}
+/* clearfix for clearing floated items */
+
+.clearfix {
+	zoom: 1;
+	&:after {
+		clear: both;
+	}
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+}
+/* begin images using the HTML5 figure and figcaption elements */
+
+/* add block level style to HTML5 elements, for IE */
+header,
+nav,
+article,
+footer,
+section,
+aside,
+figure,
+figcaption {
+	display: block;
+}
+
+/* Pullquotes */
+.pullquote {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.pullquote-left {
+	width: 40%;
+	margin: 0 1em 1em 0;
+	float: left;
+}
+.pullquote-right {
+	width: 40%;
+	margin: 0 0 1em 1em;
+	float: right;
+}
+.pullquote, .pullquote-right, .pullquote-left {
+	color: #29768c;
+	font-family: #{$montserrat-font-stack};
+	font-weight: bold;
+	line-height: 25px;
+
+	.author {
+		text-align: right;
+		font-style: italic;
+	}
+	p.author:before {
+		content: "\2014"
+	}
+	p.author:after {
+		content: none;
+	}
+}
+.pullquote-text:before {
+	content: "\201c"
+	}
+.pullquote-text:after {
+	content: "\201d"
+}
+
+// skip navigation styles
+.skip a, .skip a:hover, .skip a:visited {
+	position: absolute;
+	left: -999px;
+}
+.skip a:active, .skip a:focus {
+	display:block;
+	left: 0;
+	z-index: 999;
+	background: #fff;
+	border: 1px solid #000;
+	padding: 5px 5px 5px 5px;
+}
+/* fix for Chrome problem with rendering sup tags */
+.sup {
+	font-size: 80%;
+	position: relative;
+	bottom: 0.6em;
+}
+/* BEGIN columns by css instead of tables */
+.two-columns, .three-columns, .four-columns, .five-columns {
+	width: 100%;
+	overflow: auto;
+	margin-bottom: 1em;
+}
+/* 2 col */
+.two-columns .column1,
+.two-columns .column2 {
+	float: left;
+	width: 48%;
+	padding-right: 4%;
+}
+.two-columns .column2 {
+	padding-right: 0;
+}
+/* 3 col */
+.three-columns .column1,
+.three-columns .column2,
+.three-columns .column3 {
+	float: left;
+	width: 30%;
+	padding-right: 5%;
+}
+.three-columns .column3 {
+	padding-right: 0;
+}
+/* 4 col */
+.four-columns .column1,
+.four-columns .column2,
+.four-columns .column3,
+.four-columns .column4 {
+	float: left;
+	width: 22%;
+	padding-right: 4%;
+}
+.four-columns .column4 {
+	padding-right: 0;
+}
+/* 5 col */
+.five-columns .column1,
+.five-columns .column2,
+.five-columns .column3,
+.five-columns .column4,
+.five-columns .column5 {
+	float: left;
+	width: 16%;
+	padding-right: 5%;
+}
+.five-columns .column5 {
+	padding-right: 0;
+}
+@media only screen and (max-width: 640px) {
+	/* 2 col */
+	.two-columns .column1,
+	.two-columns .column2 {
+		float: left;
+		width: 100%;
+		padding-right: 0;
+	}
+	/* 3 col */
+	.three-columns .column1,
+	.three-columns .column2,
+	.three-columns .column3 {
+		float: left;
+		width: 100%;
+		padding-right: 0;
+	}
+	/* 4 col */
+	.four-columns .column1,
+	.four-columns .column2,
+	.four-columns .column3,
+	.four-columns .column4 {
+		float: left;
+		width: 100%;
+		padding-right: 0;
+	}
+	/* 5 col */
+	.five-columns .column1,
+	.five-columns .column2,
+	.five-columns .column3,
+	.five-columns .column4,
+	.five-columns .column5 {
+		float: left;
+		width: 100%;
+		padding-right: 0;
+	}
+}
+/* END columns by css instead of tables */
+.callout-box,
+.callout-box-right,
+.callout-box-left,
+.callout-box-full,
+.callout-box-blue {
+	background: #DBF2F8;
+	overflow: auto;
+	padding: 25px
+}
+ 
+.callout-box,
+.callout-box-blue {
+	margin: 25px auto;
+	width: 80%;
+}
+.callout-box-right {
+	float: right;
+	margin: 0 0 15px 15px;
+	width: 40%;
+}
+.callout-box-left {
+	float: left;
+	margin: 0 15px 15px 0;
+	width: 40%;
+}
+.callout-box-full{
+	margin: 25px auto;
+	width: 100%;
+}
+/* prevent outlines on tab content */
+div, p, section, h1, h2, h3, h4, h5, h6 {
+	&[tabindex]:focus{
+		outline: none;
+	}
+}
+
+/* cgh staff page styles */
+.cgh-staff td {
+    vertical-align: middle;
+}
+
+.cgh-staff figure.centered-set {
+    margin: 0;
+    text-align: left;
+}
+
+/********************* END General Styles ******************************************/

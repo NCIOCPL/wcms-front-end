@@ -16,8 +16,9 @@
 
 /* NOTO */
 $noto: "noto";
+$noto-font-stack: '#{$noto}', Arial, sans-serif;
 @mixin font-noto {
-    font-family: '#{$noto}', Arial;
+    font-family: #{$noto-font-stack};
 }
 
 $noto-path: $fonts + "NotoSans-Regular-webfont";
@@ -40,8 +41,9 @@ $noto-svg: "noto_sansitalic";
 /* Montserrat */
 
 $montserrat: "Montserrat";
+$montserrat-font-stack: '#{$montserrat}', Arial, sans-serif;
 @mixin font-montserrat {
-  font-family: '#{$montserrat}', Arial;
+  font-family: #{$montserrat-font-stack};
 }
 
 $mont-path: $fonts + 'Montserrat-Regular-webfont';

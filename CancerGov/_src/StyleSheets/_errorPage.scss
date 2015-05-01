@@ -1,0 +1,40 @@
+.error-page {
+	color: #876EC1;
+	font-size: 1.125em;
+	background: #f7FBF8;
+	h1 {
+		color: #876EC1;
+		font-size: 40px;
+		line-height: 47px;
+	}
+	a.arrow-link {
+		color: #876EC1;
+		display: inline;
+	}
+	.columns {
+		padding: 0 35% 0 10%;
+	}
+	p {
+		padding-right: 15%;
+	}
+
+	@media only screen and (max-width: 640px) {
+		.columns {
+			padding: 0 0.9375em;
+		}
+		p {
+			padding-right: 0;
+		}
+	}
+
+}
+.spanish-error {
+	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat top right;
+	padding-bottom: 50px;
+	margin-top: 50px;
+	color: #CBEDF2;
+
+	h1, a.arrow-link {
+		color: #CBEDF2;
+	}
+}

@@ -1,0 +1,478 @@
+<style type="text/css">
+    #mapContainer {
+        width: 100%;
+        height: 354px;
+        border: 1px solid #BDBDBD;
+        margin: 15px auto 13px auto;
+        padding: 1px;
+    }
+	#mapContainer img {
+    	max-width: initial;
+    }
+    .conceal {
+        visibility: hidden;
+    }
+    .note,
+    .log {
+        background-color: #000;
+        border-width: 2px;
+        display: table-cell;
+        margin: 0;
+        padding: 8px 0 0 8px;
+        position: absolute;
+        width: 240px;
+        z-index: 999;
+        height: auto;
+    }
+    .log {
+        padding: 8px 0 0 0;
+        bottom: 10px;
+        position: fixed;
+    }
+    .note[aria-hidden="true"],
+    .log[aria-hidden="true"] {
+        display: none;
+    }
+    .note_not_msie7 {
+        left: 8px;
+        top: 60px;
+    }
+    .note_msie7 {
+        right: 8px;
+        top: 60px;
+    }
+    .note a,
+    .log a {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .note .title {
+        float: left;
+        position: relative;
+        width: 196px;
+        min-height: 40px;
+        margin-bottom: 5px;
+    }
+    .note_msie7 .title {
+        width: 180px;
+    }
+    .note p {
+        margin: 0 0 10px 0;
+    }
+    .note input {
+        width: 100%;
+        height: 30px;
+        border: 0;
+    }
+    .note input[type="button"] {
+        width: 100%;
+        border: 0;
+        border-radius: 5px;
+        background-color: #fff;
+        margin: 5px 0;
+        height: 30px;
+        line-height: 20px;
+        cursor: pointer;
+    }
+    .note input[type="button"] {
+        text-overflow: ellipsis;
+    }
+    .note input[type="checkbox"] {
+        height: auto;
+        width: auto;
+    }
+    .note input[type="button"]:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    .note input[type="checkbox"]:hover {
+        background-color: white !important;
+    }
+    .note input[type="button"]:active {
+        background-color: #333;
+        color: #fff;
+        padding: 2px 0px 0px 2px;
+    }
+    .note input[disabled],
+    .note input[disabled]:hover .note input[disabled]:active {
+        background-color: white !important;
+        color: gray !important;
+        padding: 0px !important;
+    }
+    .note input[type="radio"] {
+        margin-right: 5px;
+        width: auto;
+        height: auto;
+    }
+    .note .close,
+    .log .close {
+        color: #fff;
+        display: inline;
+        float: right;
+        font-size: 24px;
+        height: 35px;
+        line-height: 35px;
+        margin: -9px -1px 0 0;
+        padding: 0;
+        text-align: center;
+        text-decoration: none;
+        width: 35px;
+        z-index: 9999;
+    }
+    .note .inner {
+        color: #FFF;
+        width: 230px;
+        height: auto;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 8px 8px 0;
+    }
+    .log_msie7 {
+        left: 8px;
+        bottom: 10px;
+        color: #4C4C4C;
+    }
+    .log_not_msie78 {
+        right: 10px;
+        bottom: 10px;
+        max-height: 160px;
+        color: #4C4C4C;
+    }
+    .log .clear {
+        color: #fff;
+        font-weight: bold;
+        line-height: 38px;
+        margin: -8px 0 0px 0px;
+        position: relative;
+        text-align: center;
+        background-color: #000;
+        width: 207px;
+        height: 35px;
+    }
+    .log .clear:hover,
+    .log .close:hover {
+        border-radius: 0;
+    }
+    .log .inner {
+        color: #FFF;
+        height: 100px;
+        margin: 0 1px 1px 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 8px 8px 0;
+    }
+    .log .consoleElt {
+        font-size: 10px;
+        max-height: 160px;
+        width: 230px;
+    }
+    .log .consoleElt p {
+        margin: 0;
+        padding: 4px;
+        width: 100%;
+        background-color: #222c42;
+        background-color: rgba(39, 60, 65, 0.8);
+    }
+    .log .consoleElt p.odd {
+        background-color: #273c41;
+        background-color: rgba(39, 60, 65, 0.5);
+    }
+    .log .consoleElt .title {
+        width: 100%;
+        color: #fff;
+        font-size: 19px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20%;
+    }
+    #plus {
+        text-decoration: none;
+        padding: 0px 4px;
+        border-radius: 20px;
+        border: 2px solid white;
+        margin: 10px 0px;
+        display: inline-block;
+    }
+</style>
+
+<script type="text/javascript" charset="UTF-8" src="http://js.api.here.com/se/2.5.3/jsl.js?with=all"></script>
+<script type="text/javascript" src="/publishedcontent/js/NokiaMaps.js"></script>
+
+<div id="mapWrapper" style="display:none;">
+<h3 id="findCCTitle">Find Cancer Centers on map by:
+<span id="dropDownCC">
+    <span id="dropDownCC1" class="active initialState"><a href="javascript:void(0);">State</a></span>
+    <span id="dropDownCC2"><a href="javascript:void(0);">Region</a></span>
+</span>
+</h3>
+<div class="dropDownCCDisplay" id="dropDownCCDisplay1">
+    <label for="stateSelect">Choose State:</label>
+    <select onChange="zoomMapToBounds(this.options[this.selectedIndex].value)" id="stateSelect">
+        <option value="">Select a state</option>
+        <option value="alabama">Alabama</option>
+        <option value="alaska">Alaska</option>
+        <option value="arizona">Arizona</option>
+        <option value="arkansas">Arkansas</option>
+        <option value="california">California</option>
+        <option value="colorado">Colorado</option>
+        <option value="connecticut">Connecticut</option>
+        <option value="delaware">Delaware</option>
+        <option value="dc">District of Columbia</option>
+        <option value="florida">Florida</option>
+        <option value="georgia">Georgia</option>
+        <option value="hawaii">Hawaii</option>
+        <option value="idaho">Idaho</option>
+        <option value="illinois">Illinois</option>
+        <option value="indiana">Indiana</option>
+        <option value="iowa">Iowa</option>
+        <option value="kansas">Kansas</option>
+        <option value="kentucky">Kentucky</option>
+        <option value="louisiana">Louisiana</option>
+        <option value="maine">Maine</option>
+        <option value="maryland">Maryland</option>
+        <option value="massachusetts">Massachusetts</option>
+        <option value="michigan">Michigan</option>
+        <option value="minnesota">Minnesota</option>
+        <option value="mississippi">Mississippi</option>
+        <option value="missouri">Missouri</option>
+        <option value="montana">Montana</option>
+        <option value="nebraska">Nebraska</option>
+        <option value="nevada">Nevada</option>
+        <option value="new-hampshire">New Hampshire</option>
+        <option value="new-jersey">New Jersey</option>
+        <option value="new-mexico">New Mexico</option>
+        <option value="new-york">New York</option>
+        <option value="north-carolina">North Carolina</option>
+        <option value="north-dakota">North Dakota</option>
+        <option value="ohio">Ohio</option>
+        <option value="oklahoma">Oklahoma</option>
+        <option value="oregon">Oregon</option>
+        <option value="pennsylvania">Pennsylvania</option>
+        <option value="rhode-island">Rhode Island</option>
+        <option value="south-carolina">South Carolina</option>
+        <option value="south-dakota">South Dakota</option>
+        <option value="tennessee">Tennessee</option>
+        <option value="texas">Texas</option>
+        <option value="utah">Utah</option>
+        <option value="vermont">Vermont</option>
+        <option value="virginia">Virginia</option>
+        <option value="washington">Washington</option>
+        <option value="west-virginia">West Virginia</option>
+        <option value="wisconsin">Wisconsin</option>
+        <option value="wyoming">Wyoming</option>
+    </select>
+</div>
+<div class="dropDownCCDisplay" id="dropDownCCDisplay2">
+    <span>Choose Region: </span>
+    <select onChange="zoomMapToBounds(this.options[this.selectedIndex].value)">
+        <option value="">Select a region</option>
+        <option value="newengland">New England</option>
+        <option value="midatlantic">Mid-Atlantic</option>
+        <option value="eastnorthcentral">East North Central</option>
+        <option value="westnorthcentral">West North Central</option>
+        <option value="southatlantic">South Atlantic</option>
+        <option value="eastsouthcentral">East South Central</option>
+        <option value="westsouthcentral">West South Central</option>
+        <option value="mountain">Mountain</option>
+        <option value="pacific">Pacific</option>
+    </select>
+</div>
+<div style="clear: both;"></div>
+<script type="text/javascript">
+    var boundsArray = new Array();
+    // Each region/state has it's own array of N E S W coordinates for the bounds
+    //get other coords from here http://itouchmap.com/latlong.html or http://answers.google.com/answers/threadview?id=149284
+    // bounds for Regions
+    boundsArray["newengland"] = new Array(46.5, -68.69755, 41, -72.424979);
+    boundsArray["midatlantic"] = new Array(43.39856, -70.966925, 39.447378, -80.442209);
+    boundsArray["eastnorthcentral"] = new Array(42.578715, -83.107909, 40.275006, -87.93141);
+    boundsArray["westnorthcentral"] = new Array(44.884357, -90.263245, 38.634609, -95.941119);
+    boundsArray["southatlantic"] = new Array(37.5, -78, 29.5, -84);
+    boundsArray["eastsouthcentral"] = new Array(36.66698, -86.205941, 34.032965, -90.542496);
+    boundsArray["westsouthcentral"] = new Array(33.317684, -94.896696, 29.013252, -99.078568);
+    boundsArray["mountain"] = new Array(40, -105, 32, -112);
+    boundsArray["pacific"] = new Array(48.12934, -116.719628, 21.79771, -158.361934);
+    // bounds for States
+    boundsArray["alabama"] = new Array(35, -84.51, 30.13, -88.28);
+    boundsArray["alaska"] = new Array(71.50, -130, 54.4, -173);
+    boundsArray["arizona"] = new Array(36.5, -110, 32, -114);
+    boundsArray["arkansas"] = new Array(36.3, -89.41, 33, -94.42);
+    boundsArray["california"] = new Array(41.9, -114.8, 32.5, -124.24);
+    boundsArray["colorado"] = new Array(41, -102, 37, -109);
+    boundsArray["connecticut"] = new Array(42.3, -71.47, 41, -73.44);
+    boundsArray["delaware"] = new Array(39.50, -75.2, 38.27, -75.47);
+    boundsArray["dc"] = new Array(38.995440, -76.910820, 38.792895, -77.119904);
+    boundsArray["florida"] = new Array(30, -79.48, 26, -87.38);
+    boundsArray["georgia"] = new Array(35, -81, 30.31, -85.53);
+    boundsArray["hawaii"] = new Array(22, -154.4, 19, -160);
+    boundsArray["idaho"] = new Array(49, -111, 42, -117);
+    boundsArray["illinois"] = new Array(42.3, -87.3, 38, -91.3);
+    boundsArray["indiana"] = new Array(41.46, -84.49, 37.47, -88.4);
+    boundsArray["iowa"] = new Array(43.3, -89.5, 40.36, -96.31);
+    boundsArray["kansas"] = new Array(40, -94.38, 37, -102.1);
+    boundsArray["kentucky"] = new Array(39.9, -81.58, 36.3, -89.34);
+    boundsArray["louisiana"] = new Array(33, -89, 29, -94);
+    boundsArray["maine"] = new Array(47.28, -66.57, 43.4, -71.7);
+    boundsArray["maryland"] = new Array(39.43, -75.4, 37.53, -79.33);
+    boundsArray["massachusetts"] = new Array(42.53, -69.57, 41.5, -73.3);
+    boundsArray["michigan"] = new Array(44, -83, 41.41, -89);
+    boundsArray["minnesota"] = new Array(49.23, -89.34, 43.34, -97.12);
+    boundsArray["mississippi"] = new Array(35, -88.7, 30.13, -91.41);
+    boundsArray["missouri"] = new Array(40.35, -89.6, 36, -95.42);
+    boundsArray["montana"] = new Array(49, -105, 44.26, -115);
+    boundsArray["nebraska"] = new Array(43, -95.25, 40, -104);
+    boundsArray["nevada"] = new Array(42, -114, 35, -120);
+    boundsArray["new-hampshire"] = new Array(45.18, -70.37, 43, -72.37);
+    boundsArray["new-jersey"] = new Array(41.21, -74, 38.55, -75.35);
+    boundsArray["new-mexico"] = new Array(37, -104, 31.35, -109);
+    boundsArray["new-york"] = new Array(45, -72, 40.29, -78);
+    boundsArray["north-carolina"] = new Array(36.21, -75.3, 34, -84.15);
+    boundsArray["north-dakota"] = new Array(49, -97, 45.55, -104);
+    boundsArray["ohio"] = new Array(41.58, -80.32, 38.27, -84.49);
+    boundsArray["oklahoma"] = new Array(37, -94.29, 33.35, -103);
+    boundsArray["oregon"] = new Array(46.15, -116.45, 42, -124.3);
+    boundsArray["pennsylvania"] = new Array(42, -74.43, 39.43, -80.31);
+    boundsArray["rhode-island"] = new Array(42.1, -71.53, 41.18, -71.8);
+    boundsArray["south-carolina"] = new Array(35.12, -78.3, 32.4, -82);
+    boundsArray["south-dakota"] = new Array(45.56, -98.28, 42.29, -104.3);
+    boundsArray["tennessee"] = new Array(36.41, -81.37, 35, -90.28);
+    boundsArray["texas"] = new Array(35, -95, 26, -104);
+    boundsArray["utah"] = new Array(42, -110, 37, -113);
+    boundsArray["vermont"] = new Array(45, -71.28, 43, -73.26);
+    boundsArray["virginia"] = new Array(39.37, -75.13, 36.31, -83.37);
+    boundsArray["washington"] = new Array(49, -116.57, 45.32, -124.48);
+    boundsArray["west-virginia"] = new Array(40.4, -77.4, 37.1, -82.4);
+    boundsArray["wisconsin"] = new Array(47, -86.49, 43, -92.54);
+    boundsArray["wyoming"] = new Array(45, -104.3, 41, -111.3);
+
+    function zoomMapToBounds(regionName) {
+        // when the user selects a region/state from the drop down, grab the coordinates from the corresponding region/state array
+        showNewBounds("cancerCenters", boundsArray[regionName][0], boundsArray[regionName][1], boundsArray[regionName][2], boundsArray[regionName][3]);
+    }
+</script>
+
+<div id="mapContainer" data-map-id="cancerCenters" data-map-kml="/publishedcontent/kml/research/nci-role/cancer-centers/find/ccrollup.kml"></div>
+</div>
+<div id="CClegend">
+    <div id="CClegend1">
+        <img src="/PublishedContent/Images/images/cancercenter_icon.png" alt="" /><span>= Cancer Center <sup><a href="#cc1">1</a></sup></span>
+    </div>
+    <div id="CClegend1">
+        <img src="/PublishedContent/Images/images/comprehensivecancercenter_icon.png" alt="" /><span>= Comprehensive Cancer Center <sup><a href="#cc1">1</a></sup></span>
+    </div>
+	<div id="CClegend2">
+        <img src="/PublishedContent/Images/images/researchcancercenter_icon.png" alt="" /><span>= Basic Laboratory <sup><a href="#cc1">1</a></sup></span>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div id="picker">
+    <h3 id="findCCTitle">
+		<span>Find Cancer Centers listed by:</span> <noscript>State</noscript>
+		<span id="picker2" style="display:none;"><a class="active" href="javascript:void(0);">State</a></span>
+		<span id="picker1" style="display:none;"><a href="javascript:void(0);">Region</a></span>
+		<span id="picker3" style="display:none;"><a href="javascript:void(0);">Name</a></span>
+	</h3>
+</div>
+<div id="AtoZlistState" class="AtoZ2 az-list" style="display:block;">
+<ul>
+<li><a href="#Alabama">a</a></li>
+<li>b</li>
+<li><a href="#California">c</a></li>
+<li>d</li>
+<li>e</li>
+<li><a href="#Florida">f</a></li>
+<li><a href="#Georgia">g</a></li>
+<li><a href="#Hawaii">h</a></li>
+<li><a href="#Illinois">i</a></li>
+<li>j</li>
+<li><a href="#Kansas">k</a></li>
+<li>l</li>
+<li><a href="#Maine">m</a></li>
+<li><a href="#Nebraska">n</a></li>
+<li><a href="#Ohio">o</a></li>
+<li><a href="#Pennsylvania">p</a></li>
+<li>q</li>
+<li>r</li>
+<li><a href="#South-Carolina">s</a></li>
+<li><a href="#Tennessee">t</a></li>
+<li><a href="#Utah">u</a></li>
+<li><a href="#Virginia">v</a></li>
+<li><a href="#Washington">w</a></li>
+<li>x</li>
+<li>y</li>
+<li id="AtoZlistLast">z</li>
+</ul>
+</div>
+<div id="AtoZlistName" class="AtoZ3 az-list" style="display:none;">
+<ul>
+<li><a href="#A">a</a></li>
+<li><a href="#B">b</a></li>
+<li><a href="#C">c</a></li>
+<li><a href="#D">d</a></li>
+<li><a href="#E">e</a></li>
+<li><a href="#F">f</a></li>
+<li><a href="#G">g</a></li>
+<li><a href="#H">h</a></li>
+<li><a href="#I">i</a></li>
+<li><a href="#J">j</a></li>
+<li><a href="#K">k</a></li>
+<li><a href="#L">l</a></li>
+<li><a href="#M">m</a></li>
+<li><a href="#N">n</a></li>
+<li><a href="#O">o</a></li>
+<li><a href="#P">p</a></li>
+<li><a href="#Q">q</a></li>
+<li><a href="#R">r</a></li>
+<li><a href="#S">s</a></li>
+<li><a href="#T">t</a></li>
+<li><a href="#U">u</a></li>
+<li><a href="#V">v</a></li>
+<li><a href="#W">w</a></li>
+<li><a href="#X">x</a></li>
+<li><a href="#Y">y</a></li>
+<li id="AtoZlistLast"><a href="#Z">z</a></li>
+</ul>
+</div>
+
+<script type="text/javascript">
+    // Drop down region/state change for Google Map
+    $(document).ready(function () {
+        // run on #dropDownCC click
+        $("#dropDownCC a").click(function () {
+
+            // hide everything
+            $(".dropDownCCDisplay").hide();
+            $("#dropDownCC .active").removeClass("active");
+            $("#dropDownCC span").removeClass("initialState");
+
+            // show selected institution
+            $(this).addClass("active")
+            var id = $(this).closest("span").attr("id").replace("dropDownCC", "");
+            $("#dropDownCCDisplay" + id).show();
+        });
+
+		$("#mapWrapper, #picker1, #picker2, #picker3").show();
+
+		// refresh the jQuery UI selectmenus to be the proper size
+		$('#mapWrapper select').selectmenu('refresh');
+
+        // run on #picker click
+        $("#picker a").click(function () {
+
+            // hide everything
+            $(".institution-listing").hide();
+            $(".AtoZ2").hide();
+            $(".AtoZ3").hide();
+            $("#picker .active").removeClass("active");
+
+            // show selected institution
+            $(this).addClass("active")
+            var id = $(this).closest("span").attr("id").replace("picker", "");
+            $("#institution-listing" + id).show();
+            $(".AtoZ" + id).show();
+        });
+
+    });
+</script>

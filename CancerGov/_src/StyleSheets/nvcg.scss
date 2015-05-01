@@ -1,708 +1,74 @@
 @charset "utf-8";
 @import "environments/percussion";
 @import "variables";
+@import "mixins";
 @import "functions";
-
-/****************** VENDOR LIBRARIES SECTION ********************/
-
-@import "reset";
-@import "foundation";
-@import "foundation_overrides";
-@import "slick";
-@import "jqueryui";
-
-/****************** END VENDOR LIBRARIES SECTION ********************/
-
 @import "fonts";
 
-/********************* BEGIN General Styles ******************************************/
+/****************** VENDOR LIBRARIES SECTION ********************/
+/***  BEGIN RESET STYLES ***/
+@import "reset";
+/***  END RESET STYLES ***/
+/***  BEGIN FOUNDATION STYLES ***/
+@import "nci-foundation";
+/* @import "grid"; */ /* using this for override of foundation media screen if necessary */
+/***  END FOUNDATION STYLES ***/
+/***  BEGIN FOUNDATION OVERRIDE STYLES ***/
+@import "foundation_overrides";
+/***  END FOUNDATION OVERRIDE STYLES ***/
+/***  BEGIN SLICK STYLES ***/
+@import "slick";
+/***  BEGIN SLICK STYLES ***/
+/***  BEGIN JQUERY UI STYLES ***/
+@import "jqueryui";
+/***  END JQUERY UI STYLES ***/
+/***  BEGIN JQUERY UI OVERRIDE STYLES ***/
+@import "jqueryui_overrides";
+/***  END JQUERY UI OVERRIDE STYLES ***/
+/****************** END VENDOR LIBRARIES SECTION ********************/
 
-html {
-    font-size: 100%;
-}
-body {
-    font-size: 1em;
-    @include font-noto;
-    color: #606060;
-    line-height: 1.375em;
-    word-wrap: break-word;
-    /* done to let long words that are bigger than container wrap within the word */
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @include font-montserrat;
-    margin-top: 0.5em;
-    color: #606060;
+/****************** NCI COMPONENTS SECTION ********************/
 
-    p {
-        font-weight: inherit;
-    }
-}
-.section-nav {
-    @include font-montserrat;
-}
-h1 {
-    font-size: 2em;
-    line-height: 1.1em;
-}
-h2 {
-    font-size: 1.75em;
-    line-height: 1.215em;
-}
-h3 {
-    font-size: 1.5em;
-    line-height: 1.25em;
-}
-h4 {
-    font-size: 1.25em;
-    line-height: 1.333em;
-}
-p {
-    margin: 0.5em 0;
-    line-height: 1.5em;
-    font-size: inherit;
-}
-table caption {
-    font-weight: bold;
-    text-align: left;
-    color: #000;
-    padding: 20px 0 10px;
-    /* using padding instead of margin due to problem in Safari */
-}
-/* begin default content table styling */
+@import "components/buttons";
+@import "components/forms";
+@import "components/icons";
 
-table.table-default {
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-table.table-default caption {
-    font-weight: bold;
-    text-align: left;
-    font-size: 15px;
-    color: #000;
-    padding: 20px 0 10px;
-    /* using padding instead of margin due to problem in Safari */
-}
-table.table-default th {
-    background-color: #f2f3f7;
-    /*text-align: left;*/
-}
-table.table-default tr {
-    background-color: #fff;
-}
-table.table-default td,
-table.table-default th {
-    border: 1px solid #bdbdbd;
-    padding: 10px;
-    border-spacing: 0;
-}
-table.table-default td p:first-child {
-    margin-top: 0;
-}
-table.table-default td p:last-child {
-    margin-bottom: 0;
-}
-table.table-default-center-td td {
-    text-align: center;
-}
-table.table-default td p:first-child,
-table.table-default th p:first-child {
-    margin-top: 0;
-}
-table.table-default td p:last-child,
-table.table-default th p:last-child {
-    margin-bottom: 0;
-}
-table.table-default ul {
-    padding-left: 4px;
-}
-/* end default content table styling */
+/****************** END NCI COMPONENTS SECTION ********************/
 
-.bcrumbs {
-    font-size: 0.8em;
-    margin-bottom: 1.25em;
-    margin-top: 2em;
-    @include font-montserrat;
-}
-/* clearfix for clearing floated items */
-
-.clearfix {
-    zoom: 1;
-    &:after {
-        clear: both;
-    }
-    &:before,
-    &:after {
-        content: " ";
-        display: table;
-    }
-}
-/* begin images using the HTML5 figure and figcaption elements */
-
-/* add block level style to HTML5 elements, for IE */
-
-header,
-nav,
-article,
-footer,
-section,
-aside,
-figure,
-figcaption {
-    display: block;
-}
-figure {
-    margin-bottom: 10px;
-    overflow: hidden;
-    position: relative;
-
-    a.article-image-enlarge {
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: #fff;
-        background: #403f3f url($icons + "enlarge.png") 90% 50% no-repeat;
-        padding: 0.3125em 2.25em 0.3125em 1em;
-        font-weight: bold;
-        text-transform: uppercase;
-        opacity: 0.9;
-        text-align: right;
-
-        &:hover, &:focus {
-            text-decoration: none;
-        }
-    }
-    /* image right 25% width */
-    &.image-right-small {
-        float: right;
-        width: 25%;
-        margin: 0 0 1em 1em;
-    }
-    /* image right 40% width */
-    &.image-right-medium {
-        float: right;
-        width: 40%;
-        margin: 0 0 1em 1em;
-    }
-    /* image left 25% width */
-    &.image-left-small {
-        float: left;
-        width: 25%;
-        margin: 0 1em 1em 0;
-    }
-    /* image left 40% width */
-    &.image-left-medium {
-        float: left;
-        width: 40%;
-        margin: 0 1em 1em 0;
-    }
-    /* image center 75% width */
-    &.image-center {
-        width: 75%;
-        margin: 0 auto 1em;
-        /* center images using the centered templates */
-        img {
-            margin: 0 auto;
-        }
-    }
-    /* image center 100% width */
-    &.image-center-full {
-        width: 100%;
-        margin: 0 auto 1em;
-        /* center images using the centered templates */
-        img {
-            margin: 0 auto;
-        }
-    }
-    /* contain image inside fig */
-    img {
-        max-width: 100%;
-        /* remove white space under image */
-        display: block;
-    }
-}
-.centered-set {
-    text-align: center;
-}
-.centered-element {
-    display: inline-block;
-    max-width: 100%;
-    position: relative;
-}
-.centered-exempt {
-    text-align: left;
-}
-table figure {
-    display: table;
-    table-layout: fixed;
-}
-.caption-container {
-    padding: 0.9375em;
-    line-height: 1.5em;
-    background-color: #f7f7f3;
-    font-size: 0.8125em;
-}
-// skip navigation styles
-.skip a, .skip a:hover, .skip a:visited {
-    position: absolute;
-    left:-999px;
-}
-.skip a:active, .skip a:focus {
-    display:block;
-    left: 0;
-    z-index:999;
-    background: #fff;
-    border: 1px solid #000;
-    padding: 5px 5px 5px 5px;
-}
-/* fix for Chrome problem with rendering sup tags */
-.sup {font-size: 80%; position: relative; bottom: 0.6em;}
-/********************* END General Styles ******************************************/
-
-/********************* BEGIN Header Styles ******************************************/
-
-header {
-    padding: 1em 0 0;
-    @include font-montserrat;
-    background: #fcfcfa;
-}
-.nci-logo {
-    font-weight: bold;
-    line-height: 0.8;
-    background: url($logos + "NIH-red-logo.png") no-repeat 5px 0;
-    font-size: 30px;
-    padding: 0.1em 0 0.2em;
-}
-.nci-logo.columns {
-    padding-left: 0;
-    padding-right: 0;
-}
-.nci-logo a {
-    color: #bb0e3d;
-    padding-left: 100px;
-    display: block;
-}
-.nci-logo a span {
-    color: #5d5d5d;
-    font-size: 0.6em;
-}
-/********************* END Header Styles ******************************************/
-
-/********************* BEGIN Sticky Nav Styles ******************************************/
-
-/* these styles control behaviour on scroll for sticky nav using headroom.js */
-
-.slide--up {
-    display: none;
-}
-.slide--reset {
-    display: block;
-}
-/********************* END Sticky Nav Styles ******************************************/
-
-/********************* BEGIN Language Bar Styles ******************************************/
-
-.language-bar {
-    background: #fcfcfa;
-    padding: 0 0 0.2em;
-}
-.sitewide-language {
-    padding-right: 0;
-}
-.sitewide-language a {
-    color: #186e88;
-}
-.sitewide-language ul {
-    text-align: right;
-}
-.sitewide-language li {
-    float: right;
-    margin-left: 1em;
-    text-align: right;
-}
-/********************* END Language Bar Styles ******************************************/
+@import "general";
+@import "header";
+@import "sticky_nav";
+@import "language_bar";
 @import "utilitynav";
 
-/********************* BEGIN Megamenus/Search Styles ******************************************/
-
-/* Navigation/Search bar */
-
-.nav-search-bar {
-    background: rgb(54, 54, 54);
-    /* fallback */
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(54, 54, 54, 1)), color-stop(100%, rgba(74, 74, 74, 1)));
-    /* Safari4+, Chrome */
-    background: -webkit-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* Chrome 10+, Saf5.1+ */
-    background: -moz-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* FF3.6+ */
-    background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* IE10 */
-    background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* Opera 11.10+ */
-    background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%);
-    /* W3C */
-}
-/* off canvas navigation
-* Source: http://codepen.io/scottb/details/javhr/ */
-
-#content {
-    clear: both;
-}
-a.open-panel,
-a.close-panel {
-    display: none;
-}
-script.nav-item {
-    display: none!important;
-}
-/* remove jQuery mobile styles */
-
-button.toggle {
-    display: inline-block;
-    cursor: pointer;
-    background: transparent;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-/********************* END Megamenus/Search Styles ******************************************/
-
+@import "search";
 @import "footer";
 
-/********************* BEGIN Content Styles ******************************************/
-
-.main-content {
-    padding: 0;
-    background: #fcfcfa url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
-}
-.main-content a {
-    color: #186e88;
-}
-.main-content a:hover, .main-content a:focus {
-    text-decoration: underline;
-}
-
-/* content pages need a default of underline for link hovers */
-.general-page-body-container a:hover, .general-page-body-container a:focus {
-    text-decoration: underline;
-}
-a.definition,
-a.definition:visited,
-a.definition:active,
-a.definition:hover, a.definition:focus {
-    color: #606060;
-    text-decoration: none;
-    border-bottom: thin dotted;
-}
-a.definition:hover, a.definition:focus {
-    border-bottom: thin solid;
-}
-.general-page-body-container {
-    background: #fffffb;
-    padding-bottom: 1.5em;
-    box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
-    .no-boxshadow & {
-        /* Border used here because IE8 doesn't support box-shadow */
-        border-left: 1px solid #cfd0cb;
-        border-right: 1px solid #cfd0cb;
-    }
-}
-.section-nav {} .contentzone:first-child {
-    width: 100%;
-}
-.back-to-top {
-    position: fixed;
-    bottom: 1em;
-    right: 0.5em;
-    text-decoration: none;
-    color: #000;
-    background: transparent url($buttons + "blue-arrow-up.png") no-repeat 50% 0;
-    font-weight: bold;
-    padding: 60px 15px 0;
-    display: none;
-    /* place on top of all other elements */
-    z-index: 998;
-}
-.back-to-top:hover, .back-to-top:focus {
-    background: url($buttons + "red-arrow-up.png") no-repeat 50% 0;
-    color: #bd153c;
-}
-.back-to-top:visited {
-    background: transparent url($buttons + "blue-arrow-up.png") no-repeat 50% 0;
-    color: #000;
-}
-/* Research Areas with Table of Contents */
-
-/*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
-
-.featured-zone {
-    background-color: #009b9d;
-    padding: 0 0 1.25em 1.25em;
-    overflow: hidden;
-    /*because in some pages content within box have floated elements */
-    margin-right: -1em;
-    padding: 1em;
-}
-.featured-zone,
-.featured-zone h1,
-.featured-zone h2,
-.featured-zone h3,
-.featured-zone h4,
-.featured-zone a {
-    color: white;
-}
-.toc-container {
-    padding-right: 0;
-    margin-right: -2em;
-    padding: 1em;
-}
-#my-toc {
-    background-color: #fff;
-    padding: 25px 0 30px 35px;
-    overflow: hidden;
-    padding-right: 0;
-}
-#my-toc h2 {
-    color: #606060;
-    margin: 0 0 10px;
-    font-size: 1.5em;
-}
-/* hide default TOC header */
-
-#my-toc h4 {
-    display: none;
-}
-#my-toc ul {
-    margin: 0 1em;
-    list-style-type: disc;
-    color: #186e88;
-}
-#my-toc li {
-    padding-left: 0;
-    margin-left: 0;
-    line-height: 20px;
-    margin-bottom: 5px;
-}
-#my-toc ul a {
-    color: #186e88;
-    font-weight: bold;
-}
-
-/* BEGIN general content page styles */
-%no-bullets{
-    padding: 0;
-    & > li {
-        background: none;
-        list-style-type: none;
-        padding: 0;
-        &:before {
-            display: none;
-            content: none;
-        }
-    }
-    ul {
-        margin: 5px 0 8px;
-        & > li {
-            padding: 0 0 0 10px;
-            margin: 0 0 5px;
-        }
-    }
-}
-
-ul,
-.contentzone ul {
-    &.no-bullets {
-        @extend %no-bullets;
-    }
-}
-ol {
-    list-style-type: decimal;
-
-    &.lower-alpha {
-        list-style-type: lower-alpha;
-    }
-    &.lower-roman {
-        list-style-type: lower-roman;
-    }
-    &.upper-alpha {
-        list-style-type: upper-alpha;
-    }
-    &.upper-roman {
-        list-style-type: upper-roman;
-    }
-}
-.contentzone ul,
-.contentzone ol {
-    margin-bottom: 1em;
-}
-.contentzone li {
-    margin-bottom: 0.5em;
-    margin-left: 2em;
-}
-.contentzone ul.no-bullets > li,
-.contentzone ol.no-bullets > li {
-    margin-bottom: 0.25em;
-    margin-left: 0;
-}
-.contentzone ul {
-    list-style-type: none;
-    & > li {
-        &:before {
-            content: "\2022";
-            display: inline-block;
-            position: relative;
-            left: -.5em;
-            top: 0.1em;
-            margin: 0 -.2em;
-            font-size: 1.1em;
-        }
-    }
-}
-
-.toptoc ul > li:before {
-    content: none;
-}
-
-table.no-bullet-padding ul {
-    margin: 0;
-    padding: 0;
-    & > li {
-        margin: 0;
-        padding: 0 0 0 10px;
-    }
-}
-.key-points {
-    overflow: auto;
-    margin: 1em 0 0.3em;
-}
-.key-points h3 {
-    /* Key Points header */
-    display: block;
-    margin: 0 auto 0.75em;
-    padding: 0.8em 0 0 0.5em;
-    text-transform: uppercase;
-    font-size: 1.25em;
-    @include font-montserrat;
-    font-weight: bold;
-}
-.key-points ul {
-    padding: 0 1.5em 1.5em 0;
-    margin: 0;
-}
-.key-points li:before
-/* Defining the bullet styles */
-
-{
-    content: "\2022";
-    display: inline-block;
-    position: relative;
-    left: -.5em;
-    top: 0.1em;
-    margin: 0 -.2em;
-    font-size: 1.1em;
-}
-.key-points li {
-    list-style-type: none;
-    color: #606060;
-    font-size: 18px;
-    font-weight: 100;
-        margin-left: 1em;
-}
-/*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
-.key-facts {
-    background: #d7f9fa;
-    float: right;
-    width: 40%;
-    padding: 0 1em;
-    margin: 1em -1em 1em 1em;
-}
-/* END general content page styles */
-
-.contentzone .document-dates {
-    margin-top: 1.5em;
-    ul > li {
-        margin: 0;
-        display: block;
-        &:before {
-            content: none;
-            display: none;
-        }
-    }
-
-    &.horizontal ul > li {
-        display: inline;
-        &:before {
-            content: "|";
-            display: inline;
-            left: -0.1em;
-            top: -0.1em;
-            margin: 0 0.4em;
-            font-size: 1em;
-        }
-        &:first-child:before {
-            content: none;
-            display: none;
-        }
-    }
-}
-
-.article-citation  li p{
- display: inline; }
-
-.syndication {
-    border-top: 1px solid black;
-    overflow: hidden;
-    /* this is to prevent the border from writing over a floated element */
-}
-/* icon that goes with syndication image */
-
-.syndication-image {
-    margin: 0 0.7em 0.5em 0.5em;
-    float: left;
-}
-/* hidden elements */
-
-.hidden {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-::-webkit-input-placeholder {
-    color: #fff;
-}
-:-moz-placeholder {
-    /* Firefox 18- */
-    color: #fff;
-}
-::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #fff;
-}
-:-ms-input-placeholder {
-    color: #fff;
-}
-/********************* END Content Styles ******************************************/
-
+@import "mainContent";
+@import "images";
+@import "banners";
 @import "home";
+@import "accordion";
+@import "tables";
 @import "cthp";
 @import "pageOptions";
+@import "font_resizer";
 @import "carousel";
 @import "contentTemplate";
 @import "pdq";
 @import "blogs";
+@import "news";
 @import "onthispage";
 @import "institutions";
+@import "ebookButtons";
+@import "materials_to_share";
+@import "searchResults";
+@import "lists";
+@import "videos";
+@import "popups";
+@import "errorPage";
+@import "topicPages";
+
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
@@ -712,8 +78,12 @@ table.no-bullet-padding ul {
 @import "mediaqueries/medium";
 @import "mediaqueries/large";
 @import "mediaqueries/extra-large";
-@import "mediaqueries/extra-small";
+@import "mediaqueries/js-helper";
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
-@import "MegaMenu";
+@import "MegaMenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
+
+/* PRINT STYLES --------------------------------- */
+@import "print";
+/* END PRINT STYLES ----------------------------- */

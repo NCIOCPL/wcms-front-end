@@ -1,0 +1,18 @@
+
+<div class="rxbodyfield" xmlns:w="urn:www.microsoft.com/word" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:x="urn:www.microsoft.com/excel" xmlns:st2="urn:www.microsoft.com/smarttags2">
+<ul>
+<li><a class="arrow-link-white" href="/resources-for/patients">Patients</a></li>
+
+<li><a class="arrow-link-white" href="/resources-for/caregivers">Caregivers</a></li>
+
+<li><a class="arrow-link-white" href="/resources-for/hp">Health Professionals</a></li>
+
+<li><a class="arrow-link-white" href="/resources-for/researchers">Researchers</a></li>
+
+<li><a class="arrow-link-white" href="/resources-for/advocates">Advocates &#38; Policy Makers</a></li>
+
+<li><a class="arrow-link-white" href="/resources-for/international-partners">International Partners</a></li>
+
+<li><a class="arrow-link-white" href="/resources-for/industry">Industry</a></li>
+</ul>
+</div>

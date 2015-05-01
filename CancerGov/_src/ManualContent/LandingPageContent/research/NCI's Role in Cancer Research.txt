@@ -1,0 +1,11 @@
+<div class="rxbodyfield" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:st2="urn:www.microsoft.com/smarttags2" xmlns:w="urn:www.microsoft.com/word" xmlns:x="urn:www.microsoft.com/excel">
+<h2 class="hide-for-medium-down">NCI's Role in Cancer Research</h2>
+<ul class="hide-for-medium-down">
+<li><a class="arrow-link" href="/research/nci-role/extramural">Extramural Research</a></li>
+<li><a class="arrow-link" href="/research/nci-role/intramural">Intramural Research</a></li>
+<li><a class="arrow-link" href="/research/nci-role/fnlcr">Frederick National Lab</a></li>
+<li><a class="arrow-link" href="/research/nci-role/cancer-centers">NCI-Designated Cancer Centers</a></li>
+<li><a class="arrow-link" href="/research/nci-role/partner">Partners &#38; Collaborators</a></li>
+<li><a class="arrow-link" href="/videos/scientists-spotlight">Spotlight on Scientist Videos</a></li>
+</ul>
+</div>

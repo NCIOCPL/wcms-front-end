@@ -1,0 +1,12 @@
+
+<div class="rxbodyfield">
+<ul>
+<li><a href="/about-cancer/diagnosis-staging" class="arrow-link">Diagnosis &#38; Staging</a></li>
+
+<li><a href="/about-cancer/diagnosis-staging/prognosis" class="arrow-link">Prognosis</a></li>
+
+<li><a href="/about-cancer/diagnosis-staging/symptoms" class="arrow-link">Symptoms</a></li>
+
+<li><a href="/about-cancer/managing-care/finding-healthcare-services" class="arrow-link">Find a Doctor or Treatment Facility</a></li>
+</ul>
+</div>

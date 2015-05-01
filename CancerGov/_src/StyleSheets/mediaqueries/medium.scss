@@ -2,11 +2,8 @@
 /* TABLET STYLES (MEDIUM) */
 /* *************************************************************************/
 @media only screen and (min-width : 641px) and (max-width :1024px) {
-    .nci-logo {
-      background-image: url($logos + "NIH-red-logo-tablet.png");
-      font-size: 24px;
-    }
-    .nci-logo a {
-      padding-left: 90px;
-    }
+	/** Hide feature card title on tablets and up **/
+	.site-footer {
+		background-position: 130% 150px;
+	}
 }

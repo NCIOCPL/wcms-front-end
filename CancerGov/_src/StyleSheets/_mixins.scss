@@ -1,0 +1,40 @@
+@mixin placeholder {
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}
+
+@mixin transition($transitions...) {
+	-webkit-transition: $transitions;
+	-moz-transition: $transitions;
+	-o-transition: $transitions;
+	transition: $transitions;
+}
+@mixin transition-delay($transition-delay) {
+	-webkit-transition-delay: $transition-delay;
+	-moz-transition-delay: $transition-delay;
+	-o-transition-delay: $transition-delay;
+	transition-delay: $transition-delay;
+}
+
+@mixin transform($transforms...) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	-o-transform: $transforms;
+	transform: $transforms;
+}
+@mixin transform-origin($transform-origin) {
+	-webkit-transform-origin: $transform-origin;
+	-moz-transform-origin: $transform-origin;
+	-ms-transform-origin: $transform-origin;
+	-o-transform-origin: $transform-origin;
+	transform-origin: $transform-origin;
+}
+
+@mixin box-shadow($shadows...) {
+	-webkit-box-shadow: $shadows;
+	-moz-box-shadow: $shadows;
+	box-shadow: $shadows;
+}

@@ -1,0 +1,14 @@
+
+<div class="rxbodyfield">
+<ul>
+<li><a href="#">Pacientes</a></li>
+
+<li><a href="#" class="arrow-link">Personas a cargo del paciente</a></li>
+
+<li><a href="#" class="arrow-link">Profesionales de salud</a></li>
+
+<li><a href="#" class="arrow-link">Investigadores</a></li>
+
+
+</ul>
+</div>

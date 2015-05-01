@@ -25,6 +25,8 @@
         font-size: 1em;
         font-weight: normal;
         text-transform: uppercase;
+        @include font-noto;
+        margin-bottom: 1em;
     }
 
     a,
@@ -39,7 +41,6 @@
 
     .row {
         margin: 1em auto;
-        border: 0 solid yellow;
     }
 
     li {
@@ -48,7 +49,7 @@
     }
 
     .icon {
-        background-image: url('/publishedcontent/images/images/design-elements/icons/Cgov-NVCG-sprite.png');
+        background-image: url($icons + "nci-sprite.png");
         background-repeat: no-repeat;
         display: inline-block;
 
@@ -58,6 +59,10 @@
 
         &.twitter {
             @include social-media-icons('-123','-200','19','16');
+        }
+			
+				&.instagram {
+            @include social-media-icons('-125','-467','18','18');
         }
 
         &.googleplus {
@@ -95,6 +100,7 @@
 }
 
 .agencies {
+    clear: both;
     ul {
         text-align: center;
     }

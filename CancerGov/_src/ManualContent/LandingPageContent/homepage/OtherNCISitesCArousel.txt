@@ -1,0 +1,113 @@
+<!-- BEGIN Other NCI Sites slick carousel -->
+<div class="row carousel-title">
+	<div class="large-6 columns">
+		<h2>NCI Divisions, Offices, and Centers</h2>
+	</div>
+	<div class="large-6 columns arrows arrows-for-other-nci-sites clearfix">
+		<button type="button" class="previous"><span class="hidden">Previous</span></button>
+		<button type="button" class="next"><span class="hidden">Next</span></button>
+	</div>
+</div>
+<div class="row">
+	<div class="large-12 columns">
+		<div class="slider other-nci-sites">
+			<div>
+			<div class="image-hover">
+				<a href="http://dcb.nci.nih.gov/" class="blue-circles container">
+					<p class="site-name">Division of Cancer Biology</p>
+					<p class="site-link" href="http://dcb.nci.nih.gov/">Visit DCB Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://cancercontrol.cancer.gov/" class="purple-triangles container">
+					<p class="site-name">Division of Cancer Control and Population Sciences</p>
+					<p class="site-link" href="http://cancercontrol.cancer.gov/">Visit DCCPS Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://dceg.cancer.gov/" class="blue-triangles container">
+					<p class="site-name">Division of Cancer Epidemiology and Genetics</p>
+					<p class="site-link" href="http://dceg.cancer.gov/">Visit DCEG Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://prevention.cancer.gov/" class="green-plaid container">
+					<p class="site-name">Division of Cancer Prevention</p>
+					<p class="site-link" href="http://prevention.cancer.gov/">Visit DCP Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://dctd.cancer.gov/" class="blue-circles container">
+					<p class="site-name">Division of Cancer Treatment and Diagnosis</p>
+					<p class="site-link" href="http://dctd.cancer.gov/">Visit DCTD Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://deainfo.nci.nih.gov/" class="purple-triangles container">
+					<p class="site-name">Division of Extramural Activities</p>
+					<p class="site-link" href="http://deainfo.nci.nih.gov/">Visit DEA Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://ccr.cancer.gov/" class="blue-triangles container">
+					<p class="site-name">Center for Cancer Research</p>
+					<p class="site-link" href="http://ccr.cancer.gov/">Visit CCR Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://frederick.cancer.gov/" class="green-plaid container">
+					<p class="site-name">Frederick National Laboratory for Cancer Research</p>
+					<p class="site-link" href="http://frederick.cancer.gov/">Visit FNLCR Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://www.cancer.gov/clinicaltrials/nctn" class="blue-circles container">
+					<p class="site-name">National Clinical Trials Network</p>
+					<p class="site-link" href="http://www.cancer.gov/clinicaltrials/nctn">Visit NCTN Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://www.cancer.gov/about-nci/organization/ccg" class="purple-triangles container">
+					<p class="site-name">NCI Center for Cancer Genomics</p>
+					<p class="site-link" href="http://www.cancer.gov/about-nci/organization/ccg">Visit CCG Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://ncorp.cancer.gov/" class="blue-triangles container">
+					<p class="site-name">NCI Community Oncology Research Program</p>
+					<p class="site-link" href="http://ncorp.cancer.gov/">Visit NCORP Site</p>
+				</a>
+			</div>
+			</div>
+			<div>
+			<div class="image-hover">
+				<a href="http://www.cancer.gov/researchandfunding/priorities/ras" class="green-plaid container">
+					<p class="site-name">RAS Initiative</p>
+					<p class="site-link" href="http://www.cancer.gov/researchandfunding/priorities/ras">Visit RAS Site</p>
+				</a>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End "Other NCI Sites" slick carousel -->

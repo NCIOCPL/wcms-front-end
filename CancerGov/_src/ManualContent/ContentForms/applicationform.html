@@ -1,0 +1,1069 @@
+<noscript>
+	<div>
+		<h4 class="error">Please enable JavaScript to submit this form.</h4>
+	</div>
+</noscript>
+<!-- form validation -->
+<script>
+	function checkAll(group, checkState) {
+		for (var i = 0; i < group.length; i++) {
+			group[i].checked = checkState;
+		}
+	}
+
+	function validateGeneticsDirectoryForm() {
+		var validationMessage = "",
+			validResponse,
+			elements = document.forms['GeneticsForm'].elements;
+
+		if (elements['Name'].value === '') {
+			validationMessage += "Please enter your Name. Question #1\n";
+		}
+
+		if (elements['Institution'].value === '') {
+			validationMessage += "Please enter your Institution. Question #1\n";
+		}
+
+		if (elements['Address'].value === '') {
+			validationMessage += "Please enter your Address. Question #1\n";
+		}
+
+		if (elements['Telephone_Number'].value === '') {
+			validationMessage += "Please enter a Telephone Number. Question #1\n";
+		} else {
+			validResponse = validTel(elements['Telephone_Number'].value);
+			if (validResponse !== true) {
+				validationMessage += validResponse + " Question #1\n";
+			}
+		}
+
+		if (elements['Email_Address'].value === '') {
+			validationMessage += "Please enter your email address. Question #1\n";
+		} else {
+			validResponse = validEmail(elements['Email_Address'].value);
+			if (validResponse !== true) {
+				validationMessage += validResponse + " Question #1\n";
+			}
+		}
+
+		if (elements['Publish_Email_in_CGSS'].value === '') {
+			validationMessage += "Please indicate if you provide service at this location. Question #1\n";
+		}
+
+		if (elements['Provide_services_at_this_location'].value === '' || elements['Provide_services_at_this_location'].value === 'No') {
+			if (elements['Service_Institution'].value === '') {
+				validationMessage += "Please provide a service institution. Question #1\n";
+			}
+
+			if (elements['Service_Address'].value === '') {
+				validationMessage += "Please provide a service address. Question #1\n";
+			}
+
+			if (elements['Service_Phone_Number'].value === '') {
+				validationMessage += "Please provide a service telephone number. Question #1\n";
+			} else {
+				validResponse = validTel(elements['Service_Phone_Number'].value);
+				if (validResponse !== true) {
+					validationMessage += validResponse + " Question #1\n";
+				}
+			}
+		}
+
+		if (!validCheckboxes(elements['Type_of_health_care_professional'], 1)) {
+			validationMessage += "Please select a health care profession. Question #2\n";
+		}
+
+		if (!validCheckboxes(elements['Type_of_specialty'], 1)) {
+			validationMessage += "Please enter your Specialty. Question #3a\n";
+		}
+
+		if (elements['Board_certified_in_specialty'].value === '') {
+			validationMessage += "Please indicate if you are board certified. Question #3b\n";
+		} else if (elements['Board_certified_in_specialty'].value === 'Yes') {
+			if (elements['Specialty_board'].value === '') {
+				validationMessage += "Please provide your specialty board. Question #3b\n";
+			}
+		} else if (elements['Board_certified_in_specialty'].value === 'No') {
+			if (elements['GeneticsForm.Board_Eligible'].value === '') {
+				validationMessage += "Please indicate if you are board eligible. Question #3b\n";
+			} else if (elements['Board_Eligible'].value === 'Yes') {
+				if (elements['Year_Became_Eligible'].value === '' || isNaN(parseInt(elements['Year_Became_Eligible'].value))) {
+					validationMessage += "The year you became board eligible has an incorrect value. Question #3b\n";
+				}
+			}
+		}
+
+		if (elements['Interdisciplinary_team_affiliation'].value === '') {
+			validationMessage += "Please indicate if you are member of / or affiliated with an interdisciplinary team with expertise in cancer genetics. Question #5\n";
+		}
+
+		if (!validCheckboxes(elements['Genetics_Expertise'], 1)) {
+			validationMessage += "Please indicate the area of genetic expertise. Question #6\n";
+		}
+
+		if (elements['Currently_provide_professional_services'].value === '') {
+			validationMessage += "Please indicate if you currently provide professional services. Question #7\n";
+		}
+
+		if (elements['Accept_calls_from_individuals'].value === '') {
+			validationMessage += "Please indicate if you willing to accept calls/emails. Question #8\n";
+		}
+
+		if (!validCheckboxes(elements['Service_Provided_For'], 1)) {
+			validationMessage += "Please indicate which cancer predisposing syndromes for which you provide services. Question #10\n";
+		}
+
+		if (!validCheckboxes(elements['Memberships'], 1)) {
+			validationMessage += "Please indicate membership in a national organization. Question #11\n";
+		}
+
+		if (validationMessage !== "") {
+			alert(validationMessage);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function validCheckboxes(group, lowerLimit, upperLimit, strict) {
+		// set defaults
+		var lower = lowerLimit || 1,
+			upper = upperLimit || group.length,
+			strct = strict || true;
+
+		var count = 0;
+		for (var i = 0; i < group.length; i++) {
+			if (group[i].checked) {
+				count++;
+			}
+		}
+
+		if (strct) {
+			return count > lower && count < upper;
+		} else {
+			return count >= lower && count <= upper;
+		}
+	}
+
+	function validEmail(email) {
+		var errors = [];
+
+		var emailFilter = /^.+@.+\..{2,3}$/i;
+		if (!emailFilter.test(email)) {
+			errors.push("Please enter a valid email address.");
+		} else {
+			// var illegalChars= /[\(\)\<\>\,\;\:\\\"\[\]]/;
+			var illegalChars = /[\(\)\,\;\:\\\"\[\]]/i;
+			if (email.match(illegalChars)) {
+				errors.push("The email address contains illegal characters.");
+			}
+		}
+		if (errors.length !== 0) {
+			return errors.join("\n") + " ";
+		} else {
+			return true;
+		}
+	}
+
+	function validTel(tel) {
+		var errors = [];
+		var telStripped = tel.replace(/[\(\)\.\-\ ]/ig, '');
+
+		if (isNaN(parseInt(telStripped))) {
+			errors.push("The phone number contains illegal characters.");
+		}
+		if (telStripped.length !== 10) {
+			errors.push("The phone number is the wrong length. Please make sure you included an area code.");
+		}
+
+		if (errors.length !== 0) {
+			return errors.join("\n") + " ";
+		} else {
+			return true;
+		}
+	}
+</script>
+<!-- end form validation -->
+
+<div class="row">
+	<div class="medium-8 columns right">
+		<div class="callout-box-full">
+			OMB NO: 0925-0639<br>
+			EXPIRATION DATE: 10/31/2017<br>
+			<a href="#omb-control">Burden Statement</a>
+		</div>
+	</div>
+</div>
+
+<form action="/forms/FormEmailerWithCaptcha.aspx" id="FormG" method="post" name="GeneticsForm" onsubmit="return(validateGeneticDirectoryForm());">
+	<input name="__subject" type="hidden" value="Application for Inclusion in NCI Cancer Genetics Services Directory">
+	<input name="__recipient" type="hidden" value="GeneticsDirectoryEmailRecipient">
+	<input name="__redirectto" type="hidden" value="/PublishedContent/ErrorMessages/thankyou.html">
+	<input name="__from" type="hidden" value="SeeEmailAddressBelow@mail.nih.gov">
+	<input name="__splitFields" type="hidden" value="Service_Provided_For,Genetics_Expertise,Memberships,Type_of_specialty,Type_of_health_care_professional">
+
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">1.</div>
+			<div class="large-8 columns">Please provide your full name, including middle initial, and the complete address, telephone number, fax number, and email address where you can be contacted for annual verification of your information:</div>
+		</div>
+		<input name="Question 1" type="hidden" value="Please provide your full name, including middle initial, and the complete address, telephone number, fax number, and email address where you can be contacted for annual verification of your information">
+		<input name="__linebreak1" type="hidden">
+
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Name" class="required inline right">Name:*</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Name" name="Name" type="text" maxlength="64">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Institution" class="required inline right">Institution:*</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Institution" name="Institution" type="text" maxlength="64">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Address" class="required inline right">Address:*</label>
+			</div>
+			<div class="medium-8 columns">
+				<textarea id="Address" name="Address" rows="5"></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Telephone_Number" class="required inline right">Telephone Number:*</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Telephone_Number" name="Telephone_Number" type="text" maxlength="20">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Fax_Number" class="inline right">Fax Number:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Fax_Number" name="Fax_Number" type="text" maxlength="20">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Email_Address" class="required inline right">Email Address:*</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Email_Address" name="Email_Address" type="text" maxlength="64">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<span id="Publish_Email_in_CGSS_label" class="label required right">Publish your email address in the NCI Cancer Genetics Services Directory?*</span>
+			</div>
+			<div class="medium-8 columns">
+				<span class="radio">
+					<input id="Publish_Email_in_CGSS[Yes]" name="Publish_Email_in_CGSS" type="radio" value="Yes">
+					<label for="Publish_Email_in_CGSS[Yes]">Yes</label>
+				</span>
+				<span class="radio">
+					<input id="Publish_Email_in_CGSS[No]" name="Publish_Email_in_CGSS" type="radio" value="No">
+					<label for="Publish_Email_in_CGSS[No]">No</label>
+				</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Website_URL" class="inline right">Web site URL:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Website_URL" name="Website_URL" type="text" maxlength="64">
+			</div>
+		</div>
+
+		<div>
+			<div class="row">
+				<div class="medium-4 columns">
+					<span id="Provide_services_at_this_location_label" class="label right">Do you provide services at this location?</span>
+				</div>
+				<div class="medium-8 columns">
+					<span class="radio">
+						<input id="Provide_services_at_this_location[Yes]" name="Provide_services_at_this_location" type="radio" value="Yes">
+						<label for="Provide_services_at_this_location[Yes]">Yes</label>
+					</span>
+					<span class="radio">
+						<input id="Provide_services_at_this_location[No]" name="Provide_services_at_this_location" type="radio" value="No">
+						<label for="Provide_services_at_this_location[No]">No</label>
+					</span>
+				</div>
+			</div>
+
+			<div>
+				<div class="row">
+					<div class="medium-8 columns right">
+						<span id="Service_location_label" class="label">If no, please provide information for service location:</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-4 columns">
+						<label for="Service_Institution" class="required inline right">Institution:*</label>
+					</div>
+					<div class="medium-8 columns">
+						<input id="Service_Institution" name="Service_Institution" type="text" maxlength="100">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-4 columns">
+						<label for="Service_Address" class="required inline right">Service Address:*</label>
+					</div>
+					<div class="medium-8 columns">
+						<textarea cols="46" id="Service_Address" name="Service_Address" rows="5"></textarea>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-4 columns">
+						<label for="Service_Phone_Number" class="required inline right">Telephone Number:*</label>
+					</div>
+					<div class="medium-8 columns">
+						<input id="Service_Phone_Number" name="Service_Phone_Number" type="text" maxlength="20">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-4 columns">
+						<label for="Additional_Locations" class="inline right">If you want additional locations, please enter them here (maximum of four):</label>
+					</div>
+					<div class="medium-8 columns">
+						<textarea id="Additional_Locations" name="Additional_Locations" rows="5"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 2.</div>
+			<div class="large-8 columns">What type of health care professional are you?</div>
+		</div>
+		<input name="__linebreak2a" type="hidden">
+		<input name="Question 2" type="hidden" value="What type of health care professional are you?">
+		<input name="__linebreak2" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<div class="checkbox">
+					<input id="Physician" name="Type_of_health_care_professional" type="checkbox" value="Physician">
+					<label for="Physician">Physician (M.D., D.O., or foreign equivalent)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Geneticist" name="Type_of_health_care_professional" type="checkbox" value="Geneticist">
+					<label for="Geneticist (Ph.D.)">Geneticist (Ph.D.)</label>
+				</div>
+				<div class="checkbox">
+					<input id="GeneticCounselor" name="Type_of_health_care_professional" type="checkbox" value="Genetic Counselor">
+					<label for="Genetic Counselor (M.S., M.Sc., M.A., C.G.C.)">Genetic Counselor (M.S., M.Sc., M.A., C.G.C.)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Nurse" name="Type_of_health_care_professional" type="checkbox" value="Nurse">
+					<label for="Nurse (R.N., B.S.N., M.S.N., M.S., M.A., Ph.D.)">Nurse (R.N., B.S.N., M.S.N., M.S., M.A., Ph.D.)</label>
+				</div>
+				<div class="checkbox">
+					<input id="SocialWorker" name="Type_of_health_care_professional" type="checkbox" value="Social Worker">
+					<label for="Clinical Social Worker (M.S.W., D.S.W.)">Clinical Social Worker (M.S.W., D.S.W.)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Psychologist" name="Type_of_health_care_professional" type="checkbox" value="Psychologist">
+					<label for="Clinical Psychologist (Ph.D., Psy.D.)">Clinical Psychologist (Ph.D., Psy.D.)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Other" name="Type_of_health_care_professional" type="checkbox" value="Other">
+					<label for="Other">Other</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Specify Degree" class="inline right">Please specify degree(s):</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Specify Degree" name="Degree" type="text">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Professional_license_and_national_certification_number_and_state" class="inline right">Provide professional license and/or national certification number and state:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Professional_license_and_national_certification_number_and_state" name="Professional_license_and_national_certification_number_and_state" type="text">
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 3a.</div>
+			<div class="large-8 columns">What is/are your specialties? (Choose one or more)</div>
+		</div>
+		<input name="__linebreak3a" type="hidden">
+		<input name="Question 3a" type="hidden" value="What is/are your specialties?">
+		<input name="__linebreak3" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<div class="checkbox">
+					<input id="ClinicalBio" name="Type_of_specialty" type="checkbox" value=" Clinical Biochemical Genetics">
+					<label for="Clinical Biochemical Genetics">Clinical Biochemical Genetics</label>
+				</div>
+				<div class="checkbox">
+					<input id="ClinicalCyto" name="Type_of_specialty" type="checkbox" value=" Clinical Cytogenetics">
+					<label for="Clinical Cytogenetics">Clinical Cytogenetics</label>
+				</div>
+				<div class="checkbox">
+					<input id="ClinicalGenetics" name="Type_of_specialty" type="checkbox" value=" Clinical Genetics">
+					<label for="Clinical Genetics">Clinical Genetics</label>
+				</div>
+				<div class="checkbox">
+					<input id="ClinicalMole" name="Type_of_specialty" type="checkbox" value=" Clinical Molecular Genetics">
+					<label for="Clinical Molecular Genetics">Clinical Molecular Genetics</label>
+				</div>
+				<div class="checkbox">
+					<input id="GeneticCounselling" name="Type_of_specialty" type="checkbox" value=" Genetic Counseling">
+					<label for="Genetic Counseling">Genetic Counseling</label>
+				</div>
+				<div class="checkbox">
+					<input id="GynecologicOncol" name="Type_of_specialty" type="checkbox" value=" Gynecologic Oncology">
+					<label for="Gynecologic Oncology">Gynecologic Oncology</label>
+				</div>
+				<div class="checkbox">
+					<input id="Hematology" name="Type_of_specialty" type="checkbox" value=" Hematology">
+					<label for="Hematology">Hematology</label>
+				</div>
+				<div class="checkbox">
+					<input id="Medical Biochemical Genetics" name="Type_of_specialty" type="checkbox" value=" Medical Biochemical Genetics">
+					<label for="Medical Biochemical Genetics">Medical Biochemical Genetics</label>
+				</div>
+				<div class="checkbox">
+					<input id="MedicalGenetics" name="Type_of_specialty" type="checkbox" value=" Medical Genetics">
+					<label for="Medical Genetics">Medical Genetics</label>
+				</div>
+				<div class="checkbox">
+					<input id="Medical Oncology" name="Type_of_specialty" type="checkbox" value=" Medical Oncology">
+					<label for="Medical Oncology">Medical Oncology</label>
+				</div>
+				<div class="checkbox">
+					<input id="Molecular Genetic Pathology" name="Type_of_specialty" type="checkbox" value=" Molecular Genetic Pathology">
+					<label for="Molecular Genetic Pathology">Molecular Genetic Pathology</label>
+				</div>
+				<div class="checkbox">
+					<input id="Oncology Nursing" name="Type_of_specialty" type="checkbox" value=" Oncology Nursing">
+					<label for="Oncology Nursing">Oncology Nursing</label>
+				</div>
+				<div class="checkbox">
+					<input id="Pediatric Hematology-Oncology" name="Type_of_specialty" type="checkbox" value=" Pediatric Hematology-Oncology">
+					<label for="Pediatric Hematology-Oncology">Pediatric Hematology-Oncology</label>
+				</div>
+				<div class="checkbox">
+					<input id="Radiation Oncology" name="Type_of_specialty" type="checkbox" value=" Radiation Oncology">
+					<label for="Radiation Oncology">Radiation Oncology</label>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 3b.</div>
+			<div class="large-8 columns">Are you board certified in your specialty?</div>
+		</div>
+		<input name="__linebreak3b" type="hidden">
+		<input name="Question 3b" type="hidden" value="Are you board certified in your specialty?">
+		<input name="__linebreak3c" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<span class="radio">
+					<input id="Board_certified_in_specialty[Yes]" name="Board_certified_in_specialty" type="radio" value="Yes">
+					<label for="Board_certified_in_specialty[Yes]">Yes</label>
+				</span>
+				<span class="radio">
+					<input id="Board_certified_in_specialty[No]" name="Board_certified_in_specialty" type="radio" value="No">
+					<label for="Board_certified_in_specialty[No]">No</label>
+				</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Specialty_board" class="inline right">If yes, please specify specialty board:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Specialty_board" name="Specialty_board" type="text" maxlength="40">
+			</div>
+		</div>
+
+		<div>
+			<div class="row">
+				<div class="medium-4 columns">
+					<span id="Board_Eligible_label" class="label right">If no, are you board eligible?</span>
+				</div>
+				<div class="medium-8 columns">
+					<span class="radio">
+						<input id="Board_Eligible[Yes]" name="Board_Eligible" type="radio" value="Yes">
+						<label for="Board_Eligible[Yes]">Yes</label>
+					</span>
+					<span class="radio">
+						<input id="Board_Eligible[No]" name="Board_Eligible" type="radio" value="No">
+						<label for="Board_Eligible[No]">No</label>
+					</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="medium-4 columns">
+					<label for="Year_Became_Eligible" class="inline right">If yes, please provide the year you became eligible:</label>
+				</div>
+				<div class="medium-8 columns">
+					<input id="Year_Became_Eligible" name="Year_Became_Eligible" type="text" minlength="4" maxlength="4">
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">4.</div>
+			<div class="large-8 columns">What specific training or professional experience do you have in cancer genetics? Please include information about all of the following that apply:</div>
+		</div>
+		<input name="__linebreak4" type="hidden">
+		<input name="Question 4" type="hidden" value="What specific training or professional experience do you have in cancer genetics? Please include information about all of the following that apply:">
+		<input name="__linebreak4" type="hidden">
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Citations_for_relevant_publications" class="inline right">Citations for relevant publications:</label>
+			</div>
+			<div class="medium-8 columns">
+				<textarea id="Citations_for_relevant_publications" name="Citations_for_relevant_publications" rows="3"></textarea>
+			</div>
+		</div>
+
+		<input name="__linebreak4a" type="hidden">
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Continuing_education_courses" class="inline right">Examples of relevant continuing education or graduate courses:</label>
+			</div>
+			<div class="medium-8 columns">
+				<textarea id="Continuing_education_courses" name="Continuing_education_courses" rows="3"></textarea>
+			</div>
+		</div>
+
+		<input name="__linebreak4b" type="hidden">
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Clinical_preceptorships" class="inline right">Clinical preceptorships taken:</label>
+			</div>
+			<div class="medium-8 columns">
+				<textarea id="Clinical_preceptorships" name="Clinical_preceptorships" rows="3"></textarea>
+			</div>
+		</div>
+
+		<input name="__linebreak4c" type="hidden">
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Investigator" class="inline right">Investigator (or other research professional) on genetics clinical trials:</label>
+			</div>
+			<div class="medium-8 columns">
+				<textarea id="Investigator" name="Investigator" rows="3"></textarea>
+			</div>
+		</div>
+
+		<input name="__linebreak4d" type="hidden">
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Number_of_patients_counseled_per_year_about_genetic_susceptibility_to_cancer" class="inline right">Number of patients counseled per year about genetic susceptibility to cancer:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Number_of_patients_counseled_per_year_about_genetic_susceptibility_to_cancer" name="Number_of_patients_counseled_per_year_about_genetic_susceptibility_to_cancer" type="text" maxlength="4">
+			</div>
+		</div>
+
+		<input name="__linebreak4e" type="hidden">
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Years_of_experience" class="inline right">Number of years of experience:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Years_of_experience" name="Years_of_experience" type="text" maxlength="2">
+			</div>
+		</div>
+
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 5.</div>
+			<div class="large-8 columns">Are you a member of or affiliated with an interdisciplinary team with substantial expertise in cancer genetics?</div>
+		</div>
+		<input name="__linebreak5" type="hidden">
+		<input name="Question 5" type="hidden" value="Are you a member of or affiliated with an interdisciplinary team with substantial expertise in cancer genetics?">
+		<input name="__linebreak5a" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<span class="radio">
+					<input id="Interdisciplinary_team_affiliation[Yes]" name="Interdisciplinary_team_affiliation" type="radio" value="Yes">
+					<label for="Interdisciplinary_team_affiliation[Yes]">Yes</label>
+				</span>
+				<span class="radio">
+					<input id="Interdisciplinary_team_affiliation[No]" name="Interdisciplinary_team_affiliation" type="radio" value="No">
+					<label for="Interdisciplinary_team_affiliation[No]">No</label>
+				</span>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 6.</div>
+			<div class="large-8 columns">For which of the following do you or members of your team provide expertise in relation to cancer genetics? (Choose one or more)</div>
+		</div>
+		<input name="__linebreak6a" type="hidden">
+		<input name="Question 6" type="hidden" value="For which of the following do you or members of your team provide expertise in relation to cancer genetics">
+		<input name="__linebreak6" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<div class="checkbox">
+					<input id="Genetics_Expertise[1]" name="Genetics_Expertise" type="checkbox" value=" Education">
+					<label for="Genetics_Expertise[1]">Patient genetics education</label>
+				</div>
+				<div class="checkbox">
+					<input id="Genetics_Expertise[2]" name="Genetics_Expertise" type="checkbox" value=" Risk Assessments">
+					<label for="Genetics_Expertise[2]">Patient cancer risk assessment</label>
+				</div>
+				<div class="checkbox">
+					<input id="Genetics_Expertise[3]" name="Genetics_Expertise" type="checkbox" value=" Counseling">
+					<label for="Genetics_Expertise[3]">Appropriate pre- and post-test counseling and informed consent (including ethical, legal, social issues related to testing and disclosure of test results)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Genetics_Expertise[4]" name="Genetics_Expertise" type="checkbox" value=" Susceptibility Testing">
+					<label for="Genetics_Expertise[4]">Genetic susceptibility testing (including information on limitations, specific tests available, and regulations concerning testing procedures such as CLIA and CAP/ACMG)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Genetics_Expertise[5]" name="Genetics_Expertise" type="checkbox" value=" Follow-Up">
+					<label for="Genetics_Expertise[5]">Follow-up plan of care (including medical care, psychological support, and counseling about options for prevention or early detection guidelines)</label>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 7.</div>
+			<div class="large-8 columns">Do you currently provide professional services to individuals or families seeking familial cancer risk counseling or genetic susceptibility testing? (Please note that if you do not provide services, you cannot be added to the directory.)</div>
+		</div>
+		<input name="__linebreak7a" type="hidden">
+		<input name="Question 7" type="hidden" value="Do you currently provide professional services to individuals or families seeking familial cancer risk counseling or genetic susceptibility testing?">
+		<input name="__linebreak7" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<span class="radio">
+					<input id="Currently_provide_professional_services[Yes]" name="Currently_provide_professional_services" type="radio" value="Yes">
+					<label for="Currently_provide_professional_services[Yes]">Yes</label>
+				</span>
+				<span class="radio">
+					<input id="Currently_provide_professional_services[No]" name="Currently_provide_professional_services" type="radio" value="No">
+					<label for="Currently_provide_professional_services[No]">No</label>
+				</span>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 8.</div>
+			<div class="large-8 columns">Are you willing to accept calls or email from individuals seeking familial cancer risk counseling and/or genetic susceptibility testing?</div>
+		</div>
+		<input name="__linebreak8a" type="hidden">
+		<input name="Question 8" type="hidden" value="Are you willing to accept calls or email from individuals seeking familial cancer risk counseling and/or genetic susceptibility testing?">
+		<input name="__linebreak8" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<span class="radio">
+					<input id="Accept_calls_from_individuals[Yes]" name="Accept_calls_from_individuals" type="radio" value="Yes">
+					<label for="Accept_calls_from_individuals[Yes]">Yes</label>
+				</span>
+				<span class="radio">
+					<input id="Accept_calls_from_individuals[No]" name="Accept_calls_from_individuals" type="radio" value="No">
+					<label for="Accept_calls_from_individuals[No]">No</label>
+				</span>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 9.</div>
+			<div class="large-8 columns">Are there restrictions or limitations to services provided (i.e., a person must be eligible for a clinical trial in order to receive services)?</div>
+		</div>
+		<input name="__linebreak9a" type="hidden">
+		<input name="Question 9" type="hidden" value="Are there restrictions or limitations to services provided (i.e., a person must be eligible for a clinical trial in order to receive services)?">
+		<input name="__linebreak9" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<span class="radio">
+					<input id="Service_limitations[Yes]" name="Service_limitations" type="radio" value="Yes">
+					<label for="Service_limitations[Yes]">Yes</label>
+				</span>
+				<span class="radio">
+					<input id="Service_limitations[No]" name="Service_limitations" type="radio" value="No">
+					<label for="Service_limitations[No]">No</label>
+				</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-4 columns">
+				<label for="Service_Limitations_explanation" class="inline right">If yes, explain:</label>
+			</div>
+			<div class="medium-8 columns">
+				<input id="Service_limitations_explanation" name="Service_Limitations_explanation" type="text" maxlength="100">
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 10.</div>
+			<div class="large-8 columns">Please verify the familial cancer predisposing syndromes for which you provide services. A list of cancer sites and types associated with each syndrome will also be provided for searching in the directory. (Choose one or more)</div>
+		</div>
+		<input name="__linebreak10a" type="hidden">
+		<input name="Question 10" type="hidden" value="Please specify the familial cancer-predisposing syndromes for which professional services are provided. A list of cancer sites and types associated with each syndrome will also be provided for searching in the directory.">
+		<input name="__linebreak10" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right roundy-box scrolling-list">
+				<div class="checkbox">
+					<input id="Service_Provided_For[1]" name="Service_Provided_For" type="checkbox" value="Ataxia-telangiectasia">
+					<label for="Service_Provided_For[1]">Ataxia-telangiectasia</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[2]" name="Service_Provided_For" type="checkbox" value="Basal cell nevus syndrome">
+					<label for="Service_Provided_For[2]">Basal cell nevus syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[3]" name="Service_Provided_For" type="checkbox" value="Beckwith-Wiedemann syndrome">
+					<label for="Service_Provided_For[3]">Beckwith-Wiedemann syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[4]" name="Service_Provided_For" type="checkbox" value="Birt-Hogg-Dube syndrome">
+					<label for="Service_Provided_For[4]">Birt-Hogg-Dub&eacute; syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[5]" name="Service_Provided_For" type="checkbox" value="Bloom syndrome">
+					<label for="Service_Provided_For[5]">Bloom syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[6]" name="Service_Provided_For" type="checkbox" value="Breast/ovarian cancer(BRCA1)">
+					<label for="Service_Provided_For[6]">Breast/ovarian cancer, hereditary (BRCA1)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[7]" name="Service_Provided_For" type="checkbox" value="Breast/ovarian cancer(BRCA2)">
+					<label for="Service_Provided_For[7]">Breast/ovarian cancer, hereditary (BRCA2)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[8]" name="Service_Provided_For" type="checkbox" value="Carney complex types I and II">
+					<label for="Service_Provided_For[8]">Carney complex, types I and II</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[9]" name="Service_Provided_For" type="checkbox" value="Chordoma+familial">
+					<label for="Service_Provided_For[9]">Chordoma, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[10]" name="Service_Provided_For" type="checkbox" value="Colon cancer hereditary non-polyposis- Lynch syndrome">
+					<label for="Service_Provided_For[10]">Colon cancer, hereditary non-polyposis - Lynch syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[11]" name="Service_Provided_For" type="checkbox" value="Costello syndrome">
+					<label for="Service_Provided_For[11]">Costello syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[12]" name="Service_Provided_For" type="checkbox" value="Cowden syndrome">
+					<label for="Service_Provided_For[12]">Cowden syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[13]" name="Service_Provided_For" type="checkbox" value="Dyskeratosis congenita">
+					<label for="Service_Provided_For[13]">Dyskeratosis congenita</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[14]" name="Service_Provided_For" type="checkbox" value="Esophageal cancer with tylosis">
+					<label for="Service_Provided_For[14]">Esophageal cancer with tylosis</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[15]" name="Service_Provided_For" type="checkbox" value="Exostosis hereditary multiple">
+					<label for="Service_Provided_For[15]">Exostosis, hereditary multiple</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[16]" name="Service_Provided_For" type="checkbox" value="Fanconi anemia">
+					<label for="Service_Provided_For[16]">Fanconi anemia</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[17]" name="Service_Provided_For" type="checkbox" value="Gastric cancer hereditary diffuse">
+					<label for="Service_Provided_For[17]">Gastric cancer, hereditary diffuse</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[18]" name="Service_Provided_For" type="checkbox" value="Gastrointestinal stromal tumor hereditary">
+					<label for="Service_Provided_For[18]">Gastrointestinal stromal tumor, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[19]" name="Service_Provided_For" type="checkbox" value="Hyperparathyroidism familial">
+					<label for="Service_Provided_For[19]">Hyperparathyroidism, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[20]" name="Service_Provided_For" type="checkbox" value="Leukemia acute myeloid familial">
+					<label for="Service_Provided_For[20]">Leukemia, acute myeloid, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[21]" name="Service_Provided_For" type="checkbox" value="Leukemia chronic lymphocytic familial">
+					<label for="Service_Provided_For[21]">Leukemia, chronic lymphocytic, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[22]" name="Service_Provided_For" type="checkbox" value="Li-Fraumeni syndrome">
+					<label for="Service_Provided_For[22]">Li-Fraumeni syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[23]" name="Service_Provided_For" type="checkbox" value="Lymphoma Hodgkin familial">
+					<label for="Service_Provided_For[23]">Lymphoma, Hodgkin, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[24]" name="Service_Provided_For" type="checkbox" value="Lymphoma non-Hodgkin familial">
+					<label for="Service_Provided_For[24]">Lymphoma, non-Hodgkin, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[25]" name="Service_Provided_For" type="checkbox" value="Melanoma hereditary multiple">
+					<label for="Service_Provided_For[25]">Melanoma, hereditary, multiple</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[26]" name="Service_Provided_For" type="checkbox" value="Mosaic variegated aneuploidy">
+					<label for="Service_Provided_For[26]">Mosaic variegated aneuploidy</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[27]" name="Service_Provided_For" type="checkbox" value="Multiple endocrine neoplasia type 1">
+					<label for="Service_Provided_For[27]">Multiple endocrine neoplasia type 1</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[28]" name="Service_Provided_For" type="checkbox" value="Multiple endocrine neoplasia type 2">
+					<label for="Service_Provided_For[28]">Multiple endocrine neoplasia type 2</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[29]" name="Service_Provided_For" type="checkbox" value="Multiple myeloma familial">
+					<label for="Service_Provided_For[29]">Multiple myeloma, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[30]" name="Service_Provided_For" type="checkbox" value="Neuroblastoma hereditary">
+					<label for="Service_Provided_For[30]">Neuroblastoma, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[31]" name="Service_Provided_For" type="checkbox" value="Neurofibromatosis type 1">
+					<label for="Service_Provided_For[31]">Neurofibromatosis type 1</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[32]" name="Service_Provided_For" type="checkbox" value="Neurofibromatosis type 2">
+					<label for="Service_Provided_For[32]">Neurofibromatosis type 2</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[33]" name="Service_Provided_For" type="checkbox" value="Nijmegen breakage syndrome">
+					<label for="Service_Provided_For[33]">Nijmegen breakage syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[34]" name="Service_Provided_For" type="checkbox" value="Pancreatic cancer hereditary">
+					<label for="Service_Provided_For[34]">Pancreatic cancer, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[35]" name="Service_Provided_For" type="checkbox" value="Paraganglioma hereditary">
+					<label for="Service_Provided_For[35]">Paraganglioma, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[36]" name="Service_Provided_For" type="checkbox" value="Peutz-Jeghers syndrome">
+					<label for="Service_Provided_For[36]">Peutz-Jeghers syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[37]" name="Service_Provided_For" type="checkbox" value="Polyposis familial adenomatous">
+					<label for="Service_Provided_For[37]">Polyposis, familial adenomatous</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[38]" name="Service_Provided_For" type="checkbox" value="Polyposis familial juvenile">
+					<label for="Service_Provided_For[38]">Polyposis, familial juvenile</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[39]" name="Service_Provided_For" type="checkbox" value="Polyposis MYH-associated">
+					<label for="Service_Provided_For[39]">Polyposis, MYH-associated</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[40]" name="Service_Provided_For" type="checkbox" value="Prostate cancer hereditary">
+					<label for="Service_Provided_For[40]">Prostate cancer, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[41]" name="Service_Provided_For" type="checkbox" value="Renal cell cancer hereditary">
+					<label for="Service_Provided_For[41]">Renal cell cancer, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[42]" name="Service_Provided_For" type="checkbox" value="Retinoblastoma hereditary">
+					<label for="Service_Provided_For[42]">Retinoblastoma, hereditary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[43]" name="Service_Provided_For" type="checkbox" value="Rhabdoid predisposition syndrome">
+					<label for="Service_Provided_For[43]">Rhabdoid predisposition syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[44]" name="Service_Provided_For" type="checkbox" value="Rothmund-Thomson syndrome">
+					<label for="Service_Provided_For[44]">Rothmund-Thomson syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[45]" name="Service_Provided_For" type="checkbox" value="Simpson-Golabi-Behmel syndrome">
+					<label for="Service_Provided_For[45]">Simpson-Golabi-Behmel syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[46]" name="Service_Provided_For" type="checkbox" value="Testicular germ cell tumor familial">
+					<label for="Service_Provided_For[46]">Testicular germ cell tumor, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[47]" name="Service_Provided_For" type="checkbox" value="Thyroid cancer familial medullary">
+					<label for="Service_Provided_For[47]">Thyroid cancer, familial medullary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[48]" name="Service_Provided_For" type="checkbox" value="Thyroid cancer familial non-medullary">
+					<label for="Service_Provided_For[48]">Thyroid cancer, familial non-medullary</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[49]" name="Service_Provided_For" type="checkbox" value="Tuberous sclerosis complex">
+					<label for="Service_Provided_For[49]">Tuberous sclerosis complex</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[50]" name="Service_Provided_For" type="checkbox" value="von Hippel-Lindau syndrome">
+					<label for="Service_Provided_For[50]">von Hippel-Lindau syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[51]" name="Service_Provided_For" type="checkbox" value="Waldenström macroglobulinemia familial">
+					<label for="Service_Provided_For[51]">Waldenstr&ouml;m macroglobulinemia, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[52]" name="Service_Provided_For" type="checkbox" value="Werner syndrome">
+					<label for="Service_Provided_For[52]">Werner syndrome</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[53]" name="Service_Provided_For" type="checkbox" value="Wilms tumor familial">
+					<label for="Service_Provided_For[53]">Wilms tumor, familial</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[54]" name="Service_Provided_For" type="checkbox" value="Xeroderma pigmentosum">
+					<label for="Service_Provided_For[54]">Xeroderma pigmentosum</label>
+				</div>
+				<div class="checkbox">
+					<input id="Service_Provided_For[All]" name="chkAllCategories" type="checkbox" value="All Categories" onchange="checkAll(this.form.elements['Service_Provided_For'], this.checked);">
+					<label for="Service_Provided_For[All]">Select All</label>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="large-4 columns legend">* 11.</div>
+			<div class="large-8 columns">Please note your membership in any of the following national societies or special interest groups. (Choose one or more)</div>
+		</div>
+		<input name="__linebreak11a" type="hidden">
+		<input name="Question 11" type="hidden" value="Please note your membership in any of the following national societies or special interest groups:">
+		<input name="__linebreak11" type="hidden">
+
+		<div class="row">
+			<div class="medium-8 columns right">
+				<div class="checkbox">
+					<input id="Memberships[ACMG]" name="Memberships" type="checkbox" value=" American College of Medical Genetics">
+					<label for="Memberships[ACMG]">American College of Medical Genetics (ACMG)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[APA]" name="Memberships" type="checkbox" value=" American Psychological Association">
+					<label for="Memberships[APA]">American Psychological Association (APA)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[ASCO]" name="Memberships" type="checkbox" value=" American Society of Clinical Oncology">
+					<label for="Memberships[ASCO]">American Society of Clinical Oncology (ASCO)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[ASHG]" name="Memberships" type="checkbox" value=" American Society of Human Genetics">
+					<label for="Memberships[ASHG]">American Society of Human Genetics (ASHG)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[CGA-ICC]" name="Memberships" type="checkbox" value=" Collaborative Group of the Americas on Inherited Colorectal Cancer">
+					<label for="Memberships[CGA-ICC]">Collaborative Group of the Americas on Inherited Colorectal Cancer (CGA-ICC)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[InSiGHT]" name="Memberships" type="checkbox" value=" International Society for Gastrointestinal Hereditary Tumors">
+					<label for="Memberships[InSiGHT]">International Society for Gastrointestinal Hereditary Tumors (InSiGHT)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[ISONG]" name="Memberships" type="checkbox" value=" International Society of Nurses in Genetics">
+					<label for="Memberships[ISONG]">International Society of Nurses in Genetics (ISONG)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[NSGC]" name="Memberships" type="checkbox" value=" National Society of Genetic Counselors">
+					<label for="Memberships[NSGC]">National Society of Genetic Counselors (NSGC)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[NSGC-Special]" name="Memberships" type="checkbox" value=" NSGC Special Interest Group in Cancer">
+					<label for="Memberships[NSGC-Special]">NSGC Special Interest Group in Cancer</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[ONS]" name="Memberships" type="checkbox" value=" Oncology Nursing Society">
+					<label for="Memberships[ONS]">Oncology Nursing Society (ONS)</label>
+				</div>
+				<div class="checkbox">
+					<input id="Memberships[ONS-Special]" name="Memberships" type="checkbox" value=" ONS Cancer Genetics Special Interest Group">
+					<label for="Memberships[ONS-Special]">ONS Cancer Genetics Special Interest Group</label>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<div class="row">
+			<div class="medium-4 columns legend">12.</div>
+			<div class="medium-8 columns">
+				<span>Please click the Submit button to complete your application.</span><p>We will process your application within a week and send you an email with a link to your listing on the Cancer.gov Web site. Please review the listing and let us know if any changes need to be made. You will also receive a verification request by email once a year.</p>
+				<p>For more information about the directory or help with the application, please contact the Directory Coordinator at <a href="mailto:geneticsdirectory@cancer.gov">GeneticsDirectory@cancer.gov</a>.</p>
+
+				<div class="row captcha-row">
+					<!-- Recaptcha set up -->
+					<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LcQe-MSAAAAAAG-lHJXWqCfOQQVVx9JMkv0rzDO"></script>
+					<noscript>
+						<iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcQe-MSAAAAAAG-lHJXWqCfOQQVVx9JMkv0rzDO" height="300" width="500" frameborder="0"></iframe>
+						<textarea name="recaptcha_challenge_field" rows="3"></textarea>
+						<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+					</noscript>
+				</div>
+
+				<div class="row">
+					<button id="submitBtn" type="submit" class="submit button">Submit</button>
+					<button type="reset" class="reset button">Clear</button>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</form>
+<p>* Required field</p>
+<p><a href="/policies/page2#email">Privacy Policy on E-mail Messages Sent to the NCI Web Site</a></p>
+<div class="callout-box" id="omb-control" tabindex="0">
+	<p>Public reporting burden for this collection of information is estimated to average 30 minutes per response, including the time for reviewing instructions, searching existing data sources, gathering and maintaining the data needed, and completing and reviewing the collection of information. <strong>An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number.</strong> Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: NIH, Project Clearance Branch, 6705 Rockledge Drive, MSC 7974, Bethesda, MD 20892-7974, ATTN: PRA (0925-0639). Do not return the completed form to this address.</p>
+</div>

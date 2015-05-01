@@ -1,1 +1,50 @@
-<div class="sub-nav-group-wrapper"> <div class="sub-nav-group-subwrapper"> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Comunicados de prensa</a> <ul> <li><a href="#" >2014</a></li> <li><a href="#" >2013</a></li> <li><a href="#" >2012</a></li> <li><a href="#" >2011</a></li> <li><a href="#" >2010</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Recursos para medios de comunicación</a> <ul> <li><a href="#">Medios de comunicación multiculturales</a></li> </ul> </li> </ul> <ul class="sub-nav-group"> <li><a href="#" class="sub-nav-group-header">Eventos</a> <ul> <li><a href="#" >Eventos en redes sociales</a></li> </ul> </li> </ul> </div> </div>
+﻿<div class="sub-nav-group-wrapper"><div class="sub-nav-group-subwrapper">
+
+<ul class="sub-nav-group">
+
+	<li><a href="/espanol/noticias/comunicados-de-prensa" class="sub-nav-group-header">Comunicados de prensa</a>
+
+		<ul>
+
+			<li><a href="/espanol/noticias/comunicados-de-prensa/2015">2015</a></li>
+
+			<li><a href="/espanol/noticias/comunicados-de-prensa/2014">2014</a></li>
+
+			<li><a href="/espanol/noticias/comunicados-de-prensa/2013">2013</a></li>
+
+			<li><a href="/espanol/noticias/comunicados-de-prensa/2012">2012</a></li>
+
+			<li><a href="/espanol/noticias/comunicados-de-prensa/2011">2011</a></li>
+
+			<li><a href="/espanol/noticias/comunicados-de-prensa/2010">2010</a></li>
+
+		</ul>
+
+	</li>
+
+</ul>
+
+<ul class="sub-nav-group">
+
+	<li><a href="#" class="sub-nav-group-header">Actualización de investigaciones</a>
+
+		<ul>
+</ul>
+
+<ul class="sub-nav-group">
+
+	<li><a href="/espanol/noticias/rescursos-medios-comunicacion" class="sub-nav-group-header">Recursos para medios de comunicación</a>
+
+		<ul>
+
+			<li><a href="/news-events/media-resources/contacts">Contactos para los medios</a></li>
+<li><a href="#">Material de archivo para los medios</a></li>
+			<li><a href="/espanol/noticias/lineas-vitales">Líneas Vitales</a></li>
+
+		</ul>
+
+	</li>
+
+</ul>
+
+</div> </div>

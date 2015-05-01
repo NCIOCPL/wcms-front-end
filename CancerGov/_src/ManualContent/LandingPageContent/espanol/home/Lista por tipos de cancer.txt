@@ -1,0 +1,56 @@
+
+<div class="rxbodyfield" xmlns:w="urn:www.microsoft.com/word" xmlns:o="urn:www.microsoft.com/office" xmlns:st1="urn:www.microsoft.com/smarttags" xmlns:st2="urn:www.microsoft.com/smarttags2" xmlns:x="urn:www.microsoft.com/excel">
+<ul class="cancer-types">
+<li><a href="/espanol/tipos/canceres-a-z/#a">A</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#b">B</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#c">C</a></li>
+
+<li>D</li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#e">E</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#f">F</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#g">G</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#h">H</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#i">I</a></li>
+
+<li>J</li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#k">K</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#l">L</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#m">M</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#n">N</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#q">O</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#p">P</a></li>
+
+<li>Q</li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#r">R</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#s">S</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#t">T</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#u">U</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#v">V</a></li>
+
+<li><a href="/espanol/tipos/canceres-a-z/#w">W</a></li>
+
+<li>X</li>
+
+<li>Y</li>
+
+<li>Z</li>
+</ul>
+</div>

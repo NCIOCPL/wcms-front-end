@@ -7,9 +7,7 @@
 	margin-bottom: 1em;
 	padding-left: 0;
 	padding-right: 0;
-	-webkit-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
-	box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
+	@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
 }
 .hero-inner-page {
 	position: relative;
@@ -19,215 +17,338 @@
 }
 .hero-text {
 	position: absolute;
-	top: 1em;
+	top: 49px;
 	left: 90px;
-	color: white;
-	width: 25%;
+	color: $white;
+	width: 23%;
 	font-size: 1.55em;
 	font-weight: bold;
-}
-.hero-text p {
-	line-height: 1.1;
-	top-margin: 0.7em;
-	font-weight: bold;
-}
-.hero-text a {
-	color: white;
-}
-.hero-text a:hover, .hero-text a:focus {
-	text-decoration: none;
+
+	p {
+		line-height: 1.1;
+		top-margin: 0.7em;
+		font-weight: bold;
+	}
+
+	a {
+		color: $white;
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+	}
 }
 .hero-call-to-action {
-	font-size: 0.9em;
+	font-size: 18px;
 	background: url($buttons + "hero-arrow.png") no-repeat center right;
 	display: inline-block;
 	padding-right: 1em;
-	-webkit-transition: padding-right 0.4s ease-in-out;
-	-moz-transition: padding-right 0.4s ease-in-out;
-	-ms-transition: padding-right 0.4s ease-in-out;
-	-o-transition: padding-right 0.4s ease-in-out;
-	transition: padding-right 0.4s ease-in-out;
-}
-.hero-call-to-action:hover, .hero-call-to-action:focus {
-	padding-right: 1.5em;
+	@include transition(padding-right 0.4s ease-in-out);
+
+	&:hover, &:focus {
+		padding-right: 1.5em;
+	}
 }
 /* END Hero Section */
 
-/* BEGIN Featured Slick Carousel Row */
-
-.slick-dots {
-	text-align: center;
-}
-/* END Featured Slick Carousel Row */
-
 /* BEGIN CARDS GENERAL RULES */
-
 .body-banner {
 	max-width: 100%;
 	padding-left: 0;
 	padding-right: 0;
 }
-/* equal height cards for desktop, visually push a div to the bottom of it's container */
-
-.card-row .card a {
-	color: #606060;
+%card-link-hover {
+	&:hover, &:focus {
+		color: $lcranberry;
+		text-decoration: none;
+	}
 }
+@mixin card-clickable {
+	// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
+	.columns {
+		padding: 0;
+		a {
+			padding: em-calc(30px);
+			display: block;
+		}
+	}
+}
+/* equal height cards for desktop, visually push a div to the bottom of it's container */
 .card {
 	padding-top: 1em;
-	background: white;
-	/* for IE browsers that don't understnad rgba */
-	background: rgba(255, 255, 255, 0.8);
-}
-.card a:hover, .card a:focus {
-	text-decoration: none;
-}
-.feature-secondary h3:hover, .feature-secondary h3:focus,
-.multimedia h3 a:hover, .multimedia h3 a:focus,
-.card-thumbnail h3 a:hover, .card-thumbnail h3 a:focus {
-	color: #bb0e3d;
-	text-decoration: none;
-}
-// default styling for Card image behavior on hover
-.card:hover .image-hover {
-	background-color: #000;
-}
-.card:hover .image-hover img {
-	opacity: 0.8;
+	background-color: $white; /* for IE browsers that don't understand rgba */
+	background-color: rgba($white, 0.8);
+
+	a {
+		&:hover, &:focus {
+			.image-hover {
+				// default styling for Card image behavior on hover
+				background-color: $black;
+
+				img {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+	a:hover, a:focus{
+		text-decoration: none;
+	}
+	.equalheight > div {
+		&, > a {
+			height: 100%;
+		}
+	}
+	.card-row & a {
+		color: $body-font-color;
+	}
+	ul {
+		@extend %no-bullets;
+
+		> li {
+			margin: 0;
+		}
+	}
 }
 /* END CARDS GENERAL RULES */
 
-/* BEGIN FEAUTRE PRIMARY CARDS ROW */
-
+/* BEGIN FEATURE PRIMARY CARDS ROW */
+.feature-primary .rawHtml, .feature-primary .rawHtml .featured-text {
+	height: 100%;
+}
 .feature-primary {
 	margin-bottom: 1em;
+
+	a {
+		&, h3 {
+			color: $white;
+		}
+	}
+	h3 {
+		font-weight: normal;
+		color: $white;
+		font-size: 1.375em;
+		line-height: 1.272;
+	}
+	p {
+		margin-bottom: 0;
+		font-size: em-calc(18px);
+		line-height: 1.167em;
+	}
+	.card {
+		background: $dteal;
+	}
+	.featured-text {
+		// featured-text is used for the funding opportunities box
+		padding: 15px;
+		background: $white;
+		color: $color-link !important;
+		// this is needed to overcome padding that was put in cards anchor tag
+		a {
+			padding: 0 !important; //needed to overcome specificity
+			color: $color-link;
+			@extend %card-link-hover;
+		}
+		h3 {
+			color: $header-font-color;
+		}
+		p {
+			margin-top: 1em;
+			margin-bottom: 0.5em;
+		}
+	}
+	@include card-clickable;
 }
-.feature-primary .card {
-	background: #178da9;
+@media only screen and (max-width :1024px) {
+	.feature-primary-title {
+		background: #178DAA;
+	}
+	.feature-primary-title h3 {
+		font-size: 1.375em;
+		color: white;
+		padding: 0.625em 30px;
+		margin: 0em;
+	}	
 }
-.feature-primary .featured-text {
-	background: white;
-}
-.feature-primary a,
-.feature-primary h3 {
-	color: white;
-}
-.feature-primary .featured-text a {
-	color: #186e88;
-}
-.feature-primary .featured-text a:hover, .feature-primary .featured-text a:focus {
-	color: #bb0e3d;
-}
-.feature-primary .featured-text h3 {
-	color: #666;
-}
-.feature-primary h3 {
-	font-weight: normal;
-	color: white;
-	font-size: 1.375em;
-	line-height: 1.272;
-}
-// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
-.feature-primary .columns {
-	padding: 0;
-}
-.feature-primary .columns a {
-	padding: 1em 0.9375em 1px 0.9375em;
-	display: block;
-}
-.multimedia-feature-card a, .multimedia .feature-card a {
-	display: block; 
-	height: 100%;
+@media only screen and (max-width :640px) {
+	.feature-primary {
+		margin-bottom: 0;
+	}
+	.feature-primary .card {
+		background: #178DAA;
+	}
+	.feature-primary .columns a, .feature-secondary .columns a {
+		padding-bottom: 15px;
+		padding-top: 15px;
+		overflow: auto;
+	}
+	.feature-primary .image-hover, .feature-secondary .image-hover {
+		float: left;
+		width: 30%;
+	}
+	.feature-primary h3, .feature-secondary h3 {
+		margin-top: 0;
+		float: right;
+		width: 70%;
+		font-size: 1.13em;
+	}
+	.feature-primary a:hover h3,
+	.feature-primary a:hover h3	{
+		color: white;
+	}
+	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
+		display: none;
+	}
+		/* the portal pages needed these items to not hit the edge of screen on mobile only */
+	.feature-primary h3, .feature-primary p,
+	.feature-secondary h3, .feature-secondary p,
+	.other-sites-carousel h3,
+	.row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
+		padding-left: 15px;
+	}
+	.feature-primary .featured-text {
+		display: none;
+	}
 }
 /* END FEATURE PRIMARY CARDS ROW */
 
 /* BEGIN FEATURE SECONDARY CARDS ROW */
-
 .feature-secondary {
 	margin-bottom: 1em;
-}
-.feature-secondary .card {
-	background: white;
-}
-.feature-secondary h3 {
-	font-weight: normal;
-	color: #186e88;
-	font-size: 1.375em;
-	line-height: 1.272;
-}
-.feature-secondary p {
-	color: #606060;
+
+	.card {
+		background: $white;
+	}
+	a {
+		h3 {
+			font-weight: normal;
+			color: $color-link;
+			font-size: 1.375em;
+			line-height: 1.272;
+		}
+		&:hover, &:focus {
+			h3 {
+				color: $lcranberry;
+			}
+		}
+		@extend %card-link-hover;
+	}
+	p {
+		margin-bottom: 0;
+		color: $body-font-color;
+		font-size: em-calc(18px);
+		line-height: 1.167em;
+	}
+	@include card-clickable;
 }
 /* END FEATURE SECONDARY CARDS ROW */
 
 /* BEGIN GUIDE CARDS ROW */
-
 .guide-card {
 	margin-bottom: 1em;
-}
-.guide-card h3 {
-	font-weight: normal;
-	color: #606060;
-	font-size: 1.375em;
-	line-height: 1.272;
-}
-.featured-card {
-	background: #dbf2f8;
-}
-.featured-card h3,
-.featured-card a,
-.featured-card a.arrow-link-white {
-	color: #2f2f2f;
+	h3 {
+		font-weight: normal;
+		color: $header-font-color;
+		font-size: 1.375em;
+		line-height: 1.272;
+	}
+	.card {
+		padding: em-calc(38px 32px 34px);
+
+		ul {
+			margin-bottom: 0;
+		}
+		h2 {
+			margin-top: 0;
+		}
+		a {
+			font-size: em-calc(18px);
+			line-height: em-calc(22px, 18px);
+		}
+		li {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+	}
+	.featured-card {
+		// this is the first card in the guide cards row.
+		background: #dbf2f8;
+
+		h3, a, a.arrow-link-white {
+			color: #2f2f2f;
+		}
+
+		a.arrow-link-white:hover {
+			@extend %card-link-hover;
+		}
+	}
+	ul.cancer-types li {
+		background: none;
+		float: left;
+		padding-right: 0;
+		width: 2.5em;
+		height: 2.3em;
+
+		a { @extend %card-link-hover; }
+	}
 }
 a.arrow-link {
-	background: url($buttons + "small-blue-circle-arrow.png") 100% 0 no-repeat;
-	padding-right: 2em;
+	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
+	padding: 1px 2em 1px 0;
 	width: 100%;
 	display: block;
-	color: #606060;
+	color: $body-font-color;
 	text-decoration: none;
+	@extend %card-link-hover;
+
+	&:hover {
+		background-image: url($buttons + "small-red-circle-arrow.png");
+	}
 }
 a.arrow-link-white {
+	@extend a.arrow-link;
 	background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
 	padding-right: 1em;
-	width: 100%;
-	display: block;
-	color: #606060;
-	text-decoration: none;
 }
-a.arrow-link:hover, a.arrow-link:focus,
-a.arrow-link-white:hover, a.arrow-link-white:focus {
-	background-image: url($buttons + "small-red-circle-arrow.png");
-	color: #bd153c;
+@media only screen and (max-width: 640px) {
+	a.arrow-link-white {
+		background: url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
+	}
 }
 a.learn-more {
 	margin-top: 1em;
 	/* adding padding per #OCECREATIV-783 --sjc */
-}
-.card ul.cancer-types li {
-	background: none;
-	float: left;
-	padding-right: 0;
-	width: 2.5em;
-	height: 2.3em;
-}
-.card ul.cancer-types li a:hover, .card ul.cancer-types li a:focus {
-	color: #bb0e3d;
 }
 /* END GUIDE CARDS ROW */
 
 /* BEGIN THUMBNAIL CARDS ROW */
 
 .card-thumbnail {
-	background: white;
+	background: $white;
 	padding-top: 1em;
 	padding-bottom: 1em;
+
+	.small-2 {
+		margin-top: 1em;
+	}
+	.image-hover {
+		display: block;
+
+		&:hover, &:focus {
+			background-color: #000;
+			> img {
+				opacity: 0.8;
+			}
+		}
+	}
+	h3 {
+		font-weight: normal;
+		a {
+			@extend %card-link-hover;
+		}
+	}
 }
-.card-thumbnail h3 {
-	font-weight: normal;
-}
-.card-thumbnail img {
-	margin-top: 1em;
-}
+
 /* END THUMBNAIL CARDS ROW */
 
 /* BEGIN MULTIMEDIA ROW */
@@ -236,154 +357,161 @@ a.learn-more {
 	/*margin-bottom: 1em;*/
 	padding: 1em 0;
 	margin-bottom: 1em;
+	
+	a {
+			&:hover, &:focus {
+				h3 {
+				color: $lcranberry;
+				}
+			}
+	}
+	.feature-card {
+		background: $white;
+		padding-bottom: 1em;
+
+		h3, p, ul { padding: 0 15px; }
+		h3 {
+			font-size: 1.375em;
+			font-weight: normal;
+			line-height: 1.272;
+			color: $color-link;
+		}
+		
+		@extend %card-link-hover;
+		}
+		
 }
-.multimedia .card {
-	background: none;
-	opacity: 1;
+@media only screen and (max-width: 640px) {
+
+	.multimedia-slot p, .multimedia-slot ul {
+	display: none; }
+	.multimedia-feature-card {
+		margin-right: 15px;
+	}
 }
-.multimedia-feature-card {
-	background: white;
-	padding-bottom: 1em;
-	position: relative;
+@media only screen and (max-width: 1024px) {
+	.multimedia-slot {
+		padding: 1em;
+	}
 }
-.multimedia-feature-card a, .multimedia .card a {
-		color: #606060
-}
-.multimedia-feature-card h3 {
-	font-size: 1.375em;
-	font-weight: normal;
-	line-height: 1.272;
-	color: #186e88;
-}
-.multimedia-feature-card h3, .multimedia-feature-card p, .multimedia-feature-card ul,
-.multimedia-slot .feature-card h3, .multimedia-slot .feature-card p, .multimedia-slot .feature-card ul{
-	padding: 0 15px;
-}
-.multimedia-slot .feature-card {
-	background: white;
-	padding-bottom: 1em;
-}
-.multimedia-slot .feature-card h3 {
-	font-size: 1.375em;
-	font-weight: normal;
-	line-height: 1.272;
-	color: #186e88;
-}
-// these rules are to fix the autoheight problems in multimedia row
-.card > .slot-item, .multimedia-feature-card, .multimedia .feature-card {
-    height: 100%;
-}
-.multimedia-feature-card.cgvInfographic {
-	a:before {
-		content: "View full Infographic";
-		text-transform: uppercase;
-		position: absolute;
-		right: 0;
-		background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
-		padding: 1em 2em 1em 1em;
-		color: white;
-		html[lang="es"] & {
-			content: "Ver Infograf\00ed a Completa"
+.multimedia {
+	.card {
+		background: none;
+		opacity: 1;
+		padding-left: 0;
+
+		a {
+			color: $body-font-color;
+		}
+		&:hover {
+			h3 { color: $lcranberry; }
 		}
 	}
-	&:hover a:before, &:focus a:before {
-		background-color: #bb0e3d;
+	h3 a {
+		@extend %card-link-hover;
 	}
 }
-.multimedia-feature-card a:hover h3, .multimedia-feature-card a:focus h3,
-.feature-card a:hover h3, .feature-card a:focus h3 {
-	color: #bb0e3d;
+
+@mixin call-to-action-corner() {
+	text-transform: uppercase;
+	position: absolute;
+	z-index: 88;
+	padding: 0.62em;
+	color: #FFFFFF;
+	background-color: #403f3f;
+
+	// rotate the call to action:
+	right: 0;
+	@include transform-origin(top right);
+	@include transform(
+		rotate(90deg)
+		translate(100%, -1px)); // -1px to fix rendering issues
 }
-.feature-primary a:hover h3 {
- color: white;	
+.multimedia-feature-card {
+	background: $white;
+	padding-bottom: 1em;
+	position: relative;
+
+	a {
+		color: $body-font-color;
+
+		&:before { @include call-to-action-corner(); }
+	}
+	h3 {
+		font-size: 1.375em;
+		font-weight: normal;
+		line-height: 1.272;
+		color: $color-link;
+	}
+	h3, p, ul { padding: 0 15px; }
+
+	&.cgvInfographic {
+		a:before { content: "Infographic";
+			html[lang="es"] & { content: "Infograf\00ed a" }
+		}
+	}
+	&.gloVideo {
+		a:before { content: "Video";
+			html[lang="es"] & { content: "Video" }
+		}
+	}
+
+	&.gloVideoCarousel {
+		a:before { content: "Video Playlist";
+			html[lang="es"] & {
+				content: "Lista de reproducci\00f3 n de videos" }
+		}
+	}
+}
+// these rules are to fix the autoheight problems in multimedia row
+%autoheight-fix {
+	height: 100%;
+}
+.multimedia-feature-card, .multimedia .feature-card {
+	@extend %autoheight-fix;
+	a {
+		display: block;
+		height: 100%;
+	}
+}
+.card > .slot-item {
+	@extend %autoheight-fix;
 }
 /* END MULIMEDIA ROW */
 
 /* BEGIN Director's Row */
 
 .directors-row {
-}
-.directors-row h3 {
-	color: white;
+	h3 {
+		color: $white;
+	}
 }
 .infographic {
 	position: relative;
 	/* allows for appearance of equal height cards on home page */
-	background: white;
+	background: $white;
+	figcaption {
+		padding: 0.5em 1em;
+	}
 }
 .infographic-enlarge {
 	position: absolute;
 	top: 0;
 	right: 0;
-	color: white;
-}
-.infographic-enlarge a {
-	color: white;
-	padding: 1em 2em 1em 1em;
-	display: block;
-	background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
-}
-.infographic-enlarge a:hover, .infographic-enlarge a:focus {
-	text-decoration: none;
-	background-color: #bb0e3d;
-}
-.infographic figcaption {
-	padding: 0.5em 1em;
+	color: $white;
+
+	a {
+		color: $white;
+		padding: 1em 2em 1em 1em;
+		display: block;
+		background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		@extend %card-link-hover;
+	}
 }
 .home-director-stories {
-	background: white;
+	background: $white;
 	padding: 0.5em 1em 0.2em;
 	margin-top: -10px;
 }
 /* END Director's Row */
-
-/* search */
-
-.search form {
-	margin: 0 0 0 -4px;
-	height: 100%;
-}
-.search {
-	width: 25%;
-	float: right;
-	background-color: #636363;
-	height: 51px;
-}
-html[lang="es"] .search {
-	height: 58px;
-}
-/* search box */
-
-.search #swKeyword {
-	background-color: #636363;
-	-webkit-appearance: none;
-	border: 0;
-	display: inline;
-	height: 100%;
-	font-family: 'Montserrat', sans-serif;
-	width: 89%;
-	padding-left: 7%;
-	font-size: 0.85em;
-	color: #fff;
-}
-/* placeholder text */
-
-#swKeyword::-webkit-input-placeholder {
-	color: #fff;
-}
-#swKeyword::-moz-placeholder {
-	color: #fff;
-	opacity: 1;
-}
-#swKeyword:-moz-placeholder {
-	color: #fff;
-	opacity: 1;
-}
-/* styles for markup automatically added by jquery mobile */
-
-.search .ui-input-text {
-	height: 100%;
-	width: 90%;
-	display: inline;
-}
 /********************* END Home Page Styles ******************************************/

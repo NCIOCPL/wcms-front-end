@@ -1,0 +1,249 @@
+/********************* BEGIN Header Styles ******************************************/
+// desktop (general)
+header {
+  padding-top: 1.5em;
+	margin-left: 2em;	
+	@include font-montserrat;
+	background: #fcfcfa;
+}
+
+/* Regular pages */
+.nci-logo-pages {
+  font-weight: bold;
+  font-size: 37.7px;
+ }
+.nci-logo-pages img {
+	width: 10%; 
+	max-height: 54px; 
+	max-width: 86px;	
+}
+.nci-logo-pages.columns {
+padding-left: 0;
+padding-right: 0; 
+}
+.nci-logo-pages a {
+color: #bb0e3d;
+text-transform: uppercase;
+padding-left: 13px;
+vertical-align: middle;
+}
+.nci-logo-pages a span {
+	position: absolute;
+	left: -10000px;
+	color: #5d5d5d;
+	font-size: 0.6em; 
+}
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+	.nci-logo-pages {
+  font-size: 34px;
+ }
+}
+@media only screen and (max-width: 770px) {
+	.nci-logo-pages {
+  font-size: 30px;
+ }
+}
+@media only screen and (max-width: 690px) {
+	.nci-logo-pages {
+  font-size: 26px;
+ }
+}
+@media only screen and (max-width: 600px) {
+	.nci-logo-pages {
+  font-size: 22px;
+ }
+}
+@media only screen and (max-width: 510px) {
+	.nci-logo-pages {
+  font-size: 18px;
+ }
+}
+@media only screen and (max-width: 420px) {
+	.nci-logo-pages {
+  font-size: 14px;
+ }
+}
+@media only screen and (max-width: 340px) {
+	.nci-logo-pages {
+  font-size: 10px;
+ }
+}
+@media only screen and (max-width: 1024px) {
+	header{
+  padding-bottom: 1em;
+	margin-left: 2em;	
+ }
+}
+
+
+
+
+
+/* popup */
+.nci-logo {
+	font-weight: bold;
+	font-size: 37.7px;
+	background: url($logos + "NIH-red-logo.png") no-repeat 20px 0;
+	min-height: 54px;
+
+	&.columns {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	a {
+		color: #bb0e3d;
+		padding-left: 113px;
+		padding-top: 16px;
+		display: block;
+
+		span {
+			position: absolute;
+			left: -10000px;
+			color: #5d5d5d;
+			font-size: 0.6em;
+		}
+	}
+}
+
+// tablet
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+	.nci-logo {
+		background: url($logos + "NIH-red-logo-tablet.png") no-repeat 30px 0;
+		font-size: 24px;
+		min-height: 36px;
+
+		a {
+			padding-left: 95px;
+			padding-top: 9px;
+		}
+	}
+}
+
+// smartphone
+@media only screen and (max-width: 640px) {
+	.nci-logo {
+		background: url($logos + "NIH-red-logo-smartphone.png") no-repeat 30px 0;
+		font-size: 16px;
+		min-height: 28px;
+
+		a {
+			padding-left: 80px;
+			padding-top: 5px;
+		}
+	}
+}
+
+// x-small
+@media only screen and (max-width: 390px) {
+	.nci-logo {
+		font-size: 13px;
+	}
+}
+
+
+/* begin mobile menu bar styles */
+// smartphone + tablet
+@media only screen and (max-width: 1024px) {
+	.mobile-menu-bar {
+		> a,
+		> button,
+		> h2 { // TODO: remove the HACK (selector with h2)
+			display: inline-block;
+			background: transparent no-repeat center 0;
+			width: 13%;
+			padding: 3em 0 0 0;
+			margin: 1em 0;
+			@include font-montserrat;
+			line-height: 1;
+			font-weight: bold;
+			font-size: 0.8em;
+			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+
+			&:hover, &:focus {
+				color: #fff;
+			}
+		}
+		> button {
+			-webkit-appearance: none;
+			appearance: none;
+			border: none;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		// TODO: remove this HACK (it's a CSS "fix" until OCEPROJECT-2911 is fixed) -Wade, 4/16/2015
+		> a > h2 {
+			padding: 0;
+			margin: 0;
+			font-size: 1em;
+			line-height: 1;
+			color: #fff;
+		}
+	}
+	button.nav-header, h2.nav-header { // TODO: remove the HACK (selector with h2)
+		background-image: url($icons + "menu-icon.png");
+		margin-right: 8%;
+	}
+	a.nav-contact, .mobile-menu-bar > h2 + a { // TODO: remove the HACK (selector with h2)
+		background-image: url($icons + "phone-mobile.png");
+	}
+	a.nav-dictionary, .mobile-menu-bar > h2 + a + a { // TODO: remove the HACK (selector with h2)
+		background-image: url($icons + "dictionary-mobile.png");
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin-left: 8%;
+		margin-right: 8%;
+	}
+	.mobile-menu-bar > h2 + a, .mobile-menu-bar > h2 + a + a { // TODO: remove this HACK
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+	}
+	button.nav-search, h2.nav-search { // TODO: remove the HACK (selector with h2)
+		background-image: url($icons + "search-mobile.png");
+		margin-left: 8%;
+	}
+}
+
+// small
+@media only screen and (max-width:640px) {
+	.mobile-menu-bar {
+		> a,
+		> button,
+		> h2 { // TODO: remove the HACK (selector with h2)
+			width: 19%;
+		}
+	}
+	button.nav-header, h2.nav-header { // TODO: remove the HACK (selector with h2)
+		margin-right: 4%;
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+	.mobile-menu-bar > h2 + a, .mobile-menu-bar > h2 + a + a { // TODO: remove this HACK
+		margin-left: (19/6) + 0%;
+		margin-right: (19/6) + 0%;
+	}
+	button.nav-search, h2.nav-search { // TODO: remove the HACK (selector with h2)
+		margin-left: 4%;
+	}
+}
+
+// x-small
+@media only screen and (max-width: 390px) {
+	.mobile-menu-bar {
+		> a,
+		> button,
+		> h2 { // TODO: remove the HACK (selector with h2)
+			font-size: 0.5em;
+			padding: 4em 0 0 0;
+		}
+	}
+}
+/* end mobile menu styles */
+/********************* END Header Styles ******************************************/

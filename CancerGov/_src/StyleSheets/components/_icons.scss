@@ -1,0 +1,41 @@
+//
+// Icons
+//
+
+$text-icon-help-size: 28px;
+
+.text-icon-help,
+.main-content .text-icon-help {
+	font-size: em-calc(18px);
+	line-height: 1;
+	@include font-montserrat;
+	font-weight: bold;
+	color: white;
+	background-color: #186e88;
+	display: inline-block;
+	height: em-calc($text-icon-help-size, 18px);
+	width: em-calc($text-icon-help-size, 18px);
+	padding: (em-calc($text-icon-help-size, 18px) - 1em) / 2;
+	text-align: center;
+
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
+
+	&:hover, &:focus {
+		color: white;
+		background-color: #bb0e3d;
+		text-decoration: none;
+	}
+}
+
+
+$icon-cdr-audiofile-width: 27px;
+$icon-cdr-audiofile-height: 19px;
+
+.CDR_audiofile {
+	background: url($icons + 'nci-sprite.png') no-repeat -379px -259px;
+	width: $icon-cdr-audiofile-width;
+	height: $icon-cdr-audiofile-height;
+	display: inline-block;
+	position: relative;
+	top: $icon-cdr-audiofile-height / 4;
+}
