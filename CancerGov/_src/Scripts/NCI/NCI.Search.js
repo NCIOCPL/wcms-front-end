@@ -55,13 +55,17 @@ NCI.Search = {
 			$("#nvcgSlMainNav").removeClass(s.classname);
 			n.$openPanelBtn.unbind("click").click(n.toggleMobileMenu);
 		},
-		focusOutHandler: function(event) {
+		focusOutHandler: function (event) {
 			var n = NCI.Nav,
 				s = NCI.Search;
-			if (s.$form.has(event.relatedTarget).length > 0 || event.relatedTarget === n.$openPanelBtn.get(0)) {
-				return;
-			}
-			s.mobile.hide();
+
+			setTimeout(function() {
+				if (s.$form.has(document.activeElement).length > 0 || n.$openPanelBtn.is(document.activeElement)) {
+					return;
+				}
+				if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
+				s.mobile.hide();
+			}, 0);
 		}
 	}
 };
