@@ -59,13 +59,13 @@ div.ebook-cover {
 }
 
 .pub-buttons a.icon span{
-	padding-left: 22px;
+	padding-left: 11px;
 	vertical-align: top;
 	display: inline-block;
 }
 
 .pub-buttons a.icon.free span {
-  width: 66px;
+  width: 85px;
   line-height: 14px;
 }
 
@@ -97,7 +97,9 @@ background-position: -20px -548px;
 
 .pub-buttons a.free.icon:before {
 	background-position: -20px -621px;
-	height: 22px;
+}
+.pub-button.icon.free {
+	padding: 6px;
 }
 
 
