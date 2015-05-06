@@ -2,13 +2,18 @@ NCI.Nav.Section = {
 	sel: '.section-nav',
 	selWithChildren: '.section-nav .has-children',
 	idOpenerButton: 'section-menu-button',
+	openerText: {
+		en: 'Section Menu',
+		es: 'Menú de secciones'
+	},
 
 	$section: $(),
 	$withChildren: $(),
 	$openerButton: $(),
 
 	init: function() {
-		var _s = NCI.Nav.Section,
+		var lang = $('html').attr('lang') || 'en',
+			_s = NCI.Nav.Section,
 			toggle = NCI.Buttons.toggle;
 
 		_s.$section = $(_s.sel);
@@ -18,7 +23,7 @@ NCI.Nav.Section = {
 			_s.$openerButton = $('<a>')
 				.attr('id', _s.idOpenerButton)
 				.attr('href', '#')
-				.text('Section Menu')
+				.text(_s.openerText[lang])
 				.on('click', _s.onOpenerClick)
 				.insertAfter('.fixedtotop');
 			// add margin to prevent the button from overlaying the page header
