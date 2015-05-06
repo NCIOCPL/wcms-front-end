@@ -115,11 +115,14 @@ $ui-selectmenu-maxitems: 7;
 		@media only screen and (max-width:1024px) {
 			background-color: transparent;
 			border-bottom: 1px solid $body-font-color;
-			padding: 0.5em 3em 0.5em #{$siteSearchFormPadding/$swKeywordFontSize}em;
+			padding: 0.5em 3em 0.5em 12.5%;
 
 			.dictionary-search & {
 				padding-left: 0.5em;
 			}
+		}
+		@media only screen and (max-width:640px) {
+			padding-left: 17.5%;
 		}
 	}
 
