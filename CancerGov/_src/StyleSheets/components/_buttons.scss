@@ -140,82 +140,82 @@ $button-border-style: none;
 
 form a.button,
 form a.button:hover, {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 form button,
 .button {
-    @include button-base;
-    @include button-size;
-    @include button-style;
-    -webkit-appearance: none;
+	@include button-base;
+	@include button-size;
+	@include button-style;
+	-webkit-appearance: none;
 	  -moz-appearance: none;
-    appearance: none;
+	appearance: none;
 		margin-right: 28px;
 
-    &[type=submit],
-    &.submit {
-        @include button-style($bg:$button-background-color-submit);
-    }
-    &[type=reset],
-    &.reset {
-        @include button-style($bg:$button-background-color-reset);
-    }
-    &.action {
-        @include button-style($bg:$button-background-color-otheraction);
-    }
+	&[type=submit],
+	&.submit {
+		@include button-style($bg:$button-background-color-submit);
+	}
+	&[type=reset],
+	&.reset {
+		@include button-style($bg:$button-background-color-reset);
+	}
+	&.action {
+		@include button-style($bg:$button-background-color-otheraction);
+	}
 
-    &.startover {
-        background-image: url($icons + "nci-sprite.png");
-        background-position: -233px -343px;
-        padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
-        line-height: normal;
-    }
+	&.startover {
+		background-image: url($icons + "nci-sprite.png");
+		background-position: -233px -343px;
+		padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
+		line-height: normal;
+	}
 
-    &.left-align {
-        text-align: left;
-        padding-left: em-calc(12);
-    }
-    &.right-align {
-        text-align: right;
-        padding-right: em-calc(12);
-    }
+	&.left-align {
+		text-align: left;
+		padding-left: em-calc(12);
+	}
+	&.right-align {
+		text-align: right;
+		padding-right: em-calc(12);
+	}
 
-    &[disabled],
-    &.disabled {
-        &[type=submit],
-        &.submit {
-            @include button-style($bg:$button-background-color-submit, $disabled:true);
-        }
-        &[type=reset],
-        &.reset {
-            @include button-style($bg:$button-background-color-reset, $disabled:true);
-        }
-        &.action {
-            @include button-style($bg:$button-background-color-otheraction, $disabled:true);
-        }
-    }
+	&[disabled],
+	&.disabled {
+		&[type=submit],
+		&.submit {
+			@include button-style($bg:$button-background-color-submit, $disabled:true);
+		}
+		&[type=reset],
+		&.reset {
+			@include button-style($bg:$button-background-color-reset, $disabled:true);
+		}
+		&.action {
+			@include button-style($bg:$button-background-color-otheraction, $disabled:true);
+		}
+	}
 }
 
 @media only screen {
-    form button,
-    form .button {
-        @include box-shadow(0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset);
+	form button,
+	form .button {
+		@include box-shadow(0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset);
 
-        @include single-transition(background-color);
+		@include single-transition(background-color);
 
-        &.radius {
-            @include button-style($bg:false, $radius:true);
-        }
-    }
+		&.radius {
+			@include button-style($bg:false, $radius:true);
+		}
+	}
 }
 
 @media #{$small} {
-    form button,
-    form .button {
-        @include button-base($style:false, $display:inline-block);
-        @include button-size($padding:false, $full-width:false);
-    }
+	form button,
+	form .button {
+		@include button-base($style:false, $display:inline-block);
+		@include button-size($padding:false, $full-width:false);
+	}
 }
 
 
@@ -248,118 +248,123 @@ $plusminus-bg-color-nav-current: #017c84;
 
 // color mixin
 @mixin toggle-color($color, $bg-color) {
-    &[aria-expanded="false"] .toggle,
-    .toggle[aria-expanded="false"] {
-        color: $color;
-        background-color: $bg-color;
-    }
+	&[aria-expanded="false"] .toggle,
+	.toggle[aria-expanded="false"] {
+		color: $color;
+		background-color: $bg-color;
+	}
 
-    &[aria-expanded="true"] .toggle,
-    .toggle[aria-expanded="true"] {
-        color: $bg-color;
-        background-color: $color;
-    }
+	&[aria-expanded="true"] .toggle,
+	.toggle[aria-expanded="true"] {
+		color: $bg-color;
+		background-color: $color;
+	}
 }
 
 .toggle {
-    // BEGIN reset
-    display: inline-block;
-    cursor: pointer;
-    background: transparent;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    @include box-shadow(none);
-    // END reset
+	// BEGIN reset
+	display: inline-block;
+	cursor: pointer;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	@include box-shadow(none);
+	// END reset
 
-    position: absolute;
-    right: 4%;
-    top: 50%;
-    margin-top: -0.5em;
-    overflow: visible;
-    font-family: Arial, sans-serif;
-    font-size: 1em;
-    font-weight: bold;
-    line-height: 1;
-    text-indent: 0;
-    text-align: center;
-    height: 1em;
-    width: 1em;
+	position: absolute;
+	right: 4%;
+	top: 50%;
+	margin-top: -0.5em;
+	overflow: visible;
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1;
+	text-indent: 0;
+	text-align: center;
+	height: 1em;
+	width: 1em;
 
-    &:after {
-        display: block;
-        height: 1em;
-        width: 100%;
-        line-height: 1;
-    }
-    [aria-expanded="false"] &:after,
-    &[aria-expanded="false"]:after {
-        content: "+";
-    }
-    [aria-expanded="true"] &:after,
-    &[aria-expanded="true"]:after {
-        content: "\2212"; /* "2212" is Unicode for the minus sign */
-    }
+	&:after {
+		display: block;
+		height: 1em;
+		width: 100%;
+		line-height: 1;
+	}
+	[aria-expanded="false"] &:after,
+	&[aria-expanded="false"]:after {
+		content: "+";
+	}
+	[aria-expanded="true"] &:after,
+	&[aria-expanded="true"]:after {
+		content: "\2212"; /* "2212" is Unicode for the minus sign */
+	}
 }
 
 @media only screen and (max-width: 1024px) {
-    // MOBILE: general plus/minus buttons
-    .toggle {
-        right: 0;
-        top: 0;
-        margin-top: 0;
-        font-size: 2em;
-        height: 100%;
-        width: 50px;
+	// MOBILE: general plus/minus buttons
+	.toggle {
+		right: 0;
+		top: 0;
+		margin-top: 0;
+		font-size: 2em;
+		height: 100%;
+		width: 50px;
 
-        &:after {
-            position: absolute;
-            top: 50%;
-            margin-top: -0.5em;
-        }
-    }
+		&:after {
+			position: absolute;
+			top: 50%;
+			margin-top: -0.5em;
+		}
+	}
 
-    .ui-accordion-header.odd {
-        @include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
-    }
+	.ui-accordion-header.odd {
+		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
+	}
 
-    .ui-accordion-header.even {
-        @include toggle-color($plusminus-color-accordion-even, $plusminus-bg-color-accordion-even);
-    }
+	.ui-accordion-header.even {
+		@include toggle-color($plusminus-color-accordion-even, $plusminus-bg-color-accordion-even);
+	}
 
-    // MOBILE: "hamburger" plus/minus buttons
-    #mega-nav .toggle {
-        font-size: 2.5em;
-        @include box-shadow(-15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset);
-    }
+	// MOBILE: "hamburger" plus/minus buttons
+	#mega-nav .toggle {
+		font-size: 2.5em;
+		@include box-shadow(-15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset);
+	}
 
-    #mega-nav, .section-nav {
-        @include toggle-color($plusminus-color-nav-default, $plusminus-bg-color-nav-default);
+	#mega-nav {
+		@include toggle-color($plusminus-color-nav-default, $plusminus-bg-color-nav-default);
 
-        .current-page > div {
-            @include toggle-color($plusminus-color-nav-current, $plusminus-bg-color-nav-current);
-        }
-    }
-    .section-nav {
-        .level-1.contains-current > div {
-            @include toggle-color($plusminus-color-nav-greyish, $plusminus-bg-color-nav-greyish);
-        }
-    }
+		.current-page > div {
+			@include toggle-color($plusminus-color-nav-current, $plusminus-bg-color-nav-current);
+		}
+	}
+	.section-nav {
+		@include toggle-color($plusminus-color-nav-default, $plusminus-bg-color-nav-default);
+
+		.level-1.contains-current {
+			@include toggle-color($plusminus-color-nav-greyish, $plusminus-bg-color-nav-greyish);
+		}
+		.has-children > .current-page {
+			@include toggle-color($plusminus-color-nav-current, $plusminus-bg-color-nav-current);
+		}
+	}
 }
 
 @media only screen and (min-width: 1025px) {
-    // DESKTOP: general plus/minus buttons
-    .toggle {
-        font-size: 1.25em;
-        margin-top: -0.625em;
+	// DESKTOP: general plus/minus buttons
+	.toggle {
+		font-size: 1.25em;
+		margin-top: -0.625em;
 
-        [aria-expanded="false"] &,
-        &[aria-expanded="false"] {
-            color: $plusminus-desktop-color-collapsed;
-        }
-        [aria-expanded="true"] &,
-        &[aria-expanded="true"] {
-            color: $plusminus-desktop-color-expanded;
-        }
-    }
+		[aria-expanded="false"] &,
+		&[aria-expanded="false"] {
+			color: $plusminus-desktop-color-collapsed;
+		}
+		[aria-expanded="true"] &,
+		&[aria-expanded="true"] {
+			color: $plusminus-desktop-color-expanded;
+		}
+	}
 }
