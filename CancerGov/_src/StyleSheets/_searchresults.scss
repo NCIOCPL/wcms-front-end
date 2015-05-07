@@ -55,8 +55,7 @@
 		h2 {
 			margin-top: 0;
 		}
-		.title {
-			@include font-noto;
+		.list-item .title {
 			font-size: 1em;
 		}
 		.list, .list-item {
