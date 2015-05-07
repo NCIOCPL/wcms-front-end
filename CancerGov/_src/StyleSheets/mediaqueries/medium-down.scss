@@ -425,29 +425,36 @@
 	}
 
 	/* level 1 */
+	$section-nav-indent: 14px;
+	$section-nav-indent-increment: 12.25px;
 	.section-nav .level-1 > div > a {
 		text-transform: none;
-		margin-left: 1em;
+		margin-left: em-calc($section-nav-indent, 0.875 * $em-base);
 	}
 	.section-nav .level-1.contains-current {
 		background-color: #eeedf4;
 	}
 
 	/* level 2 */
+	$section-nav-indent: $section-nav-indent + $section-nav-indent-increment;
 	.section-nav .level-2 > div > a {
-		margin-left: 1.875em;
-	}
-	.section-nav .level-2 > ul {
-		z-index: 1;
-		position: absolute;
-		background: #c7c7d3;
+		margin-left: em-calc($section-nav-indent, 0.875 * $em-base);
 	}
 
 	/* level 3 */
+	$section-nav-indent: $section-nav-indent + $section-nav-indent-increment;
 	.section-nav .level-3 > div > a {
-		margin-left: 2.3em;
-		margin-right: 2.0833em;
 		font-size: 0.9em;
+		margin-left: em-calc($section-nav-indent, 0.9 * 0.875 * $em-base);
+		margin-right: em-calc(53.375px, 0.9 * 0.875 * $em-base);
+	}
+
+	/* level 4 */
+	$section-nav-indent: $section-nav-indent + $section-nav-indent-increment;
+	.section-nav .level-4 > div > a {
+		font-size: 0.9em;
+		margin-left: em-calc($section-nav-indent, 0.9 * 0.875 * $em-base);
+		margin-right: em-calc(53.375px, 0.9 * 0.875 * $em-base);
 	}
 	/** END level-by-level styling **/
 
