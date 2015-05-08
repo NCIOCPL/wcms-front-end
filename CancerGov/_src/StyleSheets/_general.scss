@@ -313,7 +313,19 @@ figcaption {
 .callout-box-blue {
 	background: #DBF2F8;
 	overflow: auto;
-	padding: 25px
+	padding: 25px;
+	
+	h3 {
+		margin-top: 0;	
+	}
+	
+	p:last-child {
+		margin-bottom: 0;	
+	}
+	
+	figure.image-center-full {
+		margin: 0;
+	}
 }
  
 .callout-box,
