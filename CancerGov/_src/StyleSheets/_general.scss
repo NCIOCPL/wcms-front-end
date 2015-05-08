@@ -273,34 +273,19 @@ figcaption {
 	/* 2 col */
 	.two-columns .column1,
 	.two-columns .column2 {
-		float: left;
-		width: 100%;
-		padding-right: 0;
-	}
-	/* 3 col */
 	.three-columns .column1,
 	.three-columns .column2,
 	.three-columns .column3 {
-		float: left;
-		width: 100%;
-		padding-right: 0;
-	}
-	/* 4 col */
 	.four-columns .column1,
 	.four-columns .column2,
 	.four-columns .column3,
 	.four-columns .column4 {
-		float: left;
-		width: 100%;
-		padding-right: 0;
-	}
-	/* 5 col */
 	.five-columns .column1,
 	.five-columns .column2,
 	.five-columns .column3,
 	.five-columns .column4,
 	.five-columns .column5 {
-		float: left;
+		float: none;
 		width: 100%;
 		padding-right: 0;
 	}
