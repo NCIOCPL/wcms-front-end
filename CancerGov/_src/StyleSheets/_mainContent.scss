@@ -65,13 +65,12 @@ a.definition:hover, a.definition:focus {
 		height: 51px;
 		width: 51px;
 	}
-	&:hover {
+	&:hover, &:focus {
 		color: $body-font-color;
 		text-decoration: none;
-
-		&:before {
-			background-position: -389px -80px;
-		}
+	}
+	&:hover:before {
+		background-position: -389px -80px;
 	}
 }
 
@@ -180,15 +179,18 @@ ol {
 .rawHtml ul {
 	& > li {
 		list-style-type: none;
-		position: relative;
+		// WARNING: do not add 'position: relative;' without serious testing of lists next to floated, interactive elements
+
 		&:before {
 			content: "\2022";
 			display: inline;
-			position: absolute;
+			position: relative;
+			float: left; // to remove the bullet from the current stacking context, and allow block-level elements to flow up and around
 			left: -0.5em;
-			top: -0.05em;
+			top: 0.25em; // to reposition after floating
 			margin: 0 -0.2em;
 			font-size: 1.1em;
+			line-height: (1em / 1.1);
 		}
 
 	}
