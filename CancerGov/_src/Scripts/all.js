@@ -194,7 +194,10 @@ jQuery(document).ready(function(jQuery) {
 		}
 		var svcUrl = "/AutoSuggestSearch.svc/SearchJSON/" + language;
 
-		NCI.doAutocomplete(keywordElem, svcUrl, false, "term");
+		NCI.doAutocomplete(keywordElem, svcUrl, false, "term", null, {position: {my: "left top", at: "left bottom", of: "#nvcgSlMainNav"}})
+			.data('ui-autocomplete')._resizeMenu = function() {
+				this.menu.element.outerWidth("100%");
+			};
 	})(jQuery);
 	/*** END Site-Wide Search ***/
 
