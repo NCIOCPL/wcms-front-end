@@ -65,13 +65,12 @@ a.definition:hover, a.definition:focus {
 		height: 51px;
 		width: 51px;
 	}
-	&:hover {
+	&:hover, &:focus {
 		color: $body-font-color;
 		text-decoration: none;
-
-		&:before {
-			background-position: -389px -80px;
-		}
+	}
+	&:hover:before {
+		background-position: -389px -80px;
 	}
 }
 
