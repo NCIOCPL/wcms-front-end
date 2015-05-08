@@ -125,7 +125,6 @@
 		// to catch is the .searching that we're applying
 		// with javascript on the parent.
 		#siteSearchForm {
-			margin: 0;
 			background-color: #444;
 
 			&:before {
@@ -144,10 +143,11 @@
 
 		#swKeyword {
 			position: relative;
+			left: 12.5%;
 			height: 100%;
-			width: 100%;
+			width: 75%;
 			margin: 0;
-			padding: 0 12.5%;
+			padding: 0;
 			font-size: $swKeywordFontSize;
 			z-index: 80; //needs to be below the menu-btn
 			background-color: transparent;
