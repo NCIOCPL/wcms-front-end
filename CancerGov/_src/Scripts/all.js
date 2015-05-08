@@ -194,10 +194,39 @@ jQuery(document).ready(function(jQuery) {
 		}
 		var svcUrl = "/AutoSuggestSearch.svc/SearchJSON/" + language;
 
-		NCI.doAutocomplete(keywordElem, svcUrl, false, "term", null, {position: {my: "left top", at: "left bottom", of: "#nvcgSlMainNav"}})
-			.data('ui-autocomplete')._resizeMenu = function() {
-				this.menu.element.outerWidth("100%");
-			};
+
+		var setAutocompleteOptions = function(element) {
+			var windowWidth = window.innerWidth || $(window).width(),
+				position,
+				resizeMenu;
+
+			if(windowWidth <= NCI.Breakpoints.large) {
+				// if mobile, make the autocomplete list full-width
+				position = {
+					my: "left top",
+					at: "left bottom",
+					of: "#nvcgSlMainNav"
+				};
+
+				resizeMenu = function() {
+					this.menu.element.outerWidth("100%");
+				};
+			} else {
+				// if desktop, make the autocomplete list work as default
+				position = $.ui.autocomplete.prototype.options.position;
+				resizeMenu = $.ui.autocomplete.prototype._resizeMenu;
+			}
+
+			$(element).autocomplete('option', 'position', position);
+			$(element).data('ui-autocomplete')._resizeMenu = resizeMenu;
+		};
+
+		NCI.doAutocomplete(keywordElem, svcUrl, false, "term");
+		setAutocompleteOptions(keywordElem);
+
+		$(window).on('resize', function() {
+			setAutocompleteOptions(keywordElem);
+		});
 	})(jQuery);
 	/*** END Site-Wide Search ***/
 
