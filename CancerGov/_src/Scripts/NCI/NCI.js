@@ -359,7 +359,6 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	*  opts{}               (object)                     Other options to pass to jQuery UI's autocomplete function.
 	*
 	*====================================================================================================*/
-
 	doAutocomplete: function(target, url, contains, queryParam, queryString, opts) {
 		var appendTo = null,
 			$target = $(target);
@@ -432,5 +431,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 					.append(word)
 					.appendTo(ul);
 			};
+
+		return $target;
 	}
 };

@@ -125,6 +125,7 @@
 		// to catch is the .searching that we're applying
 		// with javascript on the parent.
 		#siteSearchForm {
+			margin: 0;
 			background-color: #444;
 
 			&:before {
