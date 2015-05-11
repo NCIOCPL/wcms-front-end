@@ -1,12 +1,4 @@
 jQuery(document).ready(function(jQuery) {
-	/*** BEGIN Error Page hotfix ***/
-	(function($) {
-		if($('.error-page').length > 0) {
-			$('.nci-logo').removeClass('nci-logo').addClass('nci-logo-pages');
-		}
-	})(jQuery);
-	/*** END Error Page hotfix ***/
-
 	/*** BEGIN scrollToFixed init ***/
 	(function($) {
 		var headerHeight = $('.fixedtotop').height();
