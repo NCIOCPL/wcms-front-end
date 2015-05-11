@@ -114,6 +114,11 @@ jQuery(document).ready(function(jQuery) {
 
 	/*** BEGIN mobile nav ("off-canvas flyout functionality") ***/
 	(function($) {
+		// OCEPROJECT-3098 HACK to fix the Spanish mega menu on the Spanish homepage
+		if(/^\/espanol\/?$/.test(location.pathname)) {
+			$('#mega-nav .contains-current').removeClass('contains-current');
+		}
+
 		NCI.Nav.init();
 		NCI.Search.init();
 	})(jQuery);
