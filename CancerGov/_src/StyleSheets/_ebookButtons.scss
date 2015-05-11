@@ -1,11 +1,22 @@
-/* Begin eBook cover */
+/* Begin Ebooks */
+div.ebook-info {
+	clear: left;
+	margin-left: 0px;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
 div.ebook-cover {
-  float: left;
+	float: left;
   margin: 0 10px 10px 0;
 }
-/* End eBook cover */
-
-
+div.ebook-cover img {
+	margin-bottom: 10px;
+  margin-right: 1em;
+}
+div.ebook-title h4 {
+	margin-top: 0px;
+}
+/* End Ebooks */
 /* Begin eBook buttons */
 
 .pub-buttons {
