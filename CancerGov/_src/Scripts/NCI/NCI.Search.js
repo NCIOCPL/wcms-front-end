@@ -35,15 +35,15 @@ NCI.Search = {
 			});
 
 			// Enable focusing out to close
-			s.$form.add(n.$openPanelBtn).on('focusout.NCI.Search', function(event) {
-				s.mobile.focusOutHandler(event);
+			s.$form.add(n.$openPanelBtn).on('keydown.NCI.Search', function(event) {
+				s.mobile.keyDownHandler(event);
 			});
 		},
 		hide: function(e) {
 			var s = NCI.Search,
 				n = NCI.Nav;
 			// Disable focusing out to close, before changing the focus
-			s.$form.add(n.$openPanelBtn).off('focusout.NCI.Search');
+			s.$form.add(n.$openPanelBtn).off('keydown.NCI.Search');
 
 			// set tabindex back to what it was before opening
 			$('.mobile-menu-bar').children().not(n.$openPanelBtn).each(function(i, el) {
@@ -51,21 +51,27 @@ NCI.Search = {
 				$el.attr('tabindex', $el.data('NCI-search-originaltabindex'));
 			});
 
+			// focus the search button
 			s.$searchBtn.focus();
 			$("#nvcgSlMainNav").removeClass(s.classname);
 			n.$openPanelBtn.unbind("click").click(n.toggleMobileMenu);
 		},
-		focusOutHandler: function (event) {
+		keyDownHandler: function(event) {
 			var n = NCI.Nav,
 				s = NCI.Search;
 
-			setTimeout(function() {
-				if (s.$form.has(document.activeElement).length > 0 || n.$openPanelBtn.is(document.activeElement)) {
-					return;
-				}
-				if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
+			if(event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the TAB key
+				(n.$openPanelBtn.is(event.target) && event.shiftKey) || // if the user pressed SHIFT-TAB on the first tabbable item
+				(s.$form.find(':tabbable:last').is(event.target) && !event.shiftKey) // if the user pressed TAB on the last tabbable item
+			)) {
+				//if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
 				s.mobile.hide();
-			}, 0);
+
+				setTimeout(function() {
+					// focus the search button
+					s.$searchBtn.focus();
+				}, 0);
+			}
 		}
 	}
 };
