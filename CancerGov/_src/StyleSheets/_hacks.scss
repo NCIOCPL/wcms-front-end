@@ -1,0 +1,6 @@
+// HACK to fix header spacing on factsheets only
+// Added by OCEPROJECT-3099, should be removed by OCEPROJECT-1983
+body.cgvfactsheet h2 p {
+	line-height: inherit;
+	margin: inherit;
+}
