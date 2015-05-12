@@ -63,6 +63,11 @@ table caption {
 	@include font-montserrat;
 }
 
+.row .row.vertical-space {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
 /* begin default content table styling */
 table.table-default {
 	border-collapse: collapse;
