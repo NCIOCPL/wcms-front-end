@@ -21,33 +21,21 @@
 	/* first descendant link within a top level navigation item */
 	.nav-item > .nav-item-title > a {
 		position: relative;
+		width: 100%;
 		display: inline-block;
-		padding: 0 .4em;
+		padding: 14px 7.5px 7.5px;
 		margin: 0;
 		border-bottom: 7px solid transparent;
-		color: #FFF;
-		font-size: .95em;
-		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		color: #fff;
+		@include font-montserrat;
 		text-transform: uppercase;
-		/*line-height: 3.125em;*/ /*replaced with padding for height*/
 		text-align: center;
-	}
-	html[lang="es"] .nav-item > .nav-item-title > a {
-		font-size: 0.9em;
-		line-height: 1em;
-		min-height: 58px;
 	}
 
 	/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
 	.nav-menu .level-1 {
 		display: block;
-	}
-	.nav-menu > .nav-item > .nav-item-title {
-		margin-right: -1.25px; /* to position the top-level main nav items properly */
-	}
-	.nav-item > .nav-item-title > a {
-		font-size: 14px;
-		padding: 14px 8px 8px;
 	}
 	.nav-search-bar nav {
 		width: 75%;
@@ -90,7 +78,6 @@
 		position: absolute;
 		/* make menu the width of the entire nav bar */
 		left: 0;
-		margin-top: -1px;
 		padding: 0.5em 1em;
 		border: 1px solid #dedede;
 		@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
@@ -139,7 +126,7 @@
 		font-weight: bold;
 		color: $color-link;
 		display: block;
-		font-family: 'Montserrat', sans-serif;
+		@include font-montserrat;
 	}
 	/* sub nav group header hover color */
 	.sub-nav-group-header:hover, .sub-nav-group-header:focus {
@@ -195,6 +182,50 @@
 	.nav-item > .nav-item-title > a {
 		padding: 14px 20px 8px;
 	}
+}
+
+.nav-menu .nav-item {
+	$nav-max-lines: 1;
+	@mixin nav-item-spacing($nav-item-list, $nav-item-width-add) {
+		// calculate maximum number of lines
+		@for $i from 1 through length($nav-item-list) {
+			$nav-lines-tmp: map-get(nth($nav-item-list, $i), lines);
+			@if ($nav-lines-tmp > $nav-max-lines) {
+				$nav-max-lines: $nav-lines-tmp;
+			}
+		}
+
+		$breakpoints: (1025px, 1440px);
+		@for $i from 1 through length($nav-item-list) {
+			&.item-(#{$i}) {
+				$nav-item: nth($nav-item-list, $i);
+
+				@for $bp from 1 through length($breakpoints) {
+					@media only screen and (min-width: nth($breakpoints, $bp)) {
+						width: nth(map-get($nav-item, width), $bp) + nth($nav-item-width-add, $bp);
+					};
+				}
+				line-height: $nav-max-lines / map-get($nav-item, lines) + 0em;
+			}
+		}
+	}
+
+	html[lang="es"] & {
+		$nav-item-list: (
+			//(width:(bp1  , bp2  ), lines: # )
+			( width: (101px, 123px), lines: 1 ),
+			( width: (153px, 173px), lines: 1 ),
+			( width: (135px, 156px), lines: 1 ),
+			( width: (144px, 165px), lines: 2 ),
+			( width: (88px,  110px), lines: 1 ),
+			( width: (95px, 117px), lines: 2 )
+		);
+		$nav-item-width-add: (5px, 8.75px);
+
+		@include nav-item-spacing($nav-item-list, $nav-item-width-add);
+	}
+
+	line-height: $nav-max-lines + 0em;
 }
 
 
