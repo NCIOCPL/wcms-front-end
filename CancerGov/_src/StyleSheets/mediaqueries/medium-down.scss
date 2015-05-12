@@ -506,17 +506,6 @@
 	@import "_carousel-mediumdown";
 	/* end carousel styles */
 
-	.contentzone .document-dates,
-	.contentzone .document-dates.horizontal {
-		ul > li {
-			display: block;
-			&:before {
-				content: none;
-				display: none;
-			}
-		}
-	}
-
 	.public-use{
 		font-size: 0.875em;
 	}
