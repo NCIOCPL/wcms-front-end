@@ -63,7 +63,7 @@ table caption {
 	@include font-montserrat;
 }
 
-.row .row.vertical-space {
+.row .row.vertical-space, .row.vertical-space {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
