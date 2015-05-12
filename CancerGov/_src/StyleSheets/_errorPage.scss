@@ -1,14 +1,14 @@
 .error-page {
-	color: #876EC1;
+	color: #8169b8;
 	font-size: 1.125em;
 	background: #f7FBF8;
 	h1 {
-		color: #876EC1;
+		color: #8169b8;
 		font-size: 40px;
 		line-height: 47px;
 	}
 	a.arrow-link {
-		color: #876EC1;
+		color: #8169b8;
 		display: inline;
 	}
 	.columns {
@@ -29,12 +29,12 @@
 
 }
 .spanish-error {
-	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat top right;
+	background: #16809e url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat top right;
 	padding-bottom: 50px;
 	margin-top: 50px;
-	color: #CBEDF2;
+	color: #ffffff;
 
 	h1, a.arrow-link {
-		color: #CBEDF2;
+		color: #ffffff;
 	}
 }
