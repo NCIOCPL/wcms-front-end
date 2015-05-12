@@ -255,6 +255,7 @@ table.no-bullet-padding ul {
 		&:before {
 			content: "|";
 			position: relative;
+			float: none;
 			display: inline;
 			left: 0;
 			top: -0.1em;
@@ -268,9 +269,21 @@ table.no-bullet-padding ul {
 	}
 }
 
+@media only screen and (max-width: 1024px) {
+	.contentzone .document-dates,
+	.contentzone .document-dates.horizontal {
+		ul > li {
+			display: block;
+			&:before {
+				content: none;
+				display: none;
+			}
+		}
+	}
+}
+
 .article-citation	li p{
 	display: inline; }
-
 
 hr.ps-divider {
 	border: solid #7d7d7d;
