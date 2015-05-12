@@ -61,8 +61,8 @@ NCI.Nav = {
 			clearTimeout(n.movingTimeout);
 			n.$mobile.attr('aria-hidden', 'false');
 			$('html').addClass(n.movingClass).addClass(n.openClass);
-			// focus the first focusable item in the menu
-			n.$mobile.find(':tabbable:first').focus();
+
+			n.$mobile.find(':tabbable:first').focus(); // focus the first focusable item in the menu
 			n.$mega.offset({
 				"top": $(".fixedtotop").offset().top,
 				"left": "0px"
@@ -80,9 +80,16 @@ NCI.Nav = {
 				threshold: 10 // default is 75 (for 75px)
 			});
 
-			// Enable focusing out to close
-			n.$mega.on('focusout.NCI.Nav', function(event) {
-				n.focusOutHandler(event);
+			// set tabindex=-1 to items that should be removed from the tab order
+			$('.mobile-menu-bar').children().not(n.$openPanelBtn).each(function(i, el) {
+				var $el = $(el);
+				$el.data('NCI-search-originaltabindex', $el.attr('tabindex') || null);
+				$el.prop('tabindex', -1);
+			});
+
+			// Enable tabbing out to close
+			n.$mega.on('keydown.NCI.Nav', function(event) {
+				n.keyDownHandler(event);
 			});
 		}
 	},
@@ -91,10 +98,17 @@ NCI.Nav = {
 		if (n.isOpen()) {
 			clearTimeout(n.movingTimeout);
 			// Disable focusing out to close, before changing the focus
-			n.$mega.off('focusout.NCI.Nav');
+			n.$mega.off('keydown.NCI.Nav');
 
 			n.$mobile.attr('aria-hidden', 'true');
 			$('html').addClass(n.movingClass).removeClass(n.openClass);
+
+			// set tabindex back to what it was before opening
+			$('.mobile-menu-bar').children().not(n.$openPanelBtn).each(function(i, el) {
+				var $el = $(el);
+				$el.attr('tabindex', $el.data('NCI-search-originaltabindex'));
+			});
+
 			// focus the menu button
 			n.$openPanelBtn.focus();
 			$('.fixedtotop.scroll-to-fixed-fixed').css('left', "0px");
@@ -112,16 +126,21 @@ NCI.Nav = {
 			$("#page").swipe("destroy");
 		}
 	},
-	focusOutHandler: function(event) {
+	keyDownHandler: function(event) {
 		var n = NCI.Nav;
 
-		setTimeout(function() {
-			if (n.$mega.has(document.activeElement).length > 0) {
-				return;
-			}
-			if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
+		if(event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the TAB key
+			(n.$mega.find(':tabbable:first').is(event.target) && event.shiftKey) || // if the user pressed SHIFT-TAB on the first tabbable item
+			(n.$mega.find(':tabbable:last').is(event.target) && !event.shiftKey) // if the user press TAB on the last tabbable item
+		)) {
+			//if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
 			n.close();
-		}, 0);
+
+			setTimeout(function() {
+				// focus the menu button
+				n.$openPanelBtn.focus();
+			}, 0);
+		}
 	},
 	toggleMobileMenu: function() {
 		var n = NCI.Nav;
