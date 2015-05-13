@@ -73,8 +73,8 @@ table caption {
 	margin-bottom: 1em;
 }
 
-.row .columns + h3 {
-	top-margin: 0;
+.row .columns h3:first-child {
+	margin-top: 0;
 }
 /* begin default content table styling */
 table.table-default {
