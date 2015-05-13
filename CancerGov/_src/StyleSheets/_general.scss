@@ -69,7 +69,7 @@ table caption {
 }
 
 .row .row.top-row-padding, .row.top-row-padding {
-	margin-top: 2em;
+	margin-top: 3em;
 	margin-bottom: 1em;
 }
 
@@ -397,4 +397,10 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 	}
 }
 /* End Body by Location top Navigation */
+
+/* controls spacing of images on the nci organization page */
+.nci-organization .large-5 figure {
+  margin: 1.25em auto;
+}
+
 /********************* END General Styles ******************************************/
