@@ -197,7 +197,7 @@
 
 		$breakpoints: (1025px, 1440px);
 		@for $i from 1 through length($nav-item-list) {
-			&.item-(#{$i}) {
+			&.item-#{$i} {
 				$nav-item: nth($nav-item-list, $i);
 
 				@for $bp from 1 through length($breakpoints) {
