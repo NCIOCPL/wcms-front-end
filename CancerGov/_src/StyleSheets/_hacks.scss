@@ -4,3 +4,25 @@ body.cgvfactsheet h2 p {
 	line-height: inherit;
 	margin: inherit;
 }
+
+// HACK for custom styling of the "Funding Announcements" card (currently on '/grants-training')
+// Added by OCEPROJECT-3031, should be removed by ??? (funding announcements becoming a dynamic list?)
+.featured-text.funding-announcements {
+	color: inherit !important;
+	padding: 1.875em;
+
+	> h2 {
+		margin-top: 0;
+	}
+	.title > a {
+		display: inline;
+	}
+	.description {
+		font-size: 1.125em;
+	}
+
+	.arrow-link {
+		font-size: 1.125em;
+		color: $body-font-color;
+	}
+}
