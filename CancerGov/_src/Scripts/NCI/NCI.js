@@ -32,19 +32,30 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 *
 	 * returns: null
 	 * parameters:
-	 *  anchor[]    (string)(jQuery selector)    Selector of the anchor to be scrolled to.
+	 *  anchor[]    (string || DOM element)    ID selector of the anchor to be scrolled to, or the element itself
 	 *
-	 * TODO: move JS from inside "js/pdq-linking.js" to here
-	 * TODO: make this script work for mobile accordions
 	 *====================================================================================================*/
 	scrollTo: function(anchor) {
-		var width = window.innerWidth || $(window).width();
-		// remove initial hash
-		if(anchor.indexOf('#') === 0) {
-			anchor = anchor.substring(1, anchor.length);
+		// ensure the anchor is a string OR an element
+		if(!(typeof anchor === "string" || // string
+			(typeof anchor === "object" && anchor !== null && anchor.nodeType === 1 && typeof anchor.nodeName === "string") // DOM element
+		)) {
+			//console.error('Unknown anchor:', anchor);
+			return;
 		}
-		var isSection = anchor.match(/^section\//i);
-		anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
+
+		var width = window.innerWidth || $(window).width(),
+			isSection = false;
+
+		// we need to sanitize the string iff the anchor parameter is actually a string
+		if(typeof anchor === "string") {
+			// remove initial hash
+			if(anchor.indexOf('#') === 0) {
+				anchor = anchor.substring(1, anchor.length);
+			}
+			isSection = anchor.match(/^section\//i);
+			anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
+		}
 
 		var $anchor = $(anchor),
 			$accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
