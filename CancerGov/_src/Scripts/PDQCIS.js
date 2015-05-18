@@ -179,9 +179,9 @@ $(function() {
                                                //same level (e.g. h3 and
                                                //stay on it)
 						appHTML = appHTML + "</li><li>"+ beforeTxt
-                                          + "<span  tabindex='0' show=\""
+                                          + "<span tabindex='0' show=\""
                                           + id + "\">" 
-										  + "<a class=\"pdq-section-link\" onclick=\"NCIAnalytics.GenericLinkTrack(this,'Section Nav Click');\">"
+										  + "<a class=\"pdq-section-link\" onclick=\"NCIAnalytics.RightNavLink(this,'Section Nav Click');\">"
 										  + txt.replace(/([\/\\])/g, '$1&#8203;')
                                           + "</a>"
 										  + "</span>";
@@ -205,7 +205,7 @@ $(function() {
 		});
         appHTML = appHTML + "<li class='viewall'>"
                           + "<span tabindex='0'>"
-						  + "<a class=\"pdq-section-link\" onclick=\"NCIAnalytics.GenericLinkTrack(this,'View All Click');\">"
+						  + "<a class=\"pdq-section-link\" onclick=\"NCIAnalytics.RightNavLink(this,'View All Click');\">"
                           + strViewAll
                           + "</a>"
 						  + "</span>"
