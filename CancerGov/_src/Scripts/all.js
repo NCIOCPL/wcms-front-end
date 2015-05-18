@@ -20,7 +20,7 @@ jQuery(document).ready(function(jQuery) {
 					isTall = $(this).height() >= $(window).height();
 
 				if(!topShown && !isTall) {
-					NCI.scrollTo(this);
+					NCI.scrollTo(event.target);
 				}
 			});
 	})(jQuery);
