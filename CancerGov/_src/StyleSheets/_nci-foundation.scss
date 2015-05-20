@@ -1002,7 +1002,7 @@ $table-head-font-color: #454545;
 // $table-row-padding: em-calc(9 10);
 // $table-row-font-size: em-calc(14);
 $table-row-font-color: $body-font-color;
-// $table-line-height: em-calc(18);
+$table-line-height: inherit;
 
 // These are for controlling the display and margin of tables
 
