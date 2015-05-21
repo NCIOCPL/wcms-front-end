@@ -60,10 +60,10 @@ NCI.Search = {
 			var n = NCI.Nav,
 				s = NCI.Search;
 
-			if(event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the TAB key
+			if(event.keyCode === $.ui.keyCode.ESCAPE || (event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the ESC or TAB key
 				(n.$openPanelBtn.is(event.target) && event.shiftKey) || // if the user pressed SHIFT-TAB on the first tabbable item
 				(s.$form.find(':tabbable:last').is(event.target) && !event.shiftKey) // if the user pressed TAB on the last tabbable item
-			)) {
+			))) {
 				//if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
 				s.mobile.hide();
 
