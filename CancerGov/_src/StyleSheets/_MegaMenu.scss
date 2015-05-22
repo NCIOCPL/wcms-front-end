@@ -213,14 +213,14 @@
 	html[lang="es"] & {
 		$nav-item-list: (
 			//(width:(bp1  , bp2  ), lines: # )
-			( width: (101px, 123px), lines: 1 ),
-			( width: (153px, 173px), lines: 1 ),
-			( width: (135px, 156px), lines: 1 ),
-			( width: (144px, 165px), lines: 2 ),
-			( width: (88px,  110px), lines: 1 ),
-			( width: (95px, 117px), lines: 2 )
+			( width: (102px, 124px), lines: 1 ),
+			( width: (154px, 174px), lines: 1 ),
+			( width: (136px, 157px), lines: 1 ),
+			( width: (137px, 158px), lines: 2 ),
+			( width: (89px,  111px), lines: 1 ),
+			( width: (96px,  118px), lines: 2 )
 		);
-		$nav-item-width-add: (5px, 8.75px);
+		$nav-item-width-add: (5.5px, 9px);
 
 		@include nav-item-spacing($nav-item-list, $nav-item-width-add);
 	}
