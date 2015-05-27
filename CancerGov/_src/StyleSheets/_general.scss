@@ -253,7 +253,7 @@ figcaption {
 	padding: 5px 5px 5px 5px;
 }
 /* fix for Chrome problem with rendering sup tags */
-.sup {
+.sup, sup {
 	font-size: 80%;
 	position: relative;
 	bottom: 0.6em;
