@@ -88,15 +88,30 @@
 }
 
 /* various patterned background images for slides */
-@mixin nci-bg-pattern($color, $shape) {
-	.#{$color}-#{$shape} {
-		background-image: url($backgrounds + $color + "-" + $shape + ".jpg");
+@mixin nci-bg-pattern($pattern) {
+	.#{$pattern} {
+		background-image: url($backgrounds + $pattern + ".jpg");
 	}
 }
-@include nci-bg-pattern("blue","circles");
-@include nci-bg-pattern("purple","triangles");
-@include nci-bg-pattern("blue","triangles");
-@include nci-bg-pattern("green","plaid");
+
+@each $bg-pattern in (
+	"blue-circles",
+	"blue-dots",
+	"blue-triangles",
+	"green-arrows",
+	"green-plaid",
+	"orange-plaid",
+	"orange-waves",
+	"pink-triangles",
+	"purple-circles",
+	"purple-triangles",
+	"red-squares",
+	"red-triangles",
+	"yellow-circles",
+	"yellow-hexagons"
+) {
+	@include nci-bg-pattern($bg-pattern);
+}
 /* End background patterns */
 
 
