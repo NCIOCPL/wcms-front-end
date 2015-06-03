@@ -30,7 +30,7 @@ figure.table figcaption {
 }
 
 figure.table figcaption + a.article-image-enlarge {
-  top: 10px;
+	top: 10px;
 }
 
 .ui-front {
@@ -43,15 +43,7 @@ figure.table figcaption + a.article-image-enlarge {
 	display: none;
 }
 .table-enlarged .popup-close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	color: #fff;
-	padding: 0.3125em 2.25em 0.3125em 1em;
-	font-weight: bold;
-	text-transform: uppercase;
-	opacity: 0.9;
-	text-align: right;
+	margin: 0.3125em 2.25em 0.3125em 1em;
 }
 /* end table enlarge styles */
 /* END TABLE STYLES */
