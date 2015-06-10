@@ -2,77 +2,111 @@
 // desktop (general)
 header {
   padding-top: 1.5em;
-	margin-left: 2em;	
-	@include font-montserrat;
 	background: #fcfcfa;
 }
 
 /* Regular pages */
-.nci-logo-pages {
-  font-weight: bold;
-  font-size: 37.7px;
- }
-.nci-logo-pages img {
-	width: 10%; 
-	max-height: 54px; 
-	max-width: 86px;	
-}
 .nci-logo-pages.columns {
-padding-left: 0;
-padding-right: 0; 
+	padding-left: 0;
+	padding-right: 0; 
 }
 .nci-logo-pages a {
-color: #bb0e3d;
-text-transform: uppercase;
-padding-left: 13px;
-vertical-align: middle;
+	display: block;
 }
-.nci-logo-pages a span {
-	position: absolute;
-	left: -10000px;
-	color: #5d5d5d;
-	font-size: 0.6em; 
-}
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
-	.nci-logo-pages {
-  font-size: 34px;
- }
-}
-@media only screen and (max-width: 770px) {
-	.nci-logo-pages {
-  font-size: 30px;
- }
-}
-@media only screen and (max-width: 690px) {
-	.nci-logo-pages {
-  font-size: 26px;
- }
-}
-@media only screen and (max-width: 600px) {
-	.nci-logo-pages {
-  font-size: 22px;
- }
-}
-@media only screen and (max-width: 510px) {
-	.nci-logo-pages {
-  font-size: 18px;
- }
-}
-@media only screen and (max-width: 420px) {
-	.nci-logo-pages {
-  font-size: 14px;
- }
-}
-@media only screen and (max-width: 340px) {
-	.nci-logo-pages {
-  font-size: 10px;
- }
-}
+
 @media only screen and (max-width: 1024px) {
-	header{
-  padding-bottom: 1em;
-	margin-left: 2em;	
- }
+	header {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+}
+
+.nci-logo-pages {
+	// SVG is default for most browers
+	// GIF is default for IE8-
+
+	$logo-width-desktop: 60%;
+	$logo-padding-desktop: 7.5px;
+
+	$logo-width-mobile: 90%;
+	$logo-padding-mobile: 13px;
+
+	html.svg & img {
+		// Fix for Firefox subpixel height rendering -- if >= .5, then move up to next pixel
+		transform: translate(0px, 0.5px);
+	}
+	
+	html.no-svg & img[class^="nci-logo-IE"] {
+		display: none;
+	}
+
+	// default; should NOT be in a media query to allow the logo to print properly in IE8
+	//@media only screen and (min-width: 1441px) {
+		html.svg & img {
+			width: 60%;
+		}
+
+		html.no-svg & img.nci-logo-IE-xl {
+			display: block;
+		}
+
+		a {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	//}
+	@media only screen and (max-width: 1440px) {
+		html.no-svg & img.nci-logo-IE-xl {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+		html.svg & img {
+			width: $logo-width-desktop;
+		}
+
+		html.no-svg & img.nci-logo-IE-desk {
+			display: block;
+		}
+
+		a {
+			padding-left: $logo-padding-desktop;
+			padding-right: $logo-padding-desktop;
+		}
+	}
+
+	@media only screen and (min-width: 641px) and (max-width: 1024px) {
+		html.svg & img {
+			width: 70%;
+			min-width: ($logo-width-mobile / 100%) * (640px - $logo-padding-mobile); // this calculates the width that the logo would be at largest point in the mobile breakpoint, IF there were no scrollbar (should be 640px - $padding-mobile - <scrollbar width>)
+			max-width: ($logo-width-desktop / 100%) * (strip-unit($row-width)*$em-base - $logo-padding-desktop); // this calculates the width that the logo is at the smallest point in the desktop breakpoint
+		}
+
+		html.no-svg & img.nci-logo-IE-tab {
+			display: block;
+		}
+
+		a {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+
+	@media only screen and (max-width: 640px) {
+		html.svg & img {
+			width: $logo-width-mobile;
+		}
+
+		html.no-svg & img.nci-logo-IE-phon {
+			display: block;
+		}
+		
+		a {
+			padding-left: $logo-padding-mobile;
+			padding-right: $logo-padding-mobile;
+		}
+	}
 }
 
 
