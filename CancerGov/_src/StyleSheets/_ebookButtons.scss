@@ -1,33 +1,33 @@
 /* Begin Ebooks */
 div.ebook-info {
 	clear: left;
-	margin-left: 0px;
-  margin-bottom: 2em;
-  margin-top: 2em;
+	margin-left: 0;
+	margin-bottom: 2em;
+	margin-top: 2em;
 }
 div.ebook-cover {
 	float: left;
-  margin: 0 10px 10px 0;
+	margin: 0 10px 10px 0;
 }
 div.ebook-cover img {
 	margin-bottom: 10px;
-  margin-right: 1em;
+	margin-right: 1em;
 }
 div.ebook-title h4 {
-	margin-top: 0px;
+	margin-top: 0;
 }
 /* End Ebooks */
-/* Begin eBook buttons */
 
+/* Begin eBook buttons */
 .pub-buttons {
-	overflow:auto;	
+	overflow: auto;
 }
 
-.pub-buttons a{
-	border-radius: 3px;
+.pub-buttons a {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	padding: 8px 15px 0 15px;
+	border-radius: 3px;
+	padding: 8px 15px 0;
 	text-decoration: none;
 	float: left;
 	margin-right: 15px;
@@ -39,59 +39,58 @@ div.ebook-title h4 {
 }
 
 .pub-buttons a.lector {
-		line-height: 12px;
-	}
+	line-height: 12px;
+	padding-bottom: 4px;
+}
 
-.pub-buttons a:hover{
+.pub-buttons a:hover {
 	text-decoration: none;
 }
 
-
 .pub-buttons a.html {
-	background-color: #82368c;	
+	background-color: #82368c;
 }
 .pub-buttons a.pdf {
-	background-color: #bb0e3d;	
+	background-color: #bb0e3d;
 }
 .pub-buttons a.kindle {
-	background-color: #ff5f00;	
+	background-color: #ff5f00;
 }
 .pub-buttons a.epub,
 .pub-buttons a.lector {
-	background-color: #2a72a5;	
+	background-color: #2a72a5;
 }
 
 .pub-buttons a.free {
-	background-color: #2DC799;	
+	background-color: #2dc799;
 }
 
 .pub-buttons a.icon {
 	padding-left: 11px;
 }
 
-.pub-buttons a.icon span{
+.pub-buttons a.icon span {
 	padding-left: 11px;
 	vertical-align: top;
 	display: inline-block;
 }
 
 .pub-buttons a.icon.free span {
-  width: 85px;
-  line-height: 14px;
+	width: 85px;
+	line-height: 14px;
 }
 
 .pub-buttons a.icon:before {
-background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0px;
-content: " ";
-width: 22px;
-height: 21px;
-display: inline-block;
+	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0;
+	content: " ";
+	width: 22px;
+	height: 21px;
+	display: inline-block;
 }
 
 .pub-buttons a.kindle.icon:before {
-background-position: -20px -510px;
+	background-position: -20px -510px;
 }
-
 
 .pub-buttons a.html.icon:before {
 	background-position: -20px -584px;
@@ -103,7 +102,7 @@ background-position: -20px -510px;
 
 .pub-buttons a.epub.icon:before,
 .pub-buttons a.lector.icon:before {
-background-position: -20px -548px;
+	background-position: -20px -548px;
 }
 
 .pub-buttons a.free.icon:before {
