@@ -184,7 +184,7 @@ jQuery(document).ready(function(jQuery) {
 		$("a[href]").filter(function() {
 			return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
 		}).after($(
-			'<a class="icon-exit-notification" href="' + path + '">' +
+			'<a class="icon-exit-notification" title="' + altText + '" href="' + path + '">' +
 				'<span class="hidden">' + altText + '</span>' +
 			'</a>'
 		));
