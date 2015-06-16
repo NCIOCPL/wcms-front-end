@@ -198,7 +198,7 @@
 		$white: #ffffff;
 		$beige: #f3f3f2;
 		$taupe: #c3c1b4;
-		$teal:	#0498a1;
+		$teal:	#14819b;
 		$dteal: #017c84;
 
 		visibility: hidden;
@@ -416,7 +416,7 @@
 		font-weight: bold;
 		padding-top: 0.625em;
 		padding-bottom: 0.625em;
-		background-color: #186d89;
+		background-color: #1c5e86;
 		> a {
 			color: #FFFFFF;
 			margin-left: 0.8888em;
@@ -461,7 +461,7 @@
 
 	/* this rule to be below the level-by-level styles */
 	.section-nav div.current-page {
-		background: #009b9d;
+		background: #14819b;
 	}
 	/* style section menu clicker on mobile */
 	#section-menu-button {
@@ -475,7 +475,7 @@
 		min-height: 1.5em;
 		padding: 0.75em 2.5em 0.75em 0.75em;
 		right: 5%;
-		background: #186d89 95% 50% no-repeat;
+		background: #1c5e86 95% 50% no-repeat;
 		background-image: url($buttons + "section-menu-down-arrow.png");
 		@include font-montserrat;
 		text-transform: uppercase;

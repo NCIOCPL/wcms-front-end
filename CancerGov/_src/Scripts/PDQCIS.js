@@ -179,9 +179,12 @@ $(function() {
                                                //same level (e.g. h3 and
                                                //stay on it)
 						appHTML = appHTML + "</li><li>"+ beforeTxt
-                                          + "<span  tabindex='0' show=\""
-                                          + id + "\">" + txt.replace(/([\/\\])/g, '$1&#8203;')
-                                          + "</span>";
+                                          + "<span tabindex='0' show=\""
+                                          + id + "\">" 
+										  + "<a class=\"pdq-section-link\" onclick=\"NCIAnalytics.RightNavLink(this,'Section Nav Click');\">"
+										  + txt.replace(/([\/\\])/g, '$1&#8203;')
+                                          + "</a>"
+										  + "</span>";
 					break;
 				case (tagNumber < previous) : //it means that we went up but
                                               //we don't know how much levels
@@ -202,8 +205,10 @@ $(function() {
 		});
         appHTML = appHTML + "<li class='viewall'>"
                           + "<span tabindex='0'>"
+						  + "<a class=\"pdq-section-link\" onclick=\"NCIAnalytics.RightNavLink(this,'View All Click');\">"
                           + strViewAll
-                          + "</span>"
+                          + "</a>"
+						  + "</span>"
                           + "</li>";
 		//corrects our last item, because it may have some opened ul's
 		while(tagNumber != options.start && tagNumber > 0) {

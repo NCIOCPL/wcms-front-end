@@ -4,7 +4,7 @@
     width: #{$width}px;
     height: #{$height}px;
 }
-.footer-nci {
+.columns.footer-nci {
     @include font-montserrat;
     font-size: 25px;
     padding-left: 0.6em;

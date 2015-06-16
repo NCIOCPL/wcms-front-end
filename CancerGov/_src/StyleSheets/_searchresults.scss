@@ -46,6 +46,8 @@
 	}
 	.url {
 		font-size: 0.875em;
+		display: table;
+		word-break: break-all;
 	}
 	&.featured {
 		overflow: auto;

@@ -129,10 +129,10 @@ NCI.Nav = {
 	keyDownHandler: function(event) {
 		var n = NCI.Nav;
 
-		if(event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the TAB key
+		if(event.keyCode === $.ui.keyCode.ESCAPE || (event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the ESC or TAB key
 			(n.$mega.find(':tabbable:first').is(event.target) && event.shiftKey) || // if the user pressed SHIFT-TAB on the first tabbable item
 			(n.$mega.find(':tabbable:last').is(event.target) && !event.shiftKey) // if the user press TAB on the last tabbable item
-		)) {
+		))) {
 			//if(window.scrollX > 0) { window.scrollTo(0, window.scrollY); }
 			n.close();
 

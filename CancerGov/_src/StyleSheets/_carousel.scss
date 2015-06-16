@@ -10,15 +10,15 @@
 
 	&:hover, &:focus {
 		text-decoration: none;
-	}
 
-	&:hover::before {
-		content: " ";
-		display:block;
-		position:absolute;
-		height: 100%;
-		width: 100%;
-		background-color: rgba(3,3,3,.2);
+		&:before {
+			content: " ";
+			display: block;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(3, 3, 3, 0.2);
+		}
 	}
 }
 .carousel-title {
@@ -49,7 +49,7 @@
 
 .site-name {
 	font-size: 1.45em;
-	font-family: Montserrat;
+	@include font-montserrat;
 	font-weight: bold;
 	color: white;
 	text-transform: uppercase;

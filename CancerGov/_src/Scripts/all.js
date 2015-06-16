@@ -1,12 +1,4 @@
 jQuery(document).ready(function(jQuery) {
-	/*** BEGIN Error Page hotfix ***/
-	(function($) {
-		if($('.error-page').length > 0) {
-			$('.nci-logo').removeClass('nci-logo').addClass('nci-logo-pages');
-		}
-	})(jQuery);
-	/*** END Error Page hotfix ***/
-
 	/*** BEGIN scrollToFixed init ***/
 	(function($) {
 		var headerHeight = $('.fixedtotop').height();
@@ -16,6 +8,21 @@ jQuery(document).ready(function(jQuery) {
 				$('.fixedtotop-spacer').height(headerHeight);
 			}
 		});
+
+		/* OCEPROJECT-2920, reposition when focus is under the sticky nav */
+		$('#content')
+			.on('focus.NCI.scrollTo', ':focusable', function(event) {
+				// reposition on focusing a child item, if needed
+				var rect = this.getBoundingClientRect(),
+					header = document.querySelector('.fixedtotop'),
+					headerBottom = header && header.getBoundingClientRect().bottom,
+					topShown = rect.top >= headerBottom,
+					isTall = $(this).height() >= $(window).height();
+
+				if(!topShown && !isTall) {
+					NCI.scrollTo(event.target);
+				}
+			});
 	})(jQuery);
 	/*** END scrollToFixed init ***/
 

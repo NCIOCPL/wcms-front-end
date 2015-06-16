@@ -5,12 +5,12 @@
 	width: 24%;
 	float: right;
 	margin: 0 -1.2em 10px 2em;
-	border-bottom: 12px solid #1e73a6;
+	border-bottom: 12px solid #1c5e86;
 	font-size: 0.8em;
 	margin-bottom: 3em;
 }
 .toptoc h3 {
-	background-color: #1e73a6;
+	background-color: #1c5e86;
 	color: white;
 	font-size: 1em;
 	margin: 0;
@@ -54,6 +54,9 @@
 	background: url($icons + "view-entire-summary.png") no-repeat scroll 0 50% #fffffb;
 	padding: 5px 0 5px 20px;
 	display: block;
+}
+.toptoc a.pdq-section-link {
+	color: #000000;
 }
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
 	// show the full-page (all sections) OTP

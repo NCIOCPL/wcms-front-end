@@ -28,7 +28,8 @@
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
 /****************** NCI COMPONENTS SECTION ********************/
-
+// these styles override and extend Foundation SASS partials
+@import "components/global";
 @import "components/buttons";
 @import "components/forms";
 @import "components/icons";

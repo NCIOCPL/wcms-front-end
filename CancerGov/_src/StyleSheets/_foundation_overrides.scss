@@ -27,7 +27,3 @@ ul.breadcrumbs > * a {
 	text-transform: none;
 	color: $color-link;
 }
-
-.breadcrumbs br {
-	display: none; // TODO: Remove this HACK, in OCEPROJECT-2849 implementation
-}

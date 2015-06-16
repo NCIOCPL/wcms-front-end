@@ -181,8 +181,7 @@ header {
 @media only screen and (max-width: 1024px) {
 	.mobile-menu-bar {
 		> a,
-		> button,
-		> h2 { // TODO: remove the HACK (selector with h2)
+		> button {
 			display: inline-block;
 			background: transparent no-repeat center 0;
 			width: 13%;
@@ -209,35 +208,22 @@ header {
 				cursor: pointer;
 			}
 		}
-
-		// TODO: remove this HACK (it's a CSS "fix" until OCEPROJECT-2911 is fixed) -Wade, 4/16/2015
-		> a > h2 {
-			padding: 0;
-			margin: 0;
-			font-size: 1em;
-			line-height: 1;
-			color: #fff;
-		}
 	}
-	button.nav-header, h2.nav-header { // TODO: remove the HACK (selector with h2)
+	button.nav-header {
 		background-image: url($icons + "menu-icon.png");
 		margin-right: 8%;
 	}
-	a.nav-contact, .mobile-menu-bar > h2 + a { // TODO: remove the HACK (selector with h2)
+	a.nav-contact {
 		background-image: url($icons + "phone-mobile.png");
 	}
-	a.nav-dictionary, .mobile-menu-bar > h2 + a + a { // TODO: remove the HACK (selector with h2)
+	a.nav-dictionary {
 		background-image: url($icons + "dictionary-mobile.png");
 	}
 	a.nav-contact, a.nav-dictionary {
 		margin-left: 8%;
 		margin-right: 8%;
 	}
-	.mobile-menu-bar > h2 + a, .mobile-menu-bar > h2 + a + a { // TODO: remove this HACK
-		margin-left: 7.5%;
-		margin-right: 7.5%;
-	}
-	button.nav-search, h2.nav-search { // TODO: remove the HACK (selector with h2)
+	button.nav-search {
 		background-image: url($icons + "search-mobile.png");
 		margin-left: 8%;
 	}
@@ -247,23 +233,18 @@ header {
 @media only screen and (max-width:640px) {
 	.mobile-menu-bar {
 		> a,
-		> button,
-		> h2 { // TODO: remove the HACK (selector with h2)
+		> button {
 			width: 19%;
 		}
 	}
-	button.nav-header, h2.nav-header { // TODO: remove the HACK (selector with h2)
+	button.nav-header {
 		margin-right: 4%;
 	}
 	a.nav-contact, a.nav-dictionary {
 		margin-left: 4%;
 		margin-right: 4%;
 	}
-	.mobile-menu-bar > h2 + a, .mobile-menu-bar > h2 + a + a { // TODO: remove this HACK
-		margin-left: (19/6) + 0%;
-		margin-right: (19/6) + 0%;
-	}
-	button.nav-search, h2.nav-search { // TODO: remove the HACK (selector with h2)
+	button.nav-search {
 		margin-left: 4%;
 	}
 }
@@ -272,8 +253,7 @@ header {
 @media only screen and (max-width: 390px) {
 	.mobile-menu-bar {
 		> a,
-		> button,
-		> h2 { // TODO: remove the HACK (selector with h2)
+		> button {
 			font-size: 0.5em;
 			padding: 4em 0 0 0;
 		}

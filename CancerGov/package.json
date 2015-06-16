@@ -22,7 +22,7 @@
     "url": "https://ncisvn.nci.nih.gov/svn/oce_wcmteam/content/",
     "path": "^/content/",
     "branchdir": "branches/",
-    "devbranch": "devonrex-it3/",
+    "devbranch": "egyptianmau/",
     "subpath": "CancerGov/"
   }
 }
