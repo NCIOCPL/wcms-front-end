@@ -1,7 +1,0 @@
-<div class="hero-text"> 
-<p>May is Melanoma/Skin Cancer Detection and Prevention Month</p>
-<p class="hero-call-to-action"><a href="http://www-qa.cancer.gov/cancertopics/types/skin">Get the facts</a></p>
-</div>
-<img src="/PublishedContent/Images/images/testdr/cancertypes_melanoma_hero_image_desktop.jpg" alt="" class="show-for-large-up"> 
-<img src="/PublishedContent/Images/images/testdr/cancertypes_melanoma_hero_image_tablet.jpg" alt="" class="show-for-medium"> 
-<img src="/PublishedContent/Images/images/testdr/cancertypes_melanoma_hero_image_smartphone.jpg" alt="" class="show-for-small">

@@ -1,7 +1,0 @@
-<div class="hero-text">
-	<p>NCI is the nation's trusted source for cancer information</p>
-	<!--<p class="hero-call-to-action"><a href="#">Call to action text.</a></p>-->
-</div>
-<img src="/PublishedContent/Images/images/testdr//Hero_image_aboutcancer_desktop.jpg" alt="" class="show-for-large-up">
-<img src="/PublishedContent/Images/images/testdr/Hero_image_aboutcancer_tablet.jpg" alt="" class="show-for-medium">
-<img src="/PublishedContent/Images/images/testdr/Hero_image_aboutcancer_smartphone.jpg" alt="" class="show-for-small">

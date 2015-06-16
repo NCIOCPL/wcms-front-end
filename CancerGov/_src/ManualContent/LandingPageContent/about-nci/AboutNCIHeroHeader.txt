@@ -1,7 +1,0 @@
-<div class="hero-text">
-	<p>NCI is the nation's leader in cancer research.</p>
-	<!--<p class="hero-call-to-action"><a href="#">Call to action text.</a></p>-->
-</div>
-<img src="/PublishedContent/Images/images/testdr//Hero_image_aboutnci_desktop.jpg" alt="" class="show-for-large-up">
-<img src="/PublishedContent/Images/images/testdr/Hero_image_aboutnci_tablet.jpg" alt="" class="show-for-medium">
-<img src="/PublishedContent/Images/images/testdr/Hero_image_aboutnci_smartphone.jpg" alt="" class="show-for-small">

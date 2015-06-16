@@ -1,6 +1,0 @@
-
-<div class="rxbodyfield">
-<ul>
-<li><a href="/espanol/instituto/director">Página del director</a></li>
-</ul>
-</div>

@@ -1,7 +1,0 @@
-
-<div class="rxbodyfield">
-<ul>
-<li><a href="/espanol/instituto/aspectos-generales">Aspectos generales del NCI</a></li>
-
-</ul>
-</div>

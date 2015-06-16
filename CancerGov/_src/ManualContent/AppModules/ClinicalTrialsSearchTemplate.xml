@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<cde:Module_SearchResultPageInfo xsi:schemaLocation="http://www.example.org/CDESchema CDESchema.xsd" xmlns:cde="http://www.example.org/CDESchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<SearchPagePrettyUrl>/about-cancer/treatment/clinical-trials/search</SearchPagePrettyUrl>
-	<SearchResultsPrettyUrl>/about-cancer/treatment/clinical-trials/search/results</SearchResultsPrettyUrl>
-	<SearchHelpPrettyUrl>/about-cancer/treatment/clinical-trials/search/help</SearchHelpPrettyUrl>
-</cde:Module_SearchResultPageInfo>

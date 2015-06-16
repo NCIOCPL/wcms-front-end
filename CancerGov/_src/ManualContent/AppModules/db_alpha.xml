@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<cde:Module_DictionaryURL xsi:schemaLocation="http://www.example.org/CDESchema CDESchema.xsd" xmlns:cde="http://www.example.org/CDESchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <DictionaryEnglishURL>/publications/dictionaries/cancer-terms</DictionaryEnglishURL>
-  <DictionarySpanishURL>/espanol/publicaciones/diccionario</DictionarySpanishURL>
-</cde:Module_DictionaryURL>

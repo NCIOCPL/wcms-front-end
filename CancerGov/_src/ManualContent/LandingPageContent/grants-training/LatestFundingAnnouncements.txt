@@ -1,9 +1,0 @@
-<div class="featured-text">
-	<h3>Latest Funding Announcements</h3> 
-	<p><a href="http://grants.nih.gov/grants/guide/pa-files/PAR-15-155.html">Molecular and Cellular Characterization of Screen-Detected Lesions (U01)</a></p>
-	<p><a href="http://grants.nih.gov/grants/guide/pa-files/PAR-15-152.html">The NCI Transition Career Development Award (K22)</a></p>
-	<ul class="hide-for-medium-down">
-		<li><a class="arrow-link" href="/grants-training/rpg/funding-opportunities">See more</a> 
-		</li>
-	</ul>
-</div>
