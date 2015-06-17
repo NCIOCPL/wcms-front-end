@@ -509,8 +509,8 @@ jQuery(document).ready(function(jQuery) {
 
 			$this.selectmenu({
 				create: function(event, ui) {
-					// this sets the label's 'for' attribute to null, assigns it a unqiue id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique ID
-					$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', null).uniqueId().attr('id'));
+					// this sets the label's 'for' attribute to point to the <select> element, assigns the label a unique id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique id
+					$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', this.id).uniqueId().attr('id'));
 				},
 				change: function(event, ui) {
 					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
