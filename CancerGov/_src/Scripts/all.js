@@ -531,6 +531,29 @@ jQuery(document).ready(function(jQuery) {
 	// Run this script to dynamically generate an "On This Page" block at the top of the page if it's specified the HTML
 	// TODO: move this to a different location when cleaning up the JavaScript for a future release.
 	NCI.buildOTP();
+
+	/*** BEGIN Spanish blog label HACK ***/
+	(function($) {
+		$('html[lang="es"]')
+			.find('.blog-post > .post-info > p').each(function(i, el) {
+				$(el).html(el.innerHTML.replace("Continue Reading", "Siga leyendo"));
+			}).end()
+			.find('.blog-pager')
+				.children('.older').each(function(i, el) {
+					$(el).html(el.innerHTML.replace("Older Posts", "Artículos anteriores"));
+				}).end()
+				.children('.newer').each(function(i, el) {
+					$(el).html(el.innerHTML.replace("Newer Posts", "Artículos siguientes"));
+				}).end()
+			.end()
+			.find('.blog-post-older').each(function(i, el) {
+				$(el).html(el.innerHTML.replace("Older Post", "Artículo anterior"));
+			}).end()
+			.find('.blog-post-newer').each(function(i, el) {
+				$(el).html(el.innerHTML.replace("Newer Post", "Artículo siguiente"));
+			});
+	})(jQuery);
+	/*** END Spanish blog label HACK ***/
 });
 
 // BEGIN Table Resizing
