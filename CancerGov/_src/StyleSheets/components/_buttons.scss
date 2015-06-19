@@ -16,7 +16,7 @@ $button-med: em-calc(6px);
 
 // We use these to control button text styles.
 
-$button-font-family: 'Montserrat', Arial, sans-serif;
+$button-font-family: #{$montserrat-font-stack};
 $button-font-color: #fff;
 // $button-font-color-alt: #333;
 $button-font-med: em-calc(16);
@@ -277,7 +277,7 @@ $plusminus-bg-color-nav-current: #12738a;
 	top: 50%;
 	margin-top: -0.5em;
 	overflow: visible;
-	font-family: Arial, sans-serif;
+	font-family: Arial, sans-serif; // must be Arial for pretty +/- characters
 	font-size: 1em;
 	font-weight: bold;
 	line-height: 1;
