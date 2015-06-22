@@ -1,19 +1,58 @@
 /************** BEGIN Font Declarations ************************/
-// Google font, Montserrat and Noto Sans
-@import url('http://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,400italic,700,700italic');
-
-/* Noto Sans */
-$noto: "Noto Sans";
-$noto-font-stack: '#{$noto}', Arial, sans-serif;
-@mixin font-noto {
-	font-family: #{$noto-font-stack};
+@mixin font-face($family, $path, $svghash, $weight, $style) {
+  @font-face {
+    font-family: '#{$family}';
+    src: url($path + '.eot');
+    src:
+        url($path + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+        url($path + '.woff') format('woff'), // Modern Browsers
+        url($path + '.ttf') format('truetype'), // Safari, Android, iOS
+        url($path + '.svg#' + $svghash) format('svg'); // Legacy iOS
+    font-weight: $weight;
+    font-style: $style;
+  }
 }
 
+
+/* NOTO */
+$noto: "noto";
+$noto-font-stack: '#{$noto}', Arial, sans-serif;
+@mixin font-noto {
+    font-family: #{$noto-font-stack};
+}
+
+$noto-path: $fonts + "NotoSans-Regular-webfont";
+$noto-svg: "noto_sansregular";
+@include font-face($noto, $noto-path, $noto-svg, normal, normal);
+
+$noto-path: $fonts + "NotoSans-Bold-webfont";
+$noto-svg: "noto_sansbold";
+@include font-face($noto, $noto-path, $noto-svg, bold, normal);
+
+$noto-path: $fonts + "NotoSans-BoldItalic-webfont";
+$noto-svg: "noto_sansbold_italic";
+@include font-face($noto, $noto-path, $noto-svg, bold, italic);
+
+$noto-path: $fonts + "NotoSans-Italic-webfont";
+$noto-svg: "noto_sansitalic";
+@include font-face($noto, $noto-path, $noto-svg, normal, italic);
+
+
 /* Montserrat */
+
 $montserrat: "Montserrat";
 $montserrat-font-stack: '#{$montserrat}', Arial, sans-serif;
 @mixin font-montserrat {
-	font-family: #{$montserrat-font-stack};
+  font-family: #{$montserrat-font-stack};
 }
 
+$mont-path: $fonts + 'Montserrat-Regular-webfont';
+$mont-svg: 'webfont';
+@include font-face($montserrat, $mont-path, $mont-svg, normal, normal);
+
+$mont-path: $fonts + 'Montserrat-Bold-webfont';
+@include font-face($montserrat, $mont-path, $mont-svg, bold, normal);
+
 /********************* END Font Declarations ******************************************/
+
+
