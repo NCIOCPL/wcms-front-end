@@ -26,9 +26,3 @@ body.cgvfactsheet h2 p {
 		color: $body-font-color;
 	}
 }
-
-// HACK for clinical trials results language
-// Added by Egyptian Mau deployment (ticket TBD), should be removed by a Feline story (ticket TBD)
-form[action^="/about-cancer/treatment/clinical-trials/search/results"] > [id$="_ResultsDisplay"] > p {
-	display: none;
-}
