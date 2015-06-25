@@ -154,6 +154,9 @@ function doAutocomplete(target, url, contains, queryParam, queryString, opts) {
 				.append(word)
 				.appendTo(ul);
 		};
+	$target.data('ui-autocomplete')._resizeMenu = function() {
+		this.menu.element.outerWidth(this.element.outerWidth());
+	};
 
 	return $target;
 }
