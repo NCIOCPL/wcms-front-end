@@ -161,6 +161,33 @@ function doAutocomplete(target, url, contains, queryParam, queryString, opts) {
 	$target.data('ui-autocomplete')._resizeMenu = function() {
 		this.menu.element.outerWidth(this.element.outerWidth());
 	};
+	$target.data('ui-autocomplete')._suggest = function( items ) {
+		/* BEGIN copy from jQuery UI 1.11.4 */
+		var ul = this.menu.element.empty();
+		this._renderMenu( ul, items );
+		this.isNewMenu = true;
+		this.menu.refresh();
+
+		// size and position menu
+		ul.show();
+		this._resizeMenu();
+		ul.position( $.extend( {
+			of: this.element
+		}, this.options.position ) );
+		/* END copy from jQuery UI 1.11.4 */
+
+		// HACK: run again, because we can't tell when the vertical scrollbar has appeared
+		this._resizeMenu();
+		ul.position( $.extend( {
+			of: this.element
+		}, this.options.position ) );
+
+		/* BEGIN copy from jQuery UI 1.11.4 */
+		if ( this.options.autoFocus ) {
+			this.menu.next();
+		}
+		/* END copy from jQuery UI 1.11.4 */
+	};
 
 	return $target;
 }
