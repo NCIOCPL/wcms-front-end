@@ -27,6 +27,8 @@ function loadResults(searchTerm) {
 		};
 
 	$.getJSON(svcUrl, params, function(data) {
+		$('#search').val('');
+
 		if (data.length === 1) {
 			loadDefinition(data[0].id);
 		} else {
@@ -40,8 +42,9 @@ function loadResults(searchTerm) {
 				);
 			}
 
-			$('#search').val('');
-			$('#output').html(terms);
+			$('#output')
+				.html(terms)
+				.focus();
 		}
 	});
 }
@@ -54,6 +57,8 @@ function loadDefinition(id) {
 		};
 
 	$.getJSON(svcUrl, params, function(data) {
+		$('#search').val('');
+
 		$('#output')
 			// reset HTML
 			.html('')
@@ -67,9 +72,8 @@ function loadDefinition(id) {
 					})
 					.text(i18nText.dictionaryText[shortLang])
 			))
-			.scrollTop(0);
-
-		$('#search').val('');
+			.scrollTop(0)
+			.focus();
 	});
 }
 
