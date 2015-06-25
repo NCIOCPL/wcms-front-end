@@ -1,7 +1,7 @@
-var language = "English",
+var longLang = "English",
 	shortLang = "en";
 if ($('html').attr("lang") === "es") {
-	language = "Spanish";
+	longLang = "Spanish";
 	shortLang = "es";
 }
 
@@ -21,7 +21,7 @@ var i18nText = {
 };
 
 function loadResults(searchTerm) {
-	var svcUrl = "/TermDictionary.svc/SearchJSON/" + language,
+	var svcUrl = "/TermDictionary.svc/SearchJSON/" + longLang,
 		params = {
 			searchTerm: searchTerm
 		};
@@ -47,7 +47,7 @@ function loadResults(searchTerm) {
 }
 
 function loadDefinition(id) {
-	var svcUrl = "/TermDictionary.svc/GetTermDictionaryByIdJSON/" + language,
+	var svcUrl = "/TermDictionary.svc/GetTermDictionaryByIdJSON/" + longLang,
 		params = {
 			TermId: id,
 			Audience: 'Patient'
@@ -162,7 +162,7 @@ $(function($) {
 	if ($(keywordElem).length === 0) {
 		return;
 	}
-	var svcUrl = "/TermDictionary.svc/SuggestJSON/" + language;
+	var svcUrl = "/TermDictionary.svc/SuggestJSON/" + longLang;
 
 	doAutocomplete(keywordElem, svcUrl, false, "term");
 });
