@@ -1,181 +1,165 @@
+var language = "English",
+  shortLang = "en";
+if ($('html').attr("lang") === "es") {
+  language = "Spanish";
+  shortLang = "es";
+}
+
+var i18nText = {
+  results: {
+    en: 'results found for',
+    es: 'resultados de'
+  },
+  dictionaryLink: {
+    en: '/publications/dictionaries/cancer-terms',
+    es: '/espanol/publicaciones/diccionario'
+  },
+  dictionaryText: {
+    en: 'For pronunciations and other information, read this definition on the NCI website.',
+    es: 'Para escuchar la pronunciaci&oacute;n y ver informaci&oacute;n adicional de este t&eacute;rmino, lea la definici&oacute;n en el sitio web del NCI.'
+  }
+};
 
 function loadResults(searchTerm) {
-    var language;
-    var xmlhttp;
-	
-    if (window.XMLHttpRequest)  {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else  {
-        // code for IE6, IE5
-        xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
-    }
+  var svcUrl = "/TermDictionary.svc/SearchJSON/" + language,
+    params = {
+      searchTerm: searchTerm
+    };
 
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)  {
-            var AJAXReturned = xmlhttp.responseText;
-            var someJSON = eval(AJAXReturned);
-            if(someJSON.length == 1) 
-            {
-                loadDefinition(someJSON[0].id);
-            }
-            else
-            {   
-                var terms = '<ul>';
-                if ($('meta[name="content-language"]').attr("content") == "es")
-                    terms += '<li>' + someJSON.length + ' resultados de: <b>' + searchTerm + '</b></li>';
-                else
-                    terms += '<li>' + someJSON.length + ' results found for: <b>' + searchTerm + '</b></li>';
-          
-                for (x in someJSON) {
-                
-                    terms += '<li><a href="javascript:;" onclick="loadDefinition(' + 
-                    someJSON[x].id + ',\''+ language + '\');">' +  someJSON[x].item + '</a></li>';
-                    
-                }
-                terms += '</ul>';  
-				$('#search').val('');				
-                document.getElementById('output').innerHTML=terms;
-            }
-        }
+  $.getJSON(svUrl, params, function(data) {
+    if(data.length === 1) {
+      loadDefinition(data[0].id);
+    } else {
+      var terms = $('<ul>').append(
+        $('<li>').html(data.length + ' ' + i18nText.results[shortLang] + ': <b>' + searchTerm + '</b>')
+      );
+
+      for (var i = 0, len = data.length; i < len; i++) {
+        terms.append(
+          $('<li>').html('<a href="javascript:;" onclick="loadDefinition(' + data[i].id + ');">' + data[i].item + '</a>')
+        );
+      }
+
+      $('#search').val('');
+      $('#output').html(terms);
     }
-    if ($('meta[name="content-language"]').attr("content") == "es")
-    {
-        language = "Spanish";
-        xmlhttp.open("GET","/TermDictionary.svc/SearchJSON/Spanish?searchTerm=" + encodeURI(searchTerm) ,true);
-    }
-    else
-    {
-        language = "English";
-        xmlhttp.open("GET","/TermDictionary.svc/SearchJSON/English?searchTerm=" + encodeURI(searchTerm) ,true);
-    }
-    //document.getElementById('search').value = "";
-    xmlhttp.send();
+  });
 }
 
 function loadDefinition(id) {
-    var xmlhttp2;
-    if (window.XMLHttpRequest)  {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp2=new XMLHttpRequest();
-    }
-    else  {
-        // code for IE6, IE5
-        xmlhttp2=new ActiveXObject('Microsoft.XMLHTTP');
-    }
+  var svcUrl = "/TermDictionary.svc/GetTermDictionaryByIdJSON/" + language,
+    params = {
+      TermId: id,
+      Audience: 'Patient'
+    };
 
-    xmlhttp2.onreadystatechange=function() {
-        if (xmlhttp2.readyState==4 && xmlhttp2.status==200)  {
-            // The added square bracket are to accomidate some 
-            // funkiness in the JSON returned - needs to be addresed
-            // in the service 
-            var AJAXReturned = "[" + xmlhttp2.responseText +"]";
-            var someJSON = eval(AJAXReturned);
-            
-            if ($('meta[name="content-language"]').attr("content") == "es")
-            {
-                var definition = '<p><b>' + someJSON[0].item + '</b> ' + 
-                    '</p><p>' + someJSON[0].TermDictionaryDetail.DefinitionHTML + '</p><p>' +
-                    '<a href="http://www.cancer.gov/diccionario?CdrID=' + someJSON[0].id + '" target="_blank">' +
-                    'Para escuchar la pronunciaci&oacute;n y ver informaci&oacute;n adicional de este t&eacute;rmino, lea la definici&oacute;n en el sitio web del NCI.</a></p>';
-             }
-             else
-             {
-                var definition = '<p><b>' + someJSON[0].item + '</b> ';
-				if(someJSON[0].TermDictionaryDetail.TermPronunciation != null) 
-					definition += someJSON[0].TermDictionaryDetail.TermPronunciation;
-				definition += '</p><p>' + someJSON[0].TermDictionaryDetail.DefinitionHTML + '</p><p>' +
-                    '<a href="http://www.cancer.gov/dictionary?CdrID=' + someJSON[0].id + '" target="_blank">' +
-                    'For pronunciations and other information, read this definition on the NCI website.</a></p>';
-             }
-            
-            $('#output').scrollTop(0);    
-			$('#search').val('');
-            document.getElementById('output').innerHTML=definition;
-        }
-    }
-    if ($('meta[name="content-language"]').attr("content") == "es")
-        xmlhttp2.open("GET","/TermDictionary.svc/GetTermDictionaryByIdJSON/Spanish?TermId=" + id + "&Audience=Patient", true);
-    else
-        xmlhttp2.open("GET","/TermDictionary.svc/GetTermDictionaryByIdJSON/English?TermId=" + id + "&Audience=Patient", true);
-       
-    xmlhttp2.send();
+  $.getJSON(svUrl, params, function(data) {
+    var $output = $('#output');
+    $output.append($('<p>').append($('<b>').text(data.item)));
+    $output.append($('<p>').html(data.TermDictionaryDetail.DefinitionHTML));
+    $output.append($('<p>').append(
+      $('<a>')
+        .attr({href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id, target: "_blank"})
+        .text(i18nText.dictionaryText[shortLang])
+    ));
+
+		$('#output').scrollTop(0);
+		$('#search').val('');
+  });
 }
 
-function doSearch(e){
-    var doit = false;
+function doSearch(e) {
+  var searchTerm = $('#search').val();
 
-    if(e!=null)  {
-        if (e.keyCode ==13)
-            doit = true;
-    }
-    else
-    doit = true;
-
-    if(doit)
-    {
-        if ($('#search').val() != "") {
-			NCIAnalytics.SiteSearch(this,$('#search').val());
-            loadResults($('#search').val());
-			
-		}
-    }
+	if ((e === null || e.keyCode === 13) && searchTerm !== '') {
+		NCIAnalytics.SiteSearch(this, searchTerm);
+		loadResults(searchTerm);
+	}
 }
 
-// AutoComplete Stuff 
-jQuery(document).ready(function($) {
+function doAutocomplete(target, url, contains, queryParam, queryString, opts) {
+	var appendTo = null,
+		$target = $(target);
+	if (target !== "#swKeyword") {
+		appendTo = $target.parent();
+	}
+	var queryParameter = queryParam || "term",
+		regexIsContains = contains || false,
+		defaultOptions = {
+			appendTo: appendTo,
+			// Set AJAX service source
+			source: (function() {
+				var xhr;
 
-    var language = "English";
+				return function(request, response) {
+					var dataQuery = $.extend({}, queryString || {});
+					dataQuery[queryParameter] = request.term;
 
-    if ($('meta[name="content-language"]').attr("content") == "es") {
-        language = "Spanish"
-    }
+					if (xhr) {
+						xhr.abort();
+					}
+					xhr = $.ajax({
+						url: url,
+						data: dataQuery,
+						dataType: "json",
+						success: function(data) {
+							response(data);
+						},
+						error: function() {
+							response([]);
+						}
+					});
+				};
+			})(),
 
-    var $keywordElem = $("#search")
+			// Start autocomplete only after three characters are typed
+			minLength: 3,
 
-    if ($keywordElem.length == 0)
-        return;
+			focus: function(event, ui) {
+				event.preventDefault();
+				event.stopPropagation();
+				$target.val(ui.item.item);
+			},
+			select: function(event, ui) {
+				event.preventDefault();
+				event.stopPropagation();
+				$target.val(ui.item.item);
+			}
+		};
 
-	$keywordElem.autocomplete({
-	    source: "/TermDictionary.svc/SuggestJSON/" + language,
-			
-	    minLength: 3,
-	    focus: function(event, ui) {
-		$("#search").val(ui.item.item);
-		return false;
-	    },
-	    select: function(event, ui) {
-		$("#search").val(ui.item.item);
-	    $('#Go').click();
-		return false;
-	    }
-	}).data("autocomplete")._renderItem = function(ul, item) {
-	    //Escape bad characters
-	    var lterm = this.term.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-	    
+	var options = $.extend({}, defaultOptions, opts || {});
 
-	    //This should find any words which begin with the text from item.
-	    var regex = new RegExp("(^" + lterm + "|\\s+" + lterm + "i)","i");
+	$target.autocomplete(options)
+		.data('ui-autocomplete')._renderItem = function(ul, item) {
+			//Escape bad characters
+			var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
+			var regexBold = new RegExp();
 
-	    var word = item.item.replace(regex, "<strong>$&</strong>");
+			if (regexIsContains) {
+				// highlight autocomplete item if it appears anywhere
+				regexBold = new RegExp('(' + lterm + ')', 'i');
+			} else {
+				// highlight autocomplete item if it appears at the beginning
+				regexBold = new RegExp('(^' + lterm + '|\\s+' + lterm + ')', 'i');
+			}
+			var word = item.item.replace(regexBold, "<strong>$&</strong>");
 
-	    return $("<li></li>")
-				.data("item.autocomplete", item)
-				.append("<a>" + word + "</a>")
+			return $("<li></li>")
+				.data('ui-autocomplete-item', item)
+				.append(word)
 				.appendTo(ul);
-	};
-	
-    $keywordElem.keyup(function(event) {	
-       if ( event.which == 13 ) {
-          event.preventDefault();
-          $(".ui-autocomplete").css({"display":"none"});
-          $('#output').focus();
-          doSearch(null);
+		};
 
-       }       
-    });
-    
+	return $target;
+}
+
+// AutoComplete Stuff
+$(function($) {
+  var keywordElem = "#search";
+  if ($(keywordElem).length === 0) {
+    return;
+  }
+  var svcUrl = "/TermDictionary.svc/SuggestJSON/" + language;
+
+  doAutocomplete(keywordElem, svcUrl, false, "term");
 });
-
-
