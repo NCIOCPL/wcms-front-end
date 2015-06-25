@@ -26,7 +26,7 @@ function loadResults(searchTerm) {
 			searchTerm: searchTerm
 		};
 
-	$.getJSON(svUrl, params, function(data) {
+	$.getJSON(svcUrl, params, function(data) {
 		if (data.length === 1) {
 			loadDefinition(data[0].id);
 		} else {
@@ -53,20 +53,22 @@ function loadDefinition(id) {
 			Audience: 'Patient'
 		};
 
-	$.getJSON(svUrl, params, function(data) {
-		var $output = $('#output');
-		$output.append($('<p>').append($('<b>').text(data.item)));
-		$output.append($('<p>').html(data.TermDictionaryDetail.DefinitionHTML));
-		$output.append($('<p>').append(
-			$('<a>')
-				.attr({
-					href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id,
-					target: "_blank"
-				})
-				.text(i18nText.dictionaryText[shortLang])
-		));
+	$.getJSON(svcUrl, params, function(data) {
+		$('#output')
+			// reset HTML
+			.html('')
+			.append($('<p>').append($('<b>').text(data.item)))
+			.append($('<p>').html(data.TermDictionaryDetail.DefinitionHTML))
+			.append($('<p>').append(
+				$('<a>')
+					.attr({
+						href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id,
+						target: "_blank"
+					})
+					.text(i18nText.dictionaryText[shortLang])
+			))
+			.scrollTop(0);
 
-		$('#output').scrollTop(0);
 		$('#search').val('');
 	});
 }
