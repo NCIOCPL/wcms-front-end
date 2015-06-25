@@ -46,4 +46,10 @@ figure.table figcaption + a.article-image-enlarge {
 	margin: 0.3125em 2.25em 0.3125em 1em;
 }
 /* end table enlarge styles */
+
+/* PDQ table styling */
+.pdq-sections table thead tr th{
+	text-align: center;
+}
+/* End PDQ table styling */
 /* END TABLE STYLES */
