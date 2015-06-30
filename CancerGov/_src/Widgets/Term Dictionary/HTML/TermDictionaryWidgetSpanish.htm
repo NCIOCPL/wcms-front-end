@@ -17,19 +17,29 @@
 
 	<div id="container">
 		<div class="header">
-			<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo-es.png" alt="Instituto Nacional del Cancer">
+			<!--[if gt IE 8]><!-->
+					<img src="/publishedcontent/images/images/design-elements/logos/nci-logo-full-es.svg" alt="Instituto Nacional Del Cáncer">
+				<!--<![endif]-->
+				<!--[if lte IE 8]> 
+					<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo-es.png" alt="Instituto Nacional del Cancer"> 
+				<![endif]-->
 		</div>
 
 		<div class="content">
 			<div id="output">
-				<h1>Diccioario de terminos de cancer</h1>
+				<h1>Diccionario de terminos de cancer</h1>
 				<p>Definiciones fáciles de entender de términos relacionados con el cáncer y la medicina.</p>
 			</div>
 
 			<div id="form">
 				<div id="searchBlock">
 					<label class="hidden" for="search">Buscar</label>
-					<input type="text" onkeypress="doSearch(event)" id="search" name="search" autocomplete="off" placeholder="Enter keywords or phrases">
+					<div class="widget-search-form">
+						<input type="text" onkeypress="doSearch(event)" id="search" name="search" autocomplete="off" placeholder="Escriba frase o palabra clave">
+						<button class="searchSubmit" onclick="doSearch(null);" type="submit">
+							<span class="hidden">Buscar</span>
+						</button>
+					</div>
 					<button type="submit" class="submit button" onclick="doSearch(null)" id="Go">Buscar</button>
 				</div>
 

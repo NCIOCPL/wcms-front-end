@@ -17,7 +17,12 @@
 
 	<div id="container">
 		<div class="header">
-			<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo.png" alt="National Cancer Institute">
+				<!--[if gt IE 8]><!-->
+					<img src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg" alt="National Cancer Institute">
+				<!--<![endif]-->
+				<!--[if lte IE 8]> 
+					<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo.png" alt="National Cancer Institute"> 
+				<![endif]-->
 		</div>
 
 		<div class="content">
@@ -29,7 +34,12 @@
 			<div id="form">
 				<div id="searchBlock">
 					<label class="hidden" for="search">Search</label>
-					<input type="text" onkeypress="doSearch(event)" id="search" name="search" autocomplete="off" placeholder="Enter keywords or phrases">
+					<div class="widget-search-form">
+						<input type="text" onkeypress="doSearch(event)" id="search" name="search" autocomplete="off" placeholder="Enter keywords or phrases">
+						<button class="searchSubmit" onclick="doSearch(null);" type="submit">
+							<span class="hidden">Search</span>
+						</button>
+					</div>
 					<button type="submit" class="submit button" onclick="doSearch(null)" id="Go">Search</button>
 				</div>
 
@@ -85,4 +95,5 @@
 	</script>
 
 </body>
+
 </html>
