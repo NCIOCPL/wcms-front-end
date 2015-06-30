@@ -35,6 +35,7 @@ h5,
 h6 {
 	font-family: 'Montserrat', Arial, sans-serif;
 	color: #606060;
+	font-weight: bold;
 }
 
 h1 {
@@ -76,7 +77,8 @@ a:focus {
 }
 
 .header img {
-	max-width: 100%;
+	width: 100%;
+	transform: translate(0, 0.5px);
 }
 
 .content {
@@ -99,7 +101,25 @@ a:focus {
 /* textbox for search */
 
 #search {
-	background: #f2f2f4 url("/PublishedContent/images/images/design-elements/icons/dictionary-widget-magnify.png") no-repeat 98% center;
+	background: #f2f2f4;
+}
+.widget-search-form {
+	position: relative;
+}
+.searchSubmit {
+	border: medium none; 
+	box-shadow: none; 
+	transition: none 0s ease 0s; 
+	padding: 0px; 
+	display: block; 
+	position: absolute; 
+	top: 50%; 
+	right: 1em; 
+	width: 16px; 
+	height: 16px; 
+	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -172px -261px;
+	margin: -8px 0 0; 
+	cursor: pointer;'
 }
 /* button for search */
 
@@ -114,6 +134,7 @@ a:focus {
 
 #output ul {
 	padding-left: 0;
+	padding-bottom: 15px;
 }
 
 #output ul li:first-child {
@@ -123,7 +144,7 @@ a:focus {
 
 #output ul li {
 	list-style: none;
-	padding: 5px;
+	padding: 5px 5px 5px 0;
 }
 
 #disclaimer {
