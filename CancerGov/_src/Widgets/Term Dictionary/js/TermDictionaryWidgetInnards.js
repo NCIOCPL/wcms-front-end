@@ -70,7 +70,7 @@ function loadDefinition(id) {
 						href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id,
 						target: "_blank"
 					})
-					.text(i18nText.dictionaryText[shortLang])
+					.html(i18nText.dictionaryText[shortLang])
 			))
 			.scrollTop(0)
 			.focus();
@@ -89,7 +89,7 @@ function doSearch(e) {
 function doAutocomplete(target, url, contains, queryParam, queryString, opts) {
 	var appendTo = null,
 		$target = $(target);
-	if (target !== "#swKeyword") {
+	if (target !== "#search") {
 		appendTo = $target.parent();
 	}
 	var queryParameter = queryParam || "term",
