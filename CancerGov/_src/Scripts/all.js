@@ -184,7 +184,7 @@ jQuery(document).ready(function(jQuery) {
 		$("a[href]").filter(function() {
 			return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
 		}).after($(
-			'<a class="icon-exit-notification" href="' + path + '">' +
+			'<a class="icon-exit-notification" title="' + altText + '" href="' + path + '">' +
 				'<span class="hidden">' + altText + '</span>' +
 			'</a>'
 		));
@@ -509,8 +509,8 @@ jQuery(document).ready(function(jQuery) {
 
 			$this.selectmenu({
 				create: function(event, ui) {
-					// this sets the label's 'for' attribute to null, assigns it a unqiue id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique ID
-					$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', null).uniqueId().attr('id'));
+					// this sets the label's 'for' attribute to point to the <select> element, assigns the label a unique id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique id
+					$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', this.id).uniqueId().attr('id'));
 				},
 				change: function(event, ui) {
 					// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
@@ -531,6 +531,29 @@ jQuery(document).ready(function(jQuery) {
 	// Run this script to dynamically generate an "On This Page" block at the top of the page if it's specified the HTML
 	// TODO: move this to a different location when cleaning up the JavaScript for a future release.
 	NCI.buildOTP();
+
+	/*** BEGIN Spanish blog label HACK ***/
+	(function($) {
+		$('html[lang="es"]')
+			.find('.blog-post > .post-info > p').each(function(i, el) {
+				$(el).html(el.innerHTML.replace("Continue Reading", "Siga leyendo"));
+			}).end()
+			.find('.blog-pager')
+				.children('.older').each(function(i, el) {
+					$(el).html(el.innerHTML.replace("Older Posts", "Artículos anteriores"));
+				}).end()
+				.children('.newer').each(function(i, el) {
+					$(el).html(el.innerHTML.replace("Newer Posts", "Artículos siguientes"));
+				}).end()
+			.end()
+			.find('.blog-post-older').each(function(i, el) {
+				$(el).html(el.innerHTML.replace("Older Post", "Artículo anterior"));
+			}).end()
+			.find('.blog-post-newer').each(function(i, el) {
+				$(el).html(el.innerHTML.replace("Newer Post", "Artículo siguiente"));
+			});
+	})(jQuery);
+	/*** END Spanish blog label HACK ***/
 });
 
 // BEGIN Table Resizing

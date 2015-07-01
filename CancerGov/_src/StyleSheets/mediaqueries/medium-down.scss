@@ -265,7 +265,7 @@
 		/* Level Styles */
 		.lvl-1, .lvl-2, .lvl-3 {
 			a {
-				font-family: 'Montserrat', Arial;
+				@include font-montserrat;
 			}
 		}
 			/* list item spacing through the hierarchy */

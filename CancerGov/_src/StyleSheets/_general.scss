@@ -213,7 +213,7 @@ figcaption {
 }
 .pullquote, .pullquote-right, .pullquote-left {
 	color: #29768c;
-	font-family: #{$montserrat-font-stack};
+	@include font-montserrat;
 	font-weight: bold;
 	line-height: 25px;
 @media only screen and (max-width: 640px) {

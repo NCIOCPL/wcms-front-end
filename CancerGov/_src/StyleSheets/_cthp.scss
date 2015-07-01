@@ -130,7 +130,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .alphalist li {
 	float: left;
 	font-size: 1.625em;
-	font-family: 'Montserrat', Arial;
+	@include font-montserrat;
 	margin-right: 1em;
 	color: $body-font-color;
 }
