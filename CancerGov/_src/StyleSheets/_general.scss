@@ -44,6 +44,9 @@ h5 {
 h6 {
 	line-height: 1.125em;
 	font-size: 1em;
+	.article-footer & {
+		@extend h4;
+	}
 }
 p {
 	margin: 0.5em 0;
@@ -77,11 +80,11 @@ table caption {
 	&:last-child {
 		padding-right: 0;
 	}
-	
+
 	&:only-child {
 		padding: $column-gutter / 2;
 	}
-	
+
 	@media only screen and (max-width: 640px) {
 		&[class*=" large-"],
 		&[class^="large-"] {
@@ -89,7 +92,7 @@ table caption {
 			padding-right: 0;
 		}
 	}
-	
+
 	@media only screen and (max-width: 1024px) {
 		&[class*=" medium-"],
 		&[class^="medium-"] {
@@ -339,20 +342,20 @@ figcaption {
 	background: #DBF2F8;
 	overflow: auto;
 	padding: 25px;
-	
+
 	h3 {
-		margin-top: 0;	
+		margin-top: 0;
 	}
-	
+
 	p:last-child {
-		margin-bottom: 0;	
+		margin-bottom: 0;
 	}
-	
+
 	figure.image-center-full {
 		margin: 0;
 	}
 }
- 
+
 .callout-box,
 .callout-box-blue {
 	margin: 25px auto;
