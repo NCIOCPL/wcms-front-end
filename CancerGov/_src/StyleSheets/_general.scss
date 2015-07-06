@@ -215,15 +215,16 @@ figcaption {
 	float: right;
 }
 .pullquote, .pullquote-right, .pullquote-left {
+	@extend .clearfix;
 	color: #29768c;
 	@include font-montserrat;
 	font-weight: bold;
 	line-height: 25px;
-@media only screen and (max-width: 640px) {
+	@media only screen and (max-width: 640px) {
 		width: 90%;
 		float: none;
 		margin: 1em auto;
-}
+	}
 	.author {
 		text-align: right;
 		font-style: italic;
