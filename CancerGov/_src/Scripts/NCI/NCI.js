@@ -35,7 +35,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 *  anchor[]    (string || DOM element)    ID selector of the anchor to be scrolled to, or the element itself
 	 *
 	 *====================================================================================================*/
-	scrollTo: function(anchor) {
+	scrollTo: function(anchor, eventType) {
 		// ensure the anchor is a string OR an element
 		if(!(typeof anchor === "string" || // string
 			(typeof anchor === "object" && anchor !== null && anchor.nodeType === 1 && typeof anchor.nodeName === "string") // DOM element
@@ -45,7 +45,8 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		}
 
 		var width = window.innerWidth || $(window).width(),
-			isSection = false;
+			isSection = false,
+			fuzz = 50;
 
 		// we need to sanitize the string iff the anchor parameter is actually a string
 		if(typeof anchor === "string") {
@@ -60,42 +61,45 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		var $anchor = $(anchor),
 			$accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
 			$accordion = $accordionPanel.closest('.ui-accordion'),
-			accordionIndex;
-
-		if($accordion.length > 0) {
-			accordionIndex = $accordion.data('ui-accordion').headers.index($accordionPanel.prev('.ui-accordion-header'));
-		}
+			accordionIndex = ($accordion.length > 0) ? $accordion.data('ui-accordion').headers.index($accordionPanel.prev('.ui-accordion-header')) : undefined;
 
 		function doTheScroll() {
-			// get the sticky nav jQuery element
 			var headerHeight = $('.fixedtotop').outerHeight(),
-				anchorTop = window.scrollY + headerHeight,
-				willFreeze = true;
+				scrollY = window.scrollY,
+				willFreeze = true,
+				anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
+				hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - fuzz) || (anchorTop < scrollY)) && (scrollY !== 0);
 
-			// PDQ CIS
+			// if the anchor is a PDQ section and we're >=desktop
 			if(width > NCI.Breakpoints.large && isSection) {
-				anchorTop = 0;
+				scrollY = 0;
 				willFreeze = false;
+			} else if(hasPreviousState) {
+				console.log("hasPrevious:", scrollY, headerHeight, anchorTop);
+				return;
 			} else {
-				if($anchor.length > 0) {
-					anchorTop = $anchor.offset().top;
-				}
+				console.log("not hasPrevious:", scrollY, headerHeight, anchorTop);
+				scrollY = anchorTop - headerHeight;
 			}
 
+			// freeze headroom
 			if(willFreeze) {
 				$('.headroom-area').addClass('frozen');
 			}
-			window.scrollTo(0, anchorTop - headerHeight);
+
+			window.scrollTo(0, scrollY);
+
+			// unfreeze headroom
 			if(willFreeze) {
 				setTimeout(function() {
 					$('.headroom-area').removeClass('frozen');
 				}, 50);
 			}
-			$accordion.off('accordionactivate');
+			$accordion.off('accordionactivate.NCI.scrollTo');
 		}
 
 		if($accordion.length > 0) {
-			$accordion.on('accordionactivate', function(e) { doTheScroll(); });
+			$accordion.on('accordionactivate.NCI.scrollTo', function(e) { doTheScroll(); });
 			if(!$accordionPanel.hasClass('accordion-content-active')) {
 				$accordion.accordion('option', 'active', accordionIndex);
 			} else {
@@ -444,5 +448,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 			};
 
 		return $target;
-	}
+	},
+
+	window: {}
 };
