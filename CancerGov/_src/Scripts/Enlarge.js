@@ -1,7 +1,7 @@
 // (function($) {})  --> Default jQuery structure for functions
 // Everything goes within '{}'
 //
-// Function to create an "Enlarge" button to click in order to 
+// Function to create an "Enlarge" button to click in order to
 // display a table or image using the entire window area
 // --------------------------------------------------------------
 (function($) {
@@ -82,7 +82,7 @@
                 if (table_id) {
                     fcaption.attr("id", table_id + "_cap");
                 } else {
-                    fcaption.attr("id", $.uniqueId()); //Note jQueryUI function
+                    fcaption.uniqueId(); //Note jQueryUI function
                 }
                 //Add aria-labelledby to table
                 element.attr("aria-labelledby", fcaption.attr("id"));
