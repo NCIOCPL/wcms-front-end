@@ -269,6 +269,10 @@
 			margin-top: 0.5em;
 			margin-bottom: 0.5em;
 		}
+
+		@media only screen and (max-width: 765px) {
+			width: 100%;
+		}
 	}
 	.featured-card {
 		// this is the first card in the guide cards row.
@@ -292,6 +296,7 @@
 		a { @extend %card-link-hover; }
 	}
 }
+
 a.arrow-link {
 	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
 	padding: 1px 2em 1px 0;
