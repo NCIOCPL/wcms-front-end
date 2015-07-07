@@ -6,8 +6,8 @@ $(function() {
 
 	//Helper function to do insternal redirects (i.e. changing a has from an ID to a specific route)
 	function internalRedirect(path) {
-		if (navigationState != "UNINITIALIZED") {
-			navigationState = "REDIRECT"
+		if (navigationState !== "UNINITIALIZED") {
+			navigationState = "REDIRECT";
 		}
 		routie(path);
 	}
@@ -889,12 +889,14 @@ $(function() {
 				}
 			}
 		},
-		//Handle a normal load.
+		// Handle a normal load (show the first section)
 		'': function() {
-			//Just make sure that the state gets set to initialized because we are displaying something
-			//Note, a request for the URL or URL# will enter this, but will not fire a onhashchange event.
-			if (navigationState == 'UNINITIALIZED') {
-				navigationState = "INITIALIZED"
+			// Note: a request for <URL> or <URL># will enter this
+
+			// Redirect for <URL> to the first section
+			// NOTE: <URL># should not be interally redirected. Since there's no 'location.hash' in this case, fake it.
+			if(location.href.replace(location.protocol + '//' + location.host + location.pathname, '') !== "#") {
+				internalRedirect('section/' + document.querySelector('.summary-sections section').id);
 			}
 		}
 	});
