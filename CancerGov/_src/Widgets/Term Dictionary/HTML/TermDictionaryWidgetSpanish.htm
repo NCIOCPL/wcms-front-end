@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="content-language" content="es">
 	<title>Diccionario de cáncer</title>
+
 	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,400italic,700,700italic" rel="stylesheet">
 	<link href="/PublishedContent/Styles/widget.css" rel="stylesheet">
 
@@ -17,12 +18,14 @@
 
 	<div id="container">
 		<div class="header">
-			<!--[if gt IE 8]><!-->
+			<a href="/espanol" target="_blank">
+				<!--[if gt IE 8]><!-->
 					<img src="/publishedcontent/images/images/design-elements/logos/nci-logo-full-es.svg" alt="Instituto Nacional Del Cáncer">
 				<!--<![endif]-->
-				<!--[if lte IE 8]> 
-					<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo-es.png" alt="Instituto Nacional del Cancer"> 
+				<!--[if lte IE 8]>
+					<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo-es.png" alt="Instituto Nacional del Cancer">
 				<![endif]-->
+			</a>
 		</div>
 
 		<div class="content">
@@ -56,15 +59,10 @@
 	</div>
 
 	<script type="text/javascript">
-		<!--
-
-		var s_account = 'nciglobal, ncienglish-all, ncincidictionary'
-
-		-->
+		var s_account = 'ncincidictionary';
 	</script>
 	<script type="text/javascript" src="/JS/Omniture/s_code.js"></script>
 	<script type="text/javascript">
-		<!--
 		var s = s_gi(s_account);
 		s.linkTrackVars = 'channel,prop47,prop48,prop51';
 		s.channel = 'Dictionary Widget';
@@ -81,6 +79,7 @@
 		var NCIAnalytics = {
 			SiteSearch: function (sender, value) {
 				var s = s_gi(s_account);
+
 				s.linkTrackVars = 'channel,prop14,eVar14,events';
 				s.linkTrackEvents = 'event2';
 				s.prop14 = value;
@@ -90,8 +89,6 @@
 				s.tl(this, 'o', 'Dictionary Widget Search - Spanish');
 			}
 		};
-
-		-->
 	</script>
 
 </body>
