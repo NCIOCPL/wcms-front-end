@@ -1,17 +1,54 @@
+$bp-xsmall: 390px;
+$bp-small: 641px;
+$bp-medium: 1025px;
+$bp-large: 1441px;
+
 @mixin bp($point) {
-  
-  $bp-babybear: "(max-width: 600px)";
-  $bp-mamabear: "(max-width: 1250px)";
-  $bp-papabear: "(max-width: 1600px)";
+  @if $point == xtra-large {
+    @media only screen and (min-width: $bp-large) { @content; }
+  }
+  @else if $point == large {
+    @media only screen and (min-width: $bp-medium) and (max-width: ($bp-large - 1))  { @content; }
+  }
+  @else if $point == large-up {
+    @media only screen and (min-width: $bp-medium)  { @content; }
+  }
+	@else if $point == medium {
+    @media only screen and (min-width: $bp-small) and (max-width: ($bp-medium - 1))  { @content; }
+  }
+	@else if $point == medium-down {
+    @media only screen and (max-width: ($bp-medium - 1))  { @content; }
+  }
+	@else if $point == small {
+    @media only screen and (max-width: ($bp-small - 1))  { @content; }
+  }
+	@else {
+		@media only screen and #{$point} { @content; }
+	}
+}
 
-  @if $point == papa-bear {
-    @media #{$bp-papabear} { @content; }
-  }
-  @else if $point == mama-bear {
-    @media #{$bp-mamabear} { @content; }
-  }
-  @else if $point == baby-bear {
-    @media #{$bp-babybear}  { @content; }
-  }
 
+.test {
+  width: 25%;
+  @include bp(xtra-large) {
+    content: "this is extra large";
+  }
+	@include bp(large) {
+   content: "this is large";
+  }
+	@include bp(large-up) {
+    content: "this is large up";
+  }
+	@include bp(medium) {
+    content: "this is medium";
+  }
+	@include bp(medium-down) {
+    content: "this is medium down";
+  }
+	@include bp(small) {
+    content: "this is small";
+  }
+	@include bp('(max-width: 30px) and (min-width: 20px)') {
+		content: "testing custom";
+	}
 }
