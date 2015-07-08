@@ -51,6 +51,7 @@ p {
 }
 
 #container {
+	background: white;
 	border: thin solid #ebebea;
 	border-top: 3px solid #00b1b9;
 	overflow: hidden;
