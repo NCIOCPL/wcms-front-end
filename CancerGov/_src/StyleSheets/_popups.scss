@@ -26,7 +26,7 @@
 		padding-left: 105px;
 	}
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.popup .nci-logo {
 		a {
 			padding-top: 3px;
@@ -34,7 +34,7 @@
 		}
 	}
 }
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
+@include bp(medium) {
 	.popup .nci-logo {
 
 		a {

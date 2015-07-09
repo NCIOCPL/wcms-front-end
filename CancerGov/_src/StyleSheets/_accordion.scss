@@ -1,7 +1,7 @@
 // Accordions are styled by jquery-ui. These are override styles
 /* BEGIN Accordion Styles */
 /* begin CTHP accordion styling rules */
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.cthp-content .cthp-intro-multimedia h3 {
     background: #198dae !important;
 	}

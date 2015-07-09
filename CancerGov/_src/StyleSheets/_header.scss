@@ -14,7 +14,7 @@ header {
 	display: block;
 }
 
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	header {
 		padding-top: 1em;
 		padding-bottom: 1em;
@@ -41,7 +41,7 @@ header {
 	}
 
 	// default; should NOT be in a media query to allow the logo to print properly in IE8
-	//@media only screen and (min-width: 1441px) {
+	//@include bp(xtra-large) {
 		html.svg & img {
 			width: 60%;
 		}
@@ -61,7 +61,7 @@ header {
 		}
 	}
 
-	@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+	@include bp(large) {
 		html.svg & img {
 			width: $logo-width-desktop;
 		}
@@ -76,7 +76,7 @@ header {
 		}
 	}
 
-	@media only screen and (min-width: 641px) and (max-width: 1024px) {
+	@include bp(medium) {
 		html.svg & img {
 			width: 70%;
 			min-width: ($logo-width-mobile / 100%) * (640px - $logo-padding-mobile); // this calculates the width that the logo would be at largest point in the mobile breakpoint, IF there were no scrollbar (should be 640px - $padding-mobile - <scrollbar width>)
@@ -93,7 +93,7 @@ header {
 		}
 	}
 
-	@media only screen and (max-width: 640px) {
+	@include bp(small) {
 		html.svg & img {
 			width: $logo-width-mobile;
 		}
@@ -141,7 +141,7 @@ header {
 }
 
 // tablet
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
+@include bp(medium) {
 	.nci-logo {
 		background: url($logos + "NIH-red-logo-tablet.png") no-repeat 30px 0;
 		font-size: 24px;
@@ -155,7 +155,7 @@ header {
 }
 
 // smartphone
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.nci-logo {
 		background: url($logos + "NIH-red-logo-smartphone.png") no-repeat 30px 0;
 		font-size: 16px;
@@ -178,7 +178,7 @@ header {
 
 /* begin mobile menu bar styles */
 // smartphone + tablet
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.mobile-menu-bar {
 		> a,
 		> button {
@@ -230,7 +230,7 @@ header {
 }
 
 // small
-@media only screen and (max-width:640px) {
+@include bp(small) {
 	.mobile-menu-bar {
 		> a,
 		> button {

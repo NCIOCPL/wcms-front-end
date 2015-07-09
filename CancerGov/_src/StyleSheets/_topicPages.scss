@@ -44,7 +44,7 @@ div.cc-main-pages div.title-red-arrow {
 	}
 }
 
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.landing-thumb-image {
 		display: none;
 	}

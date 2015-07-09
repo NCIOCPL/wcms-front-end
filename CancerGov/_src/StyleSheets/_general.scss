@@ -85,7 +85,7 @@ table caption {
 		padding: $column-gutter / 2;
 	}
 
-	@media only screen and (max-width: 640px) {
+	@include bp(small) {
 		&[class*=" large-"],
 		&[class^="large-"] {
 			padding-left: 0;
@@ -93,7 +93,7 @@ table caption {
 		}
 	}
 
-	@media only screen and (max-width: 1024px) {
+	@include bp(medium-down) {
 		&[class*=" medium-"],
 		&[class^="medium-"] {
 			padding-left: 0;
@@ -220,7 +220,7 @@ figcaption {
 	@include font-montserrat;
 	font-weight: bold;
 	line-height: 25px;
-	@media only screen and (max-width: 640px) {
+	@include bp(small) {
 		width: 90%;
 		float: none;
 		margin: 1em auto;
@@ -314,7 +314,7 @@ figcaption {
 .five-columns .column5 {
 	padding-right: 0;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.two-columns .column1,
 	.two-columns .column2,
 	.three-columns .column1,
@@ -376,7 +376,7 @@ figcaption {
 	margin: 25px auto;
 	width: 100%;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.callout-box, .callout-box-left, .callout-box-right {
 		width: 90%;
 		float: none;
@@ -421,7 +421,7 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 	content: none;
 	display: none;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.body-location-content-nav ul {
 		width: 100%;
 		float: none;

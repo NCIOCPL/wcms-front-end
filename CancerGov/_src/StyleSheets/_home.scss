@@ -159,7 +159,7 @@
 	}
 	@include card-clickable;
 }
-@media only screen and (max-width :1024px) {
+@include bp(medium-down) {
 	.feature-primary-title {
 		background: #14819b;
 	}
@@ -170,7 +170,7 @@
 		margin: 0em;
 	}	
 }
-@media only screen and (max-width :640px) {
+@include bp(small) {
 	.feature-primary {
 		margin-bottom: 0;
 	}
@@ -315,7 +315,7 @@ a.arrow-link-white {
 	background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
 	padding-right: 1em;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	a.arrow-link-white {
 		background: url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
 	}
@@ -386,7 +386,7 @@ a.learn-more {
 		}
 		
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 
 	.multimedia-slot p, .multimedia-slot ul {
 	display: none; }
@@ -394,7 +394,7 @@ a.learn-more {
 		margin-right: 15px;
 	}
 }
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.multimedia-slot {
 		padding: 1em;
 	}

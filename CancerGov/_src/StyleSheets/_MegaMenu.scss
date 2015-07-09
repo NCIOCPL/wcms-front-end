@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1025px) {
+@include bp(large-up) {
 	/* mega menu list */
 	.nav-menu {
 		display: block;
@@ -178,7 +178,7 @@
 
 }
 
-@media only screen and (min-width: 1441px) {
+@include bp(xtra-large) {
 	.nav-item > .nav-item-title > a {
 		padding: 14px 20px 8px;
 	}
@@ -230,7 +230,7 @@
 
 
 #nvcgSlMainNav.searching {
-	@media only screen and (max-width: 640px) {
+	@include bp(small) {
 		.mobile-menu-bar .menu-btn:before {
 			left: 10%;
 		}
