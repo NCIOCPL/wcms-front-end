@@ -1,3 +1,10 @@
+// this mixin creates the main breakpoints
+// to create a breakpoint, format like this: 
+// @include bp(large) {
+//    styles go here
+//  }
+// custom breakpoints would be in this format:
+// @include bp('(max-width: 30px) and (min-width: 20px)')
 $bp-xsmall: 390px;
 $bp-small: 641px;
 $bp-medium: 1025px;
@@ -24,31 +31,5 @@ $bp-large: 1441px;
   }
 	@else {
 		@media only screen and #{$point} { @content; }
-	}
-}
-
-
-.test {
-  width: 25%;
-  @include bp(xtra-large) {
-    content: "this is extra large";
-  }
-	@include bp(large) {
-   content: "this is large";
-  }
-	@include bp(large-up) {
-    content: "this is large up";
-  }
-	@include bp(medium) {
-    content: "this is medium";
-  }
-	@include bp(medium-down) {
-    content: "this is medium down";
-  }
-	@include bp(small) {
-    content: "this is small";
-  }
-	@include bp('(max-width: 30px) and (min-width: 20px)') {
-		content: "testing custom";
 	}
 }
