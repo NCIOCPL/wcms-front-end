@@ -1,14 +1,49 @@
 @charset "utf-8";
-
 /*
 	====
 		dceg.cancer.gov Design Elements
-		
 		Usage: Elements specifically used for dceg.cancer.gov
-		
 		Last Update: May 2, 2012 by German Martinez
 	====
 */
+
+
+
+/************** BEGIN Font Declarations ************************/
+/* Montserrat */
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  font-style: normal;
+  src: url("/publishedcontent/fonts/Montserrat-regular.eot");
+  src: url("/publishedcontent/fonts/Montserrat-regular.eot?#iefix") format('embedded-opentype'), url("/publishedcontent/fonts/Montserrat-regular.woff") format('woff'), url("/publishedcontent/fonts/Montserrat-regular.ttf") format('truetype'), url("/publishedcontent/fonts/Montserrat-regular.svg#Montserrat") format('svg'); }
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-style: normal;
+  src: url("/publishedcontent/fonts/Montserrat-700.eot");
+  src: url("/publishedcontent/fonts/Montserrat-700.eot?#iefix") format('embedded-opentype'), url("/publishedcontent/fonts/Montserrat-700.woff") format('woff'), url("/publishedcontent/fonts/Montserrat-700.ttf") format('truetype'), url("/publishedcontent/fonts/Montserrat-700.svg#Montserrat") format('svg'); }
+
+/********************* END Font Declarations ******************************************/
+
+/**
+	Tagline
+**/
+
+#genSlotTagline {
+	font-family: 'Montserrat', Arial, sans-serif;
+	background-color: #606060;
+	color: #ffffff;
+	font-size: 1.2em;
+	line-height: 2.3;
+	padding-left: 22px;
+	margin-right:-10px;
+}
+
+
+
+
 
 /**
 	Site Banner

@@ -178,7 +178,7 @@ body {
 	**/
 	
 	#genSlotSiteBanner {
-		margin: 0 10px;
+		margin-right: 10px;
 	}
 		h1.genSiteLogo {
 			float: left;
@@ -188,7 +188,7 @@ body {
 		/* Contains Site Utility Items such as Search and other links */
 		.genSiteUtilityContainer {
 			float: right;
-			margin: 0 0 0 auto;
+			margin: 15px 0 0 auto;
 			text-align: right;
 		}
 	
