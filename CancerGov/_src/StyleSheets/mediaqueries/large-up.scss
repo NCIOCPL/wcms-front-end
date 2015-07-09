@@ -2,7 +2,7 @@
 /* LARGE AND UP */
 /* We created this medium breakpoint so that items could stack on tablet devices */
 /* *************************************************************************/
-@media only screen and (min-width: 1025px) {
+@include bp(large-up) {
 	.contentzone {
 		padding-right: em-calc(50px);
 

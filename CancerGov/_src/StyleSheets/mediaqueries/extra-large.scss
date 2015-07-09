@@ -1,7 +1,7 @@
 /* *************************************************************************/
 /* X-LARGE DISPLAY STYLES (EXTRA LARGE) */
 /* *************************************************************************/
-@media only screen and (min-width : 1441px) {
+@include bp(xtra-large) {
         .row, nav .sub-nav-group-wrapper {
             max-width: 1200px;
         }
@@ -14,4 +14,3 @@
             margin: 0 auto;
         }
 }
-

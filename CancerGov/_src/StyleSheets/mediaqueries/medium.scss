@@ -1,7 +1,7 @@
 /* *************************************************************************/
 /* TABLET STYLES (MEDIUM) */
 /* *************************************************************************/
-@media only screen and (min-width : 641px) and (max-width :1024px) {
+@include bp(medium) {
 	/** Hide feature card title on tablets and up **/
 	.site-footer {
 		background-position: 130% 150px;

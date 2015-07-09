@@ -4,7 +4,7 @@
 
 /* *************************************************************************/
 
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.row .row {
 		// not sure why we need to override this, however apparently we have
 		// a rule on desktop that goes .row .row margin: 0 .9375em; which is

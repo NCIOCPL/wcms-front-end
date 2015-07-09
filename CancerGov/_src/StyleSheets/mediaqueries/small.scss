@@ -1,7 +1,7 @@
 /* *************************************************************************/
 /* MOBILE STYLES (SMALL) */
 /* *************************************************************************/
-@media only screen and (max-width :640px) {
+@include bp(small) {
 	figure.image-right-medium,	figure.image-right-small {
 		width: 100%;
 		margin: 0 0 1em 0;
