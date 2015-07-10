@@ -5,29 +5,41 @@
 //  }
 // custom breakpoints would be in this format:
 // @include bp('(max-width: 30px) and (min-width: 20px)')
-$bp-xsmall: 390px;
-$bp-small: 641px;
-$bp-medium: 1025px;
-$bp-large: 1441px;
+
+$breakpoints: (
+	xsmall: 390px,
+	small: 640px,
+	medium: 1024px,
+	large: 1440px
+);
 
 @mixin bp($point) {
   @if $point == xtra-large {
-    @media only screen and (min-width: $bp-large) { @content; }
+    @media only screen and (min-width: map-get($breakpoints, large) + 1px) { @content; }
+  }
+	@else if $point == large-up {
+    @media only screen and (min-width: map-get($breakpoints, medium) + 1px)  { @content; }
   }
   @else if $point == large {
-    @media only screen and (min-width: $bp-medium) and (max-width: ($bp-large - 1))  { @content; }
+    @media only screen and (min-width: map-get($breakpoints, medium) + 1px) and (max-width: map-get($breakpoints, large))  { @content; }
   }
-  @else if $point == large-up {
-    @media only screen and (min-width: $bp-medium)  { @content; }
+  @else if $point == large-down {
+    @media only screen and (max-width: map-get($breakpoints, large))  { @content; }
+  }
+	@else if $point == medium-up {
+    @media only screen and (min-width: map-get($breakpoints, small) + 1px)  { @content; }
   }
 	@else if $point == medium {
-    @media only screen and (min-width: $bp-small) and (max-width: ($bp-medium - 1))  { @content; }
+    @media only screen and (min-width: map-get($breakpoints, small) + 1px) and (max-width: map-get($breakpoints, medium))  { @content; }
   }
 	@else if $point == medium-down {
-    @media only screen and (max-width: ($bp-medium - 1))  { @content; }
+    @media only screen and (max-width: map-get($breakpoints, medium))  { @content; }
   }
 	@else if $point == small {
-    @media only screen and (max-width: ($bp-small - 1))  { @content; }
+    @media only screen and (max-width: map-get($breakpoints, small))  { @content; }
+  }
+	@else if $point == xtra-small {
+    @media only screen and (max-width: map-get($breakpoints, xsmall))  { @content; }
   }
 	@else {
 		@media only screen and #{$point} { @content; }

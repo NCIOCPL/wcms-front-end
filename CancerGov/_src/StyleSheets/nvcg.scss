@@ -4,6 +4,7 @@
 @import "mixins";
 @import "functions";
 @import "fonts";
+@import 'breakpoints';
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 /***  BEGIN RESET STYLES ***/
@@ -36,7 +37,6 @@
 
 /****************** END NCI COMPONENTS SECTION ********************/
 
-@import "breakpoints";
 @import "general";
 @import "header";
 @import "sticky_nav";
@@ -81,7 +81,6 @@
 @import "mediaqueries/medium";
 @import "mediaqueries/large";
 @import "mediaqueries/extra-large";
-@import "mediaqueries/js-helper";
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 

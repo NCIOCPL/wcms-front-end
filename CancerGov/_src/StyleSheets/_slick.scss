@@ -205,7 +205,7 @@ ul.slick-dots {
 }
 
 
-@media only screen and (max-width: 768px) {
+@include bp('(max-width: 768px)') {
 	.slick-dots li {
 		margin: 0px 4px;
 	}

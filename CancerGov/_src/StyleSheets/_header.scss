@@ -55,7 +55,7 @@ header {
 			padding-right: 20px;
 		}
 	//}
-	@media only screen and (max-width: 1440px) {
+	 @include bp(large) {
 		html.no-svg & img.nci-logo-IE-xl {
 			display: none;
 		}
@@ -169,7 +169,7 @@ header {
 }
 
 // x-small
-@media only screen and (max-width: 390px) {
+@include bp(xtra-small) {
 	.nci-logo {
 		font-size: 13px;
 	}
@@ -250,7 +250,7 @@ header {
 }
 
 // x-small
-@media only screen and (max-width: 390px) {
+@include bp(xtra-small) {
 	.mobile-menu-bar {
 		> a,
 		> button {

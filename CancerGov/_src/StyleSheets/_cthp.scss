@@ -232,7 +232,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
 /* End CTHP Card styling */
 
-@media only screen and (min-width: 640px) {
+@include bp(medium-up) {
 	.cthp-breadcrumb {
 		padding-left: 0 !important;
 	}
