@@ -215,6 +215,9 @@ jQuery(document).ready(function(jQuery) {
 	 * This initializes jQuery UI Autocomplete on the site-wide search widget.
 	 ***/
 	(function($) {
+		var newWidth = window.innerWidth || $(window).width(),
+			oldWidth = newWidth;
+
 		var language = "English";
 		if ($('html').attr("lang") === "es") {
 			language = "Spanish";
@@ -249,15 +252,17 @@ jQuery(document).ready(function(jQuery) {
 				resizeMenu = $.ui.autocomplete.prototype._resizeMenu;
 			}
 
-			$(element).autocomplete('option', 'position', position);
-			$(element).data('ui-autocomplete')._resizeMenu = resizeMenu;
+			$(element).autocomplete('option', 'position', position)
+				.data('ui-autocomplete')._resizeMenu = resizeMenu;
 		};
 
 		NCI.doAutocomplete(keywordElem, svcUrl, false, "term");
 		setAutocompleteOptions(keywordElem);
 
-		$(window).on('resize', function() {
+		$(window).on('resize.NCI.search', function() {
 			setAutocompleteOptions(keywordElem);
+
+			$(keywordElem).autocomplete('close');
 		});
 	})(jQuery);
 	/*** END Site-Wide Search ***/
