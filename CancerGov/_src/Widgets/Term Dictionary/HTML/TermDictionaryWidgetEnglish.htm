@@ -58,8 +58,11 @@
 		<button type="button" class="action button" onclick="document.getElementById('disclaimer').style.visibility='hidden';">Hide</button>
 	</div>
 
+	<!-- NCI Analytics -->
 	<script type="text/javascript">
 		var s_account = 'ncincidictionary';
+
+		var parentHostname = parentHostname || document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2];
 	</script>
 	<script type="text/javascript" src="/JS/Omniture/s_code.js"></script>
 	<script type="text/javascript">
@@ -87,8 +90,27 @@
 				s.channel = 'Dictionary Widget';
 				s.events = 'event2';
 				s.tl(this, 'o', 'Dictionary Widget Search - English');
+			},
+			ClickThrough: function(sender) {
+				var s = s_gi(s_account);
+
+				s.linkTrackVars = 'channel,events';
+				s.channel = 'Dictionary Widget';
+				s.events = 'event3';
+
+				s.tl(this, 'o', 'Dictionary Widget Click-Through - English');
 			}
 		};
+
+		// analytics event bindings
+		$('a[href]:not(a[href^="#"])').each(function() {
+			var $this = $(this);
+			$this
+				.attr('href', $this.attr('href') + '?cid=cdw_' + encodeURIComponent(parentHostname));
+				.on('click', function(e) {
+					NCIAnalytics.ClickThrough(e.target);
+				});
+		});
 	</script>
 
 </body>

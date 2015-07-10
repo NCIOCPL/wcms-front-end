@@ -1,3 +1,5 @@
+var parentHostname = parentHostname || document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2];
+
 var longLang = "English",
 	shortLang = "en";
 if ($('html').attr("lang") === "es") {
@@ -67,7 +69,7 @@ function loadDefinition(id) {
 			.append($('<p>').append(
 				$('<a>')
 					.attr({
-						href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id,
+						href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id + '&cid=cdw_' + parentHostname,
 						target: "_blank"
 					})
 					.html(i18nText.dictionaryText[shortLang])
