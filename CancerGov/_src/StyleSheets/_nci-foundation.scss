@@ -129,10 +129,10 @@ $small-screen: map-get($breakpoints, small) + 1px;
 $medium-screen: map-get($breakpoints, medium) + 1px;
 $large-screen: map-get($breakpoints, large) + 1px;
 
-// $screen: "only screen";
-// $small: "only screen and (min-width: #{$small-screen})";
-// $medium: "only screen and (min-width: #{$medium-screen})";
-// $large: "only screen and (min-width: #{$large-screen})";
+$screen: "screen";
+$small: "screen and (min-width: #{$small-screen})";
+$medium: "screen and (min-width: #{$medium-screen})";
+$large: "screen and (min-width: #{$large-screen})";
 // $landscape: "only screen and (orientation: landscape)";
 // $portrait: "only screen and (orientation: portrait)";
 
