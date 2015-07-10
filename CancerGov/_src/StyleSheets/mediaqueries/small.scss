@@ -97,8 +97,11 @@
 		float: none;
 		background: white $circle-arrow-blue-small 98% no-repeat;
 		display: inline-block;
-		padding: 0 40px 0px 0;
 		margin-top: 0;
+		
+		a {
+			padding: 0 40px 0 0;
+		}
 		&:hover, &:focus {
 			background: white $circle-arrow-red-small 98% no-repeat;
 		}
