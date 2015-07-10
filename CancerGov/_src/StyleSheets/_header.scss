@@ -55,7 +55,7 @@ header {
 			padding-right: 20px;
 		}
 	//}
-	 @include bp(large) {
+	 @include bp(large-down) {
 		html.no-svg & img.nci-logo-IE-xl {
 			display: none;
 		}
