@@ -1,4 +1,4 @@
-var parentHostname = parentHostname || document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2];
+var parentHostname = parentHostname || (document.referrer === "" ? location.hostname : document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2]);
 
 var longLang = "English",
 	shortLang = "en";

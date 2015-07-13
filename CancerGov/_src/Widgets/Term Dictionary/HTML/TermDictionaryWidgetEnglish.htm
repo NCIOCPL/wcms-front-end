@@ -62,7 +62,7 @@
 	<script type="text/javascript">
 		var s_account = 'ncincidictionary';
 
-		var parentHostname = parentHostname || document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2];
+		var parentHostname = parentHostname || (document.referrer === "" ? location.hostname : document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2]);
 	</script>
 	<script type="text/javascript" src="/JS/Omniture/s_code.js"></script>
 	<script type="text/javascript">
