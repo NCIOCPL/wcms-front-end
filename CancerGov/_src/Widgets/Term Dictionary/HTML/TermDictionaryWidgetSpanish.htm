@@ -107,7 +107,7 @@
 			var $this = $(this);
 			$this
 				.attr('href', $this.attr('href') + '?cid=cdw_' + encodeURIComponent(parentHostname))
-				.on('click', function(e) {
+				.on('click.NCI.analytics', function(e) {
 					NCIAnalytics.ClickThrough(e.target);
 				});
 		});

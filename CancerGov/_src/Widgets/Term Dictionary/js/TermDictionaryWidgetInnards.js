@@ -73,6 +73,9 @@ function loadDefinition(id) {
 						target: "_blank"
 					})
 					.html(i18nText.dictionaryText[shortLang])
+					.on('click.NCI.analytics', function(e) {
+						NCIAnalytics.ClickThrough(e.target);
+					})
 			))
 			.scrollTop(0)
 			.focus();
