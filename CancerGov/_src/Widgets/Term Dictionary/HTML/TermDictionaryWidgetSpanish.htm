@@ -83,10 +83,10 @@
 			SiteSearch: function (sender, value) {
 				var s = s_gi(s_account);
 
-				s.linkTrackVars = 'channel,prop14,eVar14,events';
+				s.linkTrackVars = 'channel,prop11,prop22,events';
 				s.linkTrackEvents = 'event2';
-				s.prop14 = value;
-				s.eVar14 = value;
+				s.prop11 = 'widget_dictionary';
+				s.prop22 = value;
 				s.channel = 'Dictionary Widget';
 				s.events = 'event2';
 				s.tl(this, 'o', 'Dictionary Widget Search - Spanish');
