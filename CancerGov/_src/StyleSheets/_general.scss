@@ -39,14 +39,12 @@ h4 {
 }
 h5 {
 	line-height: 1.333em;
-	font-size: 1.125;
+	font-size: 1.125em;
 }
 h6 {
-	line-height: 1.125em;
-	font-size: 1em;
-	.article-footer & {
-		@extend h4;
-	}
+	// line-height: 1.125em;
+	// font-size: 1em;
+	@extend h4;
 }
 p {
 	margin: 0.5em 0;
