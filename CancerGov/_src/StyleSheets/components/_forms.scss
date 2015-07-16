@@ -154,7 +154,7 @@ label, .label {
 	float: right;
 	text-align: right;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.email-us-form label {
 		text-align: left;
 		float: left;
@@ -562,7 +562,7 @@ fieldset {
 	padding-right: 0.9375em;
 	margin-bottom: 15px;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.columns.legend {
 		text-align: left;
 	}
@@ -591,7 +591,7 @@ fieldset {
 .ct-country-area {
 	margin-bottom: 10px;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.ct-country-area .ui-selectmenu-button	{
 		width: 200px !important;
 	}
@@ -632,7 +632,7 @@ fieldset {
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.ct-zip-row span {
 		display: block;
 	}
