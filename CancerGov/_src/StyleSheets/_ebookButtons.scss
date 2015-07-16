@@ -84,6 +84,8 @@ div.ebook-title h4 {
 
 // background-position-y below is to account for the difference in height between the max height (above, 25px) and the icon's height
 // it should center the icon vertically
+// example:
+// background-position: X (Y + (maxHeight - iconHeight) / 2);
 .pub-buttons a.kindle.icon:before {
 	background-position: -18px (-513px + (25px - 18px) / 2);
 	width: 21px;
