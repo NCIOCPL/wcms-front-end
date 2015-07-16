@@ -20,7 +20,7 @@ jQuery(document).ready(function(jQuery) {
 					isTall = $(this).height() >= $(window).height();
 
 				if(!topShown && !isTall) {
-					NCI.scrollTo(event.target);
+					NCI.scrollTo(event.target, event.type);
 				}
 			});
 	})(jQuery);
@@ -151,14 +151,34 @@ jQuery(document).ready(function(jQuery) {
 	 * This script fixes the scroll position for deeplinking.
 	 ***/
 	(function($) {
-		var doScroll = function() {
+		var doScroll = function(event) {
 			if(location.hash !== '') {
-				NCI.scrollTo(location.hash);
+				NCI.scrollTo(location.hash, event.type);
 			}
 		};
 
-		$(window).on('load hashchange', function(e) {
-			doScroll();
+		NCI.window.oldHash = location.hash;
+		/*
+		if(NCI.window.oldHash !== "") {
+			$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
+		}
+		*/
+
+		$(window).on('load hashchange', function(event) {
+			NCI.window.newHash = location.hash;
+
+			doScroll(event);
+
+			/*
+			if(NCI.window.oldHash !== "") {
+				$('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
+			}
+			if(NCI.window.newHash !== "") {
+				$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
+			}
+			*/
+
+			NCI.window.oldHash = NCI.window.newHash;
 		});
 	})(jQuery);
 	/*** END deeplinking fix ***/
@@ -195,6 +215,9 @@ jQuery(document).ready(function(jQuery) {
 	 * This initializes jQuery UI Autocomplete on the site-wide search widget.
 	 ***/
 	(function($) {
+		var newWidth = window.innerWidth || $(window).width(),
+			oldWidth = newWidth;
+
 		var language = "English";
 		if ($('html').attr("lang") === "es") {
 			language = "Spanish";
@@ -229,15 +252,17 @@ jQuery(document).ready(function(jQuery) {
 				resizeMenu = $.ui.autocomplete.prototype._resizeMenu;
 			}
 
-			$(element).autocomplete('option', 'position', position);
-			$(element).data('ui-autocomplete')._resizeMenu = resizeMenu;
+			$(element).autocomplete('option', 'position', position)
+				.data('ui-autocomplete')._resizeMenu = resizeMenu;
 		};
 
 		NCI.doAutocomplete(keywordElem, svcUrl, false, "term");
 		setAutocompleteOptions(keywordElem);
 
-		$(window).on('resize', function() {
+		$(window).on('resize.NCI.search', function() {
 			setAutocompleteOptions(keywordElem);
+
+			$(keywordElem).autocomplete('close');
 		});
 	})(jQuery);
 	/*** END Site-Wide Search ***/

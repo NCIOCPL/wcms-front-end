@@ -112,7 +112,7 @@ $ui-selectmenu-maxitems: 7;
 			display: none;
 		}
 
-		@media only screen and (max-width: 1024px) {
+		 @include bp(medium-down) {
 			background-color: transparent;
 			border-bottom: 1px solid $body-font-color;
 			padding: 0.5em 3em 0.5em 12.5%;
@@ -121,7 +121,7 @@ $ui-selectmenu-maxitems: 7;
 				padding-left: 0.5em;
 			}
 		}
-		@media only screen and (max-width: 640px) {
+		 @include bp(small) {
 			padding-left: 17.5%;
 		}
 	}
@@ -131,7 +131,7 @@ $ui-selectmenu-maxitems: 7;
 		background: $lcranberry;
 	}
 
-	@media only screen and (max-width:1024px) {
+	 @include bp(medium-down) {
 		z-index: 99999; // this is so that the autocomplete is never covered by another element
 		height: 100%;
 		background-color: rgb(233, 234, 232);

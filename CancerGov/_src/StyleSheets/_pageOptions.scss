@@ -27,7 +27,7 @@
 }
 
 /* MOBILE page options */
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.cthp-desktop.page-options {
 		display: none;
 	}
@@ -87,7 +87,7 @@
 }
 
 /* DESKTOP page options */
-@media only screen and (min-width: 1025px) {
+@include bp(large-up) {
 	// apply homepage- and landing page-only styles
 	.columns.page-options {
 		top: 0;

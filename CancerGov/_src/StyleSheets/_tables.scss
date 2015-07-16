@@ -51,5 +51,14 @@ figure.table figcaption + a.article-image-enlarge {
 .pdqcancerinfosummary table thead tr th{
 	text-align: center;
 }
+
+/* Enlarge table for PDQ */
+table tbody tr td a{
+	color: #2ba6cb !important;
+}
+table tbody tr td a:hover{
+	color: #2795b6;
+	text-decoration: underline;
+}
 /* End PDQ table styling */
 /* END TABLE STYLES */

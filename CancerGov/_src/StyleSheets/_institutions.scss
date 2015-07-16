@@ -47,7 +47,7 @@ div.institution-content p {
 }
 
 
-@media only screen and (max-width: 640px){
+@include bp(small){
 div.institution-sidebar {
 width: 100%;
 margin: 0 0 1em 0;

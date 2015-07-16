@@ -4,6 +4,7 @@
 @import "mixins";
 @import "functions";
 @import "fonts";
+@import 'breakpoints';
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 /***  BEGIN RESET STYLES ***/
@@ -70,6 +71,7 @@
 @import "tooltips";
 @import "errorPage";
 @import "topicPages";
+@import "nokia-maps";
 
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
@@ -80,7 +82,6 @@
 @import "mediaqueries/medium";
 @import "mediaqueries/large";
 @import "mediaqueries/extra-large";
-@import "mediaqueries/js-helper";
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 

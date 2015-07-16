@@ -18,7 +18,7 @@
 		padding-right: 15%;
 	}
 
-	@media only screen and (max-width: 640px) {
+	@include bp(small) {
 		.columns {
 			padding: 0 0.9375em;
 		}

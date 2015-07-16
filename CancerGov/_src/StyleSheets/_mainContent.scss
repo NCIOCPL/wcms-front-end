@@ -10,7 +10,7 @@
 .main-content a:hover, .main-content a:focus {
 	text-decoration: underline;
 }
-@media only screen and (max-width :640px) {
+@include bp(small) {
 	.main-content {
 		background: none;
 	}
@@ -267,7 +267,7 @@ table.no-bullet-padding ul {
 	}
 }
 
-@media only screen and (max-width: 1024px) {
+@include bp(medium-down) {
 	.contentzone .document-dates,
 	.contentzone .document-dates.horizontal {
 		ul > li {
