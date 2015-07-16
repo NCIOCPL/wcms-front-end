@@ -39,11 +39,12 @@ h4 {
 }
 h5 {
 	line-height: 1.333em;
-	font-size: 1.125;
+	font-size: 1.125em;
 }
 h6 {
-	line-height: 1.125em;
-	font-size: 1em;
+	// line-height: 1.125em;
+	// font-size: 1em;
+	@extend h4;
 }
 p {
 	margin: 0.5em 0;
@@ -77,20 +78,20 @@ table caption {
 	&:last-child {
 		padding-right: 0;
 	}
-	
+
 	&:only-child {
 		padding: $column-gutter / 2;
 	}
-	
-	@media only screen and (max-width: 640px) {
+
+	@include bp(small) {
 		&[class*=" large-"],
 		&[class^="large-"] {
 			padding-left: 0;
 			padding-right: 0;
 		}
 	}
-	
-	@media only screen and (max-width: 1024px) {
+
+	@include bp(medium-down) {
 		&[class*=" medium-"],
 		&[class^="medium-"] {
 			padding-left: 0;
@@ -212,15 +213,16 @@ figcaption {
 	float: right;
 }
 .pullquote, .pullquote-right, .pullquote-left {
+	@extend .clearfix;
 	color: #29768c;
 	@include font-montserrat;
 	font-weight: bold;
 	line-height: 25px;
-@media only screen and (max-width: 640px) {
+	@include bp(small) {
 		width: 90%;
 		float: none;
 		margin: 1em auto;
-}
+	}
 	.author {
 		text-align: right;
 		font-style: italic;
@@ -310,7 +312,7 @@ figcaption {
 .five-columns .column5 {
 	padding-right: 0;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.two-columns .column1,
 	.two-columns .column2,
 	.three-columns .column1,
@@ -339,20 +341,20 @@ figcaption {
 	background: #DBF2F8;
 	overflow: auto;
 	padding: 25px;
-	
+
 	h3 {
-		margin-top: 0;	
+		margin-top: 0;
 	}
-	
+
 	p:last-child {
-		margin-bottom: 0;	
+		margin-bottom: 0;
 	}
-	
+
 	figure.image-center-full {
 		margin: 0;
 	}
 }
- 
+
 .callout-box,
 .callout-box-blue {
 	margin: 25px auto;
@@ -372,7 +374,7 @@ figcaption {
 	margin: 25px auto;
 	width: 100%;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.callout-box, .callout-box-left, .callout-box-right {
 		width: 90%;
 		float: none;
@@ -417,7 +419,7 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 	content: none;
 	display: none;
 }
-@media only screen and (max-width: 640px) {
+@include bp(small) {
 	.body-location-content-nav ul {
 		width: 100%;
 		float: none;
@@ -429,5 +431,7 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 .nci-organization .large-5 figure {
   margin: 1.25em auto;
 }
+
+
 
 /********************* END General Styles ******************************************/

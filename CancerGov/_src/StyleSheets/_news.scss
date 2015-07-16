@@ -16,8 +16,15 @@ a.arrow-link.news-footer {
 	}
 
 	a.news-twitter:before {
-		background-position: -16px -201px;
+		// background position has been moved (from -16px to -17px) to shift the icon to be center aligned
+		background-position: -17px -201px;
 		height: 16px;
+	}
+	
+	a.news-facebook:before {
+		// background position has been moved (from -25px to -20px) to shift the icon to be center aligned
+		background-position: -20px -156px;
+		height: 17px;
 	}
 
 	a.news-youtube:before {
@@ -48,7 +55,7 @@ a.arrow-link.news-footer {
 	display: none;
 }
 
-@media only screen and (min-width: 641px) {
+@include bp(medium-up) {
 	.news .large-8.gutter {
 		width: 66%;
 	}

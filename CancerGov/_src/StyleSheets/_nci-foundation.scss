@@ -125,10 +125,9 @@ $include-html-label-classes: false;
 
 // Media Queries
 
-$xsmall-screen: 390px;
-$small-screen: 641px;
-$medium-screen: 1025px;
-$large-screen: 1440px;
+$small-screen: map-get($breakpoints, small) + 1px;
+$medium-screen: map-get($breakpoints, medium) + 1px;
+$large-screen: map-get($breakpoints, large) + 1px;
 
 $screen: "screen";
 $small: "screen and (min-width: #{$small-screen})";

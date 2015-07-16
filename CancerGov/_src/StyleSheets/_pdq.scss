@@ -58,7 +58,7 @@
 .toptoc a.pdq-section-link {
 	color: #000000;
 }
-@media only screen and (min-width: 641px) and (max-width: 1024px) {
+@include bp(medium) {
 	// show the full-page (all sections) OTP
 	#pdq-toc-article > .on-this-page {
 		display: block;
@@ -329,7 +329,7 @@ form .row .view-content-for-container {
 	margin-right: 0.5em;
 	line-height: 1.25;
 }
-@media screen and (max-width: 1024) {
+@include bp(medium-down) {
 	.cts-results-container .row .checkbox {
 		float: none;
 	}

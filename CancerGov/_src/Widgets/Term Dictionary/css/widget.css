@@ -51,8 +51,11 @@ p {
 }
 
 #container {
-	border: thin solid #ebebea;
+	background: white;
 	border-top: 3px solid #00b1b9;
+	border-left: 1px solid #ebebea;
+	border-right: 1px solid #ebebea;
+	border-bottom: 1px solid #ebebea;
 	overflow: hidden;
 	max-width: 400px;
 	padding: 10px;
