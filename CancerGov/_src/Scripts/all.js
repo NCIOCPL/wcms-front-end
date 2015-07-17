@@ -556,9 +556,12 @@ jQuery(document).ready(function(jQuery) {
 	/*** BEGIN page outlining ***/
 	(function($) {
 		// generate the page outline -- this is used for all page-/document-level navigation
-		NCI.page.outline = NCI.page.makeOutline(document.querySelector('article'));
+		var article = document.querySelector('article');
+		if(article !== null) {
+			NCI.page.outline = NCI.page.makeOutline(article);
 
-		NCI.buildOTP();
+			NCI.buildOTP();
+		}
 	})(jQuery);
 	/*** END page outlining ***/
 	// reference tooltips
