@@ -553,10 +553,14 @@ jQuery(document).ready(function(jQuery) {
 	})(jQuery);
 	/*** END accordionizer ***/
 
-	// Run this script to dynamically generate an "On This Page" block at the top of the page if it's specified the HTML
-	// TODO: move this to a different location when cleaning up the JavaScript for a future release.
-	NCI.buildOTP();
+	/*** BEGIN page outlining ***/
+	(function($) {
+		// generate the page outline -- this is used for all page-/document-level navigation
+		NCI.page.outline = NCI.page.makeOutline(document.querySelector('article'));
 
+		NCI.buildOTP();
+	})(jQuery);
+	/*** END page outlining ***/
 	// reference tooltips
 	(function ($) {
 		var timerLength = 1000;

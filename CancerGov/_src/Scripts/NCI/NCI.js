@@ -151,37 +151,37 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	 * This function can be used to create an "On This Page" section on any content with a raw HTML or Ephox
 	 * body field.
 	 *
-	 * Returns: null
-	 * Parameters:
-	 *   target[]    (string)(jQuery selector)    Selector that identifies element used to create the "on this page" block
+	 * Returns: the built "On This Page" block
+	 * Parameters: null
+	 *
 	 *====================================================================================================*/
-	buildOTP: function (target) {
-		// Get items inside div where id="cgvBody" and "data-otp-selector" attribute is not false.
-		var $otp = $("#cgvBody [data-otp-selector]");
-		$otpItems = $otp.find($otp.attr('data-otp-selector') || 'h2').not('[data-otp="false"]');
+	buildOTP: function() {
+		var options = {
+				titleText: {
+					en: "On This Page",
+					es: "En Este Página"
+				},
+				class: "on-this-page",
+				placement: {
+					insert: 'prependTo',
+					to: '[data-otp-selector]'
+				},
+				ignore: {
+					heading: ['h6'],
+					node: ['aside']
+				},
+				maxLevel: 2
+			},
 
-		// Create 'On This Page' element
-		if($otpItems.length > 0) {
-			var otpTitle;
-			if ($("html").attr("lang") === "es") {
-				otpTitle = "En Este Página";
-			} else {
-				otpTitle = "On This Page";
-			}
-			var otp = $("<nav>").addClass("on-this-page");
-			otp.append($("<h6>").text(otpTitle));
+			$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
+				.append($('<h6>').text(options.titleText[NCI.page.lang || 'en'])),
+			articleRoot = NCI.page.outline.sections[0];
 
-			// Create a list out of the items found by $otpItems
-			var otpList = $("<ul>");
-			var otpItem;
-			for (var i = 0; i < $otpItems.length; i++) {
-				otpItem = $otpItems[i]; // Get each item found by $otpItems
-				// Add each to the OTP list; use header text for link text; link to the ID of the target header or parent
-				$("<li>").append($("<a>").attr("href", "#" + (otpItem.id || otpItem.parentElement.id)).text(otpItem.textContent.trim())).appendTo(otpList);
-			}
-			otpList.appendTo(otp); // Add list to 'On This Page' nav element
-			otp.prependTo("#cgvBody > .slot-item:first"); // Add nav element inside "cgvBody" div
-		}
+		$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
+
+		$nav[options.placement.insert](options.placement.to);
+
+		return $nav;
 	},
 
 	/*======================================================================================================
@@ -449,6 +449,8 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 
 		return $target;
 	},
+
+	page: {},
 
 	window: {}
 };
