@@ -352,4 +352,15 @@ ul.collaborators li {
 	margin-left: 0;
 }
 
+// Visibility for sections/tables/images
+// See OCEPROJECT-3361
+[data-display-excludedevice~="screen"] {
+	// hide for tablet and desktop (yes, "screen" means "tablet and desktop" here)
+	@extend .hide-for-medium-up;
+}
+[data-display-excludedevice~="mobile"] {
+	// hide for smartphone
+	@extend .hide-for-small;
+}
+
 /*** END PDQ Styles ***/
