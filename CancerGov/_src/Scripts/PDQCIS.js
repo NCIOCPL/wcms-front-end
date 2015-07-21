@@ -144,8 +144,7 @@ $(function() {
 
 			articleRoot = NCI.page.outline.sections[0],
 			sectionInsertionPoint,
-			$sectionNav,
-			sectionRoot;
+			newRoot;
 
 		for (var i = 0, len = articleRoot.sections.length; i < len; i++) {
 			sectionInsertionPoint = options.placement.to + ':eq(' + i + ')';
@@ -231,74 +230,67 @@ $(function() {
 	}
 
 
-	// JQuery Function: previousNext()
-	// This function creates the links at the bottom to navigate to the
-	// previous/next section
-	// ------------------------------------------------------------------
-	// Function to create the Previous/Next Navigation
-	// ------------------------------------------------------------------
-	$.fn.previousNext = function() {
-		// Select the language tag to pick the proper text for headings
-		// TBD:  Are KeyPoints H3 or H4???
-		// ------------------------------------------------------------
-		var strPrev = "";
-		var strNext = "";
-		if ($('meta[name="content-language"]').attr('content') == 'es') {
-			strPrev = "Secci&#243;n anterior";
-			strNext = "Siguiente secci&#243;n";
-		} else {
-			strPrev = "Previous section";
-			strNext = "Next section";
+	// This function creates the links at the bottom to navigate to the previous/next section
+	function buildPrevNext() {
+		var options = {
+				i18n: {
+					prev: {
+						en: "< Previous section",
+						es: "< Sección anterior"
+					},
+					next: {
+						en: "Next section >",
+						es: "Siguiente sección >"
+					}
+				},
+				class: {
+					container: 'row collapse previous-next-links show-for-large-up',
+					prev: 'previous-link',
+					next: 'next-link',
+					link: 'large-6 columns'
+				},
+				placement: {
+					insert: 'insertAfter',
+					to: '.pdq-sections'
+				}
+			},
+
+			articleRoot = NCI.page.outline.sections[0],
+			insertionPoint,
+			prevSection,
+			nextSection;
+
+		for (var i = 0, len = articleRoot.sections.length; i < len; i++) {
+			insertionPoint = options.placement.to + ':eq(' + i + ')';
+
+			// $container is instantiated inside the loop to avoid changing the previous nav
+			var $container = $('<nav>').addClass(options.class.container).attr('role', 'navigation'),
+				$prevLink = $('<div>').addClass(options.class.link).addClass(options.class.prev)
+					.appendTo($container),
+				$nextLink = $('<div>').addClass(options.class.link).addClass(options.class.next)
+					.appendTo($container);
+
+			// add previous link
+			if(i > 0) {
+				prevSection = articleRoot.sections[i - 1];
+				$('<a>').attr('href', '#section/' + prevSection.node.id)
+					.text(options.i18n.prev[NCI.page.lang || 'en'])
+					.appendTo($prevLink)
+					.after($('<br><em>' + prevSection.heading.innerHTML + '</em>'));
+			}
+
+			// add next link
+			if(i < len - 1) {
+				nextSection = articleRoot.sections[i + 1];
+				$('<a>').attr('href', '#section/' + nextSection.node.id)
+					.text(options.i18n.next[NCI.page.lang || 'en'])
+					.appendTo($nextLink)
+					.after($('<br><em>' + nextSection.heading.innerHTML + '</em>'));
+			}
+
+			$container[options.placement.insert](insertionPoint);
 		}
-
-		// Add the Previous/Next navigation to the bottom of each section
-		return this.children("section").each(function() {
-			// The link target '#section/_id' triggers routie.js to set the
-			// URL for the section properly
-			// --------------------------------------------------------------
-			var pnDivL = "<div class='row show-for-large-up ";
-			pnDivL = pnDivL + "previous-next-links collapse'>";
-			var pDivL = "<div class='large-6 columns previous-link'>";
-			var pLinkL = "<a href='#section/";
-			var pLinkR = "'>&lt; " + strPrev + "</a>";
-			var pTitleL = "<br><em>";
-			var pTitleR = "</em>";
-			var pDivR = "</div>";
-			var nDivL = "<div class='large-6 columns next-link'>";
-			var nLinkL = "<a href='#section/";
-			var nLinkR = "'>" + strNext + " &gt;</a>";
-			var nTitleL = "<br><em>";
-			var nTitleR = "</em>";
-			var nDivR = "</div>";
-			var pnDivR = "</div>";
-
-			// Extract the section ID and section title of previous/next section
-			// including the section ID will trigger routie.js to open the
-			// appropriate section.
-			// -----------------------------------------------------------------
-			var prevTitle = $(this).prev("section").children("h2").text();
-			var prevId = $(this).prev("section").attr("id");
-			var nextTitle = $(this).next("section").children("h2").text();
-			var nextId = $(this).next("section").attr("id");
-
-			// Concatenate everything and add to the end of the section
-			// but only if a previous/next section exists.
-			// --------------------------------------------------------
-			var pnFooter = "";
-			pnFooter = pnFooter + pnDivL + pDivL;
-			if (prevId) {
-				pnFooter = pnFooter + pLinkL + prevId + pLinkR + pTitleL + prevTitle + pTitleR;
-			}
-			pnFooter = pnFooter + pDivR + nDivL;
-			if (nextId) {
-				pnFooter = pnFooter + nLinkL + nextId + nLinkR + nTitleL + nextTitle + nTitleR;
-			}
-			pnFooter = pnFooter + nDivR + pnDivR;
-
-			// Add the footer to the section
-			$(this).append(pnFooter);
-		});
-	};
+	}
 
 	// *** END Functions *** ****************************************
 
@@ -320,8 +312,7 @@ $(function() {
 	showSection($('.pdq-sections:eq(0)').parent().closest('section'));
 
 	// Creating the previous/next navigation links
-	// ------------------------------------------------------------
-	$('.summary-sections').previousNext();
+	buildPrevNext();
 
 	// Creating the full-page TOC
 	buildFullTOC();
