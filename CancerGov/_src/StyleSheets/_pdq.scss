@@ -8,56 +8,51 @@
 	border-bottom: 12px solid #1c5e86;
 	font-size: 0.8em;
 	margin-bottom: 3em;
-}
-.toptoc h3 {
-	background-color: #1c5e86;
-	color: white;
-	font-size: 1em;
-	margin: 0;
-	padding: 10px 12px;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-/* set font size of all content in TOC to the same size */
 
-.toptoc ul {
-	margin-bottom: 0;
-	line-height: 1.2em;
+	h3 {
+		background-color: #1c5e86;
+		color: white;
+		font-size: 1em;
+		margin: 0;
+		padding: 10px 12px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	ul {
+		margin-bottom: 0;
+		line-height: 1.2em;
+	}
+	li {
+		z-index: 1;
+		list-style-type: none;
+		background: none;
+		margin: 0;
+		border-bottom: 1px solid #d5d5d2;
+
+		&:before {
+			// removes the bullets for toptoc li menu items
+			content: none;
+			display: none;
+		}
+		&.selected {
+			background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
+			font-weight: bold;
+		}
+
+		> a {
+			display: block;
+			padding: 0.5em 1em;
+		}
+		&.viewall > a {
+			padding: 0.825em 1em 0.825em 2.5em;
+			background: url($icons + "view-entire-summary.png") no-repeat scroll 1em 50% transparent;
+		}
+	}
+	.enlarge-link {
+		display: none;
+	}
 }
-.toptoc li {
-	z-index: 1;
-	list-style-type: none;
-	background: none;
-	padding: 0.5em 1em;
-	margin: 0;
-	border-bottom: 1px solid #d5d5d2;
-}
-.toptoc li:hover {
-	cursor: pointer; // this doesn't make sense for focus state, so I've applied it only to hover state [Wade, 01/14/2015]
-}
-.toptoc li:hover, .toptoc li:focus {
-	text-decoration: underline;
-}
-.toptoc li:before {
-	content: none;
-	display: none;
-	/* removes the bullets for toptoc li menu items */
-}
-.toptoc li.selected {
-	background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
-	font-weight: bold;
-}
-.toptoc .enlarge-link {
-	display: none;
-}
-.toptoc li.viewall span {
-	background: url($icons + "view-entire-summary.png") no-repeat scroll 0 50% #fffffb;
-	padding: 5px 0 5px 20px;
-	display: block;
-}
-.toptoc a.pdq-section-link {
-	color: #000000;
-}
+
 @include bp(medium) {
 	// show the full-page (all sections) OTP
 	#pdq-toc-article > .on-this-page {

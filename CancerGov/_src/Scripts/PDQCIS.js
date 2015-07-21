@@ -74,14 +74,14 @@ $(function() {
 
 		// append "View All" item
 		$nav.children('ul').append(
-			$('<li class="viewall"><a href="#all"><span>' + (options.i18n.viewAll[NCI.page.lang || 'en']) + '</span></a></li>')
+			$('<li class="viewall"><a href="#all">' + (options.i18n.viewAll[NCI.page.lang || 'en']) + '</a></li>')
 		);
 
 		// update item hrefs, fix slash word-breaking
 		$nav.find('a').each(function() {
 			var $this = $(this);
 			$this.attr('href', '#section\/' + $this.attr('href').substr(1))
-				.html($this.html().replace(/([\/\\])/g, '$1&#8203;'));
+				.html($this.html().replace(/([^<][\/\\])/g, '$1&#8203;'));
 		});
 
 		$nav[options.placement.insert](options.placement.to);
