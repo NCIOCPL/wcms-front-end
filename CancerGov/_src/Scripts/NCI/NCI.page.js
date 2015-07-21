@@ -484,4 +484,13 @@ NCI.page = {
 			}
 		}
 	},
+
+	outline: null,
+	lang: (function(lang) {
+		if(lang.indexOf('es') === 0) {
+			return 'es';
+		} else {
+			return 'en';
+		}
+	})(document.documentElement.lang)
 };
