@@ -351,11 +351,15 @@ ul.collaborators li {
 // See OCEPROJECT-3361
 [data-display-excludedevice~="screen"] {
 	// hide for tablet and desktop (yes, "screen" means "tablet and desktop" here)
-	@extend .hide-for-medium-up;
+	@include bp(medium-up) {
+		display: none !important;
+	}
 }
 [data-display-excludedevice~="mobile"] {
 	// hide for smartphone
-	@extend .hide-for-small;
+	@include bp(small) {
+		display: none !important;
+	}
 }
 
 /*** END PDQ Styles ***/
