@@ -258,34 +258,56 @@ $(function() {
 			articleRoot = NCI.page.outline.sections[0],
 			insertionPoint,
 			prevSection,
-			nextSection;
+			prevExclude,
+			nextSection,
+			nextExclude;
 
 		for (var i = 0, len = articleRoot.sections.length; i < len; i++) {
 			insertionPoint = options.placement.to + ':eq(' + i + ')';
 
 			// $container is instantiated inside the loop to avoid changing the previous nav
-			var $container = $('<nav>').addClass(options.class.container).attr('role', 'navigation'),
-				$prevLink = $('<div>').addClass(options.class.link).addClass(options.class.prev)
+			var $container = $('<div>').addClass(options.class.container),
+				$prevContainer = $('<div>').addClass(options.class.link).addClass(options.class.prev)
 					.appendTo($container),
-				$nextLink = $('<div>').addClass(options.class.link).addClass(options.class.next)
-					.appendTo($container);
+				$prevLink,
+				$nextContainer = $('<div>').addClass(options.class.link).addClass(options.class.next)
+					.appendTo($container),
+				$nextLink;
 
 			// add previous link
 			if(i > 0) {
 				prevSection = articleRoot.sections[i - 1];
-				$('<a>').attr('href', '#section/' + prevSection.node.id)
-					.text(options.i18n.prev[NCI.page.lang || 'en'])
-					.appendTo($prevLink)
-					.after($('<br><em>' + prevSection.heading.innerHTML + '</em>'));
+				prevExclude = prevSection.node.hasAttribute('data-display-excludedevice');
+
+				$prevLink = $('<div>')
+					.append($('<a>')
+						.attr('href', '#section/' + prevSection.node.id)
+						.text(options.i18n.prev[NCI.page.lang || 'en'])
+					)
+					.append($('<br><em>' + prevSection.heading.innerHTML + '</em>'))
+				.appendTo($prevContainer);
+
+				if(prevExclude) {
+					$prevLink.attr('data-display-excludedevice', prevSection.node.getAttribute('data-display-excludedevice'));
+				}
 			}
 
 			// add next link
 			if(i < len - 1) {
 				nextSection = articleRoot.sections[i + 1];
-				$('<a>').attr('href', '#section/' + nextSection.node.id)
-					.text(options.i18n.next[NCI.page.lang || 'en'])
-					.appendTo($nextLink)
-					.after($('<br><em>' + nextSection.heading.innerHTML + '</em>'));
+				nextExclude = nextSection.node.hasAttribute('data-display-excludedevice');
+
+				$nextLink = $('<div>')
+					.append($('<a>')
+						.attr('href', '#section/' + nextSection.node.id)
+						.text(options.i18n.next[NCI.page.lang || 'en'])
+					)
+					.append($('<br><em>' + nextSection.heading.innerHTML + '</em>'))
+					.appendTo($nextContainer);
+
+				if(nextExclude) {
+					$nextLink.attr('data-display-excludedevice', nextSection.node.getAttribute('data-display-excludedevice'));
+				}
 			}
 
 			$container[options.placement.insert](insertionPoint);

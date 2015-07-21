@@ -472,6 +472,9 @@ NCI.page = {
 						.html(heading.innerHTML)
 				);
 
+				if(node.hasAttribute('data-display-excludedevice')) {
+					$currentLi.attr('data-display-excludedevice', node.getAttribute('data-display-excludedevice'));
+				}
 
 				$list.append($currentLi);
 
