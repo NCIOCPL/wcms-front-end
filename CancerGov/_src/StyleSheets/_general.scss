@@ -237,8 +237,16 @@ figcaption {
 .pullquote-text:before {
 	content: "\201c"
 	}
+/* we are doing quotes manually for spanish pages due to difference in grammar where period comes after quote in spanish */
+:lang(es) .pullquote-text:before {
+	content: "";
+} 
 .pullquote-text:after {
 	content: "\201d"
+}
+/* we are doing quotes manually for spanish pages due to difference in grammar where period comes after quote in spanish */
+:lang(es) .pullquote-text:after {
+	content: "";
 }
 
 // skip navigation styles
