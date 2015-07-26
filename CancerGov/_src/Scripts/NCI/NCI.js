@@ -291,7 +291,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 	makeAllAccordions: function() {
 		var targets = {
 			//'selector' : 'header'
-			'.accordion' : 'h2',
+			'.accordion' : 'h2:not([data-display-excludedevice~="mobile"] h2)',
 			'#nvcgRelatedResourcesArea' : 'h6',
 			'#cgvCitationSl' : 'h6',
 			'.cthp-content' : 'h3'
@@ -317,7 +317,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 
 			/* If the width is less than or equal to 640px (small screens)
 			 * AND if the accordion(s) isn't (aren't) already built */
-			if (width <= 640 && $(targetsBuiltAccordionSelector).length === 0) {
+			if (width <= NCI.Breakpoints.medium && $(targetsBuiltAccordionSelector).length === 0) {
 				// verify that the accordion will build correctly
 				$(targetsHeaderSelector).each(function() {
 					var $this = $(this);
@@ -343,7 +343,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				}
 
 				/* else, the window must be large */
-			} else if(width > 640) {
+			} else if(width > NCI.Breakpoints.medium) {
 				for(accordion in targets) {
 					if(targets.hasOwnProperty(accordion)) {
 						NCI.undoAccordion(accordion, {'header': targets[accordion]});
