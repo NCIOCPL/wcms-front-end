@@ -258,11 +258,12 @@ $(function() {
 			articleRoot = NCI.page.outline.sections[0],
 			insertionPoint,
 			prevSection,
-			prevExclude,
 			nextSection,
-			nextExclude;
+			i = 0,
+			j,
+			numSections = articleRoot.sections.length;
 
-		for (var i = 0, len = articleRoot.sections.length; i < len; i++) {
+		for (; i < numSections; i++) {
 			insertionPoint = options.placement.to + ':eq(' + i + ')';
 
 			// $container is instantiated inside the loop to avoid changing the previous nav
@@ -275,38 +276,38 @@ $(function() {
 				$nextLink;
 
 			// add previous link
-			if(i > 0) {
-				prevSection = articleRoot.sections[i - 1];
-				prevExclude = prevSection.node.hasAttribute('data-display-excludedevice');
+			for(j = i; j > 0; j--) {
+				prevSection = articleRoot.sections[j - 1];
+				if(prevSection.node.hasAttribute('data-display-excludedevice') && prevSection.node.getAttribute('data-display-excludedevice').indexOf('screen') !== -1) {
+					continue;
+				} else {
+					$prevLink = $('<div>')
+						.append($('<a>')
+							.attr('href', '#section/' + prevSection.node.id)
+							.text(options.i18n.prev[NCI.page.lang || 'en'])
+						)
+						.append($('<br><em>' + prevSection.heading.innerHTML + '</em>'))
+						.appendTo($prevContainer);
 
-				$prevLink = $('<div>')
-					.append($('<a>')
-						.attr('href', '#section/' + prevSection.node.id)
-						.text(options.i18n.prev[NCI.page.lang || 'en'])
-					)
-					.append($('<br><em>' + prevSection.heading.innerHTML + '</em>'))
-				.appendTo($prevContainer);
-
-				if(prevExclude) {
-					$prevLink.attr('data-display-excludedevice', prevSection.node.getAttribute('data-display-excludedevice'));
+					break;
 				}
 			}
 
 			// add next link
-			if(i < len - 1) {
-				nextSection = articleRoot.sections[i + 1];
-				nextExclude = nextSection.node.hasAttribute('data-display-excludedevice');
+			for(j = i; j < numSections - 1; j++) {
+				nextSection = articleRoot.sections[j + 1];
+				if(nextSection.node.hasAttribute('data-display-excludedevice') && nextSection.node.getAttribute('data-display-excludedevice').indexOf('screen') !== -1) {
+					continue;
+				} else {
+					$nextLink = $('<div>')
+						.append($('<a>')
+							.attr('href', '#section/' + nextSection.node.id)
+							.text(options.i18n.next[NCI.page.lang || 'en'])
+						)
+						.append($('<br><em>' + nextSection.heading.innerHTML + '</em>'))
+						.appendTo($nextContainer);
 
-				$nextLink = $('<div>')
-					.append($('<a>')
-						.attr('href', '#section/' + nextSection.node.id)
-						.text(options.i18n.next[NCI.page.lang || 'en'])
-					)
-					.append($('<br><em>' + nextSection.heading.innerHTML + '</em>'))
-					.appendTo($nextContainer);
-
-				if(nextExclude) {
-					$nextLink.attr('data-display-excludedevice', nextSection.node.getAttribute('data-display-excludedevice'));
+					break;
 				}
 			}
 
