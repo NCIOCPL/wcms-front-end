@@ -579,19 +579,6 @@ jQuery(document).ready(function(jQuery) {
 			});
 	})(jQuery);
 	/*** END Spanish blog label HACK ***/
-
-	/*** BEGIN factsheet template HACK ***/
-	(function($) {
-		var $factsheet = $('.cgvfactsheet');
-		if($factsheet.length > 0) {
-			var $otpQuestions = $factsheet.find('.on-this-page a');
-			$factsheet.find('h2:contains(#removePTags($qNa.getProperty("question").String))')
-				.each(function(i, el) {
-					el.innerHTML = $otpQuestions[i].innerHTML;
-				});
-		}
-	})(jQuery);
-	/*** END factsheet template HACK ***/
 });
 
 // BEGIN Table Resizing
