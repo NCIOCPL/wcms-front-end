@@ -68,8 +68,9 @@
         var fig = false;
 
         if (element.parents('figure').length <= 0) {
-            fig = $('<figure></figure>');
+            fig = $('<figure>');
             fig.addClass("table");
+            fig.attr('data-display-excludedevice', element.attr('data-display-excludedevice'));
             fig.insertBefore(element);
             element.appendTo(fig);
             //Get the caption
@@ -94,7 +95,7 @@
                 fig.data("caption", fcaption);
 
                 //Add the caption to the figure - make sure it is first.
-                fig.append(fcaption)
+                fig.append(fcaption);
             } else {
                 element.data("caption", false);
             }
@@ -316,7 +317,7 @@
                 var curWidth = window.innerWidth || $(window).width();
 
                 //If popup is open and the curWidth < [Threshold for Enlarging], close the window
-                if (fig.dialog("instance") != undefined) { //Since we always destroy dialog, instance means exists and open
+                if (fig.dialog("instance") !== undefined) { //Since we always destroy dialog, instance means exists and open
 
                     if (curWidth <= settings.thresholdForEnlarge) {
                         //Smaller than desktop breakpoint, close window
