@@ -384,7 +384,7 @@ $(function() {
 				navigationState = 'IN_SECTION';
 			} else {
 				// show the containing section
-				showSection($('#' + rid).closest('.pdq-sections').parent().closest('section'));
+				showSection($('#' + rid).closest('section.hide'));
 			}
 
 			// TODO: REMOVE?
@@ -403,7 +403,7 @@ $(function() {
 				navigationState = 'IN_SECTION';
 			} else {
 				// show the containing section
-				showSection($('#' + cid).closest('.pdq-sections').parent().closest('section'));
+				showSection($('#' + cid).closest('section.hide'));
 			}
 		},
 
