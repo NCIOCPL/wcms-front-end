@@ -458,7 +458,7 @@ NCI.page = {
 				heading = sections[i].heading;
 
 				// if we should ignore this heading or node type, continue the loop and try the next section
-				if(ignore && ((ignore.node && $(node).is(ignore.node.join(','))) || (ignore.heading && $(heading).is(ignore.heading.join(','))))) {
+				if(ignore && ((ignore.node && $(node).is(ignore.node.join(','))) || (ignore.heading && $(heading).is(ignore.heading.join(',')))) || heading.implied) {
 					continue;
 				}
 
