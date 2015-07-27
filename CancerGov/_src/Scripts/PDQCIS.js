@@ -376,6 +376,8 @@ $(function() {
 		// Handling of links clicked in the 'On this page' navigation or within the document
 		// -------------------------------------------------------------
 		'link/:rid': function(rid) {
+			rid = rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
+
 			// Hide all open sections unless we are in the 'View all' section
 			if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 				navigationState = 'IN_SECTION';
@@ -395,6 +397,8 @@ $(function() {
 
 		},
 		'cit/:cid': function(cid) {
+			cid = cid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
+
 			// Hide all open sections unless we are in the 'View all' section
 			if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 				navigationState = 'IN_SECTION';
