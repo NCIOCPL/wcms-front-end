@@ -624,6 +624,12 @@ jQuery(document).ready(function(jQuery) {
 						if (!h) {
 							return;
 						}
+						
+						var width = window.innerWidth || $(window).width();
+						if (width <= NCI.Breakpoints.medium) {
+							return;
+						}
+						
 						/*if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) + $(window).height() > $(h).offset().top + h.offsetHeight) {
 							$(h).addClass('RTTarget');
 							//return;
