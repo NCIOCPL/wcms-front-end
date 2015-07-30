@@ -26,7 +26,49 @@ $(function() {
 		}
 	});
 
+	var $allSections = $('.pdq-sections').parent('section');
 
+	function showSection(section, resetURL) {
+		var $section = $(section),
+			sectionIdentifier = $section.prop('id'),
+			sectionIdx = $allSections.index($section);
+
+		if(section === "all") {
+			$section = $('.pdq-sections').parent('section');
+			sectionIdentifier = 'all';
+			sectionIdx = -1;
+		}
+
+		// initialize variables for setting metatags and email URL
+		var urlSuffix = (resetURL ? '' : '#section/' + sectionIdentifier),
+			ogUrl = $('link[rel="canonical"]').attr('href') + urlSuffix,
+			$emailPage = $('.po-email > a');
+
+		// hide/show the proper section
+		$allSections
+		// show the current section
+			.filter($section).removeClass('hide').addClass('show')
+			// hide the other sections
+			.end().not($section).addClass('hide').removeClass('show');
+
+		// show the proper selection
+		$('#pdq-toptoc li')
+			// select the current section
+			.filter(':eq(' + sectionIdx + ')').addClass('selected')
+			// unselect the other sections
+			.end().not(':eq(' + sectionIdx + ')').removeClass('selected');
+
+		// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the current section so that the social media share buttons - retrieving the URL from this tag - will grab and display the correct section instead of displaying the default section one
+		$('meta[property="og:url"]').attr('content', ogUrl);
+
+		/*
+		// Also update the email URL
+		if ($emailPage.length > 0) {
+			$emailPage.attr('href', $emailPage.attr('href').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'))
+				.attr('onclick', $emailPage.attr('href').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'));
+		}
+		*/
+	}
 
 	//(function($) {
 	// Add the container DIV to insert the SectionNav list
@@ -662,80 +704,6 @@ $(function() {
 	NCI.makeAllAccordions();
 	NCI.scrollTo(location.hash);
 
-
-	// Temporarily reset the URL for the email/facebook/etc. buttons
-	// Only attempt the replace if the print button exists on the page
-	// ---------------------------------------------------------------
-	var urlEmail = $("li.po-email a").attr("href");
-
-	//// Aarti will add a meta-tag to the PP output that could then be
-	//// used instead of the urlEmail to test against PP
-	//var ppx = $('meta[name="publishpreview"]');
-	//console.log(ppx);
-
-	// PublishPreview doesn't include the print/email/etc. buttons
-	if (urlEmail) {
-		pp = false
-	} else {
-		pp = "true"
-	}
-	if (!pp) {
-		var newEmailUrl = urlEmail.replace(/docurl=.*&language/i,
-			'docurl=#&language');
-	}
-
-	// Set the meta-tag for 'og:url' to
-	var currentDoc = $('meta[property="og:url"]').attr('content');
-	var fullDoc = $('meta[name="page"]').attr('content');
-	if (!fullDoc || 0 === fullDoc.length) {
-		fullDoc = currentDoc;
-	}
-	// PublishPreview doesn't include the print/email/etc. buttons
-	if (!pp) {
-		// Replace absolute to relative links
-		fullDoc.replace(/http:\/\/.*\//, '/');
-	}
-	//var urlFacebook = $("li.po-facebook a").attr("href");
-	//var urlTwitter = $("li.po-twitter a").attr("href");
-	//var urlGooglePlus = $("li.po-googleplus a").attr("href");
-	//var urlPinterest = $("li.po-pinterest a").attr("href");
-
-	//console.log(urlEmail);
-	// Don't do this if we don't have the buttons available, i.e.
-	// for PublishPreview
-	// -------------------------------------------------------------------
-	if (!pp) {
-		if ($('meta[name="content-language"]').attr('content') == 'en') {
-			var thisSection = $('section.show').attr('id');
-			var openSections = $('section.show');
-			if (openSections.length > 1) {
-				newEmailUrl.replace('#', fullDoc +
-					'%23section%2fall&language');
-				//var newFacebookUrl = urlFacebook.replace('#',
-				//                            '%23section%2fall&language');
-				//var newTwitterUrl = urlTwitter.replace('#',
-				//                            '%23section%2fall&language');
-				//var newGooglePlusUrl = urlGooglePlus.replace('&tt=0',
-				//                            '%23section%2fall&tt=0');
-				//var newPinterestUrl = urlPinterest.replace('#',
-				//                            '%23section%2fall&language');
-			} else {
-				newEmailUrl.replace('#', fullDoc +
-					'%23section%2f' + thisSection + '&language');
-				//var newFacebookUrl = urlFacebook.replace('#',
-				//                     '%23section%2f'+thisSection+'&language');
-				//var newTwitterUrl = urlTwitter.replace('#',
-				//                     '%23section%2f'+thisSection+'&language');
-				//var newGooglePlusUrl = urlGooglePlus.replace('&tt=0',
-				//                     '%23section%2f'+thisSection+'&tt=0');
-				//var newPinterestUrl = urlPinterest.replace('#',
-				//                     '%23section%2f'+thisSection+'&language');
-			}
-		} else {
-			var newEmailUrl = urlEmail.replace('&language', '#email&language');
-		}
-	}
-
 	// Section to setup re-routing of URLs
 	// We are jumping to the specified link and opening the parent section
 	// that contains this link.
@@ -750,66 +718,30 @@ $(function() {
 		'section/:sid': function(sid) {
 			$(document).scrollTop(0);
 
-			// When we're routing to a new section we're setting the
-			// meta-tag for 'og:url' to the current section so that
-			// the social media share buttons - retrieving the URL from
-			// this tag - will grab and display the correct section
-			// instead of displaying the default section One
-			// ---------------------------------------------------------
-			var currentDoc = $('meta[property="og:url"]').attr('content');
-			var fullDoc = $('meta[name="page"]').attr('content');
-
-			// Saving the document URL if it doesn't exist yet this makes
-			// it easier to create the new current URL
-			// ----------------------------------------------------------
-			if (!fullDoc || 0 === fullDoc.length) {
-				$("head").append('<meta name="page" content="' + currentDoc + '">');
-				fullDoc = currentDoc;
-			}
-
-			if (sid == 'all') {
-				$("section.hide").removeClass("hide")
-					.addClass("show");
-				$("#pdq-toptoc li.selected").removeClass("selected");
-				$("#pdq-toptoc li.viewall").addClass("selected");
+			if (sid === 'all') {
+				// show all the sections
+				showSection('all');
 
 				// Hide all the TOCs (section and doc level)
-				$("div nav.on-this-page").addClass("hide");
+				$('.on-this-page')
+					// ... and hide the Previous/Next navigation links
+					.add('.previous-link, .next-link')
+					.removeClass('show').addClass('hide');
 				// ... and then just show the doc level TOC
-				$("#pdq-toc-article nav.on-this-page").removeClass("hide")
-					.addClass("show");
-				// ... and hide the Previous/Next navigation links
-				$("div.next-link").addClass("hide");
-				$("div.previous-link").addClass("hide");
-
-				// Finally, set the meta tag used by the AddThis JS to set the
-				// proper URL
-
-				$('meta[property="og:url"]').attr('content', fullDoc + '#section/' + 'all');
+				$('#pdq-toc-article .on-this-page')
+					.removeClass('hide').addClass('show');
 			} else {
-				// Display of SummarySections
-				$("section.show").removeClass("show")
-					.addClass("hide");
-				$("section#" + sid).removeClass("hide")
-					.addClass("show");
-
-				// Highlighting of the section nav elements
-				var thisSection = $("section.show").children("h2")
-					.attr("id");
-				$("#pdq-toptoc li.selected").removeClass("selected");
-				$("#pdq-toptoc li > span[show=" + thisSection + "]").closest("li")
-					.addClass("selected");
+				// show ths section
+				showSection('#' + sid);
 
 				// Show all the TOCs (section and doc level)
-				$("div nav.on-this-page").removeClass("hide");
+				$('.on-this-page')
+					// ... and show the Previous/Next navigation links
+					.add('.previous-link, .next-link')
+					.removeClass('hide').addClass('show');
 				// ... and then hide just the doc level TOC
-				$("#pdq-toc-article nav.on-this-page").removeClass("show")
-					.addClass("hide");
-				// ... and show the Previous/Next navigation links
-				$("div.next-link").removeClass("hide");
-				$("div.previous-link").removeClass("hide");
-
-				$('meta[property="og:url"]').attr('content', fullDoc + '#section/' + sid);
+				$('#pdq-toc-article .on-this-page')
+					.removeClass('show').addClass('hide');
 			}
 		},
 		// Handling of links clicked in the 'On this page' navigation or
@@ -817,25 +749,14 @@ $(function() {
 		// -------------------------------------------------------------
 		'link/:rid': function(rid) {
 			// Hide all open sections unless we are in the 'View all' section
-			if ($("#pdq-toptoc li.viewall").hasClass("selected")) {
-				var nothingToDo = 0;
+			if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 				navigationState = "IN_SECTION";
-			} else if ($("#" + rid).closest("section.show").length > 0) {
+			} else if ($('#' + rid).closest('section.show').length > 0) {
 				//Do nothing here, we are navigating within the open section
 				navigationState = "IN_SECTION";
 			} else {
-				//console.log('link section');
-				$(".summary-sections section.show").removeClass("show")
-					.addClass("hide");
-				// Find parent (top level section) of current element
-				$("#" + rid).closest("section.hide").removeClass("hide")
-					.addClass("show");
-				$("#pdq-toptoc li.selected").removeClass("selected");
-				var thisSection = $("section.show").children("h2")
-					.attr("id");
-				$("#pdq-toptoc li.selected").removeClass("selected");
-				$("#pdq-toptoc li > span[show=" + thisSection + "]").closest("li")
-					.addClass("selected");
+				// show the containing section
+				showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
 			}
 
 			// ... and set the section navigation properly
@@ -847,25 +768,14 @@ $(function() {
 		},
 		'cit/:cid': function(cid) {
 			// Hide all open sections unless we are in the 'View all' section
-			if ($("#pdq-toptoc li.viewall").hasClass("selected")) {
-				var nothingToDo = 0;
+			if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 				navigationState = "IN_SECTION";
-			} else if ($("li[id='" + cid + "']").closest("section.show").length > 0) {
+			} else if ($('#' + cid).closest('section.show').length > 0) {
 				//Do nothing here, we are navigating within the open section
 				navigationState = "IN_SECTION";
 			} else {
-				// Hide all open sections
-				$(".summary-sections section.show").removeClass("show")
-					.addClass("hide");
-				// Find parent (top level section) of current element
-				$("li[id='" + cid + "']").closest("section.hide").removeClass("hide")
-					.addClass("show");
-				$("#pdq-toptoc li.selected").removeClass("selected");
-				var thisSection = $("section.show").children("h2")
-					.attr("id");
-				$("#pdq-toptoc li.selected").removeClass("selected");
-				$("#pdq-toptoc li > span[show=" + thisSection + "]").closest("li")
-					.addClass("selected");
+				// show the containing section
+				showSection($('#' + cid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
 			}
 			$("li[id='" + cid + "']")[0].scrollIntoView();
 		},
@@ -896,7 +806,11 @@ $(function() {
 			// Redirect for <URL> to the first section
 			// NOTE: <URL># should not be interally redirected. Since there's no 'location.hash' in this case, fake it.
 			if(location.href.replace(location.protocol + '//' + location.host + location.pathname, '') !== "#") {
-				internalRedirect('section/' + document.querySelector('.summary-sections section').id);
+				// get the ID of the first section -- document.querySelector always returns a single result
+				var sid = document.querySelector('.summary-sections section').id;
+
+				// show the first section, but set the OpenGraph URL to the default
+				showSection('#' + sid, true);
 			}
 		}
 	});
