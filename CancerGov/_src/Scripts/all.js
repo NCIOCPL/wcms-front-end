@@ -625,10 +625,10 @@ jQuery(document).ready(function(jQuery) {
 							return;
 						}
 						
-						/*var width = window.innerWidth || $(window).width();
-						if (width <= NCI.Breakpoints.medium) {
+						var width = window.innerWidth || $(window).width();
+						if (width <= 640) {
 							return;
-						}*/
+						}
 						
 						/*if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) + $(window).height() > $(h).offset().top + h.offsetHeight) {
 							$(h).addClass('RTTarget');
