@@ -625,8 +625,9 @@ jQuery(document).ready(function(jQuery) {
 							return;
 						}
 						
+						// Don't show on smartphone
 						var width = window.innerWidth || $(window).width();
-						if (width <= 640) {
+						if (width <= NCI.Breakpoints.medium) {
 							return;
 						}
 						
