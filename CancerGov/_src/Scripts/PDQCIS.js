@@ -382,7 +382,6 @@ $(function() {
 	// Function to create the TOC (Table Of Contents)
 	// ------------------------------------------------------------------
 	$.fn.stoc = function(options) {
-		//console.log("In stoc start");
 		//Our default options
 		var defaults = {
 			search: "body", //where we will search for titles
@@ -581,17 +580,12 @@ $(function() {
 			//            });
 			//        }
 		});
-		//console.log("In stoc End");
 	};
 
 
 
 	// *** END Functions *** ****************************************
 
-	//$('a').click(function () {
-	//    console.log("Hier bin ich");
-	//    this.focus();
-	//    });
 
 	// Creating the Section Nav in the pdq-toptoc DIV
 	// All content within the article tag is used
@@ -609,41 +603,6 @@ $(function() {
 	$("div.summary-sections").previousNext({
 		footer: "Prev/Next"
 	});
-
-	// Creating the Enlarge button for tables
-	// --------------------------------------
-	// $("table.expandable-container").supersizeme( );
-
-	// // Showing the previous/next section when the link is clicked
-	// // Also, setting the corresponding section nav item to selected.
-	// // ------------------------------------------------------------
-	// $("div.summary-sections > section > div.row a").click(function() {
-	//     $(document).scrollTop(0);
-	//     var which = $(this).parent("div").attr("class");
-	//     console.log(which);
-	//     // Next section link is clicked
-	//     if ($(this).parent("div").hasClass("next-link")) {
-	//        $("section.show").removeClass("show")
-	//                         .addClass("hide")
-	//                         .next("section")
-	//                         .removeClass("hide")
-	//                         .addClass("show");
-	//        $("div#pdq-toptoc li.selected").removeClass("selected")
-	//                                       .next("li")
-	//                                       .addClass("selected");
-	//     }
-	//     // Previous section link is clicked
-	//     else {
-	//        $("section.show").removeClass("show")
-	//                         .addClass("hide")
-	//                         .prev("section")
-	//                         .removeClass("hide")
-	//                         .addClass("show");
-	//        $("div#pdq-toptoc li.selected").removeClass("selected")
-	//                                       .prev("li")
-	//                                       .addClass("selected");
-	//     };
-	// }).stop();
 
 	// Creating the TOC entries by calling the stoc function
 	// -----------------------------------------------------------
@@ -710,7 +669,6 @@ $(function() {
 	// -------------------------------------------------------------------
 	routie({
 		'all': function() {
-			//console.log('all');
 			internalRedirect('section/all');
 		},
 		// Handling of links clicked in the section navigation
