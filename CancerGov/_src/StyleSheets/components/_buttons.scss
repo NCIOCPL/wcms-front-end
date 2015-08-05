@@ -352,7 +352,7 @@ $plusminus-bg-color-nav-current: #12738a;
 	}
 }
 
-@include bp(medium-up) {
+@include bp(large-up) {
 	// DESKTOP: general plus/minus buttons
 	.toggle {
 		font-size: 1.25em;
