@@ -40,7 +40,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 		if(!(typeof anchor === "string" || // string
 			(typeof anchor === "object" && anchor !== null && anchor.nodeType === 1 && typeof anchor.nodeName === "string") // DOM element
 		)) {
-			//console.error('Unknown anchor:', anchor);
+			// unknown anchor
 			return;
 		}
 
@@ -75,10 +75,8 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				scrollY = 0;
 				willFreeze = false;
 			} else if(hasPreviousState) {
-				console.log("hasPrevious:", scrollY, headerHeight, anchorTop);
 				return;
 			} else {
-				console.log("not hasPrevious:", scrollY, headerHeight, anchorTop);
 				scrollY = anchorTop - headerHeight;
 			}
 

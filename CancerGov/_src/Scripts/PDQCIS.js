@@ -376,8 +376,6 @@ $(function() {
 		// Handling of links clicked in the 'On this page' navigation or within the document
 		// -------------------------------------------------------------
 		'link/:rid': function(rid) {
-			rid = rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
-
 			// Hide all open sections unless we are in the 'View all' section
 			if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 				navigationState = 'IN_SECTION';
@@ -386,7 +384,7 @@ $(function() {
 				navigationState = 'IN_SECTION';
 			} else {
 				// show the containing section
-				showSection($('#' + rid).closest('section.hide'));
+				showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
 			}
 
 			// TODO: REMOVE?
@@ -397,8 +395,6 @@ $(function() {
 
 		},
 		'cit/:cid': function(cid) {
-			cid = cid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
-
 			// Hide all open sections unless we are in the 'View all' section
 			if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 				navigationState = 'IN_SECTION';
@@ -407,7 +403,7 @@ $(function() {
 				navigationState = 'IN_SECTION';
 			} else {
 				// show the containing section
-				showSection($('#' + cid).closest('section.hide'));
+				showSection($('#' + cid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
 			}
 		},
 
@@ -437,7 +433,11 @@ $(function() {
 			// Redirect for <URL> to the first section
 			// NOTE: <URL># should not be interally redirected. Since there's no 'location.hash' in this case, fake it.
 			if(location.href.replace(location.protocol + '//' + location.host + location.pathname, '') !== "#") {
-				internalRedirect('section/' + document.querySelector('.summary-sections section').id);
+				// get the ID of the first section -- document.querySelector always returns a single result
+				var sid = document.querySelector('.summary-sections section').id;
+
+				// show the first section, but set the OpenGraph URL to the default
+				showSection('#' + sid, true);
 			}
 		}
 	});

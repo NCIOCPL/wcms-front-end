@@ -5,6 +5,15 @@ a.arrow-link.news-footer {
 
 .news-share {
 	margin-bottom: 10px;
+	
+	
+	ul {margin-left: 23px;}
+	ul li { position: relative; }
+	ul a[class^="news"]:before {
+    position: absolute;
+    top: 2px;
+    left: -26px;
+  }	
 
 	a:before {
 		background: url($icons + "nci-sprite.png") no-repeat 0 0;

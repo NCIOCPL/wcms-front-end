@@ -24,11 +24,11 @@
 	a {
 		padding-top: 13px;
 		padding-left: 105px;
+
 		
-		
-	}
-	a:hover{	
-		cursor: inherit;
+		&:hover {
+			cursor: inherit;	
+		}
 	}
 }
 @include bp(small) {
