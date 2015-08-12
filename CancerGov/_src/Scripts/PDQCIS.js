@@ -58,7 +58,9 @@ $(function() {
 			// unselect the other sections
 			.end().not(':eq(' + sectionIdx + ')').removeClass('selected');
 
-		// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the current section so that the social media share buttons - retrieving the URL from this tag - will grab and display the correct section instead of displaying the default section one
+		// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the 
+        // current section so that the social media share buttons - retrieving the URL from this 
+        // tag - will grab and display the correct section instead of displaying the default section one
 		$('meta[property="og:url"]').attr('content', ogUrl);
 
 		/*
@@ -704,6 +706,11 @@ $(function() {
 		},
 		// Handling of links clicked in the 'On this page' navigation or
 		// within the document
+        // Note: The typical case would be to jump to a location within
+        //       a section and then open the section containing this 
+        //       location.  However, if we're jumping to the top-level
+        //       section itself we don't want to open the parent but the
+        //       section.  
 		// -------------------------------------------------------------
 		'link/:rid': function(rid) {
 			// Hide all open sections unless we are in the 'View all' section
@@ -713,8 +720,12 @@ $(function() {
 				//Do nothing here, we are navigating within the open section
 				navigationState = "IN_SECTION";
 			} else {
-				// show the containing section
+				// show the containing section ...
 				showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
+                // ... or show the section itself
+				//showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')));
+				showSection($('#' + rid));
+
 			}
 
 			// ... and set the section navigation properly
