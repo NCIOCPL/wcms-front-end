@@ -77,6 +77,14 @@ figure {
 		display: block;
 	}
 }
+@include bp(small) {
+	figure {
+		&.image-right-small, &.image-left-small, &.image-right-medium, &.image-left-medium, &.image-center {
+			width: 100%;
+			margin: 0 0 1em 0;
+		}
+	}
+}
 a.infographic-view-full {
 	@extend %enlarge-infographic;
 	background: url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50% #403f3f;
