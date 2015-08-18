@@ -44,19 +44,27 @@ $(function() {
 			ogUrl = $('link[rel="canonical"]').attr('href') + urlSuffix,
 			$emailPage = $('.po-email > a');
 
+        // *** This only works for top-level sections *** //
 		// hide/show the proper section
-		$allSections
-		// show the current section
-			.filter($section).removeClass('hide').addClass('show')
-			// hide the other sections
-			.end().not($section).addClass('hide').removeClass('show');
+        // console.log('this sections');
+        // console.log($section);
+        var isTop = $allSections.filter($section);
 
-		// show the proper selection
-		$('#pdq-toptoc li')
-			// select the current section
-			.filter(':eq(' + sectionIdx + ')').addClass('selected')
-			// unselect the other sections
-			.end().not(':eq(' + sectionIdx + ')').removeClass('selected');
+        if ( isTop.length > 0 ) {
+            $allSections
+            // show the current section
+               .filter($section).removeClass('hide').addClass('show')
+                // hide the other sections
+               .end().not($section).addClass('hide').removeClass('show');
+
+            // show the proper selection
+            $('#pdq-toptoc li')
+                // select the current section
+               .filter(':eq(' + sectionIdx + ')').addClass('selected')
+                // unselect the other sections
+               .end().not(':eq(' + sectionIdx + ')').removeClass('selected');
+        }
+        // console.log('Done');
 
 		// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the 
         // current section so that the social media share buttons - retrieving the URL from this 
@@ -720,11 +728,19 @@ $(function() {
 				//Do nothing here, we are navigating within the open section
 				navigationState = "IN_SECTION";
 			} else {
-				// show the containing section ...
+				// show the parent containing the section ...
 				showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
-                // ... or show the section itself
+                // ... or show the top-level section itself
+                // In this case we're redirecting with routie to the 
+                // section-type display
 				//showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')));
-				showSection($('#' + rid));
+	            var $allSections = $('.pdq-sections').parent('section');
+			    var $section = $('#' + rid);
+                var isTop = $allSections.filter($section);
+
+                if ( isTop.length > 0 ) {
+                    internalRedirect('section/' + rid);
+                }
 
 			}
 
