@@ -44,21 +44,31 @@ $(function() {
 			ogUrl = $('link[rel="canonical"]').attr('href') + urlSuffix,
 			$emailPage = $('.po-email > a');
 
+        // *** This only works for top-level sections *** //
 		// hide/show the proper section
-		$allSections
-		// show the current section
-			.filter($section).removeClass('hide').addClass('show')
-			// hide the other sections
-			.end().not($section).addClass('hide').removeClass('show');
+        // console.log('this sections');
+        // console.log($section);
+        var isTop = $allSections.filter($section);
 
-		// show the proper selection
-		$('#pdq-toptoc li')
-			// select the current section
-			.filter(':eq(' + sectionIdx + ')').addClass('selected')
-			// unselect the other sections
-			.end().not(':eq(' + sectionIdx + ')').removeClass('selected');
+        if ( isTop.length > 0 ) {
+            $allSections
+            // show the current section
+               .filter($section).removeClass('hide').addClass('show')
+                // hide the other sections
+               .end().not($section).addClass('hide').removeClass('show');
 
-		// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the current section so that the social media share buttons - retrieving the URL from this tag - will grab and display the correct section instead of displaying the default section one
+            // show the proper selection
+            $('#pdq-toptoc li')
+                // select the current section
+               .filter(':eq(' + sectionIdx + ')').addClass('selected')
+                // unselect the other sections
+               .end().not(':eq(' + sectionIdx + ')').removeClass('selected');
+        }
+        // console.log('Done');
+
+		// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the 
+        // current section so that the social media share buttons - retrieving the URL from this 
+        // tag - will grab and display the correct section instead of displaying the default section one
 		$('meta[property="og:url"]').attr('content', ogUrl);
 
 		/*
@@ -704,6 +714,11 @@ $(function() {
 		},
 		// Handling of links clicked in the 'On this page' navigation or
 		// within the document
+        // Note: The typical case would be to jump to a location within
+        //       a section and then open the section containing this 
+        //       location.  However, if we're jumping to the top-level
+        //       section itself we don't want to open the parent but the
+        //       section.  
 		// -------------------------------------------------------------
 		'link/:rid': function(rid) {
 			// Hide all open sections unless we are in the 'View all' section
@@ -713,8 +728,20 @@ $(function() {
 				//Do nothing here, we are navigating within the open section
 				navigationState = "IN_SECTION";
 			} else {
-				// show the containing section
+				// show the parent containing the section ...
 				showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
+                // ... or show the top-level section itself
+                // In this case we're redirecting with routie to the 
+                // section-type display
+				//showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')));
+	            var $allSections = $('.pdq-sections').parent('section');
+			    var $section = $('#' + rid);
+                var isTop = $allSections.filter($section);
+
+                if ( isTop.length > 0 ) {
+                    internalRedirect('section/' + rid);
+                }
+
 			}
 
 			// ... and set the section navigation properly

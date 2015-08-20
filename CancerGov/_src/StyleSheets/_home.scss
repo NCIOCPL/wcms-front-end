@@ -112,7 +112,7 @@
 }
 /* END CARDS GENERAL RULES */
 
-/* BEGIN FEATURE PRIMARY CARDS ROW */
+/* BEGIN FEATURE AND SECONDARY PRIMARY CARDS ROW */
 .feature-primary .rawHtml, .feature-primary .rawHtml .featured-text {
 	height: 100%;
 }
@@ -170,6 +170,38 @@
 		margin: 0em;
 	}	
 }
+
+.feature-secondary {
+	margin-bottom: 1em;
+
+	.card {
+		background: $white;
+	}
+	h3 {
+		font-size: 1.375em;
+		line-height: 1.272;	
+	}
+	a {
+		h3 {
+			font-weight: normal;
+			color: $color-link;			
+		}
+		&:hover, &:focus {
+			h3 {
+				color: $lcranberry;
+			}
+		}
+		@extend %card-link-hover;
+	}
+	p {
+		margin-bottom: 0;
+		color: $body-font-color;
+		font-size: em-calc(18px);
+		line-height: 1.167em;
+	}
+	@include card-clickable;
+}
+
 @include bp(small) {
 	.feature-primary {
 		margin-bottom: 0;
@@ -191,6 +223,7 @@
 		float: right;
 		width: 70%;
 		font-size: 1.13em;
+		line-height: 1.111em;
 	}
 	.feature-primary a:hover h3,
 	.feature-primary a:hover h3	{
@@ -210,48 +243,11 @@
 		display: none;
 	}
 }
-/* END FEATURE PRIMARY CARDS ROW */
-
-/* BEGIN FEATURE SECONDARY CARDS ROW */
-.feature-secondary {
-	margin-bottom: 1em;
-
-	.card {
-		background: $white;
-	}
-	a {
-		h3 {
-			font-weight: normal;
-			color: $color-link;
-			font-size: 1.375em;
-			line-height: 1.272;
-		}
-		&:hover, &:focus {
-			h3 {
-				color: $lcranberry;
-			}
-		}
-		@extend %card-link-hover;
-	}
-	p {
-		margin-bottom: 0;
-		color: $body-font-color;
-		font-size: em-calc(18px);
-		line-height: 1.167em;
-	}
-	@include card-clickable;
-}
-/* END FEATURE SECONDARY CARDS ROW */
+/* END FEATURE AND SECONDARY PRIMARY CARDS ROW */
 
 /* BEGIN GUIDE CARDS ROW */
 .guide-card {
 	margin-bottom: 1em;
-	h3 {
-		font-weight: normal;
-		color: $header-font-color;
-		font-size: 1.375em;
-		line-height: 1.272;
-	}
 	.card {
 		padding: em-calc(38px 32px 34px);
 
@@ -260,6 +256,7 @@
 		}
 		h2 {
 			margin-top: 0;
+			font-size: 1.5em;
 		}
 		a {
 			font-size: em-calc(18px);
@@ -269,7 +266,7 @@
 			margin-top: 0.5em;
 			margin-bottom: 0.5em;
 		}
-
+		// this was done because the columns were becoming too narrow in tablet and had to stack before they reached mobile.
 		 @include bp('(max-width: 765px)') {
 			width: 100%;
 		}
@@ -296,6 +293,16 @@
 		a { @extend %card-link-hover; }
 	}
 }
+	@include bp(small) {
+		.guide-card {
+			.card {
+				h2 {
+					line-height: 1.111em;	
+					font-size: 1.125em;
+				}
+			}
+		}
+	}
 
 a.arrow-link {
 	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
@@ -353,7 +360,14 @@ a.learn-more {
 		}
 	}
 }
-
+@include bp(small) {
+	.card-thumbnail {
+		h3 {
+			font-size: 1.125em;
+			line-height: 1.111em;
+		}
+	}
+}
 /* END THUMBNAIL CARDS ROW */
 
 /* BEGIN MULTIMEDIA ROW */
@@ -387,7 +401,6 @@ a.learn-more {
 		
 }
 @include bp(small) {
-
 	.multimedia-slot p, .multimedia-slot ul {
 	display: none; }
 	.multimedia-feature-card {
@@ -466,6 +479,13 @@ a.learn-more {
 			html[lang="es"] & {
 				content: "Lista de reproducci\00f3 n de videos" }
 		}
+	}
+}
+@include bp(small) {
+	.multimedia-feature-card h3, .multimedia-slot .feature-card h3 {
+		font-size: 1em;
+		line-height: 1.125em;
+		word-wrap: break-word;
 	}
 }
 // these rules are to fix the autoheight problems in multimedia row
