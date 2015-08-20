@@ -295,6 +295,11 @@ $microformat-abbr-font-decoration: none !default;
     dd { margin-bottom: $definition-list-margin-bottom; }
   }
 
+  /* Dictionary Definition Term */
+  dt dfn span, dt dfn {
+    font-weight: bold;
+  }
+
   /* Abbreviations */
   abbr,
   acronym {
