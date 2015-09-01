@@ -14,6 +14,8 @@ NCI.dictionary = {
 		genetics: 'genetics'
 	},
 
+	endpoint: '/Dictionary.Service/v1',
+
 	/**
 	 * Performs a search for terms with names that start with or contain certain text.
 	 * @function search
@@ -26,9 +28,11 @@ NCI.dictionary = {
 	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. @see http://api.jquery.com/jQuery.ajax/#jqXHR for details.
 	 */
 	search: function(dictionary, searchText, language, searchType, offset, maxResults) {
+		var that = this;
+
 		// validate `dictionary`
 		if(!dictionary || // no dictionary specified
-			!this.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
+			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
 			// TODO: error out properly
 			return;
@@ -40,14 +44,14 @@ NCI.dictionary = {
 			return;
 		}
 
-		var svcUrl = '/DictionaryService.svc/v1/search';
+		var method = 'search';
 		language = language || 'English';
 		searchType = searchType || 'begins';
 		offset = offset || 0;
 		maxResults = maxResults || 0;
 
 		return $.ajax({
-			url: svcUrl,
+			url: that.endpoint + '/' + method,
 			data: {
 				dictionary: dictionary,
 				searchText: searchText,
@@ -70,9 +74,11 @@ NCI.dictionary = {
 	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. @see http://api.jquery.com/jQuery.ajax/#jqXHR for details.
 	 */
 	searchSuggest: function(dictionary, searchText, language, searchType) {
+		var that = this;
+
 		// validate `dictionary`
 		if(!dictionary || // no dictionary specified
-			!this.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
+			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
 			// TODO: error out properly
 			return;
@@ -84,12 +90,12 @@ NCI.dictionary = {
 			return;
 		}
 
-		var svcUrl = '/DictionaryService.svc/v1/searchSuggest';
+		var method = 'searchSuggest';
 		language = language || 'English';
 		searchType = searchType || 'begins';
 
 		return $.ajax({
-			url: svcUrl,
+			url: that.endpoint + '/' + method,
 			data: {
 				dictionary: dictionary,
 				searchText: searchText,
@@ -109,9 +115,11 @@ NCI.dictionary = {
 	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. @see http://api.jquery.com/jQuery.ajax/#jqXHR for details.
 	 */
 	getTerm: function(dictionary, termID, language) {
+		var that = this;
+
 		// validate `dictionary`
 		if(!dictionary || // no dictionary specified
-			!this.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
+			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
 			// TODO: error out properly
 			return;
@@ -123,11 +131,11 @@ NCI.dictionary = {
 			return;
 		}
 
-		var svcUrl = '/DictionaryService.svc/v1/getTerm';
+		var method = 'getTerm';
 		language = language || 'English';
 
 		return $.ajax({
-			url: svcUrl,
+			url: that.endpoint + '/' + method,
 			data: {
 				dictionary: dictionary,
 				termId: termID,
