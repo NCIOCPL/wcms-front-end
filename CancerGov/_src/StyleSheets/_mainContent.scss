@@ -305,6 +305,17 @@ hr.ps-divider {
 	margin: 0 0.7em 0.5em 0.5em;
 	float: left;
 }
+
+/* Separator line for right above the public use and/or syndication text blocks */
+#nvcgSlPublicUse,
+#nvcgSlSyndication {
+     border-top: 1px solid #7d7d7d;
+}
+
+#nvcgSlPublicUse + #nvcgSlSyndication {
+     border-top: none;
+}
+
 /* hidden elements */
 
 .hidden {
