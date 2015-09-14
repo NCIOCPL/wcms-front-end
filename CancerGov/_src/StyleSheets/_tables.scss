@@ -60,5 +60,9 @@ table tbody tr td a:hover{
 	color: #2795b6;
 	text-decoration: underline;
 }
+/* ENLARGE text within table for PDQ */
+table tbody tr td figure a{
+	color: white !important;
+}
 /* End PDQ table styling */
 /* END TABLE STYLES */
