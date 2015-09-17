@@ -285,8 +285,11 @@ table.no-bullet-padding ul {
 
 hr.ps-divider {
 	border: solid #7d7d7d;
-	border-width: 1px 0 0; }
-
+	border-width: 1px 0 0; 
+}
+.cgvpressrelease hr.ps-divider {
+	display: none;
+}
 .public-use {
 	padding: 0;
 	font-style: italic;
