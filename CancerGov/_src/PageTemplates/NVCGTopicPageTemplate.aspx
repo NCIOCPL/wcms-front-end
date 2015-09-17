@@ -24,6 +24,7 @@
 							<div class="resize-content"> <!-- Begin resizeable area -->
 								<!--(bake Includes/PageTitle.inc)-->
 								<!--(bake Includes/PageOptions-Inner.inc)-->
+								<NCI:TemplateSlot ID="cgvIntroText" runat="server" />
 								<NCI:TemplateSlot ID="cgvBody" runat="server" />
 								<!--(bake includes/ArticleFooter.inc related_resources="true")-->
 							</div> <!-- End resizeable area -->
