@@ -9,23 +9,29 @@ NCI.dictionary = {
 	 * @enum {string}
 	 */
 	dictionaries: {
+		/** NCI Dictionary of Cancer Terms */
 		term: 'term',
+		/** NCI Drug Dictionary */
 		drug: 'drug',
+		/** NCI Dictionary of Genetics Terms */
 		genetics: 'genetics'
 	},
 
+	/**
+	 * Base endpoint for the dictionary webservice.
+	 * @readonly
+	 */
 	endpoint: '/Dictionary.Service/v1',
 
 	/**
 	 * Performs a search for terms with names that start with or contain certain text.
-	 * @function search
-	 * @param {dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
 	 * @param {string} searchText - The text to search for.
 	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
 	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains'.
 	 * @param {number} [offset=0] - Offset into the list of results for the first record to return.
 	 * @param {number} [maxResults=0] - The maximum number of results to return. If a value of less than 10 is specified, maxResults is ignored and 10 is used instead.
-	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. @see http://api.jquery.com/jQuery.ajax/#jqXHR for details.
+	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. See {@link http://api.jquery.com/jQuery.ajax/#jqXHR} for details.
 	 */
 	search: function(dictionary, searchText, language, searchType, offset, maxResults) {
 		var that = this;
@@ -66,12 +72,11 @@ NCI.dictionary = {
 
 	/**
 	 * Lightweight method to search for terms matching searchText. This method is intended for use with autosuggest and returns a maximum of 10 results.
-	 * @function search
-	 * @param {dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
 	 * @param {string} searchText - The text to search for.
 	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
 	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains', 'magic'.
-	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. @see http://api.jquery.com/jQuery.ajax/#jqXHR for details.
+	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. See {@link http://api.jquery.com/jQuery.ajax/#jqXHR} for details.
 	 */
 	searchSuggest: function(dictionary, searchText, language, searchType) {
 		var that = this;
@@ -108,11 +113,10 @@ NCI.dictionary = {
 
 	/**
 	 * Performs a search for a single specific term given the term's CDR ID.
-	 * @function getTerm
-	 * @param {dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
 	 * @param {string} termID - ID of the term to retrieve.
 	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
-	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. @see http://api.jquery.com/jQuery.ajax/#jqXHR for details.
+	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. See {@link http://api.jquery.com/jQuery.ajax/#jqXHR} for details.
 	 */
 	getTerm: function(dictionary, termID, language) {
 		var that = this;
