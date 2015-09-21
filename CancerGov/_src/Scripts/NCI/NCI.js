@@ -391,7 +391,7 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 						var term = request.term;
 						dataQuery[queryParameter] = term;
 
-						if ( xhr ) {
+						if (xhr && xhr.abort) {
 							xhr.abort();
 						}
 						if (typeof src === 'string') {

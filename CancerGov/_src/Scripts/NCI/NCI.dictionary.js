@@ -1,4 +1,13 @@
 /**
+ * jQuery XMLHttpRequest object
+ * @external jqXHR
+ * @see {@link http://api.jquery.com/Types/#jqXHR}
+ * @see {@link http://api.jquery.com/jQuery.ajax/#jqXHR}
+ */
+
+var NCI = NCI || {};
+
+/**
  * NCI dictionary namespace.
  * @namespace
  */
@@ -31,23 +40,23 @@ NCI.dictionary = {
 	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains'.
 	 * @param {number} [offset=0] - Offset into the list of results for the first record to return.
 	 * @param {number} [maxResults=0] - The maximum number of results to return. If a value of less than 10 is specified, maxResults is ignored and 10 is used instead.
-	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. See {@link http://api.jquery.com/jQuery.ajax/#jqXHR} for details.
+	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
 	 */
 	search: function(dictionary, searchText, language, searchType, offset, maxResults) {
 		var that = this;
 
 		// validate `dictionary`
-		if(!dictionary || // no dictionary specified
+		if (!dictionary || // no dictionary specified
 			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
 			// TODO: error out properly
-			return;
+			return $.Deferred().reject();
 		}
 
 		// validate `searchText`
-		if(!searchText) { // no searchText, cannot run an empty search
+		if (!searchText) { // no searchText, cannot run an empty search
 			// TODO: error out properly
-			return;
+			return $.Deferred().reject();
 		}
 
 		var method = 'search';
@@ -56,17 +65,13 @@ NCI.dictionary = {
 		offset = offset || 0;
 		maxResults = maxResults || 0;
 
-		return $.ajax({
-			url: that.endpoint + '/' + method,
-			data: {
-				dictionary: dictionary,
-				searchText: searchText,
-				language: language,
-				searchType: searchType,
-				offset: offset,
-				maxResuts: maxResults
-			},
-			dataType: 'json'
+		return $.getJSON(that.endpoint + '/' + method, {
+			dictionary: dictionary,
+			searchText: searchText,
+			language: language,
+			searchType: searchType,
+			offset: offset,
+			maxResuts: maxResults
 		});
 	},
 
@@ -76,38 +81,34 @@ NCI.dictionary = {
 	 * @param {string} searchText - The text to search for.
 	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
 	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains', 'magic'.
-	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. See {@link http://api.jquery.com/jQuery.ajax/#jqXHR} for details.
+	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
 	 */
 	searchSuggest: function(dictionary, searchText, language, searchType) {
 		var that = this;
 
 		// validate `dictionary`
-		if(!dictionary || // no dictionary specified
+		if (!dictionary || // no dictionary specified
 			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
 			// TODO: error out properly
-			return;
+			return $.Deferred().reject();
 		}
 
 		// validate `searchText`
-		if(!searchText) { // no searchText, cannot run an empty search
+		if (!searchText) { // no searchText, cannot run an empty search
 			// TODO: error out properly
-			return;
+			return $.Deferred().reject();
 		}
 
 		var method = 'searchSuggest';
 		language = language || 'English';
 		searchType = searchType || 'begins';
 
-		return $.ajax({
-			url: that.endpoint + '/' + method,
-			data: {
-				dictionary: dictionary,
-				searchText: searchText,
-				language: language,
-				searchType: searchType
-			},
-			dataType: 'json'
+		return $.getJSON(that.endpoint + '/' + method, {
+			dictionary: dictionary,
+			searchText: searchText,
+			language: language,
+			searchType: searchType
 		});
 	},
 
@@ -116,36 +117,32 @@ NCI.dictionary = {
 	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
 	 * @param {string} termID - ID of the term to retrieve.
 	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
-	 * @return {jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service. See {@link http://api.jquery.com/jQuery.ajax/#jqXHR} for details.
+	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
 	 */
 	getTerm: function(dictionary, termID, language) {
 		var that = this;
 
 		// validate `dictionary`
-		if(!dictionary || // no dictionary specified
+		if (!dictionary || // no dictionary specified
 			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
 			// TODO: error out properly
-			return;
+			return $.Deferred().reject();
 		}
 
 		// validate `termID`
-		if(!termID) { // no termID, cannot run an empty search
+		if (!termID) { // no termID, cannot run an empty search
 			// TODO: error out properly
-			return;
+			return $.Deferred().reject();
 		}
 
 		var method = 'getTerm';
 		language = language || 'English';
 
-		return $.ajax({
-			url: that.endpoint + '/' + method,
-			data: {
-				dictionary: dictionary,
-				termId: termID,
-				language: language
-			},
-			dataType: 'json'
+		return $.getJSON(that.endpoint + '/' + method, {
+			dictionary: dictionary,
+			termId: termID,
+			language: language
 		});
-	},
+	}
 };
