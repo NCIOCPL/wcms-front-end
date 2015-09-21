@@ -49,13 +49,11 @@ NCI.dictionary = {
 		if (!dictionary || // no dictionary specified
 			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
-			// TODO: error out properly
 			return $.Deferred().reject();
 		}
 
 		// validate `searchText`
 		if (!searchText) { // no searchText, cannot run an empty search
-			// TODO: error out properly
 			return $.Deferred().reject();
 		}
 
@@ -90,13 +88,11 @@ NCI.dictionary = {
 		if (!dictionary || // no dictionary specified
 			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
-			// TODO: error out properly
 			return $.Deferred().reject();
 		}
 
 		// validate `searchText`
 		if (!searchText) { // no searchText, cannot run an empty search
-			// TODO: error out properly
 			return $.Deferred().reject();
 		}
 
@@ -126,13 +122,11 @@ NCI.dictionary = {
 		if (!dictionary || // no dictionary specified
 			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
 		) {
-			// TODO: error out properly
 			return $.Deferred().reject();
 		}
 
 		// validate `termID`
 		if (!termID) { // no termID, cannot run an empty search
-			// TODO: error out properly
 			return $.Deferred().reject();
 		}
 
