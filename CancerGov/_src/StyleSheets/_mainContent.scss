@@ -267,6 +267,32 @@ table.no-bullet-padding ul {
 	}
 }
 
+.press-release-date-contact {
+	margin-bottom: 1em;
+
+	.document-dates {
+		margin-top: 0;
+		float: left;
+	}
+
+	.media-contact {
+		float: right;
+		text-align: right;
+		
+		@include bp(small) {
+			float: left;
+			text-align: left;
+			width: 100%;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+
+
 @include bp(medium-down) {
 	.contentzone .document-dates,
 	.contentzone .document-dates.horizontal {
