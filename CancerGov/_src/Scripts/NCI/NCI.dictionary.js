@@ -5,8 +5,6 @@
  * @see {@link http://api.jquery.com/jQuery.ajax/#jqXHR}
  */
 
-var NCI = NCI || {};
-
 /**
  * NCI dictionary namespace.
  * @namespace
