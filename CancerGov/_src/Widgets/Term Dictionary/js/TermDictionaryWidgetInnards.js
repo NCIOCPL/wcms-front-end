@@ -201,12 +201,12 @@ NCI.doAutocomplete = function(target, src, contains, queryParam, queryString, op
 			focus: function(event, ui) {
 				event.preventDefault();
 				event.stopPropagation();
-				$target.val(ui.item.item);
+				$target.val(ui.item.item || ui.item.term);
 			},
 			select: function(event, ui) {
 				event.preventDefault();
 				event.stopPropagation();
-				$target.val(ui.item.item);
+				$target.val(ui.item.item || ui.item.term);
 			}
 		};
 
