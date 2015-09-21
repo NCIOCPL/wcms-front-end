@@ -91,7 +91,7 @@
 		/* sub-navigation panel open state */
 		&.open {
 			visibility: visible;
-			@include transition-delay(250ms);
+			@include transition-delay(500ms);
 		}
 	}
 
