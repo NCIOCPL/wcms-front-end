@@ -22,8 +22,8 @@ NCI.dictionary = {
 		term: 'term',
 		/** NCI Drug Dictionary */
 		drug: 'drug',
-		/** NCI Dictionary of Genetics Terms */
-		genetics: 'genetics'
+		/** NCI Dictionary of Genetic Terms */
+		genetic: 'genetic'
 	},
 
 	/**
@@ -34,9 +34,9 @@ NCI.dictionary = {
 
 	/**
 	 * Performs a search for terms with names that start with or contain certain text.
-	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
 	 * @param {string} searchText - The text to search for.
-	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
+	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
 	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains'.
 	 * @param {number} [offset=0] - Offset into the list of results for the first record to return.
 	 * @param {number} [maxResults=0] - The maximum number of results to return. If a value of less than 10 is specified, maxResults is ignored and 10 is used instead.
@@ -77,9 +77,9 @@ NCI.dictionary = {
 
 	/**
 	 * Lightweight method to search for terms matching searchText. This method is intended for use with autosuggest and returns a maximum of 10 results.
-	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
 	 * @param {string} searchText - The text to search for.
-	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
+	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
 	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains', 'magic'.
 	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
 	 */
@@ -114,9 +114,9 @@ NCI.dictionary = {
 
 	/**
 	 * Performs a search for a single specific term given the term's CDR ID.
-	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetics'.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
 	 * @param {string} termID - ID of the term to retrieve.
-	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetics and drug dictionaries, only 'English' is valid.
+	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
 	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
 	 */
 	getTerm: function(dictionary, termID, language) {
