@@ -245,6 +245,38 @@
 }
 /* END FEATURE AND SECONDARY PRIMARY CARDS ROW */
 
+/* BEGIN SLOTTED AND INLINE FEATURE CARDS */
+.topic-feature {
+	margin-bottom: 1em;
+	background-color: $white02;
+
+	h3 {
+		font-size: 1.375em;
+		line-height: 1.272;	
+	}
+	a {
+		padding: 1.875em;
+		h3 {
+			font-weight: normal;
+			color: $color-link;			
+		}
+		&:hover, &:focus {
+			h3 {
+				color: $lcranberry;
+			}
+		}
+		@extend %card-link-hover;
+	}
+	p {
+		margin-bottom: 0;
+		color: $body-font-color;
+		font-size: em-calc(16px);
+		line-height: 1.167em;
+	}
+	@include card-clickable;
+}
+/* END SLOTTED AND INLINE FEATURE CARDS */
+
 /* BEGIN GUIDE CARDS ROW */
 .guide-card {
 	margin-bottom: 1em;
