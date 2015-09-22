@@ -246,6 +246,9 @@
 /* END FEATURE AND SECONDARY PRIMARY CARDS ROW */
 
 /* BEGIN SLOTTED AND INLINE FEATURE CARDS */
+.topic-feature.card {
+	padding: 0;
+}
 .topic-feature {
 	margin-bottom: 1em;
 	background-color: $white02;
