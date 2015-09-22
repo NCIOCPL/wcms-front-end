@@ -195,9 +195,11 @@
 
                 var wrap = fig.data('figWrapper');
 
-                if (wrap) {
+                /* 
+								if (wrap) {
                     wrap.height($(this).outerHeight() + 20); //Give 20px of padding between popup and references/content
                 }
+								*/
 
             },
             close: function (event, ui) {
