@@ -13,14 +13,14 @@ module.exports = function(grunt) {
 			pages: "_dist/PageTemplates/",
 			styles: "_dist/css/",
 			scripts: "_dist/js/",
-		},
+		}
 	});
 
 	// Project Config
 	grunt.config('pkg', grunt.file.readJSON('package.json'));
 
 	// Environment?
-	grunt.config('env', grunt.option('env') || process.env.GRUNT_DEV || 'development');
+	grunt.config('env', grunt.option('env') || process.env.GRUNT_DEV || 'dev');
 
 	// Load Plugins
 	/*****************************************
@@ -88,6 +88,76 @@ module.exports = function(grunt) {
 			}]
 		}
 	});
+
+	/*****************************************
+	 * Require.js
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.config('requirejs', {
+		options: {
+			wrapShim: true,
+			appDir: '<%= dirs.src.scripts %>',
+			dir: '<%= dirs.dist.scripts %>',
+			paths: {
+				'requirejs': '../../bower_components/requirejs/require',
+				'config': 'config'
+			},
+			mainConfigFile: '<%= dirs.src.scripts %>config.js',
+			modules: [
+				{
+					name: 'build/Common',
+					include: [
+						'requirejs',
+						'config'
+					]
+				},
+				{
+					name: 'build/CTHP'
+				},
+				{
+					name: 'build/Home'
+				},
+				{
+					name: 'build/Inner'
+				},
+				{
+					name: 'build/Landing'
+				},
+				{
+					name: 'build/PDQ'
+				},
+				{
+					name: 'build/Topic'
+				}
+			]
+		},
+		dev: {
+			options: {
+				generateSourceMaps: true,
+				optimize: 'none'
+			}
+		},
+		prod: {
+			options: {
+				optimize: 'uglify2'
+			}
+		}
+	});
+	var configCleanRequire = {
+		requirejs: {
+			src: [
+				'<%= dirs.dist.scripts %>app',
+				'<%= dirs.dist.scripts %>config.js',
+				(grunt.config('env') === 'prod' ? '<%= dirs.dist.scripts %>build.txt' : null)
+			].filter(function(x) { return x !== null && x !== undefined; })
+		}
+	};
+	if (grunt.config('clean')) {
+		grunt.config.merge('clean', configCleanRequire);
+	} else {
+		grunt.loadNpmTasks('grunt-contrib-clean');
+		grunt.config('clean', configCleanRequire);
+	}
 
 	/*****************************************
 	 * Uglify JS
