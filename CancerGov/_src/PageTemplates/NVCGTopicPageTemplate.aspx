@@ -25,7 +25,22 @@
 								<!--(bake Includes/PageTitle.inc)-->
 								<!--(bake Includes/PageOptions-Inner.inc)-->
 								<NCI:TemplateSlot ID="cgvIntroText" runat="server" />
+								<!-- BEGIN FEATURE CARDS ROW -->
+								<NCI:TemplateSlot
+									id="nvcgSlLayoutFeatureA"
+									CssClass="row"
+									AdditionalSnippetClasses="equalheight large-6 topic-feature columns card gutter"
+									runat="server"
+									data-match-height="" />
+								<!-- END FEATURE CARDS ROW -->
 								<NCI:TemplateSlot ID="cgvBody" runat="server" />
+								<!-- BEGIN THUMBNAIL CARDS ROW -->
+								<NCI:TemplateSlot
+									id="nvcgSlLayoutThumbnailA"
+									CssClass="row card-thumbnail"
+									runat="server"
+									/>
+								<!-- END THUMBNAIL CARDS ROW -->
 								<!--(bake includes/ArticleFooter.inc related_resources="true")-->
 							</div> <!-- End resizeable area -->
                         </article>
