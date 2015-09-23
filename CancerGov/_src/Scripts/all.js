@@ -579,6 +579,14 @@ jQuery(document).ready(function(jQuery) {
 			});
 	})(jQuery);
 	/*** END Spanish blog label HACK ***/
+
+	/*** BEGIN blog comment policy ***/
+	(function($) {
+		if ($('#cgvCommentsSl').length) {
+			$('.blog-comment-policy').show();
+		}
+	})(jQuery);
+	/*** END blog comment policy ***/
 });
 
 // BEGIN Table Resizing
