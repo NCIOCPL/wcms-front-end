@@ -19,9 +19,6 @@ module.exports = function(grunt) {
 	// Project Config
 	grunt.config('pkg', grunt.file.readJSON('package.json'));
 
-	// Environment?
-	grunt.config('env', grunt.option('env') || process.env.GRUNT_DEV || 'dev');
-
 	// Load Plugins
 	/*****************************************
 	 *  SVN Repo Updating
@@ -91,6 +88,7 @@ module.exports = function(grunt) {
 
 	/*****************************************
 	 * Require.js
+	 * Compile the JavaScript modules into packages.
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.config('requirejs', {
@@ -160,50 +158,6 @@ module.exports = function(grunt) {
 	}
 
 	/*****************************************
-	 * Uglify JS
-	 ****************************************/
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.config('uglify', {
-		options: {
-			mangle: false,
-			compress: {
-				drop_console: true
-			},
-			preserveComments: false,
-		},
-		js: {
-			files: [{
-				expand: true,
-				flatten: true,
-				dest: '<%= dirs.dist.scripts %>min',
-				src: ['<%= dirs.src.scripts %>**/*.js']
-			}]
-		},
-		nci_util: {
-			options: {
-				compress: false,
-				preserveComments: false,
-				mangle: false,
-				beautify: true
-			},
-			files: {
-				'<%= dirs.dist.scripts %>nci-util.js': [
-					// Specifying file names here will allow us to order the concatenation
-					// otherwise, we have no control of the order, and it's important.
-					// This would be a good place to use require.js and AMD compatible modules.
-					// Ideally, we never have to specify file names here...just a bad place to dictate this.
-					'<%= dirs.src.scripts %>NCI/NCI.js',
-					'<%= dirs.src.scripts %>NCI/NCI.Buttons.js',
-					'<%= dirs.src.scripts %>NCI/NCI.Buttons.toggle.js',
-					'<%= dirs.src.scripts %>NCI/NCI.Nav.js',
-					'<%= dirs.src.scripts %>NCI/NCI.PageOptions.js',
-					'<%= dirs.src.scripts %>NCI/*.js' // CATCH ALL. Must Go LAST
-				],
-			}
-		}
-	});
-
-	/*****************************************
 	 *  Watch
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -211,27 +165,66 @@ module.exports = function(grunt) {
 		options: {
 			//liveReload: true
 		},
-		bake: {
-			files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
-			tasks: ['bake:build']
-		},
 		css: {
 			files: '<%= dirs.src.styles %>**/*.scss',
-			tasks: ['sass']
+			tasks: ['build-css']
 		},
 		js: {
-			files: '<%= dirs.src.scripts %>*.js',
-			tasks: ['copy', 'uglify']
+			files: '<%= dirs.src.scripts %>**/*.js',
+			tasks: ['build-js']
+		},
+		templates: {
+			files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
+			tasks: ['build-templates']
 		}
 	});
 
+
 	// Tasks
+	grunt.registerTask('build-js', 'Build the JavaScript.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['requirejs:' + env, 'clean:requirejs'];
+		grunt.task.run(tasks);
+	});
+
+	grunt.registerTask('build-css', 'Build the CSS.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['sass'];
+		grunt.task.run(tasks);
+	});
+
+	grunt.registerTask('build-templates', 'Build the CDE page templates.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['bake'];
+		grunt.task.run(tasks);
+	});
+
+	grunt.registerTask('build', 'Build all files.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['build-css:' + env, 'build-js:' + env, 'build-templates:' + env];
+		grunt.task.run(tasks);
+	});
+
+
+	grunt.registerTask('watch', 'Watch for changes.', function(env) {
+		env = 'dev';
+		grunt.config('env', env);
+
+		var tasks = ['build:' + env, 'watch'];
+		grunt.task.run(tasks);
+	});
+
 	// We should ALWAYS define the 'default' task
-	var commonTasks = ['sass', 'copy', 'uglify', 'bake:build'];
-	grunt.registerTask('build', commonTasks);
-	grunt.registerTask('watch', commonTasks.concat(['watch']));
 	grunt.registerTask('default', ['build']);
 
 	// Deploy task is used by the build script
-	grunt.registerTask('deploy', ['build']);
+	grunt.registerTask('deploy', ['build:prod']);
 };
