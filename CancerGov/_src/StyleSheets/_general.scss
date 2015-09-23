@@ -102,6 +102,10 @@ table caption {
 /* end add-on functionality to foundation rows */
 
 /* begin default content table styling */
+td, th {
+	vertical-align: top;
+}
+
 table.table-default {
 	border-collapse: collapse;
 	margin: 15px 0;
