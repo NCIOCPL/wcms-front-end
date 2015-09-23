@@ -167,15 +167,15 @@ module.exports = function(grunt) {
 		},
 		css: {
 			files: '<%= dirs.src.styles %>**/*.scss',
-			tasks: ['build-css']
+			tasks: ['build-css' + grunt.config('env')]
 		},
 		js: {
 			files: '<%= dirs.src.scripts %>**/*.js',
-			tasks: ['build-js']
+			tasks: ['build-js' + grunt.config('env')]
 		},
 		templates: {
 			files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
-			tasks: ['build-templates']
+			tasks: ['build-templates' + grunt.config('env')]
 		}
 	});
 
@@ -214,8 +214,8 @@ module.exports = function(grunt) {
 	});
 
 
-	grunt.registerTask('watch', 'Watch for changes.', function(env) {
-		env = 'dev';
+	grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
 		var tasks = ['build:' + env, 'watch'];
