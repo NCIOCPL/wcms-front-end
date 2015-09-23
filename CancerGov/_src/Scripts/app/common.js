@@ -565,6 +565,15 @@ define(function(require) {
 			}
 		})(jQuery);
 		/*** END page outlining ***/
+
+		/*** BEGIN blog comment policy ***/
+		(function($) {
+			if ($('#cgvCommentsSl').length) {
+				$('.blog-comment-policy').show();
+			}
+		})(jQuery);
+		/*** END blog comment policy ***/
+
 		// reference tooltips
 		(function ($) {
 			var timerLength = 1000;

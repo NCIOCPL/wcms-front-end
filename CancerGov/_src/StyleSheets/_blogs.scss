@@ -18,6 +18,12 @@
 }
 /*End Blog Subscribe Button CSS*/
 
+// blog comment policy
+.blog-comment-policy {
+	display: none;
+	// made visible by JavaScript if an element matching `#cgvCommentsSl` exists (i.e., if comments are enabled)
+	// @see all.js
+}
 
 /*Begin Blog Content CSS*/
 .blog-post-publishing-info {
@@ -33,7 +39,7 @@ p.blog-post-publishing-info {
 .blog-post {
 	border-top: 1px solid #bdbdbd;
 	padding-top: 16px;
-	
+
 	&:first-child {
 		border-top: none;
 		margin-top: 0;
