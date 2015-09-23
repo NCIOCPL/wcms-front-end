@@ -1,7 +1,17 @@
 define(function(require) {
+	require('app/vendor/respond');
+	require('app/vendor/routie');
+	require('app/shared/JSLoader');
+	require('jquery/jplayer');
+	require('app/shared/popEvents');
+	var jQuery = require('jquery');
+
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/
 		(function($) {
+			require('jquery/scrolltofixed');
+			var NCI = require('app/shared/NCI');
+
 			var headerHeight = $('.fixedtotop').height();
 			$('.fixedtotop').scrollToFixed({
 				spacerClass: 'fixedtotop-spacer',
@@ -31,6 +41,8 @@ define(function(require) {
 		 *** (initialize a selector as an accessibleMegaMenu)
 		 ***/
 		(function($) {
+			require('jquery/megamenu');
+
 			$("#mega-nav").accessibleMegaMenu({
 				/* prefix for generated unique id attributes, which are
 				 * required to indicate aria-owns, aria-controls and aria-labelledby
@@ -136,6 +148,10 @@ define(function(require) {
 		 * (use this if we do the scroll off/on for the blue bar)
 		 ***/
 		(function($) {
+			require('headroom');
+			require('jquery/headroom');
+			require('app/shared/headroom-patch');
+
 			$('.headroom-area').headroom({
 				tolerance: 0,
 				offset: 205,
@@ -152,6 +168,8 @@ define(function(require) {
 		 * This script fixes the scroll position for deeplinking.
 		 ***/
 		(function($) {
+			var NCI = require('app/shared/NCI');
+
 			var doScroll = function(event) {
 				if(location.hash !== '') {
 					NCI.scrollTo(location.hash, event.type);
@@ -216,6 +234,9 @@ define(function(require) {
 		 * This initializes jQuery UI Autocomplete on the site-wide search widget.
 		 ***/
 		(function($) {
+			var NCI = require('app/shared/NCI');
+			require('jquery-ui');
+
 			var newWidth = window.innerWidth || $(window).width(),
 				oldWidth = newWidth;
 
@@ -273,6 +294,8 @@ define(function(require) {
 		 ***/
 		 // MOVED TO NCI.PageOptions.FontResizer.js
 		(function($) {
+			var NCI = require('app/shared/NCI');
+
 			NCI.PageOptions.init();
 		})(jQuery);
 		/*** END Page Options **/
@@ -387,6 +410,8 @@ define(function(require) {
 
 		/*** BEGIN form controls ***/
 		(function($) {
+			require('jquery-ui');
+
 			$.ui.selectmenu.prototype._buttonEvents.keydown = function( event ) {
 				var preventDefault = true;
 				switch ( event.keyCode ) {
@@ -550,12 +575,16 @@ define(function(require) {
 
 		/*** BEGIN accordionizer ***/
 		(function($) {
+			var NCI = require('app/shared/NCI');
+
 			NCI.makeAllAccordions();
 		})(jQuery);
 		/*** END accordionizer ***/
 
 		/*** BEGIN page outlining ***/
 		(function($) {
+			var NCI = require('app/shared/NCI');
+
 			// generate the page outline -- this is used for all page-/document-level navigation
 			var article = document.querySelector('article');
 			if(article !== null) {
@@ -697,6 +726,8 @@ define(function(require) {
 		//This marks all tables as scrollable, but only adds a shadow to the right side if it is scrolling.
 		//Inspired by http://www.456bereastreet.com/archive/201309/responsive_scrollable_tables/
 		(function ($) {
+			require('app/shared/Enlarge');
+
 			$("#content table").overflowEnlarge();
 		})(jQuery);
 	});

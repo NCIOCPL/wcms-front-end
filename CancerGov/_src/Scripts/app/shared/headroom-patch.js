@@ -1,5 +1,7 @@
-(function($) {
-	var oldHeadroom = window.Headroom;
+define(function(require) {
+	var oldHeadroom = require('headroom');
+	var $ = require('jquery');
+
 	var HeadroomExtensions = {
 		options: {
 			classes: {
@@ -23,5 +25,6 @@
 			}
 		}
 	};
-	var newHeadroom = $.extend(true, oldHeadroom, HeadroomExtensions);
-})(jQuery);
+	var newHeadroom = $.extend({}, oldHeadroom, HeadroomExtensions);
+	window.Headroom = newHeadroom;
+});

@@ -1,10 +1,10 @@
-// (function($) {})  --> Default jQuery structure for functions
-// Everything goes within '{}'
-//
-// Function to create an "Enlarge" button to click in order to
-// display a table or image using the entire window area
-// --------------------------------------------------------------
-(function($) {
+define(function(require) {
+    var $ = require('jquery');
+    require('jquery-ui');
+
+    // Function to create an "Enlarge" button to click in order to
+    // display a table or image using the entire window area
+    // --------------------------------------------------------------
 
     /**
      * Function for adding in large table capabilities.  This is the scrolling and enlarge button.
@@ -195,7 +195,7 @@
 
                 var wrap = fig.data('figWrapper');
 
-                /* 
+                /*
 								if (wrap) {
                     wrap.height($(this).outerHeight() + 20); //Give 20px of padding between popup and references/content
                 }
@@ -386,5 +386,4 @@
 
         });
     };
-
-}(jQuery));
+});

@@ -16,14 +16,16 @@ requirejs.config({
 		'headroom': 'app/vendor/headroom',
 		'respond': 'app/vendor/respond',
 		'routie': 'app/vendor/routie',
-		'slick': 'app/vendor/slick',
+
+		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
 		// vendor jQuery plugins
 		'jquery/headroom': 'app/vendor/jQuery.headroom',
 		'jquery/jplayer': 'app/vendor/jquery.jplayer.min',
 		'jquery/megamenu': 'app/vendor/jquery-accessibleMegaMenu',
 		'jquery/scrolltofixed': 'app/vendor/jquery-scrolltofixed',
-		'jquery/touchswipe': 'app/vendor/jquery-touchSwipe.min'
+		'jquery/slick': 'app/vendor/slick',
+		'jquery/touchswipe': 'app/vendor/jquery.touchSwipe.min'
 	},
 	/**
 	 * Configure the dependencies, exports, and custom initialization for older, traditional "browser globals" scripts that do not use define() to declare the dependencies and set a module value.
@@ -37,10 +39,18 @@ requirejs.config({
 		'respond': {
 			exports: 'respond'
 		},
+		'routie': {
+			exports: 'routie'
+		},
+
+		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
+
 		// vendor jQuery plugins
 		'jquery/headroom': ['headroom', 'jquery'],
-		'jquery/scrolltofixed': ['jquery'],
+		'jquery/jplayer': ['jquery'],
 		'jquery/megamenu': ['jquery'],
+		'jquery/slick': ['jquery'],
+		'jquery/scrolltofixed': ['jquery'],
 		'jquery/touchswipe': ['jquery']
 	}
 });
