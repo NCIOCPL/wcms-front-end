@@ -5,6 +5,8 @@ define(function(require) {
 	require('jquery/jplayer');
 	require('app/shared/popEvents');
 	require('app/shared/ie8-polyfills');
+	require('app/shared/analytics');
+
 	var jQuery = require('jquery');
 
 	jQuery(document).ready(function(jQuery) {
