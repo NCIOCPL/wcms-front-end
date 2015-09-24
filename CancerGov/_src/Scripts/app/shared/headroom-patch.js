@@ -25,6 +25,6 @@ define(function(require) {
 			}
 		}
 	};
-	var newHeadroom = $.extend({}, oldHeadroom, HeadroomExtensions);
+	var newHeadroom = $.extend(true, oldHeadroom, HeadroomExtensions);
 	window.Headroom = newHeadroom;
 });
