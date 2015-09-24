@@ -5,5 +5,5 @@ define(function(require) {
 	 */
 
 	//ForeSee Results, Inc. Survey structure entry point. Trigger 2.0 12-08-2008
-	require('//www.cancer.gov/Scripts/foresee/foresee-trigger');
+	require('//www.cancer.gov/Scripts/foresee/foresee-trigger.js');
 });
