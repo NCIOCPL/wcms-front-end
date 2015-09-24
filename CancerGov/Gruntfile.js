@@ -158,6 +158,43 @@ module.exports = function(grunt) {
 	}
 
 	/*****************************************
+	 * Uglify JS
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	var oldFiles = {
+		expand: true,
+		flatten: true,
+		dest: '<%= dirs.dist.scripts %>OLD',
+		src: ['<%= dirs.src.scripts %>OLD/*.js']
+	};
+	var modernizrFile = {
+		expand: true,
+		flatten: true,
+		dest: '<%= dirs.dist.scripts %>',
+		src: ['<%= dirs.src.scripts %>app/vendor/modernizr.custom.2.7.1.js']
+	};
+	grunt.config('uglify', {
+		options: {
+			preserveComments: 'some',
+			maxLineLen: 500
+		},
+		dev: {
+			options: {
+				mangle: false,
+				beautify: true,
+				sourceMap: true
+			},
+			files: [oldFiles, modernizrFile]
+		},
+		prod: {
+			options: {
+				mangle: true
+			},
+			files: [oldFiles, modernizrFile]
+		}
+	});
+
+	/*****************************************
 	 *  Watch
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -185,7 +222,7 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['requirejs:' + env, 'clean:requirejs'];
+		var tasks = ['requirejs:' + env, 'clean:requirejs', 'uglify:' + env];
 		grunt.task.run(tasks);
 	});
 
