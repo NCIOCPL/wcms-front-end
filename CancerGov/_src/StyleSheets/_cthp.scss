@@ -31,7 +31,19 @@
 }
 .cthp-intro-multimedia {
 	background: white;
+
+	.image-right-medium {
+		margin-left: 0;
+	}
+
+	figure.video {
+		float: right;
+		width: 40%;
+		margin: 0 0 2.5em 0;
+	}
+
 }
+
 .cthp-body {
 	float:left;
 	width: 55%;
@@ -54,9 +66,6 @@
 		padding-bottom: 0;
 		padding-left: 0.9375em;
 	}
-}
-.cthp-intro-multimedia .image-right-medium {
-	margin-left: 0;
 }
 .cthp-content h1 {
 	color: white;
