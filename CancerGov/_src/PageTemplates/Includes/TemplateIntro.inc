@@ -19,10 +19,6 @@
 
     <!--(bake Favicons.inc)-->
 
-    <!-- IE8 Polyfills -->
-    <!--[if lt IE 9]>
-    <script src="/PublishedContent/js/ie8-polyfills.js"></script>
-    <![endif]-->
     <script type="text/javascript">
         // Answers Cloud Services Embed Script v1.02
         // DO NOT MODIFY BELOW THIS LINE *****************************************
@@ -44,9 +40,6 @@
 </head>
 
 <body id="Body1" runat="server">
-    <!--[if lt IE 9]>
-    <script src="/PublishedContent/js/respond.js"></script>
-    <![endif]-->
 <div class="skip"><a title="Skip to content" href="#<!--(bake-start _if="skipto_id")-->{{skipto_id}}<!--(bake-end)--><!--(bake-start _if="!skipto_id")-->content<!--(bake-end)-->">Skip to content</a></div>
 <!-- NOTIFICATION AREA -->
 <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" CssClass="notification-banner" />
