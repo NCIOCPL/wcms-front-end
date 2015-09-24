@@ -93,6 +93,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.config('requirejs', {
 		options: {
+			skipDirOptimize: true,
+			normalizeDirDefines: 'skip',
 			wrapShim: true,
 			appDir: '<%= dirs.src.scripts %>',
 			dir: '<%= dirs.dist.scripts %>',
@@ -137,7 +139,12 @@ module.exports = function(grunt) {
 		},
 		prod: {
 			options: {
-				optimize: 'uglify2'
+				optimize: 'uglify2',
+				uglify2: {
+					output: {
+						max_line_len: 500
+					}
+				}
 			}
 		}
 	});
