@@ -499,18 +499,18 @@ a.learn-more {
 	}
 	h3, p, ul { padding: 0 15px; }
 
-	&.cgvInfographic {
+	&.cgvInfographic.non-playable {
 		a:before { content: "Infographic";
 			html[lang="es"] & { content: "Infograf\00ed a" }
 		}
 	}
-	&.gloVideo {
+	&.gloVideo.non-playable {
 		a:before { content: "Video";
 			html[lang="es"] & { content: "Video" }
 		}
 	}
 
-	&.gloVideoCarousel {
+	&.gloVideoCarousel.non-playable {
 		a:before { content: "Video Playlist";
 			html[lang="es"] & {
 				content: "Lista de reproducci\00f3 n de videos" }
