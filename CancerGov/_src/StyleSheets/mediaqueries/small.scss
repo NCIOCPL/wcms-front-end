@@ -95,15 +95,24 @@
 	}
 	.cthp-version-toggle {
 		float: none;
-		background: white $circle-arrow-blue-small 98% no-repeat;
+        background-color: white;
 		display: inline-block;
 		margin-top: 0;
-		
+
+        &:before {
+            content: "";
+            background: $ncisprite no-repeat -467px -217px;
+            position: relative;
+            right: -230px;
+            top: 24px;
+        }
+
 		a {
 			padding: 0 40px 0 0;
 		}
-		&:hover, &:focus {
-			background: white $circle-arrow-red-small 98% no-repeat;
+		&:before:hover, &:focus {
+            content: "";
+            background: $ncisprite no-repeat -382px -217px;
 		}
 	}
 	.row .tp20 {

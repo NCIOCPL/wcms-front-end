@@ -102,31 +102,27 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	color: #fff;
 }
 .cthp-version-toggle {
+    position: relative;
 	float: right;
     background-color: #dbf2f8;
 	color: #fff;
 	margin: -55px 0 20px 0;
 
-    &:before {
+    /* margin-top: -10px; -->  half the icon height */
+    & a:after {
         content: "";
         background: $ncisprite no-repeat -467px -217px;   
         width: 20px;   
         height: 20px;
         display: inline-block;
         position: absolute;
-        right: 23px;
-        top: 39px;
+        margin-top: -10px;
+        right: 2%;
+        top: 50%;
     }
 
-	&:hover:before, &:focus {
-        content: "";
-        background: $ncisprite no-repeat -382px -217px;
-        width: 20px;
-        height: 20px;
-        /*display: inline-block;  */
-        /*position: absolute;  */
-        /*right: 23px;  */
-        /*top: 39px;  */
+	& a:hover:after, & a:focus:after {
+        background-position: -382px -217px;
 	}
 
 	a {
