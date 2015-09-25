@@ -200,15 +200,15 @@ module.exports = function(grunt) {
 			files: [oldFiles, modernizrFile]
 		}
 	});
-    /************************************************************************
-     * TASK: Runs the Server
-     ************************************************************************/
-    grunt.loadNpmTasks('grunt-develop');
-    grunt.config('develop', {
-        server: {
-            file: 'server/server.js'
-        }
-    });
+	/************************************************************************
+	 * TASK: Runs the Server
+	 ************************************************************************/
+	grunt.loadNpmTasks('grunt-develop');
+	grunt.config('develop', {
+		server: {
+			file: 'server/server.js'
+		}
+	});
 	/*****************************************
 	 *  Watch
 	 ****************************************/
@@ -219,15 +219,15 @@ module.exports = function(grunt) {
 		},
 		css: {
 			files: '<%= dirs.src.styles %>**/*.scss',
-			tasks: ['build-css' + grunt.config('env')]
+			tasks: ['build-css:' + 'dev']
 		},
 		js: {
 			files: '<%= dirs.src.scripts %>**/*.js',
-			tasks: ['build-js' + grunt.config('env')]
+			tasks: ['build-js:' + 'dev']
 		},
 		templates: {
 			files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
-			tasks: ['build-templates' + grunt.config('env')]
+			tasks: ['build-templates:' + 'dev']
 		}
 	});
 
