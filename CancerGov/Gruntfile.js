@@ -264,11 +264,11 @@ module.exports = function(grunt) {
 		},
 		css: {
 			files: '<%= dirs.src.styles %>**/*.scss',
-			tasks: ['build-css:' + 'dev']
+			tasks: ['build-styles:' + 'dev']
 		},
 		js: {
 			files: '<%= dirs.src.scripts %>**/*.js',
-			tasks: ['build-js:' + 'dev']
+			tasks: ['build-scripts:' + 'dev']
 		},
 		templates: {
 			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
