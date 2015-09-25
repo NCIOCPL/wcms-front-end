@@ -105,29 +105,36 @@ module.exports = function(grunt) {
 			mainConfigFile: '<%= dirs.src.scripts %>config.js',
 			modules: [
 				{
-					name: 'build/Common',
+					name: 'app/Common',
 					include: [
 						'requirejs',
 						'config'
-					]
+					],
+					insertRequire: ['app/Common']
 				},
 				{
-					name: 'build/CTHP'
+					name: 'app/CTHP',
+					insertRequire: ['app/CTHP']
 				},
 				{
-					name: 'build/Home'
+					name: 'app/Home',
+					insertRequire: ['app/Home']
 				},
 				{
-					name: 'build/Inner'
+					name: 'app/Inner',
+					insertRequire: ['app/Inner']
 				},
 				{
-					name: 'build/Landing'
+					name: 'app/Landing',
+					insertRequire: ['app/Landing']
 				},
 				{
-					name: 'build/PDQ'
+					name: 'app/PDQ',
+					insertRequire: ['app/PDQ']
 				},
 				{
-					name: 'build/Topic'
+					name: 'app/Topic',
+					insertRequire: ['app/Topic']
 				}
 			]
 		},
@@ -151,7 +158,8 @@ module.exports = function(grunt) {
 	var configCleanRequire = {
 		requirejs: {
 			src: [
-				'<%= dirs.dist.scripts %>app',
+				'<%= dirs.dist.scripts %>app/*',
+				'!<%= dirs.dist.scripts %>app/*.js',
 				'<%= dirs.dist.scripts %>config.js',
 				(grunt.config('env') === 'prod' ? '<%= dirs.dist.scripts %>build.txt' : null)
 			].filter(function(x) { return x !== null && x !== undefined; })
