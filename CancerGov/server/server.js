@@ -44,7 +44,8 @@ app.use('/PublishedContent', express.static(__dirname.replace("server","_dist"))
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
 app.use('*', proxy('www-blue-dev.cancer.gov', {
     forwardPath: function(req, res) {
-        return require('url').parse(req.baseUrl).path;
+        return require('url').parse(req.baseUrl).path +
+            (req.query ? '?' + querystring.stringify(req.query) : '');
     }
 }));
 
