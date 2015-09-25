@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 		dist: {
 			base: "_dist/",
 			pages: "_dist/PageTemplates/",
-			styles: "_dist/css/",
+			styles: "_dist/Styles/",
 			scripts: "_dist/js/",
 		}
 	});
