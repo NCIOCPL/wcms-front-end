@@ -1,10 +1,8 @@
 define(function(require) {
-	require('app/vendor/respond');
 	require('app/vendor/routie');
 	require('app/shared/JSLoader');
 	require('jquery/jplayer');
 	require('app/shared/popEvents');
-	require('app/shared/ie8-polyfills');
 	require('app/shared/analytics');
 
 	var jQuery = require('jquery');

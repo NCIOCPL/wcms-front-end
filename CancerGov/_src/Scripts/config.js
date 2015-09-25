@@ -7,13 +7,14 @@ requirejs.config({
 		// locations
 		'app': 'app',
 
-		// CDN vendor libraries
-		'jquery': '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
-		'jquery-ui': '//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min',
+		// Common.js-included vendor libraries
+		'respond': 'empty:',
+		'modernizr': 'empty:',
+		'jquery': 'empty:',
+		'jquery-ui': 'empty:',
 
 		// local vendor libraries
 		'headroom': 'app/vendor/headroom',
-		'respond': 'app/vendor/respond',
 		'routie': 'app/vendor/routie',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
@@ -34,9 +35,6 @@ requirejs.config({
 		// vendor libraries
 		'headroom': {
 			exports: 'Headroom'
-		},
-		'respond': {
-			exports: 'respond'
 		},
 		'routie': {
 			exports: 'routie'

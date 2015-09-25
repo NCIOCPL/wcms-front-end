@@ -19,7 +19,8 @@ module.exports = function(grunt) {
 			templates: "_dist/PageTemplates/",
 			styles: "_dist/Styles/",
 			scripts: "_dist/js/",
-		}
+		},
+		bower: 'bower_components/'
 	});
 
 	// Project Config
@@ -156,12 +157,8 @@ module.exports = function(grunt) {
 			mainConfigFile: '<%= dirs.src.scripts %>config.js',
 			modules: [
 				{
-					name: 'app/Common',
-					include: [
-						'requirejs',
-						'config'
-					],
-					insertRequire: ['app/Common']
+					name: 'app/Content',
+					insertRequire: ['app/Content']
 				},
 				{
 					name: 'app/CTHP',
@@ -208,6 +205,11 @@ module.exports = function(grunt) {
 	});
 
 	/*****************************************
+	 * Concatenate JS
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-concat');
+
+	/*****************************************
 	 * Uglify JS
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -217,11 +219,14 @@ module.exports = function(grunt) {
 		dest: '<%= dirs.tmp.scripts %>OLD',
 		src: ['<%= dirs.src.scripts %>OLD/*.js']
 	};
-	var modernizrFile = {
-		expand: true,
-		flatten: true,
-		dest: '<%= dirs.tmp.scripts %>',
-		src: ['<%= dirs.src.scripts %>app/vendor/modernizr.custom.2.7.1.js']
+	var commonFile = {
+		'<%= dirs.tmp.scripts %>Common.js': [
+			'<%= dirs.src.scripts %>app/vendor/respond.js',
+			'<%= dirs.src.scripts %>app/vendor/modernizr.custom.2.7.1.js',
+			'<%= dirs.bower %>jquery/jquery.js',
+			'<%= dirs.bower %>jquery-ui/jquery-ui.js',
+			'<%= dirs.bower %>requirejs/require.js'
+		]
 	};
 	grunt.config('uglify', {
 		options: {
@@ -234,13 +239,13 @@ module.exports = function(grunt) {
 				beautify: true,
 				sourceMap: true
 			},
-			files: [oldFiles, modernizrFile]
+			files: [oldFiles, commonFile]
 		},
 		prod: {
 			options: {
 				mangle: true
 			},
-			files: [oldFiles, modernizrFile]
+			files: [oldFiles, commonFile]
 		}
 	});
 
