@@ -201,6 +201,13 @@ figcaption {
 	display: block;
 }
 
+/* The Previous/Next, Older/Newer navigation links need to be   */
+/* separated more from the content of the page                  */
+div#cgvSlPagination, div.previous-next-links {
+    margin-top: 3em  !important; 
+}
+/* End Previous/Next */
+    
 /* Pullquotes */
 .pullquote {
 	width: 75%;
