@@ -51,3 +51,9 @@ requirejs.config({
 		'jquery/touchswipe': ['jquery']
 	}
 });
+
+define('jquery', [], function() {
+	return jQuery;
+});
+
+define('jquery-ui', ['jquery'], function() {});

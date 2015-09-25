@@ -220,7 +220,8 @@ module.exports = function(grunt) {
 			'<%= dirs.src.scripts %>app/vendor/modernizr.custom.2.7.1.js',
 			'<%= dirs.bower %>jquery/jquery.js',
 			'<%= dirs.bower %>jquery-ui/jquery-ui.js',
-			'<%= dirs.bower %>requirejs/require.js'
+			'<%= dirs.bower %>requirejs/require.js',
+			'<%= dirs.src.scripts %>config.js'
 		]
 	};
 	grunt.config('uglify', {
