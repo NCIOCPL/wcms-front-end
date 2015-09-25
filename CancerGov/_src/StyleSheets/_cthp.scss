@@ -42,6 +42,15 @@
 		margin: 0 0 2.5em 0;
 	}
 
+    @include bp(small) {
+        figure {
+            &.video {
+                width: 100%;
+                margin: 0 0 1em 0;
+            }
+        }
+    }
+
 }
 
 .cthp-body {
