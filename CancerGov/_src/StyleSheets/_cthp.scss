@@ -103,8 +103,6 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
 .cthp-version-toggle {
 	float: right;
-	/* background: #dbf2f8 $circle-arrow-off-cream-small 98% no-repeat; */
-	/* background: url($ncisprite) no-repeat -14px  -377px; */
     background-color: #dbf2f8;
 	color: #fff;
 	margin: -55px 0 20px 0;
@@ -121,7 +119,6 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
     }
 
 	&:hover:before, &:focus {
-        background-color: green;
         content: "";
         background: $ncisprite no-repeat -382px -217px;
         width: 20px;
