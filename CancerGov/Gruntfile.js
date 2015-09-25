@@ -205,11 +205,6 @@ module.exports = function(grunt) {
 	});
 
 	/*****************************************
-	 * Concatenate JS
-	 ****************************************/
-	grunt.loadNpmTasks('grunt-contrib-concat');
-
-	/*****************************************
 	 * Uglify JS
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-contrib-uglify');
