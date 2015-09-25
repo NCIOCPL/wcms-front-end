@@ -103,12 +103,33 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
 .cthp-version-toggle {
 	float: right;
-	background: #dbf2f8 $circle-arrow-off-cream-small 98% no-repeat;
+	/* background: #dbf2f8 $circle-arrow-off-cream-small 98% no-repeat; */
+	/* background: url($ncisprite) no-repeat -14px  -377px; */
+    background-color: #dbf2f8;
 	color: #fff;
 	margin: -55px 0 20px 0;
 
-	&:hover, &:focus {
-		background-image: $circle-arrow-red-small;
+    &:before {
+        content: "";
+        background: $ncisprite no-repeat -467px -217px;   
+        width: 20px;   
+        height: 20px;
+        display: inline-block;
+        position: absolute;
+        right: 23px;
+        top: 39px;
+    }
+
+	&:hover:before, &:focus {
+        background-color: green;
+        content: "";
+        background: $ncisprite no-repeat -382px -217px;
+        width: 20px;
+        height: 20px;
+        /*display: inline-block;  */
+        /*position: absolute;  */
+        /*right: 23px;  */
+        /*top: 39px;  */
 	}
 
 	a {
@@ -124,14 +145,14 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
         html[lang="es"] & {
             text-transform: lowercase;
         }
-        html[lang="es"] &::first-letter {
+        html[lang="es"] &:first-letter {
             text-transform: uppercase;
         }
 
-        html[lang="en"] &::before {
+        html[lang="en"] &:before {
             content: 'View ';
         }
-        html[lang="es"] &::before {
+        html[lang="es"] &:before {
             content: 'Vea la ';
         }
 	}
