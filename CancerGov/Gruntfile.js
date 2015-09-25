@@ -4,13 +4,19 @@ module.exports = function(grunt) {
 	grunt.config('dirs', {
 		src: {
 			base: "_src/",
-			pages: "_src/PageTemplates/",
+			templates: "_src/PageTemplates/",
 			styles: "_src/StyleSheets/",
 			scripts: "_src/Scripts/",
 		},
+		tmp: {
+			base: "_tmp/",
+			templates: "_tmp/PageTemplates/",
+			styles: "_tmp/Styles/",
+			scripts: "_tmp/js/",
+		},
 		dist: {
 			base: "_dist/",
-			pages: "_dist/PageTemplates/",
+			templates: "_dist/PageTemplates/",
 			styles: "_dist/Styles/",
 			scripts: "_dist/js/",
 		}
@@ -36,6 +42,68 @@ module.exports = function(grunt) {
 	});
 
 	/*****************************************
+	 *  Cleaning
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.config('clean', {
+		tmp: {
+			src: ['<%= dirs.tmp.base %>']
+		},
+		requirejs: {
+			src: [
+				'<%= dirs.tmp.scripts %>config.js',
+				'<%= dirs.tmp.scripts %>app/*',
+				'!<%= dirs.tmp.scripts %>app/*.js',
+				'!<%= dirs.tmp.scripts %>app/*.js.map',
+			]
+		}
+	});
+
+	/*****************************************
+	 *  Copying
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.config('copy', {
+		templates: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: ['<%= dirs.tmp.templates %>**/*.aspx'],
+				dest: '<%= dirs.dist.templates %>',
+				filter: 'isFile'
+			}]
+		},
+		styles: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: [
+					'<%= dirs.tmp.styles %>**/*.css',
+					'<%= dirs.tmp.styles %>**/*.css.map'
+				],
+				dest: '<%= dirs.dist.styles %>',
+				filter: 'isFile'
+			}]
+		},
+		scripts: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: [
+					'<%= dirs.tmp.scripts %>**/*.js',
+					'<%= dirs.tmp.scripts %>**/*.js.map',
+					'<%= dirs.tmp.scripts %>build.txt'
+				],
+				dest: '<%= dirs.dist.scripts %>',
+				filter: 'isFile'
+			}]
+		}
+	});
+
+	/*****************************************
 	 *  SASS Preprocessing
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-sass');
@@ -47,7 +115,7 @@ module.exports = function(grunt) {
 		},
 		dist: {
 			files: {
-				'<%= dirs.dist.styles %>nvcg.css': '<%= dirs.src.styles %>nvcg.scss'
+				'<%= dirs.tmp.styles %>nvcg.css': '<%= dirs.src.styles %>nvcg.scss'
 			}
 		}
 	});
@@ -61,27 +129,10 @@ module.exports = function(grunt) {
 			options: {},
 			files: [{
 				expand: true,
-				cwd: '<%= dirs.src.pages %>',
+				cwd: '<%= dirs.src.templates %>',
 				src: ['**/*.aspx'],
-				dest: '<%= dirs.dist.pages %>',
+				dest: '<%= dirs.tmp.templates %>',
 				ext: ".aspx"
-			}]
-		}
-	});
-
-	/*****************************************
-	 *  Move JS Files into place...
-	 ****************************************/
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.config('copy', {
-		js: {
-			nonull: true,
-			files: [{
-				expand: true,
-				flatten: true,
-				src: ['<%= dirs.src.scripts %>**/*.js'],
-				dest: '<%= dirs.dist.scripts %>',
-				filter: 'isFile'
 			}]
 		}
 	});
@@ -97,7 +148,7 @@ module.exports = function(grunt) {
 			normalizeDirDefines: 'skip',
 			wrapShim: true,
 			appDir: '<%= dirs.src.scripts %>',
-			dir: '<%= dirs.dist.scripts %>',
+			dir: '<%= dirs.tmp.scripts %>',
 			paths: {
 				'requirejs': '../../bower_components/requirejs/require',
 				'config': 'config'
@@ -155,22 +206,6 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-	var configCleanRequire = {
-		requirejs: {
-			src: [
-				'<%= dirs.dist.scripts %>app/*',
-				'!<%= dirs.dist.scripts %>app/*.js',
-				'<%= dirs.dist.scripts %>config.js',
-				(grunt.config('env') === 'prod' ? '<%= dirs.dist.scripts %>build.txt' : null)
-			].filter(function(x) { return x !== null && x !== undefined; })
-		}
-	};
-	if (grunt.config('clean')) {
-		grunt.config.merge('clean', configCleanRequire);
-	} else {
-		grunt.loadNpmTasks('grunt-contrib-clean');
-		grunt.config('clean', configCleanRequire);
-	}
 
 	/*****************************************
 	 * Uglify JS
@@ -179,13 +214,13 @@ module.exports = function(grunt) {
 	var oldFiles = {
 		expand: true,
 		flatten: true,
-		dest: '<%= dirs.dist.scripts %>OLD',
+		dest: '<%= dirs.tmp.scripts %>OLD',
 		src: ['<%= dirs.src.scripts %>OLD/*.js']
 	};
 	var modernizrFile = {
 		expand: true,
 		flatten: true,
-		dest: '<%= dirs.dist.scripts %>',
+		dest: '<%= dirs.tmp.scripts %>',
 		src: ['<%= dirs.src.scripts %>app/vendor/modernizr.custom.2.7.1.js']
 	};
 	grunt.config('uglify', {
@@ -208,6 +243,7 @@ module.exports = function(grunt) {
 			files: [oldFiles, modernizrFile]
 		}
 	});
+
 	/************************************************************************
 	 * TASK: Runs the Server
 	 ************************************************************************/
@@ -217,6 +253,7 @@ module.exports = function(grunt) {
 			file: 'server/server.js'
 		}
 	});
+
 	/*****************************************
 	 *  Watch
 	 ****************************************/
@@ -234,26 +271,26 @@ module.exports = function(grunt) {
 			tasks: ['build-js:' + 'dev']
 		},
 		templates: {
-			files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
+			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
 			tasks: ['build-templates:' + 'dev']
 		}
 	});
 
 
 	// Tasks
-	grunt.registerTask('build-js', 'Build the JavaScript.', function(env) {
+	grunt.registerTask('build-scripts', 'Build the JavaScript.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['requirejs:' + env, 'clean:requirejs', 'uglify:' + env];
+		var tasks = ['requirejs:' + env, 'clean:requirejs', 'uglify:' + env, 'copy:scripts', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
-	grunt.registerTask('build-css', 'Build the CSS.', function(env) {
+	grunt.registerTask('build-styles', 'Build the CSS.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['sass'];
+		var tasks = ['sass', 'copy:styles', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
@@ -261,7 +298,7 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['bake'];
+		var tasks = ['bake', 'copy:templates', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
@@ -269,7 +306,7 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['build-css:' + env, 'build-js:' + env, 'build-templates:' + env];
+		var tasks = ['build-styles:' + env, 'build-scripts:' + env, 'build-templates:' + env];
 		grunt.task.run(tasks);
 	});
 
