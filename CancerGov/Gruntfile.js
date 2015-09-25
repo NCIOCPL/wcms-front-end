@@ -200,7 +200,15 @@ module.exports = function(grunt) {
 			files: [oldFiles, modernizrFile]
 		}
 	});
-
+    /************************************************************************
+     * TASK: Runs the Server
+     ************************************************************************/
+    grunt.loadNpmTasks('grunt-develop');
+    grunt.config('develop', {
+        server: {
+            file: 'server/server.js'
+        }
+    });
 	/*****************************************
 	 *  Watch
 	 ****************************************/
@@ -262,7 +270,7 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['build:' + env, 'watch'];
+		var tasks = ['build:' + env, 'develop', 'watch'];
 		grunt.task.run(tasks);
 	});
 
