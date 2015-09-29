@@ -18,7 +18,7 @@ define(function(require) {
             },
         },
 
-        FontResizer: require('app/shared/NCI/NCI.PageOptions.FontResizer')
+        FontResizer: require('Common/Enhancements/NCI.PageOptions.FontResizer')
     };
 
     return PageOptions;

@@ -1,14 +1,8 @@
 define(function(require) {
 	var $ = require('jquery');
-	var NCI = require('app/shared/NCI');
 
 	// This file is for the PDQ Cancer Information Summary UX functionality
 	$(function() {
-		var article = document.querySelector('article');
-		if (article !== null) {
-			NCI.page.outline = NCI.page.makeOutline(article);
-		}
-
 		var lang = $('html').attr('lang') || 'en';
 
 		// Navigation state variable for handling in page nav events

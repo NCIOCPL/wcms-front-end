@@ -43,68 +43,6 @@ module.exports = function(grunt) {
 	});
 
 	/*****************************************
-	 *  Cleaning
-	 ****************************************/
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.config('clean', {
-		tmp: {
-			src: ['<%= dirs.tmp.base %>']
-		},
-		requirejs: {
-			src: [
-				'<%= dirs.tmp.scripts %>config.js',
-				'<%= dirs.tmp.scripts %>app/*',
-				'!<%= dirs.tmp.scripts %>app/*.js',
-				'!<%= dirs.tmp.scripts %>app/*.js.map',
-			]
-		}
-	});
-
-	/*****************************************
-	 *  Copying
-	 ****************************************/
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.config('copy', {
-		templates: {
-			nonull: true,
-			files: [{
-				expand: true,
-				flatten: true,
-				src: ['<%= dirs.tmp.templates %>**/*.aspx'],
-				dest: '<%= dirs.dist.templates %>',
-				filter: 'isFile'
-			}]
-		},
-		styles: {
-			nonull: true,
-			files: [{
-				expand: true,
-				flatten: true,
-				src: [
-					'<%= dirs.tmp.styles %>**/*.css',
-					'<%= dirs.tmp.styles %>**/*.css.map'
-				],
-				dest: '<%= dirs.dist.styles %>',
-				filter: 'isFile'
-			}]
-		},
-		scripts: {
-			nonull: true,
-			files: [{
-				expand: true,
-				flatten: true,
-				src: [
-					'<%= dirs.tmp.scripts %>**/*.js',
-					'<%= dirs.tmp.scripts %>**/*.js.map',
-					'<%= dirs.tmp.scripts %>build.txt'
-				],
-				dest: '<%= dirs.dist.scripts %>',
-				filter: 'isFile'
-			}]
-		}
-	});
-
-	/*****************************************
 	 *  SASS Preprocessing
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-sass');
@@ -148,47 +86,54 @@ module.exports = function(grunt) {
 			skipDirOptimize: true,
 			normalizeDirDefines: 'skip',
 			wrapShim: true,
-			appDir: '<%= dirs.src.scripts %>',
-			dir: '<%= dirs.tmp.scripts %>',
+			appDir: '<%= dirs.src.scripts %>NCI',
+			dir: '<%= dirs.tmp.scripts %>NCI',
 			paths: {
-				'requirejs': '../../bower_components/requirejs/require',
-				'config': 'config'
+				'requirejs': '../../../bower_components/requirejs/require',
+				'config': 'config',
+				'ContentPage': 'UX/Common/ContentPage',
+				'CTHPPage': 'UX/PageSpecific/CTHP/CTHPPage',
+				'HomePage': 'UX/PageSpecific/Home/HomePage',
+				'InnerPage': 'UX/PageSpecific/Inner/InnerPage',
+				'LandingPage': 'UX/PageSpecific/Landing/LandingPage',
+				'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
+				'TopicPage': 'UX/PageSpecific/Topic/TopicPage'
 			},
-			mainConfigFile: '<%= dirs.src.scripts %>config.js',
+			mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
 			modules: [
 				{
-					name: 'app/Content',
-					insertRequire: ['app/Content']
+					name: 'ContentPage',
+					insertRequire: ['ContentPage']
 				},
 				{
-					name: 'app/CTHP',
-					insertRequire: ['app/CTHP'],
-					exclude: ['app/Content']
+					name: 'CTHPPage',
+					insertRequire: ['CTHPPage'],
+					exclude: ['ContentPage']
 				},
 				{
-					name: 'app/Home',
-					insertRequire: ['app/Home'],
-					exclude: ['app/Content']
+					name: 'HomePage',
+					insertRequire: ['HomePage'],
+					exclude: ['ContentPage']
 				},
 				{
-					name: 'app/Inner',
-					insertRequire: ['app/Inner'],
-					exclude: ['app/Content']
+					name: 'InnerPage',
+					insertRequire: ['InnerPage'],
+					exclude: ['ContentPage']
 				},
 				{
-					name: 'app/Landing',
-					insertRequire: ['app/Landing'],
-					exclude: ['app/Content']
+					name: 'LandingPage',
+					insertRequire: ['LandingPage'],
+					exclude: ['ContentPage']
 				},
 				{
-					name: 'app/PDQ',
-					insertRequire: ['app/PDQ'],
-					exclude: ['app/Content']
+					name: 'PDQPage',
+					insertRequire: ['PDQPage'],
+					exclude: ['ContentPage']
 				},
 				{
-					name: 'app/Topic',
-					insertRequire: ['app/Topic'],
-					exclude: ['app/Content']
+					name: 'TopicPage',
+					insertRequire: ['TopicPage'],
+					exclude: ['ContentPage']
 				}
 			]
 		},
@@ -217,17 +162,17 @@ module.exports = function(grunt) {
 	var oldFiles = {
 		expand: true,
 		flatten: true,
-		dest: '<%= dirs.tmp.scripts %>OLD',
-		src: ['<%= dirs.src.scripts %>OLD/*.js']
+		dest: '<%= dirs.tmp.scripts %>NCI_OLD',
+		src: ['<%= dirs.src.scripts %>NCI_OLD/*.js']
 	};
 	var commonFile = {
 		'<%= dirs.tmp.scripts %>Common.js': [
-			'<%= dirs.src.scripts %>app/vendor/respond.js',
-			'<%= dirs.src.scripts %>app/vendor/modernizr.custom.2.7.1.js',
+			'<%= dirs.src.scripts %>NCI/Vendor/respond.js',
+			'<%= dirs.src.scripts %>NCI/Vendor/modernizr.custom.2.7.1.js',
 			'<%= dirs.bower %>jquery/jquery.js',
 			'<%= dirs.bower %>jquery-ui/jquery-ui.js',
 			'<%= dirs.bower %>requirejs/require.js',
-			'<%= dirs.src.scripts %>config.js'
+			'<%= dirs.src.scripts %>NCI/config.js'
 		]
 	};
 	grunt.config('uglify', {
@@ -248,6 +193,66 @@ module.exports = function(grunt) {
 				mangle: true
 			},
 			files: [oldFiles, commonFile]
+		}
+	});
+
+	/*****************************************
+	 *  Cleaning
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.config('clean', {
+		tmp: {
+			src: ['<%= dirs.tmp.base %>']
+		},
+		requirejs: {
+			// previously used to clean up the require build, but I couldn't get this working using a configure-once setup (see copy:scripts)
+			src: []
+		}
+	});
+
+	/*****************************************
+	 *  Copying
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.config('copy', {
+		templates: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: ['<%= dirs.tmp.templates %>**/*.aspx'],
+				dest: '<%= dirs.dist.templates %>',
+				filter: 'isFile'
+			}]
+		},
+		styles: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: [
+					'<%= dirs.tmp.styles %>**/*.css',
+					'<%= dirs.tmp.styles %>**/*.css.map'
+				],
+				dest: '<%= dirs.dist.styles %>',
+				filter: 'isFile'
+			}]
+		},
+		scripts: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: [
+					'<%= dirs.tmp.scripts %>Common.js*',
+					'<%= dirs.tmp.scripts %>NCI_OLD/**/*.js*',
+					'<%= dirs.tmp.scripts %>build.txt'
+				].concat(grunt.config('requirejs').options.modules.map(function(module) {
+					return grunt.template.process('<%= dirs.tmp.scripts %>**/' + grunt.config('requirejs').options.paths[module.name] + '.js*');
+				})),
+				dest: '<%= dirs.dist.scripts %>',
+				filter: 'isFile'
+			}]
 		}
 	});
 

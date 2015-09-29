@@ -5,7 +5,14 @@ requirejs.config({
 	 */
 	paths: {
 		// locations
-		'app': 'app',
+		'Common': 'UX/Common',
+		'CTHP': 'UX/PageSpecific/CTHP',
+		'Home': 'UX/PageSpecific/Home',
+		'Inner': 'UX/PageSpecific/Inner',
+		'Landing': 'UX/PageSpecific/Landing',
+		'PDQ': 'UX/PageSpecific/PDQ',
+		'Topic': 'UX/PageSpecific/Topic',
+		'Vendor': 'Vendor',
 
 		// Common.js-included vendor libraries
 		'respond': 'empty:',
@@ -14,18 +21,18 @@ requirejs.config({
 		'jquery-ui': 'empty:',
 
 		// local vendor libraries
-		'headroom': 'app/vendor/headroom',
-		'routie': 'app/vendor/routie',
+		'headroom': 'Vendor/headroom',
+		'routie': 'Vendor/routie',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
 		// vendor jQuery plugins
-		'jquery/headroom': 'app/vendor/jQuery.headroom',
-		'jquery/jplayer': 'app/vendor/jquery.jplayer.min',
-		'jquery/megamenu': 'app/vendor/jquery-accessibleMegaMenu',
-		'jquery/scrolltofixed': 'app/vendor/jquery-scrolltofixed',
-		'jquery/slick': 'app/vendor/slick',
-		'jquery/touchswipe': 'app/vendor/jquery.touchSwipe.min'
+		'jquery/headroom': 'Vendor/jQuery.headroom',
+		'jquery/jplayer': 'Vendor/jquery.jplayer.min',
+		'jquery/megamenu': 'Vendor/jquery-accessibleMegaMenu',
+		'jquery/scrolltofixed': 'Vendor/jquery-scrolltofixed',
+		'jquery/slick': 'Vendor/slick',
+		'jquery/touchswipe': 'Vendor/jquery.touchSwipe.min'
 	},
 	/**
 	 * Configure the dependencies, exports, and custom initialization for older, traditional "browser globals" scripts that do not use define() to declare the dependencies and set a module value.

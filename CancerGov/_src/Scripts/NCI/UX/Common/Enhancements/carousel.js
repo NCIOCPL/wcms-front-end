@@ -1,7 +1,6 @@
 define(function(require) {
   var $ = require('jquery');
-  require('jquery/slick');
-  require('app/shared/slick-patch');
+  require('Patches/Vendor/slick_patch');
 
   // Script for carousel
   $(function() {

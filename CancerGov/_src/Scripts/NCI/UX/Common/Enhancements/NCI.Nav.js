@@ -160,7 +160,7 @@ define(function(require) {
 			}
 		},
 
-		Section: require('app/shared/NCI/NCI.Nav.Section')
+		Section: require('Common/Enhancements/NCI.Nav.Section')
 	};
 
 	return Nav;

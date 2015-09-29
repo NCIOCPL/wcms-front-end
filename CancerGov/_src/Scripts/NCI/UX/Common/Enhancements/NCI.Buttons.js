@@ -1,6 +1,6 @@
 define(function(require) {
 	var Buttons = {
-		toggle: require('app/shared/NCI/NCI.Buttons.toggle')
+		toggle: require('Common/Enhancements/NCI.Buttons.toggle')
 	};
 
 	return Buttons;

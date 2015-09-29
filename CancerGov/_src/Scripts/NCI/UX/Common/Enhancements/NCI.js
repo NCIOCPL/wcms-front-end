@@ -479,19 +479,19 @@ define(function(require) {
 			return $target;
 		},
 
-		Breakpoints: require('app/shared/NCI/NCI.breakpoints'),
+		Breakpoints: require('Common/Enhancements/NCI.breakpoints'),
 
-		Buttons: require('app/shared/NCI/NCI.Buttons'),
+		Buttons: require('Common/Enhancements/NCI.Buttons'),
 
-		Nav: require('app/shared/NCI/NCI.Nav'),
+		Nav: require('Common/Enhancements/NCI.Nav'),
 
-		PageOptions: require('app/shared/NCI/NCI.PageOptions'),
+		PageOptions: require('Common/Enhancements/NCI.PageOptions'),
 
-		Search: require('app/shared/NCI/NCI.Search'),
+		Search: require('Common/Enhancements/NCI.Search'),
 
-		dictionary: require('app/shared/NCI/NCI.dictionary'),
+		dictionary: require('Data/DictionaryService'),
 
-		page: require('app/shared/NCI/NCI.page'),
+		page: require('Common/Enhancements/NCI.page'),
 
 		window: {}
 	};
