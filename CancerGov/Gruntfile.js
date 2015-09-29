@@ -162,27 +162,33 @@ module.exports = function(grunt) {
 				},
 				{
 					name: 'app/CTHP',
-					insertRequire: ['app/CTHP']
+					insertRequire: ['app/CTHP'],
+					exclude: ['app/Content']
 				},
 				{
 					name: 'app/Home',
-					insertRequire: ['app/Home']
+					insertRequire: ['app/Home'],
+					exclude: ['app/Content']
 				},
 				{
 					name: 'app/Inner',
-					insertRequire: ['app/Inner']
+					insertRequire: ['app/Inner'],
+					exclude: ['app/Content']
 				},
 				{
 					name: 'app/Landing',
-					insertRequire: ['app/Landing']
+					insertRequire: ['app/Landing'],
+					exclude: ['app/Content']
 				},
 				{
 					name: 'app/PDQ',
-					insertRequire: ['app/PDQ']
+					insertRequire: ['app/PDQ'],
+					exclude: ['app/Content']
 				},
 				{
 					name: 'app/Topic',
-					insertRequire: ['app/Topic']
+					insertRequire: ['app/Topic'],
+					exclude: ['app/Content']
 				}
 			]
 		},
