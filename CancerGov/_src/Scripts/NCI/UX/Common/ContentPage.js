@@ -147,7 +147,7 @@ define(function(require) {
 		 * (use this if we do the scroll off/on for the blue bar)
 		 ***/
 		(function($) {
-			require('Patches/Vendor/headroom_patch');
+			require('jquery/headroom');
 
 			$('.headroom-area').headroom({
 				tolerance: 0,

@@ -50,7 +50,7 @@ requirejs.config({
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
 		// vendor jQuery plugins
-		'jquery/headroom': ['headroom', 'jquery'],
+		'jquery/headroom': ['Patches/Vendor/headroom_patch', 'jquery'],
 		'jquery/jplayer': ['jquery'],
 		'jquery/megamenu': ['jquery'],
 		'jquery/slick': ['jquery'],
