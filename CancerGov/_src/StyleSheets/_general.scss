@@ -42,9 +42,11 @@ h5 {
 	font-size: 1.125em;
 }
 h6 {
-	// line-height: 1.125em;
-	// font-size: 1em;
-	@extend h4;
+	line-height: 1.125em;
+	font-size: 1em;
+}
+.related-resources h6 {
+		@extend h4;
 }
 p {
 	margin: 0.5em 0;
@@ -102,6 +104,10 @@ table caption {
 /* end add-on functionality to foundation rows */
 
 /* begin default content table styling */
+td, th {
+	vertical-align: top;
+}
+
 table.table-default {
 	border-collapse: collapse;
 	margin: 15px 0;
@@ -195,6 +201,13 @@ figcaption {
 	display: block;
 }
 
+/* The Previous/Next, Older/Newer navigation links need to be   */
+/* separated more from the content of the page                  */
+div#cgvSlPagination, div.previous-next-links {
+    margin-top: 3em  !important; 
+}
+/* End Previous/Next */
+    
 /* Pullquotes */
 .pullquote {
 	width: 75%;

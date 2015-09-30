@@ -102,19 +102,52 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	color: #fff;
 }
 .cthp-version-toggle {
+    position: relative;
 	float: right;
-	background: #dbf2f8 $circle-arrow-off-cream-small 98% no-repeat;
+    background-color: #dbf2f8;
 	color: #fff;
 	margin: -55px 0 20px 0;
 
-	&:hover, &:focus {
-		background-image: $circle-arrow-red-small;
+    /* margin-top: -10px; -->  half the icon height */
+    & a:after {
+        content: "";
+        background: $ncisprite no-repeat -467px -217px;   
+        width: 20px;   
+        height: 20px;
+        display: inline-block;
+        position: absolute;
+        margin-top: -10px;
+        right: 2%;
+        top: 50%;
+    }
+
+	& a:hover:after, & a:focus:after {
+        background-position: -382px -217px;
 	}
 
 	a {
 		display: block;
 		color: $body-font-color;
 		padding: 0.625em 3.6em 0.625em 0.7em;
+
+        /* Need to modify the text for the version toggle */
+        /* The text-transform and the first-letter        */
+        /* style in addition to the following two rules   */
+        /* are achieving the text changes                 */
+        /* Also need to pay attention to proper case in ES*/
+        html[lang="es"] & {
+            text-transform: lowercase;
+        }
+        html[lang="es"] &:first-letter {
+            text-transform: uppercase;
+        }
+
+        html[lang="en"] &:before {
+            content: 'View ';
+        }
+        html[lang="es"] &:before {
+            content: 'Vea la ';
+        }
 	}
 	&:hover a, &:focus a {
 		text-decoration: none;
