@@ -45,6 +45,18 @@ define(function(require) {
 			});
 		});
 
+		$('.feature-secondary .feature-card').each(function(i, el) {
+			$(el).on('click', 'a', function(event) {
+				var $this = $(this);
+				var cardTitle = $this.children('h3').text();
+				var linkText = $this.children('h3').text();
+				var container = 'SecondaryFeature';
+				var containerIndex = i + 1;
+
+				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
+			});
+		});
+
 		$('.guide-card .card').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
