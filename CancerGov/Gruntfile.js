@@ -97,7 +97,8 @@ module.exports = function(grunt) {
 				'InnerPage': 'UX/PageSpecific/Inner/InnerPage',
 				'LandingPage': 'UX/PageSpecific/Landing/LandingPage',
 				'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
-				'TopicPage': 'UX/PageSpecific/Topic/TopicPage'
+				'TopicPage': 'UX/PageSpecific/Topic/TopicPage',
+				'Popups': 'UX/PageSpecific/Popups/Popups'
 			},
 			mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
 			modules: [
@@ -134,6 +135,11 @@ module.exports = function(grunt) {
 					name: 'TopicPage',
 					insertRequire: ['TopicPage'],
 					exclude: ['ContentPage']
+				},
+				{
+					name: 'Popups',
+					insertRequire: ['Popups'],
+					exclude: []
 				}
 			]
 		},
