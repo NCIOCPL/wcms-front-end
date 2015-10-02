@@ -81,6 +81,30 @@ define(function(require) {
 			});
 		});
 
+		$('.card-thumbnail .card-thumbnail-image').each(function(i, el) {
+			$(el).on('click', 'a', function(event) {
+				var $this = $(this);
+				var cardTitle = $this.closest('a').attr('data-title');
+				var linkText = 'Image';
+				var container = 'Thumbnail';
+				var containerIndex = i + 1;
+		 
+				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
+			});
+		}); 
+
+		$('.card-thumbnail .card-thumbnail-text').each(function(i, el) {
+			$(el).on('click', 'a', function(event) {
+				var $this = $(this);
+				var cardTitle = $this.closest('h3').find('a:first').text();
+				var linkText = $this.closest('h3').find('a:first').text();
+				var container = 'Thumbnail';
+				var containerIndex = i + 1;
+		 
+				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
+			});
+		}); 
+		
 		$('.cthp-card-container .cthpCard').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
