@@ -180,7 +180,7 @@ define(function(require) {
 
 				$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
 					.append($('<h6>').text(options.titleText[NCI.page.lang || 'en'])),
-				articleRoot = NCI.page.outline.sections[0];
+				articleRoot = $('article').data('nci-outline').sections[0];
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 

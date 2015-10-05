@@ -1,8 +1,23 @@
 define(function(require) {
 	var $ = require('jquery');
+	var NCI = require('Common/Enhancements/NCI');
 
 	// This file is for the PDQ Cancer Information Summary UX functionality
 	$(function() {
+		// set up outlines
+		$('article').each(function() {
+			var $this = $(this);
+
+			// check if there already is a built outline for this article
+			if ($this.data('nci-outline')) {
+				return;
+			}
+
+			// otherwise, build and set the outline
+			var outline = NCI.page.makeOutline(this);
+			$this.data('nci-outline', outline);
+		});
+
 		var lang = $('html').attr('lang') || 'en';
 
 		// Navigation state variable for handling in page nav events
@@ -70,7 +85,7 @@ define(function(require) {
 
 				$nav = $('<nav>').addClass(options.class).attr('role', 'navigation').attr('id', 'pdq-toptoc')
 					.append($('<h3>').text(options.i18n.title[NCI.page.lang || 'en'])),
-				articleRoot = NCI.page.outline.sections[0];
+				articleRoot = $('article').data('nci-outline').sections[0];
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
@@ -115,7 +130,7 @@ define(function(require) {
 
 				$nav = $('<nav>').addClass(options.class).attr('role', 'navigation')
 					.append($('<h6>').text(options.i18n.title[NCI.page.lang || 'en'])),
-				articleRoot = NCI.page.outline.sections[0];
+				articleRoot = $('article').data('nci-outline').sections[0];
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
@@ -144,7 +159,7 @@ define(function(require) {
 					maxLevel: 3
 				},
 
-				articleRoot = NCI.page.outline.sections[0],
+				articleRoot = $('article').data('nci-outline').sections[0],
 				sectionInsertionPoint,
 				newRoot;
 
@@ -246,7 +261,7 @@ define(function(require) {
 					}
 				},
 
-				articleRoot = NCI.page.outline.sections[0],
+				articleRoot = $('article').data('nci-outline').sections[0],
 				insertionPoint,
 				prevSection,
 				nextSection,

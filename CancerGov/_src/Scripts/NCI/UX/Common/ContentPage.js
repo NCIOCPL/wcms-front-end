@@ -574,12 +574,21 @@ define(function(require) {
 		/*** BEGIN page outlining ***/
 		(function($) {
 			// generate the page outline -- this is used for all page-/document-level navigation
-			var article = document.querySelector('article');
-			if(article !== null) {
-				NCI.page.outline = NCI.page.makeOutline(article);
+			// set up outlines
+			$('article').each(function() {
+				var $this = $(this);
 
-				NCI.buildOTP();
-			}
+				// check if there already is a built outline for this article
+				if ($this.data('nci-outline')) {
+					return;
+				}
+
+				// otherwise, build and set the outline
+				var outline = NCI.page.makeOutline(this);
+				$this.data('nci-outline', outline);
+			});
+
+			NCI.buildOTP();
 		})(jQuery);
 		/*** END page outlining ***/
 
