@@ -129,13 +129,10 @@ body {
 			color: #fff;
 		}
 			.red ul li.nciLogo a {
-				background-image: url('/publishedcontent/images/images/red-ncilogo.gif');
 			}
 			.red ul  li.nihText a {
-				background-image: url('/publishedcontent/images/images/red-nihtext.gif');
 			}
 			.red ul li.nciURL a {
-				background-image: url('/publishedcontent/images/images/red-nciurl.gif');
 			}
 	
 		/**
