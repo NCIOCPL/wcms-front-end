@@ -491,7 +491,6 @@ define(function(require) {
 			}
 		},
 
-		outline: null,
 		lang: (function(lang) {
 			if(lang.indexOf('es') === 0) {
 				return 'es';
