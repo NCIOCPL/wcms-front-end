@@ -201,31 +201,48 @@ define(function(require) {
 				ogUrl = $('link[rel="canonical"]').attr('href') + urlSuffix,
 				$emailPage = $('.po-email > a');
 
-	        // *** This only works for top-level sections *** //
-			// hide/show the proper section
-	        // console.log('this sections');
-	        // console.log($section);
-	        var isTop = $allSections.filter($section);
+			// *** This only works for top-level sections *** //
+			if ($allSections.filter($section).length > 0) {
+				// hide/show the proper section
+				$allSections
+					// show the current section
+					.filter($section).removeClass('hide').addClass('show')
+					// hide the other sections
+					.end().not($section).addClass('hide').removeClass('show');
 
-	        if ( isTop.length > 0 ) {
-	            $allSections
-	            // show the current section
-	               .filter($section).removeClass('hide').addClass('show')
-	                // hide the other sections
-	               .end().not($section).addClass('hide').removeClass('show');
+				// show the proper selection
+				$('#pdq-toptoc li')
+					// select the current section
+					.filter(':eq(' + sectionIdx + ')').addClass('selected')
+					// unselect the other sections
+					.end().not(':eq(' + sectionIdx + ')').removeClass('selected');
 
-	            // show the proper selection
-	            $('#pdq-toptoc li')
-	                // select the current section
-	               .filter(':eq(' + sectionIdx + ')').addClass('selected')
-	                // unselect the other sections
-	               .end().not(':eq(' + sectionIdx + ')').removeClass('selected');
-	        }
-	        // console.log('Done');
+				// show/hide the TOC elements
+				if (section === 'all') {
+					// Hide all the TOCs (section and doc level)
+					$('.on-this-page')
+						// ... and hide the Previous/Next navigation links
+						.add('.previous-link, .next-link')
+						.removeClass('show').addClass('hide');
+					// ... and then just show the doc level TOC
+					$('#pdq-toc-article .on-this-page')
+						.removeClass('hide').addClass('show');
+				} else {
+					// Show all the TOCs (section and doc level)
+					$('.on-this-page')
+						// ... and show the Previous/Next navigation links
+						.add('.previous-link, .next-link')
+						.removeClass('hide').addClass('show');
+					// ... and then just hide the doc level TOC
+					$('#pdq-toc-article .on-this-page')
+						.removeClass('show').addClass('hide');
+				}
+			}
 
-			// When we're routing to a new section, we're setting the meta-tag for 'og:url' to the
-	        // current section so that the social media share buttons - retrieving the URL from this
-	        // tag - will grab and display the correct section instead of displaying the default section one
+			/* When we're routing to a new section, we're setting the meta-tag for 'og:url' to the
+			 * current section so that the social media share buttons - retrieving the URL from this
+			 * tag - will grab and display the correct section instead of displaying the default section one
+			 */
 			$('meta[property="og:url"]').attr('content', ogUrl);
 
 			// Also update the email URL
@@ -369,6 +386,8 @@ define(function(require) {
 			// Handling of links clicked in the section navigation
 			// ---------------------------------------------------
 			'section/:sid': function(sid) {
+				var $sid = $('#' + sid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'));
+
 				$(document).scrollTop(0);
 
 				if (sid === 'all') {
@@ -376,73 +395,69 @@ define(function(require) {
 					showSection('all');
 				} else {
 					// show the section
-					showSection('#' + sid);
+					showSection($sid);
 				}
 			},
 			// Handling of links clicked in the 'On this page' navigation or within the document
-	        // Note: The typical case would be to jump to a location within
-	        //       a section and then open the section containing this
-	        //       location.  However, if we're jumping to the top-level
-	        //       section itself we don't want to open the parent but the
-	        //       section.
+			/* Note: The typical case would be to jump to a location within
+			 *       a section and then open the section containing this
+			 *       location.  However, if we're jumping to the top-level
+			 *       section itself we don't want to open the parent but the
+			 *       section.
+			 */
 			// -------------------------------------------------------------
 			'link/:rid': function(rid) {
+				var $rid = $('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'));
+
 				// Hide all open sections unless we are in the 'View all' section
 				if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 					navigationState = 'IN_SECTION';
-				} else if ($('#' + rid).closest('section.show').length > 0) {
+				} else if ($rid.closest('section.show').length > 0) {
 					// Do nothing here, we are navigating within the open section
 					navigationState = 'IN_SECTION';
+				} else if ($allSections.filter($rid).length > 0) {
+					internalRedirect('section/' + rid);
 				} else {
 					// show the parent containing the section ...
-					showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
-	                // ... or show the top-level section itself
-	                // In this case we're redirecting with routie to the
-	                // section-type display
-					//showSection($('#' + rid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')));
-		            var $allSections = $('.pdq-sections').parent('section');
-				    var $section = $('#' + rid);
-	                var isTop = $allSections.filter($section);
-
-	                if ( isTop.length > 0 ) {
-	                    internalRedirect('section/' + rid);
-	                }
-
+					showSection($rid.closest('.pdq-sections').parent().closest('section'));
 				}
 
 				// TODO: REMOVE?
 				// ... and set the section navigation properly
 				$('[tabindex="1"]').removeAttr('tabindex');
-				$('#' + rid).attr('tabindex', 1).focus();
+				$rid.attr('tabindex', 1).focus();
 				// END TODO: REMOVE?
-
 			},
 			'cit/:cid': function(cid) {
+				var $cid = $('#' + cid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'));
+
 				// Hide all open sections unless we are in the 'View all' section
 				if ($('#pdq-toptoc li.viewall').hasClass('selected')) {
 					navigationState = 'IN_SECTION';
-				} else if ($('#' + cid).closest('section.show').length > 0) {
+				} else if ($cid.closest('section.show').length > 0) {
 					// Do nothing here, we are navigating within the open section
 					navigationState = 'IN_SECTION';
 				} else {
 					// show the containing section
-					showSection($('#' + cid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).closest('.pdq-sections').parent().closest('section'));
+					showSection($cid.closest('.pdq-sections').parent().closest('section'));
 				}
 			},
 
-			// Check if the supplied ID exists.  If it doesn't exist open
-			// the full document.
+			// Check if the supplied ID exists. If it doesn't exist, open the full document.
 			// ----------------------------------------------------------
 			':lid': function(lid) {
+				var $lid = $('#' + lid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'));
 				// Do not route these
 				var doNotRoute = ['print', 'imprimir', 'main'];
 
 				if (doNotRoute.indexOf(lid.toLowerCase()) === -1) {
-					if ($('#' + lid).length === 0) {
+					if ($lid.length === 0) {
 						internalRedirect('section/all');
 					} else {
 						if (lid.match(/^section_/)) {
 							internalRedirect('cit/' + lid);
+						} else if ($allSections.filter($lid).length > 0) {
+							internalRedirect('section/' + lid);
 						} else {
 							internalRedirect('link/' + lid);
 						}
@@ -457,10 +472,10 @@ define(function(require) {
 				// NOTE: <URL># should not be interally redirected. Since there's no 'location.hash' in this case, fake it.
 				if(location.href.replace(location.protocol + '//' + location.host + location.pathname, '') !== "#") {
 					// get the ID of the first section -- document.querySelector always returns a single result
-					var sid = document.querySelector('.summary-sections section').id;
+					var $sid = $('.summary-sections section:eq(0)');
 
 					// show the first section, but set the OpenGraph URL to the default
-					showSection('#' + sid, true);
+					showSection($sid, true);
 				}
 			}
 		});
