@@ -589,7 +589,9 @@ define(function(require) {
 				$this.data('nci-outline', outline);
 			});
 
-			NCI.buildOTP();
+			if ($('article').length > 0) {
+				NCI.buildOTP();
+			}
 		})(jQuery);
 		/*** END page outlining ***/
 
