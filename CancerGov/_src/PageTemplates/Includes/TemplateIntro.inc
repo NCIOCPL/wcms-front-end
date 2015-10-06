@@ -14,7 +14,7 @@
 <!-- {{template_name}}  -->
 <head id="header" runat="server">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no" />
     <title></title>
 
     <!--(bake Favicons.inc)-->

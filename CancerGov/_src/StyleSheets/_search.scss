@@ -57,7 +57,8 @@
 		font-style: inherit;
 	}
 	&:-ms-input-placeholder {
-		color: inherit;
+	/*	color: inherit;     Removed this rule for IE9 to work. */
+    /*                      Text color was not white.          */
 		font-style: inherit;
 	}
 }
