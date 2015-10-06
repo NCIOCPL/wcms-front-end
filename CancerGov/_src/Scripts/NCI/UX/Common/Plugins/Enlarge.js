@@ -28,7 +28,7 @@ define(function(require) {
             //Set the width of the table to be the same as it would be if the
             //table were expanded.  This should minimize re-flowing of content
             //and thus keep the height the same.
-            fig.data('theTable').width(calculateTableWidth(settings));
+            // fig.data('theTable').width(calculateTableWidth(settings));
 
             if (!fig.data('enlargeBtn')) {
 
@@ -131,7 +131,7 @@ define(function(require) {
 
         fig.dialog({
             width: calculateDialogWidth(settings),
-            height: calculateDialogHeight(fig, settings),
+            // height: calculateDialogHeight(fig, settings),
             draggable: false,
             resizable: false,
             modal: false,
@@ -307,9 +307,15 @@ define(function(require) {
             fig.data('tblOrigWidth', fig.data('theTable').width());
 
             // Check if the element is wider than its parent and thus needs to be scrollable
+            //console.log('-----------------');
+            //console.log('VE:Enlage table I');
+            //console.log('Table id: ' + fig.data('theTable').context.id);
+            //console.log('Width out:' + fig.data('theTable').outerWidth() );
+            //console.log('Width par:' + fig.data('theTable').parent().outerWidth());
             if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
 
                 //It meets our conditions, enlargify the contents
+                //console.log('LARGE TABLE');
                 enhanceLargeTable(fig, settings);
             }
 
@@ -340,7 +346,7 @@ define(function(require) {
                         fig.dialog('close');
 
                         //resize the table
-                        fig.data("theTable").width(calculateTableWidth(settings));
+                        // fig.data("theTable").width(calculateTableWidth(settings));
 
                         if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
 
@@ -364,9 +370,12 @@ define(function(require) {
                     if (curWidth >= settings.xlThreshold) {
                         //This should only be done when we have changed the size of a table
                         //for enlarging.
-                        fig.data('theTable').width(fig.data('tblOrigWidth'));
+                        // fig.data('theTable').width(fig.data('tblOrigWidth'));
                     }
 
+                    //console.log('VE:Enlage table II');
+                    //console.log(fig.data('theTable').outerWidth());
+                    //console.log(fig.data('theTable').parent().outerWidth());
                     if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
                         enhanceLargeTable(fig, settings);
                     } else {
