@@ -9,6 +9,7 @@ define(function(require) {
 	var NCI = require('Common/Enhancements/NCI');
 	require('Common/Plugins/Enlarge');
 	require('jquery/megamenu');
+	require('placeholders');
 
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/

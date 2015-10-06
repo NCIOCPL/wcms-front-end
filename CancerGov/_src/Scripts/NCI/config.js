@@ -23,6 +23,7 @@ requirejs.config({
 		// local vendor libraries
 		'headroom': 'Vendor/headroom',
 		'routie': 'Vendor/routie',
+		'placeholders': 'Vendor/placeholders.min',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
