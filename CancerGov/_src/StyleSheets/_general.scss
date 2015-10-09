@@ -108,18 +108,22 @@ td, th {
 	vertical-align: top;
 }
 
+%default-caption {
+	@include font-montserrat;
+	font-weight: normal;
+	color: $header-font-color;
+	text-align: left;
+	padding: 20px 0 10px;
+	font-size: 1.375em;
+	/* using padding instead of margin due to problem in Safari */
+}
+
 table.table-default {
 	border-collapse: collapse;
 	margin: 15px 0;
 
 	caption {
-		@include font-montserrat;
-		font-weight: normal;
-		color: $header-font-color;
-		text-align: left;
-		padding: 20px 0 10px;
-		font-size: 1.375em;
-		/* using padding instead of margin due to problem in Safari */
+		@extend %default-caption;
 
 		geneticsprofessional & {
 			/* genetics-professional-specific fix to prevent table captions from wrapping */
