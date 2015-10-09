@@ -19,6 +19,8 @@ define(function(require) {
         //Determine the current width.
         var curWidth = window.innerWidth || $(window).width();
 
+        // console.log(curWidth);
+        // console.log(settings.thresholdForEnlarge);
         if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
             //Less than the threshold for enlarging.  Remove the enlarge button if needed
             removeEnlargeButton(fig);
@@ -210,7 +212,8 @@ define(function(require) {
                     wrap.height(1); //Give 20px of padding between popup and references/content
                 }
 
-                //This removes the dialog and puts the contents back where it got it from
+                // This removes the dialog and puts the contents back 
+                // where it got it from
                 $(this).dialog('destroy');
                 fig.data('scrollWrapper').addClass('has-scroll');
                 fig.data('scrollWrapper').addClass('scrollable');
@@ -287,7 +290,7 @@ define(function(require) {
 
             // Create the wrapper element
             var scrollWrapper = $('<div />', {
-                'class': 'scrollable',
+                'class': 'scrollable has-scroll',
                 'html': '<div />' // The inner div is needed for styling
             }).insertBefore(element);
 
@@ -307,15 +310,15 @@ define(function(require) {
             fig.data('tblOrigWidth', fig.data('theTable').width());
 
             // Check if the element is wider than its parent and thus needs to be scrollable
-            //console.log('-----------------');
-            //console.log('VE:Enlage table I');
-            //console.log('Table id: ' + fig.data('theTable').context.id);
-            //console.log('Width out:' + fig.data('theTable').outerWidth() );
-            //console.log('Width par:' + fig.data('theTable').parent().outerWidth());
+            // console.log('-----------------');
+            // console.log('VE:Enlage table I');
+            // console.log('Table id: ' + fig.data('theTable').context.id);
+            // console.log('Width out:' + fig.data('theTable').outerWidth() );
+            // console.log('Width par:' + fig.data('theTable').parent().outerWidth());
             if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
 
                 //It meets our conditions, enlargify the contents
-                //console.log('LARGE TABLE');
+                // console.log('LARGE TABLE');
                 enhanceLargeTable(fig, settings);
             }
 
