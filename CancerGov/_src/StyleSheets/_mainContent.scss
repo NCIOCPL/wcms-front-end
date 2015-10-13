@@ -295,6 +295,9 @@ table.no-bullet-padding ul {
 	margin-bottom: 1em;
 }
 
+.media-contact-info {
+	display: inline;
+}
 
 @include bp(medium-down) {
 	.contentzone .document-dates,
