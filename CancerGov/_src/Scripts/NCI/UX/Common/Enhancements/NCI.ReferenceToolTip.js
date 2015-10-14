@@ -28,8 +28,11 @@ define(function(require) {
 	}
 
 
+	// Enhancement global vars:
+	var timerLength = 1000;
+
+
 	function _initialize() {
-		var timerLength = 1000;
 
 		$('a[href^="#cit"], a[href^="#r"]')		
 			.filter(function () {
@@ -37,45 +40,7 @@ define(function(require) {
 				return /^#r\d+$|^#cit\/section_\d+.\d+$/.test(this.getAttribute('href'));
 			})
 			.each(function () {
-				var tooltipNode, hideTimer, showTimer, checkFlip = false;
-
-				//Why is this defined here????
-				function findRef(h) {
-					h = document.getElementById(
-						h.getAttribute('href')
-						.replace(/^#cit\//, '#')
-						.replace(/^#/, '')
-					);
-					h = h && h.nodeName == "LI" && h;
-
-					return h;
-				}
-
-				//Why is this here too???
-				function hide(refLink) {
-					if (tooltipNode && tooltipNode.parentNode == document.body) {
-						hideTimer = setTimeout(function () {
-							$(tooltipNode).animate({
-								opacity: 0
-							}, 100, function () {
-								document.body.removeChild(tooltipNode);
-							});
-						}, 100);
-					}
-					//$(findRef(refLink)).removeClass('RTTarget');
-				}
-
-				// Ugg this will need to go.
-				function show() {
-					if (!tooltipNode.parentNode || tooltipNode.parentNode.nodeType === 11) {
-						document.body.appendChild(tooltipNode);
-						checkFlip = true;
-					}
-					$(tooltipNode).stop().animate({
-						opacity: 1
-					}, 100);
-					clearTimeout(hideTimer);
-				}
+				var tooltipNode, hideTimer, showTimer, checkFlip;
 
 
 				// Enable a mouse enter event on the tool tip link
@@ -87,74 +52,100 @@ define(function(require) {
 					showTimer && clearTimeout(showTimer);
 
 					//Set a new time for showing the tooltip.
-					showTimer = setTimeout(hoverHandler, timerLength);
-
-					function hoverHandler() {
-
-						// Don't show on smartphone
-						var width = window.innerWidth || $(window).width();
-						if (width <= NCI.Breakpoints.medium) {
-							return;
-						}
-
-						//Get the reference content
-						var h = findRef(that);
-
-						if (!h) {
-							return;
-						}
-
-
-						/*if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) + $(window).height() > $(h).offset().top + h.offsetHeight) {
-							$(h).addClass('RTTarget');
-							//return;
-						}*/
-
-						if (!tooltipNode) {
-							tooltipNode = document.createElement('ul');
-							tooltipNode.className = "referencetooltip";
-							var c = tooltipNode.appendChild(h.cloneNode(true));
-							tooltipNode.appendChild(document.createElement('li'));
-							$(tooltipNode).on('mouseenter.NCI.tooltip', show).on('mouseleave.NCI.tooltip', hide);
-						}
-						show();
-						var offset = $(that).offset(),
-							offsetHeight = tooltipNode.offsetHeight;
-						$(tooltipNode).css({
-							top: offset.top - offsetHeight,
-							left: offset.left - 7
-						});
-						if (tooltipNode.offsetHeight > offsetHeight) { // is it squished against the right side of the page?
-							$(tooltipNode).css({
-								left: 'auto',
-								right: 0
-							});
-							tooltipNode.lastChild.style.marginLeft = (offset.left - tooltipNode.offsetLeft) + "px";
-						}
-						if (checkFlip) {
-							if (offset.top < tooltipNode.offsetHeight + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) + $(".fixedtotop").outerHeight()) { // is part of it above the top of the screen?
-								$(tooltipNode).addClass("RTflipped").css({
-									top: offset.top + 12
-								});
-							} else if (tooltipNode.className === "referencetooltip RTflipped") { // cancel previous
-								$(tooltipNode).removeClass("RTflipped");
-							}
-							checkFlip = false;
-						}
-					}
-				}).on('mouseleave.NCI.tooltip', function () {
+					showTimer = setTimeout(_hoverHandler, timerLength);
+				}).on('mouseleave.NCI_tooltip', function () {
 					clearTimeout(showTimer);
-					hide(this);
-				}).on('click.NCI.tooltip', function () {
+					_hide(this);
+				}).on('click.NCI_tooltip', function () {
 					var $this = $(this);
 					$this.closest('figure.table.ui-dialog-content').dialog('close');
 					$this.trigger('mouseleave.NCI.tooltip');
 				});
-
-
-
 			});
+	}
 
+	/*	
+	  ----------------------------------
+	  -----  INTERNAL FUNCTIONS  -------
+	  ----------------------------------
+	*/
+
+	/**
+	 * Finds the contents of the reference a link (a) is pointing to. 
+	 * @param  {[type]} link The link (a) element that points to the reference
+	 * @return {[type]}      The reference HTML element - only if it exists and is an LI element
+	 */
+	function _findRefContent(link) {
+
+		var refID = link.getAttribute('href')
+			.replace(/^#cit\//, '#')
+			.replace(/^#/, '');
+
+		refelem = $('li' + refID).get();
+
+		return refelem == undefined ? false : refelem;
+	}
+
+
+	function _show() {
+		if (!tooltipNode.parentNode || tooltipNode.parentNode.nodeType === 11) {
+			document.body.appendChild(tooltipNode);
+			checkFlip = true;
+		}
+		$(tooltipNode).stop().animate({
+			opacity: 1
+		}, 100);
+		clearTimeout(hideTimer);
+	}
+
+	function _hide() {
+		if (tooltipNode && tooltipNode.parentNode == document.body) {
+			hideTimer = setTimeout(function () {
+				$(tooltipNode).animate({
+					opacity: 0
+				}, 100, function () {
+					document.body.removeChild(tooltipNode);
+				});
+			}, 100);
+		}
+	}
+
+	function _hoverHandler() {
+
+		// Don't show on smartphone
+		var width = window.innerWidth || $(window).width();
+		if (width <= NCI.Breakpoints.medium) {
+			return;
+		}
+
+		//Get the reference content
+		var refElem = findRef(that);
+
+		//If the reference content does not exist, then return
+		if (!refElem) {
+			return;
+		}
+
+
+		//create an empty node for the tool tip.  It does not eneed to be attached to the document...
+		var $content_elem = $("<div></div>", {
+			'class': 'referencetooltip'
+		});
+
+		//Create a copy of the reference and place it into a UL element
+		$content_elem.appendChild(
+			$('<ul></ul')
+			.appendChild(
+				refElem.cloneNode(true)
+			)
+		);
+
+		//Attach handlers to make sure we keep showing the element if the mouse moves in, and we
+		//hide when the mouse moves out.
+		$content_elem.on('mouseenter.NCI_tooltip', _show).on('mouseleave.NCI_tooltip', _hide);
+
+		//Show this thing
+		_show();
 	}
 
 });
