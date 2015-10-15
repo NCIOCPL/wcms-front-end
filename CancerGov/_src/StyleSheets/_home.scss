@@ -203,22 +203,22 @@
 }
 
 @include bp(small) {
-	.feature-primary {
+	.feature-primary, .topic-feature {
 		margin-bottom: 0;
 	}
 	.feature-primary .card {
 		background: #14819b;
 	}
-	.feature-primary .columns a, .feature-secondary .columns a {
+	.feature-primary .columns a, .feature-secondary .columns a, .topic-feature.columns a {
 		padding-bottom: 15px;
 		padding-top: 15px;
 		overflow: auto;
 	}
-	.feature-primary .image-hover, .feature-secondary .image-hover {
+	.feature-primary .image-hover, .feature-secondary .image-hover, .topic-feature .image-hover {
 		float: left;
 		width: 30%;
 	}
-	.feature-primary h3, .feature-secondary h3 {
+	.feature-primary h3, .feature-secondary h3, .topic-feature a h3 {
 		margin-top: 0;
 		float: right;
 		width: 70%;
@@ -226,15 +226,17 @@
 		line-height: 1.111em;
 	}
 	.feature-primary a:hover h3,
-	.feature-primary a:hover h3	{
+	.feature-primary a:hover h3,
+	.topic-feature a:hover {
 		color: white;
 	}
-	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
+	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img, .topic-feature p {
 		display: none;
 	}
 		/* the portal pages needed these items to not hit the edge of screen on mobile only */
 	.feature-primary h3, .feature-primary p,
 	.feature-secondary h3, .feature-secondary p,
+	.topic-feature h3, .topic-feature p,
 	.other-sites-carousel h3,
 	.row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
 		padding-left: 15px;
