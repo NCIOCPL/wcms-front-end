@@ -61,10 +61,8 @@ h1.genSiteLogo {
 	text-indent: -9999px;
 }
 	h1.genSiteLogo a {
-		background-image: url('/publishedcontent/images/images/DCEG-logo.gif');
 		background-repeat: no-repeat;
 		background-position: bottom;
-		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader('/publishedcontent/images/images/DCEG-logo.gif');
 		display: block;
 		height: 69px;
 		width: 562px;
@@ -102,22 +100,18 @@ ul.genSiteFooterLogos {
 		}
 		/* HHS */
 		ul.genSiteFooterLogos li a.genSiteFooterLinkHHS {
-			background-image: url('/publishedcontent/images/images/footer-logo-hhs.gif');
 			width: 34px;
 		}
 		/* NIH */
 		ul.genSiteFooterLogos li a.genSiteFooterLinkNIH {
-			background-image: url('/publishedcontent/images/images/footer-logo-nih.gif');
 			width: 31px;
 		}
 		/* NCI */
 		ul.genSiteFooterLogos li a.genSiteFooterLinkNCI {
-			background-image: url('/publishedcontent/images/images/footer-logo-nci.gif');
 			width: 45px;
 		}
 		/* USA.gov */
 		ul.genSiteFooterLogos li a.genSiteFooterLinkUSA {
-			background-image: url('/publishedcontent/images/images/footer-logo-usagov.gif');
 			width: 83px;
 		}
 	
