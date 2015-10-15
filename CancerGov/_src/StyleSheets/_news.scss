@@ -11,7 +11,7 @@ a.arrow-link.news-footer {
 	ul li { position: relative; }
 	ul a[class^="news"]:before {
     position: absolute;
-    top: 2px;
+    top: 8px;
     left: -26px;
   }	
 
@@ -39,11 +39,18 @@ a.arrow-link.news-footer {
 	a.news-youtube:before {
 		background-position: -19px -336px;
 		height: 21px;
+		top: 0 !important;
 	}
 
 	a.news-rss:before {
 		background-position: -20px -381px;
 		height: 16px;
+	}
+	a.news-govdelivery:before {
+		background-position: -126px -563px;
+		height: 18px;
+		top: 6px !important;
+		position: relative;
 	}
 	
 	a.icon-exit-notification {

@@ -84,19 +84,25 @@
         &.rss {
             @include social-media-icons('-127','-380','16','16');
         }
+				&.govdelivery {
+            @include social-media-icons('-126','-518','18','18');
+        }
     }
 }
 
 .follow-us {
-    li {
-        float: left;
-        margin-right: 0.9em;
-        margin-left: 0;
-        text-indent: 0;
-    }
-    img:hover, img:focus {
-        opacity: 0.9;
-    }
+  margin: 0.5em 0;  
+	
+	li {
+		float: left;
+		margin-right: 0.9em;
+		margin-left: 0;
+		text-indent: 0;
+		margin-bottom: 0;
+	}
+	img:hover, img:focus {
+		opacity: 0.9;
+	}
 }
 
 .agencies {
