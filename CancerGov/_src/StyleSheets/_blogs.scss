@@ -5,15 +5,17 @@
 }
 
 .subscribeRSS a.blogRSS:before {
+	/* 
 	content: " ";
-	background: url($icons + "nci-sprite.png") no-repeat -14px -377px;
-	width: 22px;
-	height: 21px;
+	background: url($icons + "nci-sprite.png") no-repeat -123px -562px;
+	width: 23px;
+	height: 23px;
 	display: inline-block;
+	*/
 }
 
 .subscribeRSS a.blogRSS span {
-	padding-left: 5px;
+	// padding-left: 5px;
 	display: inline-block;
 }
 /*End Blog Subscribe Button CSS*/
