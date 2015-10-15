@@ -3,7 +3,9 @@
     TagPrefix="NCI" %>
 <!DOCTYPE html>
 <html>
-<head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+<head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	</head>
 
 <body id="Body1" runat="server">
 	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
