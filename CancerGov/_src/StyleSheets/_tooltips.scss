@@ -1,3 +1,28 @@
+
+/** 
+
+Uncomment the following for the new tool tip look and feel
+----------------------------------------------------------
+
+.referencetooltip {
+     padding: 1px 8px 13px 8px;
+     font-size: .8em;
+}
+
+.referencetooltip a {
+    color: $color-link;
+}
+.referencetooltip a:hover, .referencetooltip a:focus {
+    text-decoration: underline;
+}
+
+*/
+
+
+/*** 
+--------- DELETE EVERYTHING PAST THIS POINT FOR THE NEW TOOLTIP LOOK AND FEEL ----------
+***/
+
 .referencetooltip {
     position: absolute;
     list-style: none;
