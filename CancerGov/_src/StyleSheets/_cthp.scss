@@ -161,10 +161,10 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
         }
 
         html[lang="en"] &:before {
-            content: 'View ';
+            content: 'Go to ';
         }
         html[lang="es"] &:before {
-            content: 'Vea la ';
+            content: 'Vaya a la ';
         }
 	}
 	&:hover a, &:focus a {

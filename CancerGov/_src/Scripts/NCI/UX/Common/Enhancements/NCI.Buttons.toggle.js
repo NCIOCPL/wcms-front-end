@@ -64,18 +64,6 @@ define(function(require) {
 					sib_btns.attr(aria, no).children('span').text(t._innerText[t.lang][no]);
 					sib_uls.slideUp("slow");
 
-					/* li.siblings(".has-children").children(".nav-item-title").children("button[aria-expanded='true']")
-						.attr(aria, no).children('span').text(t._innerText[t.lang][no])
-						.closest(".has-children").children("ul").slideToggle("slow");
-					*/
-
-					// expand current pages and contains current
-					var curr_li = n.$mega.find(".contains-current, .current-page");
-					var curr_nit = curr_li.children(".nav-item-title");
-					var curr_btn = curr_nit.children("[" + aria + "='" + no + "']");
-					curr_btn.attr(aria, yes).children('span').text(t._innerText[t.lang][yes]);
-					curr_li.children("ul").slideDown("slow");
-
 					// expand the one we clicked
 					$this.attr(aria, yes).children('span').text(t._innerText[t.lang][yes]);
 					// the various level <li>s themselves are hidden with CSS...

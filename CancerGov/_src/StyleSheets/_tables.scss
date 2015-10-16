@@ -20,17 +20,21 @@
 .scrollable.has-scroll > div {
 	overflow-x: auto;
 }
-figure.table figcaption {
-	@include font-montserrat;
-	font-weight: normal;
-	color: $header-font-color;
-	text-align: left;
-	padding: 10px 0 10px 0;
-	font-size: 1.375em;
-}
+figure.table {
+	margin: 15px 0; // same as table.table-default
+	margin-top: 0;
 
-figure.table figcaption + a.article-image-enlarge {
-	top: 10px;
+	.table-default {
+		margin: 0;
+	}
+
+	figcaption {
+		@extend %default-caption; // same as table.table-default caption
+
+		& + a.article-image-enlarge {
+			top: 10px;
+		}
+	}
 }
 
 .ui-front {
