@@ -7,7 +7,7 @@
   border: 1px solid #b3b4af;
   box-shadow: 0px 0px 32px 13px rgba(0,0,0,0.09);
 
-  .arrow:after, .arrow:before {
+  .arrow.under-bottom:after, .arrow.under-bottom:before {
     top: 100%;
     /*left: 30px; /* Position the arrow toward the bottom left */
     border: solid transparent;
@@ -18,19 +18,45 @@
     pointer-events: none;
   }
 
-  .arrow:after {
+  .arrow.under-bottom:after {
     border-color: rgba(255, 255, 255, 0);
     border-top-color: #ffffff;
     border-width: 10px;
     margin-left: -10px;
   }
 
-  .arrow:before {
+  .arrow.under-bottom:before {
     border-color: rgba(179, 180, 175, 0);
     border-top-color: #b3b4af;
     border-width: 11px;
     margin-left: -11px;
   }
+
+  .arrow.on-top:after, .arrow.on-top:before {
+    bottom: 100%;
+    /*left: 30px; /* Position the arrow toward the bottom left */
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow.on-top:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+
+  .arrow.on-top:before {
+    border-color: rgba(179, 180, 175, 0);
+    border-bottom-color: #b3b4af;
+    border-width: 11px;
+    margin-left: -11px;
+  }
+
 }
 
 /* Override jQuery UI styling */
