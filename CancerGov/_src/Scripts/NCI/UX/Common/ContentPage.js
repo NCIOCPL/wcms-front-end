@@ -603,6 +603,11 @@ define(function(require) {
 		})(jQuery);
 		/*** END blog comment policy ***/
 
+
+		// For the new reference tool tip handling uncomment the following:
+		//require("Common/Enhancements/NCI.ReferenceToolTip").init(); 
+
+		//Then uncomment the reference tooltips function below:
 		// reference tooltips
 		(function ($) {
 			var timerLength = 1000;
@@ -717,6 +722,8 @@ define(function(require) {
 					});
 				});
 		})(jQuery);
+		//END REFERENCE TOOL TIPS
+
 
 	});
 
