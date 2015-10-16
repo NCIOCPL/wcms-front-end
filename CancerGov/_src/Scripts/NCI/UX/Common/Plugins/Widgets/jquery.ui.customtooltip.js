@@ -384,7 +384,9 @@
                 hasFocus = this.element.find(":tabbable");
             }
             if (!hasFocus.length) {
-                hasFocus = this.toolTipClosebarClose.filter(":tabbable");
+                if (this.options.displayClose) {
+                    hasFocus = this.toolTipClosebarClose.filter(":tabbable");
+                }
             }
             if (!hasFocus.length) {
                 hasFocus = this.toolTip;
