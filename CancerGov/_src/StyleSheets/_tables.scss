@@ -30,9 +30,11 @@ table.table-default {
 	tr {
 		background-color: #fff;
 
+		/* removed "zebra striping" due to 508 color contrast concerns
 		&:nth-child(even) {
 			background-color: #e8f3f6;
 		}
+		*/
 	}
 	th {
 		@include font-noto;
@@ -127,9 +129,11 @@ figure.table {
 }
 
 /* Enlarge table for PDQ */
+/* now that we are not using "zebra striping" we don't need to change the color of links
 table tbody tr td a{
 	color: #2ba6cb !important;
 }
+*/
 table tbody tr td a:hover{
 	color: #2795b6;
 	text-decoration: underline;
