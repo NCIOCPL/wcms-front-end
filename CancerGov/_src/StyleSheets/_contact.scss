@@ -1,0 +1,79 @@
+/****************** BEGIN Contact Info styles ********************/
+
+.live-help-button {
+	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -467px -11px;
+	display: inline-block;
+	width: 164px;
+	height: 54px;
+}
+
+.contact-buttons {
+	overflow: auto;
+}
+
+.contact-buttons a {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 8px 15px 0;
+	text-decoration: none;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	display: block;
+	color: #fff;
+	line-height: 24px;
+	font-size: 13px;
+}
+
+.contact-buttons a:hover {
+	text-decoration: none;
+}
+
+.contact-buttons a.phone {
+	background-color: #82368c;
+}
+.contact-buttons a.chat {
+	background-color: #bb0e3d;
+}
+.contact-buttons a.email {
+	background-color: #ff5f00;
+}
+
+.contact-buttons a.icon {
+	padding-left: 11px;
+}
+
+.contact-buttons a.icon span {
+	padding-left: 11px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.contact-buttons a.icon:before {
+	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0;
+	content: "";
+	display: inline-block;
+	height: 27px;
+}
+
+// background-position-y below is to account for the difference in height between the max height (above, 27px) and the icon's height
+// it should center the icon vertically
+// Example: background-position: X (Y + (maxHeight - iconHeight) / 2);
+.contact-buttons a.phone.icon:before {
+	background-position: -233px (-295px + (27px - 25px) / 2);
+	width: 21px;
+	//height: 25px;
+}
+.contact-buttons a.chat.icon:before {
+	background-position: -400px (-293px + (27px - 27px) / 2);
+	width: 32px;
+	//height: 27px;
+}
+.contact-buttons a.email.icon:before {
+	background-position: -123px (-110px + (27px - 15px) / 2);
+	width: 23px;
+	//height: 15px;
+}
+
+/****************** END Contact Info styles ********************/
