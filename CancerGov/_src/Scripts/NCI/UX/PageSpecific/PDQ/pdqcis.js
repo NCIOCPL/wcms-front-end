@@ -32,7 +32,8 @@ define(function(require) {
 		}
 
 		// Event handler to determine when to fire PDQINPAGENAV event.
-		$(window).on('NCI.PDQ.hashchange', function() {
+		//$(window).on('NCI.PDQ.hashchange', function() {
+		$(window).on('hashchange', function() {
 			if (navigationState === 'UNINITIALIZED') {
 				// This is the hashchange event after the initial load
 				navigationState = 'INITIALIZED';
@@ -43,7 +44,8 @@ define(function(require) {
 				// Navigating within and open page
 				navigationState = 'INITIALIZED';
 			} else {
-				// The page is initialized, so we are doing an inpage navigation
+				// The page is initialized, so we are doing
+				// an inpage navigation
 				$(window).trigger('pdqinpagenav');
 			}
 		});
@@ -250,6 +252,11 @@ define(function(require) {
 				$emailPage.attr('href', $emailPage.attr('href').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'))
 					.attr('onclick', $emailPage.attr('href').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'));
 			}
+
+			// We're running this trigger to ensure that all
+			// large tables receive the Enlarge button, even
+			// those that are within hidden sections.
+			$(window).trigger('pdqinpagenav');
 		}
 
 

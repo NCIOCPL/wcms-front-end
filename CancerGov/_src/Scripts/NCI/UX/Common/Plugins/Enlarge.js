@@ -19,8 +19,7 @@ define(function(require) {
         //Determine the current width.
         var curWidth = window.innerWidth || $(window).width();
 
-        // console.log(curWidth);
-        // console.log(settings.thresholdForEnlarge);
+
         if (curWidth <= settings.thresholdForEnlarge) { //Should be no enlarge...
             //Less than the threshold for enlarging.  Remove the enlarge button if needed
             removeEnlargeButton(fig);
@@ -70,7 +69,7 @@ define(function(require) {
         var fig = false;
 
         if (element.parents('figure').length <= 0) {
-            fig = $('<figure>');
+            fig = $('<figure></figure>');
             fig.addClass("table");
             fig.attr('data-display-excludedevice', element.attr('data-display-excludedevice'));
             fig.insertBefore(element);
@@ -198,10 +197,10 @@ define(function(require) {
                 var wrap = fig.data('figWrapper');
 
                 /*
-								if (wrap) {
+		if (wrap) {
                     wrap.height($(this).outerHeight() + 20); //Give 20px of padding between popup and references/content
                 }
-								*/
+	        */
 
             },
             close: function (event, ui) {
@@ -290,7 +289,9 @@ define(function(require) {
 
             // Create the wrapper element
             var scrollWrapper = $('<div />', {
-                'class': 'scrollable has-scroll',
+                'class': 'scrollable', // Adding 'has-scroll' here adds a 
+		                       // shadow border at page load even 
+				       // without scrollbar
                 'html': '<div />' // The inner div is needed for styling
             }).insertBefore(element);
 
@@ -303,22 +304,21 @@ define(function(require) {
             // Store a reference to the wrapper element
             fig.data('scrollWrapper', scrollWrapper);
 
-            //There are two body widths on desktop, 1024-1339 & 1440+.  Some tables will not
-            //fit in the body area for 1024-1339, but will for 1440+. Since we do a lot of table
-            //width changing to make sure text flows correctly when enlarged, we need to store
-            //the original width so that if we are XL then we can remove the enlarges and such
+            //There are two body widths on desktop, 1024-1339 & 1440+.  Some 
+	    //tables will not fit in the body area for 1024-1339, but will for 
+	    //1440+. Since we do a lot of table width changing to make sure 
+	    //text flows correctly when enlarged, we need to store the original
+	    //width so that if we are XL then we can remove the enlarges and such
             fig.data('tblOrigWidth', fig.data('theTable').width());
 
             // Check if the element is wider than its parent and thus needs to be scrollable
-            // console.log('-----------------');
-            // console.log('VE:Enlage table I');
-            // console.log('Table id: ' + fig.data('theTable').context.id);
-            // console.log('Width out:' + fig.data('theTable').outerWidth() );
-            // console.log('Width par:' + fig.data('theTable').parent().outerWidth());
+	    // Note: This does only work for the first section because the 
+	    // width for hidden elements is always 0
+	    // We're running another trigger in showSection to redraw the 
+	    // Enlarge button
             if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
 
                 //It meets our conditions, enlargify the contents
-                // console.log('LARGE TABLE');
                 enhanceLargeTable(fig, settings);
             }
 
@@ -376,9 +376,6 @@ define(function(require) {
                         // fig.data('theTable').width(fig.data('tblOrigWidth'));
                     }
 
-                    //console.log('VE:Enlage table II');
-                    //console.log(fig.data('theTable').outerWidth());
-                    //console.log(fig.data('theTable').parent().outerWidth());
                     if (fig.data('theTable').outerWidth() > fig.data('theTable').parent().outerWidth()) {
                         enhanceLargeTable(fig, settings);
                     } else {
