@@ -17,6 +17,9 @@ h6 {
 	p {
 		font-weight: inherit;
 	}
+	a {
+		font-weight: normal;
+	}
 }
 .section-nav {
 	@include font-montserrat;
