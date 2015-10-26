@@ -7,11 +7,11 @@ dl {
 // Managed List styles
 .list {
 	position: relative;
-	margin: 1.5em 0 3em 0;
+	margin: 0 0 3em;
+	@include font-montserrat;
+	font-weight: normal;
 
 	> .title {
-		@include font-montserrat;
-		font-weight: normal;
 		font-size: 1.25em;
 		line-height: 1.2em;
 	}
@@ -259,6 +259,6 @@ ul.cancer-list {
 	}
 }
 /* lists for Press Releases, NCI Fact Sheets */
-.list.no-bullets .general-list-item { 
-	margin: 1.875em 0;
+.list.no-bullets .general-list-item {
+    margin: 0 0 1.875em;
 } 
