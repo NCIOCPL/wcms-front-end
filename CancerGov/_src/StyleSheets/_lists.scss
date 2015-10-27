@@ -8,10 +8,10 @@ dl {
 .list {
 	position: relative;
 	margin: 0 0 3em;
-	@include font-montserrat;
-	font-weight: normal;
 
 	> .title {
+		@include font-montserrat;
+		font-weight: normal;
 		font-size: 1.25em;
 		line-height: 1.2em;
 	}
