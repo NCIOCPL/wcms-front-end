@@ -274,21 +274,21 @@ ul.cancer-list {
 	margin-top: 3px;
 	padding-left: 20px !important;
 }
-.ncilandingpage .cancer-list ul > li {
+.ncilandingpage .cancer-list ul.php > li {
 	display: inline;
 }
 .ncilandingpage ul.cancer-list ul {
 	margin-left: 0;
 	padding-left: 0;
 }
-.ncilandingpage .cancer-list ul > li:first-child:before {
+.ncilandingpage .cancer-list ul.php > li:first-child:before {
 	content: none;
 	display: none;
 }
-.ncilandingpage .cancer-list ul > li:before  {
+.ncilandingpage .cancer-list ul.php > li:before  {
 	content: "|" !important;
-	padding-left: 20px !important;
-	padding-right: 5px !important;
+	padding-left: 20px;
+	padding-right: 5px;
 	float: none;
 	top: 0;
 }
