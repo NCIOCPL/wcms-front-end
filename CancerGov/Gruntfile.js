@@ -252,7 +252,7 @@ module.exports = function(grunt) {
 				src: [
 					'<%= dirs.tmp.scripts %>Common.js*',
 					'<%= dirs.tmp.scripts %>NCI_OLD/**/*.js*',
-					'<%= dirs.tmp.scripts %>build.txt'
+					'<%= dirs.tmp.scripts %>/**/build.txt'
 				].concat(grunt.config('requirejs').options.modules.map(function(module) {
 					return grunt.template.process('<%= dirs.tmp.scripts %>**/' + grunt.config('requirejs').options.paths[module.name] + '.js*');
 				})),
