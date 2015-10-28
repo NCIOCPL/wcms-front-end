@@ -13,8 +13,12 @@ body.cgvfactsheet h2 p {
 
 	> h2 {
 		margin-top: 0;
-//		font-size: 1.5em;
-//		line-height: 1.215;
+		font-size: 1.5em;
+		line-height: 1.215;
+		
+		@include bp('(min-width: ' + (map-get($breakpoints, small) + 1px) + ') and (max-width: ' + (750px) + ')') {
+			font-size: 20px;
+		}
 	}
 	.title > a {
 		display: inline;

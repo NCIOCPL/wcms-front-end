@@ -1,4 +1,76 @@
 /* BEGIN TABLE STYLES */
+
+/* begin default content table styling */
+td, th {
+	vertical-align: top;
+}
+
+%default-caption {
+	@include font-montserrat;
+	font-weight: normal;
+	color: $header-font-color;
+	text-align: left;
+	padding: 20px 0 10px;
+	font-size: 1.375em;
+	/* using padding instead of margin due to problem in Safari */
+}
+
+table.table-default {
+	border-collapse: collapse;
+	margin: 15px 0;
+
+	caption {
+		@extend %default-caption;
+
+		geneticsprofessional & {
+			/* genetics-professional-specific fix to prevent table captions from wrapping */
+			white-space: nowrap;
+		}
+	}
+	tr {
+		background-color: #fff;
+
+		/* removed "zebra striping" due to 508 color contrast concerns
+		&:nth-child(even) {
+			background-color: #e8f3f6;
+		}
+		*/
+	}
+	th {
+		@include font-noto;
+		font-weight: bold;
+		color: $body-font-color;
+		background-color: #d0f1f2;
+		/*text-align: left;*/
+	}
+	td, th {
+		/* both definitions are for #bgbgbg at 0.28 opacity */
+		border: 1px solid rgb(236, 236, 236);
+		border: 1px solid rgba(189, 189, 189, 0.28);
+		padding: 20px;
+		border-spacing: 0;
+		-webkit-background-clip: padding-box; /* for Safari */
+		background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+
+		p:first-child {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	ul {
+		padding-left: 4px;
+	}
+}
+table.table-default-center-td td {
+	text-align: center;
+}
+table.table-default.complex-table tr {
+	background-color: #fff;
+}
+/* end default content table styling */
+
 /* table enlarge styles */
 .scrollable.has-scroll {
 	position: relative;
@@ -57,9 +129,11 @@ figure.table {
 }
 
 /* Enlarge table for PDQ */
+/* now that we are not using "zebra striping" we don't need to change the color of links
 table tbody tr td a{
 	color: #2ba6cb !important;
 }
+*/
 table tbody tr td a:hover{
 	color: #2795b6;
 	text-decoration: underline;

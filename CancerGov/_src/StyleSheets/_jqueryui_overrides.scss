@@ -98,6 +98,10 @@ $ui-selectmenu-maxitems: 7;
 		background: $lcranberry;
 	}
 }
+/* Stop drop downs from bleeding through megamenu*/
+.ui-selectmenu-menu.ui-front.ui-selectmenu-open {
+	z-index: 998 !important;
+}
 
 /* autocomplete */
 .ui-autocomplete {
