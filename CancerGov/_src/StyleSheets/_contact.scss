@@ -23,6 +23,7 @@
 	display: block;
 	color: #fff;
 	line-height: 24px;
+	font-family: 'Montserrat', Arial, sans-serif;
 	font-size: 13px;
 }
 
@@ -61,14 +62,14 @@
 // it should center the icon vertically
 // Example: background-position: X (Y + (maxHeight - iconHeight) / 2);
 .contact-buttons a.phone.icon:before {
-	background-position: -233px (-295px + (27px - 25px) / 2);
-	width: 21px;
-	//height: 25px;
+	background-position: -282px (-350px + (27px - 15px) / 2);
+	width: 13px;
+	//height: 15px;
 }
 .contact-buttons a.chat.icon:before {
-	background-position: -400px (-293px + (27px - 27px) / 2);
-	width: 32px;
-	//height: 27px;
+	background-position: -307px (-350px + (27px - 15px) / 2);
+	width: 18px;
+	//height: 15px;
 }
 .contact-buttons a.email.icon:before {
 	background-position: -123px (-110px + (27px - 15px) / 2);
