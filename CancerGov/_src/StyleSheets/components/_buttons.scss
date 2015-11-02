@@ -166,10 +166,18 @@ form button,
 	}
 
 	&.startover {
-		background-image: url($icons + "nci-sprite.png");
-		background-position: -233px -343px;
+		position: relative;
 		padding-left: ($button-med * 2) + em-calc(23px) + 0.25em;
-		line-height: normal;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0.75em;
+			background: url($icons + "nci-sprite.png") no-repeat;
+			background-position: -245px -348px;
+			width: 23px;
+			height: 20px;
+		}
 	}
 
 	&.left-align {
