@@ -335,12 +335,16 @@ jQuery(document).ready(function(jQuery) {
 		$('.flex-video').each(function() {
 			var $this = $(this);
 			var lang = $('html').attr('lang') || 'en';
-
+			var contentLanguage = document.documentElement.lang;
+			var hl = '&hl=en';
+			if(contentLanguage.indexOf('es') > -1){
+				hl = '&hl=es';
+			}
 			var videoSrc = '//www.youtube-nocookie.com/embed/',
 				videoLinkSrc = 'https://www.youtube.com/',
 				videoId = '',
 				videoTitle = '',
-				videoOptions = '?wmode=opaque&rel=0',
+				videoOptions = '?wmode=opaque&rel=0' + hl,
 				videoType = '';
 
 			if($this.hasClass('playlist')) {
