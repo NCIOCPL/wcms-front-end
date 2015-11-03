@@ -99,4 +99,17 @@ ul.genSiteFooterLogos {
 	color: #0C70A8; 
 	text-decoration: none;
 }
-	
+
+
+
+/*title box for sidebar orange */
+#genSlotRightSidebar .slot-item .genContentBlock .cptcTeaming h3 { 
+background: url('images/icons/teaming-icon.png') no-repeat 90% 10px, -moz-linear-gradient(top, rgba(255,141,19,1) 0%, rgba(255,98,1,1) 100%);
+background: url('images/icons/teaming-icon.png') no-repeat 90% 10px, -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,141,19,1)) color-stop(100%, rgba(255,98,1,1)));
+background: url('images/icons/teaming-icon.png') no-repeat 90% 10px, -webkit-linear-gradient(top, rgba(255,141,19,1) 0%, rgba(255,98,1,1) 100%);
+background: url('images/icons/teaming-icon.png') no-repeat 90% 10px, -o-linear-gradient(top, rgba(255,141,19,1) 0%, rgba(255,98,1,1) 100%);
+background: url('images/icons/teaming-icon.png') no-repeat 90% 10px, -ms-linear-gradient(top, rgba(255,141,19,1) 0%, rgba(255,98,1,1) 100%);
+background: url('images/icons/teaming-icon.png') no-repeat 90% 10px, linear-gradient(to bottom, rgba(255,141,19,1) 0%, rgba(255,98,1,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8d13', endColorstr='#ff6201', GradientType=0 );
+}
+#genSlotRightSidebar .slot-item .genContentBlock .cptcTeaming h3 span { color: #FFFFFF; }
