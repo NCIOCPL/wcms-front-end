@@ -587,6 +587,18 @@ jQuery(document).ready(function(jQuery) {
 		}
 	})(jQuery);
 	/*** END blog comment policy ***/
+	
+	/*** BEGIN NCI-Match HACK ***/
+	(function($) {
+		if (/\/?about-cancer\/treatment\/clinical-trials\/search\/view/gi.test(location.pathname) && /\bcdrid=773118\b/gi.test(location.search)) {
+			$('table:eq(0)')
+			.find('tr:eq(0)')
+				.append($('<th>').text('Status'))
+			.end().find('tr:eq(1)')
+				.append($('<td>').text('Temporarily Closed'));
+		}
+	})(jQuery);
+	/*** END NCI-Match HACK ***/
 });
 
 // BEGIN Table Resizing
