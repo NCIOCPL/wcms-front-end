@@ -590,6 +590,9 @@ fieldset {
 }
 .ct-country-area {
 	margin-bottom: 10px;
+	span.ui-selectmenu-button, div.ui-selectmenu-menu {
+		width: 220px !important;
+	}
 }
 @include bp(small) {
 	.ct-country-area .ui-selectmenu-button	{
