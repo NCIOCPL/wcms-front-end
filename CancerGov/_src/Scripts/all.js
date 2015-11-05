@@ -603,6 +603,18 @@ jQuery(document).ready(function(jQuery) {
 		}
 	})(jQuery);
 	/*** END NCI-Match HACK ***/
+	
+	/*** BEGIN HACK for Blog Series titles 
+	* TODO: remove when Blog Dynamic List Percussion template is updated 
+	* with class name for <h3> ***/
+	(function($) {
+		$('div.blog-post').each(function () {
+			if ($(this).find('a.comment-count').length < 1) {	
+				($(this).find('div.post-title h3').addClass('no-comments'))	
+			}
+		});
+	})(jQuery);
+	/*** END HACK for Blog Series titles ***/
 });
 
 // BEGIN Table Resizing
