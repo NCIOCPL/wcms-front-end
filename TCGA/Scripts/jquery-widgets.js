@@ -458,3 +458,15 @@ Unrestricted. This script is free for both personal and commercial use.
 	};
 })(jQuery);
 /* END How it Works widget */
+
+
+/** BEGIN HACK for TCGA Cancers Selected Title (OCEPROJECT-3724) */
+/** TODO: Change hardcoded value in Percussion template tcgaPgCancerSelected (OCEPROJECT-3725) */
+jQuery(document).ready(function(jQuery) {
+	(function($) {
+		$('#tcgaSlotBody').find('div.cancer-type-long h4').each(function(i,v) {
+			$(v).html(v.innerHTML.replace("CANCER TISSUES BEING COLLECTED FOR POTENTIAL STUDY", "CANCER TISSUES COLLECTED FOR STUDY"));
+		}).end()			
+	})(jQuery);
+});
+/** END HACK for TCGA Cancers Selected Title */
