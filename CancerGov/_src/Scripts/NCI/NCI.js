@@ -178,7 +178,10 @@ var NCI = NCI || { // << this format enforces a Singleton pattern
 				$("<li>").append($("<a>").attr("href", "#" + (otpItem.id || otpItem.parentElement.id)).text(otpItem.textContent.trim())).appendTo(otpList);
 			}
 			otpList.appendTo(otp); // Add list to 'On This Page' nav element
-			otp.prependTo("#cgvBody > .slot-item:first"); // Add nav element inside "cgvBody" div
+
+            // Add the OTP before the accordion section.  Images or paras before
+            // the accordion will still be kept before the OTP
+            $("[data-otp-selector]").before(otp);
 		}
 	},
 

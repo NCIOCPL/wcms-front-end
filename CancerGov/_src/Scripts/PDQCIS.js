@@ -16,6 +16,7 @@ $(function() {
 	$(window).on("hashchange", function() {
 		if (navigationState == "UNINITIALIZED") { //This is the hashchange event after the initial load
 			navigationState = "INITIALIZED";
+			$(window).trigger("hashchange");
 		} else if (navigationState == "REDIRECT") { //This is a hashchange event before a redirect.
 			navigationState = "INITIALIZED";
 		} else if (navigationState == "IN_SECTION") { //Navigating within and open page

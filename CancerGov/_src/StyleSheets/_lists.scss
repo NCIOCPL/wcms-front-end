@@ -11,6 +11,7 @@ dl {
 
 	> .title {
 		@include font-montserrat;
+		color: #606060;
 		font-weight: normal;
 		font-size: 1.25em;
 		line-height: 1.2em;
@@ -66,13 +67,15 @@ dl {
 		padding: 0; // was 0 0 1.875em; but the 1.875em bottom padding was creating double spacing when combined with the margin for the li
 
 		&.image {
-			width: 190px;
-			margin-top: 4px;
+			width: 21%;
+			margin-top: .25em;
 			padding: 0 0 2.5em;
+			margin-right: -4px;
 
 			+ .container.title {
 				width: 78%;
 				padding-left: 1.25em;
+				margin-right: -4px;
 
 				@include bp(medium-down) {
 					width: 100%;
@@ -86,9 +89,10 @@ dl {
 		}
 
 		.title {
+			font-family: 'Montserrat', Arial, sans-serif;
 			font-weight: normal;
 			font-size: 1.125em;
-			line-height: 1.1111em;
+			line-height: 1.111em;
 		}
 
 		.desc {

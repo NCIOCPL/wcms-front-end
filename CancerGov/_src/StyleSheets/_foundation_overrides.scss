@@ -27,3 +27,8 @@ ul.breadcrumbs > * a {
 	text-transform: none;
 	color: $color-link;
 }
+
+/* Remove extra margin on second-level list items */
+ul li ul, ul li ul {
+	margin-left: 0;
+}
