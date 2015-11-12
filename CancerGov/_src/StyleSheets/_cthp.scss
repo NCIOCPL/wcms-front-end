@@ -78,11 +78,11 @@
 .cthp-card-container {
 margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
-.cthpCard ul.moreInfo li {
+.cthpCard ul.moreInfo li, .cthp-treatment .cardBody ul li {
 	list-style-type: none;
 	padding-left: 0.9375em;
 }
-.moreInfo li:before {
+.moreInfo li:before, .cthp-treatment .cardBody ul li:before {
 	content: "\2022";
 	display: inline-block;
 	position: relative;
