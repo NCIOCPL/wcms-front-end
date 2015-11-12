@@ -82,7 +82,11 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	list-style-type: none;
 	padding-left: 0.9375em;
 }
-.moreInfo li:before, .cthp-treatment .cardBody ul li:before {
+.cthp-research .cardBody p a {
+	display: block;
+	padding-left: 0.9375em;
+}
+.moreInfo li:before, .cthp-treatment .cardBody ul li:before, .cthp-research .cardBody p a:before {
 	content: "\2022";
 	display: inline-block;
 	position: relative;
