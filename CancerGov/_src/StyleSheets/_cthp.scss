@@ -82,12 +82,20 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	list-style-type: none;
 	padding-left: 0.9375em;
 }
-.cthp-research .cardBody p {
-	margin-top: 2px; 
-	margin-bottom: 2px;
-	a {
-		display: block;
-		padding-left: 0.9375em;
+.cthp-research .cardBody {
+	p {
+		margin-top: 2px; 
+		margin-bottom: 2px;
+		a {
+			display: block;
+			padding-left: 0.9375em;
+		}
+	}
+	br {
+		display: none;
+	}
+	a.arrow-link {
+		margin-top: 19px;
 	}
 }
 .moreInfo li:before, .cthp-treatment .cardBody ul li:before, .cthp-research .cardBody p a:before {
