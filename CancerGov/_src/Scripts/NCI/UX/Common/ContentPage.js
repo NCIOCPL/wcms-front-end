@@ -765,4 +765,13 @@ define(function(require) {
 		})(jQuery);
 	});
 	// END Table Resizing
+
+	// BEGIN Spanish Analytics tracking
+	$('html[lang="es"]').find('a.news-govdelivery, a.blogRSS').on('click', function() {
+	    s.linkTrackVars = 'prop4,prop5';
+	    s.prop4 = 'GovDeliveryEsp';
+	    s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
+	    s.tl(this, 'o', 'GovDeliveryEsp');
+	});
+	// END Spanish Analytics Tracking
 });
