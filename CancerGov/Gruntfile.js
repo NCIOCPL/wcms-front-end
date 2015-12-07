@@ -4,23 +4,27 @@ module.exports = function(grunt) {
 	grunt.config('dirs', {
 		src: {
 			base: "_src/",
-			pages: "_src/PageTemplates/",
+			templates: "_src/PageTemplates/",
 			styles: "_src/StyleSheets/",
 			scripts: "_src/Scripts/",
 		},
+		tmp: {
+			base: "_tmp/",
+			templates: "_tmp/PageTemplates/",
+			styles: "_tmp/Styles/",
+			scripts: "_tmp/js/",
+		},
 		dist: {
 			base: "_dist/",
-			pages: "_dist/PageTemplates/",
-			styles: "_dist/css/",
+			templates: "_dist/PageTemplates/",
+			styles: "_dist/Styles/",
 			scripts: "_dist/js/",
 		},
+		bower: 'bower_components/'
 	});
 
 	// Project Config
 	grunt.config('pkg', grunt.file.readJSON('package.json'));
-
-	// Environment?
-	grunt.config('env', grunt.option('env') || process.env.GRUNT_DEV || 'development');
 
 	// Load Plugins
 	/*****************************************
@@ -50,7 +54,7 @@ module.exports = function(grunt) {
 		},
 		dist: {
 			files: {
-				'<%= dirs.dist.styles %>nvcg.css': '<%= dirs.src.styles %>nvcg.scss'
+				'<%= dirs.tmp.styles %>nvcg.css': '<%= dirs.src.styles %>nvcg.scss'
 			}
 		}
 	});
@@ -64,28 +68,96 @@ module.exports = function(grunt) {
 			options: {},
 			files: [{
 				expand: true,
-				cwd: '<%= dirs.src.pages %>',
+				cwd: '<%= dirs.src.templates %>',
 				src: ['**/*.aspx'],
-				dest: '<%= dirs.dist.pages %>',
+				dest: '<%= dirs.tmp.templates %>',
 				ext: ".aspx"
 			}]
 		}
 	});
 
 	/*****************************************
-	 *  Move JS Files into place...
+	 * Require.js
+	 * Compile the JavaScript modules into packages.
 	 ****************************************/
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.config('copy', {
-		js: {
-			nonull: true,
-			files: [{
-				expand: true,
-				flatten: true,
-				src: ['<%= dirs.src.scripts %>**/*.js'],
-				dest: '<%= dirs.dist.scripts %>',
-				filter: 'isFile'
-			}]
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.config('requirejs', {
+		options: {
+			skipDirOptimize: true,
+			normalizeDirDefines: 'skip',
+			wrapShim: true,
+			appDir: '<%= dirs.src.scripts %>NCI',
+			dir: '<%= dirs.tmp.scripts %>NCI',
+			paths: {
+				'requirejs': '../../../bower_components/requirejs/require',
+				'config': 'config',
+				'ContentPage': 'UX/Common/ContentPage',
+				'CTHPPage': 'UX/PageSpecific/CTHP/CTHPPage',
+				'HomePage': 'UX/PageSpecific/Home/HomePage',
+				'InnerPage': 'UX/PageSpecific/Inner/InnerPage',
+				'LandingPage': 'UX/PageSpecific/Landing/LandingPage',
+				'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
+				'TopicPage': 'UX/PageSpecific/Topic/TopicPage',
+				'Popups': 'UX/PageSpecific/Popups/Popups'
+			},
+			mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
+			modules: [
+				{
+					name: 'ContentPage',
+					insertRequire: ['ContentPage']
+				},
+				{
+					name: 'CTHPPage',
+					insertRequire: ['CTHPPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'HomePage',
+					insertRequire: ['HomePage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'InnerPage',
+					insertRequire: ['InnerPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'LandingPage',
+					insertRequire: ['LandingPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'PDQPage',
+					insertRequire: ['PDQPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'TopicPage',
+					insertRequire: ['TopicPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'Popups',
+					insertRequire: ['Popups'],
+					exclude: []
+				}
+			]
+		},
+		dev: {
+			options: {
+				generateSourceMaps: true,
+				optimize: 'none'
+			}
+		},
+		prod: {
+			options: {
+				optimize: 'uglify2',
+				uglify2: {
+					output: {
+						max_line_len: 500
+					}
+				}
+			}
 		}
 	});
 
@@ -93,43 +165,110 @@ module.exports = function(grunt) {
 	 * Uglify JS
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	var oldFiles = {
+		expand: true,
+		flatten: true,
+		dest: '<%= dirs.tmp.scripts %>NCI_OLD',
+		src: ['<%= dirs.src.scripts %>NCI_OLD/*.js']
+	};
+	var commonFile = {
+		'<%= dirs.tmp.scripts %>Common.js': [
+			'<%= dirs.src.scripts %>NCI/Vendor/respond.js',
+			'<%= dirs.src.scripts %>NCI/Vendor/modernizr.custom.2.7.1.js',
+			'<%= dirs.bower %>jquery/jquery.js',
+			'<%= dirs.bower %>jquery-ui/jquery-ui.js',
+			'<%= dirs.bower %>requirejs/require.js',
+			'<%= dirs.src.scripts %>NCI/config.js'
+		]
+	};
 	grunt.config('uglify', {
 		options: {
-			mangle: false,
-			compress: {
-				drop_console: true
-			},
-			preserveComments: false,
+			preserveComments: 'some',
+			maxLineLen: 500
 		},
-		js: {
+		dev: {
+			options: {
+				mangle: false,
+				beautify: true,
+				sourceMap: true
+			},
+			files: [oldFiles, commonFile]
+		},
+		prod: {
+			options: {
+				mangle: true
+			},
+			files: [oldFiles, commonFile]
+		}
+	});
+
+	/*****************************************
+	 *  Cleaning
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.config('clean', {
+		tmp: {
+			src: ['<%= dirs.tmp.base %>']
+		},
+		requirejs: {
+			// previously used to clean up the require build, but I couldn't get this working using a configure-once setup (see copy:scripts)
+			src: []
+		}
+	});
+
+	/*****************************************
+	 *  Copying
+	 ****************************************/
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.config('copy', {
+		templates: {
+			nonull: true,
 			files: [{
 				expand: true,
 				flatten: true,
-				dest: '<%= dirs.dist.scripts %>min',
-				src: ['<%= dirs.src.scripts %>**/*.js']
+				src: ['<%= dirs.tmp.templates %>**/*.aspx'],
+				dest: '<%= dirs.dist.templates %>',
+				filter: 'isFile'
 			}]
 		},
-		nci_util: {
-			options: {
-				compress: false,
-				preserveComments: false,
-				mangle: false,
-				beautify: true
-			},
-			files: {
-				'<%= dirs.dist.scripts %>nci-util.js': [
-					// Specifying file names here will allow us to order the concatenation
-					// otherwise, we have no control of the order, and it's important.
-					// This would be a good place to use require.js and AMD compatible modules.
-					// Ideally, we never have to specify file names here...just a bad place to dictate this.
-					'<%= dirs.src.scripts %>NCI/NCI.js',
-					'<%= dirs.src.scripts %>NCI/NCI.Buttons.js',
-					'<%= dirs.src.scripts %>NCI/NCI.Buttons.toggle.js',
-					'<%= dirs.src.scripts %>NCI/NCI.Nav.js',
-					'<%= dirs.src.scripts %>NCI/NCI.PageOptions.js',
-					'<%= dirs.src.scripts %>NCI/*.js' // CATCH ALL. Must Go LAST
+		styles: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: [
+					'<%= dirs.tmp.styles %>**/*.css',
+					'<%= dirs.tmp.styles %>**/*.css.map'
 				],
-			}
+				dest: '<%= dirs.dist.styles %>',
+				filter: 'isFile'
+			}]
+		},
+		scripts: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: [
+					'<%= dirs.tmp.scripts %>Common.js*',
+					'<%= dirs.tmp.scripts %>NCI_OLD/**/*.js*',
+					'<%= dirs.tmp.scripts %>/**/build.txt'
+				].concat(grunt.config('requirejs').options.modules.map(function(module) {
+					return grunt.template.process('<%= dirs.tmp.scripts %>**/' + grunt.config('requirejs').options.paths[module.name] + '.js*');
+				})),
+				dest: '<%= dirs.dist.scripts %>',
+				filter: 'isFile'
+			}]
+		}
+	});
+
+	/************************************************************************
+	 * TASK: Runs the Server
+	 ************************************************************************/
+	grunt.loadNpmTasks('grunt-develop');
+	grunt.config('develop', {
+		server: {
+			file: 'server/server.js'
 		}
 	});
 
@@ -141,27 +280,66 @@ module.exports = function(grunt) {
 		options: {
 			//liveReload: true
 		},
-		bake: {
-			files: ['<%= dirs.src.pages %>*.aspx', '<%= dirs.src.pages %>Includes/*.inc'],
-			tasks: ['bake:build']
-		},
 		css: {
 			files: '<%= dirs.src.styles %>**/*.scss',
-			tasks: ['sass']
+			tasks: ['build-styles:' + 'dev']
 		},
 		js: {
-			files: '<%= dirs.src.scripts %>*.js',
-			tasks: ['copy', 'uglify']
+			files: '<%= dirs.src.scripts %>**/*.js',
+			tasks: ['build-scripts:' + 'dev']
+		},
+		templates: {
+			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
+			tasks: ['build-templates:' + 'dev']
 		}
 	});
 
+
 	// Tasks
+	grunt.registerTask('build-scripts', 'Build the JavaScript.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['requirejs:' + env, 'clean:requirejs', 'uglify:' + env, 'copy:scripts', 'clean:tmp'];
+		grunt.task.run(tasks);
+	});
+
+	grunt.registerTask('build-styles', 'Build the CSS.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['sass', 'copy:styles', 'clean:tmp'];
+		grunt.task.run(tasks);
+	});
+
+	grunt.registerTask('build-templates', 'Build the CDE page templates.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['bake', 'copy:templates', 'clean:tmp'];
+		grunt.task.run(tasks);
+	});
+
+	grunt.registerTask('build', 'Build all files.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['build-styles:' + env, 'build-scripts:' + env, 'build-templates:' + env];
+		grunt.task.run(tasks);
+	});
+
+
+	grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
+		env = (env === 'prod' ? 'prod' : 'dev');
+		grunt.config('env', env);
+
+		var tasks = ['build:' + env, 'develop', 'watch'];
+		grunt.task.run(tasks);
+	});
+
 	// We should ALWAYS define the 'default' task
-	var commonTasks = ['sass', 'copy', 'uglify', 'bake:build'];
-	grunt.registerTask('build', commonTasks);
-	grunt.registerTask('watch', commonTasks.concat(['watch']));
 	grunt.registerTask('default', ['build']);
 
 	// Deploy task is used by the build script
-	grunt.registerTask('deploy', ['build']);
+	grunt.registerTask('deploy', ['build:prod']);
 };

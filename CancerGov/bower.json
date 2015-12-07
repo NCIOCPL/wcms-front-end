@@ -1,0 +1,22 @@
+{
+  "name": "cancer.gov",
+  "version": "7.0.0",
+  "description": "Cancer.gov",
+  "authors": [
+    "National Cancer Institute"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.20"
+  },
+  "dependencies": {
+    "jquery": "1.10.1",
+    "jquery-ui": "1.11.4"
+  }
+}

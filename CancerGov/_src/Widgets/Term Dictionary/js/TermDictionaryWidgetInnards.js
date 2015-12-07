@@ -1,3 +1,243 @@
+var NCI = NCI || {};
+
+/* BEGIN NCI.dictionary */
+// TODO: require() this
+/**
+ * jQuery XMLHttpRequest object
+ * @external jqXHR
+ * @see {@link http://api.jquery.com/Types/#jqXHR}
+ * @see {@link http://api.jquery.com/jQuery.ajax/#jqXHR}
+ */
+
+/**
+ * NCI dictionary namespace.
+ * @namespace
+ */
+NCI.dictionary = {
+	/**
+	 * Enumeration for the available dictionaries.
+	 * @readonly
+	 * @enum {string}
+	 */
+	dictionaries: {
+		/** NCI Dictionary of Cancer Terms */
+		term: 'term',
+		/** NCI Drug Dictionary */
+		drug: 'drug',
+		/** NCI Dictionary of Genetic Terms */
+		genetic: 'genetic'
+	},
+
+	/**
+	 * Base endpoint for the dictionary webservice.
+	 * @readonly
+	 */
+	endpoint: '/Dictionary.Service/v1',
+
+	/**
+	 * Performs a search for terms with names that start with or contain certain text.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
+	 * @param {string} searchText - The text to search for.
+	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
+	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains'.
+	 * @param {number} [offset=0] - Offset into the list of results for the first record to return.
+	 * @param {number} [maxResults=0] - The maximum number of results to return. If a value of less than 10 is specified, maxResults is ignored and 10 is used instead.
+	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
+	 */
+	search: function(dictionary, searchText, language, searchType, offset, maxResults) {
+		var that = this;
+
+		// validate `dictionary`
+		if (!dictionary || // no dictionary specified
+			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
+		) {
+			return $.Deferred().reject();
+		}
+
+		// validate `searchText`
+		if (!searchText) { // no searchText, cannot run an empty search
+			return $.Deferred().reject();
+		}
+
+		var method = 'search';
+		language = language || 'English';
+		searchType = searchType || 'begins';
+		offset = offset || 0;
+		maxResults = maxResults || 0;
+
+		return $.getJSON(that.endpoint + '/' + method, {
+			dictionary: dictionary,
+			searchText: searchText,
+			language: language,
+			searchType: searchType,
+			offset: offset,
+			maxResuts: maxResults
+		});
+	},
+
+	/**
+	 * Lightweight method to search for terms matching searchText. This method is intended for use with autosuggest and returns a maximum of 10 results.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
+	 * @param {string} searchText - The text to search for.
+	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
+	 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains', 'magic'.
+	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
+	 */
+	searchSuggest: function(dictionary, searchText, language, searchType) {
+		var that = this;
+
+		// validate `dictionary`
+		if (!dictionary || // no dictionary specified
+			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
+		) {
+			return $.Deferred().reject();
+		}
+
+		// validate `searchText`
+		if (!searchText) { // no searchText, cannot run an empty search
+			return $.Deferred().reject();
+		}
+
+		var method = 'searchSuggest';
+		language = language || 'English';
+		searchType = searchType || 'begins';
+
+		return $.getJSON(that.endpoint + '/' + method, {
+			dictionary: dictionary,
+			searchText: searchText,
+			language: language,
+			searchType: searchType
+		});
+	},
+
+	/**
+	 * Performs a search for a single specific term given the term's CDR ID.
+	 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
+	 * @param {string} termID - ID of the term to retrieve.
+	 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
+	 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.
+	 */
+	getTerm: function(dictionary, termID, language) {
+		var that = this;
+
+		// validate `dictionary`
+		if (!dictionary || // no dictionary specified
+			!that.dictionaries[dictionary] // dictionary specified, but not in the allowed list of dictionaries
+		) {
+			return $.Deferred().reject();
+		}
+
+		// validate `termID`
+		if (!termID) { // no termID, cannot run an empty search
+			return $.Deferred().reject();
+		}
+
+		var method = 'getTerm';
+		language = language || 'English';
+
+		return $.getJSON(that.endpoint + '/' + method, {
+			dictionary: dictionary,
+			termId: termID,
+			language: language
+		});
+	}
+};
+/* END NCI.dictionary */
+
+/* BEGIN NCI.doAutocomplete */
+// TODO: require() this
+NCI.doAutocomplete = function(target, src, contains, queryParam, queryString, opts) {
+	var appendTo = null,
+		$target = $(target);
+	if(target !== "#swKeyword") {
+		appendTo = $target.parent();
+	}
+	var queryParameter = queryParam || "term",
+		regexIsContains = contains || false,
+		defaultOptions = {
+			appendTo: appendTo,
+			// Set AJAX service source
+			source: (function() {
+				var xhr;
+
+				return function( request, response ) {
+					var dataQuery = $.extend({}, queryString || {});
+					var term = request.term;
+					dataQuery[queryParameter] = term;
+
+					if (xhr && xhr.abort) {
+						xhr.abort();
+					}
+					if (typeof src === 'string') {
+						xhr = $.ajax({
+							url: src,
+							data: dataQuery,
+							dataType: 'json',
+						});
+					} else {
+						xhr = src.call(this, term)
+							.done(function(data) {
+								return data.result;
+							});
+					}
+
+					$.when(xhr)
+						.done(function(data) {
+							if(data.result) {
+								response(data.result);
+							} else {
+								response(data);
+							}
+						})
+						.fail(function() {
+							response([]);
+						});
+				};
+			})(),
+
+			// Start autocomplete only after three characters are typed
+			minLength: 3,
+
+			focus: function(event, ui) {
+				event.preventDefault();
+				event.stopPropagation();
+				$target.val(ui.item.item || ui.item.term);
+			},
+			select: function(event, ui) {
+				event.preventDefault();
+				event.stopPropagation();
+				$target.val(ui.item.item || ui.item.term);
+			}
+		};
+
+	var options = $.extend({}, defaultOptions, opts || {});
+
+	$target.autocomplete(options)
+		.data('ui-autocomplete')._renderItem = function(ul, item) {
+			//Escape bad characters
+			var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
+			var regexBold = new RegExp();
+
+			if (regexIsContains) {
+				// highlight autocomplete item if it appears anywhere
+				regexBold = new RegExp('(' + lterm + ')', 'i');
+			} else {
+				// highlight autocomplete item if it appears at the beginning
+				regexBold = new RegExp('(^' + lterm + '|\\s+' + lterm + ')', 'i');
+			}
+			var word = (item.item || item.term).replace(regexBold, "<strong>$&</strong>");
+
+			return $("<li></li>")
+				.data('ui-autocomplete-item', item)
+				.append(word)
+				.appendTo(ul);
+		};
+
+	return $target;
+};
+/* END NCI.doAutocomplete */
+
+
 var parentHostname = parentHostname || (document.referrer === "" ? location.hostname : document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2]);
 
 var longLang = "English",
@@ -23,63 +263,55 @@ var i18nText = {
 };
 
 function loadResults(searchTerm) {
-	var svcUrl = "/TermDictionary.svc/SearchJSON/" + longLang,
-		params = {
-			searchTerm: searchTerm
-		};
+	NCI.dictionary.search('term', searchTerm, longLang)
+		.done(function(data) {
+			var results = data.result;
+			var result;
 
-	$.getJSON(svcUrl, params, function(data) {
-		$('#search').val('');
-
-		if (data.length === 1) {
-			loadDefinition(data[0].id);
-		} else {
 			var terms = $('<ul>').append(
-				$('<li>').html(data.length + ' ' + i18nText.results[shortLang] + ': <b>' + searchTerm + '</b>')
+				$('<li>').html(results.length + ' ' + i18nText.results[shortLang] + ': <b>' + searchTerm + '</b>')
 			);
 
-			for (var i = 0, len = data.length; i < len; i++) {
+			for (var i = 0, len = results.length; i < len; i++) {
+				result = results[i];
+
 				terms.append(
-					$('<li>').html('<a href="javascript:;" onclick="loadDefinition(' + data[i].id + ');">' + data[i].item + '</a>')
+					$('<li>').html('<a href="javascript:;" onclick="loadDefinition(' + result.term.id + ');">' + result.term.term + '</a>')
 				);
 			}
 
 			$('#output')
 				.html(terms)
 				.focus();
-		}
-	});
+		});
 }
 
 function loadDefinition(id) {
-	var svcUrl = "/TermDictionary.svc/GetTermDictionaryByIdJSON/" + longLang,
-		params = {
-			TermId: id,
-			Audience: 'Patient'
-		};
+	NCI.dictionary.getTerm('term', id, longLang)
+		.done(function(data) {
+			var result = data;
 
-	$.getJSON(svcUrl, params, function(data) {
-		$('#search').val('');
+			$('#search').val('');
 
-		$('#output')
-			// reset HTML
-			.html('')
-			.append($('<p>').append($('<b>').text(data.item)))
-			.append($('<p>').html(data.TermDictionaryDetail.DefinitionHTML))
-			.append($('<p>').append(
-				$('<a>')
-					.attr({
-						href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + data.id + '&cid=cdw_' + parentHostname,
-						target: "_blank"
-					})
-					.html(i18nText.dictionaryText[shortLang])
-					.on('click.NCI.analytics', function(e) {
-						NCIAnalytics.ClickThrough(e.target);
-					})
-			))
-			.scrollTop(0)
-			.focus();
-	});
+			$('#output')
+				// reset HTML
+				.html('')
+				.append($('<p>').append($('<b>').text(result.term.term.item)))
+				.append($('<p>').html(result.term.definition.html))
+				.append($('<p>').append(
+					$('<a>')
+						.attr({
+							href: i18nText.dictionaryLink[shortLang] + '?CdrID=' + result.term.id + '&cid=cdw_' + parentHostname,
+							target: "_blank"
+						})
+						.html(i18nText.dictionaryText[shortLang])
+						.on('click.NCI.analytics', function(e) {
+							NCIAnalytics.ClickThrough(e.target);
+						})
+				))
+				.scrollTop(0)
+				.focus();
+		});
 }
 
 function doSearch(e) {
@@ -91,119 +323,12 @@ function doSearch(e) {
 	}
 }
 
-function doAutocomplete(target, url, contains, queryParam, queryString, opts) {
-	var appendTo = null,
-		$target = $(target);
-	if (target !== "#search") {
-		appendTo = $target.parent();
-	}
-	var queryParameter = queryParam || "term",
-		regexIsContains = contains || false,
-		defaultOptions = {
-			appendTo: appendTo,
-			// Set AJAX service source
-			source: (function() {
-				var xhr;
-
-				return function(request, response) {
-					var dataQuery = $.extend({}, queryString || {});
-					dataQuery[queryParameter] = request.term;
-
-					if (xhr) {
-						xhr.abort();
-					}
-					xhr = $.ajax({
-						url: url,
-						data: dataQuery,
-						dataType: "json",
-						success: function(data) {
-							response(data);
-						},
-						error: function() {
-							response([]);
-						}
-					});
-				};
-			})(),
-
-			// Start autocomplete only after three characters are typed
-			minLength: 3,
-
-			focus: function(event, ui) {
-				event.preventDefault();
-				event.stopPropagation();
-				$target.val(ui.item.item);
-			},
-			select: function(event, ui) {
-				event.preventDefault();
-				event.stopPropagation();
-				$target.val(ui.item.item);
-			}
-		};
-
-	var options = $.extend({}, defaultOptions, opts || {});
-
-	$target.autocomplete(options)
-		.data('ui-autocomplete')._renderItem = function(ul, item) {
-			//Escape bad characters
-			var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
-			var regexBold = new RegExp();
-
-			if (regexIsContains) {
-				// highlight autocomplete item if it appears anywhere
-				regexBold = new RegExp('(' + lterm + ')', 'i');
-			} else {
-				// highlight autocomplete item if it appears at the beginning
-				regexBold = new RegExp('(^' + lterm + '|\\s+' + lterm + ')', 'i');
-			}
-			var word = item.item.replace(regexBold, "<strong>$&</strong>");
-
-			return $("<li></li>")
-				.data('ui-autocomplete-item', item)
-				.append(word)
-				.appendTo(ul);
-		};
-	$target.data('ui-autocomplete')._resizeMenu = function() {
-		this.menu.element.outerWidth(this.element.outerWidth());
-	};
-	$target.data('ui-autocomplete')._suggest = function( items ) {
-		/* BEGIN copy from jQuery UI 1.11.4 */
-		var ul = this.menu.element.empty();
-		this._renderMenu( ul, items );
-		this.isNewMenu = true;
-		this.menu.refresh();
-
-		// size and position menu
-		ul.show();
-		this._resizeMenu();
-		ul.position( $.extend( {
-			of: this.element
-		}, this.options.position ) );
-		/* END copy from jQuery UI 1.11.4 */
-
-		// HACK: run again, because we can't tell when the vertical scrollbar has appeared
-		this._resizeMenu();
-		ul.position( $.extend( {
-			of: this.element
-		}, this.options.position ) );
-
-		/* BEGIN copy from jQuery UI 1.11.4 */
-		if ( this.options.autoFocus ) {
-			this.menu.next();
-		}
-		/* END copy from jQuery UI 1.11.4 */
-	};
-
-	return $target;
-}
-
 // AutoComplete Stuff
 $(function($) {
 	var keywordElem = "#search";
 	if ($(keywordElem).length === 0) {
 		return;
 	}
-	var svcUrl = "/TermDictionary.svc/SuggestJSON/" + longLang;
 
-	doAutocomplete(keywordElem, svcUrl, false, "term");
+	NCI.doAutocomplete(keywordElem, function(term){return NCI.dictionary.searchSuggest('term', term, longLang);}, false);
 });

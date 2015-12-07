@@ -1,10 +1,12 @@
 .results {
 	dt,
-	dd.pronunciation {
+	dd.pronunciation,
+	dd.info-summary {
 		display: inline;
 		margin-bottom: 0;
 	}
-	dd.pronunciation {
+	dd.pronunciation,
+	dd.info-summary	{
 		margin-left: 0.5em;
 
 		> span {

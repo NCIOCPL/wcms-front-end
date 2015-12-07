@@ -8,6 +8,22 @@ div.cc-main-pages div.title-red-arrow {
 	float: left;
 	width: 31.25em;
 }
+.topic-feature.card.left {
+	margin-right: 1em;
+}
+.topic-feature.card.right {
+	margin-left: 1em;
+}
+.topic-feature {
+	.feature-card {
+		img {
+			margin-bottom: 1em;
+		}
+		h3 {
+			margin-top: 0;	
+		}
+	}
+}
 .landing-thumb {
 	clear: both;
 }
@@ -41,6 +57,12 @@ div.cc-main-pages div.title-red-arrow {
 @include bp(medium-up) {
 	.cgvtopicpage .columns > h3 {
 		margin-top: 0;
+	}
+	.cgvtopicpage .columns .card-thumbnail-text > h3 {
+		margin-top: 1em;
+	}
+	.card-thumbnail-image {
+		padding-left: 0;	
 	}
 }
 

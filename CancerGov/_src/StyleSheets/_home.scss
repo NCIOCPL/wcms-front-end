@@ -203,22 +203,22 @@
 }
 
 @include bp(small) {
-	.feature-primary {
+	.feature-primary, .topic-feature {
 		margin-bottom: 0;
 	}
 	.feature-primary .card {
 		background: #14819b;
 	}
-	.feature-primary .columns a, .feature-secondary .columns a {
+	.feature-primary .columns a, .feature-secondary .columns a, .topic-feature.columns a {
 		padding-bottom: 15px;
 		padding-top: 15px;
 		overflow: auto;
 	}
-	.feature-primary .image-hover, .feature-secondary .image-hover {
+	.feature-primary .image-hover, .feature-secondary .image-hover, .topic-feature .image-hover {
 		float: left;
 		width: 30%;
 	}
-	.feature-primary h3, .feature-secondary h3 {
+	.feature-primary h3, .feature-secondary h3, .topic-feature a h3 {
 		margin-top: 0;
 		float: right;
 		width: 70%;
@@ -226,15 +226,17 @@
 		line-height: 1.111em;
 	}
 	.feature-primary a:hover h3,
-	.feature-primary a:hover h3	{
+	.feature-primary a:hover h3,
+	.topic-feature a:hover {
 		color: white;
 	}
-	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img {
+	.feature-primary p, .feature-secondary p, .card-thumbnail p, .card-thumbnail img, .topic-feature p {
 		display: none;
 	}
 		/* the portal pages needed these items to not hit the edge of screen on mobile only */
 	.feature-primary h3, .feature-primary p,
 	.feature-secondary h3, .feature-secondary p,
+	.topic-feature h3, .topic-feature p,
 	.other-sites-carousel h3,
 	.row.card-thumbnail h4, .row.card-thumbnail h3, .row.card-thumbnail p {
 		padding-left: 15px;
@@ -244,6 +246,42 @@
 	}
 }
 /* END FEATURE AND SECONDARY PRIMARY CARDS ROW */
+
+/* BEGIN SLOTTED AND INLINE FEATURE CARDS */
+.topic-feature.card {
+	padding: 0;
+}
+.topic-feature {
+	margin-bottom: 1em;
+	background-color: $white02;
+
+	h3 {
+		font-size: 1.375em;
+		line-height: 1.272;	
+	}
+	a {
+		padding: 1.875em;
+		display: block;
+		h3 {
+			font-weight: normal;
+			color: $color-link;			
+		}
+		&:hover, &:focus {
+			h3 {
+				color: $lcranberry;
+			}
+		}
+		@extend %card-link-hover;
+	}
+	p {
+		margin-bottom: 0;
+		color: $body-font-color;
+		font-size: em-calc(16px);
+		line-height: 1.167em;
+	}
+	@include card-clickable;
+}
+/* END SLOTTED AND INLINE FEATURE CARDS */
 
 /* BEGIN GUIDE CARDS ROW */
 .guide-card {
@@ -463,18 +501,18 @@ a.learn-more {
 	}
 	h3, p, ul { padding: 0 15px; }
 
-	&.cgvInfographic {
+	&.cgvInfographic.non-playable {
 		a:before { content: "Infographic";
 			html[lang="es"] & { content: "Infograf\00ed a" }
 		}
 	}
-	&.gloVideo {
+	&.gloVideo.non-playable {
 		a:before { content: "Video";
 			html[lang="es"] & { content: "Video" }
 		}
 	}
 
-	&.gloVideoCarousel {
+	&.gloVideoCarousel.non-playable {
 		a:before { content: "Video Playlist";
 			html[lang="es"] & {
 				content: "Lista de reproducci\00f3 n de videos" }
