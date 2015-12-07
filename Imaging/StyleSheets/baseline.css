@@ -79,6 +79,18 @@ ol {
 
 ol li {}
 
+/* begin no bullets */
+ul.no-bullets, ol.no-bullets {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+ul.no-bullets li {
+	background: none;
+	list-style: none;
+}
+
+/* end no bullets */
 blockquote {
 	margin: 0 36px 0 36px;
 }
