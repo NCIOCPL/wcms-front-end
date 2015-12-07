@@ -281,6 +281,33 @@ function set_hier1() {
 /* Dynamically Capture Hierarchy Variable via Custom Plugin */
 s.hier1 = set_hier1();
 
+/** Custom functions to track screen size changes */
+var viewPortLoaded = s.eVar5 = getViewPort(); // Set eVar for browser width on page load
+window.onresize = trackViewPortResize; // If the current browser screen is resized, call the trackViewPortResize() function
+ 
+/* Set a name for the view port based on the current screen size */
+function getViewPort() {
+	var screen = '';
+	if(window.innerWidth)
+	{
+		if (window.innerWidth > 1440) { screen = "Extra wide"; }
+		else if (window.innerWidth > 1024) { screen = "Desktop"; }
+		else if (window.innerWidth > 640) { screen = "Tablet"; }
+		else { screen = "Mobile"; }
+	}
+	return screen;
+}
+
+/* If the screen is resized past a different breakpoint, track the variable and event */
+function trackViewPortResize() {
+	var viewPortResized = getViewPort();
+	if (viewPortLoaded != viewPortResized) {
+		NCIAnalytics.Resize(this,viewPortResized);
+		viewPortLoaded = viewPortResized;
+	}
+	return viewPortResized;
+}
+
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
 /*

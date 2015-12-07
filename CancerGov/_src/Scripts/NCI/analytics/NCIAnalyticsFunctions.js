@@ -1175,6 +1175,17 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************	
+	Resize: function(sender, viewPort) {
+		var width = 'ResizedTo' + viewPort;
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', width);
+		clickParams.Evars = {
+			5: viewPort
+		};
+		clickParams.Events = [7];
+		clickParams.LogToOmniture();
+	},
+	
+    //******************************************************************************************************	
     /* SPLF_Hier1: function() {
     // URL structure
     // element 0 = blank
