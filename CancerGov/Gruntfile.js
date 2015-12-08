@@ -334,14 +334,17 @@ module.exports = function(grunt) {
 
 		switch (env) {
 			case 'dev/red':
+			case 'red-dev':
 			case 'red':
 				proxy = 'www-red-dev';
 				break;
 			case 'dev/pink':
+			case 'pink-dev':
 			case 'pink':
 				proxy = 'www-pink-dev';
 				break;
 			case 'dev/blue':
+			case 'blue-dev':
 			case 'blue':
 			case 'dev':
 			default:
@@ -356,6 +359,9 @@ module.exports = function(grunt) {
 				break;
 			case 'stage':
 				proxy = 'www-stage';
+				break;
+			case 'training':
+				proxy = 'www-training';
 				break;
 			case 'production':
 			case 'prod':
