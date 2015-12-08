@@ -1,6 +1,5 @@
 define(function(require) {
 	require('routie');
-	require('Common/Enhancements/js_loader');
 	require('Common/Enhancements/popup_functions');
 	var jQuery = require('jquery');
 	require('jquery/jplayer');
