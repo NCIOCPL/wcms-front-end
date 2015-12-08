@@ -330,8 +330,50 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
-		env = (env === 'prod' ? 'prod' : 'dev');
+		var proxy;
+
+		switch (env) {
+			case 'dev/red':
+			case 'red':
+				proxy = 'www-red-dev';
+				break;
+			case 'dev/pink':
+			case 'pink':
+				proxy = 'www-pink-dev';
+				break;
+			case 'dev':
+			case 'dev/blue':
+			case 'blue':
+				proxy = 'www-blue-dev';
+				break;
+			case 'qa':
+				proxy = 'www-qa';
+				break;
+			case 'dt-qa':
+			case 'dt':
+				proxy = 'www-dt-qa';
+				break;
+			case 'stage':
+				proxy = 'www-stage';
+				break;
+			case 'production':
+			case 'prod':
+			default:
+				proxy = 'www';
+				break;
+		}
+		env = (proxy === 'www' ? 'prod' : 'dev');
+
 		grunt.config('env', env);
+		grunt.config.merge({
+			develop: {
+				server: {
+					env: {
+						PROXY_ENV: proxy
+					}
+				}
+			}
+		});
 
 		var tasks = ['build:' + env, 'develop', 'watch'];
 		grunt.task.run(tasks);

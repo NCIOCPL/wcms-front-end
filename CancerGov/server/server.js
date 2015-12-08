@@ -11,6 +11,8 @@ var querystring = require('querystring');
 
 var app = express();
 
+var proxyEnv = process.env.PROXY_ENV;
+
 //We will use handlebars to deal with certain types of templating
 //mainly error pages.  THIS SHOULD NOT BE USED FOR WEBSITE CONTENT!!!
 //Node is not used for hosting web pages, and as such is not available
@@ -40,9 +42,10 @@ app.use(cookieParser());
 /** Serve up static content in the public folder **/
 app.use('/PublishedContent', express.static(__dirname.replace("server","_dist")));
 
+console.log('Proxying: ' + proxyEnv + '.cancer.gov');
 
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
-app.use('*', proxy('www-blue-dev.cancer.gov', {
+app.use('*', proxy(proxyEnv + '.cancer.gov', {
     forwardPath: function(req, res) {
         return require('url').parse(req.originalUrl).path;
     }
