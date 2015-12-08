@@ -341,9 +341,10 @@ module.exports = function(grunt) {
 			case 'pink':
 				proxy = 'www-pink-dev';
 				break;
-			case 'dev':
 			case 'dev/blue':
 			case 'blue':
+			case 'dev':
+			default:
 				proxy = 'www-blue-dev';
 				break;
 			case 'qa':
@@ -358,11 +359,11 @@ module.exports = function(grunt) {
 				break;
 			case 'production':
 			case 'prod':
-			default:
 				proxy = 'www';
+				env = 'prod';
 				break;
 		}
-		env = (proxy === 'www' ? 'prod' : 'dev');
+		env = (env === 'prod' ? 'prod' : 'dev');
 
 		grunt.config('env', env);
 		grunt.config.merge({
