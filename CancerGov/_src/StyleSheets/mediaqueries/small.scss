@@ -160,4 +160,9 @@
 	}
 	.media-contact-info {
 		display: block;	}
+		
+	/** Hide auto-generated OTP on mobile accordion collapse */
+	.hide-otp-on-collapse {
+		display: none;
+	}
 }
