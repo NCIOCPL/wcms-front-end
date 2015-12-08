@@ -153,8 +153,15 @@ var NCIAnalytics = {
     //*********************** onclick functions ************************************************************	
     SiteWideSearch: function(sender) {
         var searchType = 'sitewide';
-        var keyword = document.getElementById('swKeyword').value;
-
+        var keyword = ' ';
+        if (document.getElementById('swKeyword') && document.getElementById('swKeyword').value)
+        {
+            keyword = document.getElementById('swKeyword').value;
+        }
+        if (document.getElementById('swKeywordQuery') && document.getElementById('swKeywordQuery').value)
+        {
+            keyword = document.getElementById('swKeywordQuery').value;
+        }
         if (s.prop8.toLowerCase() == 'spanish')
             searchType += '_spanish';
 
@@ -1174,6 +1181,17 @@ var NCIAnalytics = {
         return target;
     },
 
+    //******************************************************************************************************	
+    Resize: function(sender, viewPort) {
+        var width = 'ResizedTo' + viewPort;
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', width);
+        clickParams.Evars = {
+            5: viewPort
+        };
+        clickParams.Events = [7];
+        clickParams.LogToOmniture();
+    },
+	
     //******************************************************************************************************	
     /* SPLF_Hier1: function() {
     // URL structure
