@@ -42,8 +42,6 @@ app.use(cookieParser());
 /** Serve up static content in the public folder **/
 app.use('/PublishedContent', express.static(__dirname.replace("server","_dist")));
 
-console.log('Proxying: ' + proxyEnv + '.cancer.gov');
-
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
 app.use('*', proxy(proxyEnv + '.cancer.gov', {
     forwardPath: function(req, res) {
@@ -118,5 +116,5 @@ app.use(function(err, req, res, next) {
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
-    debug('Express server listening on port ' + server.address().port);
+    console.log('proxying "' + proxyEnv + '.cancer.gov" at "localhost:' + server.address().port + '".');
 });
