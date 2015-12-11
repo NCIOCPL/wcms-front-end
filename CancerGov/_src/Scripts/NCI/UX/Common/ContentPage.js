@@ -1,6 +1,5 @@
 define(function(require) {
 	require('routie');
-	require('Common/Enhancements/js_loader');
 	require('Common/Enhancements/popup_functions');
 	var jQuery = require('jquery');
 	require('jquery/jplayer');
@@ -21,21 +20,6 @@ define(function(require) {
 					$('.fixedtotop-spacer').height(headerHeight);
 				}
 			});
-
-			/* OCEPROJECT-2920, reposition when focus is under the sticky nav */
-			$('#content')
-				.on('focusin.NCI.scrollTo', ':focusable', function(event) {
-					// reposition on focusing a child item, if needed
-					var rect = this.getBoundingClientRect(),
-						header = document.querySelector('.fixedtotop'),
-						headerBottom = header && header.getBoundingClientRect().bottom,
-						topShown = rect.top >= headerBottom,
-						isTall = $(this).height() >= $(window).height();
-
-					if(!topShown && !isTall) {
-						NCI.scrollTo(event.target, event.type);
-					}
-				});
 		})(jQuery);
 		/*** END scrollToFixed init ***/
 

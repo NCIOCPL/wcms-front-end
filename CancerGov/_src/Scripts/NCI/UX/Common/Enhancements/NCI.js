@@ -166,7 +166,7 @@ define(function(require) {
 						en: "On This Page",
 						es: "En Este Página"
 					},
-					class: "on-this-page",
+					class: "on-this-page hide-otp-on-collapse",
 					placement: {
 						insert: 'prependTo',
 						to: '[data-otp-selector]'
