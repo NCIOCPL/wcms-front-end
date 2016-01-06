@@ -628,12 +628,13 @@ fieldset {
 	padding-bottom: 0 !important;
 }
 .ct-zip-area {
-	display: inline-block;
+	display: block;
 	position: relative;
 }
 .ct-zip-row .ui-selectmenu-button {
 	margin-right: 10px;
 	margin-bottom: 10px;
+	width: 160px !important;
 }
 @include bp(medium-down) {
 	.ct-zip-row span {
@@ -644,16 +645,12 @@ fieldset {
 	}
 }
 .ct-zip {
+	display: block !important;
 	margin-left: 15px;
-	margin-bottom: 30px;
+	margin-bottom: 6px !important;
 	width: 140px !important;
 }
 .ct-zip-lookup {
-	display: block;
-	position: absolute;
-	bottom: -10px;
-	right: 0;
-	text-align: right;
 }
 .ct-zip-row .icon-exit-notification {
 	display: none;
