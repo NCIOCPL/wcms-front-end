@@ -248,24 +248,29 @@ var NCIAnalytics = {
         var keyword = '';
 
         var cancerTypeCondition = $('#' + ids.cancerType + " option:selected").text();
-
-        //Location 
-        // - zip code
-        if ($("#" + ids.zipCodeLocationButton)[0].checked)
-            location = 'Near Zip Code';
-        // - At NIH
-        else if ($("#" + ids.atNihLocationButton)[0].checked)
-            if ($("#" + ids.nihOnly)[0].checked)
-            location = 'At NIH Only Bethesda, Md';
-        else
-            location = 'At NIH';
-        // - City/State/Country
-        else if ($("#" + ids.cityStateLocationButton)[0].checked) {
+        var locationTypeSelected = $('#' + ids.locationSelector + " option:selected").text();
+        
+        // "Search By Location" dropdown
+        if (locationTypeSelected.indexOf('All') > -1) {
+            location = 'All Locations';
+        }
+        else if (locationTypeSelected.indexOf('Near ZIP Code') > -1) {
+            location = 'Near ZIP Code';
+        }
+        else if (locationTypeSelected.indexOf('In City/State/Country') > -1) {
             location = 'In City/State/Country';
         }
-        else if ($("#" + ids.hospitalLocationButton)[0].checked) {
+        else if (locationTypeSelected.indexOf('At Hospital/Institution') > -1) {
             location = 'At Hospital/Institution';
         }
+        else if (locationTypeSelected.indexOf('At NIH') > -1) {
+            // If "At NIH" is selected, specify all NIH or Bethesda only
+            if ($('#' + ids.nihOnly)[0].checked)
+                location = 'At NIH Only Bethesda, Md';
+            else
+                location = 'At NIH';
+        }
+
 
         // Trial Phase
         // - Phase
