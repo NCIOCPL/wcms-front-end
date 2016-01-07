@@ -35,8 +35,9 @@
 	.slick-loading & {
 		background: white url('ajax-loader.gif') center center no-repeat;
 	}
+		*/
 }
-	*/
+
 .slick-slider .slick-list, .slick-track, .slick-slide, .slick-slide img {
 	@include transform (translate3d(0, 0, 0));
 }
