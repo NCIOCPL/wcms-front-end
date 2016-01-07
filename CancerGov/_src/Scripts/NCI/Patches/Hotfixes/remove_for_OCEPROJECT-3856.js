@@ -1,0 +1,3 @@
+// This is temporary JavaScript to change the class names for thumbnail cards on Cancer Topic Pages. Since the content area is smaller than landing pages due to the left navigation, the foundation columns need to be changed from 2/10 ratio to 3/9 so that the image is bigger.
+$('.cgvtopicpage .card-thumbnail .card-thumbnail > div:nth-child(1)').removeClass('small-2').addClass('small-3');
+$('.cgvtopicpage .card-thumbnail .card-thumbnail > div:nth-child(2)').removeClass('small-10').addClass('small-9');
