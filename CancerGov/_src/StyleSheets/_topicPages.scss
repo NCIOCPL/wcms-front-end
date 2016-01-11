@@ -54,6 +54,9 @@ div.cc-main-pages div.title-red-arrow {
 .cgvtopicpage .columns > h3 {
 	font-weight: normal;
 }
+.cgvtopicpage .card-thumbnail {
+	background: none;
+}
 @include bp(medium-up) {
 	.cgvtopicpage .columns > h3 {
 		margin-top: 0;
