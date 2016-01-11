@@ -64,10 +64,21 @@ p.blog-post-publishing-info {
 			display: none;
 		}
 	}
+	// this was done to override the padding that foundation rows get. The requirement was no left padding for the images on the blog results page, ie /news-events/cancer-currents-blog
+	.post-thumb {
+		padding-left: 0;	
+	}
 	.post-thumb img {
 		max-width: 100%;
 	}
 }
+
+@include bp(small) {
+	.post-thumb {
+		display: none;	
+	}
+}
+
 .blog-list {
 	margin-top: 24px;
 }
