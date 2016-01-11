@@ -372,7 +372,11 @@ a.learn-more {
 /* END GUIDE CARDS ROW */
 
 /* BEGIN THUMBNAIL CARDS ROW */
-
+// this is to fix a bug where .row .row is giving negative margin to the thumbnail cards on the landing pages
+.card-thumbnail .card-thumbnail {
+	margin-left: 0;
+	margin-right: 0;
+}
 .card-thumbnail {
 	background: $white;
 	padding-top: 1em;
