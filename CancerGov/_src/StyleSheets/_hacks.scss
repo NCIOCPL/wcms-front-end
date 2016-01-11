@@ -32,15 +32,19 @@ body.cgvfactsheet h2 p {
 		color: $body-font-color;
 	}
 }
-
-
-
-// Hack to change spacing for thumbnail cards on Cancer Topic pages. They should have the styling of 3/9 columns instead of 2/10. Modifying widths of 2/10 for this specific instance. When the html is changed to 3/9, this hack can come out.
+// Hack to change spacing for thumbnail cards on Cancer Topic pages, Landing pages and Blog pages. They should have the styling of 3/9 columns instead of 2/10. Modifying widths of 2/10 for this specific instance. When the html is changed to 3/9, this hack can come out.
 @include bp(medium-up) {
-	.cgvtopicpage .card-thumbnail .small-2 {
+	.cgvtopicpage .card-thumbnail, .ncilanding .card-thumbnail {
 		width: 25%;
 	}
-	.cgvtopicpage .card-thumbnail .small-10 {
+	.cgvtopicpage .card-thumbnail, .ncilanding .card-thumbnail {
 		width: 75%;
 	}
+	.medium-3.columns.post-thumb {
+		width: 25%;	
+	}
+	.medium-9.columns.post-info {
+		width: 75%;	
+	}
 }
+
