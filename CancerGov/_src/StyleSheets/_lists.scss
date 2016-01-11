@@ -77,13 +77,13 @@ dl {
 				padding-left: 1.25em;
 				margin-right: -4px;
 
-				@include bp(medium-down) {
+				@include bp(small) {
 					width: 100%;
 					padding: 0;
 				}
 			}
 
-			@include bp(medium-down) {
+			@include bp(small) {
 				display: none;
 			}
 		}
@@ -166,6 +166,15 @@ dl {
 	// Title, Date, Desc,!IMAGE
 	// Title, Date, Desc, Image
 }
+
+// changing default behavior of list image for new landing page so that the image is 188px wide at desktop, matching the specs for thumbnail cards
+.row.news .list {
+		.container {
+			&.image {
+			width: 25%;
+			}
+		}
+	}
 
 // Dynamic List styles
 .list-item span.title a.title {
@@ -306,3 +315,4 @@ ul.cancer-list {
 .list.no-bullets .general-list-item {
     margin: 0 0 1.875em;
 } 
+
