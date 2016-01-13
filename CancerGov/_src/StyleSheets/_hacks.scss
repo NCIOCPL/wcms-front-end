@@ -32,3 +32,24 @@ body.cgvfactsheet h2 p {
 		color: $body-font-color;
 	}
 }
+
+
+
+// Hack to change spacing for thumbnail cards on Cancer Topic pages. They should have the styling of 3/9 columns instead of 2/10. Modifying widths of 2/10 for this specific instance. When the html is changed to 3/9, this hack can come out.
+@include bp(medium-up) {
+	.cgvtopicpage .card-thumbnail .small-2 {
+		width: 25%;
+	}
+	.cgvtopicpage .card-thumbnail .small-10 {
+		width: 75%;
+	}
+}
+
+
+// Hack to take away padding from Blog pages when in mobile. When the new classes are added, small-3, small-9, this should not be necessary anymore.
+@include bp(small) {
+	.medium-9 .post-info {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
