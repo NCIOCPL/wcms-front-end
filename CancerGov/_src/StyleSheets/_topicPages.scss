@@ -54,14 +54,17 @@ div.cc-main-pages div.title-red-arrow {
 .cgvtopicpage .columns > h3 {
 	font-weight: normal;
 }
+.cgvtopicpage .card-thumbnail {
+	background: none;
+}
 @include bp(medium-up) {
 	.cgvtopicpage .columns > h3 {
 		margin-top: 0;
 	}
 	.cgvtopicpage .columns .card-thumbnail-text > h3 {
-		margin-top: 1em;
+		margin-top: 0.5em;
 	}
-	.card-thumbnail-image {
+	.cgvtopicpage .card-thumbnail-image {
 		padding-left: 0;	
 	}
 }
