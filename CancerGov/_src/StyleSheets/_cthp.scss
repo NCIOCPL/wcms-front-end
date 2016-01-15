@@ -146,10 +146,10 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
 .cthp-version-toggle {
     position: relative;
-	float: right;
+	float: left;
     background-color: #dbf2f8;
 	color: #fff;
-	margin: -55px 0 20px 0;
+	margin: 0 0 20px 0;
 
     /* margin-top: -10px; -->  half the icon height */
     & a:after {
@@ -317,9 +317,6 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	
 	.cthp-padding {
 		padding-left: em-calc(8px);
-	}
-	.cthp-content h1 {
-		margin-right: 10.3em;
 	}
 }
 /********** END Cancer Type Home Page Styles ******************************************/
