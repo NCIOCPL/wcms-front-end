@@ -84,14 +84,19 @@
 		border-top: none;
 		background-color: #fff;
 		width: 100%;
+		max-height:0;
 
+		opacity: 0;
 		visibility: hidden;
-		@include transition(visibility 0s linear 0ms);
+		//@include transform(translateY(-15px));
+		@include transition(all 500ms ease 500ms);
 
 		/* sub-navigation panel open state */
 		&.open {
+			max-height:300px;
+			opacity: 1;
 			visibility: visible;
-			@include transition-delay(500ms);
+			//@include transform(translateY(0));
 		}
 	}
 
@@ -164,7 +169,7 @@
 
 	/* decrease height of mega menu and add scroll bar */
 	.mega-menu-scroll {
-		max-height: 300px;
+		//max-height: 300px;
 		overflow: auto;
 	}
 
