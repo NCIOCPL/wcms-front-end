@@ -389,7 +389,7 @@ a.learn-more {
 		margin-top: 1em;
 	}
 	.image-hover {
-		display: block;
+		display: inline-block;
 
 		&:hover, &:focus {
 			background-color: #000;
