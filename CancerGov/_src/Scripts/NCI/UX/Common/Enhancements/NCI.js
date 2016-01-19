@@ -1,4 +1,5 @@
 define(function(require) {
+	var equalHeights = require('./equal_heights');
 	var NCI = {
 		/*======================================================================================================
 		 * function linkToEmpty
