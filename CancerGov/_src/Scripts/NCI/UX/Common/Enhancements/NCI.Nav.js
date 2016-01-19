@@ -2,6 +2,7 @@ define(function(require) {
 	var $ = require('jquery');
 	require('jquery/touchswipe');
 
+
 	var Nav = {
 		movingClass: "nav-moving",
 		movingTimeout: setTimeout(function() {}),
@@ -55,6 +56,20 @@ define(function(require) {
 
 			n.Section.init();
 
+			var borderedItems = n.$mega.find("[class*=border-container]");
+			if(borderedItems.length > 0){
+				borderedItems.each(function(i){
+					var heights = [],
+						$el = $(this),
+						siblings = $el.siblings()
+					;
+					siblings.each(function(j){
+						heights.push($(this).outerHeight(true));
+					});
+					heights.push($el.outerHeight(true));
+					$el.height(Math.max.apply(null,heights));
+				});
+			}
 		},
 		isOpen: function() {
 			return $('html').hasClass(NCI.Nav.openClass);

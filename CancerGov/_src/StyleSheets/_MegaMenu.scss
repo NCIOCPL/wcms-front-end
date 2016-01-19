@@ -137,10 +137,11 @@
 	.cancer-types-border-container {
 		.sub-nav-mega & { // to override '.sub-nav-mega .sub-nav-group' styling
 			width: 66%;
+			margin-top:8px;
+			border-right: 1px solid #000;
 		}
 		> li {
-			border-right: 1px solid #000;
-
+			margin-top:0;
 			> ul {
 				width: 100%/3 - 2%;
 				margin-right: -4px;
