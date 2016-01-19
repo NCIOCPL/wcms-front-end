@@ -587,7 +587,9 @@ define(function(require) {
 		/*** BEGIN blog comment policy ***/
 		(function($) {
 			if ($('#cgvCommentsSl').length) {
-				$('.blog-comment-policy').show();
+				if( $('.intense-debate-comments').length < 1) {
+					$('.blog-comment-policy').show();
+				}
 			}
 		})(jQuery);
 		/*** END blog comment policy ***/
