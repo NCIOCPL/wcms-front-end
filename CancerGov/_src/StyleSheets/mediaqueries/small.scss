@@ -21,6 +21,9 @@
 	.bcrumbs {
 		display: none;
 	}
+	.section-nav {
+		top: 1.9375em;
+	}
 	/* Hide 'On This Page' section on PDQ & factsheet pages */
 	#pdq-toc-article nav.on-this-page, body.cgvfactsheet nav.on-this-page {
 		display: none;
