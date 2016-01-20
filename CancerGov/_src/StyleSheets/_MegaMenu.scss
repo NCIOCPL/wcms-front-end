@@ -99,6 +99,12 @@
 			//@include transform(translateY(0));
 		}
 	}
+	
+	// if sub nav mega is empty, remove syling
+	.empty-mega {
+		background-color: transparent;
+		padding: 0;
+	}
 
 	/* allow mega menu to span full width of screen while keep menu items within limits of content */
 	.sub-nav-group-wrapper {
