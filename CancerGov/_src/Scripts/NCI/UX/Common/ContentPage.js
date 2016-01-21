@@ -54,6 +54,25 @@ define(function(require) {
 				/* css class for the open state */
 				openClass: "open"
 			});
+			
+			//megamenu animations for IE9 which does not support CSS3 transitions
+			if($('html').is(".no-csstransitions")) {
+				//capture initial menu height, save it as a data attribute, then set height to 0
+				$("#mega-nav .sub-nav-mega").each(function () {
+					var subNav = $(this);
+					subNav.data("initHeight", subNav[0].scrollHeight).height(0);
+				});
+
+				$("#mega-nav").on("mouseenter", "li.nav-item", function () {
+					var subNav = $(this).find(".sub-nav-mega");
+					var height = subNav.data("initHeight");
+					subNav.stop(true, true).delay(500).animate({opacity: 1, height: height}, 500);
+
+				}).on("mouseleave", "li.nav-item", function () {
+					var subNav = $(this).find(".sub-nav-mega");
+					subNav.stop(true, true).delay(500).animate({opacity: 0, height: 0}, 500);
+				});
+			}
 
 			// Determine the height of the viewport on page load and whenever the viewport changes sizes.
 			// If the viewport is under a certain height, add a class to the mega menu (to limit its height).

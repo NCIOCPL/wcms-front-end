@@ -99,6 +99,14 @@
 			//@include transform(translateY(0));
 		}
 	}
+	.no-csstransitions .sub-nav-mega {
+		max-height:300px;
+		overflow:hidden !important;
+		visibility: visible;
+	}
+	.no-csstransitions .sub-nav-mega.open {
+		opacity:0;
+	}
 	
 	// if sub nav mega is empty, remove syling
 	.empty-mega {
