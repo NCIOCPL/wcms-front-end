@@ -100,7 +100,7 @@ figure.table {
 		margin: 0;
 	}
 
-	figcaption {
+	figcaption, .emptyCaptionShim {
 		@extend %default-caption; // same as table.table-default caption
 
 		& + a.article-image-enlarge {
