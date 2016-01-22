@@ -196,5 +196,11 @@
 		margin: 10px 0px;
 		display: inline-block;
 	}
+	.nm_infoBubble {
+		&.nm_alignRightAbove,
+		&.nm_alignLeftAbove {
+			@include transform(translateY(8px));
+		}
+	}
 }
 /****************** END Nokia Maps ********************/
