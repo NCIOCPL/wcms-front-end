@@ -59,7 +59,6 @@ h4, h5, h6 {
 // mixin to create all small column combinations
 .small-1, .small-2, .small-3, .small-4, .small-5, .small-6, .small-7, .small-8, .small-9, .small-10, .small-11, .small-12 {
     @extend %small-columns !optional;
-	background: azure;
 }
 // mixin to create all medium column combinations
 .medium-1, .medium-2, .medium-3, .medium-4, .medium-5, .medium-6, .medium-7, .medium-8, .medium-9, .medium-10, .medium-11, .medium-12 {
@@ -70,30 +69,19 @@ h4, h5, h6 {
     @extend %large-columns !optional;
 }
 // create all small column combinations along with all header combinations
-%small-columns > %headings:first-child {
+.contentzone %small-columns > %headings:first-child {
    margin-top: 0;
 }
 @include bp(large-up) {
-		%medium-columns > %headings:first-child {
+		.contentzone %medium-columns > %headings:first-child {
 		margin-top: 0;
 	}
 }
 @include bp(medium-up) {
-		%large-columns > %headings:first-child {
+		.contentzone %large-columns > %headings:first-child {
 		margin-top: 0;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 p {
 	margin: 0.5em 0;
 	line-height: 1.5em;
