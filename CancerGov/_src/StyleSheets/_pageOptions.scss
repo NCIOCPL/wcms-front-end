@@ -13,8 +13,8 @@
 	li {
 		display: inline-block;
 		margin: 0;
-		background-image: url($icons + "nci-sprite.png"); /* Sprites */
-		background-repeat: no-repeat;
+		//background-image: url($icons + "nci-sprite.png"); /* Sprites */
+		//background-repeat: no-repeat;
 	}
 	a {
 		display: block;
@@ -33,56 +33,99 @@
 		display: none;
 	}
 
-	.page-options {
-		li {
-			margin: 0 0.875em 0 0;
-			width: 35px;
-			height: 35px;
-		}
-
-		.po-view-entire-document {
-			display: none;
-		}
-		.po-font-resize {
-			display: none;
-		}
-		.po-print {
-			display: none;
-		}
-		.po-email {
-			background-position: -183px -12px;
-
-			&:hover {
-				background-position: -243px -12px;
+	.contentzone {
+		.page-options {
+			li {
+				position: relative;
+				margin: 0 0.875em 0 0;
+				width: 35px;
+				height: 35px;
+				background-color: $color-link;
+				border-radius: 50%;
+				&:before {
+					position: absolute;
+					display: block;
+					margin: 0;
+					font: normal normal normal 20px/1 Flaticon;
+					text-rendering: auto;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					color: $white;
+					top: 50%;
+					left: 50%;
+					@include transform(translateX(-50%) translateY(-50%));
+				}
+				&:hover {
+					background-color: $cranberry;
+				}
 			}
-		}
-		.po-facebook {
-			background-position: -183px -56px;
 
-			&:hover {
-				background-position: -243px -56px;
+			.po-view-entire-document {
+				display: none;
 			}
-		}
-		.po-twitter {
-			background-position: -183px -102px;
+			.po-font-resize {
+				display: none;
+			}
+			.po-print {
+				display: none;
+			}
+			/* Note: if the flaticon font is ever updated with additional icon, make sure the keycodes have not changed */
+			.po-email:before {
+				content: "\e006"; //.flaticon-envelopes5
+			}
+			.po-facebook:before {
+				content: "\e008"; //.flaticon-facebook55
+			}
+			.po-twitter:before {
+				content: "\e01c"; //.flaticon-twitter35
+				top: 19px;
+				left: 19px;
+			}
+			.po-googleplus:before {
+				content: "\e009"; //.flaticon-google45
+				top: 19px;
+				left: 20px;
+			}
+			.po-pinterest:before {
+				content: "\e017"; //.flaticon-pinterest26
+			}
+			/*
+            .po-email {
+                background-position: -183px -12px;
 
-			&:hover {
-				background-position: -243px -102px;
-			}
-		}
-		.po-googleplus {
-			background-position: -183px -147px;
+                &:hover {
+                    background-position: -243px -12px;
+                }
+            }
+            .po-facebook {
+                background-position: -183px -56px;
 
-			&:hover {
-				background-position: -243px -147px;
-			}
-		}
-		.po-pinterest {
-			background-position: -183px -192px;
+                &:hover {
+                    background-position: -243px -56px;
+                }
+            }
+            .po-twitter {
+                background-position: -183px -102px;
 
-			&:hover {
-				background-position: -243px -192px;
-			}
+                &:hover {
+                    background-position: -243px -102px;
+                }
+            }
+            .po-googleplus {
+                background-position: -183px -147px;
+
+                &:hover {
+                    background-position: -243px -147px;
+                }
+            }
+            .po-pinterest {
+                background-position: -183px -192px;
+
+                &:hover {
+                    background-position: -243px -192px;
+                }
+            }
+            */
 		}
 	}
 }
@@ -116,6 +159,9 @@
 			margin: 0 0 0 0.875em;
 			height: 25px;
 			width: 25px;
+			display: inline-block;
+			background-image: url($icons + "nci-sprite.png"); /* Sprites */
+			background-repeat: no-repeat;
 		}
 
 		.po-view-entire-document {
