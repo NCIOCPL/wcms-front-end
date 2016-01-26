@@ -251,7 +251,8 @@
 
 		/* clicked link state */
 		.nav-menu li > div > a:active {
-			color: $cranberry;
+			color: $white;
+			background-color: $cranberry;
 		}
 
 		/* remove margin from lists */
