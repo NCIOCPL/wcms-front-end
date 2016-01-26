@@ -36,13 +36,16 @@
 	.contentzone {
 		.page-options {
 			li {
-				position: relative;
 				margin: 0 0.875em 0 0;
 				width: 35px;
 				height: 35px;
 				background-color: $color-link;
 				border-radius: 50%;
-				&:before {
+				a {
+					display:block;
+					position:relative;
+				}
+				a:before {
 					position: absolute;
 					display: block;
 					margin: 0;
@@ -70,23 +73,23 @@
 				display: none;
 			}
 			/* Note: if the flaticon font is ever updated with additional icon, make sure the keycodes have not changed */
-			.po-email:before {
+			.po-email a:before {
 				content: "\e006"; //.flaticon-envelopes5
 			}
-			.po-facebook:before {
+			.po-facebook a:before {
 				content: "\e008"; //.flaticon-facebook55
 			}
-			.po-twitter:before {
+			.po-twitter a:before {
 				content: "\e01c"; //.flaticon-twitter35
 				top: 19px;
 				left: 19px;
 			}
-			.po-googleplus:before {
+			.po-googleplus a:before {
 				content: "\e009"; //.flaticon-google45
 				top: 19px;
 				left: 20px;
 			}
-			.po-pinterest:before {
+			.po-pinterest a:before {
 				content: "\e017"; //.flaticon-pinterest26
 			}
 			/*
