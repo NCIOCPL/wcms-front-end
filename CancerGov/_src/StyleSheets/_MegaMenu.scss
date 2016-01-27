@@ -31,6 +31,7 @@
 		@include font-montserrat;
 		text-transform: uppercase;
 		text-align: center;
+		transition: all linear 150ms;
 	}
 
 	/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
@@ -78,18 +79,19 @@
 		position: absolute;
 		/* make menu the width of the entire nav bar */
 		left: 0;
-		padding: 0.5em 1em;
-		border: 1px solid #dedede;
+		//padding: 0.5em 1em;
+		border-bottom: 1px solid #dedede;
 		@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
 		border-top: none;
 		background-color: #fff;
 		width: 100%;
+		overflow: auto;
 		max-height:0;
 
 		opacity: 0;
 		visibility: hidden;
 		//@include transform(translateY(-15px));
-		@include transition(all 500ms ease 500ms);
+		@include transition(all 500ms ease 100ms);
 
 		/* sub-navigation panel open state */
 		&.open {
@@ -118,8 +120,8 @@
 	.sub-nav-group-wrapper {
 		max-width: 1200px;
 		margin: 0 auto;
+		padding: 0.5em 1em;
 	}
-
 
 
 	/* list of items within sub-navigation panel */
@@ -156,7 +158,7 @@
 	.cancer-types-border-container {
 		.sub-nav-mega & { // to override '.sub-nav-mega .sub-nav-group' styling
 			width: 66%;
-			margin-top:8px;
+			//margin-top:8px;
 			border-right: 1px solid #000;
 		}
 		> li {
