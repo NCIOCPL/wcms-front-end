@@ -21,13 +21,14 @@ div.ebook-title h4 {
 /* Begin eBook buttons */
 .pub-buttons {
 	overflow: auto;
+	font-family: #{$montserrat-font-stack};
 }
 
 .pub-buttons a {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	padding: 8px 15px 0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	padding: 6px 15px 0;
 	text-decoration: none;
 	float: left;
 	margin-right: 15px;
@@ -36,6 +37,10 @@ div.ebook-title h4 {
 	color: #fff;
 	line-height: 24px;
 	font-size: 13px;
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
+	box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
 }
 
 .pub-buttons a.lector {
