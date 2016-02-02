@@ -22,9 +22,10 @@
 		width: 100%;
 	}
 }
-.contentzone .page-options li:before {
-		content: none;
-		display: none;
+//.contentzone
+.page-options li:before {
+		content: none !important;
+		display: none !important;
 }
 
 /* MOBILE page options */
@@ -33,7 +34,7 @@
 		display: none;
 	}
 
-	.contentzone {
+	//.contentzone {
 		.page-options {
 			li {
 				margin: 0 0.875em 0 0;
@@ -130,7 +131,7 @@
             }
             */
 		}
-	}
+	//}
 }
 
 /* DESKTOP page options */
