@@ -143,6 +143,11 @@ form a.button:hover, {
 	text-decoration: none;
 }
 
+.contentzone form button,
+.contentzone .button {
+	min-width: 130px;
+}
+
 form button,
 .button {
 	@include button-base;
@@ -154,7 +159,6 @@ form button,
 	margin-right: 28px;
 	padding: 5px 12px 6px;
 	font-size: 1em;
-	min-width: 130px;
 
 
 	&[type=submit],
