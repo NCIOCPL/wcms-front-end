@@ -1,0 +1,171 @@
+/* *************************************************************************/
+/* MOBILE STYLES (SMALL) */
+/* *************************************************************************/
+@include bp(small) {
+	figure.image-right-medium,	figure.image-right-small {
+		width: 100%;
+		margin: 0 0 1em 0;
+	}
+	.hero-slot {
+		display: none;
+	}
+	/* remove padding on language links to fit all on one line */
+	.sitewide-language {
+		padding-right: 0;
+	}
+	/* no gutter on left and right in mobile */
+	.card, .card-thumbnail div {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.bcrumbs {
+		display: none;
+	}
+	.section-nav {
+		top: 1.9375em;
+	}
+	/* Hide 'On This Page' section on PDQ & factsheet pages */
+	#pdq-toc-article nav.on-this-page, body.cgvfactsheet nav.on-this-page {
+		display: none;
+	}
+	.site-footer {
+		background-position: -120% 150px;
+	}
+	.card-thumbnail .small-2, .card-thumbnail .small-3 {
+		width: 0;
+	}
+	.card-thumbnail .small-10, .card-thumbnail .small-9 {
+		width: 100%;
+	}
+	.card-thumbnail h3 {
+		margin-top: 0;
+	}
+	table .article-image-enlarge {
+		font-size: 7px;
+		margin-top: -5px;
+		padding-left: 3px !important;
+		padding-right: 24px !important;
+	}
+	.guide-card {
+		padding: 0;
+	}
+	.guide-title h2 {
+		display: none;
+	}
+	/** CTHP styles **/
+	.cthp-body {
+		float: none;
+		width: 100%;
+	}
+	.cthp-title {
+		margin-top: 0;
+	}
+	.cthp-card-container {
+		margin-top: 0;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+	}
+	.cthp-card-container img {
+		display: none;
+	}
+	.cthp-intro-multimedia h3 {
+		text-transform: uppercase;
+	}
+	.cthp-treatment,
+	.cthp-research,
+	.cthp-causes,
+	.cthp-genetics,
+	.cthp-screening,
+	.cthp-survival,
+	.cthp-general {
+		margin-bottom: 0;
+	}
+	.cthp-treatment div:hover,
+	.cthp-research div:hover,
+	.cthp-causes div:hover,
+	.cthp-genetics div:hover,
+	.cthp-screening div:hover,
+	.cthp-survival div:hover,
+	.cthp-general div:hover {
+		background-color: white;
+	}
+	.cthp-content {
+		background: white;
+	}
+
+	.cthp-content h1 {
+		color: $header-font-color;
+	}
+	.cthp-version-toggle {
+		float: none;
+        background-color: white;
+		display: inline-block;
+		margin-top: 0;
+
+        &:before {
+            content: "";
+            background: $ncisprite no-repeat -467px -217px;
+            position: relative;
+            right: -230px;
+            top: 24px;
+        }
+
+		a {
+			padding: 0 40px 0 0;
+		}
+		&:before:hover, &:focus {
+            content: "";
+            background: $ncisprite no-repeat -382px -217px;
+		}
+	}
+	.row .tp20 {
+		margin-top: 0;
+	}
+	/** END CTHP styles **/
+	//** BEGIN Dynamic List Styles **/
+	.dynamic {
+		padding: 0 15px;
+	}
+	.large-8 .list .container.image + .container.title {
+		width: 100%;
+	}
+	.news-share {
+		margin: 0;
+	}
+	.news .list .general-list-item a.news-footer {
+		padding-left: 15px;
+	}
+	//** END Dynamic List Styles **/
+	.guide-card {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	.guide-card .card,
+	.guide-card .featured-card {
+		background: #1d5e86;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin: 0;
+	}
+	.guide-card .card h3 {
+		color: white;
+		background: url($buttons + "small-arrow.png") 95% center no-repeat;
+		border-bottom: 1px solid black;
+		padding: 0.3em 0.9375em;
+		margin: 0;
+	}
+	.guide-card .card h3.last {
+		border-bottom: none;
+	}
+	
+	.contact-infos-desktop {
+		display: none;
+	}
+	.media-contact-info {
+		display: block;	}
+		
+	/** Hide auto-generated OTP on mobile accordion collapse */
+	.hide-otp-on-collapse {
+		display: none;
+	}
+}

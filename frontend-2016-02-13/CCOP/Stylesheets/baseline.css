@@ -1,0 +1,619 @@
+@charset "utf-8"
+/*  ==== Baseline Design ElementsUsage:Used to define the look and feel of the website. The default set of styles defined include colors, additional dimensions (line-height, padding, margin), other design-specific elements. This style sheet can be edited to accomodate other website specific design requirements as needed.Before pushing this CSS to prod, it should be minimized.
+Last updated: August 29, 2012 randallw@mail.nih.gov
+====  TABLE OF CONTENTS 
+( Listing Major Sections only. To find your specific id or class, perform a Search for it. )	
+1. Typography and Universal Elements	
+2. Global Page Specific Elements		   
+A. General Site Container		   
+B. Site Header		   
+C. Site Navigation		   
+D. Site Content Container 			   
+i. Left Column				      
+a. Section Navigation			   
+ii. Middle Column				      
+a. Content Column			   
+iii. Right Column				      
+a. Fifth Level Navigation		   
+E. Site Footer	
+3. Content Type Specific Elements		   
+A. Home Page			      
+i. Column and Highlight areas used on Home page and Landing pages			      
+ii. Timely Content Zone		   
+B. Landing Pages		   
+C. General		   
+D. News Release		   
+E. Event		   
+F. Lists, List Items, and Aggregation Widgets			      
+i. List Items - News			      
+ii. List Items - Citations 			      
+iii. List Items - Video 			      
+iv. List Items - Funding Opportunities			      
+v. List Items - Files			      
+vi. List Items in the Sidebars		
+Y. Search Results		
+Z. Miscellaneous*/
+/*  ==   1. Typography and Universal Elements  ==  */
+body { background:#e0e0e0 url(/publishedcontent/images/images/global/bg-body.jpg) repeat-y; color:#333; font-family:Arial, Helvetica, sans-serif !important; line-height:1.8em; }
+a { color:#a90101; }
+	a:hover { text-decoration:none; }	
+a:visited { color:#4d4d4d; }
+a:visited:hover { color:#a90101; }
+	a:focus { outline:0; }
+h1, h2, h3, h4, h5 {font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; }
+h1 { color:#069;  font-size:1.8em; font-weight:900; line-height:1.33em; }
+	h1 a { text-decoration:none; }
+	h1 a:hover { text-decoration:underline; }
+h2 { color:#006699; font-size:1.6em; letter-spacing:0.005em; line-height:1.2em; padding-bottom:12px; }
+	h2 a { text-decoration:none; }
+	h2 a:hover { text-decoration:underline; }
+h3 { font-size:1.33em; font-weight:900; padding-bottom:18px; }
+	h3 a { background:url(/publishedcontent/images/images/global/arrow-red.gif) no-repeat scroll 0 5px transparent; color:#333333; padding-left:20px; text-decoration:underline; }
+	h3 a:hover { text-decoration:none; }
+h4 { font-size:1.2em; font-weight:900; padding-bottom:12px; }
+h5 { font-size:1.1em; color:#4d4d4d; font-size:1.1em; font-weight:bold; }
+p { padding-bottom:18px; }
+ul {  }
+	ul li { }
+ol { list-style-type:decimal; margin-left:36px; padding-bottom:18px; }
+	ol li {}
+blockquote { margin:0 36px 0 36px; }
+b,strong { font-weight:900; }
+i,em { font-style:italic; }
+dl {  }
+	dl dt {  }
+	dl dd {  }
+table { margin-bottom:18px; }
+	table tr {  }
+	
+table.table-data { border-top:1px solid #ccc; border-left:1px solid #ccc; }
+table.table-data th { font-weight:bold; text-align:left; }
+table.table-data th,table.table-data td { border-right:1px solid #ccc; border-bottom:1px solid #ccc; padding:5px; vertical-align:top; }
+table.table-data td h4 { padding-bottom:2px !important;}
+
+img.right {float:right; margin:0 0 8px 8px; }
+img.left {float:left; margin:0 8px 8px 0; }
+img.center {margin:0 auto 8px auto; text-align:center; }
+/* images using the HTML5 figure and figcaption elements */
+/* add block level style to HTML5 elements, for IE */	
+header,nav,article,footer,section,aside,figure,figcaption {
+	display:block;
+}
+figure {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+/* image right 25% width */
+figure.image-right-small {
+    float: right;
+    width: 25%;
+    margin: 0 0 1em 1em;
+}
+/* image right 40% width */
+figure.image-right-medium {
+    float: right;
+    width: 40%;
+    margin: 0 0 1em 1em;
+}
+/* image left 25% width */
+figure.image-left-small {
+    float: left;
+    width: 25%;
+    margin: 0 1em 1em 0;
+}
+/* image left 40% width */
+figure.image-left-medium {
+    float: left;
+    width: 40%;
+    margin: 0 1em 1em 0;
+}
+/* image center 75% width */
+figure.image-center {
+    width: 75%;
+    margin: 0 auto 1em auto;
+}
+/* image center 100% width */
+figure.image-center-full {
+    width: 100%;
+    margin: 0 auto 1em auto;
+}
+/* contain image inside fig */
+figure img {
+    max-width: 100%;
+	/* remove white space under image */
+	display: block;
+}
+/* make enlarge link block level for display purposes */
+a.article-image-enlarge {
+	display: block;
+	text-align: right;
+}
+/* style all figcaption elements the same */
+figcaption {
+	margin-top: 5px;
+	border-top: 1px solid #BDBDBD;
+}
+figcaption .caption-container {
+	display: block;
+	color: #666;
+	background: #DDDDDD;
+	padding: 10px;
+	margin-top: 5px;
+	font-size: 12px;
+	line-height: 1.2em;
+}
+/* remove default spacing of p tags as this adds extra spacing around caption content */
+figcaption p:first-child {
+    margin-top: 0;
+}
+figcaption p:last-child {
+    margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+/* media highlight item css (Cheetoh IT1) */
+.media-highlight {
+    position: relative;
+    border: 1px solid #bdbdbd;
+}
+
+.media-label {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #464646;
+	color: #ffffff;
+	line-height: 2.4em;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 8.5em;
+	text-align: center;
+	/* firefox 3.5 */
+	-moz-transform: rotate(90deg) translateX(8.5em);
+	-moz-transform-origin: 100% 0%;
+	/* Saf3.1+, Chrome */
+	-webkit-transform: rotate(90deg) translateX(8.5em);
+	-webkit-transform-origin: 100% 0%;
+	/* IE 9+ */
+	-ms-transform: rotate(90deg) translateX(8.5em);
+	-ms-transform-origin: 100% 0%;
+}
+
+.media-label.media-infographic.en-us:before {
+    content:"Infographic";
+}
+
+.media-label.media-infographic.es-us:before {
+    content:"Infografía";
+}
+/* end images using the HTML5 figure and figcaption elements */
+.date { color:#666666; font-family:Arial,Helvetica,sans-serif; font-size:0.9em; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; }
+	 /*	Ensuring extra div.slot-items generated from CDE do not have default padding. */
+.slot-item .slot-item {padding:0; }
+/* == 2. Page Specific Elements	==*/
+	/** A. General Site Container **/
+	.genSiteContainer { background-color:#fff; border-radius:0 0 8px 8px; font-size:1.2em; }
+/** NCI Branding Bar **/
+		#genSlotBrandingBar { margin:0 auto; width:984px; }
+		#genSlotBrandingBar li.nciURL { 	}
+/** B. Site Header **/
+	#genSlotSiteBanner { background:url(/publishedcontent/images/images/global/ccop-header.gif) no-repeat; height:78px;  		padding-top:16px;  		position:relative; }
+	#genSlotSiteBanner h1 a { 		display:block; height:46px; left:12px; position:absolute; text-indent:-9999px; top:34px; width:380px; }
+				#genSlotSiteBanner a.dcpTextLink { float:left; height:18px; left:162px; position:absolute; top:12px; width:165px; text-indent:-9999px;  }
+				#genSlotSiteBanner a.dcpTextLink:hover { background:url(/publishedcontent/images/images/global/ccop-header-h.gif) no-repeat; height:94px; position:absolute; left:0; top:0; width:380px; }
+				/* Contains Site Utility Items such as Search and other links */
+		.genSiteUtilityContainer { }
+/* Utility Links found in the top right of the Site Header */
+		ol.genSiteUtilityLinks { float:right; font-size:11px; margin:0; padding:0 8px 4px 0; }
+			ol.genSiteUtilityLinks li { background:url(/publishedcontent/images/images/footer/d-topnav.gif) no-repeat;  0 3px transparent; display:inline; padding:0 8px 0 9px; }
+			ol.genSiteUtilityLinks li.first { background:none; }
+			ol.genSiteUtilityLinks li a { color:#666; }
+			ol.genSiteUtilityLinks li a:hover { color:#333; }
+/* Site Search */
+			form.genSiteSearchForm { float:right; padding-bottom:12px; }
+/** C. Site Navigation **/
+		#genSlotMainNav { background:#000 url('/publishedcontent/images/images/global/bground-mainnav.gif'); border-radius:4px 4px 4px 4px; color:white; }
+			#genSlotMainNav a { color:#fff; font-weight:bold; padding:10px 0; text-decoration:none; }
+/* Hides the Highlight Color, but keeps the padding on the span. */
+			#genSlotMainNav ul li a span { background-color:transparent; padding:5px 10px; }
+/* Current Section Identification in the Main Navigation*/
+			/* Highlight Around Navigation */
+			#genSlotMainNav ul.genSiteMainNav li a:hover span, #genSlotMainNav ul.genSiteAdditionalMainNav li a:hover span, 			#genSlotMainNav ul.genSiteMainNav li a.current span { background-color:#fff; border-radius:4px 4px 4px 4px; color:#000; }
+			#genSlotMainNav ul.genSiteMainNav li span li span { background:#000 !important; color:#fff; }
+				#genSlotMainNav ul.genSiteMainNav li ul a span { padding:0; }
+				#genSlotMainNav ul.genSiteMainNav li ul a:hover span { background-color:transparent; color:#a90101; }
+/* Hover state on Main Navigation Tabs */
+				#genSlotMainNav ul.genSiteMainNav li a:hover, #genSlotMainNav ul.genSiteAdditionalMainNav li a:hover { color:#fff; }
+				#genSlotMainNav ul.genSiteMainNav li:hover > a { color:#fff; }
+/* Flyout Menus */
+				ul.genSiteMainNav li ul { background-color:#000; border-radius:0px 0px 8px 8px; opacity:.9; }
+				#genSlotMainNav  ul.genSiteMainNav  li ul  a { color:#000; }
+					#genSlotMainNav ul.genSiteMainNav li ul { background:#fff; border:1px solid #ccc; border-top:1px solid #fff;margin-top:-4px; padding:2px 10px 10px; }
+						#genSlotMainNav ul.genSiteMainNav li ul a { color:#333; line-height:1.33em; padding:4px 0; }
+						#genSlotMainNav ul.genSiteMainNav li ul a:hover { color:#a90101 !important; padding:4px 0; text-decoration:none; }
+						#genSlotMainNav ul.genSiteMainNav li ul li { background:url(/publishedcontent/images/images/global/dropdown-divider.gif) 0 0 no-repeat; }
+						#genSlotMainNav ul.genSiteMainNav li ul li.first { background-image:none; }
+				/* Hover state on Main Navigation Fly outs */
+						#genSlotMainNav ul.genSiteMainNav  li ul li:hover > a { color:#a90101; text-decoration:none; }
+/** D. Site Content Container **/
+.genSiteContentContainer { padding:20px 0 32px; position:relative; }
+/**			i. Left Column		**/
+.genSiteLeftColumn { margin: 8px 16px 24px 4px; width: 180px; 
+/* Right hand margin for the Left column */
+/* Width adjustment to account for Right hand margin */ }
+		genSiteLeftColumn a { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; letter-spacing:0.125em; text-decoration:none; text-transform:uppercase; }
+			.genSiteContentColumn  p.lastUpdated { bottom:0; color:#666; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:0.8em; position:absolute; text-transform:uppercase; }
+            .genSiteContentColumn  p.backtop a{ background:url(/publishedcontent/images/images/icons/bg-arrow-up.gif) no-repeat 0 3px; color:#4d4d4d; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:0.8em; padding-left:12px; text-decoration:none; text-transform:uppercase; }
+			.genSiteContentColumn  p.backtop a:hover { background:url(/publishedcontent/images/images/icons/bg-arrow-up-h.gif) no-repeat 0 3px; color:#a90101; }
+/**  a. Section Navigation// Appears in the left-hand column.  **/
+/* Used in lieu of breadcrumbs, this is permenant link meant to denote what top level section you are currently in */
+p.genSiteSectionParent { display:none; }
+/* Section Navigation Container */
+#genSlotSectionNav ul.genSiteSectionNavigation { margin:-4px 0 12px; padding:4px 0 6px 0; }
+	#genSlotSectionNav ul ul { list-style-type:none; padding-bottom:0; }
+	#genSlotSectionNav ul.genSiteSectionNavigation a { font-size:11px; line-height:14px; text-decoration:none; padding:6px 0; }
+	#genSlotSectionNav ul.genSiteSectionNavigation a:hover { color:#333; text-decoration:none; }
+	#genSlotSectionNav ul.genSiteSectionNavigation a:visited:hover {color:#a90101; text-decoration:none; }
+/* First Level of Section Navigation */
+#genSlotSectionNav ul { margin:0 0 0 0; padding-bottom:0; }
+	#genSlotSectionNav ul li { border-bottom:1px dotted #AFAFAF; list-style:none; padding:0; }
+	#genSlotSectionNav ul li.last { border-bottom:0; }
+	#genSlotSectionNav ul li a { display:block; padding:4px 0; text-decoration:none !important; }
+		#genSlotSectionNav ul li a:hover { }
+/* Current Section Identification in the First Level */
+		#genSlotSectionNav ul li.currentSection { color:#000; }
+			#genSlotSectionNav ul li.currentSection  a,						
+			#genSlotSectionNav ul li.currentSection  a:hover { color:#33668F; }
+			#genSlotSectionNav ul li.currentSection .current { font-weight:900; }
+			#genSlotSectionNav ul li.currentSection  a.current { color:#000; text-decoration:none; }
+				#genSlotSectionNav ul li.currentSection  a.current:hover { text-decoration:underline; }
+/* Second Level of Section Navigation */
+				#genSlotSectionNav ul li ul { padding-left:12px; }
+			#genSlotSectionNav ul li ul li { border:none; font-size:0.9em; list-style:none; }
+			#genSlotSectionNav ul li.currentSection ul li a { color:#236393; }
+/* Current Section Identification in the Second Level */
+			#genSlotSectionNav ul li.currentSection ul li.currentSection { color:#236393; }
+			#genSlotSectionNav ul li.currentSection ul li.currentSection a { color:#236393; }
+			#genSlotSectionNav ul li.currentSection ul li.currentSection a.current { background:#000; color:#fff; }
+/**			ii. Main Column		**/
+		.genSiteMainColumn { background-color:#fff; width:744px; }
+/* Section banner */
+			#genSlotSectionBanner { background-color:#AFAFAF; margin-bottom:18px; padding:18px 20px; }
+/* Page Title Area */
+				#genSlotTitle h1,	#genSlotTitle h2 { padding:0; position:relative; }
+				/* If #genSlotTitle is in side of .genSiteContentColumn, the padding needs to change. */
+				.genSiteContentColumn  #genSlotTitle, #genSlotTitle { padding:0 0 18px 0; }
+				.genSiteContentColumn  #genSlotTitle h1,.genSiteContentColumn  #genSlotTitle h2 { padding:0 0 0 0; }
+/**  a. Content Column  **/
+	.genSiteContentColumn {  width:510px;}
+/* Right hand side margin */
+/* Width adjusted to account for margin */
+		.genSiteContentColumn .slot-item { overflow:hidden; }
+		.genSiteContentColumn .filetype { color:#5B5B5B; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:0.8em; text-transform:uppercase; }
+/* Page Options */
+		.genSiteMainColumn #genSlotPageOptions { text-align:right; }
+		#genSlotPageOptions p.genSitePrintButton { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:0.8em; padding-bottom:0 !important; position:absolute; right:6px !important; top:-62px !important; }
+	#genSlotPageOptions p.genSitePrintButton a { background-image:url('/publishedcontent/images/images/icons/i-print.gif'); background-repeat:no-repeat; padding-left:20px; padding-bottom:2px; }
+	.genSiteMainColumn .catchmentdesc { border-top:1px dashed #CCCCCC; color:#333333; padding-top:16px; }
+		.genSiteMainColumn .catchmentdesc h4 {  color:#0f6c86; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:1.33em; padding-bottom:16px; }
+		.genSiteMainColumn ul, .genSiteMainColumn .catchmentdesc ul { margin-left:2px !important; }
+		.genSiteMainColumn ul li, .genSiteMainColumn .catchmentdesc ul li { background:url('/publishedcontent/images/images/global/bullet-t1.gif') no-repeat 0 5px; list-style:none; margin:0; padding:0 0 16px 14px; }
+		.genSiteMainColumn ul li li, .genSiteMainColumn .catchmentdesc ul li li{ background:url('/publishedcontent/images/images/global/bullet-t2.gif') no-repeat 0 5px; list-style:none; margin:0; padding-left:18px; }
+		.genSiteMainColumn .catchmentdesc ul li li li{ background:url('/publishedcontent/images/images/global/bullet-t3.gif') no-repeat 0 5px; list-style:none; margin:0; padding-left:24px; }
+				.genSiteMainColumn .news ul li { background-image:none !important; padding-left:0 !important; }
+ul.alphaanchors { clear:left; padding-top:-8px !important; }
+ul.alphaanchors li, ul.alphaanchors li.off { background-image:none !important; border-color:#CCCCCC #ffffff #CCCCCC #CCCCCC !important; border-style:solid none solid solid !important; border-width:1px medium 1px 1px; display:inline; float:left; font-family:Verdana,Arial,Helvetica,sans-serif; font-size:0.8em; list-style:none outside none !important; margin-bottom:8px !important; padding:0 !important; }
+ul.alphaanchors li a { font-family:Verdana,Arial,Helvetica,sans-serif; font-size:0.9em; padding:3px 8px !important; }
+ul.alphaanchors li a:hover { background:none repeat scroll 0 0 #A90101; color:#FFFFFF; }
+ul.alphaanchors li.last { border-right:1px solid #CCC !important; }
+ul.alphaanchors li a.off, ul.alphaanchors li a.off:hover { background:none repeat scroll 0 0 #FFFFFF; color:#7A7A7A !important; text-decoration:none !important; }
+.ccopdetails ul { float:left; margin:10px 0 12px; padding-bottom:14px !important; width:760px; }
+.ccopdetails li { background-image:none !important; clear:left; float:left; margin:8px 0; padding:0 0 16px 2px !important; width:760px; }
+.ccopdetails li.first { border-bottom:1px dashed #CCCCCC; float:left; margin-bottom:16px; padding-bottom:16px !important; }
+.ccopdetails li.last { border-bottom:0 none !important; }
+.ccopdetails h3 { margin-top:-16px; padding-bottom:4px !important; }
+.ccopdetails p { padding-bottom:16px !important; }
+.ccopdetails .left { border-right:0 none !important; float:left; width:55% !important; }
+.ccopdetails .right { float:left; text-align:right; width:41% !important; }
+.ccopdetails p.backtop { border-bottom:1px dashed #d5d5d5; clear:left; padding-top:12px; }
+.ccopdetails p.backtop.last { borderbottom:none; }
+.widgetcode { background:#DCEAF2; padding:24px; }
+.widgetcode table.widget { font-family:"Courier New", Courier, mono; }
+p.backtop { clear:left; padding-top:12px; }
+/**			iii. Right Column		**/
+		.genSiteRightColumn { color:#333; float:right; margin-top:2px; width:200px;   }					.genSiteRightColumn h4{ background: none repeat scroll 0 0 #DDDDDD; margin-bottom: 5px; padding: 5px 8px;}		 			
+.genSiteRightColumn h4 .filetype { COLOR:#333;font-size:11px; font-weight:normal !important; text-transform:uppercase; }
+		.genSiteRightColumn p { /* float:left; margin-bottom:12px; */ }
+		.genSiteRightColumn p img { margin-bottom:0 !important; }
+/* a. Fifth Level Navigation */
+						#genSlotRightNav { border-top:2px solid #ccc; border-bottom:2px solid #ccc; margin-bottom:18px; }
+				#genSlotRightNav .slot-item {margin:0; padding:0; 	}
+				#genSlotRightNav ul {list-style-type:none; margin:8px 0; padding:0; }
+				#genSlotRightNav ul li {border-bottom:1px dotted #AFAFAF; padding:4px 0; }
+#genSlotRightNav ul li.last { border-bottom:0; }
+				#genSlotRightNav a {display:block; }
+/* b. Additional content container */
+						#genSlotRightSidebar h3 { border-bottom:0; }
+				/** E. Site Footer **/
+		#genSlotSiteFooter { border-top:1px solid #d3d3d3; font-size:0.9em; margin:0 18px !important; padding-top:18px; }
+		#genSlotSiteFooter  .slot-item { padding-top:0; }
+		#genSlotSiteFooter ul { height:18px; list-style:none; padding-bottom:12px; }
+			#genSlotSiteFooter ul li { background:url(/publishedcontent/images/images/footer/d-topnav.gif) no-repeat 0 2px; display:inline; margin:0; padding:0 8px; }
+			#genSlotSiteFooter ul li.first { background:none; }
+			#genSlotSiteFooter a, #genSlotSiteFooter p { color:#666; font-size:11px !important; }
+			#genSlotSiteFooter a:hover { color:#4b4b4b; }
+/*  Share Icons */
+		#genSlotSiteFooter ul.socialnetworking li.twitter { background:url("/publishedcontent/images/images/icons/i-twitter.gif") no-repeat scroll 0 1px transparent; display:inline; height:26px; margin-left:4px; padding:2px 10px 2px 20px; }
+		#genSlotSiteFooter ul.socialnetworking li.youtube { background:url("/publishedcontent/images/images/icons/icon-youtube-sml.gif") no-repeat scroll 0 2px transparent; display:inline; height:26px; padding:2px 10px 2px 18px; }
+		#genSlotSiteFooter ul.socialnetworking li.facebook { background:url("/publishedcontent/images/images/icons/i-facebook.gif") no-repeat scroll 0 1px transparent; display:inline; height:26px; padding:2px 10px 2px 20px; }
+		#genSlotSiteFooter ul.socialnetworking li.rss { background:url("/publishedcontent/images/images/icons/icon-rss-sml.gif") no-repeat scroll 0 2px transparent; display:inline; height:26px; padding:2px 10px 2px 18px; }
+/* Agency Links */
+			#genSlotSiteFooter ul.genSiteAgencyLinks { height:32px; margin:0 0 0 330px; padding:0 0 18px 0; }
+				ul.genSiteAgencyLinks li {background:none !important; float:left; margin-right:12px; text-indent:-9999px; }
+				ul.genSiteAgencyLinks li a { background-repeat:no-repeat; display:block; height:34px; }
+				ul.genSiteAgencyLinks li a.genSiteFooterLinkHHS { background-image:url("/publishedcontent/images/images/footer/footer-hhs.gif"); width:34px; }
+				ul.genSiteAgencyLinks li a.genSiteFooterLinkNIH { background-image:url("/publishedcontent/images/images/footer/footer-nih.gif"); width:31px; }
+				ul.genSiteAgencyLinks li a.genSiteFooterLinkNCI { background-image:url("/publishedcontent/images/images/footer/footer-nci.gif"); width:45px; }
+				ul.genSiteAgencyLinks li a.genSiteFooterLinkUSA { background-image:url("/publishedcontent/images/images/footer/footer-usa.gif"); width:83px; }
+/* == 3. Content Type Template Specific Styles == **/
+/**	A. Home Page**/
+	/** i. Column and Highlight areas used on Home page and Landing pages **/
+	/* Two Column Area */
+	.genSlotColumnContainer { margin:0 0 15px 0; }
+		.genSlotColumnContainer h3 { margin-bottom:8px; padding-bottom:9px; }
+/* Three Column Area (aka Highlights) */
+	.genSiteHighlightContainer { margin:0 0 15px 0; }
+		.genSiteHighlightContainer h3 { padding-bottom:8px; }
+/** ii. Timely Content Zone found on Homepages and Landing Pages. **/
+		/* overall container */
+		#news-slider { border:1px solid #ccc; margin:0 0 12px 0; padding:0; width:99%; }
+/* container for featured item */
+		#news-slider .ui-tabs-panel-x { border:0; height:200px; margin:2px; width:100%; }
+				#news-slider .ui-tabs-panel-x img { float:right; margin:18px 18px 0 18px; }
+				#news-slider .ui-tabs-panel-x p,#news-slider .ui-tabs-panel-x li { font-size:12px; }
+			#news-slider .ui-tabs-panel-x a { text-decoration:underline; }
+				#news-slider .ui-tabs-panel-x a:hover {text-decoration:none; }
+			.ui-tabs-panel-x p { margin:4px 0; }
+/* text in featured item */
+		#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text { float:left; width:44%; }
+				/* text in featured item on home */
+		body.genHome #news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text { margin:24px 16px 0 24px; width:44%; }
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h2 { font-weight:bold; margin:0; padding-bottom:4px; }
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h2 a {text-decoration:underline; }
+			#news-slider .ui-tabs-panel-x .ui-tabs-panel-x-text h2 a:hover {text-decoration:none; }
+			.ui-tabs-panel-x ul { margin:0 0 0 10px; padding:0; background:none !important; list-style-type:none !important; }
+				.ui-tabs-panel-x ul li {margin:0; padding:0; background:none !important; list-style-type:none !important; }
+				table.carousel-panel-list {width:90%; margin:0 0 0 5px; }
+				table.carousel-panel-list td { vertical-align:top; padding-right:3px; }
+				#news-slider .ui-tabs-hide {display:none; }
+					/* parent container for list items (tabs) */
+			#news-slider ul.news-slider-tabs { background:none; margin:0; padding:0; width:100%; }
+			#news-slider .ui-widget-header { border:0; }
+/* container for individual list items */
+			#news-slider ul.news-slider-tabs { overflow:hidden; }
+			#news-slider ul.news-slider-tabs li.news-slider-tabs-item { background-color:#eee; border-top:1px solid #ccc; border-right:1px solid #ccc; float:left;  height:72px; list-style-type:none; margin:0; padding:0; width:33%; }
+			#news-slider ul.news-slider-tabs li.last { width:33.6%; border-right:0; }
+			#news-slider ul.news-slider-tabs .ui-state-default {  }
+			#news-slider ul.news-slider-tabs .ui-state-default.last { }
+			#news-slider ul.news-slider-tabs .ui-state-active {  }
+			#news-slider ul.news-slider-tabs .ui-state-active.last { }
+/* link used inside of list items */
+			#news-slider li.news-slider-tabs-item a { /* On Hover Style*/
+				display:block; overflow:hidden; font-weight:bold; font-size:1.1em; margin:0; outline:none; padding:8px; }
+/* thumbnail images in tabs */
+			#news-slider li.news-slider-tabs-item img { float:right; margin:0 5px; }
+/* container for individual list items image and text on hover */
+			#news-slider li.news-slider-tabs-item a:hover { }
+/* container for text in individual list items, selected */
+			#news-slider ul.news-slider-tabs li.ui-tabs-selected { /*Selected tab style*/
+				background-color:#fff; border-top:1px solid #fff; }
+				/* container for text in individual list items, selected */
+				#news-slider ul.news-slider-tabs li.ui-tabs-selected a { color:#4d4d4d; height:72px; text-decoration:none; }
+/**	B. Landing Page**/
+body.genLanding {  }
+/**	C. General**/
+body.genGeneral {  }
+/**	D. News Release**/
+.genNewsDates {font-weight:900; }
+.genNewsMetadata {margin-bottom:18px; }
+	.genNewsMetadata p { padding-bottom:0; }
+/**	E. Event**/
+.genEventMetadata {margin-bottom:20px; }
+	.genEventMetadata p { padding-bottom:0; }
+/**	F. Lists, List Items, and Aggregation Widgets**/
+ul.genList,ol.genList,
+ul.genAggroWidget,
+ol.genAggroWidget { list-style-type:none; margin:0; padding:0 0 8px 0; }
+/* clearFix is used in these lists to allow floated elements to remain properly inside of the box model in these elements. Using this is as opposed to overflow:hidden or clear:both; in order to ensure cross-browser compatibility and for smoother development */
+	ul.genList li,	
+ol.genList li,	
+ul.genAggroWidget li,	
+ol.genAggroWidget li { zoom:1; 
+/* triggers hasLayout in IE */
+		display:block; 
+/* resets display for IE/Windows */
+	}
+	ul.genList li:after,	
+ol.genList li:after,	
+ul.genAggroWidget li:after,	
+ol.genAggroWidget li:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+/* Slim Lists (Used in Snippet Templates) */
+		ul.genList.slim li, ol.genList.slim li, ul.genAggroWidget.slim li, ol.genAggroWidget.slim li { padding-bottom:12px; }
+/* Lists In Sidebars */
+		#genSlotLeftSidebar .slot-item	{  }
+			#genSlotLeftSidebar ul { list-style:none; margin-left:0; padding-left:0; }
+			#genSlotLeftSidebar .seealso { border:1px solid #CCCCCC; float:left; font-size:0.9em; margin:0 0 20px; width:99%; }
+	#genSlotLeftSidebar .seealso h4 { background:url("/publishedcontent/images/images/global/bg-see-also.gif") repeat-x scroll center bottom transparent; border-bottom:1px solid #CCCCCC; color:#333333; font-size:1.1em; letter-spacing:0.1em; padding:6px 12px; }
+	#genSlotLeftSidebar .seealso h4 .also { color:#A90101 !important; }
+		#genSlotLeftSidebar .seealso p { padding-bottom:12px;}
+		#genSlotLeftSidebar .seealso p a { background: url("/publishedcontent/images/images/global/arrow-black.gif") no-repeat scroll 14px 10px transparent; float: left; font-size: 0.9em; padding: 9px 12px 8px 24px;text-transform:uppercase; }
+/** i .List Items **/
+/** a. Item Elements **/		
+/* 1. Title */
+		ul.genList li h4, ol.genList li h4, ul.genAggroWidget li h4, ol.genAggroWidget li h4 { font-size:12px; font-weight:900; }
+		ul.genList li .genListItemTitle, ol.genList li .genListItemTitle, ul.genAggroWidget li .genListItemTitle, ol.genAggroWidget li .genListItemTitle	{ font-weight:900; }
+/* 2. Content */
+		ul.genList li p, ol.genList li p, ul.genAggroWidget li p, ol.genAggroWidget li p { padding-bottom:8px; }
+/* 3. Descriptions */
+		ul.genList li p.genListItemDesc, ol.genList li p.genListItemDesc, ul.genAggroWidget li p.genListItemDesc, ol.genAggroWidget li p.genListItemDesc	{ padding-bottom:12px; }
+/* 4. Source */
+		p.genListItemSource { font-style:italic; }
+/* 5. List Items - News */
+		ul li.genListItemNews p.genListItemDate { font-size:0.9em; padding-bottom:0; }
+/* 6. List Items - Citations */
+		ul li.genListItemCitation { padding-bottom:8px; margin-left:18px; text-indent:-18px; }
+			ul li.genListItemCitation .genListItemPub { font-style:italic; }
+/* 7. List Items - Video */
+		ul li.genListItemVideo .genListItemInfo p.genListItemMetaData { padding-bottom:0; }
+			.genListItemVideo .genListItemType { background-image:url('/publishedcontent/images/images/icons/icon-videos-sml.gif'); background-repeat:no-repeat; padding-left:18px; }
+/* 8. List Items - Funding Opportunities */
+		ul.genAggroWidget li.genListItemFundingOpp { padding-bottom:18px; }
+				ul.genAggroWidget li.genListItemFundingOpp ul { padding-bottom:12px; }
+			ul.genListItemFundingOppDates { margin-left:0; padding-left:0; }
+			li.genListItemFundingOpp h4 { padding-bottom:0; }
+			li.genListItemFundingOpp p.genListItemSource { font-style:italic; text-indent:0; }
+			ul.genListItemFundingOppDates li p { padding-bottom:0; }
+/* 9. List Items - Files */
+		ul.genList li.genListItemFile { padding-bottom:18px; }
+			ul.genList li.genListItemFile p.genListItemInfo { float:none; width:100%; }
+			ul.genList li.genListItemFile .genListItemType { font-weight:900; text-transform:uppercase; }
+			ul.genList li.genListItemFile .genListItemFileInfo { font-size:0.8em; font-style:italic; }
+			ul.genList li.genListItemFile p,ul.genList li.genListItemFile p.genListItemDesc { padding-bottom:0; }
+/* 10. Lists in a Sidebar */
+		#genSlotRightSidebar .slot-item	{ background:url(/publishedcontent/images/images/global/bg-callout.gif) repeat-x; background-position:bottom; border:1px solid #ccc; float:right; font-size:1.0em !important; line-height:1.5em !important; margin-bottom:12px; }
+		.genHome #genSlotRightSidebar .slot-item { margin-top:0 !important; width:230px; }
+		#genSlotRightSidebar .slot-item	h5 { padding:5px; }
+		#genSlotRightSidebar .slot-item	p { padding:0 8px 12px; }
+		#genSlotRightSidebar .slot-item	p img { padding:0 !important; }
+		#genSlotLeftSidebar .slot-item h3, #genSlotRightSidebar .slot-item h3 { background:none repeat scroll 0 0 #DFDCD7; margin-bottom:8px; padding:5px 10px; }
+		#genSlotRightSidebar .slot-item	img { background-image:none; background-color:#fff; line-height:1.0em; }
+		#genSlotLeftSidebar .genSiteList ul, #genSlotRightSidebar .genSiteList ul { list-style-type:square; margin:0 0 0 18px; padding-bottom:0; }
+			#genSlotLeftSidebar .genSiteList ul li, #genSlotLeftSidebar .genSiteList ul li { line-height:1.4em; }
+		#genSlotRightSidebar .networkcallout { background-color:#f0f0f0; font-size:11px !important; line-height:15px; padding:1px !important; width:180px !important; }
+		#genSlotRightSidebar .slot-item .networkcallout p,#genSlotRightSidebar .networkcallout p { padding:0 !important; }
+		#genSlotRightSidebar .networkcallout li { background-image:none !important; padding-left:0px !important; }
+		.genSiteContentContainer a.offsite { background:url('/publishedcontent/images/images/exit_small.png') no-repeat 0 -1px; background-position:right; padding-right:14px; }
+/* A. List Items in the Sidebars */
+		.genSiteRightColumn #genSlotRightSidebar ul.genList li { border-bottom:1px dotted #AFAFAF; margin-bottom:6px; padding-bottom:6px; }
+		.genSiteRightColumn  #genSlotRightSidebar ul.genList  li:last-child { border-bottom:0; padding-bottom:0; }
+			.genSiteRightColumn  #genSlotRightSidebar ul.genList li p { margin:0; padding:0; }
+			#genSlotRightSidebar ul.genList li p.genListItemThumbnail {margin:2px 4px 4px 0; }
+				/* 11. List Items with Thumbnails */
+		ul.genList li p.genListItemThumbnail,		
+		ol.genList li p.genListItemThumbnail,		
+		ul.genAggroWidget li p.genListItemThumbnail,		
+		ol.genAggroWidget li p.genListItemThumbnail { float:left; width:56px; }
+			ul.genList li .genListItemInfo, ol.genList li .genListItemInfo, ul.genAggroWidget li .genListItemInfo, ol.genAggroWidget li .genListItemInfo { float:left; width:60%; }
+			.genList p.genListItemThumbnail, .genAggroWidget p.genListItemThumbnail { margin-top:4px; }
+/** == Y. Search Results == **/
+p.genSiteSearchResultsCount { font-weight:900; padding-top:18px; }
+ol li.genSearchItem { padding-bottom:18px; }
+	ol li.genSearchItem h4 { font-size:1em; }
+	ol li.genSearchItem p { padding-bottom:0; }
+	ol li.genSearchItem p.genListItemLink { font-size:1.em; font-style:italic; }
+/** == Z. Miscellaneous	 == **/
+/** i. One Column Pages (i.e. Error Pages) **/
+	body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn  #genSlotBody {  }
+/** ii. Related Links Area found at the bottom of general pages. **/
+	#genSlotRelatedLinks { border:1px dotted #AFAFAF; margin-bottom:22px; padding:18px 18px 0 18px; }
+		#genSlotRelatedLinks h3 { border-bottom:1px dotted #AFAFAF; font-size:1.1em; margin-bottom:18px; }
+/** iii. Pagination used on Page Level Aggro Widgets and Search Results **/
+		ul.genSitePagination { list-style-type:none; margin:0; padding:0; }
+		ul.genSitePagination li { display:inline; }
+		ul.genSitePagination { border-top:1px solid #B2B2B2; margin:0; padding:18px 0 20px 0; }
+/** iv. Content Block in a Sidebar **/
+			.genContentBlock ul { margin:0 0 0 0; padding:0 5px 12px 5px; }
+			.genContentBlock ul li { list-style:none !important; padding-bottom:8px; }
+/* Sample Quick Links */
+			.genSiteQuickLinks ul li,.genSiteQuickLinks ul.genList li { padding-bottom:0; }
+/** v. RSS Links in Titles **/
+	.genSiteRssLink a { background-image:url("/publishedcontent/images/images/icons/icon-rss-sml.gif"); background-repeat:no-repeat; font-weight:normal; padding-left:16px; }
+	h1 span.genSiteRssLink a { font-size:0.5em; }
+	h3 span.genSiteRssLink a { font-size:0.7em; }
+/** i. One Column Pages (i.e. Error Pages) **/
+	body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn  #genSlotBody {  }
+/** ii. Related Links Area found at the bottom of general pages. **/
+	#genSlotRelatedLinks { border:1px dotted #AFAFAF; margin-bottom:22px; padding:18px 18px 0 18px; }
+		#genSlotRelatedLinks h3 { border-bottom:1px dotted #AFAFAF; font-size:1.1em; margin-bottom:18px; }
+/** iii. Pagination used on Page Level Aggro Widgets and Search Results **/
+		ul.genSitePagination { list-style-type:none; margin:0; padding:0; }
+		ul.genSitePagination li { display:inline; }
+		ul.genSitePagination { border-top:1px solid #B2B2B2; margin:0; padding:18px 0 20px 0; }
+/** iv. Content Block in a Sidebar **/
+			.genContentBlock ul { margin:0 0 0 0; padding:0 5px 12px 5px; }
+			.genContentBlock ul li { list-style:none !important; padding-bottom:8px; }
+/* Sample Quick Links */
+			.genSiteQuickLinks ul li,.genSiteQuickLinks ul.genList li { padding-bottom:0; }
+/** v. RSS Links in Titles **/
+	.genSiteRssLink a { background-image:url("/publishedcontent/images/images/icons/icon-rss-sml.gif"); background-repeat:no-repeat; font-weight:normal; padding-left:16px; }
+	h1 span.genSiteRssLink a { font-size:0.5em; }
+	h3 span.genSiteRssLink a { font-size:0.7em; }
+
+
+
+/* TRIALS PROMO BOXES */
+.trialspromo {background:#fdfdfd; border:1px solid #e0e0e0; float:left; height:inherit; margin:2px 0 240px;position:relative; width:742px;z-index:330;}
+.trialspromo .promobox { background:url(/publishedcontent/images/images/global/bg-callout.gif) repeat-x; background-position:bottom; border:1px solid #ccc; float:left; height:300px; margin:7px 0px 12px 7px; padding:0; width:236px; } 
+.promobox h4 { background:#ddd; font-size:12px; color:#000; font-weight:bold; margin:0 0 6px; padding:4px 6px; }
+.promobox div {  margin:0; padding:0 8px; }
+.promobox p { margin:0; padding:8px 0; }
+.promobox ul { margin:0; padding:0; } 
+.promobox li { background-image:none !important; list-style:none; margin:0; padding:0 !important;}
+.promobox img { margin-bottom:8px; }
+
+
+/* DROP DOWN NAVIGATION */
+.dropdown-menu { list-style: none outside none; margin-top: -2px; padding: 0 0 14px 2px !important; position: relative !important; z-index: 550 !important; }
+.dropdown-menu ul li ul { background: none repeat scroll 0 0 #FAFAFA; border-bottom: 1px solid #BFC1C1; border-left: 1px solid #BFC1C1; border-right: 1px solid #BFC1C1; display: none; left: -2px; list-style: none outside none; margin:0; padding: 1px 0 4px; position: absolute; top: 19px; width: 216px !important; }
+.dropdown-menu ul { list-style: none outside none; margin: 0; padding: 6px 0 16px; }
+.dropdown-menu ul li { display: inline; float: left; list-style: none outside none; margin: 0; padding: 0; position: relative; }
+.dropdown-menu ul ul li { display: block !important; float: none; margin: 0; padding: 0; }
+.dropdown-menu a { background: none repeat scroll 0 0 #FAFAFA; display: block; float: none !important; height: auto !important; }
+.dropdown-menu li:hover li a, .dropdown-menu li.iehover li a { background: none repeat scroll 0 0 #FAFAFA; color: #545F54; float: none; font-family: arial,verdana,sans-serif; font-size: 11px; font-weight: normal; line-height:14px; margin-bottom:2px; padding: 2px 8px 4px; text-align: left; text-decoration: none; }
+.dropdown-menu li:hover li a:hover, .dropdown-menu li:hover li:hover a, .dropdown-menu li.iehover li a:hover, .dropdown-menu li.iehover li.iehover a { background: none repeat scroll 0 0 #EEEEEE; color: #000000; text-decoration: none; }
+.dropdown-menu li:hover ul ul .dropdown-menu li.iehover ul ul { display: none; }
+.dropdown-menu li:hover ul, .dropdown-menu ul ul li:hover ul, .dropdown-menu li.iehover ul, .dropdown-menu ul ul li.iehover ul { display: block; }
+
+
+/* RAW HTML SLIDESHOW */
+
+/*---------- SLIDESHOW ---------- */
+#features_rotator_container {background:#fff;border:1px solid #ccc;float:left;font-size:1.1em;height:240px;text-align:left;width:694px; border-radius: 6px; -webkit-background-clip: padding-box; -moz-background-clip: padding-box; background-clip: padding-box; position:relative; z-index: 1; }
+#features_rotator { background:#fff;float:left;position:relative;width:694px; }
+
+/* keep slide numbers from displaying visited on page load*/
+#col_center .jscheck #features_rotator_container #features_control_container #features_controls .numbered a:visited { color: #096598; }
+
+.feature_list {	float:left;height: 200px;width:690px; }
+.feature_blurb { float:left;padding:20px;width:320px; }
+.feature_image { float:right;margin:20px 0; width:320px; }
+.feature_image a { border:none !important; }
+
+#features_control_container {background: none repeat scroll 0 0 #EDEFEF; border-top:1px solid #ccc; bottom: 0px; height: 27px; left: 0; margin: 0; padding: 0; position: absolute; text-align: left; width:690px; z-index: 10;}
+#features_controls { font-size: 80%; font-weight: bold; margin: 6px 0 0 280px; padding: 0; }
+ul#features_controls { display:block; margin-left:10px; }
+#features_controls li { display: inline; list-style: none; }
+#features_controls .numbered { padding: 2px 2px 1px 2px; margin: 0 0 0 5px; position: relative; bottom: 2px; }
+#features_controls li.features_prev, #features_controls li.features_next, #features_controls li#features_pause { margin: 0; padding: 0 4px 0 0; }
+#features_controls li a { color: #064c72; font-size:1.33em; text-decoration: none; }
+#features_controls li a:hover, #features_controls li a:active, #features_controls li a:focus { color: #a90101; text-decoration: underline; }
+.no_js_slideshow { clear:left; }
+.no_js_slideshow ul li { list-style:none;padding-bottom: 5px; }
+/* Flex Video */ 
+.flex-video { 
+  position: relative; 
+  padding-top: 1.5625em; 
+  padding-bottom: 67.5%; 
+  height: 0; 
+  margin-bottom: 1em; 
+  overflow: hidden; } 
+  .flex-video.widescreen { 
+    padding-bottom: 57.25%; } 
+  .flex-video.vimeo { 
+    padding-top: 0; } 
+  .flex-video iframe, .flex-video object, .flex-video embed, .flex-video video { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; }

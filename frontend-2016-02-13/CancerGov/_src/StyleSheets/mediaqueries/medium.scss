@@ -1,0 +1,13 @@
+/* *************************************************************************/
+/* TABLET STYLES (MEDIUM) */
+/* *************************************************************************/
+@include bp(medium) {
+	/** Hide feature card title on tablets and up **/
+	.site-footer {
+		background-position: 130% 150px;
+	}
+
+	.contact-infos-mobile {
+		display: none;
+	}
+}

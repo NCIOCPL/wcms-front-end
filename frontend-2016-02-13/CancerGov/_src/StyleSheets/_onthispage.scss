@@ -1,0 +1,68 @@
+/*******************************************
+* ON THIS PAGE and KEY POINTS
+*******************************************/
+
+#_toc_article {
+	/* TODO: find a better way to determine if on-this-page is appearing on a PDQ page.
+	 * Currently, the javascript generates a div with id "_toc_article" and class "on-this-page".
+	 * So, we can safely assume that if a div has this ID, it is an on-this-page style section, but on a PDQ page.
+	 * Enforcing width: inherit will allow the on-this-page to be full width. Everywhere else, 50% width.
+	 */
+	width: inherit;
+}
+
+/* "On This Page" on:
+ * - Clinical Trial individual result view
+ * - Cancer Information Summaries
+ * - Factsheets
+ * - General content (if 'data-otp-selector' attribute is specified)
+ *
+ * "Key Points" on:
+ * - Cancer Information Summaries
+ */
+
+
+.key-points, .on-this-page {
+	margin: 0 0 2.5em 0.9375em;
+
+	ul {
+		padding: 0;
+		margin: 0;
+		line-height: 1.5em;
+	}
+	li {
+		list-style-type: none;
+		color: $body-font-color;
+		margin-left: 1em;
+		line-height: 1.5em;
+
+		p {
+			// Ephox puts <p> tags around the titles of Percussion-generated "On This Page" navs, e.g. on Factsheets
+			display: inline;
+		}
+	}
+}
+
+// suppress the OTP on mobile
+// Need to add the sibling div.pre-otp as a selector to prevent 
+// non-collapsable OTPs from disappearing.
+@include bp(small) {
+    div.pre-otp ~ .on-this-page {
+        display: none;
+    }
+}
+
+.key-points h3, .on-this-page h6 {
+	display: block;
+	margin: 1.3em 0 0.75em;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	@include font-montserrat;
+	font-weight: bold;
+	line-height: 1.25em;
+}
+
+.on-this-page li:before {
+	color: $color-link;
+}
+

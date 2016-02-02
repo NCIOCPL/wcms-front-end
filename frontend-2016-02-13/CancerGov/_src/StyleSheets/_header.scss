@@ -1,0 +1,264 @@
+/********************* BEGIN Header Styles ******************************************/
+// desktop (general)
+header {
+  padding-top: 1.5em;
+	background: #fcfcfa;
+}
+
+/* Regular pages */
+.nci-logo-pages.columns {
+	padding-left: 0;
+	padding-right: 0; 
+}
+.nci-logo-pages a {
+	display: block;
+}
+
+@include bp(medium-down) {
+	header {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+}
+
+.nci-logo-pages {
+	// SVG is default for most browers
+	// GIF is default for IE8-
+
+	$logo-width-desktop: 60%;
+	$logo-padding-desktop: 7.5px;
+
+	$logo-width-mobile: 90%;
+	$logo-padding-mobile: 13px;
+
+	html.svg & img {
+		// Fix for Firefox subpixel height rendering -- if >= .5, then move up to next pixel
+		transform: translate(0px, 0.5px);
+	}
+	
+	html.no-svg & img[class^="nci-logo-IE"] {
+		display: none;
+	}
+
+	// default; should NOT be in a media query to allow the logo to print properly in IE8
+	//@include bp(xtra-large) {
+		html.svg & img {
+			width: 60%;
+		}
+
+		html.no-svg & img.nci-logo-IE-xl {
+			display: block;
+		}
+
+		a {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	//}
+	 @include bp(large-down) {
+		html.no-svg & img.nci-logo-IE-xl {
+			display: none;
+		}
+	}
+
+	@include bp(large) {
+		html.svg & img {
+			width: $logo-width-desktop;
+		}
+
+		html.no-svg & img.nci-logo-IE-desk {
+			display: block;
+		}
+
+		a {
+			padding-left: $logo-padding-desktop;
+			padding-right: $logo-padding-desktop;
+		}
+	}
+
+	@include bp(medium) {
+		html.svg & img {
+			width: 70%;
+			min-width: ($logo-width-mobile / 100%) * (640px - $logo-padding-mobile); // this calculates the width that the logo would be at largest point in the mobile breakpoint, IF there were no scrollbar (should be 640px - $padding-mobile - <scrollbar width>)
+			max-width: ($logo-width-desktop / 100%) * (strip-unit($row-width)*$em-base - $logo-padding-desktop); // this calculates the width that the logo is at the smallest point in the desktop breakpoint
+		}
+
+		html.no-svg & img.nci-logo-IE-tab {
+			display: block;
+		}
+
+		a {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+
+	@include bp(small) {
+		html.svg & img {
+			width: $logo-width-mobile;
+		}
+
+		html.no-svg & img.nci-logo-IE-phon {
+			display: block;
+		}
+		
+		a {
+			padding-left: $logo-padding-mobile;
+			padding-right: $logo-padding-mobile;
+		}
+	}
+}
+
+
+
+
+
+/* popup */
+.nci-logo {
+	font-weight: bold;
+	font-size: 37.7px;
+	background: url($logos + "NIH-red-logo.png") no-repeat 20px 0;
+	min-height: 54px;
+
+	&.columns {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	a {
+		color: #bb0e3d;
+		padding-left: 113px;
+		padding-top: 16px;
+		display: block;
+
+		span {
+			position: absolute;
+			left: -10000px;
+			color: #5d5d5d;
+			font-size: 0.6em;
+		}
+	}
+}
+
+// tablet
+@include bp(medium) {
+	.nci-logo {
+		background: url($logos + "NIH-red-logo-tablet.png") no-repeat 30px 0;
+		font-size: 24px;
+		min-height: 36px;
+
+		a {
+			padding-left: 95px;
+			padding-top: 9px;
+		}
+	}
+}
+
+// smartphone
+@include bp(small) {
+	.nci-logo {
+		background: url($logos + "NIH-red-logo-smartphone.png") no-repeat 30px 0;
+		font-size: 16px;
+		min-height: 28px;
+
+		a {
+			padding-left: 80px;
+			padding-top: 5px;
+		}
+	}
+}
+
+// x-small
+@include bp(xtra-small) {
+	.nci-logo {
+		font-size: 13px;
+	}
+}
+
+
+/* begin mobile menu bar styles */
+// smartphone + tablet
+@include bp(medium-down) {
+	.mobile-menu-bar {
+		> a,
+		> button {
+			display: inline-block;
+			background: transparent no-repeat center 0;
+			width: 13%;
+			padding: 3em 0 0 0;
+			margin: 1em 0;
+			@include font-montserrat;
+			line-height: 1;
+			font-weight: bold;
+			font-size: 0.8em;
+			color: #fff;
+			text-transform: uppercase;
+			text-align: center;
+
+			&:hover, &:focus {
+				color: #fff;
+			}
+		}
+		> button {
+			-webkit-appearance: none;
+			appearance: none;
+			border: none;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+	button.nav-header {
+		background-image: url($icons + "menu-icon.png");
+		margin-right: 8%;
+		background-position: 49% 14%;
+	}
+	a.nav-contact {
+		background-image: url($icons + "contact-mobile.png");
+	}
+	a.nav-dictionary {
+		background-image: url($icons + "dictionary-mobile.png");
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin-left: 8%;
+		margin-right: 8%;
+	}
+	button.nav-search {
+		background-image: url($icons + "search-mobile.png");
+		margin-left: 8%;
+	}
+}
+
+// small
+@include bp(small) {
+	.mobile-menu-bar {
+		> a,
+		> button {
+			width: 19%;
+		}
+	}
+	button.nav-header {
+		margin-right: 4%;
+	}
+	a.nav-contact, a.nav-dictionary {
+		margin-left: 4%;
+		margin-right: 4%;
+	}
+	button.nav-search {
+		margin-left: 4%;
+	}
+}
+
+// x-small
+@include bp(xtra-small) {
+	.mobile-menu-bar {
+		> a,
+		> button {
+			font-size: 0.5em;
+			padding: 4em 0 0 0;
+		}
+	}
+}
+/* end mobile menu styles */
+/********************* END Header Styles ******************************************/

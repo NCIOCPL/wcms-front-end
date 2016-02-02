@@ -1,0 +1,131 @@
+/********************* BEGIN Footer Styles ******************************************/
+@mixin social-media-icons($x, $y, $width, $height) {
+    background-position: #{$x}px #{$y}px;
+    width: #{$width}px;
+    height: #{$height}px;
+}
+.columns.footer-nci {
+    @include font-montserrat;
+    font-size: 25px;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+
+    span {
+        font-size: 16px;
+    }
+}
+
+.site-footer {
+    background: #123e57 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
+    padding: 1em 0;
+    color: white;
+
+    h2 {
+        color: white;
+        font-size: 1em;
+        font-weight: normal;
+        text-transform: uppercase;
+        @include font-noto;
+        margin-bottom: 1em;
+    }
+
+    a,
+    a:hover, a:focus {
+        color: white;
+        font-weight: 700;
+    }
+
+    a:hover, a:focus {
+        text-decoration: underline;
+    }
+
+    .row {
+        margin: 1em auto;
+    }
+
+    li {
+        margin-bottom: 1em;
+        line-height: 1.1em;
+    }
+
+    .icon {
+        background-image: url($icons + "nci-sprite.png");
+        background-repeat: no-repeat;
+        display: inline-block;
+
+        &.facebook {
+            @include social-media-icons('-132','-155','8','17');
+        }
+
+        &.twitter {
+            @include social-media-icons('-123','-200','19','16');
+        }
+			
+				&.instagram {
+            @include social-media-icons('-125','-467','18','18');
+        }
+
+        &.googleplus {
+            @include social-media-icons('-123','-245','19','19');
+        }
+
+        &.pinterest {
+            @include social-media-icons('-127','-290','15','19');
+        }
+
+        &.youtube {
+            @include social-media-icons('-126','-335','18','21');
+        }
+
+        &.linkedin {
+            @include social-media-icons('-127','-425','14','14');
+        }
+
+        &.rss {
+            @include social-media-icons('-127','-380','16','16');
+        }
+				&.govdelivery {
+            @include social-media-icons('-126','-518','18','18');
+        }
+    }
+}
+
+.follow-us {
+  margin: 0.5em 0;  
+	
+	li {
+		float: left;
+		margin-right: 0.9em;
+		margin-left: 0;
+		text-indent: 0;
+		margin-bottom: 0;
+	}
+	img:hover, img:focus {
+		opacity: 0.9;
+	}
+}
+
+.agencies {
+    clear: both;
+    ul {
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+        background: url($backgrounds + "agencies-divider.gif") center right no-repeat;
+        padding-right: 0.5em;
+        margin-right: 0.25em;
+    }
+
+    li.last {
+        background: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+}
+
+.tagline {
+    text-align: center;
+}
+/********************* END Footer Styles ******************************************/

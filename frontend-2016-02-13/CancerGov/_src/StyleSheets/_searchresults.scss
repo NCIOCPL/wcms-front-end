@@ -1,0 +1,113 @@
+.results {
+	dt,
+	dd.pronunciation,
+	dd.info-summary {
+		display: inline;
+		margin-bottom: 0;
+	}
+	dd.pronunciation,
+	dd.info-summary	{
+		margin-left: 0.5em;
+
+		> span {
+			margin-left: 0.25em;
+		}
+	}
+	dd {
+		margin-bottom: 1em;
+	}
+
+	h2, h3, h4 {
+		font-size: em-calc(20px);
+		line-height: em-calc(24px);
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+
+	.results-count {
+		@include font-montserrat;
+		font-weight: bold;
+		font-size: em-calc(20px);
+		line-height: em-calc(24px);
+	}
+
+	.result .row + .row {
+		margin-top: em-calc(20px);
+	}
+}
+.mtd_pronounce{
+	margin-left: 0.25em;
+}
+.results-pager {
+	margin-bottom: em-calc(85px);
+}
+.sitewide-results {
+	ul.no-bullets > li {
+		margin-top: em-calc(30px);
+		margin-bottom: em-calc(30px);
+	}
+	.url {
+		font-size: 0.875em;
+		display: table;
+		word-break: break-all;
+	}
+	&.featured {
+		overflow: auto;
+		background: #dbf2f8;
+		padding: 2.5%;
+
+		h2 {
+			margin-top: 0;
+		}
+		.list-item .title {
+			font-size: 1em;
+		}
+		.list, .list-item {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.pagination {
+	float: right;
+	font-size: 1.125em;
+
+	/* used on dictionary pages */
+	li, > ul.no-bullets > li {
+		display: inline-block;
+		margin-left: 0.75em;
+	}
+	// to get rid of bullets (can't use no-bullets because it adds annoying padding/margin)
+	ul > li:before {
+		content: none;
+	}
+
+	.next a:after {
+		content: ">";
+	}
+	.previous a:before {
+		content: "<";
+	}
+	.current {
+		font-weight: bold;
+	}
+
+	/* used on complex search pages (clinical trials, etc.) */
+	> span {
+		font-weight: bold;
+	}
+	input {
+		background: none;
+		border: none;
+		font-size: 1em;
+		font-family: inherit;
+		color: $color-link;
+		margin-left: 0.75em;
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="content-language" content="en">
+	<title>NCI Dictionary of Cancer Terms</title>
+
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,400italic,700,700italic" rel="stylesheet">
+	<link href="/PublishedContent/Styles/widget.css" rel="stylesheet">
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="/PublishedContent/js/TermDictionaryWidgetInnards.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+	<div id="container">
+		<div class="header">
+			<a href="/" target="_blank">
+				<!--[if gt IE 8]><!-->
+					<img src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg" alt="National Cancer Institute">
+				<!--<![endif]-->
+				<!--[if lte IE 8]>
+					<img src="/PublishedContent/images/images/design-elements/logos/dictionary-widget-nci-logo.png" alt="National Cancer Institute">
+				<![endif]-->
+			</a>
+		</div>
+
+		<div class="content">
+			<div id="output">
+				<h1>Dictionary of Cancer Terms</h1>
+				<p>Find easy-to-understand definitions of terms related to cancer and medicine.</p>
+			</div>
+
+			<div id="form">
+				<div id="searchBlock">
+					<label class="hidden" for="search">Search</label>
+					<div class="widget-search-form">
+						<input type="text" onkeypress="doSearch(event)" id="search" name="search" autocomplete="off" placeholder="Enter keywords or phrases">
+						<button class="searchSubmit" onclick="doSearch(null);" type="submit">
+							<span class="hidden">Search</span>
+						</button>
+					</div>
+					<button type="submit" class="submit button" onclick="doSearch(null)" id="Go">Search</button>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="footer">
+			<a href="/" target="_blank">www.cancer.gov</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#" onclick="document.getElementById('disclaimer').style.visibility='visible';">Disclaimer</a>
+		</div>
+	</div>
+	<div id="disclaimer">
+		<p>This widget provides content from the National Cancer Institute (NCI) and is made available as a public service. The use of the widget on a non-NCI website does not indicate endorsement or approval of the website by the NCI.</p>
+		<button type="button" class="action button" onclick="document.getElementById('disclaimer').style.visibility='hidden';">Hide</button>
+	</div>
+
+	<!-- NCI Analytics -->
+	<script type="text/javascript">
+		var s_account = 'ncincidictionary';
+
+		var parentHostname = parentHostname || (document.referrer === "" ? location.hostname : document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2]);
+	</script>
+	<script type="text/javascript" src="/JS/Omniture/s_code.js"></script>
+	<script type="text/javascript">
+		var s = s_gi(s_account);
+		s.linkTrackVars = 'channel,prop47,prop48,prop51';
+		s.channel = 'Dictionary Widget';
+		s.prop47 = 'dictionary widget';
+
+		var parentInfo = window.location.href.match(/^[^#]+#([^?]*)\??(.*)/);
+		if (parentInfo != null) {
+			s.prop48 = parentInfo[2] + '_widget dictionary';
+			s.prop51 = parentInfo[1];
+		}
+
+		s.tl(null, 'o', 'Dictionary Widget - English');
+
+		var NCIAnalytics = {
+			SiteSearch: function (sender, value) {
+				var s = s_gi(s_account);
+
+				s.linkTrackVars = 'channel,prop11,prop22,events';
+				s.linkTrackEvents = 'event2';
+				s.prop11 = 'widget_dictionary';
+				s.prop22 = value;
+				s.channel = 'Dictionary Widget';
+				s.events = 'event2';
+				s.tl(this, 'o', 'Dictionary Widget Search - English');
+			},
+			ClickThrough: function(sender) {
+				var s = s_gi(s_account);
+
+				s.linkTrackVars = 'channel,events';
+				s.linkTrackEvents = 'event3';
+				s.channel = 'Dictionary Widget';
+				s.events = 'event3';
+
+				s.tl(this, 'o', 'Dictionary Widget Click-Through - English');
+			}
+		};
+
+		// analytics event bindings
+		$('a[href]:not(a[href^="#"])').each(function() {
+			var $this = $(this);
+			$this
+				.attr('href', $this.attr('href') + '?cid=cdw_' + encodeURIComponent(parentHostname))
+				.on('click.NCI.analytics', function(e) {
+					NCIAnalytics.ClickThrough(e.target);
+				});
+		});
+	</script>
+
+</body>
+
+</html>
