@@ -54,31 +54,7 @@ define(function(require) {
 				/* css class for the open state */
 				openClass: "open"
 			});
-			$("#mega-nav .sub-nav-group-wrapper").bind("mouseleave",function(e){
-				if($(e.relatedTarget).is('.sub-nav-mega')){
-					$(this).closest(".nav-menu").trigger("mouseout");
-				}
-			});
-			
-			//megamenu animations for IE9 which does not support CSS3 transitions
-			if($('html').is(".no-csstransitions")) {
-				//capture initial menu height, save it as a data attribute, then set height to 0
-				$("#mega-nav .sub-nav-mega").each(function () {
-					var subNav = $(this);
-					subNav.data("initHeight", subNav[0].scrollHeight).height(0);
-				});
 
-				$("#mega-nav").on("mouseenter", "li.nav-item", function () {
-					var subNav = $(this).find(".sub-nav-mega");
-					var height = subNav.data("initHeight");
-					subNav.stop(true, true).delay(500).animate({opacity: 1, height: height}, 500);
-
-				}).on("mouseleave", "li.nav-item", function () {
-					var subNav = $(this).find(".sub-nav-mega");
-					subNav.stop(true, true).delay(100).animate({opacity: 0, height: 0}, 250);
-				});
-			}
-/* Note: this causes menu to overflow on large screens since mega menu is confined to a max-height of 300px; scroll should always be auto
 			// Determine the height of the viewport on page load and whenever the viewport changes sizes.
 			// If the viewport is under a certain height, add a class to the mega menu (to limit its height).
 			var viewportHeight = function() {
@@ -94,27 +70,25 @@ define(function(require) {
 					$('.sub-nav-mega').removeClass("mega-menu-scroll");
 				}
 			};
-
 			// page load
 			$(document).ready(viewportHeight);
 			// viewport size changes
 			$(window).resize(viewportHeight);
-*/
 		})(jQuery);
 		/*** END Mega Menu init ***/
-		
-		/*** BEGIN Mega Menu empty class creation 
-		*** create a class for mega menu items that have no actual content, so we can unformat them  ***/
+
+		/*** BEGIN Mega Menu empty class creation
+		 *** create a class for mega menu items that have no actual content, so we can unformat them  ***/
 		jQuery(document).ready(function(jQuery) {
 			$(".sub-nav-mega").each(function(){
-				if (!$(this).text().trim().length) {     
-				$(this).addClass("empty-mega");
+				if (!$(this).text().trim().length) {
+					$(this).addClass("empty-mega");
 				}
 			})
 		});
-		/*** END Mega Menu empty class creation 
+		/*** END Mega Menu empty class creation
 
-		/*** BEGIN dictionary toggle ***/
+		 /*** BEGIN dictionary toggle ***/
 		(function($) {
 			var dictionaryToggle = function() {
 				$("#utility-dropdown").slideToggle(0, function () {
@@ -195,10 +169,10 @@ define(function(require) {
 
 			NCI.window.oldHash = location.hash;
 			/*
-			if(NCI.window.oldHash !== "") {
-				$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
-			}
-			*/
+			 if(NCI.window.oldHash !== "") {
+			 $('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
+			 }
+			 */
 
 			$(window).on('load hashchange', function(event) {
 				NCI.window.newHash = location.hash;
@@ -206,13 +180,13 @@ define(function(require) {
 				doScroll(event);
 
 				/*
-				if(NCI.window.oldHash !== "") {
-					$('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
-				}
-				if(NCI.window.newHash !== "") {
-					$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
-				}
-				*/
+				 if(NCI.window.oldHash !== "") {
+				 $('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
+				 }
+				 if(NCI.window.newHash !== "") {
+				 $('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
+				 }
+				 */
 
 				NCI.window.oldHash = NCI.window.newHash;
 			});
@@ -241,7 +215,7 @@ define(function(require) {
 				return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
 			}).after($(
 				'<a class="icon-exit-notification" title="' + altText + '" href="' + path + '">' +
-					'<span class="hidden">' + altText + '</span>' +
+				'<span class="hidden">' + altText + '</span>' +
 				'</a>'
 			));
 		})(jQuery);
@@ -308,7 +282,7 @@ define(function(require) {
 		/*** BEGIN Page Options
 		 * This functions the font resizer.
 		 ***/
-		 // MOVED TO NCI.PageOptions.FontResizer.js
+			// MOVED TO NCI.PageOptions.FontResizer.js
 		(function($) {
 			NCI.PageOptions.init();
 		})(jQuery);
@@ -633,31 +607,31 @@ define(function(require) {
 		(function($) {
 			if (/\/?about-cancer\/treatment\/clinical-trials\/search\/view/gi.test(location.pathname) && /\bcdrid=773118\b/gi.test(location.search)) {
 				$('table:eq(0)')
-				.find('tr:eq(0)')
+					.find('tr:eq(0)')
 					.append($('<th>').text('Status'))
-				.end().find('tr:eq(1)')
+					.end().find('tr:eq(1)')
 					.append($('<td>').text('Temporarily Closed'));
 			}
 		})(jQuery);
 		/*** END NCI-Match HACK ***/
 
-		/*** BEGIN HACK for Blog Series titles 
-		* TODO: remove when Blog Dynamic List Percussion template is updated 
-		* with class name for <h3> ***/
+		/*** BEGIN HACK for Blog Series titles
+		 * TODO: remove when Blog Dynamic List Percussion template is updated
+		 * with class name for <h3> ***/
 		(function($) {
 			$('div.blog-post').each(function () {
-				if ($(this).find('a.comment-count').length < 1) {	
-					($(this).find('div.post-title h3').addClass('no-comments'))	
+				if ($(this).find('a.comment-count').length < 1) {
+					($(this).find('div.post-title h3').addClass('no-comments'))
 				}
 			});
 		})(jQuery);
 		/*** END HACK for Blog Series titles ***/
 
-		// For the new reference tool tip handling uncomment the following:
-		//require("Common/Enhancements/NCI.ReferenceToolTip").init(); 
+			// For the new reference tool tip handling uncomment the following:
+			//require("Common/Enhancements/NCI.ReferenceToolTip").init();
 
-		//Then uncomment the reference tooltips function below:
-		// reference tooltips
+			//Then uncomment the reference tooltips function below:
+			// reference tooltips
 		(function ($) {
 			var timerLength = 1000;
 
@@ -672,8 +646,8 @@ define(function(require) {
 					function findRef(h) {
 						h = document.getElementById(
 							h.getAttribute('href')
-							.replace(/^#cit\//, '#')
-							.replace(/^#/, '')
+								.replace(/^#cit\//, '#')
+								.replace(/^#/, '')
 						);
 						h = h && h.nodeName == "LI" && h;
 
@@ -725,9 +699,9 @@ define(function(require) {
 							}
 
 							/*if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) + $(window).height() > $(h).offset().top + h.offsetHeight) {
-								$(h).addClass('RTTarget');
-								//return;
-							}*/
+							 $(h).addClass('RTTarget');
+							 //return;
+							 }*/
 
 							if (!tooltipNode) {
 								tooltipNode = document.createElement('ul');
@@ -789,10 +763,10 @@ define(function(require) {
 
 	// BEGIN Spanish Analytics tracking
 	$('html[lang="es"]').find('a.news-govdelivery, a.blogRSS').on('click', function() {
-	    s.linkTrackVars = 'prop4,prop5';
-	    s.prop4 = 'GovDeliveryEsp';
-	    s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
-	    s.tl(this, 'o', 'GovDeliveryEsp');
+		s.linkTrackVars = 'prop4,prop5';
+		s.prop4 = 'GovDeliveryEsp';
+		s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
+		s.tl(this, 'o', 'GovDeliveryEsp');
 	});
 	// END Spanish Analytics Tracking
 });
