@@ -1,7 +1,8 @@
 define(function(require) {
-	var $ = require('jquery');
+	var $ = require('jquery'),
+		equalHeights;
 
-	function equalHeights() {
+	equalHeights = function() {
 		$('[data-match-height]').each(function() {
 			// initialize isStacked to false; this is the default behavior
 			var isStacked = false;
@@ -46,10 +47,13 @@ define(function(require) {
 			// call that function for every 'item' in the 'items' array
 			setHeight.call(null, items, maxHeight, 40);
 		});
-	}
+	};
 
 	/* run the above function */
 	$(window).on('load resize', function() {
 		equalHeights();
 	});
+
+	/* return function so it can be used by other modules */
+	return equalHeights;
 });

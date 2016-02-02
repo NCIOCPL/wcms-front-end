@@ -43,7 +43,7 @@ $button-border-style: none;
 
 // We use this to set the default radius used throughout the core.
 
-// $button-radius: $global-radius;
+$button-radius: $global-radius;
 // $button-round: $global-rounded;
 
 // We use this to set default opacity for disabled buttons.
@@ -143,15 +143,23 @@ form a.button:hover, {
 	text-decoration: none;
 }
 
+.contentzone form button,
+.contentzone .button {
+	min-width: 130px;
+}
+
 form button,
 .button {
 	@include button-base;
-	@include button-size;
-	@include button-style;
+	@include button-size($padding:false);
+	@include button-style($radius:true);
 	-webkit-appearance: none;
 	  -moz-appearance: none;
 	appearance: none;
-		margin-right: 28px;
+	margin-right: 28px;
+	padding: 5px 12px 6px;
+	font-size: 1em;
+
 
 	&[type=submit],
 	&.submit {
@@ -208,7 +216,7 @@ form button,
 @media only screen {
 	form button,
 	form .button {
-		@include box-shadow(0px 2px 4px 0px rgba(0, 0, 0, 0.1) inset);
+		@include box-shadow(0 2px 4px 0 rgba(0, 0, 0, 0.05) inset);
 
 		@include single-transition(background-color);
 

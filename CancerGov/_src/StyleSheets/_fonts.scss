@@ -54,4 +54,16 @@ $montserrat-font-stack: '#{$montserrat}', Arial, sans-serif;
 @include font-face($montserrat, normal);
 @include font-face($montserrat, bold);
 
+
+@font-face {
+	font-family: "Flaticon";
+	font-weight: normal;
+	font-style: normal;
+	src: url($fonts + "nci-flaticon.eot");
+	src: url($fonts + "nci-flaticon.eot#iefix") format("embedded-opentype"),
+		 url($fonts + "nci-flaticon.woff") format("woff"),
+		 url($fonts + "nci-flaticon.ttf") format("truetype"),
+		 url($fonts + "nci-flaticon.svg") format("svg");
+}
+
 /********************* END Font Declarations ******************************************/

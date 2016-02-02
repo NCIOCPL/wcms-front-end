@@ -95,6 +95,13 @@
 		}
 	}
 
+	// if sub nav mega is empty, remove syling
+	.empty-mega {
+		background-color: transparent;
+		padding: 0;
+		border: 0;
+	}
+
 	/* allow mega menu to span full width of screen while keep menu items within limits of content */
 	.sub-nav-group-wrapper {
 		max-width: 1200px;
@@ -137,10 +144,11 @@
 	.cancer-types-border-container {
 		.sub-nav-mega & { // to override '.sub-nav-mega .sub-nav-group' styling
 			width: 66%;
+			margin-top:8px;
+			border-right: 1px solid #000;
 		}
 		> li {
-			border-right: 1px solid #000;
-
+			margin-top:0;
 			> ul {
 				width: 100%/3 - 2%;
 				margin-right: -4px;
@@ -213,12 +221,12 @@
 	html[lang="es"] & {
 		$nav-item-list: (
 			//(width:(bp1  , bp2  ), lines: # )
-			( width: (102px, 124px), lines: 1 ),
-			( width: (154px, 174px), lines: 1 ),
-			( width: (136px, 157px), lines: 1 ),
-			( width: (137px, 158px), lines: 2 ),
-			( width: (89px,  111px), lines: 1 ),
-			( width: (96px,  118px), lines: 2 )
+						( width: (102px, 124px), lines: 1 ),
+						( width: (154px, 174px), lines: 1 ),
+						( width: (136px, 157px), lines: 1 ),
+						( width: (137px, 158px), lines: 2 ),
+						( width: (89px,  111px), lines: 1 ),
+						( width: (96px,  118px), lines: 2 )
 		);
 		$nav-item-width-add: (5.5px, 9px);
 

@@ -390,9 +390,13 @@ a.learn-more {
 	}
 	.image-hover {
 		display: block;
+		
+		img {
+			width: 100%;
+		}	
 
 		&:hover, &:focus {
-			background-color: #000;
+			background-color: $black;
 			> img {
 				opacity: 0.8;
 			}

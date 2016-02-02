@@ -197,6 +197,7 @@
 		$taupe: #c3c1b4;
 		$teal:	#14819b;
 		$dteal: #017c84;
+		$cranberry: #BB0E3D;
 
 		visibility: hidden;
 		z-index: 1000;
@@ -251,6 +252,7 @@
 		/* clicked link state */
 		.nav-menu li > div > a:active {
 			color: $white;
+			background-color: $cranberry;
 		}
 
 		/* remove margin from lists */
@@ -365,7 +367,7 @@
 	.section-nav {
 		display: none;
 		position: absolute;
-		top: 1.9375em;
+		top: -0.85em;
 		z-index: 999;
 		width: 90%;
 		background: white;

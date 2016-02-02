@@ -77,7 +77,18 @@ define(function(require) {
 		})(jQuery);
 		/*** END Mega Menu init ***/
 
-		/*** BEGIN dictionary toggle ***/
+		/*** BEGIN Mega Menu empty class creation
+		 *** create a class for mega menu items that have no actual content, so we can unformat them  ***/
+		jQuery(document).ready(function(jQuery) {
+			$(".sub-nav-mega").each(function(){
+				if (!$(this).text().trim().length) {
+					$(this).addClass("empty-mega");
+				}
+			})
+		});
+		/*** END Mega Menu empty class creation
+
+		 /*** BEGIN dictionary toggle ***/
 		(function($) {
 			var dictionaryToggle = function() {
 				$("#utility-dropdown").slideToggle(0, function () {
@@ -158,10 +169,10 @@ define(function(require) {
 
 			NCI.window.oldHash = location.hash;
 			/*
-			if(NCI.window.oldHash !== "") {
-				$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
-			}
-			*/
+			 if(NCI.window.oldHash !== "") {
+			 $('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
+			 }
+			 */
 
 			$(window).on('load hashchange', function(event) {
 				NCI.window.newHash = location.hash;
@@ -169,13 +180,13 @@ define(function(require) {
 				doScroll(event);
 
 				/*
-				if(NCI.window.oldHash !== "") {
-					$('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
-				}
-				if(NCI.window.newHash !== "") {
-					$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
-				}
-				*/
+				 if(NCI.window.oldHash !== "") {
+				 $('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
+				 }
+				 if(NCI.window.newHash !== "") {
+				 $('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
+				 }
+				 */
 
 				NCI.window.oldHash = NCI.window.newHash;
 			});
@@ -204,7 +215,7 @@ define(function(require) {
 				return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
 			}).after($(
 				'<a class="icon-exit-notification" title="' + altText + '" href="' + path + '">' +
-					'<span class="hidden">' + altText + '</span>' +
+				'<span class="hidden">' + altText + '</span>' +
 				'</a>'
 			));
 		})(jQuery);
@@ -271,7 +282,7 @@ define(function(require) {
 		/*** BEGIN Page Options
 		 * This functions the font resizer.
 		 ***/
-		 // MOVED TO NCI.PageOptions.FontResizer.js
+			// MOVED TO NCI.PageOptions.FontResizer.js
 		(function($) {
 			NCI.PageOptions.init();
 		})(jQuery);
@@ -596,31 +607,31 @@ define(function(require) {
 		(function($) {
 			if (/\/?about-cancer\/treatment\/clinical-trials\/search\/view/gi.test(location.pathname) && /\bcdrid=773118\b/gi.test(location.search)) {
 				$('table:eq(0)')
-				.find('tr:eq(0)')
+					.find('tr:eq(0)')
 					.append($('<th>').text('Status'))
-				.end().find('tr:eq(1)')
+					.end().find('tr:eq(1)')
 					.append($('<td>').text('Temporarily Closed'));
 			}
 		})(jQuery);
 		/*** END NCI-Match HACK ***/
 
-		/*** BEGIN HACK for Blog Series titles 
-		* TODO: remove when Blog Dynamic List Percussion template is updated 
-		* with class name for <h3> ***/
+		/*** BEGIN HACK for Blog Series titles
+		 * TODO: remove when Blog Dynamic List Percussion template is updated
+		 * with class name for <h3> ***/
 		(function($) {
 			$('div.blog-post').each(function () {
-				if ($(this).find('a.comment-count').length < 1) {	
-					($(this).find('div.post-title h3').addClass('no-comments'))	
+				if ($(this).find('a.comment-count').length < 1) {
+					($(this).find('div.post-title h3').addClass('no-comments'))
 				}
 			});
 		})(jQuery);
 		/*** END HACK for Blog Series titles ***/
 
-		// For the new reference tool tip handling uncomment the following:
-		//require("Common/Enhancements/NCI.ReferenceToolTip").init(); 
+			// For the new reference tool tip handling uncomment the following:
+			//require("Common/Enhancements/NCI.ReferenceToolTip").init();
 
-		//Then uncomment the reference tooltips function below:
-		// reference tooltips
+			//Then uncomment the reference tooltips function below:
+			// reference tooltips
 		(function ($) {
 			var timerLength = 1000;
 
@@ -635,8 +646,8 @@ define(function(require) {
 					function findRef(h) {
 						h = document.getElementById(
 							h.getAttribute('href')
-							.replace(/^#cit\//, '#')
-							.replace(/^#/, '')
+								.replace(/^#cit\//, '#')
+								.replace(/^#/, '')
 						);
 						h = h && h.nodeName == "LI" && h;
 
@@ -688,9 +699,9 @@ define(function(require) {
 							}
 
 							/*if ((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) + $(window).height() > $(h).offset().top + h.offsetHeight) {
-								$(h).addClass('RTTarget');
-								//return;
-							}*/
+							 $(h).addClass('RTTarget');
+							 //return;
+							 }*/
 
 							if (!tooltipNode) {
 								tooltipNode = document.createElement('ul');
@@ -752,10 +763,10 @@ define(function(require) {
 
 	// BEGIN Spanish Analytics tracking
 	$('html[lang="es"]').find('a.news-govdelivery, a.blogRSS').on('click', function() {
-	    s.linkTrackVars = 'prop4,prop5';
-	    s.prop4 = 'GovDeliveryEsp';
-	    s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
-	    s.tl(this, 'o', 'GovDeliveryEsp');
+		s.linkTrackVars = 'prop4,prop5';
+		s.prop4 = 'GovDeliveryEsp';
+		s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
+		s.tl(this, 'o', 'GovDeliveryEsp');
 	});
 	// END Spanish Analytics Tracking
 });
