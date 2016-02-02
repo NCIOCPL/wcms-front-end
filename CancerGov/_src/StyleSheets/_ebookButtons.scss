@@ -21,13 +21,15 @@ div.ebook-title h4 {
 /* Begin eBook buttons */
 .pub-buttons {
 	overflow: auto;
+	font-family: #{$montserrat-font-stack};
 }
 
 .pub-buttons a {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	padding: 8px 15px 0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	min-width: 130px;
+	padding: 6px 15px 0;
 	text-decoration: none;
 	float: left;
 	margin-right: 15px;
@@ -36,6 +38,10 @@ div.ebook-title h4 {
 	color: #fff;
 	line-height: 24px;
 	font-size: 13px;
+	font-weight: bold;
+	-webkit-box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
+	box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
 }
 
 .pub-buttons a.lector {
@@ -50,23 +56,51 @@ div.ebook-title h4 {
 .pub-buttons a.html {
 	background-color: #82368c;
 }
+
 .pub-buttons a.pdf {
 	background-color: #bb0e3d;
 }
+.pub-buttons a.pdf:hover {
+	background-color: darken(#bb0e3d, 10%);
+}
+
 .pub-buttons a.kindle {
 	background-color: #ff5f00;
 }
+.pub-buttons a.kindle:hover {
+	background-color: darken(#ff5f00, 10%);
+}
+
 .pub-buttons a.epub,
 .pub-buttons a.lector {
 	background-color: #2a72a5;
+}
+.pub-buttons a.epub:hover,
+.pub-buttons a.lector:hover {
+	background-color: darken(#2a72a5, 10%);
 }
 
 .pub-buttons a.free {
 	background-color: #2dc799;
 }
+.pub-buttons a.free:hover {
+	background-color: darken(#2dc799, 10%);
+}
 
 .pub-buttons a.icon {
 	padding-left: 11px;
+}
+.pub-buttons a.icon.pdf {
+	padding-left: 36px;
+}
+.pub-buttons a.icon.kindle {
+	padding-left: 27px;
+}
+.pub-buttons a.icon.epub {
+	padding-left: 35px;
+}
+:lang(es) .pub-buttons a.icon.epub {
+	padding-left: 13px;
 }
 
 .pub-buttons a.icon span {

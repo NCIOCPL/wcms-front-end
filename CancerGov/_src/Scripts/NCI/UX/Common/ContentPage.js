@@ -77,6 +77,17 @@ define(function(require) {
 		})(jQuery);
 		/*** END Mega Menu init ***/
 
+		/*** BEGIN Mega Menu empty class creation
+		 *** create a class for mega menu items that have no actual content, so we can unformat them  ***/
+		jQuery(document).ready(function(jQuery) {
+			$(".sub-nav-mega").each(function(){
+				if (!$(this).text().trim().length) {
+					$(this).addClass("empty-mega");
+				}
+			})
+		});
+		/*** END Mega Menu empty class creation
+
 		/*** BEGIN dictionary toggle ***/
 		(function($) {
 			var dictionaryToggle = function() {

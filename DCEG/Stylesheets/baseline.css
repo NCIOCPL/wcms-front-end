@@ -1821,9 +1821,12 @@ ol li.genSearchItem {
 
 .bio-info{   }
 
-.bio-info table {margin-bottom: 0;}
+.bio-info table {margin-bottom: 0;table-layout: fixed;width: 275px;}
 
 .bio-info table tr td{ vertical-align:top; padding: 3px; }
+.bio-info table tr td:first-child {width:33.3333%}
+.bio-info table tr td:last-child {width:66.6666%}
+.bio-info table tr td a {word-wrap: break-word;}
 
 	
 /***

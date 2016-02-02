@@ -53,3 +53,12 @@ body.cgvfactsheet h2 p {
 		padding-right: 0;
 	}
 }
+
+
+
+// Hotfix for OCEPROJECT-3933. The button min-width of 130px doesn't work in this instance because the container its in can be smaller than that.
+// Applies to /publications/dictionaries/cancer-drug.
+// HTML needs to be changed for this widget
+.dictionary-search .button {
+	min-width: inherit;
+}
