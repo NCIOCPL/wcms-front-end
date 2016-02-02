@@ -56,6 +56,8 @@ h1, h2, h3,
 h4, h5, h6 {
     @extend %headings !optional;
 }
+
+/* Commenting out, will be added again in next release.
 // mixin to create all small column combinations
 .small-1, .small-2, .small-3, .small-4, .small-5, .small-6, .small-7, .small-8, .small-9, .small-10, .small-11, .small-12 {
     @extend %small-columns !optional;
@@ -82,6 +84,7 @@ h4, h5, h6 {
 		margin-top: 0;
 	}
 }
+*/
 p {
 	margin: 0.5em 0;
 	line-height: 1.5em;
