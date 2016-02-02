@@ -31,7 +31,7 @@
 		@include font-montserrat;
 		text-transform: uppercase;
 		text-align: center;
-		transition: all linear 150ms;
+		@include transition(all linear 150ms);
 	}
 
 	/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
@@ -85,7 +85,7 @@
 		border-top: none;
 		background-color: #fff;
 		width: 100%;
-		overflow: auto;
+		overflow-y: scroll;
 		max-height:0;
 
 		opacity: 0;
@@ -98,6 +98,7 @@
 			max-height:300px;
 			opacity: 1;
 			visibility: visible;
+			transition-delay: 500ms;
 			//@include transform(translateY(0));
 		}
 	}
