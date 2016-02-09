@@ -467,6 +467,7 @@ span {
 html.borderradius.generatedcontent {
 	.radio, .checkbox {
 		position: relative;
+		z-index: -1;
 	}
 	span.radio input[type="radio"], span.checkbox input[type="checkbox"] {
 		margin-top: $custom-form-radiocheck-size / 2;
