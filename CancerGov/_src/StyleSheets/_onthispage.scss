@@ -40,6 +40,10 @@
 			// Ephox puts <p> tags around the titles of Percussion-generated "On This Page" navs, e.g. on Factsheets
 			display: inline;
 		}
+		
+		li {
+			margin-left: 2em;
+		}
 	}
 }
 
