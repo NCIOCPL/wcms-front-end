@@ -163,7 +163,11 @@ ol {
 .rawHtml li {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
-	margin-left: 2em;
+	margin-left: 1em;
+	
+	li {
+		margin-left: 2em;
+	}
 }
 .contentzone ul.no-bullets > li,
 .contentzone ol.no-bullets > li,
