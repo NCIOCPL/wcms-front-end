@@ -28,6 +28,9 @@
 }
 .cthp-content {
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
+  &.cthp-patient-content {
+		background-color: #6254A3;
+	}
 }
 .cthp-intro-multimedia {
 	background: white;
@@ -106,7 +109,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 }
 .cthp-research .cardBody {
 	p {
-		margin-top: 2px; 
+		margin-top: 2px;
 		margin-bottom: 2px;
 		a {
 			display: block;
@@ -154,8 +157,8 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
     /* margin-top: -10px; -->  half the icon height */
     & a:after {
         content: "";
-        background: $ncisprite no-repeat -467px -217px;   
-        width: 20px;   
+        background: $ncisprite no-repeat -467px -217px;
+        width: 20px;
         height: 20px;
         display: inline-block;
         position: absolute;
@@ -276,7 +279,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-general div:hover p,
 .cthp-content .cardBody:hover,
 .cthp-content .rxbodyfield:hover{
-	background-color: white; 
+	background-color: white;
 }
 .cthp-treatment:hover li a.arrow-link,
 .cthp-research:hover li a.arrow-link,
@@ -287,7 +290,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-general:hover li a.arrow-link {
 	color: #bb0e3d;
 	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
-} 
+}
 .cthp-treatment div:hover,
 .cthp-research div:hover,
 .cthp-causes div:hover,
@@ -295,7 +298,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-screening div:hover,
 .cthp-survival div:hover,
 .cthp-general div:hover {
-	background-color: black; 
+	background-color: black;
 }
 .cthp-treatment div:hover img,
 .cthp-research div:hover img,
@@ -304,7 +307,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-screening div:hover img,
 .cthp-survival div:hover img,
 .cthp-general div:hover img {
-	opacity: 0.8; 
+	opacity: 0.8;
 }
 /* End CTHP Card styling */
 
@@ -314,7 +317,7 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	}
 }
 @include bp(large-up) {
-	
+
 	.cthp-padding {
 		padding-left: em-calc(8px);
 	}
