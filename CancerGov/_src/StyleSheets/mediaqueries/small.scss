@@ -91,6 +91,9 @@
 	}
 	.cthp-content {
 		background: white;
+        &.cthp-patient-content {
+           background-color: inherit;
+        }
 	}
 
 	.cthp-content h1 {
