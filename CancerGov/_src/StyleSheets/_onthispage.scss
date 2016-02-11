@@ -33,7 +33,7 @@
 	li {
 		list-style-type: none;
 		color: $body-font-color;
-		margin-left: 1em;
+		margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
 		line-height: 1.5em;
 
 		p {
@@ -42,7 +42,7 @@
 		}
 		
 		li {
-			margin-left: 2em;
+			margin-left: 32px;
 		}
 	}
 }

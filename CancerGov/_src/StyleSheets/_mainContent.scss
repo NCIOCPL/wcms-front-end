@@ -159,14 +159,18 @@ ol {
 .rawHtml ol {
 	margin-bottom: 1em;
 }
+.contentzone ol li,
+.rawHtml ol li {
+	margin-left: 38px;
+}
 .contentzone li,
 .rawHtml li {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
-	margin-left: 1em;
+	margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
 	
-	li {
-		margin-left: 2em;
+li {
+		margin-left: 32px;
 	}
 }
 .contentzone ul.no-bullets > li,
