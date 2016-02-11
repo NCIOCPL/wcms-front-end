@@ -230,7 +230,10 @@
 	.topic-feature a:hover {
 		color: white;
 	}
-		/* the portal pages needed these items to not hit the edge of screen on mobile only */
+	.feature-primary p, .feature-secondary p {
+		display: none;
+	}
+	/* the portal pages needed these items to not hit the edge of screen on mobile only */
 	.feature-primary h3, .feature-primary p,
 	.feature-secondary h3, .feature-secondary p,
 	.topic-feature h3, .topic-feature p,
