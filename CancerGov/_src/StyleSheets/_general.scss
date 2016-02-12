@@ -138,6 +138,21 @@ table caption {
 			padding-left: 0;
 			padding-right: 0;
 		}
+		// inserted these rules in the case the foundation column is using both large and small (such as on /social-media)
+		&[class*=" small-"],
+		&[class^="small-"] {
+			&:first-child {
+				padding-left: 0;
+				padding-right: 0.9375em;
+			}
+		}
+		&[class*=" small-"],
+		&[class^="small-"] {
+			&:last-child {
+				padding-left: 0.9375em;
+				padding-right: 0;
+			}
+		}
 	}
 
 	@include bp(medium-down) {
