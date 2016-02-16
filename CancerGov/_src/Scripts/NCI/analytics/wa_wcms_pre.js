@@ -80,7 +80,11 @@ var AllSuites =
         live: 'ncielcancer',
         other: 'ncielcancer-dev'
     },
-
+    'nciogcr-governmentcongressionalrelations': {
+        live: 'nciogcr-governmentcongressionalrelations',
+        other: 'nciogcr-govcongressionalrelations-dev', 
+    },
+	
     /// CCOP suites
     'ncidcp-cancerprevention': {
         live: 'ncidcp-cancerprevention',
