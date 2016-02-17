@@ -33,12 +33,16 @@
 	li {
 		list-style-type: none;
 		color: $body-font-color;
-		margin-left: 1em;
+		margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
 		line-height: 1.5em;
 
 		p {
 			// Ephox puts <p> tags around the titles of Percussion-generated "On This Page" navs, e.g. on Factsheets
 			display: inline;
+		}
+		
+		li {
+			margin-left: 32px;
 		}
 	}
 }
