@@ -54,7 +54,34 @@ define(function(require) {
 				/* css class for the open state */
 				openClass: "open"
 			});
+			/* Changes for WCMSFEQ-94
+			$("#mega-nav .sub-nav-group-wrapper").bind("mouseleave",function(e){
+				if($(e.relatedTarget).is('.sub-nav-mega')){
+					$(this).closest(".nav-menu").trigger("mouseout");
+				}
+			});
 
+			//megamenu animations for IE9 which does not support CSS3 transitions
+			if($('html').is(".no-csstransitions")) {
+				//capture initial menu height, save it as a data attribute, then set height to 0
+				$("#mega-nav .sub-nav-mega").each(function () {
+					var subNav = $(this);
+					subNav.data("initHeight", subNav[0].scrollHeight).height(0);
+				});
+
+				$("#mega-nav").on("mouseenter", "li.nav-item", function () {
+					var subNav = $(this).find(".sub-nav-mega");
+					var height = subNav.data("initHeight");
+					subNav.stop(true, true).delay(500).animate({opacity: 1, height: height}, 500);
+
+				}).on("mouseleave", "li.nav-item", function () {
+					var subNav = $(this).find(".sub-nav-mega");
+					subNav.stop(true, true).delay(100).animate({opacity: 0, height: 0}, 250);
+				});
+			}
+			*/
+			// Changes for WCMSFEQ-94 - below block should remain commented out
+			/* Note: this causes menu to overflow on large screens since mega menu is confined to a max-height of 300px; scroll should always be auto
 			// Determine the height of the viewport on page load and whenever the viewport changes sizes.
 			// If the viewport is under a certain height, add a class to the mega menu (to limit its height).
 			var viewportHeight = function() {
@@ -70,10 +97,12 @@ define(function(require) {
 					$('.sub-nav-mega').removeClass("mega-menu-scroll");
 				}
 			};
+
 			// page load
 			$(document).ready(viewportHeight);
 			// viewport size changes
 			$(window).resize(viewportHeight);
+*/
 		})(jQuery);
 		/*** END Mega Menu init ***/
 
