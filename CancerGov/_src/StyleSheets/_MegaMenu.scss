@@ -31,9 +31,7 @@
 		@include font-montserrat;
 		text-transform: uppercase;
 		text-align: center;
-		// Change pending WCMSFEQ-94
-		//@include transition(all linear 150ms);
-		//
+		@include transition(all linear 150ms);
 	}
 
 	/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
@@ -81,61 +79,36 @@
 		position: absolute;
 		/* make menu the width of the entire nav bar */
 		left: 0;
-		padding: 0.5em 1em;
-		border: 1px solid #dedede;
+		//padding: 0.5em 1em;
+		border-bottom: 1px solid #dedede;
 		@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
 		border-top: none;
 		background-color: #fff;
 		width: 100%;
-
+		overflow-y: scroll;
+		max-height:0;
+		opacity: 0;
 		visibility: hidden;
-		@include transition(visibility 0s linear 0ms);
+		//@include transform(translateY(-15px));
+		@include transition(all 500ms ease 100ms);
 
 		/* sub-navigation panel open state */
 		&.open {
+			max-height:300px;
+			opacity: 1;
 			visibility: visible;
-			@include transition-delay(500ms);
+			transition-delay: 500ms;
+			//@include transform(translateY(0));
 		}
 	}
-
-	// Changes for WCMSFEQ-94
-	//	.sub-nav-mega {
-	//		/* display mega menu over content */
-	//		z-index: 999;
-	//		position: absolute;
-	//		/* make menu the width of the entire nav bar */
-	//		left: 0;
-	//		//padding: 0.5em 1em;
-	//		border-bottom: 1px solid #dedede;
-	//		@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
-	//		border-top: none;
-	//		background-color: #fff;
-	//		width: 100%;
-	//		overflow-y: scroll;
-	//		max-height:0;
-	//
-	//		opacity: 0;
-	//		visibility: hidden;
-	//		//@include transform(translateY(-15px));
-	//		@include transition(all 500ms ease 100ms);
-	//
-	//		/* sub-navigation panel open state */
-	//		&.open {
-	//			max-height:300px;
-	//			opacity: 1;
-	//			visibility: visible;
-	//			transition-delay: 500ms;
-	//			//@include transform(translateY(0));
-	//		}
-	//	}
-	//	.no-csstransitions .sub-nav-mega {
-	//		max-height:300px;
-	//		overflow:hidden !important;
-	//		visibility: visible;
-	//	}
-	//	.no-csstransitions .sub-nav-mega.open {
-	//		opacity:0;
-	//	}
+	.no-csstransitions .sub-nav-mega {
+		max-height:300px;
+		overflow:hidden !important;
+		visibility: visible;
+	}
+	.no-csstransitions .sub-nav-mega.open {
+		opacity:0;
+	}
 
 	// if sub nav mega is empty, remove syling
 	.empty-mega {
@@ -148,8 +121,7 @@
 	.sub-nav-group-wrapper {
 		max-width: 1200px;
 		margin: 0 auto;
-		// Changes for WCMSFEQ-94
-		// padding: 0.5em 1em;
+		padding: 0.5em 1em;
 	}
 
 
@@ -187,9 +159,7 @@
 	.cancer-types-border-container {
 		.sub-nav-mega & { // to override '.sub-nav-mega .sub-nav-group' styling
 			width: 66%;
-			margin-top:8px;
-			// Changes for WCMSFEQ-94
-			////margin-top:8px; // to be commented out
+			//margin-top:8px;
 			border-right: 1px solid #000;
 		}
 		> li {
@@ -216,9 +186,7 @@
 
 	/* decrease height of mega menu and add scroll bar */
 	.mega-menu-scroll {
-		max-height: 300px;
-		// Changes for WCMSFEQ-94
-		////max-height: 300px; // to be commented out
+		//max-height: 300px;
 		overflow: auto;
 	}
 
