@@ -13,7 +13,7 @@ define(function(require) {
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/
 		(function($) {
-			var headerHeight = $('.fixedtotop').height();
+			var headerHeight = $('.fixedtotop').outerHeight();
 			$('.fixedtotop').scrollToFixed({
 				spacerClass: 'fixedtotop-spacer',
 				fixed: function() {
@@ -173,7 +173,6 @@ define(function(require) {
 			require('jquery/headroom');
 
 			$('.headroom-area').headroom({
-				tolerance: 0,
 				offset: 205,
 				classes: {
 					initial: "slide",
@@ -194,29 +193,39 @@ define(function(require) {
 				}
 			};
 
-			NCI.window.oldHash = location.hash;
 			/*
+			NCI.window.oldHash = location.hash;
 			if(NCI.window.oldHash !== "") {
 				$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
 			}
 			*/
 
 			$(window).on('load hashchange', function(event) {
-				NCI.window.newHash = location.hash;
 
 				doScroll(event);
 
 				/*
+				NCI.window.newHash = location.hash;
 				if(NCI.window.oldHash !== "") {
 					$('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
 				}
 				if(NCI.window.newHash !== "") {
 					$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
 				}
+				NCI.window.oldHash = NCI.window.newHash;
 				*/
 
-				NCI.window.oldHash = NCI.window.newHash;
 			});
+
+			//redundant check to see if anchor is same as current hash
+			//if it is the same then trigger doScroll since a hashchange will not be triggered
+			$("a[href*=#]").click(function(e) {
+				var anchor = this.attributes.href.value;
+				if(anchor === location.hash){
+					doScroll(e);
+				}
+			});
+
 		})(jQuery);
 		/*** END deeplinking fix ***/
 

@@ -381,7 +381,7 @@ define(function(require) {
 		$('.summary-sections > section')
 			.wrapAll('<div class="accordion"></div>');
 		NCI.makeAllAccordions();
-		NCI.scrollTo(location.hash);
+		//NCI.scrollTo(location.hash);
 
 
 		// Section to setup re-routing of URLs
@@ -405,6 +405,10 @@ define(function(require) {
 					// show the section
 					showSection($sid);
 				}
+				$('[tabindex="1"]').removeAttr('tabindex');
+				//$sid.attr('tabindex', 1).focus();
+				$sid.attr('tabindex', 1);
+
 			},
 			// Handling of links clicked in the 'On this page' navigation or within the document
 			/* Note: The typical case would be to jump to a location within
@@ -433,7 +437,8 @@ define(function(require) {
 				// TODO: REMOVE?
 				// ... and set the section navigation properly
 				$('[tabindex="1"]').removeAttr('tabindex');
-				$rid.attr('tabindex', 1).focus();
+				//$rid.attr('tabindex', 1).focus();
+				$rid.attr('tabindex', 1);
 				// END TODO: REMOVE?
 			},
 			'cit/:cid': function(cid) {
@@ -449,6 +454,10 @@ define(function(require) {
 					// show the containing section
 					showSection($cid.closest('.pdq-sections').parent().closest('section'));
 				}
+				$('[tabindex="1"]').removeAttr('tabindex');
+				//$cid.attr('tabindex', 1).focus();
+				$cid.attr('tabindex', 1);
+
 			},
 
 			// Check if the supplied ID exists. If it doesn't exist, open the full document.

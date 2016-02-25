@@ -50,7 +50,7 @@ define(function(require) {
 
 			var width = window.innerWidth || $(window).width(),
 				isSection = false,
-				fuzz = 50;
+				fuzz = 45;
 
 			// we need to sanitize the string iff the anchor parameter is actually a string
 			if(typeof anchor === "string") {
@@ -72,13 +72,15 @@ define(function(require) {
 					scrollY = window.scrollY,
 					willFreeze = true,
 					anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - fuzz) || (anchorTop < scrollY)) && (scrollY !== 0);
+					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0);
+
+				//TODO: previous state not reliable on mobile since accordions are always collapsed on load
 
 				// if the anchor is a PDQ section and we're >=desktop
 				if(width > NCI.Breakpoints.large && isSection) {
 					scrollY = 0;
 					willFreeze = false;
-				} else if(hasPreviousState) {
+				} else if(hasPreviousState && !$accordion.length) {
 					return;
 				} else {
 					scrollY = anchorTop - headerHeight;
@@ -89,12 +91,15 @@ define(function(require) {
 					$('.headroom-area').addClass('frozen');
 				}
 
-				window.scrollTo(0, scrollY);
-
 				// unfreeze headroom
 				if(willFreeze) {
 					setTimeout(function() {
-						$('.headroom-area').removeClass('frozen');
+						$('[tabindex="1"]').focus();
+						window.scrollTo(0, scrollY);
+						setTimeout(function() {
+							$('.headroom-area').removeClass('frozen')
+
+						}, 125);
 					}, 50);
 				}
 				$accordion.off('accordionactivate.NCI.scrollTo');
