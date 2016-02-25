@@ -27,6 +27,14 @@ define(function(require) {
 		 *** (initialize a selector as an accessibleMegaMenu)
 		 ***/
 		(function($) {
+
+			Modernizr.addTest('windows', navigator.platform.indexOf("Win")!=-1);
+			Modernizr.addTest('mac', navigator.platform.indexOf("Mac")!=-1);
+			Modernizr.addTest('linux', navigator.platform.indexOf("Linux")!=-1);
+			Modernizr.addTest('iphone', navigator.platform.indexOf("iPhone")!=-1);
+			Modernizr.addTest('ipad', navigator.platform.indexOf("iPad")!=-1);
+			Modernizr.addTest('android', navigator.platform.indexOf("Android")!=-1);
+
 			$("#mega-nav").accessibleMegaMenu({
 				/* prefix for generated unique id attributes, which are
 				 * required to indicate aria-owns, aria-controls and aria-labelledby
@@ -58,6 +66,11 @@ define(function(require) {
 				if($(e.relatedTarget).is('.sub-nav-mega')){
 					$(this).closest(".nav-menu").trigger("mouseout");
 				}
+			}).each(function(){
+				var $this = $(this);
+				if ($this.outerHeight() > 300) {
+					$this.parent().addClass("mega-menu-scroll");
+				}
 			});
 			
 			//megamenu animations for IE9 which does not support CSS3 transitions
@@ -78,6 +91,8 @@ define(function(require) {
 					subNav.stop(true, true).delay(100).animate({opacity: 0, height: 0}, 250);
 				});
 			}
+
+
 
 			/* Note: this causes menu to overflow on large screens since mega menu is confined to a max-height of 300px; scroll should always be auto
 			// Determine the height of the viewport on page load and whenever the viewport changes sizes.
