@@ -202,35 +202,74 @@ define(function(require) {
 		 * This script fixes the scroll position for deeplinking.
 		 ***/
 		(function($) {
+			var BrowserDetect = {
+				init: function () {
+					this.browser = this.searchString(this.dataBrowser) || "Other";
+					this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+				},
+				searchString: function (data) {
+					for (var i = 0; i < data.length; i++) {
+						var dataString = data[i].string;
+						this.versionSearchString = data[i].subString;
+
+						if (dataString.indexOf(data[i].subString) !== -1) {
+							return data[i].identity;
+						}
+					}
+				},
+				searchVersion: function (dataString) {
+					var index = dataString.indexOf(this.versionSearchString);
+					if (index === -1) {
+						return;
+					}
+
+					var rv = dataString.indexOf("rv:");
+					if (this.versionSearchString === "Trident" && rv !== -1) {
+						return parseFloat(dataString.substring(rv + 3));
+					} else {
+						return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+					}
+				},
+
+				dataBrowser: [
+					{string: navigator.userAgent, subString: "Edge", identity: "MS Edge"},
+					{string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+					{string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+					{string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+					{string: navigator.userAgent, subString: "Opera", identity: "Opera"},
+					{string: navigator.userAgent, subString: "OPR", identity: "Opera"},
+					{string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+					{string: navigator.userAgent, subString: "Safari", identity: "Safari"}
+				]
+			};
+
+			BrowserDetect.init();
+			//console.log("You are using: " + BrowserDetect.browser + " with version: " + BrowserDetect.version);
+
 			var doScroll = function(event) {
 				if(location.hash !== '') {
 					NCI.scrollTo(location.hash, event.type);
 				}
 			};
 
-			/*
-			NCI.window.oldHash = location.hash;
-			if(NCI.window.oldHash !== "") {
-				$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
-			}
-			*/
-
 			$(window).on('load hashchange', function(event) {
 
-				doScroll(event);
-
-				/*
-				NCI.window.newHash = location.hash;
-				if(NCI.window.oldHash !== "") {
-					$('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
+				// IE has the issue where anchor links and previous scroll states are not scrolled to until after the load event has completed
+				// the doScroll method needs to be delayed until after the initial page scroll event so that the scrollTop position can be calculated properly within doScroll
+				// also, the initial page scroll (downward) causes headroom to collapse down to it's smallest state so we want to freeze it before the initial scroll
+				if(BrowserDetect.browser == "Explorer" && event.type === "load"){
+					$('.headroom-area').addClass('frozen');
+					$(window).on("scroll.pageLoad",function(){
+						//console.log("page scrolled!");
+						$('.headroom-area').removeClass('frozen');
+						doScroll(event);
+						$(window).off("scroll.pageLoad");
+					});
+				} else {
+					doScroll(event);
 				}
-				if(NCI.window.newHash !== "") {
-					$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
-				}
-				NCI.window.oldHash = NCI.window.newHash;
-				*/
-
 			});
+
 
 			//redundant check to see if anchor is same as current hash
 			//if it is the same then trigger doScroll since a hashchange will not be triggered

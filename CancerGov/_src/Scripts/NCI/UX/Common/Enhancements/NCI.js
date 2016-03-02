@@ -69,13 +69,13 @@ define(function(require) {
 
 			function doTheScroll() {
 				var headerHeight = $('.fixedtotop').outerHeight(),
-					scrollY = window.scrollY,
+					scrollY = window.scrollY || window.pageYOffset,
 					willFreeze = true,
 					anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0);
+					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0)
+				;
 
 				//TODO: previous state not reliable on mobile since accordions are always collapsed on load
-
 				// if the anchor is a PDQ section and we're >=desktop
 				if(width > NCI.Breakpoints.large && isSection) {
 					scrollY = 0;
@@ -97,10 +97,10 @@ define(function(require) {
 						$('[tabindex="1"]').focus();
 						window.scrollTo(0, scrollY);
 						setTimeout(function() {
-							$('.headroom-area').removeClass('frozen')
+							$('.headroom-area').removeClass('frozen');
 
-						}, 125);
-					}, 50);
+						}, 150);
+					}, 150);
 				}
 				$accordion.off('accordionactivate.NCI.scrollTo');
 			}
