@@ -181,7 +181,7 @@ define(function(require) {
 						heading: ['h6'],
 						node: ['aside']
 					},
-					maxLevel: 2
+					maxLevel: 1
 				},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
