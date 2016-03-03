@@ -250,6 +250,9 @@ define(function(require) {
 				if(location.hash !== '') {
 					NCI.scrollTo(location.hash, event.type);
 				}
+				else if ($(".summary-sections .ui-accordion")[0]){
+					window.scrollTo(0, 0);
+				}
 			};
 
 			$(window).on('load hashchange', function(event) {
@@ -259,10 +262,10 @@ define(function(require) {
 				// also, the initial page scroll (downward) causes headroom to collapse down to it's smallest state so we want to freeze it before the initial scroll
 				if(BrowserDetect.browser == "Explorer" && event.type === "load"){
 					$('.headroom-area').addClass('frozen');
-					$(window).on("scroll.pageLoad",function(){
+					$(window).on("scroll.pageLoad",function(e){
 						//console.log("page scrolled!");
 						$('.headroom-area').removeClass('frozen');
-						doScroll(event);
+						doScroll(e);
 						$(window).off("scroll.pageLoad");
 					});
 				} else {
