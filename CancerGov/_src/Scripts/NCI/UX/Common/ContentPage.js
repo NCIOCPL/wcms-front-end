@@ -10,6 +10,9 @@ define(function(require) {
 	require('jquery/megamenu');
 	require('placeholders');
 
+	// Hack to enable Twitter buttons on the annual report
+	require('Patches/Hotfixes/annual_report');
+
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/
 		(function($) {
