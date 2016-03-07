@@ -16,7 +16,11 @@ define(function(require) {
     var myUrl = window.location.href;
 
     if (myUrl.search("/types/") > 0 || myUrl.search("/tipos/") > 0) {
-       if (myUrl.search("/hp") == -1 && myUrl.search("/pro") == -1) {
+
+       /* Note:  Prostate includes 'pro' */
+       var re_en = /hp\b/;
+       var re_es = /pro\b/;
+       if (myUrl.search(re_en) == -1 && myUrl.search(re_es) == -1) {
         $('div.cthp-content').addClass('cthp-patient-content');
        }
     }
