@@ -1,6 +1,5 @@
 define(function(require) {
     var $ = require('jquery');
-    console.log("loaded");
     //document ready
     $(function() {
         var page = $(".contentid-916787");
