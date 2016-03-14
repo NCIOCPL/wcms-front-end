@@ -81,6 +81,7 @@ define(function(require) {
 					scrollY = 0;
 					willFreeze = false;
 				} else if(hasPreviousState && !$accordion.length) {
+					// returning true does not prevent standard anchors from working on page load
 					return;
 				} else {
 					scrollY = anchorTop - headerHeight;
@@ -181,12 +182,13 @@ define(function(require) {
 						heading: ['h6'],
 						node: ['aside']
 					},
-					maxLevel: 1
+					maxLevel: $('[data-otp-depth]')[0]?$('[data-otp-depth]').data('otp-depth'):1
 				},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
 					.append($('<h6>').text(options.titleText[NCI.page.lang || 'en'])),
-				articleRoot = $('article').data('nci-outline').sections[0];
+				articleRoot = $('article').data('nci-outline').sections[0]
+			;
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
