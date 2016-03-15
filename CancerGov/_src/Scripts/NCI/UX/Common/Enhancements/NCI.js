@@ -80,7 +80,7 @@ define(function(require) {
 				if(width > NCI.Breakpoints.large && isSection) {
 					scrollY = 0;
 					willFreeze = false;
-				} else if(hasPreviousState && !$accordion.length) {
+				} else if(hasPreviousState) {
 					// returning true does not prevent standard anchors from working on page load
 					return;
 				} else {

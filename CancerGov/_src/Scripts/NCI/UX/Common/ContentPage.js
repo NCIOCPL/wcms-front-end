@@ -250,9 +250,9 @@ define(function(require) {
 				if(location.hash !== '') {
 					NCI.scrollTo(location.hash, event.type);
 				}
-				else if ($(".summary-sections .ui-accordion")[0]){
-					window.scrollTo(0, 0);
-				}
+				//else if ($(".summary-sections .ui-accordion")[0]){
+				//	window.scrollTo(0, 0);
+				//}
 			};
 
 			$(window).on('load hashchange', function(event) {
