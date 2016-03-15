@@ -60,7 +60,7 @@ define(function(require) {
 					$(this).closest(".nav-menu").trigger("mouseout");
 				}
 			});
-			
+
 			//megamenu animations for IE9 which does not support CSS3 transitions
 			if($('html').is(".no-csstransitions")) {
 				//capture initial menu height, save it as a data attribute, then set height to 0
@@ -105,17 +105,17 @@ define(function(require) {
 */
 		})(jQuery);
 		/*** END Mega Menu init ***/
-		
-		/*** BEGIN Mega Menu empty class creation 
-		*** create a class for mega menu items that have no actual content, so we can unformat them  ***/
+
+		/*** BEGIN Mega Menu empty class creation
+		 *** create a class for mega menu items that have no actual content, so we can unformat them  ***/
 		jQuery(document).ready(function(jQuery) {
 			$(".sub-nav-mega").each(function(){
-				if (!$(this).text().trim().length) {     
-				$(this).addClass("empty-mega");
+				if (!$(this).text().trim().length) {
+					$(this).addClass("empty-mega");
 				}
 			})
 		});
-		/*** END Mega Menu empty class creation 
+		/*** END Mega Menu empty class creation
 
 		/*** BEGIN dictionary toggle ***/
 		(function($) {
@@ -627,22 +627,12 @@ define(function(require) {
 		/*** BEGIN blog comment policy ***/
 		(function($) {
 			if ($('#cgvCommentsSl').length) {
-				$('.blog-comment-policy').show();
+				if( $('.intense-debate-comments').length < 1) {
+					$('.blog-comment-policy').show();
+				}
 			}
 		})(jQuery);
 		/*** END blog comment policy ***/
-
-		/*** BEGIN NCI-Match HACK ***/
-		(function($) {
-			if (/\/?about-cancer\/treatment\/clinical-trials\/search\/view/gi.test(location.pathname) && /\bcdrid=773118\b/gi.test(location.search)) {
-				$('table:eq(0)')
-				.find('tr:eq(0)')
-					.append($('<th>').text('Status'))
-				.end().find('tr:eq(1)')
-					.append($('<td>').text('Temporarily Closed'));
-			}
-		})(jQuery);
-		/*** END NCI-Match HACK ***/
 
 		/*** BEGIN HACK for Blog Series titles 
 		* TODO: remove when Blog Dynamic List Percussion template is updated 
