@@ -116,6 +116,19 @@ define(function(require) {
 				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
 			});
 		});
+		
+		// Track clicks on on Topic Page Featured Card
+		$('.topic-feature .feature-card').each(function(i, el) {
+			$(el).on('click', 'a', function(event) {
+				var $this = $(this);
+				var cardTitle = $this.children('h3').text();
+				var linkText = $this.children('h3').text();
+				var container = 'SlottedTopicCard';
+				var containerIndex = i + 1;
+		 
+				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
+			});
+		});
 	})();
 
 	// AddThis overrides the 'onclick' event handlers, so re-bind analytics after AddThis loads.
