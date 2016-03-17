@@ -1818,17 +1818,24 @@ ol li.genSearchItem {
 .bio-img img{
 	border: #636363 solid thin;
 }
+.bio-info {
+	float:left;
+	width:275px;
+}
+.bio-info table,
+.bio-info tbody,
+.bio-info tr,
+.bio-info td {
+	display:block;
+	width:100%;
+}
+.bio-info tr {
+	padding-bottom:6px;
+}
 
-.bio-info{   }
-
-.bio-info table {margin-bottom: 0;table-layout: fixed;width: 275px;}
-
-.bio-info table tr td{ vertical-align:top; padding: 3px; }
-.bio-info table tr td:first-child {width:33.3333%}
-.bio-info table tr td:last-child {width:66.6666%}
-.bio-info table tr td a {word-wrap: break-word;}
-
-	
+.bio-info td {
+	padding:0;
+}
 /***
 	Newsletter Search Form
 ***/

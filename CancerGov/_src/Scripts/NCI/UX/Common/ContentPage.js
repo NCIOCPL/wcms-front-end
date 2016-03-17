@@ -13,7 +13,7 @@ define(function(require) {
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/
 		(function($) {
-			var headerHeight = $('.fixedtotop').height();
+			var headerHeight = $('.fixedtotop').outerHeight();
 			$('.fixedtotop').scrollToFixed({
 				spacerClass: 'fixedtotop-spacer',
 				fixed: function() {
@@ -27,6 +27,14 @@ define(function(require) {
 		 *** (initialize a selector as an accessibleMegaMenu)
 		 ***/
 		(function($) {
+
+			Modernizr.addTest('windows', navigator.platform.indexOf("Win")!=-1);
+			Modernizr.addTest('mac', navigator.platform.indexOf("Mac")!=-1);
+			Modernizr.addTest('linux', navigator.platform.indexOf("Linux")!=-1);
+			Modernizr.addTest('iphone', navigator.platform.indexOf("iPhone")!=-1);
+			Modernizr.addTest('ipad', navigator.platform.indexOf("iPad")!=-1);
+			Modernizr.addTest('android', navigator.platform.indexOf("Android")!=-1);
+
 			$("#mega-nav").accessibleMegaMenu({
 				/* prefix for generated unique id attributes, which are
 				 * required to indicate aria-owns, aria-controls and aria-labelledby
@@ -54,10 +62,14 @@ define(function(require) {
 				/* css class for the open state */
 				openClass: "open"
 			});
-			/* Changes for WCMSFEQ-94
 			$("#mega-nav .sub-nav-group-wrapper").bind("mouseleave",function(e){
 				if($(e.relatedTarget).is('.sub-nav-mega')){
 					$(this).closest(".nav-menu").trigger("mouseout");
+				}
+			}).each(function(){
+				var $this = $(this);
+				if ($this.outerHeight() > 300) {
+					$this.parent().addClass("mega-menu-scroll");
 				}
 			});
 
@@ -79,8 +91,9 @@ define(function(require) {
 					subNav.stop(true, true).delay(100).animate({opacity: 0, height: 0}, 250);
 				});
 			}
-			*/
-			// Changes for WCMSFEQ-94 - below block should remain commented out
+
+
+
 			/* Note: this causes menu to overflow on large screens since mega menu is confined to a max-height of 300px; scroll should always be auto
 			// Determine the height of the viewport on page load and whenever the viewport changes sizes.
 			// If the viewport is under a certain height, add a class to the mega menu (to limit its height).
@@ -175,7 +188,6 @@ define(function(require) {
 			require('jquery/headroom');
 
 			$('.headroom-area').headroom({
-				tolerance: 0,
 				offset: 205,
 				classes: {
 					initial: "slide",
@@ -190,35 +202,87 @@ define(function(require) {
 		 * This script fixes the scroll position for deeplinking.
 		 ***/
 		(function($) {
+			var BrowserDetect = {
+				init: function () {
+					this.browser = this.searchString(this.dataBrowser) || "Other";
+					this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+				},
+				searchString: function (data) {
+					for (var i = 0; i < data.length; i++) {
+						var dataString = data[i].string;
+						this.versionSearchString = data[i].subString;
+
+						if (dataString.indexOf(data[i].subString) !== -1) {
+							return data[i].identity;
+						}
+					}
+				},
+				searchVersion: function (dataString) {
+					var index = dataString.indexOf(this.versionSearchString);
+					if (index === -1) {
+						return;
+					}
+
+					var rv = dataString.indexOf("rv:");
+					if (this.versionSearchString === "Trident" && rv !== -1) {
+						return parseFloat(dataString.substring(rv + 3));
+					} else {
+						return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+					}
+				},
+
+				dataBrowser: [
+					{string: navigator.userAgent, subString: "Edge", identity: "MS Edge"},
+					{string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+					{string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+					{string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+					{string: navigator.userAgent, subString: "Opera", identity: "Opera"},
+					{string: navigator.userAgent, subString: "OPR", identity: "Opera"},
+					{string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+					{string: navigator.userAgent, subString: "Safari", identity: "Safari"}
+				]
+			};
+
+			BrowserDetect.init();
+			//console.log("You are using: " + BrowserDetect.browser + " with version: " + BrowserDetect.version);
+
 			var doScroll = function(event) {
 				if(location.hash !== '') {
 					NCI.scrollTo(location.hash, event.type);
 				}
+				//else if ($(".summary-sections .ui-accordion")[0]){
+				//	window.scrollTo(0, 0);
+				//}
 			};
 
-			NCI.window.oldHash = location.hash;
-			/*
-			if(NCI.window.oldHash !== "") {
-				$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll({type: "load"}); });
-			}
-			*/
-
 			$(window).on('load hashchange', function(event) {
-				NCI.window.newHash = location.hash;
 
-				doScroll(event);
-
-				/*
-				if(NCI.window.oldHash !== "") {
-					$('a[href=' + NCI.window.oldHash + ']').off('click.NCI.scrollTo');
+				// IE has the issue where anchor links and previous scroll states are not scrolled to until after the load event has completed
+				// the doScroll method needs to be delayed until after the initial page scroll event so that the scrollTop position can be calculated properly within doScroll
+				// also, the initial page scroll (downward) causes headroom to collapse down to it's smallest state so we want to freeze it before the initial scroll
+				if(BrowserDetect.browser == "Explorer" && event.type === "load"){
+					$('.headroom-area').addClass('frozen');
+					$(window).on("scroll.pageLoad",function(e){
+						//console.log("page scrolled!");
+						$('.headroom-area').removeClass('frozen');
+						doScroll(e);
+						$(window).off("scroll.pageLoad");
+					});
+				} else {
+					doScroll(event);
 				}
-				if(NCI.window.newHash !== "") {
-					$('a[href=' + NCI.window.newHash + ']').on('click.NCI.scrollTo', function() { doScroll(event); });
-				}
-				*/
-
-				NCI.window.oldHash = NCI.window.newHash;
 			});
+
+
+			//redundant check to see if anchor is same as current hash
+			//if it is the same then trigger doScroll since a hashchange will not be triggered
+			$("a[href*=#]").click(function(e) {
+				var anchor = this.attributes.href.value;
+				if(anchor === location.hash){
+					doScroll(e);
+				}
+			});
+
 		})(jQuery);
 		/*** END deeplinking fix ***/
 

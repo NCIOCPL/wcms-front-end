@@ -50,7 +50,7 @@ define(function(require) {
 
 			var width = window.innerWidth || $(window).width(),
 				isSection = false,
-				fuzz = 50;
+				fuzz = 45;
 
 			// we need to sanitize the string iff the anchor parameter is actually a string
 			if(typeof anchor === "string") {
@@ -69,16 +69,19 @@ define(function(require) {
 
 			function doTheScroll() {
 				var headerHeight = $('.fixedtotop').outerHeight(),
-					scrollY = window.scrollY,
+					scrollY = window.scrollY || window.pageYOffset,
 					willFreeze = true,
 					anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - fuzz) || (anchorTop < scrollY)) && (scrollY !== 0);
+					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0)
+				;
 
+				//TODO: previous state not reliable on mobile since accordions are always collapsed on load
 				// if the anchor is a PDQ section and we're >=desktop
 				if(width > NCI.Breakpoints.large && isSection) {
 					scrollY = 0;
 					willFreeze = false;
 				} else if(hasPreviousState) {
+					// returning true does not prevent standard anchors from working on page load
 					return;
 				} else {
 					scrollY = anchorTop - headerHeight;
@@ -89,13 +92,16 @@ define(function(require) {
 					$('.headroom-area').addClass('frozen');
 				}
 
-				window.scrollTo(0, scrollY);
-
 				// unfreeze headroom
 				if(willFreeze) {
 					setTimeout(function() {
-						$('.headroom-area').removeClass('frozen');
-					}, 50);
+						$('[tabindex="1"]').focus();
+						window.scrollTo(0, scrollY);
+						setTimeout(function() {
+							$('.headroom-area').removeClass('frozen');
+
+						}, 150);
+					}, 150);
 				}
 				$accordion.off('accordionactivate.NCI.scrollTo');
 			}
@@ -176,12 +182,13 @@ define(function(require) {
 						heading: ['h6'],
 						node: ['aside']
 					},
-					maxLevel: 2
+					maxLevel: $('[data-otp-depth]')[0]?$('[data-otp-depth]').data('otp-depth'):1
 				},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
 					.append($('<h6>').text(options.titleText[NCI.page.lang || 'en'])),
-				articleRoot = $('article').data('nci-outline').sections[0];
+				articleRoot = $('article').data('nci-outline').sections[0]
+			;
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
