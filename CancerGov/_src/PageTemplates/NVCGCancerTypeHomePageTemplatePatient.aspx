@@ -8,7 +8,7 @@
 	</div>
 	<!-- END "row" -->
 </div>
-<div class="cthp-content" id="content" tabindex="0">
+<div class="cthp-content cthp-patient-content" tabindex="0">
 	<div class="row">
 		<div class="large-12 columns resize-content cthp-padding">
 			<!--(bake Includes/PageTitle.inc)-->
