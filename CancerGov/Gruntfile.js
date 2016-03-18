@@ -6,19 +6,19 @@ module.exports = function(grunt) {
 			base: "_src/",
 			templates: "_src/PageTemplates/",
 			styles: "_src/StyleSheets/",
-			scripts: "_src/Scripts/",
+			scripts: "_src/Scripts/"
 		},
 		tmp: {
 			base: "_tmp/",
 			templates: "_tmp/PageTemplates/",
 			styles: "_tmp/Styles/",
-			scripts: "_tmp/js/",
+			scripts: "_tmp/js/"
 		},
 		dist: {
 			base: "_dist/",
 			templates: "_dist/PageTemplates/",
 			styles: "_dist/Styles/",
-			scripts: "_dist/js/",
+			scripts: "_dist/js/"
 		},
 		bower: 'bower_components/'
 	});
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
 		},
 		nvcg: {
 			map: {
-				"_src": "_src",
+				"_src": "_src"
 			}
 		}
 	});
@@ -47,12 +47,19 @@ module.exports = function(grunt) {
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.config('sass', {
-		options: {
-			sourceMap: true,
-			outputStyle: 'expanded',
-			precision: 5
+		dev: {
+			options: {
+				sourceMap: true
+			},
+			files: {
+				'<%= dirs.tmp.styles %>nvcg.css': '<%= dirs.src.styles %>nvcg.scss'
+			}
 		},
-		dist: {
+		prod: {
+			options: {
+				sourceMap: false,
+				outputStyle: 'compressed'
+			},
 			files: {
 				'<%= dirs.tmp.styles %>nvcg.css': '<%= dirs.src.styles %>nvcg.scss'
 			}
@@ -308,7 +315,7 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['sass', 'copy:styles', 'clean:tmp'];
+		var tasks = ['sass:' + env, 'copy:styles', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
