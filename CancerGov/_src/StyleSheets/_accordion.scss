@@ -3,13 +3,13 @@
 /* begin CTHP accordion styling rules */
 @include bp(small) {
 	.cthp-content .cthp-intro-multimedia h3 {
-    background: #198dae !important;
+		background: #624dd6 url("/publishedcontent/images/images/design-elements/background-graphics/CTHP-blue-purple-circles.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-intro-multimedia h3 span {
-		background: #0e718d !important;
+		background: #4c34c3 !important;
 	}
 	.cthp-content .cthp-intro-multimedia h3.ui-state-active span {
-		color: #0e718d !important;
+		color: #4c34c3 !important;
 		background: #fff !important;
 	}
 	.cthp-content .cthp-treatment h3 {
