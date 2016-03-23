@@ -77,7 +77,9 @@
 	.cthp-genetics,
 	.cthp-screening,
 	.cthp-survival,
-	.cthp-general {
+	.cthp-general,
+	.cthp-pink-feature,
+	.cthp-yellow-feature {
 		margin-bottom: 0;
 	}
 	.cthp-treatment div:hover,
@@ -86,7 +88,9 @@
 	.cthp-genetics div:hover,
 	.cthp-screening div:hover,
 	.cthp-survival div:hover,
-	.cthp-general div:hover {
+	.cthp-general div:hover,
+	.cthp-pink-feature div:hover,
+	.cthp-yellow-feature div:hover {
 		background-color: white;
 	}
 	.cthp-content {
