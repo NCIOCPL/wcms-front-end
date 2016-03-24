@@ -70,7 +70,7 @@
 .large-12.columns.cthp-intro-multimedia.clearfix {
 	padding-top: 5px;
 	padding-bottom: 10px;
-	padding-left: 20px;
+	padding-left: 15px;
 }
 @include bp(small) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
@@ -103,7 +103,9 @@
 	font-size: 1em;
 }
 .cthp-card-container {
-margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
+	margin-left: -0.9375em;
+	margin-right: -0.9375em; 
+	margin-top: 30px;
 }
 .cthpCard ul.moreInfo li,
 .cthp-treatment .cardBody ul li,
@@ -224,6 +226,11 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	color: white;
 	font-weight: bold;
 }
+@include bp(small) {
+	.cthp-card-container .cthp-mm-infographic img {
+		display: block;
+	}	
+}
 .cthp-treatment,
 .cthp-research,
 .cthp-causes,
@@ -275,7 +282,7 @@ h3.cthp-overview-title {
 	background: #4c34c3 url("/publishedcontent/images/images/design-elements/background-graphics/CTHP-blue-purple-circles.jpg") repeat-x;
 	color: #ffffff;
 	padding: 0.47em 0.6em;
-	margin: -5px -15px 0 -20px;
+	margin: -5px -15px 0;
 	text-transform: uppercase;
 }
 /* Fix spacing in Overview Card to line up with first guide/feature card */  
