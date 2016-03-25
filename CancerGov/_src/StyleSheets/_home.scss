@@ -529,6 +529,11 @@ a.learn-more {
 				content: "Lista de reproducci\00f3 n de videos" }
 		}
 	}
+	&.non-playable {
+		a.mm-additional-info:before {
+			content: none;
+		}
+	}
 }
 @include bp(small) {
 	.multimedia-feature-card h3, .multimedia-slot .feature-card h3 {
