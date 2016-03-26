@@ -81,7 +81,7 @@
 }
 @include bp(large-up) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
-		width: 97.3%;
+		width: 96.75%;
 		float: right;
 	}
 }
@@ -238,6 +238,7 @@
 .cthp-screening,
 .cthp-survival,
 .cthp-general,
+.cthp-overview,
 .cthp-pink-feature,
 .cthp-yellow-feature {
 	margin-bottom: 1.25em;
@@ -249,6 +250,7 @@
 .cthp-screening h3,
 .cthp-survival h3,
 .cthp-general h3,
+.cthp-overview h3,
 .cthp-pink-feature h3,
 .cthp-yellow-feature h3 {
 	color: #fff;
@@ -304,7 +306,7 @@ h3.cthp-overview-title {
 		padding-right: 0.938em;
 	}
 }
-doublehigh-expand { 
+.doublehigh-expand { 
 	pointer-events: none;
 }
 /** End CTHP Overview styling */
@@ -330,6 +332,9 @@ doublehigh-expand {
 .cthp-content .cthp-general h3 {
 	background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
+.cthp-content .cthp-overview h3 {
+	background: #008eb0 url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
+}
 .cthp-content .cthp-pink-feature h3 {
 	background: #008eb0 url($backgrounds + "pink-triangles.jpg") repeat-x;
 }
@@ -345,6 +350,7 @@ doublehigh-expand {
 .cthp-screening div,
 .cthp-survival div,
 .cthp-general div,
+.cthp-overview div,
 .cthp-pink-feature div,
 .cthp-yellow-feature div,
 .cthp-treatment div:hover p,
@@ -354,6 +360,7 @@ doublehigh-expand {
 .cthp-screening div:hover p,
 .cthp-survival div:hover p,
 .cthp-general div:hover p,
+.cthp-overview div:hover p,
 .cthp-pink-feature div:hover p,
 .cthp-yellow-feature div:hover p,
 .cthp-content .cardBody:hover,
@@ -367,6 +374,7 @@ doublehigh-expand {
 .cthp-screening:hover li a.arrow-link,
 .cthp-survival:hover li a.arrow-link,
 .cthp-general:hover li a.arrow-link,
+.cthp-overview:hover li a.arrow-link,
 .cthp-pink-feature:hover li a.arrow-link,
 .cthp-yellow-feature:hover li a.arrow-link {
 	color: #bb0e3d;
@@ -379,6 +387,7 @@ doublehigh-expand {
 .cthp-screening div:hover,
 .cthp-survival div:hover,
 .cthp-general div:hover,
+.cthp-overview div:hover,
 .cthp-pink-feature div:hover,
 .cthp-yellow-feature div:hover {
 	background-color: black;
@@ -390,6 +399,7 @@ doublehigh-expand {
 .cthp-screening div:hover img,
 .cthp-survival div:hover img,
 .cthp-general div:hover img,
+.cthp-overview div:hover img,
 .cthp-pink-feature div:hover img,
 .cthp-yellow-feature div:hover img {
 	opacity: 0.8;

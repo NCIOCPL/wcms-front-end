@@ -38,10 +38,4 @@ define(function(require) {
         });
         /*** End 2-high resizing ***/
     });
-    /**
-    TODO:
-        - Fix logic for rightHeight > (leftHeight + ~20)
-        - Add css for .doublehigh-expand:
-            pointer-events: none;
-    **/
 });
