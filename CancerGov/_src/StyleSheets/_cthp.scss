@@ -85,6 +85,12 @@
 		float: right;
 	}
 }
+@media only screen and (min-width: 1441px) {
+  .large-12.columns.cthp-intro-multimedia.clearfix {
+    width: 573px;
+    float: right;
+  }
+}
 .cthp-content h1 {
 	color: white;
 }
