@@ -342,4 +342,13 @@ ul.cancer-list {
 	background-color: transparent !important;
 }
 
-
+// Related Resources list
+.related-resources ul {
+	padding: 0;
+	
+	li {
+		margin-top: 0.25em;
+		margin-bottom: 0.25em;
+		margin-left: 0;
+	}
+}
