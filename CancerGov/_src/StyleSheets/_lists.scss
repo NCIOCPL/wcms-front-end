@@ -334,4 +334,12 @@ ul.cancer-list {
 .list.no-bullets .general-list-item {
     margin: 0 0 1.875em;
 } 
+// More Information list
+.moreInfo .title-and-desc {
+	display: inline;
+}
+.moreInfo .title-and-desc:hover {
+	background-color: transparent !important;
+}
+
 
