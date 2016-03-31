@@ -1,5 +1,15 @@
-// Accordions are styled by jquery-ui. These are override styles
 /* BEGIN Accordion Styles */
+// Accordions are styled by jquery-ui. These are override styles
+
+// The accordion is having problems with uncleared floats in mobile. This is a fix to clear those floats
+// WCMSFEQ-119
+// Example pages: /research/areas/clinical-trials, /research/progress/annual-report-nation
+@include bp(small) {
+	.accordion section {
+		clear: both;
+	}
+}
+
 /* begin CTHP accordion styling rules */
 @include bp(small) {
 	.cthp-content .cthp-intro-multimedia h3, .cthp-content .cthp-overview h3 {
