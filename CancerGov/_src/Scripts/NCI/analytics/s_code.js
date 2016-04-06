@@ -28,6 +28,18 @@ s.linkTrackEvents="None";
 s.useForcedLinkTracking=true
 s.forcedLinkTrackingTimeout=750
 
+//time parting configuration 
+//US
+s._tpDST = {
+2012:'3/11,11/4',
+2013:'3/10,11/3',
+2014:'3/9,11/2',
+2015:'3/8,11/1',
+2016:'3/13,11/6',
+2017:'3/12,11/5',
+2018:'3/11,11/4',
+2019:'3/10,11/3'}
+
 // If the cid query parameter exists - set prop16 and eVar16 to value of cid
 var cdrid = caseInsensitiveGetQueryParm('cdrid');
 if(cdrid)
@@ -208,6 +220,16 @@ function s_doPlugins(s) {
     s.prop61 = s.getPreviousValue(s.pageName, 'gpv_pn', "");
     //s.prop61=s.getPreviousValue(s.pageName,'gpv_pn','event1');
 
+	// Set the variables for the time parting ('n' for northern hemisphere, '-5" for EST) and set to prop29 for time parting
+	var tp = s.getTimeParting('n','-5');
+	s.prop29 = tp;
+
+	// Set prop64 for percent page viewed - if 0, then set to 'zero'
+	s.prop64=s.getPercentPageViewed();
+	s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
+
+	// Set prop65 to get the initial load time of the page (for use in the page load speed plugin)
+	s.prop65=s_getLoadTime();
 }
 s.doPlugins=s_doPlugins	
 
