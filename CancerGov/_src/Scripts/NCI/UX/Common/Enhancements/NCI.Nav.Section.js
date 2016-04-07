@@ -67,7 +67,8 @@ define(function(require) {
 		},
 
 		onOpenerClick: function(e) {
-			e.stopPropagation();
+			//Why is event propagation prevented?
+			//e.stopPropagation();
 			e.preventDefault();
 
 			var _s = NCI.Nav.Section;
