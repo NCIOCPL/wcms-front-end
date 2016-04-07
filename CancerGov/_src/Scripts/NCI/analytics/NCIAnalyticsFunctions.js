@@ -1192,18 +1192,6 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 	
-
-    //******************************************************************************************************	
-    OnThisPageClick: function(sender, pageTitle, linkText) {
-        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
-        clickParams.Props = {
-            66: pageTitle,
-            67: linkText
-        };
-        clickParams.Events = [29];
-        clickParams.LogToOmniture();
-    },
-
     //******************************************************************************************************	
     /* SPLF_Hier1: function() {
     // URL structure
