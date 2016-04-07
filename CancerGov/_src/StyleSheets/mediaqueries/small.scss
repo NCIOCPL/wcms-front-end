@@ -46,9 +46,6 @@
 		padding-left: 3px !important;
 		padding-right: 24px !important;
 	}
-	.guide-card {
-		padding: 0;
-	}
 	.guide-title h2 {
 		display: none;
 	}
@@ -139,28 +136,6 @@
 		padding-left: 15px;
 	}
 	//** END Dynamic List Styles **/
-	.guide-card {
-		margin-bottom: 0;
-		margin-top: 0;
-	}
-	.guide-card .card,
-	.guide-card .featured-card {
-		background: #1d5e86;
-		padding-top: 0;
-		padding-bottom: 0;
-		margin: 0;
-	}
-	.guide-card .card h3 {
-		color: white;
-		background: url($buttons + "small-arrow.png") 95% center no-repeat;
-		border-bottom: 1px solid black;
-		padding: 0.3em 0.9375em;
-		margin: 0;
-	}
-	.guide-card .card h3.last {
-		border-bottom: none;
-	}
-	
 	.contact-infos-desktop {
 		display: none;
 	}
