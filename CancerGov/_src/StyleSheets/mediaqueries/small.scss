@@ -110,6 +110,7 @@
         background-color: white;
 		display: inline-block;
 		margin-top: 0;
+		margin-right: 0; 
 
         &:before {
             content: "";
@@ -120,7 +121,8 @@
         }
 
 		a {
-			padding: 0 40px 0 0;
+            padding: 0 40px 0 0;
+            white-space: normal;
 		}
 		&:before:hover, &:focus {
             content: "";

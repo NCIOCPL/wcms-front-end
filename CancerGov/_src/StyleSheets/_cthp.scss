@@ -111,7 +111,7 @@
 .cthp-card-container {
 	margin-left: -0.9375em;
 	margin-right: -0.9375em; 
-	margin-top: 30px;
+	margin-top: 0;
 }
 .cthpCard ul.moreInfo li,
 .cthp-treatment .cardBody ul li,
@@ -166,7 +166,7 @@
 	float: left;
     background-color: #dbf2f8;
 	color: #fff;
-	margin: 0 0 20px 0;
+	margin: 0 50% 20px 0;
 
     /* margin-top: -10px; -->  half the icon height */
     & a:after {
@@ -267,9 +267,6 @@
 }
 /** Begin CTHP Overview styling */
 /* Align top of Overview Card with top of first guide/feature card */
-#nvcgSlCTHPCards.cthp-card-container {
-	margin-top: 78px;
-}
 @include bp(small) {
 	#nvcgSlCTHPCards.cthp-card-container {
 		margin-top: 0;
