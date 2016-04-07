@@ -367,6 +367,63 @@ s.getValOnce=new Function("v","c","e",""
 +");if(v){a.setTime(a.getTime()+e*86400000);s.c_w(c,v,e?a:0);}return"
 +" v==k?'':v");
 
+/*
+ * Copyright 2011-2013 Adobe Systems, Inc.
+ * s_getLoadTime v1.36 - Get page load time in units of 1/10 seconds
+ */
+function s_getLoadTime()
+{
+	if(!window.s_loadT)
+	{
+		var b=new Date().getTime(),o=window.performance?performance.timing:0,a=o?o.requestStart:window.inHeadTS||0;s_loadT=a?Math.round((b-a)/100):''
+	}
+	return s_loadT
+}
+
+/*
+ * Plugin: getTimeParting 3.4
+ */
+s.getTimeParting=new Function("h","z",""
++"var s=this,od;od=new Date('1/1/2000');if(od.getDay()!=6||od.getMont"
++"h()!=0){return'Data Not Available';}else{var H,M,D,U,ds,de,tm,da=['"
++"Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturda"
++"y'],d=new Date();z=z?z:0;z=parseFloat(z);if(s._tpDST){var dso=s._tp"
++"DST[d.getFullYear()].split(/,/);ds=new Date(dso[0]+'/'+d.getFullYea"
++"r());de=new Date(dso[1]+'/'+d.getFullYear());if(h=='n'&&d>ds&&d<de)"
++"{z=z+1;}else if(h=='s'&&(d>de||d<ds)){z=z+1;}}d=d.getTime()+(d.getT"
++"imezoneOffset()*60000);d=new Date(d+(3600000*z));H=d.getHours();M=d"
++".getMinutes();M=(M<10)?'0'+M:M;D=d.getDay();U=' AM';if(H>=12){U=' P"
++"M';H=H-12;}if(H==0){H=12;}D=da[D];tm=H+':'+M+U;return(tm+'|'+D);}");
+
+/*
+* Plugin: getPercentPageViewed v1.x
+* This code has been modified from the original version distributed
+* by Omniture and will not be supported by Omniture in any way
+*/
+s.getPercentPageViewed=new Function("",""
++"var s=this;if(typeof(s.linkType)=='undefined'||s.linkType=='e'){var"
++" v=s.c_r('s_ppv');s.c_w('s_ppv',0);return v;}");
+s.getPPVCalc=new Function("",""
++"var dh=Math.max(Math.max(s.d.body.scrollHeight,s.d.documentElement."
++"scrollHeight),Math.max(s.d.body.offsetHeight,s.d.documentElement.of"
++"fsetHeight),Math.max(s.d.body.clientHeight,s.d.documentElement.clie"
++"ntHeight)),vph=s.d.clientHeight||Math.min(s.d.documentElement.clien"
++"tHeight,s.d.body.clientHeight),st=s.wd.pageYOffset||(s.wd.document."
++"documentElement.scrollTop||s.wd.document.body.scrollTop),vh=st+vph,"
++"pv=Math.round(vh/dh*100),cv=s.c_r('s_ppv'),cpi=cv.indexOf('|'),cpv="
++"'',ps='';if(cpi!=-1){cpv=cv.substring(0,cpi);ps=parseInt(cv.substri"
++"ng(cpi+1));}else{cpv=ps=0;}if(pv<=100){if(pv>parseInt(cpv)){ps=pv-M"
++"ath.round(vph/dh*100);s.c_w('s_ppv',pv+'|'+ps);}}else{s.c_w('s_ppv'"
++",'');}");
+s.getPPVSetup=new Function("",""
++"var s=this;if(s.wd.addEventListener){s.wd.addEventListener('load',s"
++".getPPVCalc,false);s.wd.addEventListener('scroll',s.getPPVCalc,fals"
++"e);s.wd.addEventListener('resize',s.getPPVCalc,false);}else if(s.wd"
++".attachEvent){s.wd.attachEvent('onload',s.getPPVCalc);s.wd.attachEv"
++"ent('onscroll',s.getPPVCalc);s.wd.attachEvent('onresize',s.getPPVCa"
++"lc);}");
+s.getPPVSetup();
+
 /******************************
  * Plugin: socialPlatforms v1.0
  ******************************/
