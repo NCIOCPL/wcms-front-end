@@ -567,14 +567,17 @@ a.learn-more {
 	height: 100%;
 }
 .multimedia-feature-card, .multimedia .feature-card {
-	@extend %autoheight-fix;
+	//@extend %autoheight-fix;
 	a {
 		display: block;
-		height: 100%;
+		//height: 100%;
 	}
 }
 .card > .slot-item {
 	@extend %autoheight-fix;
+}
+.multimedia-slot .equalheight .slot-item {
+	background-color:#fff;
 }
 /* END MULIMEDIA ROW */
 
