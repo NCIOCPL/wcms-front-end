@@ -333,11 +333,36 @@
 }
 	@include bp(small) {
 		.guide-card {
+			margin-bottom: 0;
+			margin-top: 0;
+			padding: 0;
+			
 			.card {
+				background: #1d5e86;
+				padding-top: 0;
+				padding-bottom: 0;
+				margin: 0;
+				
 				h2 {
 					line-height: 1.111em;	
 					font-size: 1.125em;
 				}
+				h3 {
+					color: white;
+					background: url($buttons + "small-arrow.png") 95% center no-repeat;
+					border-bottom: 1px solid black;
+					padding: 0.3em 0.9375em;
+					margin: 0;	
+				}
+				h3.last {
+					border-bottom: none;
+				}
+			}
+			.featured-card {
+				background: #1d5e86;
+				padding-top: 0;
+				padding-bottom: 0;
+				margin: 0;	
 			}
 		}
 	}
