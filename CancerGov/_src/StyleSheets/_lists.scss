@@ -171,7 +171,9 @@ dl {
 		&.carousel {}
 	}
 
-	.infographic {}
+	.infographic {
+		background: transparent;
+	}
 
 	.file {
 		.filesize, .filetype {
