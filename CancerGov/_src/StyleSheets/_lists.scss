@@ -186,7 +186,7 @@ dl {
 			display: inline-block;
 			height: 20px;
 			margin-left: 5px;
-			background: #fff url($icons + "nci-sprite.png");
+			background: url($icons + "nci-sprite.png");
 
 			&.pdf {
 				background-position: -126px -515px;
