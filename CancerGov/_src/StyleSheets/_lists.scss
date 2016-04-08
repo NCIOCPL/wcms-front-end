@@ -69,6 +69,24 @@ dl {
 				color: #2b7bba;
 			}
 			
+			.title-and-desc {
+				display: inline;
+			}
+			
+			.title {
+				font-family: inherit;
+				font-size: inherit;
+			}
+		}
+	}
+	
+	// Related Resources list
+	&.related-resources {
+		li {
+			margin-top: 0.25em;
+			margin-bottom: 0.25em;
+			margin-left: 0;
+		
 			.title {
 				font-family: inherit;
 				font-size: inherit;
@@ -359,18 +377,3 @@ ul.cancer-list {
 .list.no-bullets .general-list-item {
     margin: 0 0 1.875em;
 } 
-// More Information list
-.more-info .title-and-desc {
-	display: inline;
-}
-
-// Related Resources list
-.related-resources ul {
-	padding: 0;
-	
-	li {
-		margin-top: 0.25em;
-		margin-bottom: 0.25em;
-		margin-left: 0;
-	}
-}
