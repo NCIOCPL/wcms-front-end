@@ -21,14 +21,21 @@ define(function(require) {
         
             // get visible heights of the cards and calulte the difference
             leftHeight = $('.cthp-intro-multimedia').height() - 15;
-            rh1 = $('.cthpCard').eq(0).height() - 15;
-            rh2 = $('.cthpCard').eq(1).height() - 15;
-            rightHeight = rh1 + rh2;
+            rh0 = $('.cthpCard').eq(0).height();
+            rh1 = $('.cthpCard').eq(1).height();
+            rightHeight = rh0 + rh1 - 30; 
             diff = Math.abs(leftHeight - rightHeight);
             
             // append the expander class to the shorter of the elements
             if(leftHeight > rightHeight) {
-                $('.cthpCard .cardBody').eq(1).append(expander);
+                // Expand the second card if it exists. If not, expand the first card.
+                if(rh1 > 0) {
+                    $('.cthpCard .cardBody').eq(1).append(expander);
+                }
+                else if(rh0 > 0) {
+                    $('.cthpCard .equalheight').eq(0).css('height','');
+                    $('.cthpCard .cardBody').eq(0).append(expander);
+                }
                 $('.doublehigh-expand').css('height', (diff + 20) + 'px');
             }
             else if(leftHeight < rightHeight) {
