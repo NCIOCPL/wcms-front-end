@@ -113,7 +113,6 @@
 	margin-right: -0.9375em; 
 	margin-top: 0;
 }
-.cthpCard ul.moreInfo li,
 .cthp-treatment .cardBody ul li,
 .cthp-causes .cardBody ul li,
 .cthp-genetics .cardBody ul li,
@@ -137,7 +136,6 @@
 		margin-top: 19px;
 	}
 }
-.moreInfo li:before,
 .cthp-treatment .cardBody ul li:before,
 .cthp-causes .cardBody ul li:before,
 .cthp-genetics .cardBody ul li:before,
@@ -389,16 +387,16 @@ h3.cthp-overview-title {
 	color: #bb0e3d;
 	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
 }
-.cthp-treatment div:hover,
-.cthp-research div:hover,
-.cthp-causes div:hover,
-.cthp-genetics div:hover,
-.cthp-screening div:hover,
-.cthp-survival div:hover,
-.cthp-general div:hover,
-.cthp-overview div:hover,
-.cthp-pink-feature div:hover,
-.cthp-yellow-feature div:hover {
+.cthp-treatment h3 + div:hover,
+.cthp-research h3 + div:hover,
+.cthp-causes h3 + div:hover,
+.cthp-genetics h3 + div:hover,
+.cthp-screening h3 + div:hover,
+.cthp-survival h3 + div:hover,
+.cthp-general h3 + div:hover,
+.cthp-overview h3 + div:hover,
+.cthp-pink-feature + h3 div:hover,
+.cthp-yellow-feature + h3 div:hover {
 	background-color: black;
 }
 .cthp-treatment div:hover img,
