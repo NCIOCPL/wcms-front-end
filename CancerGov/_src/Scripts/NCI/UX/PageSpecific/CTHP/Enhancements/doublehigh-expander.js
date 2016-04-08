@@ -1,4 +1,6 @@
 define(function(require) {
+    var $ = require('jquery');
+
     /***
     * This snippet will align the bottoms of the overview section and the second guide/feature/multimedia card 
     * on Cancer Type Home Pages. As of the Griffin release, the overview section is being moved to the left card 
@@ -8,10 +10,8 @@ define(function(require) {
     * section will be expanded to match.
     * This will be done by creating a dummy class that will be appended to the correct element and resized 
     * based on the screen size. 
-	**/
-    var $ = require('jquery');
-    $(function() {
-        /*** Begin 2-high resizing ***/
+    **/
+    function _initialize() {
         $(window).on('resize load', function() {
             var diff = "";
             var expander = "<div class='doublehigh-expand'></div>";
@@ -36,6 +36,25 @@ define(function(require) {
                 $('.doublehigh-expand').css('height', (diff - 20) + 'px');
             }
         });
-        /*** End 2-high resizing ***/
-    });
+    }
+
+    /**
+     * Identifies if this enhancement has been initialized or not.
+     * @type {Boolean}
+     */
+    var initialized = false;
+
+    /**
+     * Exposed functions available to this module.
+     */
+    return {
+        init: function() {
+            if (initialized) {
+                return;
+            }
+
+            _initialize();
+            initialized = true;
+        }
+    };
 });
