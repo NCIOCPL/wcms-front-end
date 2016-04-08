@@ -313,6 +313,11 @@ h3.cthp-overview-title {
 .doublehigh-expand { 
 	pointer-events: none;
 }
+@include bp(small) {
+	.doublehigh-expand { 
+		display: none;
+	}
+}
 /** End CTHP Overview styling */
 /** Begin CTHP Card styling */
 .cthp-content .cthp-treatment h3 {

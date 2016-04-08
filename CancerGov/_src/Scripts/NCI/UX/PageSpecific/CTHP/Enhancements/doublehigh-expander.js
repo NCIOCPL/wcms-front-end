@@ -31,8 +31,8 @@ define(function(require) {
                 $('.cthpCard .cardBody').eq(1).append(expander);
                 $('.doublehigh-expand').css('height', (diff + 20) + 'px');
             }
-            if(leftHeight < rightHeight) {
-                $('.cthp-intro-multimedia div').append(expander);
+            else if(leftHeight < rightHeight) {
+                $('.cthp-intro-multimedia').append(expander);
                 $('.doublehigh-expand').css('height', (diff - 20) + 'px');
             }
         });
