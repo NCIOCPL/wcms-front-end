@@ -327,6 +327,7 @@ h3.cthp-overview-title {
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
 .cthpCard .cardBody,
 .cthpCard .cardBody:hover,
+.cthpCard .cardBody:hover p,
 .cthp-content .cardBody:hover,
 .cthp-content .rxbodyfield:hover{
 	background-color: white;
@@ -335,12 +336,10 @@ h3.cthp-overview-title {
 	color: #bb0e3d;
 	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
 }
-.cthpCard > div > h3 + div:hover,
-figure > div:hover {
+.cthpCard > div > h3 + div:hover {
 	background-color: black;
 }
-.cthpCard > div > h3 + div:hover img,
-figure > div:hover img {
+.cthpCard > div > h3 + div:hover img {
 	opacity: 0.8;
 }
 /* Don't change color below multimedia figures on hover */
