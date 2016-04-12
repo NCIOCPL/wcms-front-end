@@ -113,10 +113,7 @@
 	margin-right: -0.9375em; 
 	margin-top: 0;
 }
-.cthp-treatment .cardBody ul li,
-.cthp-causes .cardBody ul li,
-.cthp-genetics .cardBody ul li,
-.cthp-screening .cardBody ul li {
+.cthpCard .cardBody ul li {
 	list-style-type: none;
 	padding-left: 0.9375em;
 }
@@ -136,11 +133,7 @@
 		margin-top: 19px;
 	}
 }
-.cthp-treatment .cardBody ul li:before,
-.cthp-causes .cardBody ul li:before,
-.cthp-genetics .cardBody ul li:before,
-.cthp-screening .cardBody ul li:before,
-.cthp-research .cardBody p a:before {
+.cthpCard .cardBody ul li:before {
 	content: "\2022";
 	display: inline-block;
 	position: relative;
@@ -236,28 +229,10 @@
 		display: block;
 	}	
 }
-.cthp-treatment,
-.cthp-research,
-.cthp-causes,
-.cthp-genetics,
-.cthp-screening,
-.cthp-survival,
-.cthp-general,
-.cthp-overview,
-.cthp-pink-feature,
-.cthp-yellow-feature {
+.cthpCard > div {
 	margin-bottom: 1.25em;
 }
-.cthp-treatment h3,
-.cthp-research h3,
-.cthp-causes h3,
-.cthp-genetics h3,
-.cthp-screening h3,
-.cthp-survival h3,
-.cthp-general h3,
-.cthp-overview h3,
-.cthp-pink-feature h3,
-.cthp-yellow-feature h3 {
+.cthpCard h3  {
 	color: #fff;
 	padding: 0.47em 0.6em;
 	margin: 0;
@@ -286,7 +261,7 @@ h3.cthp-overview-title {
 	background: #4c34c3 url("/publishedcontent/images/images/design-elements/background-graphics/CTHP-blue-purple-circles.jpg") repeat-x;
 	color: #ffffff;
 	padding: 0.47em 0.6em;
-	margin: -5px -15px 0;
+	margin: -5px -15px 0 !important;
 	text-transform: uppercase;
 }
 /* Fix spacing in Overview Card to line up with first guide/feature card */  
@@ -350,65 +325,22 @@ h3.cthp-overview-title {
 }
 
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
-.cthp-treatment div,
-.cthp-research div,
-.cthp-causes div,
-.cthp-genetics div,
-.cthp-screening div,
-.cthp-survival div,
-.cthp-general div,
-.cthp-overview div,
-.cthp-pink-feature div,
-.cthp-yellow-feature div,
-.cthp-treatment div:hover p,
-.cthp-research div:hover p,
-.cthp-causes div:hover p,
-.cthp-genetics div:hover p,
-.cthp-screening div:hover p,
-.cthp-survival div:hover p,
-.cthp-general div:hover p,
-.cthp-overview div:hover p,
-.cthp-pink-feature div:hover p,
-.cthp-yellow-feature div:hover p,
+.cthpCard .cardBody,
+.cthpCard .cardBody:hover,
 .cthp-content .cardBody:hover,
 .cthp-content .rxbodyfield:hover{
 	background-color: white;
 }
-.cthp-treatment:hover li a.arrow-link,
-.cthp-research:hover li a.arrow-link,
-.cthp-causes:hover li a.arrow-link,
-.cthp-genetics:hover li a.arrow-link,
-.cthp-screening:hover li a.arrow-link,
-.cthp-survival:hover li a.arrow-link,
-.cthp-general:hover li a.arrow-link,
-.cthp-overview:hover li a.arrow-link,
-.cthp-pink-feature:hover li a.arrow-link,
-.cthp-yellow-feature:hover li a.arrow-link {
+.cthpCard + div:hover li a.arrow-link {
 	color: #bb0e3d;
 	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
 }
-.cthp-treatment h3 + div:hover,
-.cthp-research h3 + div:hover,
-.cthp-causes h3 + div:hover,
-.cthp-genetics h3 + div:hover,
-.cthp-screening h3 + div:hover,
-.cthp-survival h3 + div:hover,
-.cthp-general h3 + div:hover,
-.cthp-overview h3 + div:hover,
-.cthp-pink-feature + h3 div:hover,
-.cthp-yellow-feature + h3 div:hover {
+.cthpCard > div > h3 + div:hover,
+figure > div:hover {
 	background-color: black;
 }
-.cthp-treatment div:hover img,
-.cthp-research div:hover img,
-.cthp-causes div:hover img,
-.cthp-genetics div:hover img,
-.cthp-screening div:hover img,
-.cthp-survival div:hover img,
-.cthp-general div:hover img,
-.cthp-overview div:hover img,
-.cthp-pink-feature div:hover img,
-.cthp-yellow-feature div:hover img {
+.cthpCard > div > h3 + div:hover img,
+figure > div:hover img {
 	opacity: 0.8;
 }
 /* Don't change color below multimedia figures on hover */
