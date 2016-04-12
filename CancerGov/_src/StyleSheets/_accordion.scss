@@ -97,10 +97,15 @@
 	.ui-accordion .ui-accordion-header {
 		margin: 0;
 	}
-    // Collapsed mobile section headers
+  // Collapsed mobile section headers
 	.ui-accordion .ui-accordion-header:first-child {
-        margin-left: -15px;
-        margin-right: -15px;
+		margin-left: -16px;
+		margin-right: -16px;
+	}
+	// This class controls accordion spacing on home page
+	.guide-card.ui-accordion .ui-accordion-header, .ui-accordion .guide-card .ui-accordion-header {
+		margin-left: -32px;
+		margin-right: -32px;
 	}
 	.accordion h2.ui-accordion-header, .accordion h2.ui-accordion-header + div {
 		margin-left: -32px;
