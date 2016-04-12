@@ -113,10 +113,7 @@
 	margin-right: -0.9375em; 
 	margin-top: 0;
 }
-.cthp-treatment .cardBody ul li,
-.cthp-causes .cardBody ul li,
-.cthp-genetics .cardBody ul li,
-.cthp-screening .cardBody ul li {
+.cthpCard .cardBody ul li {
 	list-style-type: none;
 	padding-left: 0.9375em;
 }
@@ -136,13 +133,10 @@
 		margin-top: 19px;
 	}
 }
-.cthp-treatment .cardBody ul li:before,
-.cthp-causes .cardBody ul li:before,
-.cthp-genetics .cardBody ul li:before,
-.cthp-screening .cardBody ul li:before,
-.yellow-feature .cardBody ul li:before,
-.pink-feature .cardBody ul li:before,
-.cthp-research .cardBody p a:before {
+.more-info-list ul li:before, 
+.cthp-pdq-label ul li:before, 
+.cardBody h4 + ul li:before, 
+.cardBody p a:before  {
 	content: "\2022";
 	display: inline-block;
 	position: relative;
