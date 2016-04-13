@@ -1,8 +1,3 @@
-
-.cthp-general {
-	background-color: darkcyan !important;
-}
-
 /********** BEGIN Cancer Type Home Page Styles ******************************************/
 .image-right-medium {
 	position: relative;
@@ -36,6 +31,13 @@
   &.cthp-patient-content {
 		background-color: #6254A3;
 	}
+	
+	@include bp(small) {
+		background: white;
+  	&.cthp-patient-content {
+			background-color: inherit;
+		}
+	}
 }
 .cthp-intro-multimedia {
 	background: white;
@@ -50,22 +52,29 @@
 		margin: 0 0 2.5em 0;
 	}
 
-    @include bp(small) {
-        figure {
-            &.video {
-                width: 100%;
-                margin: 0 0 1em 0;
-            }
-        }
-    }
-
+	@include bp(small) {
+		figure {
+			&.video {
+				width: 100%;
+				margin: 0 0 1em 0;
+			}
+		}
+	}
 }
-
 .cthp-body {
 	float:left;
 	width: 55%;
 	display: block;
 	clear: left;
+}
+@include bp(small) {
+	.cthp-body {
+		float: none;
+		width: 100%;
+	}
+	.cthp-title {
+		margin-top: 0;
+	}
 }
 .cthp-body h3 {
 	margin-top: 0px;
@@ -86,18 +95,16 @@
 }
 @include bp(large-up) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
-		width: 96.75%;
-		float: right;
-	}
-}
-@media only screen and (min-width: 1441px) {
-  .large-12.columns.cthp-intro-multimedia.clearfix {
     width: 573px;
     float: right;
   }
 }
 .cthp-content h1 {
 	color: white;
+	
+	@include bp(small) {
+		color: $header-font-color;
+	}
 }
 .normal li {
 	background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
@@ -116,6 +123,19 @@
 	margin-left: -0.9375em;
 	margin-right: -0.9375em; 
 	margin-top: 0;
+}
+@include bp(small) {
+	.cthp-card-container {
+		margin-top: 0;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+	}
+	.cthp-card-container img {
+		display: none;
+	}
+	.cthp-intro-multimedia h3 {
+		text-transform: uppercase;
+	}
 }
 .cthpCard .cardBody ul li {
 	list-style-type: none;
@@ -170,21 +190,21 @@
 	color: #fff;
 	margin: 0 50% 20px 0;
 
-    /* margin-top: -10px; -->  half the icon height */
-    & a:after {
-        content: "";
-        background: $ncisprite no-repeat -467px -217px;
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        position: absolute;
-        margin-top: -10px;
-        right: 2%;
-        top: 50%;
-    }
+	/* margin-top: -10px; -->  half the icon height */
+	& a:after {
+		content: "";
+		background: $ncisprite no-repeat -467px -217px;
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+		position: absolute;
+		margin-top: -10px;
+		right: 2%;
+		top: 50%;
+	}
 
 	& a:hover:after, & a:focus:after {
-        background-position: -382px -217px;
+		background-position: -382px -217px;
 	}
 
 	a {
@@ -193,28 +213,53 @@
 		color: $body-font-color;
 		padding: 0.625em 3.6em 0.625em 0.7em;
 
-        /* Need to modify the text for the version toggle */
-        /* The text-transform and the first-letter        */
-        /* style in addition to the following two rules   */
-        /* are achieving the text changes                 */
-        /* Also need to pay attention to proper case in ES*/
-        html[lang="es"] & {
-            text-transform: lowercase;
-        }
-        html[lang="es"] &:first-letter {
-            text-transform: uppercase;
-        }
+		/* Need to modify the text for the version toggle */
+		/* The text-transform and the first-letter        */
+		/* style in addition to the following two rules   */
+		/* are achieving the text changes                 */
+		/* Also need to pay attention to proper case in ES*/
+		html[lang="es"] & {
+			text-transform: lowercase;
+		}
+		html[lang="es"] &:first-letter {
+			text-transform: uppercase;
+		}
 
-        html[lang="en"] &:before {
-            content: 'Go to ';
-        }
-        html[lang="es"] &:before {
-            content: 'Vaya a la ';
-        }
+		html[lang="en"] &:before {
+			content: 'Go to ';
+		}
+		html[lang="es"] &:before {
+			content: 'Vaya a la ';
+		}
 	}
 	&:hover a, &:focus a {
 		text-decoration: none;
 		color: #bd153c;
+	}
+	
+	@include bp(small) {
+		float: none;
+		background-color: white;
+		display: inline-block;
+		margin-top: 0;
+		margin-right: 0;
+		
+		&:before {
+			content: "";
+			background: $ncisprite no-repeat -467px -217px;
+			position: relative;
+			right: -230px;
+			top: 24px;
+		}
+		
+		a {
+			padding: 0 40px 0 0;
+			white-space: normal;
+		}
+		&:before:hover, &:focus {
+			content: "";
+			background: $ncisprite no-repeat -382px -217px;
+		}
 	}
 }
 .bp20 {
@@ -242,6 +287,10 @@
 }
 .cthpCard > div {
 	margin-bottom: 1.25em;
+	
+	@include bp(small) {
+		margin-bottom: 0;	
+	}
 }
 .cthpCard h3  {
 	color: #fff;
@@ -349,6 +398,10 @@ h3.cthp-overview-title {
 }
 .cthpCard > div > h3 + div:hover {
 	background-color: black;
+	
+	@include bp(small) {
+		background-color: white;	
+	}
 }
 .cthpCard > div > h3 + div:hover img {
 	opacity: 0.8;
@@ -365,9 +418,13 @@ h3.cthp-overview-title {
 	}
 }
 @include bp(large-up) {
-
 	.cthp-padding {
 		padding-left: em-calc(8px);
+	}
+}
+@include bp(small) {
+	.row .tp20 {
+		margin-top: 0;
 	}
 }
 /********** END Cancer Type Home Page Styles ******************************************/
