@@ -26,7 +26,7 @@
 
 	p {
 		line-height: 1.1;
-		top-margin: 0.7em;
+		margin-top: 0.7em;
 		font-weight: bold;
 	}
 
@@ -47,6 +47,12 @@
 
 	&:hover, &:focus {
 		padding-right: 1.5em;
+	}
+}
+
+@include bp(small) {
+	.hero-slot {
+		display: none;
 	}
 }
 /* END Hero Section */
