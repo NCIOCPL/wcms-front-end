@@ -530,8 +530,9 @@ a.learn-more {
 		}
 	}
 	&.non-playable {
-		a.mm-additional-info:before {
-			content: none;
+		a.mm-additional-info:before { content: none;
+			html[lang="es"] & {
+				content: none; }
 		}
 	}
 }
