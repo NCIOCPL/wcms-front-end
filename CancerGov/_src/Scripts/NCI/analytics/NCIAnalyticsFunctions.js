@@ -1252,11 +1252,12 @@ var NCIAnalytics = {
 
 
     //******************************************************************************************************
-    OnThisPageClick: function(sender, pageTitle, linkText) {
+    OnThisPageClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
+		
         clickParams.Props = {
-            66: pageTitle,
-            67: linkText
+            66: linkText,
+            67: pageName
         };
         clickParams.Events = [29];
         clickParams.LogToOmniture();
