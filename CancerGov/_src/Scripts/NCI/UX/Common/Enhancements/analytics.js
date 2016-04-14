@@ -2,6 +2,25 @@ define(function(require) {
 	var $ = require('jquery');
 
 	(function() {
+
+		//utility functions
+		// treeText
+		// when clicking on an accordion button, get the accordion hierarchy and depth
+		// ARGS
+		// obj:jQuery collection - collection of accordion titles
+		function treeText(obj){
+			var str = "",depth = 0;
+			$(obj.get().reverse()).each(function(i,el){
+				if(str == "") {
+					str = $(el).find("a:first").text();
+				} else {
+					str += ">" + $(el).find("a:first").text();
+				}
+				depth=i;
+			});
+			return {string:str,depth:depth};
+		}
+
 		$('#mega-nav a')
 			.filter(function() { return $(this).closest('.mobile-item').length === 0; })
 			.on('click', function(event) {
@@ -30,14 +49,16 @@ define(function(require) {
 					NCIAnalytics.MegaMenuDesktopReveal(this, menuText);
 				}, 1000);
 			}
+
 		}).on('click','button.toggle',function(){
 			var $this = $(this),
-				isExpanded = $this.attr('aria-expanded')==='true';
-				linkText = $this.prev().text()
-			;
-			NCIAnalytics.MegaMenuMobileAccordionClick(this, isExpanded, linkText);
-		}).on('click','.lvl-1 a, .mobile-item a',function(e){
+				isExpanded = $this.attr('aria-expanded')==='true',
+				tree = treeText($this.parents("li")).string,
+				linkText = $this.prev().text() //linkText no longer used now that it's being captured with the tree values
+				;
+			NCIAnalytics.MegaMenuMobileAccordionClick(this, isExpanded, tree);
 
+		}).on('click','.lvl-1 a, .mobile-item a',function(e){
 			if(mobileMenuBar.is(":visible")){
 				//e.preventDefault();
 				var $this = $(this),
@@ -48,7 +69,7 @@ define(function(require) {
 					heading = $.trim(root.children(":first").find('a').text()),
 					parent = $this.closest(".lvl-2"),
 					subHeading = parent[0] && parent.children(":first").find('a').get(0) !== this?$.trim(parent.children(":first").find('a').text()):heading
-				;
+					;
 
 				//console.log("url: " + url + "\nlinkText: " + linkText  + "\nlinkUrl: " + linkUrl + "\nheading: " + heading + "\nsubHeading: " + subHeading);
 				NCIAnalytics.MegaMenuMobileLinkClick(this, url, linkText, linkUrl, heading, subHeading);
@@ -137,10 +158,10 @@ define(function(require) {
 				var linkText = 'Image';
 				var container = 'Thumbnail';
 				var containerIndex = i + 1;
-		 
+
 				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
 			});
-		}); 
+		});
 
 		$('.card-thumbnail .card-thumbnail-text').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
@@ -149,11 +170,11 @@ define(function(require) {
 				var linkText = $this.closest('h3').find('a:first').text();
 				var container = 'Thumbnail';
 				var containerIndex = i + 1;
-		 
+
 				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
 			});
-		}); 
-		
+		});
+
 		$('.cthp-card-container .cthpCard').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
@@ -165,32 +186,21 @@ define(function(require) {
 				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
 			});
 		});
-		
+
 		// Track clicks on on Topic Page Featured Card
 		$('.topic-feature .feature-card').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
+				// if the card is inside the intro text or body then it is an inline card
+				var isInline = $this.parents("#cgvBody,#cgvIntroText")[0];
 				var cardTitle = $this.children('h3').text();
 				var linkText = $this.children('h3').text();
-				var container = 'SlottedTopicCard';
+				var container = isInline?'InlineCard':'SlottedTopicCard';
 				var containerIndex = i + 1;
-		 
+
 				NCIAnalytics.CardClick(this, cardTitle, linkText, container, containerIndex);
 			});
 		});
-
-		function treeText(obj){
-			var str = "",depth = 0;
-			$(obj.get().slice(0,-1).reverse()).each(function(i,el){
-				if(str == "") {
-					str = $(el).find("a:first").text();
-				} else {
-					str += ">" + $(el).find("a:first").text();
-				}
-				depth=i;
-			});
-			return {string:str,depth:depth};
-		}
 
 		$("#nvcgSlSectionNav a").on("click",function(event){
 			//event.preventDefault(); //uncomment when testing link clicks
@@ -201,7 +211,7 @@ define(function(require) {
 				parent = root.find(".level-1").is(".has-children")?treeText($this.parents("li")).string:"",
 				linkText = $this.text(),
 				depth = treeText($this.parents("li")).depth
-			;
+				;
 			//console.log("url: " + url + "\nheading: " + heading  + "\nparent: " + parent + "\nlinkText: " + linkText + "\ndepth: " + depth);
 			NCIAnalytics.SectionLinkClick(this,url,heading,linkText,depth,parent);
 		});
@@ -213,12 +223,12 @@ define(function(require) {
 					url = 'www.cancer.gov' + location.pathname.toLowerCase(),
 					root = $this.closest(".level-0"),
 					heading = $.trim(root.children(":first").text()),
-					parent = treeText($this.parents("li")).string,
+					tree = treeText($this.parents("li:not(.level-0)")).string,
 					isExpanded = $this.attr("aria-expanded") == "true"
-				;
+					;
 
 				//console.log("url: " + url + "\nisExpanded: " + isExpanded  + "\nheading: " + heading  + "\nparent: " + parent + "\nevent: " + event.type);
-				NCIAnalytics.SectionAccordionClick(this,url,isExpanded,heading,parent);
+				NCIAnalytics.SectionAccordionClick(this,url,isExpanded,heading,tree);
 			});
 			$(".back-to-top").one("reveal",function(e){
 				NCIAnalytics.BackToTopReveal(this,true);
