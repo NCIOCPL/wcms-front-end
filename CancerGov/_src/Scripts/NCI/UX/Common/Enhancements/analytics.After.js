@@ -1,8 +1,10 @@
 define(function(require) {
 	var $ = require('jquery');
 
+	/***
+	* Snippet to track clicks on "On This Page" links
+	*/
 	function _initialize() {
-		// Track clicks on "On This Page" links
 		$('.on-this-page').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
