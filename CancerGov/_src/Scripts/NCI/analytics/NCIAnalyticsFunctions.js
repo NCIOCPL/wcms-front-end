@@ -935,7 +935,7 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
-    MegaMenuDesktopReveal: function(sender, isVisible, menuText) {
+    MegaMenuDesktopReveal: function(sender, menuText) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'MegaMenuDesktopReveal');
 
         clickParams.Events = [28];
@@ -963,13 +963,14 @@ var NCIAnalytics = {
 
 
     //******************************************************************************************************
-    MegaMenuMobileAccordionClick: function(sender, isExpanded, linkText) {
+    MegaMenuMobileAccordionClick: function(sender, isExpanded, tree) {
+        var state = isExpanded?"Expand":"Collapse";
+
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'MegaMenuMobileAccordionClick');
 
         clickParams.Events = isExpanded?[34]:[35];
         clickParams.Props = {
-            73: isExpanded?"Expand":"Collapse",
-            74: linkText
+            73: state + "|" + tree
         };
         clickParams.LogToOmniture();
     },
@@ -1283,7 +1284,20 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    SectionMenuButtonClick: function(sender, heading) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'SectionMenuButtonClick');
+
+        clickParams.Events = [30];
+        clickParams.Evars = {
+            43: "Section Menu",
+            45: heading
+        };
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     SectionAccordionClick: function(sender, url, isExpanded, heading, parent) {
+        var state = isExpanded?"Expand":"Collapse";
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'SectionAccordionClick');
 
         clickParams.Events = isExpanded?[31]:[32];
@@ -1292,7 +1306,7 @@ var NCIAnalytics = {
             45: heading
         };
         clickParams.Props = {
-            68: isExpanded?"Expand":"Collapse"
+            68: state + "|" + parent
         };
         clickParams.LogToOmniture();
     },
@@ -1311,6 +1325,19 @@ var NCIAnalytics = {
             70: linkText,
             71: depth,
             72: url
+        };
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    fontResizer: function(sender, fontSize, onload) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'fontResizer');
+
+        if(!onload){
+            clickParams.Events = [36];
+        }
+        clickParams.Props = {
+            42: fontSize
         };
         clickParams.LogToOmniture();
     },
