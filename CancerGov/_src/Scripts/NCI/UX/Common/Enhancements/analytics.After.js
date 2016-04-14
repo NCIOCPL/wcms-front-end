@@ -8,9 +8,9 @@ define(function(require) {
 		$('.on-this-page').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
-				var pageTitle = $('h1 span').first().text();
-				var linkText = $this.text();	
-				NCIAnalytics.OnThisPageClick($this, pageTitle, linkText);
+				var linkText = $this.text();
+				var pageName = window.location.hostname + window.location.pathname;
+				NCIAnalytics.OnThisPageClick($this, linkText, pageName);
 			});
 		});		
 	}
