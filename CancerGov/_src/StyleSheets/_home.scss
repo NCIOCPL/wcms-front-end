@@ -488,8 +488,14 @@ a.learn-more {
 		p,ul {
 			display:none;
 		}
-		.slot-item {
-			margin-right:15px;
+		.equalheight {
+			.slot-item {
+				margin-right:15px;
+				
+			}
+			&:last-child .slot-item{
+				margin-right:0;
+			}
 		}
 	}
 }
