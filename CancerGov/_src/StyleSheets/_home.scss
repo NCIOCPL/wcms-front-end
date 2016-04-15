@@ -484,10 +484,13 @@ a.learn-more {
 		
 }
 @include bp(small) {
-	.multimedia-slot p, .multimedia-slot ul {
-	display: none; }
-	.multimedia-feature-card {
-		margin-right: 15px;
+	.multimedia-slot {
+		p,ul {
+			display:none;
+		}
+		.slot-item {
+			margin-right:15px;
+		}
 	}
 }
 @include bp(medium-down) {
@@ -586,7 +589,7 @@ a.learn-more {
 	@extend %autoheight-fix;
 }
 .multimedia-slot .equalheight .slot-item {
-	background-color:#fff;
+	background-color:$white;
 }
 /* END MULIMEDIA ROW */
 
