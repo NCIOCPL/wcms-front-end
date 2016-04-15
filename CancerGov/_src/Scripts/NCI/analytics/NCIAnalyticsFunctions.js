@@ -1278,7 +1278,7 @@ var NCIAnalytics = {
 
         clickParams.Events = [21];
         clickParams.Props = {
-            50: isUtilityBarVisible?"Y":"N"
+            50: isUtilityBarVisible?"UtilityBarShowing":"UtilityBarHidden"
         };
         clickParams.LogToOmniture();
     },
