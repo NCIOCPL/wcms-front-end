@@ -1,7 +1,10 @@
 /********************* BEGIN Home Page Styles ******************************************/
+// overriding default spacing for p tags for the home/landing pages
+.ncilandingpage p, .ncihome p {
+	margin: 0.5em 0;
+}
 
 /* BEGIN Hero Section */
-
 .row .hero {
 	position: relative;
 	margin-bottom: 1em;
@@ -26,7 +29,7 @@
 
 	p {
 		line-height: 1.1;
-		top-margin: 0.7em;
+		margin-top: 0.7em;
 		font-weight: bold;
 	}
 
@@ -47,6 +50,12 @@
 
 	&:hover, &:focus {
 		padding-right: 1.5em;
+	}
+}
+
+@include bp(small) {
+	.hero-slot {
+		display: none;
 	}
 }
 /* END Hero Section */
@@ -333,11 +342,36 @@
 }
 	@include bp(small) {
 		.guide-card {
+			margin-bottom: 0;
+			margin-top: 0;
+			padding: 0;
+			
 			.card {
+				background: #1d5e86;
+				padding-top: 0;
+				padding-bottom: 0;
+				margin: 0;
+				
 				h2 {
 					line-height: 1.111em;	
 					font-size: 1.125em;
 				}
+				h3 {
+					color: white;
+					background: url($buttons + "small-arrow.png") 95% center no-repeat;
+					border-bottom: 1px solid black;
+					padding: 0.3em 0.9375em;
+					margin: 0;	
+				}
+				h3.last {
+					border-bottom: none;
+				}
+			}
+			.featured-card {
+				background: #1d5e86;
+				padding-top: 0;
+				padding-bottom: 0;
+				margin: 0;	
 			}
 		}
 	}
@@ -450,10 +484,19 @@ a.learn-more {
 		
 }
 @include bp(small) {
-	.multimedia-slot p, .multimedia-slot ul {
-	display: none; }
-	.multimedia-feature-card {
-		margin-right: 15px;
+	.multimedia-slot {
+		p,ul {
+			display:none;
+		}
+		.equalheight {
+			.slot-item {
+				margin-right:15px;
+				
+			}
+			&:last-child .slot-item{
+				margin-right:0;
+			}
+		}
 	}
 }
 @include bp(medium-down) {
@@ -542,14 +585,17 @@ a.learn-more {
 	height: 100%;
 }
 .multimedia-feature-card, .multimedia .feature-card {
-	@extend %autoheight-fix;
+	//@extend %autoheight-fix;
 	a {
 		display: block;
-		height: 100%;
+		//height: 100%;
 	}
 }
 .card > .slot-item {
 	@extend %autoheight-fix;
+}
+.multimedia-slot .equalheight .slot-item {
+	background-color:$white;
 }
 /* END MULIMEDIA ROW */
 

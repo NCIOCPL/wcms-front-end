@@ -30,7 +30,8 @@ define(function(require) {
 		clickMega: function(e) {
 			var t = NCI.Buttons.toggle,
 				n = NCI.Nav;
-			e.stopPropagation();
+			//Why is event propagation prevented?
+			//e.stopPropagation();
 
 			var yes = 'true', // init true / false values
 				no = 'false',
@@ -74,7 +75,9 @@ define(function(require) {
 		},
 
 		clickSection: function(e) {
-			e.stopPropagation();
+			//Why is event propagation prevented?
+			//e.stopPropagation();
+
 			var t = NCI.Buttons.toggle;
 			var windowWidth = window.innerWidth || $(window).width();
 
