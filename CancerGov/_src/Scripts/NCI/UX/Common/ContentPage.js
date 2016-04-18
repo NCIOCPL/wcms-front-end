@@ -62,6 +62,7 @@ define(function(require) {
 				/* css class for the open state */
 				openClass: "open"
 			});
+
 			$("#mega-nav .sub-nav-group-wrapper").bind("mouseleave",function(e){
 				if($(e.relatedTarget).is('.sub-nav-mega')){
 					$(this).closest(".nav-menu").trigger("mouseout");
@@ -146,11 +147,13 @@ define(function(require) {
 			var offset = 600;
 			// set the duration of the fade in effect of the back to top arrow and text
 			var duration = 500;
-			jQuery(window).scroll(function () {
-				if (jQuery(this).scrollTop() > offset) {
-					jQuery('.back-to-top').fadeIn(duration);
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > offset) {
+					$('.back-to-top').fadeIn(duration,function(){
+						$(this).trigger("reveal");
+					});
 				} else {
-					jQuery('.back-to-top').fadeOut(duration);
+					$('.back-to-top').fadeOut(duration);
 				}
 			});
 
