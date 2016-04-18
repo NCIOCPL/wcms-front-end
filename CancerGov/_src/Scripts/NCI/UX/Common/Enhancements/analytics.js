@@ -230,25 +230,21 @@ define(function(require) {
 			//report the final font size on mouse leave of the icon
 			$this.on('mouseleave.analytics',function(){
 				//report font size after clicking is completed
-				var target = $(".resize-content:first"),
-					fontStyle = target.css("font-size"),
-					fontSize
+				var target = $(".resize-content:first")[0]? $(".resize-content:first") : $("#cgvBody"),
+					fontSize = parseInt(target.css("font-size")),
+					fontStyle
 				;
 
-				switch (fontStyle) {
-					case '19.2px':
-						fontSize = 'Medium';
-						break;
-					case '23.04px':
-						fontSize = 'Large';
-						break;
-					case '27.648px':
-						fontSize = 'Extra Large';
-						break;
-					default:
-						fontSize = 'Normal';
+				if(fontSize < 19) {
+					fontStyle = 'Normal';
+				} else if(fontSize < 23) {
+					fontStyle = 'Medium';
+				} else if(fontSize < 27) {
+					fontStyle = 'Large';
+				} else {
+					fontStyle = 'Extra Large';
 				}
-				NCIAnalytics.fontResizer(this,fontSize);
+				NCIAnalytics.fontResizer(this,fontStyle);
 
 				//unbind the mouseleave event to prevent reporting on casual mouseovers
 				$this.off('mouseleave.analytics');
