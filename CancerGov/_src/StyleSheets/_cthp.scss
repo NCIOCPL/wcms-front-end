@@ -112,6 +112,10 @@
 }
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
+	
+	@include bp(small) {
+		padding: 0;
+	}
 }
 .cthp-pdq-label {
 	margin-top: 0;
@@ -142,6 +146,7 @@
 	padding-left: 0.9375em;
 }
 .cthpCard .cthp-general .cardBody ul li,
+.cthpCard a + .cardBody ul li,
 .cthpCard .cardBody br + ul li {
 	padding-left: 0;
 }
