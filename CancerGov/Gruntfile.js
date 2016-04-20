@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-bake');
 	grunt.config('bake', {
-		build: {
+		templates: {
 			options: {},
 			files: [{
 				expand: true,
@@ -82,6 +82,16 @@ module.exports = function(grunt) {
 				src: ['**/*.aspx'],
 				dest: '<%= dirs.tmp.templates %>',
 				ext: ".aspx"
+			}]
+		},
+		sublayouttemplates: {
+			options: {},
+			files: [{
+				expand: true,
+				cwd: '<%= dirs.src.sublayouttemplates %>',
+				src: ['**/*.ascx'],
+				dest: '<%= dirs.tmp.sublayouttemplates %>',
+				ext: ".ascx"
 			}]
 		}
 	});
@@ -246,9 +256,7 @@ module.exports = function(grunt) {
 			files: [{
 				expand: true,
 				flatten: true,
-				//NOTE: This is src and not tmp.  We currently do not "bake" the sublayouts
-				//but that could change in the future.  If so please change this
-				src: ['<%= dirs.src.sublayouttemplates %>**/*.ascx'],
+				src: ['<%= dirs.tmp.sublayouttemplates %>**/*.ascx'],
 				dest: '<%= dirs.dist.sublayouttemplates %>',
 				filter: 'isFile'
 			}]
@@ -313,11 +321,8 @@ module.exports = function(grunt) {
 		templates: {
 			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
 			tasks: ['build-templates:' + 'dev']
-
-		//NOTE: We currently do not "bake" the sublayouts
-		//but that could change in the future.  If so please change the copy paths as well. Also,
-		//Why do we watch templates? they never change...
 		}
+		//NOT adding sublayouts, I wonder why templates are here...
 	});
 
 
@@ -338,13 +343,11 @@ module.exports = function(grunt) {
 		grunt.task.run(tasks);
 	});
 
-	grunt.registerTask('build-templates', 'Build the CDE page templates.', function(env) {
+	grunt.registerTask('build-templates', 'Build the CDE page & sublayout templates.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		//NOTE: We currently do not "bake" the sublayouts
-		//but that could change in the future.  If so please change the copy paths as well.
-		var tasks = ['bake', 'copy:templates', 'copy:sublayouttemplates', 'clean:tmp'];
+		var tasks = ['bake:templates', 'copy:templates', 'bake:sublayouttemplates', 'copy:sublayouttemplates', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
