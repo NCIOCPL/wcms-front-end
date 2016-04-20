@@ -95,7 +95,13 @@
 }
 @include bp(large-up) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
-    width: 96.75%;
+		width: 96.75%;
+		float: right;
+	}
+}
+@media only screen and (min-width: 1441px) {
+  .large-12.columns.cthp-intro-multimedia.clearfix {
+    width: 573px;
     float: right;
   }
 }
