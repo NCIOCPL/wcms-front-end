@@ -5,18 +5,21 @@ module.exports = function(grunt) {
 		src: {
 			base: "_src/",
 			templates: "_src/PageTemplates/",
+			sublayouttemplates: "_src/SublayoutTemplates/",
 			styles: "_src/StyleSheets/",
 			scripts: "_src/Scripts/"
 		},
 		tmp: {
 			base: "_tmp/",
 			templates: "_tmp/PageTemplates/",
+			sublayouttemplates: "_tmp/SublayoutTemplates/",
 			styles: "_tmp/Styles/",
 			scripts: "_tmp/js/"
 		},
 		dist: {
 			base: "_dist/",
 			templates: "_dist/PageTemplates/",
+			sublayouttemplates: "_dist/SublayoutTemplates/",
 			styles: "_dist/Styles/",
 			scripts: "_dist/js/"
 		},
@@ -238,6 +241,18 @@ module.exports = function(grunt) {
 				filter: 'isFile'
 			}]
 		},
+		sublayouttemplates: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				//NOTE: This is src and not tmp.  We currently do not "bake" the sublayouts
+				//but that could change in the future.  If so please change this
+				src: ['<%= dirs.src.sublayouttemplates %>**/*.ascx'],
+				dest: '<%= dirs.dist.sublayouttemplates %>',
+				filter: 'isFile'
+			}]
+		},
 		styles: {
 			nonull: true,
 			files: [{
@@ -298,6 +313,10 @@ module.exports = function(grunt) {
 		templates: {
 			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
 			tasks: ['build-templates:' + 'dev']
+
+		//NOTE: We currently do not "bake" the sublayouts
+		//but that could change in the future.  If so please change the copy paths as well. Also,
+		//Why do we watch templates? they never change...
 		}
 	});
 
@@ -323,7 +342,9 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['bake', 'copy:templates', 'clean:tmp'];
+		//NOTE: We currently do not "bake" the sublayouts
+		//but that could change in the future.  If so please change the copy paths as well.
+		var tasks = ['bake', 'copy:templates', 'copy:sublayouttemplates', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
