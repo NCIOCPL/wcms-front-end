@@ -43,7 +43,10 @@ s._tpDST = {
 // If the cid query parameter exists - set prop16 and eVar16 to value of cid
 var cdrid = caseInsensitiveGetQueryParm('cdrid');
 if(cdrid)
-    s.prop16=s.eVar16=cdrid; 
+    s.prop16=s.eVar16=cdrid;
+
+//set the font size variable
+s.prop42="Normal";
 
 // Domain override
 var localPageName = location.hostname.toLowerCase() + location.pathname.toLowerCase();
