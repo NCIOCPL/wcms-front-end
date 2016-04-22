@@ -238,6 +238,11 @@ dl {
 	// Title, Date, Desc, Image
 }
 
+// this is a temporary fix for CTHP managed lists. Once managed lists are changed globally from 3em to a lesser amount, this can be removed
+.cthpCard .list {
+	margin-bottom: 1.25em;
+}
+
 // changing default behavior of list image for new landing page so that the image is 188px wide at desktop, matching the specs for thumbnail cards
 .row.news .list {
 		.container {
