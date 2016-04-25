@@ -246,6 +246,13 @@
 				padding-right: 70px;
 				color: $header-font-color;
 			}
+			
+			&.contains-current div > a {
+				color: $purple;
+			}
+			&:not(.contains-current) div > a {
+				color: inherit;
+			}
 		}
 
 
@@ -388,7 +395,7 @@
 		font-weight: bold;
 		
 		a {
-			color: #80378b;
+			color: $purple;
 		}
 	}
 	.section-nav div > a {
