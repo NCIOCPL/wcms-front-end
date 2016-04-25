@@ -202,9 +202,25 @@
 		max-width: 62.5em;
 		margin: 0 auto;
 	}
-	/*CAROUSEL STYLES*/
 
-	@import "_carousel-largeup";
+	/*CAROUSEL STYLES*/
+	/* desktop arrows */
+	.arrows-for-other-nci-sites .next {
+		background: transparent url($buttons + "blue-arrow-right.png") no-repeat 0 0;
+	}
+	.arrows-for-other-nci-sites .next:hover {
+		background: transparent url($buttons + "red-arrow-right.png") no-repeat 0 0;
+	}
+	.arrows-for-other-nci-sites .previous {
+		background: transparent url($buttons + "blue-arrow-left.png") no-repeat 0 0;
+	}
+	.arrows-for-other-nci-sites .previous:hover {
+		background: transparent url($buttons + "red-arrow-left.png") no-repeat 0 0;
+	}
+	/* spacing */
+	.slick-slide .container {
+		margin: 0 11px;
+	}
 
 	/** BEGIN PDQ Styles **/
 	section.hide, div.hide {
