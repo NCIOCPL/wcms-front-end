@@ -89,6 +89,10 @@
 .cthp-content .cardBody {
 	overflow: auto;
 	padding: 0.625em 0.8em;
+	
+	@include bp(small) {
+		padding: 0;
+	}
 }
 .cthp-pdq-label {
 	margin-top: 0;
