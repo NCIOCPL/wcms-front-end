@@ -42,5 +42,9 @@
 	}
 	a {
 		color: $white;
+		
+		&:hover {
+			color: $cranberry;	
+		}
 	}
 }
