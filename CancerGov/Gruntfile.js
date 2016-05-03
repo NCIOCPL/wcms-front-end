@@ -5,18 +5,21 @@ module.exports = function(grunt) {
 		src: {
 			base: "_src/",
 			templates: "_src/PageTemplates/",
+			sublayouttemplates: "_src/SublayoutTemplates/",
 			styles: "_src/StyleSheets/",
 			scripts: "_src/Scripts/"
 		},
 		tmp: {
 			base: "_tmp/",
 			templates: "_tmp/PageTemplates/",
+			sublayouttemplates: "_tmp/SublayoutTemplates/",
 			styles: "_tmp/Styles/",
 			scripts: "_tmp/js/"
 		},
 		dist: {
 			base: "_dist/",
 			templates: "_dist/PageTemplates/",
+			sublayouttemplates: "_dist/SublayoutTemplates/",
 			styles: "_dist/Styles/",
 			scripts: "_dist/js/"
 		},
@@ -71,7 +74,7 @@ module.exports = function(grunt) {
 	 ****************************************/
 	grunt.loadNpmTasks('grunt-bake');
 	grunt.config('bake', {
-		build: {
+		templates: {
 			options: {},
 			files: [{
 				expand: true,
@@ -79,6 +82,16 @@ module.exports = function(grunt) {
 				src: ['**/*.aspx'],
 				dest: '<%= dirs.tmp.templates %>',
 				ext: ".aspx"
+			}]
+		},
+		sublayouttemplates: {
+			options: {},
+			files: [{
+				expand: true,
+				cwd: '<%= dirs.src.sublayouttemplates %>',
+				src: ['**/*.ascx'],
+				dest: '<%= dirs.tmp.sublayouttemplates %>',
+				ext: ".ascx"
 			}]
 		}
 	});
@@ -238,6 +251,16 @@ module.exports = function(grunt) {
 				filter: 'isFile'
 			}]
 		},
+		sublayouttemplates: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: ['<%= dirs.tmp.sublayouttemplates %>**/*.ascx'],
+				dest: '<%= dirs.dist.sublayouttemplates %>',
+				filter: 'isFile'
+			}]
+		},
 		styles: {
 			nonull: true,
 			files: [{
@@ -299,6 +322,7 @@ module.exports = function(grunt) {
 			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
 			tasks: ['build-templates:' + 'dev']
 		}
+		//NOT adding sublayouts, I wonder why templates are here...
 	});
 
 
@@ -319,11 +343,11 @@ module.exports = function(grunt) {
 		grunt.task.run(tasks);
 	});
 
-	grunt.registerTask('build-templates', 'Build the CDE page templates.', function(env) {
+	grunt.registerTask('build-templates', 'Build the CDE page & sublayout templates.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['bake', 'copy:templates', 'clean:tmp'];
+		var tasks = ['bake:templates', 'copy:templates', 'bake:sublayouttemplates', 'copy:sublayouttemplates', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 

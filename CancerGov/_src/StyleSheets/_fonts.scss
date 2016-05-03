@@ -7,8 +7,9 @@ $style-map: (normal: "", italic: "italic");
 	$path-family: str-replace($family, ' ', '-');
 
 	// set the weight and style path components (e.g., "700", "700italic", "regular", "italic")
+	$path-weight: '';
+	$path-style: 'regular';
 	@if($weight == normal) {
-		$path-weight: '';
 		@if($style == normal) {
 			$path-style: 'regular';
 		} @else {

@@ -24,12 +24,6 @@ dl {
 		> .date, > .body {
 			margin: 0.25em 0;
 		}
-
-		@include bp(medium-down) {
-			> .body {
-				display: none;
-			}
-		}
 	}
 
 .title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus {

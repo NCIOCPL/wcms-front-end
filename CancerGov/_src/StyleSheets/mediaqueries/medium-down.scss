@@ -246,6 +246,13 @@
 				padding-right: 70px;
 				color: $header-font-color;
 			}
+			
+			&.contains-current div > a {
+				color: $purple;
+			}
+			&:not(.contains-current) div > a {
+				color: inherit;
+			}
 		}
 
 
@@ -386,6 +393,10 @@
 	}
 	.section-nav .contains-current > div {
 		font-weight: bold;
+		
+		a {
+			color: $purple;
+		}
 	}
 	.section-nav div > a {
 		display: inline-block;
@@ -501,13 +512,48 @@
 		z-index: 998;
 	}
 
-	/* begin carousel styles */
-	@import "_carousel-mediumdown";
-	/* end carousel styles */
+	/*CAROUSEL STYLES*/
+	/* spacing */
+	.slick-slide {
+		margin: 0 10px 0 0;
+	}
+	/*.slick-slide:last-child {
+        margin: 0;
+    }*/
+	/* opacity on non-active slide items */
+	.slick-slide {
+		background-color: #000;
+	}
+	.slick-slide .container {
+		opacity: 0.5;
+	}
+	/* overwrite above styles for opacity and background-color */
+	.slick-active {
+		background-color: #fff;
+	}
+	.slick-active .container {
+		opacity: 1;
+	}
+	.arrows-for-other-nci-sites .previous {
+		display: none;
+	}
+	.arrows-for-other-nci-sites .next {
+		position: absolute;
+		right: 20px;
+		z-index: 800;
+		top: 50%;
+	}
+	.arrows-for-other-nci-sites .next {
+		display: none;
+	}
+	.slick-dots {
+		display: none !important;
+	}
 
 	.public-use{
 		font-size: 0.875em;
 	}
+	/*END: CAROUSEL STYLES*/
 
 	.syndication{
 		font-size: 0.875em;
