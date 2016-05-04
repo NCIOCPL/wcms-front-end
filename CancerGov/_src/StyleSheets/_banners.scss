@@ -1,12 +1,12 @@
-/* Public Archive banner */
-.public-archive-banner {
-	background: #bb0e3d;
+/* Public Archive banner/Colo banner */
+.public-archive-banner, .notification-banner div div  {
+	background: $lcranberry;
 	@include font-montserrat;
 	font-size: 1.125em;
 	font-weight: bold;
 	line-height: 1.12;
 	color: white;
-	padding: 1.28;
+	padding: 1.28em;
 	margin-bottom: 1px;
 	a {
 		color: white;
@@ -29,7 +29,7 @@ $notice-banner-font-size-mobile: 12px;
 $notice-banner-line-height-mobile: 14px;
 .site-notification {
 	margin-top: 1px;
-	background-color: #bb0e3d;
+	background-color: $lcranberry;
 	margin-bottom:1px;
 	.first-SI &, .only-SI & {
 		margin-top: 0;

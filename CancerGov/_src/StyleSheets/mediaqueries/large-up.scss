@@ -64,7 +64,12 @@
 	}
 	.section-nav .contains-current > div {
 		font-weight: bold;
+		
+		a {
+			color: $purple;
+		}	
 	}
+
 	.section-nav .current-page:after {
 		left: 100%;
 		top: 50%;

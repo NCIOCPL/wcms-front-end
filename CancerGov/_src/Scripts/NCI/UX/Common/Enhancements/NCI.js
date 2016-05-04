@@ -342,7 +342,7 @@ define(function(require) {
 					// verify that the accordion will build correctly
 					$(targetsHeaderSelector).each(function() {
 						var $this = $(this);
-						if($this.nextAll().length > 1 || $this.next().is('ul, ol')) {
+						if($this.nextAll().length > 0 || $this.next().is('ul, ol')) {
 							$this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
 						}
 					});

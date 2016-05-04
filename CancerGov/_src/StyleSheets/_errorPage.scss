@@ -7,8 +7,11 @@
 		font-size: 40px;
 		line-height: 47px;
 	}
+	
+	a {
+		color: $grey27;
+	}
 	a.arrow-link {
-		color: #8169b8;
 		display: inline;
 	}
 	.columns {
@@ -32,9 +35,16 @@
 	background: #16809e url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat top right;
 	padding-bottom: 50px;
 	margin-top: 50px;
-	color: #ffffff;
+	color: $white;
 
 	h1, a.arrow-link {
-		color: #ffffff;
+		color: $white;
+	}
+	a {
+		color: $white;
+		
+		&:hover {
+			color: $cranberry;	
+		}
 	}
 }
