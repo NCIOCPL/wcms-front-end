@@ -28,9 +28,9 @@ $button-font-align: center;
 
 // We use these to control button background styles.
 
-$button-background-color-submit: #0eb5bb;
-$button-background-color-reset: $color-link;
-$button-background-color-otheraction: #620788;
+$button-background-color-submit: #620788;
+$button-background-color-reset: transparent;
+$button-background-color-otheraction:#319ebd;
 
 // We use these to control various hover effects.
 
@@ -168,6 +168,13 @@ form button,
 	&[type=reset],
 	&.reset {
 		@include button-style($bg:$button-background-color-reset);
+		color: $color-link;
+		box-shadow: none;
+		font-weight: normal;
+		&:hover {
+			color: $color-link;	
+			text-decoration: underline;
+		}
 	}
 	&.action {
 		@include button-style($bg:$button-background-color-otheraction);
