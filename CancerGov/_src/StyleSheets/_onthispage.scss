@@ -60,10 +60,11 @@
 	display: block;
 	margin: 1.3em 0 0.75em;
 	text-transform: uppercase;
-	font-size: 1.25em;
+	font-size: 1.125em;    //18px
 	@include font-montserrat;
 	font-weight: bold;
 	line-height: 1.25em;
+	font-style: normal;
 }
 
 .on-this-page li:before {
