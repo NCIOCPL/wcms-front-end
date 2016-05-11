@@ -391,3 +391,26 @@ $plusminus-bg-color-nav-current: #12738a;
 		}
 	}
 }
+
+	// Full page (.desktop) accordions general plus/minus buttons
+	.desktop .toggle {
+		right: 0;
+		top: 0;
+		margin-top: 0;
+		font-size: 2em;
+		height: 100%;
+		width: 50px;
+
+		&:after {
+			position: absolute;
+			top: 50%;
+			margin-top: -0.5em;
+		}
+	}
+	.desktop .ui-accordion-header.odd {
+		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
+	}
+
+	.desktop .ui-accordion-header.even {
+		@include toggle-color($plusminus-color-accordion-even, $plusminus-bg-color-accordion-even);
+	}
