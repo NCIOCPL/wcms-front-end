@@ -29,11 +29,9 @@ div.cc-main-pages div.title-red-arrow {
 		}
 	}
 }
-
 // These styles in this mobile breakpoint are to override defficiencies with Topic Page Feature Cards. This is a temporary fix, longer term the html markup should be changed
 // WCMSFEQ-119
 // Example page: /research/areas/clinical-trials
-/*  Commenting this out because styling of the card for mobile may need to occur
 @include bp(small) {
 	.topic-feature .feature-card .image-hover {
 		margin-right: 15px;	
@@ -57,9 +55,6 @@ div.cc-main-pages div.title-red-arrow {
 		margin-right: 16px;	
 	}
 }
-*/
-
-
 
 .landing-thumb {
 	clear: both;
