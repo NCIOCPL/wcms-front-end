@@ -25,6 +25,68 @@ dl {
 			margin: 0.25em 0;
 		}
 	}
+	
+	&.compact {
+		li {
+			margin: 1em 0 1em 2em;
+			
+			&:before {
+				content: "\2022";
+				display: inline;
+				position: relative;
+				float: left;
+				left: -0.5em;
+				top: 0.25em;
+				margin: 0 -0.2em;
+				font-size: 1.1em;
+				line-height: 0.90909em;
+				color: #2b7bba;
+			}
+		}
+	}
+	
+	// CHTP pages More Information lists
+	&.more-info {
+		li {
+			margin: 0;
+			
+			&:before {
+				content: "\2022";
+				display: inline;
+				position: relative;
+				float: left;
+				left: -0.5em;
+				top: 0.25em;
+				margin: 0 -0.2em;
+				font-size: 1.1em;
+				line-height: 0.90909em;
+				color: #2b7bba;
+			}
+			
+			.title-and-desc {
+				display: inline;
+			}
+			
+			.title {
+				font-family: inherit;
+				font-size: inherit;
+			}
+		}
+	}
+	
+	// Related Resources list
+	&.related-resources {
+		li {
+			margin-top: 0.25em;
+			margin-bottom: 0.25em;
+			margin-left: 0;
+		
+			.title {
+				font-family: inherit;
+				font-size: inherit;
+			}
+		}
+	}
 
 .title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus {
 	color: $lcranberry;
@@ -103,11 +165,13 @@ dl {
 		&.carousel {}
 	}
 
-	.infographic {}
+	.infographic {
+		background: transparent;
+	}
 
 	.file {
 		.filesize, .filetype {
-			color: $header-font-color;
+			
 		}
 
 		.filetype {
@@ -115,36 +179,43 @@ dl {
 			top: 0.25em;
 			display: inline-block;
 			height: 20px;
-			margin-left: 16px;
-			background: #fff url($icons + "nci-sprite.png");
+			margin-left: 5px;
+			background: url($icons + "nci-sprite.png");
 
 			&.pdf {
-				background-position: -71px -475px;
-				width: 18px;
+				background-position: -72px -677px;
+				width: 17px;
+				height: 19px;
 			}
 			&.exe {
-				background-position: -74px -507px;
-				width: 19px;
+				background-position: -75px -709px;
+				width: 14px;
+				height: 19px;
 			}
 			&.txt {
-				background-position: -74px -507px;
-				width: 19px;
+				background-position: -75px -709px;
+				width: 14px;
+				height: 19px;
 			}
 			&.ebook {
-				background-position: -72px -537px;
-				width: 19px;
+				background-position: -73px -739px;
+				width: 18px;
+				height: 19px
 			}
 			&.ppt {
-				background-position: -71px -568px;
-				width: 20px;
+				background-position: -72px -770px;
+				width: 19px;
+				height: 19px;
 			}
 			&.word {
-				background-position: -71px -598px;
-				width: 20px;
+				background-position: -72px -800px;
+				width: 19px;
+				height: 19px;
 			}
 			&.excel {
-				background-position: -71px -630px;
-				width: 21px;
+				background-position: -72px -832px;
+				width: 20px;
+				heigth: 19px;
 			}
 			&.unknown {
 				top: 0;
@@ -159,6 +230,11 @@ dl {
 	// Title,!DATE, Desc, Image
 	// Title, Date, Desc,!IMAGE
 	// Title, Date, Desc, Image
+}
+
+// this is a temporary fix for CTHP managed lists. Once managed lists are changed globally from 3em to a lesser amount, this can be removed
+.cthpCard .list {
+	margin-bottom: 1.25em;
 }
 
 // changing default behavior of list image for new landing page so that the image is 188px wide at desktop, matching the specs for thumbnail cards
@@ -309,4 +385,3 @@ ul.cancer-list {
 .list.no-bullets .general-list-item {
     margin: 0 0 1.875em;
 } 
-
