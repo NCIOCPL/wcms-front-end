@@ -8,11 +8,11 @@
 	</div>
 	<!-- END "row" -->
 </div>
-<div class="cthp-content" id="content" tabindex="0">
+<div class="cthp-content cthp-hp-content" tabindex="0">
 	<div class="row">
 		<div class="large-12 columns resize-content cthp-padding">
 			<!--(bake Includes/PageTitle.inc)-->
-			<!--(bake Includes/PageOptions-Inner.inc)-->
+			<!--(bake Includes/PageOptions-CTHP.inc)-->
 			<!-- Body slot -->
 			<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" />
 			<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->

@@ -31,6 +31,13 @@
   &.cthp-patient-content {
 		background-color: #6254A3;
 	}
+	
+	@include bp(small) {
+		background: white;
+  	&.cthp-patient-content {
+			background-color: inherit;
+		}
+	}
 }
 .cthp-intro-multimedia {
 	background: white;
@@ -45,22 +52,29 @@
 		margin: 0 0 2.5em 0;
 	}
 
-    @include bp(small) {
-        figure {
-            &.video {
-                width: 100%;
-                margin: 0 0 1em 0;
-            }
-        }
-    }
-
+	@include bp(small) {
+		figure {
+			&.video {
+				width: 100%;
+				margin: 0 0 1em 0;
+			}
+		}
+	}
 }
-
 .cthp-body {
 	float:left;
 	width: 55%;
 	display: block;
 	clear: left;
+}
+@include bp(small) {
+	.cthp-body {
+		float: none;
+		width: 100%;
+	}
+	.cthp-title {
+		margin-top: 0;
+	}
 }
 .cthp-body h3 {
 	margin-top: 0px;
@@ -70,7 +84,8 @@
 .large-12.columns.cthp-intro-multimedia.clearfix {
 	padding-top: 5px;
 	padding-bottom: 10px;
-	padding-left: 20px;
+	padding-left: 15px;
+	margin-left: 15px;
 }
 @include bp(small) {
 	.large-12.columns.cthp-intro-multimedia.clearfix {
@@ -79,15 +94,23 @@
 		padding-left: 0.9375em;
 	}
 }
+@media only screen and (max-width: 1024px) {
+	.large-12.columns.cthp-intro-multimedia.clearfix {
+		margin-left: 0;
+	}
+}
 .cthp-content h1 {
 	color: white;
+	
+	@include bp(small) {
+		color: $header-font-color;
+	}
 }
 .normal li {
 	background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
 	padding-left: 0.9375em;
 }
 .cthp-content .cardBody {
-	overflow: auto;
 	padding: 0.625em 0.8em;
 	
 	@include bp(small) {
@@ -101,15 +124,31 @@
 	font-size: 1em;
 }
 .cthp-card-container {
-margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
+	margin-left: -0.9375em;
+	margin-right: -0.9375em; 
+	margin-top: 0;
 }
-.cthpCard ul.moreInfo li,
-.cthp-treatment .cardBody ul li,
-.cthp-causes .cardBody ul li,
-.cthp-genetics .cardBody ul li,
-.cthp-screening .cardBody ul li {
+@include bp(small) {
+	.cthp-card-container {
+		margin-top: 0;
+		padding-left: 0.9375em;
+		padding-right: 0.9375em;
+	}
+	.cthp-card-container img {
+		display: none;
+	}
+	.cthp-intro-multimedia h3 {
+		text-transform: uppercase;
+	}
+}
+.cthpCard .cardBody ul li {
 	list-style-type: none;
 	padding-left: 0.9375em;
+}
+.cthpCard .cthp-general .cardBody ul li,
+.cthpCard a + .cardBody ul li,
+.cthpCard .cardBody br + ul li {
+	padding-left: 0;
 }
 .cthp-research .cardBody {
 	p {
@@ -127,12 +166,10 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 		margin-top: 19px;
 	}
 }
-.moreInfo li:before,
-.cthp-treatment .cardBody ul li:before,
-.cthp-causes .cardBody ul li:before,
-.cthp-genetics .cardBody ul li:before,
-.cthp-screening .cardBody ul li:before,
-.cthp-research .cardBody p a:before {
+.more-info-list ul li:before, 
+.cthp-pdq-label ul li:before, 
+.cardBody h4 + ul li:before, 
+.cardBody p a:before  {
 	content: "\2022";
 	display: inline-block;
 	position: relative;
@@ -152,56 +189,82 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	color: #fff;
 }
 .cthp-version-toggle {
-    position: relative;
+	position: relative;
 	float: left;
-    background-color: #dbf2f8;
+	background-color: #dbf2f8;
 	color: #fff;
-	margin: 0 0 20px 0;
+	margin: 0 50% 20px 0;
 
-    /* margin-top: -10px; -->  half the icon height */
-    & a:after {
-        content: "";
-        background: $ncisprite no-repeat -467px -217px;
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        position: absolute;
-        margin-top: -10px;
-        right: 2%;
-        top: 50%;
-    }
+	/* margin-top: -10px; -->  half the icon height */
+	& a:after {
+		content: "";
+		background: $ncisprite no-repeat -467px -217px;
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+		position: absolute;
+		margin-top: -10px;
+		right: 2%;
+		top: 50%;
+	}
 
 	& a:hover:after, & a:focus:after {
-        background-position: -382px -217px;
+		background-position: -382px -217px;
 	}
 
 	a {
 		display: block;
+		white-space: nowrap;
 		color: $body-font-color;
 		padding: 0.625em 3.6em 0.625em 0.7em;
 
-        /* Need to modify the text for the version toggle */
-        /* The text-transform and the first-letter        */
-        /* style in addition to the following two rules   */
-        /* are achieving the text changes                 */
-        /* Also need to pay attention to proper case in ES*/
-        html[lang="es"] & {
-            text-transform: lowercase;
-        }
-        html[lang="es"] &:first-letter {
-            text-transform: uppercase;
-        }
+		/* Need to modify the text for the version toggle */
+		/* The text-transform and the first-letter        */
+		/* style in addition to the following two rules   */
+		/* are achieving the text changes                 */
+		/* Also need to pay attention to proper case in ES*/
+		html[lang="es"] & {
+			text-transform: lowercase;
+		}
+		html[lang="es"] &:first-letter {
+			text-transform: uppercase;
+		}
 
-        html[lang="en"] &:before {
-            content: 'Go to ';
-        }
-        html[lang="es"] &:before {
-            content: 'Vaya a la ';
-        }
+		html[lang="en"] &:before {
+			content: 'Go to ';
+		}
+		html[lang="es"] &:before {
+			content: 'Vaya a la ';
+		}
 	}
 	&:hover a, &:focus a {
 		text-decoration: none;
 		color: #bd153c;
+	}
+	
+	@include bp(small) {
+		float: none;
+		background-color: white;
+		display: inline-block;
+		margin-top: 0;
+		margin-right: 0;
+		
+		&:before {
+			content: "";
+			background: $ncisprite no-repeat -467px -217px;
+			position: relative;
+			right: -230px;
+			top: 24px;
+		}
+		
+		a {
+			padding: 0 40px 0 0;
+			white-space: normal;
+		}
+		&:before:hover, &:focus {
+			content: "";
+			background: $ncisprite no-repeat -382px -217px;
+		}
 	}
 }
 .bp20 {
@@ -222,28 +285,83 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	color: white;
 	font-weight: bold;
 }
-.cthp-treatment,
-.cthp-research,
-.cthp-causes,
-.cthp-genetics,
-.cthp-screening,
-.cthp-survival,
-.cthp-general {
-	margin-bottom: 1.25em;
+@include bp(small) {
+	.cthp-card-container .cthp-mm-infographic img {
+		display: block;
+	}	
 }
-.cthp-treatment h3,
-.cthp-research h3,
-.cthp-causes h3,
-.cthp-genetics h3,
-.cthp-screening h3,
-.cthp-survival h3,
-.cthp-general h3 {
+.cthpCard > div {
+	margin-bottom: 1.25em;
+	
+	@include bp(small) {
+		margin-bottom: 0;	
+	}
+}
+.cthpCard h3  {
 	color: #fff;
 	padding: 0.47em 0.6em;
 	margin: 0;
 	text-transform: uppercase;
 }
-/* Begin CTHP Card styling */
+/** Begin CTHP Overview styling */
+/* Align top of Overview Card with top of first guide/feature card */
+@include bp(small) {
+	#nvcgSlCTHPCards.cthp-card-container {
+		margin-top: 0;
+	}
+}
+@include bp(large-up) {
+	#nvcgSlCTHPCards.cthp-card-container {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+/* TODO: Clean up names and update Percussion template html to fix last-minute style change
+/* Move double high back above first 2 cards */
+.large-6.columns.cthp-overview-doublehigh {
+	width: 100%;
+}
+/* Align the slotted media image inside the Overview Card */
+.cthp-overview-doublehigh .cthp-intro-multimedia figure {
+	padding-top: 16px; 
+}  
+/* Format card title */
+h3.cthp-overview-title {
+	background: #4c34c3 url("/publishedcontent/images/images/design-elements/background-graphics/CTHP-blue-purple-circles.jpg") repeat-x;
+	color: #ffffff;
+	padding: 0.47em 0.6em;
+	margin: -5px -15px 0;
+	text-transform: uppercase;
+}
+/* Fix spacing in Overview Card to line up with first guide/feature card */  
+.cthp-overview-doublehigh .cthp-body p {
+	margin: 0.625em 0 1.25em;
+}	 
+/* Fix alignment of card on all screens */
+.cthp-overview-doublehigh {
+	padding: 0 1.875em 1.313em 0;
+}
+@include bp(small) {
+	.cthp-overview-doublehigh {
+		padding-right: 0;
+		padding-bottom: 0;
+	}
+}
+@include bp(medium) {
+	.cthp-overview-doublehigh {
+		padding-right: 0;
+	}
+}
+.doublehigh-expand { 
+	pointer-events: none;
+}
+@include bp(small) {
+	.doublehigh-expand { 
+		display: none;
+	}
+}
+/** End CTHP Overview styling */
+/** Begin CTHP Card styling */
 .cthp-content .cthp-treatment h3 {
 	background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
 }
@@ -265,53 +383,41 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 .cthp-content .cthp-general h3 {
 	background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
+.cthp-content .cthp-overview h3 {
+	background: #008eb0 url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
+}
+.cthp-content .cthp-pink-feature h3 {
+	background: #008eb0 url($backgrounds + "pink-triangles.jpg") repeat-x;
+}
+.cthp-content .cthp-yellow-feature h3 {
+	background: #008eb0 url($backgrounds + "yellow-hexagons.jpg") repeat-x;
+}
 
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
-.cthp-treatment div,
-.cthp-research div,
-.cthp-causes div,
-.cthp-genetics div,
-.cthp-screening div,
-.cthp-survival div,
-.cthp-general div,
-.cthp-treatment div:hover p,
-.cthp-research div:hover p,
-.cthp-causes div:hover p,
-.cthp-genetics div:hover p,
-.cthp-screening div:hover p,
-.cthp-survival div:hover p,
-.cthp-general div:hover p,
+.cthpCard .cardBody,
+.cthpCard .cardBody:hover,
+.cthpCard .cardBody:hover p,
 .cthp-content .cardBody:hover,
 .cthp-content .rxbodyfield:hover{
 	background-color: white;
 }
-.cthp-treatment:hover li a.arrow-link,
-.cthp-research:hover li a.arrow-link,
-.cthp-causes:hover li a.arrow-link,
-.cthp-genetics:hover li a.arrow-link,
-.cthp-screening:hover li a.arrow-link,
-.cthp-survival:hover li a.arrow-link,
-.cthp-general:hover li a.arrow-link {
+.cthpCard + div:hover li a.arrow-link {
 	color: #bb0e3d;
 	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
 }
-.cthp-treatment div:hover,
-.cthp-research div:hover,
-.cthp-causes div:hover,
-.cthp-genetics div:hover,
-.cthp-screening div:hover,
-.cthp-survival div:hover,
-.cthp-general div:hover {
+.cthpCard > div > h3 + div:hover {
 	background-color: black;
+	
+	@include bp(small) {
+		background-color: white;	
+	}
 }
-.cthp-treatment div:hover img,
-.cthp-research div:hover img,
-.cthp-causes div:hover img,
-.cthp-genetics div:hover img,
-.cthp-screening div:hover img,
-.cthp-survival div:hover img,
-.cthp-general div:hover img {
+.cthpCard > div > h3 + div:hover img {
 	opacity: 0.8;
+}
+/* Don't change color below multimedia figures on hover */
+.cthp-fi-video figure, figure.cthp-mm-video-player, figure.cthp-mm-video-playlist {
+	margin-bottom: 0;	
 }
 /* End CTHP Card styling */
 
@@ -321,9 +427,13 @@ margin-left: -0.9375em; margin-right: -0.9375em; margin-top: 30px;
 	}
 }
 @include bp(large-up) {
-
 	.cthp-padding {
 		padding-left: em-calc(8px);
+	}
+}
+@include bp(small) {
+	.row .tp20 {
+		margin-top: 0;
 	}
 }
 /********** END Cancer Type Home Page Styles ******************************************/
