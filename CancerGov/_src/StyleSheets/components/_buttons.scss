@@ -28,9 +28,9 @@ $button-font-align: center;
 
 // We use these to control button background styles.
 
-$button-background-color-submit: #620788;
-$button-background-color-reset: transparent;
-$button-background-color-otheraction:#319ebd;
+$button-background-color-submit: #0eb5bb;
+$button-background-color-reset: $color-link;
+$button-background-color-otheraction: #620788;
 
 // We use these to control various hover effects.
 
@@ -168,13 +168,6 @@ form button,
 	&[type=reset],
 	&.reset {
 		@include button-style($bg:$button-background-color-reset);
-		color: $color-link;
-		box-shadow: none;
-		font-weight: normal;
-		&:hover {
-			color: $color-link;	
-			text-decoration: underline;
-		}
 	}
 	&.action {
 		@include button-style($bg:$button-background-color-otheraction);
@@ -391,26 +384,3 @@ $plusminus-bg-color-nav-current: #12738a;
 		}
 	}
 }
-
-	// Full page (.desktop) accordions general plus/minus buttons
-	.desktop .toggle {
-		right: 0;
-		top: 0;
-		margin-top: 0;
-		font-size: 2em;
-		height: 100%;
-		width: 50px;
-
-		&:after {
-			position: absolute;
-			top: 50%;
-			margin-top: -0.5em;
-		}
-	}
-	.desktop .ui-accordion-header.odd {
-		@include toggle-color($plusminus-color-accordion-odd, $plusminus-bg-color-accordion-odd);
-	}
-
-	.desktop .ui-accordion-header.even {
-		@include toggle-color($plusminus-color-accordion-even, $plusminus-bg-color-accordion-even);
-	}
