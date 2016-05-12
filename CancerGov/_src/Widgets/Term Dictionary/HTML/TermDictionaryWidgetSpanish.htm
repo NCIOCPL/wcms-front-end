@@ -59,12 +59,12 @@
 	</div>
 
 	<!-- NCI Analytics -->
+	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/webanalytics/wcms/wa_wcms_pre.js"></script>
 	<script type="text/javascript">
-		var s_account = 'ncincidictionary';
-
+		var s_account = AnalyticsMapping.GetSuites('ncincidictionary');
 		var parentHostname = parentHostname || (document.referrer === "" ? location.hostname : document.referrer.match(new RegExp("(http|ftp|https)://(.*?)/.*$"))[2]);
 	</script>
-	<script type="text/javascript" src="/JS/Omniture/s_code.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/webanalytics/wcms/s_code.js"></script>
 	<script type="text/javascript">
 		var s = s_gi(s_account);
 		s.linkTrackVars = 'channel,prop47,prop48,prop51';
