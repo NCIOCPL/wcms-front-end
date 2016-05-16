@@ -29,32 +29,6 @@ div.cc-main-pages div.title-red-arrow {
 		}
 	}
 }
-// These styles in this mobile breakpoint are to override defficiencies with Topic Page Feature Cards. This is a temporary fix, longer term the html markup should be changed
-// WCMSFEQ-119
-// Example page: /research/areas/clinical-trials
-@include bp(small) {
-	.topic-feature .feature-card .image-hover {
-		margin-right: 15px;	
-	}
-	
-	.topic-feature.column, .topic-feature.columns {
-		float: none !important;
-		width: inherit;
-	}
-
-	.topic-feature.columns.right, {
-		float: none !important;
-	}
-	
-	.topic-feature .feature-card a h3 {
-		float: none;
-		width: 100%;
-	}
-	
-	.topic-feature.large-4.columns.card.right {
-		margin-right: 16px;	
-	}
-}
 
 .landing-thumb {
 	clear: both;
