@@ -50,6 +50,30 @@
 	.ui-accordion-content {
 		border: 0;
 		padding: 10px 20px;
+		
+		@include bp(medium-up) {
+			margin-left: -16px;
+			margin-right: -16px;
+		}
+	}
+}
+
+// Full page (.desktop) accordions general plus/minus buttons
+.desktop {
+	clear: both;
+}
+.desktop .toggle {
+	right: 0;
+	top: 0;
+	margin-top: 0;
+	font-size: 2em;
+	height: 100%;
+	width: 50px;
+
+	&:after {
+		position: absolute;
+		top: 50%;
+		margin-top: -0.5em;
 	}
 }
 
