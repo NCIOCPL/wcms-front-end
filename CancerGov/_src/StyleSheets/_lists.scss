@@ -269,6 +269,13 @@ p.description.dynamic-description {
  * and Drug Dictionary A to Z
  */
 .az-list {
+
+	.browse {
+		float: left;
+		padding-top: 0.5em;
+		margin-right: 1em;
+	}
+
 	&.inline {
 		display: inline-block;
 		margin-left: 1em;
@@ -290,8 +297,10 @@ p.description.dynamic-description {
 		}
 	}
 
-	&.narrow > ul > li {
-		margin-right: 0.5em;
+	&.narrow { 
+		.browse, ul > li {
+			margin-right: 0.5em;
+		}
 	}
 }
 .azMenu {
