@@ -247,11 +247,8 @@
 				color: $header-font-color;
 			}
 			
-			&.contains-current div > a {
+			&.contains-current > div.nav-item-title > a {
 				color: $purple;
-			}
-			&:not(.contains-current) div > a {
-				color: inherit;
 			}
 		}
 
