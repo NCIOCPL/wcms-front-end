@@ -102,8 +102,8 @@ figure.table {
 
 	figcaption, .emptyCaptionShim {
 		@extend %default-caption; // same as table.table-default caption
-		// font-size: 1.25em;     // 20px
-		// line-height: 1.4;
+			font-size: 1.25em;     // 20px
+			line-height: 1.4;
 
 		& + a.article-image-enlarge {
 			top: 10px;
