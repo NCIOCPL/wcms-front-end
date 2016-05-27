@@ -344,7 +344,7 @@
 			#end##
 			
 			<p>
-				<a href="$prettyUrl"">$continueReading &gt;</a>
+				<a href="$resultItem.Href">$continueReading &gt;</a>
 			</p>
 			
 			#if($showDate || $showLongDescription)##
