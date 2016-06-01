@@ -159,8 +159,8 @@ form button,
 	margin-right: 28px;
 	padding: 5px 12px 6px;
 	font-size: 1em;
-
-
+	min-height: 39.375px;
+	
 	&[type=submit],
 	&.submit {
 		@include button-style($bg:$button-background-color-submit);
@@ -218,6 +218,11 @@ form button,
 			@include button-style($bg:$button-background-color-otheraction, $disabled:true);
 		}
 	}
+}
+
+// if the button class is used in an anchor instead of input, it needs different padding
+a.button {
+	padding-top: 9px;	
 }
 
 @media only screen {
