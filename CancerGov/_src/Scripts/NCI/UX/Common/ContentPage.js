@@ -834,6 +834,9 @@ define(function(require) {
 		//END REFERENCE TOOL TIPS
 
 
+		// Proactive Live Help for CTS
+		require("Common/Enhancements/NCI.ProactiveLiveHelpForCTS").init();
+		// END Clinical Trial Search Setup
 	});
 
 	// BEGIN Table Resizing
