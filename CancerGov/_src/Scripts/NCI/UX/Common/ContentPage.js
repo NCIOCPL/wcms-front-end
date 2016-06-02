@@ -11,6 +11,15 @@ define(function(require) {
 	require('placeholders');
 
 	jQuery(document).ready(function(jQuery) {
+		
+		$('#aspnetForm').keydown(function(e) {
+			var key = e.which;
+			if (key == 13) {
+				// As ASCII code for ENTER key is "13"
+				$('#aspnetForm').submit(); // Submit form code
+			}
+		});
+			
 		/*** BEGIN scrollToFixed init ***/
 		(function($) {
 			var headerHeight = $('.fixedtotop').outerHeight();
