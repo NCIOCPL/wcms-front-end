@@ -54,6 +54,10 @@ define(function(require){
 		$('body').append("<div id='" + POPUP_WINDOW_ID + "'><a id='popup-message-close'>X</a><br /><h1 class='popup-message-title'>" + POPUP_TITLE + "</h1><div id='popup-message-content'>" + popupBody + "</div></div><div id='popup-message-background'></div>");
 		
 		// Attach click handler here.
+		// In the for-real version, we'll probably rename "chat_button" to rn_nciChatLaunchButton_4_Button and
+		// let the chat frameowrk attach to that as the trigger button.
+		//jQuery("#cheat_button").click(function() {jQuery("#rn_nciChatLaunchButton_4_Button").click(); jQuery(this).unbind('click')});
+		jQuery("#chat_button").click(function() {alert("This is where the chat dialog would appear."); jQuery(this).unbind('click')});
 		
 		// Center and display the pop up.
 		_centerPrompt(POPUP_WIDTH, POPUP_HEIGHT);
