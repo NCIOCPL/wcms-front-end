@@ -21,7 +21,10 @@ define(function(require){
 	//require('https://livehelp.cancer.gov/cgi-bin/nci.cfg/php/euf/application/development/source/widgets/custom/chat/nciChatLaunchButton/logic.js');
 	
 	
-	var CTS_URLS = ["/grants-training/grants-process/mechanisms/grants"];
+	var CTS_URLS = [
+		"/grants-training/grants-process/mechanisms/grants",
+		"/about-cancer/treatment/clinical-trials/basic"
+	];
 
 	var POPUP_DELAY_SECONDS = 5;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Chat Online";
@@ -54,7 +57,7 @@ define(function(require){
 		
 		// Center and display the pop up.
 		_centerPrompt(POPUP_WIDTH, POPUP_HEIGHT);
-		_loadPrompt();
+		_displayPrompt();
 		
 		// Set up event handlers for the various ways to close the pop up
 		$("#popup-message-close").click(function() { _dismissPrompt(); });
@@ -92,7 +95,7 @@ define(function(require){
 
 	}
 
-	function _loadPrompt() {
+	function _displayPrompt() {
 		// Loads popup only if it is disabled.
 		if (popupStatus === false) {
 			jQuery("#popup-message-background").css({"opacity": "0.7"});
