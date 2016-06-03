@@ -3,7 +3,7 @@
 	display: none;
 	position: fixed;
 	_position: absolute; /* hack for internet explorer 6*/
-	overflow: auto;
+	overflow: hidden;
 	background: #ffffff;
 	border: 10px solid #000000;
 	border-radius: 10px 10px 10px 10px;
@@ -12,18 +12,29 @@
 	font-size: 13px;
 }
 
+#ProactiveLiveHelpForCTSPrompt input {
+	background: #086F89;
+	color: #ffffff;
+	border: none;
+	font-family: Noto Sans,Arial,sans-serif;
+	font-weight: bold;
+}
+
 #ProactiveLiveHelpForCTSPrompt h1.popup-message-title {
+	background: #104d64 no-repeat;
+	background-position-y: 1em;
+	background-position-x: 8.7em;
+	margin: -40px -40px 20px -40px;
 	text-align: left;
-	color: black;
+	color: #ffffff;
 	font-size: 22px;
 	font-weight: 700;
 	border-bottom: 1px dotted #d3d3d3;
-	padding-bottom: 2px;
-	margin-bottom: 20px;
+	padding: 30px 40px 20px 40px;
 }
 
 #popup-message-close {
-	background: transparent url(img/close.png) no-repeat top left;
+	background: transparent url(https://smokefree.gov/sites/all/modules/popup_message/styles/black/img/close.png) no-repeat top left;
 	text-indent: -1000px;
 	width: 16px;
 	height: 16px;
@@ -33,6 +44,9 @@
 	position: absolute;
 	display: block;
 	cursor: pointer;
+	color: #888;
+	text-decoration: none;
+	padding: 0;
 }
 
 #popup-message-background {
