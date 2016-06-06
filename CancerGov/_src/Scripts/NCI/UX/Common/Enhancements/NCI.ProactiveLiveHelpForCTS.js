@@ -38,7 +38,7 @@ define(function(require){
 			+ "\u003Cform id=\u0022rn_ChatLaunchFormOpen_2_Form\u0022 onsubmit=\u0022return false;\u0022\u003E"
 			//<div>
 			+ "\u003Cdiv\u003E"
-			//<input id="chat-button" type="image"  class="chat-buttons" name="cancer-info" src="/euf/assets/themes/nci/nci-img/quit-smoking-button.gif" title="Smoking Cessation Assistance" alt="Smoking Cessation Assistance"></input>
+			//<input id="chat-button" type="image"  class="chat-buttons" name="cancer-info" src="/euf/assets/themes/nci/nci-img/quit-smoking-button.gif" title="Cancer Information" alt="Smoking Cessation Assistance"></input>
 			+ "\u003Cp id=\u0022rn_nciChatLaunchButton_4_Button\u0022\u003E\n\t\u003Cinput id=\u0022chat-button\u0022 type=\u0022button\u0022 name=\u0022rn_nciChatLaunchButton_4_Button\u0022 class=\u0022chat-buttons\u0022 value=\u0022Chat Now\u0022 \u003E\n\u003C\/p\u003E"
 			// </div></form>
 			+ "\u003C/div\u003E\u003C/form\u003E";
