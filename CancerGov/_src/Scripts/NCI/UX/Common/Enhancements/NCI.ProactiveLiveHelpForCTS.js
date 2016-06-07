@@ -1,7 +1,7 @@
 define(function(require){
 	
 	var $ = require('jquery');
-	var CookieManager = require('jscookie');  // js-cookie v2.1.2, from https://github.com/js-cookie/js-cookie
+	var CookieManager = require('js-cookie');
 
 	// List of pages where the proactive search is active.
 	// These values MUST, MUST, MUST be lowercase.
