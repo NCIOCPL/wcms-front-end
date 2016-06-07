@@ -12,6 +12,7 @@ requirejs.config({
 		'Landing': 'UX/PageSpecific/Landing',
 		'PDQ': 'UX/PageSpecific/PDQ',
 		'Topic': 'UX/PageSpecific/Topic',
+		'BasicCTS': 'UX/AppModuleSpecific/BasicCTS',
 		'Vendor': 'Vendor',
 
 		// Common.js-included vendor libraries
