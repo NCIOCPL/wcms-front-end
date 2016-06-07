@@ -148,6 +148,14 @@
 		display: none;
 	}
 
+	// Apply styling for share icons on CTS Basic Search
+	.page-options.cts-share {
+		top-margin: 0;
+		top: 0;
+		position: relative;
+		float: none;
+	}
+	
 	.page-options {
 		margin-top: 1.25em;
 		float: right;
@@ -200,5 +208,6 @@
 			width: 15px;
 		}
 	}
+
 }
 /****** END PAGE OPTIONS *************************************/
