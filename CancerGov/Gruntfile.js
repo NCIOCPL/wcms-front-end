@@ -118,7 +118,10 @@ module.exports = function(grunt) {
 				'LandingPage': 'UX/PageSpecific/Landing/LandingPage',
 				'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
 				'TopicPage': 'UX/PageSpecific/Topic/TopicPage',
-				'Popups': 'UX/PageSpecific/Popups/Popups'
+				'Popups': 'UX/PageSpecific/Popups/Popups',
+				'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
+				'BasicCTSSearch': 'UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
+				'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage'
 			},
 			mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
 			modules: [
@@ -160,7 +163,23 @@ module.exports = function(grunt) {
 					name: 'Popups',
 					insertRequire: ['Popups'],
 					exclude: []
+				},
+				{
+					name: 'BasicCTSResults',
+					insertRequire: ['BasicCTSResultsPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'BasicCTSSearch',
+					insertRequire: ['BasicCTSSearchPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'BasicCTSView',
+					insertRequire: ['BasicCTSViewPage'],
+					exclude: ['ContentPage']
 				}
+
 			]
 		},
 		dev: {
