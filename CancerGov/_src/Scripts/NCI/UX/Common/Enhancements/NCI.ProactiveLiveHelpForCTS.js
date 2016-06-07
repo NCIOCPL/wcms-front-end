@@ -103,7 +103,7 @@ define(function(require){
 		jQuery(popupElementID).css({
 			"width" : popupWidth + "px",
 			"height" : popupHeight + "px",
-			"top": windowHeight / 2 - popupHeight / 2,
+			"top": windowHeight / 2.3 - popupHeight / 2,
 			"left": windowWidth / 2 - popupWidth / 2
 		});
 
@@ -153,7 +153,7 @@ define(function(require){
 			} else {
 				// Otherwise, clear the interval timer and diplay the prompt.
 				window.clearInterval(_countdownIntervalID);
-				console.log("Party Time!");
+				_setupPrompt();
 			}
 		}
 	}
