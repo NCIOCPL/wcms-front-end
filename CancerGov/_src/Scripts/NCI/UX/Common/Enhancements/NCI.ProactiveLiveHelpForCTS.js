@@ -34,8 +34,8 @@ define(function(require){
 		//$("html, body").animate({scrollTop: 0}, "slow");
 
 		var popupBody = POPUP_MESSAGE
-			// <form id="rn_ChatLaunchFormOpen_2_Form" onsubmit="return false;">
-			+ "\u003Cform id=\u0022rn_ChatLaunchFormOpen_2_Form\u0022 onsubmit=\u0022return false;\u0022\u003E"
+			// <form onsubmit="return false;">
+			+ "\u003Cform onsubmit=\u0022return false;\u0022\u003E"
 			//<div>
 			+ "\u003Cdiv\u003E"
 			//<input id="chat-button" type="image"  class="chat-buttons" name="cancer-info" src="/euf/assets/themes/nci/nci-img/quit-smoking-button.gif" title="Cancer Information" alt="Smoking Cessation Assistance"></input>
@@ -44,7 +44,7 @@ define(function(require){
 			+ "\u003C/div\u003E\u003C/form\u003E";
 		
 		// Create the pop up.
-		$('body').append("<div id='" + POPUP_WINDOW_ID + "'><a id='popup-message-close'>X</a><br /><h1 class='popup-message-title'>" + POPUP_TITLE + "</h1><div id='popup-message-content'>" + popupBody + "</div></div>");
+		$('body').append("<div id='" + POPUP_WINDOW_ID + "' class='ProactiveLiveHelpPrompt'><a class='close'>X</a><br /><h1 class='title'>" + POPUP_TITLE + "</h1><div id='popup-message-content'>" + popupBody + "</div></div>");
 		
 		//_connectChatToButton();
 		$("#chat-button").click(function(){

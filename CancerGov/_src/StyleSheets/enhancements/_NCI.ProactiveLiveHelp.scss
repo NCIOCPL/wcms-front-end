@@ -1,5 +1,5 @@
 // Set up appearance for proactive live help messages.
-#ProactiveLiveHelpForCTSPrompt {
+.ProactiveLiveHelpPrompt {
 	display: none;
 	position: fixed;
 	_position: absolute; /* hack for internet explorer 6*/
@@ -12,7 +12,7 @@
 	font-size: 13px;
 }
 
-#ProactiveLiveHelpForCTSPrompt input {
+.ProactiveLiveHelpPrompt input {
 	background: #086F89;
 	color: #ffffff;
 	border: none;
@@ -20,7 +20,7 @@
 	font-weight: bold;
 }
 
-#ProactiveLiveHelpForCTSPrompt h1.popup-message-title {
+.ProactiveLiveHelpPrompt h1.title {
 	background: #104d64 no-repeat;
 	background-position-y: 1em;
 	background-position-x: 8.7em;
@@ -33,7 +33,7 @@
 	padding: 30px 40px 20px 40px;
 }
 
-#popup-message-close {
+.ProactiveLiveHelpPrompt .close {
 	background: transparent url(https://smokefree.gov/sites/all/modules/popup_message/styles/black/img/close.png) no-repeat top left;
 	text-indent: -1000px;
 	width: 16px;
