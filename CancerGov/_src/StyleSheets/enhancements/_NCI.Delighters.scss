@@ -1,0 +1,36 @@
+/****************** BEGIN Delighters styling ***************** */  
+.delighter-rail {
+  text-align: center; 
+  margin-right: -65px;
+  float: right;
+}
+.delighter {
+  background-color: #fbfbfb;
+  border: 4px solid #2a7bba;
+  border-right: none;
+  margin-bottom: 22px;
+  padding: 16px;
+  font-size: 0.85em;
+  h4, p {
+    margin: 0;
+  }   
+}
+/* Tablet styles */
+@include bp(medium-down) {
+  .delighter-rail {
+    margin-right: -15px;
+	padding: 0px;
+  } 
+}
+/* Mobile styles */   
+@include bp(small) {
+  .delighter-rail {
+    margin: 0;
+    text-align: left; 
+  }
+  .delighter {
+	border: 0;
+	padding: 0;
+  }
+}
+/****************** End Delighters styling ***************** */
