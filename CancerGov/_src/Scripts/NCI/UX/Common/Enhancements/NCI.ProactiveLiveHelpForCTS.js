@@ -64,7 +64,7 @@ define(function(require){
 			+ "\u003C/div\u003E\u003C/form\u003E";
 		
 		// Create the pop up.
-		$('body').append("<div id='" + POPUP_WINDOW_ID + "' class='ProactiveLiveHelpPrompt'><a class='close'>X</a><br /><h2 class='title'>" + POPUP_TITLE + "</h2><div id='popup-message-content'>" + popupBody + "</div></div>");
+		$('body').append("<div id='" + POPUP_WINDOW_ID + "' class='ProactiveLiveHelpPrompt'><a class='close'>X</a><h2 class='title'>" + POPUP_TITLE + "</h2><div id='popup-message-content'>" + popupBody + "</div></div>");
 		
 		$("#chat-button").click(function(){
 			window.open("https://nci--tst.custhelp.com/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
