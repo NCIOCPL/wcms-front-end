@@ -2,6 +2,8 @@ define(function(require){
 	
 	var $ = require('jquery');
 
+	// List of pages where the proactive search is active.
+	// These values MUST, MUST, MUST be lowercase.
 	var CTS_URLS = [
 		"/about-cancer/treatment/clinical-trials/basic",
 		"/about-cancer/treatment/clinical-trials/basic/results",
@@ -47,7 +49,7 @@ define(function(require){
 			+ "\u003C/div\u003E\u003C/form\u003E";
 		
 		// Create the pop up.
-		$('body').append("<div id='" + POPUP_WINDOW_ID + "' class='ProactiveLiveHelpPrompt'><a class='close'>X</a><br /><h1 class='title'>" + POPUP_TITLE + "</h1><div id='popup-message-content'>" + popupBody + "</div></div>");
+		$('body').append("<div id='" + POPUP_WINDOW_ID + "' class='ProactiveLiveHelpPrompt'><a class='close'>X</a><br /><h2 class='title'>" + POPUP_TITLE + "</h2><div id='popup-message-content'>" + popupBody + "</div></div>");
 		
 		//_connectChatToButton();
 		$("#chat-button").click(function(){
@@ -85,7 +87,6 @@ define(function(require){
 
 		// Centering.
 		jQuery(popupElementID).css({
-			"position": "absolute",
 			"width" : popupWidth + "px",
 			"height" : popupHeight + "px",
 			"top": windowHeight / 2 - popupHeight / 2,
@@ -139,17 +140,34 @@ define(function(require){
 		d),a.src=f.pop(),this.body.appendChild(a)};b.write('<body onload="document._l();">');b.close()})(["https://www.rnengage.com/api/e/ca99729/e.js","//www.rnengage.com/api/1/javascript/acs.debug.js"]);
 
 	}
+
+	function _isACtsPage(url){
+		var matchFound = false;
+		var itemCount = CTS_URLS.length;
+		
+		// so we don't have to worry about casing.
+		url = url.toLowerCase();
+		for(var i = 0; i < itemCount; ++i) {
+			if(url ===  CTS_URLS[i]){
+				matchFound = true;
+				break;
+			}
+		}
+		
+		return matchFound;
+	}
 	
 	/* Flag for telling whether this enhancement has been initialized. */
 	var initialized = false;
-
+	
 	/* Exposes functions from this module which are available from the outside. */
 	return {
 		init: function() {
 			if(initialized)
 				return;
 
-			if(CTS_URLS.find(function(url){return url === location.pathname.toLowerCase();})) {
+			//if(CTS_URLS.find(function(url){return url === location.pathname.toLowerCase();})) {
+			if(_isACtsPage(location.pathname)) {
 				_initialize();
 
 				initialized = true;
