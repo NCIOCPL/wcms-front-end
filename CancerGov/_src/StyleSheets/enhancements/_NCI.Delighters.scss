@@ -13,7 +13,17 @@
   font-size: 0.85em;
   h4, p {
     margin: 0;
-  }   
+  }
+  span.live-help-button {
+    background-size: 780.4878% 1648.14815%;
+    background-position: 41.85% 1.3%;
+    width: 89px;
+    height: 31px;
+    margin-bottom: 20px;
+	img {
+      padding-bottom: 40px;
+    }
+  }
 }
 /* Tablet styles */
 @include bp(medium-down) {
