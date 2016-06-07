@@ -12,7 +12,13 @@ requirejs.config({
 		'Landing': 'UX/PageSpecific/Landing',
 		'PDQ': 'UX/PageSpecific/PDQ',
 		'Topic': 'UX/PageSpecific/Topic',
-		'BasicCTS': 'UX/AppModuleSpecific/BasicCTS',
+		//So the following are required because of how a stand-alone require
+		//file gets built.  At the end it calls require('JSNAME') and if it 
+		//is not in this file, then require looks for it relative to the 
+		//current page.  Absolutely silly, but oh well.  
+		'BasicCTSSearch': 'UX/AppModuleSpecific/BasicCTS/Search',
+		'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results',
+		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
 		'Vendor': 'Vendor',
 
 		// Common.js-included vendor libraries

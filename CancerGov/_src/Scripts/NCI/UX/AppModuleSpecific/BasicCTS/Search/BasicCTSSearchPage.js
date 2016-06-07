@@ -5,6 +5,6 @@ define(function(require) {
 
 	$(document).ready(function($){
 		
-		require('BasicCTS/Search/Enhancements/BasicCTSSearchFormSetup').init();
+		require('BasicCTSSearch/Enhancements/BasicCTSSearchFormSetup').init();
 	});
 });

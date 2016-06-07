@@ -119,9 +119,9 @@ module.exports = function(grunt) {
 				'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
 				'TopicPage': 'UX/PageSpecific/Topic/TopicPage',
 				'Popups': 'UX/PageSpecific/Popups/Popups',
-				'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
-				'BasicCTSSearch': 'UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
-				'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage'
+				'BasicCTSResultsPage': 'UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
+				'BasicCTSSearchPage': 'UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
+				'BasicCTSViewPage': 'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage'
 			},
 			mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
 			modules: [
@@ -165,17 +165,17 @@ module.exports = function(grunt) {
 					exclude: []
 				},
 				{
-					name: 'BasicCTSResults',
+					name: 'BasicCTSResultsPage',
 					insertRequire: ['BasicCTSResultsPage'],
 					exclude: ['ContentPage']
 				},
 				{
-					name: 'BasicCTSSearch',
+					name: 'BasicCTSSearchPage',
 					insertRequire: ['BasicCTSSearchPage'],
 					exclude: ['ContentPage']
 				},
 				{
-					name: 'BasicCTSView',
+					name: 'BasicCTSViewPage',
 					insertRequire: ['BasicCTSViewPage'],
 					exclude: ['ContentPage']
 				}
