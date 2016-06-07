@@ -38,4 +38,19 @@
 	.cthp-content h1 {
 		color: inherit;
 	}
+	
+	.ui-accordion {	
+		.ui-accordion-content {
+			padding: 0 !important;
+			display: block !important;
+		}
+		
+		.ui-accordion-header-icon {
+			display: none !important;
+		}
+	}
+	
+	.delighter-rail {
+		display: none !important;
+	}
 }
