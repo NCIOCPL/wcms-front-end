@@ -1,11 +1,14 @@
 define(function(require){
 	
 	var $ = require('jquery');
-	
-	
+
 	var CTS_URLS = [
 		"/about-cancer/treatment/clinical-trials/basic",
-		"/about-cancer/treatment/clinical-trials/search"
+		"/about-cancer/treatment/clinical-trials/basic/results",
+		"/about-cancer/treatment/clinical-trials/basic/view",
+		"/about-cancer/treatment/clinical-trials/search",
+		"/about-cancer/treatment/clinical-trials/search/results",
+		"/about-cancer/treatment/clinical-trials/search/view"
 	];
 
 	// Which chat server should be used? Test or production.
@@ -57,7 +60,7 @@ define(function(require){
 		_displayPrompt();
 		
 		// Set up event handlers for the various ways to close the pop up
-		$("#popup-message-close").click(function() { _dismissPrompt(); });
+		$(".ProactiveLiveHelpPrompt .close").click(function() { _dismissPrompt(); });
 		$(document).keypress(function(e) {if( e.keyCode == 27 && popupStatus == true) _dismissPrompt();});
 	}
 	
