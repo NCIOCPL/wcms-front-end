@@ -24,6 +24,7 @@ requirejs.config({
 		'headroom': 'Vendor/headroom',
 		'routie': 'Vendor/routie',
 		'placeholders': 'Vendor/placeholders.min',
+		'jscookie' : 'Vendor/js.cookie-2.1.2.min',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
