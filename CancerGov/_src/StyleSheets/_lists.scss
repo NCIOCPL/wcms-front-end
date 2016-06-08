@@ -125,7 +125,7 @@ dl {
 		&.image {
 			width: 21%;
 			margin-top: .25em;
-			padding: 0 0 2.5em;
+			padding: 0; // was 0 0 2.5em but the bottom padding also conflicted with the li margin, as above
 			margin-right: -4px;
 
 			+ .container.title {
