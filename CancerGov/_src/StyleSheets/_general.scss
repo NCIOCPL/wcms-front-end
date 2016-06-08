@@ -27,27 +27,27 @@ h6 {
 
 h1 {
 	line-height: 1.1em;
-	font-size: 2em; // 1.75em;    // 28px
+	font-size: 1.75em;    // 28px
 }
 h2 {
 	line-height: 1.215em;
-	font-size: 1.75em;  //1.4375em;  // 23px
+	font-size: 1.4375em;  // 23px
 }
 h3 {
 	line-height: 1.25em;
-	font-size: 1.5em;  //1.25em;    // 20px
+	font-size: 1.25em;    // 20px
 }
 h4 {
 	line-height: 1.333em;
-	font-size: 1.25em;  //1.125em;   // 18px
+	font-size: 1.125em;   // 18px
 }
 h5 {
 	line-height: 1.333em;
-	font-size: 1.125em;  //1em;       // 16px
+	font-size: 1em;       // 16px
 }
 h6 {
 	line-height: 1.125em;
-	font-size: 1.125em;   //1em;       // 16px 
+	font-size: 1em;       // 16px 
 	font-style: italic;
 }
 .related-resources h6 {
@@ -361,7 +361,8 @@ div#cgvSlPagination, div.previous-next-links {
 	overflow: auto;
 	padding: 25px;
 
-	h3 {
+	// to prevent extra space at top of callout box area
+	h2, h3, h4, p:first-child, ul:first-child {
 		margin-top: 0;
 	}
 
