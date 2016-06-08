@@ -49,7 +49,7 @@ define(function(require){
 	
 	// Display a message prompting the user to choose whether they
 	// would like to do a chat with a Live Help Specialist.
-	function _setupPrompt() {
+	function _displayPrompt() {
 		// Scroll to top.
 		//$("html, body").animate({scrollTop: 0}, "slow");
 
@@ -67,48 +67,16 @@ define(function(require){
 		});
 		
 		// Center and display the pop up.
-		//_centerPrompt(PROMPT_WIDTH, PROMPT_HEIGHT);
-		_displayPrompt();
+		_makePromptVisible();
 		
 		// Set up event handlers for the various ways to close the pop up
 		$(".ProactiveLiveHelpPrompt .close").click(function() { _dismissPrompt(); });
 		$(document).keypress(function(e) {if( e.keyCode == 27 && popupStatus == true) _dismissPrompt();});
 	}
-	
-	function _centerPrompt(width, height) {
-		// Request data for centering.
-		var windowWidth = document.documentElement.clientWidth;
-		var windowHeight = document.documentElement.clientHeight;
-		var popupElementID = "#" + POPUP_WINDOW_ID;
 
-		var popupWidth = 0;
-		if (typeof width == "undefined") {
-			popupWidth = $(popupElementID).width();
-		} else {
-			popupWidth = width;
-		}
-		var popupHeight = 0;
-		if (typeof height == "undefined") {
-			popupHeight = $(popupElementID).height();
-		} else {
-			popupHeight = height;
-		}
-
-		//Centering.
-		$(popupElementID).css({
-			"width" : popupWidth + "px",
-			"height" : popupHeight + "px",
-			"top": windowHeight / 2.3 - popupHeight / 2,
-			"left": windowWidth / 2 - popupWidth / 2
-		});
-
-	}
-
-	function _displayPrompt() {
+	function _makePromptVisible() {
 		// Loads popup only if it is disabled.
 		if (popupStatus === false) {
-			//$("#popup-message-background").css({"opacity": "0.7"});
-			//$("#popup-message-background").fadeIn("slow");
 			$("#" + POPUP_WINDOW_ID).hide().fadeIn("slow");
 			popupStatus = true;
 		}
@@ -146,25 +114,40 @@ define(function(require){
 			CookieManager.set(TIMING_COOKIE_NAME, POPUP_DELAY_SECONDS);
 			console.log('tick: ' + POPUP_DELAY_SECONDS);
 		}
-		
-		_countdownIntervalID = window.setInterval(_decrementCountdownTimer, TIMER_INTERVAL * 1000);
+
+		// Set the time before checking whether to display the prompt to the less
+		// of either the TIMER_INTERVAL, or the existing time left on the timer.
+		var timeleft = _getCountdownTimeRemaining();
+		var tick = (( timeleft >= TIMER_INTERVAL ) ? TIMER_INTERVAL : timeleft) * 1000;
+		console.log("Milliseconds remaining: " + tick);
+		_countdownIntervalID = window.setInterval(_decrementCountdownTimer, tick);
 	}
 	
 	function _decrementCountdownTimer(){
-		var timeleft = CookieManager.get(TIMING_COOKIE_NAME);
-		if(timeleft) {
-			timeleft -= TIMER_INTERVAL;
-			console.log('tick: ' + timeleft);
-			
-			// If the timer hasn't run out yet, keep ticking.
-			if(timeleft > 0) {
-				CookieManager.set(TIMING_COOKIE_NAME, timeleft);
-			} else {
-				// Otherwise, clear the interval timer and diplay the prompt.
-				window.clearInterval(_countdownIntervalID);
-				_setupPrompt();
-			}
+		var timeleft = _getCountdownTimeRemaining();
+		timeleft -= TIMER_INTERVAL;
+		CookieManager.set(TIMING_COOKIE_NAME, timeleft);
+		console.log('tick: ' + timeleft);
+		
+		// If the timer hasn't run out yet, keep ticking.
+		if(timeleft <= 0) {
+			// Otherwise, clear the interval timer and diplay the prompt.
+			window.clearInterval(_countdownIntervalID);
+			_displayPrompt();
 		}
+	}
+	
+	// Get the amount of time left on the countdown timer. If the
+	// timer hasn't been set, return POPUP_DELAY_SECONDS. Guarantee a
+	// minimum of zero seconds.
+	function _getCountdownTimeRemaining(){
+		var timeleft = CookieManager.get(TIMING_COOKIE_NAME);
+		if(!timeleft)
+			timeleft = POPUP_DELAY_SECONDS;
+		timeleft = Number(timeleft);
+		if(timeleft < 0)
+			timeleft = 0;
+		return timeleft;
 	}
 	
 	// Checks whether the specified url is part of the Clnical Trial Search set.
