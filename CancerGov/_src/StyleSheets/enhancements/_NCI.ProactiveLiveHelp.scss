@@ -1,90 +1,53 @@
 // Set up appearance for proactive live help messages.
 .ProactiveLiveHelpPrompt {
-	display: none;
 	position: fixed;
-	overflow: hidden;
-	background: #ffffff;
-	border: 10px solid #000000;
-	border-radius: 10px 10px 10px 10px;
-	z-index: 200;
+	top:50%;
+	left:50%;
+	width:400px;
+	height:200px;
 	padding: 12px;
-	font-size: 13px;
+	border: 6px solid #2A7CB8;
+	z-index: 200;
+	transform: translateY(-50%) translateX(-50%);
+	font:normal .875em Montserrat, Arial, sans-serif;
+	color:#606060;
+	background:#fff;
+
+	img {
+		height: 188px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: -1;
+	}
 	
 	input {
+		position:absolute;
+		bottom:12px;
 		background: #086F89;
 		color: #ffffff;
 		border: none;
-		font-family: Noto Sans,Arial,sans-serif;
-		font-weight: bold;
+		font:bold 1.1em Montserrat, Arial, sans-serif;
+		padding: .35em 1.8em;
+		border-radius: .2em;
 	}
 	
-	h1.title {
-		background: #104d64 no-repeat;
-		background-position-y: 1em;
-		background-position-x: 8.7em;
-		margin: -40px -40px 20px -40px;
-		text-align: left;
-		color: #ffffff;
-		font-size: 22px;
-		font-weight: 700;
-		border-bottom: 1px dotted #d3d3d3;
-		padding: 30px 40px 20px 40px;
+	h2 {
+		margin:0;
 	}
-	
+
+	p {
+		width:65%;
+	}
+
 	.close {
-		background: transparent url(https://smokefree.gov/sites/all/modules/popup_message/styles/black/img/close.png) no-repeat top left;
-		text-indent: -1000px;
-		width: 16px;
-		height: 16px;
-		font-size: 0px;
-		right: 6px;
-		top: 4px;
 		position: absolute;
-		display: block;
-		cursor: pointer;
-		color: #888;
-		text-decoration: none;
-		padding: 0;
-		&:hover {
-		}
+		text-indent: -200%;
+		right: 10px;
+		top: 10px;
+		width: 1.1875em;
+		height: 1.1875em;
+		display: inline-block;
+		background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
 	}
 }
-
-//.ProactiveLiveHelpPrompt input {
-//	background: #086F89;
-//	color: #ffffff;
-//	border: none;
-//	font-family: Noto Sans,Arial,sans-serif;
-//	font-weight: bold;
-//}
-//
-//.ProactiveLiveHelpPrompt h1.title {
-//	background: #104d64 no-repeat;
-//	background-position-y: 1em;
-//	background-position-x: 8.7em;
-//	margin: -40px -40px 20px -40px;
-//	text-align: left;
-//	color: #ffffff;
-//	font-size: 22px;
-//	font-weight: 700;
-//	border-bottom: 1px dotted #d3d3d3;
-//	padding: 30px 40px 20px 40px;
-//}
-//
-//.ProactiveLiveHelpPrompt .close {
-//	background: transparent url(https://smokefree.gov/sites/all/modules/popup_message/styles/black/img/close.png) no-repeat top left;
-//	text-indent: -1000px;
-//	width: 16px;
-//	height: 16px;
-//	font-size: 0px;
-//	right: 6px;
-//	top: 4px;
-//	position: absolute;
-//	display: block;
-//	cursor: pointer;
-//	color: #888;
-//	text-decoration: none;
-//	padding: 0;
-//}
-
-

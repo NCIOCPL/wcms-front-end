@@ -19,7 +19,7 @@ define(function(require){
 
 	var POPUP_DELAY_SECONDS = 30;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Need Help?";
-	var POPUP_MESSAGE = "\u003Cp\u003EWould you like to speak to an NCI Information Specialist about finding a clinical trial?\u003C\/p\u003E";
+	var POPUP_MESSAGE = '<p>Would you like to speak to an NCI Information Specialist about finding a clinical trial?</p>';
 	var PROMPT_WIDTH = 400;
 	var PROMPT_HEIGHT = 200;
 	
@@ -54,17 +54,12 @@ define(function(require){
 		//$("html, body").animate({scrollTop: 0}, "slow");
 
 		var popupBody = POPUP_MESSAGE
-			// <form onsubmit="return false;">
-			+ "\u003Cform onsubmit=\u0022return false;\u0022\u003E"
-			//<div>
-			+ "\u003Cdiv\u003E"
-			//<input id="chat-button" type="image"  class="chat-buttons" name="cancer-info" src="/euf/assets/themes/nci/nci-img/quit-smoking-button.gif" title="Cancer Information" alt="Smoking Cessation Assistance"></input>
-			+ "\u003Cp id=\u0022rn_nciChatLaunchButton_4_Button\u0022\u003E\n\t\u003Cinput id=\u0022chat-button\u0022 type=\u0022button\u0022 name=\u0022rn_nciChatLaunchButton_4_Button\u0022 class=\u0022chat-buttons\u0022 value=\u0022Chat Now\u0022 \u003E\n\u003C\/p\u003E"
-			// </div></form>
-			+ "\u003C/div\u003E\u003C/form\u003E";
+			+ '<form onsubmit="return false;">'
+			+ '<input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-buttons" value="Chat Now">'
+			+ '</form>';
 		
 		// Create the pop up.
-		$('body').append("<div id='" + POPUP_WINDOW_ID + "' class='ProactiveLiveHelpPrompt'><a class='close'>X</a><h2 class='title'>" + POPUP_TITLE + "</h2><div id='popup-message-content'>" + popupBody + "</div></div>");
+		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><img src="/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg" alt="woman with headset" /><h2 class="title">' + POPUP_TITLE + '</h2><div id="popup-message-content">' + popupBody + '</div></div>');
 		
 		$("#chat-button").click(function(){
 			window.open("https://nci--tst.custhelp.com/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
@@ -72,7 +67,7 @@ define(function(require){
 		});
 		
 		// Center and display the pop up.
-		_centerPrompt(PROMPT_WIDTH, PROMPT_HEIGHT);
+		//_centerPrompt(PROMPT_WIDTH, PROMPT_HEIGHT);
 		_displayPrompt();
 		
 		// Set up event handlers for the various ways to close the pop up
@@ -99,8 +94,8 @@ define(function(require){
 			popupHeight = height;
 		}
 
-		// Centering.
-		jQuery(popupElementID).css({
+		//Centering.
+		$(popupElementID).css({
 			"width" : popupWidth + "px",
 			"height" : popupHeight + "px",
 			"top": windowHeight / 2.3 - popupHeight / 2,
@@ -112,18 +107,18 @@ define(function(require){
 	function _displayPrompt() {
 		// Loads popup only if it is disabled.
 		if (popupStatus === false) {
-			jQuery("#popup-message-background").css({"opacity": "0.7"});
-			jQuery("#popup-message-background").fadeIn("slow");
-			jQuery("#" + POPUP_WINDOW_ID).fadeIn("slow");
+			//$("#popup-message-background").css({"opacity": "0.7"});
+			//$("#popup-message-background").fadeIn("slow");
+			$("#" + POPUP_WINDOW_ID).hide().fadeIn("slow");
 			popupStatus = true;
 		}
 	}
 
 	function _dismissPrompt() {
 		if(popupStatus === true) {
-			jQuery("#popup-message-background").fadeOut("slow");
-			jQuery("#" + POPUP_WINDOW_ID).fadeOut("slow");
-			jQuery('#popup-message-content').empty().remove();
+			//$("#popup-message-background").fadeOut("slow");
+			$("#" + POPUP_WINDOW_ID).fadeOut("slow");
+			$('#popup-message-content').empty().remove();
 			popupStatus = false;
 			
 			// In any event where the prompt is being dismissed, opt the user

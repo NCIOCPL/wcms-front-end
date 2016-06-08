@@ -37,11 +37,6 @@
 
 /****************** END NCI COMPONENTS SECTION ********************/
 
-/****************** NCI ENHANCEMENTS SECTION ********************/
-@import "enhancements/NCI.ProactiveLiveHelp";
-@import "enhancements/NCI.Delighters";
-/****************** END NCI ENHANCEMENTS SECTION ********************/
-
 @import "general";
 @import "header";
 @import "sticky_nav";
@@ -79,6 +74,10 @@
 @import "nokia-maps";
 @import "contact";
 
+/****************** NCI ENHANCEMENTS SECTION ********************/
+@import "enhancements/NCI.ProactiveLiveHelp";
+@import "enhancements/NCI.Delighters";
+/****************** END NCI ENHANCEMENTS SECTION ********************/
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
