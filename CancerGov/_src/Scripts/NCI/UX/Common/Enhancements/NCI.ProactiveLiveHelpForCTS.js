@@ -23,7 +23,11 @@ define(function(require){
 	var PROMPT_WIDTH = 400;
 	var PROMPT_HEIGHT = 200;
 	
+	// Constants for opting out of the proactive prompt.
 	var OPT_OUT_COOKIE_NAME = "pcs4cts-opt";
+	var OPT_OUT_DURATION_DAYS = 30;
+
+	// Constants for the pop-up timer.
 	var TIMING_COOKIE_NAME = "pcs4cts";
 	var TIMER_INTERVAL = 10; // seconds
 
@@ -31,11 +35,7 @@ define(function(require){
 
 	// Initialization for the enhancement.
 	function _initialize() {
-//		// Set up a countdown for the "Do you want help?" popup.
-//		CookieManager.set(TIMING_COOKIE_NAME, 'Everybod dance!');
-//		setTimeout(_setupPrompt, POPUP_DELAY_SECONDS * 1000);
-
-		if(_isACtsPage(location.pathname)) {
+		if(_isACtsPage(location.pathname) && !_userIsOptedOut()) {
 			// Set up a countdown for the "Do you want help?" popup.
 			_initializeCountdownTimer();
 		} else {
@@ -125,7 +125,21 @@ define(function(require){
 			jQuery("#" + POPUP_WINDOW_ID).fadeOut("slow");
 			jQuery('#popup-message-content').empty().remove();
 			popupStatus = false;
+			
+			// In any event where the prompt is being dismissed, opt the user
+			// out of seeing the pop-up again.
+			_setUserToOptedOut();
 		}
+	}
+	
+	function _userIsOptedOut() {
+		var optedOut = !!CookieManager.get(OPT_OUT_COOKIE_NAME);
+		console.log("User is opted out: " + optedOut);
+		return optedOut;
+	}
+	
+	function _setUserToOptedOut() {
+		CookieManager.set(OPT_OUT_COOKIE_NAME, 'true', { expires: OPT_OUT_DURATION_DAYS });
 	}
 
 	var _countdownIntervalID;
