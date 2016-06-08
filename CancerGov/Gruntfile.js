@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 			base: "_src/",
 			templates: "_src/PageTemplates/",
 			sublayouttemplates: "_src/SublayoutTemplates/",
+			velocitytemplates: "_src/VelocityTemplates/",
 			styles: "_src/StyleSheets/",
 			scripts: "_src/Scripts/"
 		},
@@ -13,6 +14,7 @@ module.exports = function(grunt) {
 			base: "_tmp/",
 			templates: "_tmp/PageTemplates/",
 			sublayouttemplates: "_tmp/SublayoutTemplates/",
+			velocitytemplates: "_tmp/VelocityTemplates/",
 			styles: "_tmp/Styles/",
 			scripts: "_tmp/js/"
 		},
@@ -20,6 +22,7 @@ module.exports = function(grunt) {
 			base: "_dist/",
 			templates: "_dist/PageTemplates/",
 			sublayouttemplates: "_dist/SublayoutTemplates/",
+			velocitytemplates: "_dist/VelocityTemplates/",
 			styles: "_dist/Styles/",
 			scripts: "_dist/js/"
 		},
@@ -92,6 +95,16 @@ module.exports = function(grunt) {
 				src: ['**/*.ascx'],
 				dest: '<%= dirs.tmp.sublayouttemplates %>',
 				ext: ".ascx"
+			}]
+		},
+		velocitytemplates: {
+			options: {},
+			files: [{
+				expand: true,
+				cwd: '<%= dirs.src.velocitytemplates %>',
+				src: ['**/*.vm'],
+				dest: '<%= dirs.tmp.velocitytemplates %>',
+				ext: ".vm"
 			}]
 		}
 	});
@@ -280,6 +293,16 @@ module.exports = function(grunt) {
 				filter: 'isFile'
 			}]
 		},
+		velocitytemplates: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: ['<%= dirs.tmp.velocitytemplates %>**/*.vm'],
+				dest: '<%= dirs.dist.velocitytemplates %>',
+				filter: 'isFile'
+			}]
+		},
 		styles: {
 			nonull: true,
 			files: [{
@@ -341,7 +364,7 @@ module.exports = function(grunt) {
 			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
 			tasks: ['build-templates:' + 'dev']
 		}
-		//NOT adding sublayouts, I wonder why templates are here...
+		//NOT adding sublayouts or dynamic list templates, I wonder why templates are here...
 	});
 
 
@@ -362,11 +385,11 @@ module.exports = function(grunt) {
 		grunt.task.run(tasks);
 	});
 
-	grunt.registerTask('build-templates', 'Build the CDE page & sublayout templates.', function(env) {
+	grunt.registerTask('build-templates', 'Build the CDE page, sublayout & velocity templates.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['bake:templates', 'copy:templates', 'bake:sublayouttemplates', 'copy:sublayouttemplates', 'clean:tmp'];
+		var tasks = ['bake:templates', 'copy:templates', 'bake:sublayouttemplates', 'copy:sublayouttemplates', 'bake:velocitytemplates', 'copy:velocitytemplates', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 

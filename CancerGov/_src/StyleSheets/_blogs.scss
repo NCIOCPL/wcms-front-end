@@ -72,6 +72,14 @@ p.blog-post-publishing-info {
 	}
 }
 
+.cgvblogseries {
+	.list {
+		a.title {
+			font-size: 1.5em;	
+		}
+	}
+}
+
 @include bp(small) {
 	.post-thumb {
 		display: none;	

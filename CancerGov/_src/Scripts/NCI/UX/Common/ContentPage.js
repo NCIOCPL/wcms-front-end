@@ -9,6 +9,7 @@ define(function(require) {
 	require('Common/Plugins/Enlarge');
 	require('jquery/megamenu');
 	require('placeholders');
+	var preventEnter = require('Common/Enhancements/preventEnter');
 
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/
@@ -832,7 +833,9 @@ define(function(require) {
 				});
 		})(jQuery);
 		//END REFERENCE TOOL TIPS
-
+		
+		// initialize the prevent-enter enhancement
+		preventEnter.init();
 
 		// Proactive Live Help for CTS
 		require("Common/Enhancements/NCI.ProactiveLiveHelpForCTS").init();
