@@ -97,7 +97,6 @@ define(function(require){
 	
 	function _userIsOptedOut() {
 		var optedOut = !!CookieManager.get(OPT_OUT_COOKIE_NAME);
-		console.log("User is opted out: " + optedOut);
 		return optedOut;
 	}
 	
@@ -112,14 +111,12 @@ define(function(require){
 		// If the timer cookie doesn't exist, create it.
 		if(!CookieManager.get(TIMING_COOKIE_NAME)){
 			CookieManager.set(TIMING_COOKIE_NAME, POPUP_DELAY_SECONDS);
-			console.log('tick: ' + POPUP_DELAY_SECONDS);
 		}
 
 		// Set the time before checking whether to display the prompt to the less
 		// of either the TIMER_INTERVAL, or the existing time left on the timer.
 		var timeleft = _getCountdownTimeRemaining();
 		var tick = (( timeleft >= TIMER_INTERVAL ) ? TIMER_INTERVAL : timeleft) * 1000;
-		console.log("Milliseconds remaining: " + tick);
 		_countdownIntervalID = window.setInterval(_decrementCountdownTimer, tick);
 	}
 	
@@ -127,7 +124,6 @@ define(function(require){
 		var timeleft = _getCountdownTimeRemaining();
 		timeleft -= TIMER_INTERVAL;
 		CookieManager.set(TIMING_COOKIE_NAME, timeleft);
-		console.log('tick: ' + timeleft);
 		
 		// If the timer hasn't run out yet, keep ticking.
 		if(timeleft <= 0) {
