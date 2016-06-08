@@ -43,7 +43,7 @@
 
 	.close {
 		position: absolute;
-		text-indent: -200%;
+		text-indent: -2000%; // Move the text portion very, very far offscreen.
 		right: 10px;
 		top: 10px;
 		width: 1.1875em;
