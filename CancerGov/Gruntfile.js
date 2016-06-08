@@ -399,6 +399,8 @@ module.exports = function(grunt) {
 			case 'dev':
 			default:
 				proxy = 'www-blue-dev';
+				if(/^\d+$/.test(env))
+					proxy = 'www-ocdev' + env + '.ha2';
 				break;
 			case 'qa':
 				proxy = 'www-qa';
