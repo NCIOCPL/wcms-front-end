@@ -40,6 +40,15 @@
 	}
 	
 	.ui-accordion {	
+		h2 {
+			font-size: 1.75em !important;
+			margin: 1.0em 0 0.5em 0 !important;
+			line-height: 1.215em !important;
+			border: none !important;
+			padding: 0 !important;
+			background-color: rgba(0, 0, 0, 0) !important;
+		}
+	
 		.ui-accordion-content {
 			padding: 0 !important;
 			display: block !important;
