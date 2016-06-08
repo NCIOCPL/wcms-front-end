@@ -1,5 +1,6 @@
 define(function(require) {
 	var $ = require('jquery');
+	require('Common/Plugins/Widgets/jquery.ui.autocompleteselector');
 	var NCI = require('Common/Enhancements/NCI');
 
 
@@ -28,12 +29,10 @@ define(function(require) {
 		$('.basiccts-cancertype-toggle').click(_showKeyword);
 		_showCancerType(); //Start by hiding the keyword input.
 
-		NCI.doAutocomplete(
-			$('#t'),
-			'/BasicCTS.Service/v1/CancerTypeAutoSuggest',//URL or promise
-			false,
-			'q'
-		);
+		$('#ct').autocompleteselector({
+			fetchSrc: '/BasicCTS.Service/v1/CancerTypeAutoSuggest',
+			queryParam: 'q'
+		});
 	}
 
 	/**
