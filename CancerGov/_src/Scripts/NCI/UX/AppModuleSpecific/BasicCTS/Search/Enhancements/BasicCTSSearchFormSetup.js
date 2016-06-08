@@ -25,8 +25,8 @@ define(function(require) {
 	 */
 	function _initialize() {
 		//Add click handlers to the toggle
-		$('.basiccts-keyword-toggle').click(_showCancerType);
-		$('.basiccts-cancertype-toggle').click(_showKeyword);
+		$('.basiccts-cancertype-toggle').click(function(){_showCancerType(); return false;});
+		$('.basiccts-keyword-toggle').click(function(){_showKeyword(); return false;});
 		_showCancerType(); //Start by hiding the keyword input.
 
 		$('#ct').autocompleteselector({
