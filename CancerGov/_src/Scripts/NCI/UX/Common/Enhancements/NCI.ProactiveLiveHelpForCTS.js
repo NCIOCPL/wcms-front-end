@@ -15,7 +15,9 @@ define(function(require){
 	];
 
 	// Which chat server should be used? Test or production.
-	var HOST_SERVER="nci--tst.custhelp.com";
+	var _hostServer = null; // Will be set in initialize().
+	var HOST_SERVER_LIVE = "nci--tst.custhelp.com";
+	var HOST_SERVER_TEST = "nci--tst.custhelp.com";
 
 	var POPUP_DELAY_SECONDS = 30;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Need Help?";
@@ -37,6 +39,7 @@ define(function(require){
 	function _initialize() {
 		if(_isACtsPage(location.pathname) && !_userIsOptedOut()) {
 			// Set up a countdown for the "Do you want help?" popup.
+			_setHostServer();
 			_initializeCountdownTimer();
 		} else {
 			// If we're not on a CTS page, clear the timer if it exists.
@@ -62,7 +65,7 @@ define(function(require){
 		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><img src="/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg" alt="woman with headset" /><h2 class="title">' + POPUP_TITLE + '</h2><div id="popup-message-content">' + popupBody + '</div></div>');
 		
 		$("#chat-button").click(function(){
-			window.open("https://nci--tst.custhelp.com/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
+			window.open("https://" + _hostServer + "/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
 			_dismissPrompt();
 		});
 		
@@ -161,6 +164,13 @@ define(function(require){
 		}
 		
 		return matchFound;
+	}
+	
+	// Sets the _hostServer variable to the correct chat server depending on
+	// the current environment.  STAGE and PROD use the production server, everywhere
+	// else uses the test server.
+	function _setHostServer() {
+		_hostServer = HOST_SERVER_TEST;
 	}
 	
 	/* Flag for telling whether this enhancement has been initialized. */
