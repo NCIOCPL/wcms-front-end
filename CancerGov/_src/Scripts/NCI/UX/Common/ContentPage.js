@@ -9,7 +9,7 @@ define(function(require) {
 	require('Common/Plugins/Enlarge');
 	require('jquery/megamenu');
 	require('placeholders');
-
+	
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN scrollToFixed init ***/
 		(function($) {
