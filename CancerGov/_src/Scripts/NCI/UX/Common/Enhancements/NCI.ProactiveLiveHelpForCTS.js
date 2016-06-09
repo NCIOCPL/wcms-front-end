@@ -19,7 +19,7 @@ define(function(require){
 	var HOST_SERVER_LIVE = "nci--tst.custhelp.com";
 	var HOST_SERVER_TEST = "nci--tst.custhelp.com";
 
-	var POPUP_DELAY_SECONDS = 30;	// Number of seconds to delay before displaying the popup..
+	var POPUP_DELAY_SECONDS = 180;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Need Help?";
 	var POPUP_MESSAGE = '<p>Would you like to speak to an NCI Information Specialist about finding a clinical trial?</p>';
 	var PROMPT_WIDTH = 400;
@@ -35,11 +35,23 @@ define(function(require){
 
 	var POPUP_WINDOW_ID = "ProactiveLiveHelpForCTSPrompt";	// Pop up window element's ID.
 
+	// Track activity to prevent displaying the prompt while the user
+	// is interacting with another UI element.
+	
+	var INTERACTION_DELAY_SECONDS = 10;	// Minimum number of seconds to wait after a user
+										// interaction before displaying the prompt.
+	var _userActivity = {
+		lastActivityTime : 0,	// Time of the last keypress.
+		activeElement : null	// Last element being interacted with.
+	}
+	
+	
 	// Initialization for the enhancement.
 	function _initialize() {
 		if(_isACtsPage(location.pathname) && !_userIsOptedOut()) {
 			// Set up a countdown for the "Do you want help?" popup.
 			_setHostServer();
+			_initializeActivityCheck();
 			_initializeCountdownTimer();
 		} else {
 			// If we're not on a CTS page, clear the timer if it exists.
@@ -53,8 +65,13 @@ define(function(require){
 	// Display a message prompting the user to choose whether they
 	// would like to do a chat with a Live Help Specialist.
 	function _displayPrompt() {
-		// Scroll to top.
-		//$("html, body").animate({scrollTop: 0}, "slow");
+		// Before displaying, check whether the user has recently interacted with the UI.
+		// If this fires on page load (i.e. the timer has already expired), then the last
+		// interaction time is 1/1/1970.
+		if(_getSecondsSinceLastInteraction() < INTERACTION_DELAY_SECONDS){
+			window.setTimeout(_displayPrompt, 1000); // Retry in a second.
+			return;
+		}
 
 		var popupBody = POPUP_MESSAGE
 			+ '<form onsubmit="return false;">'
@@ -164,6 +181,25 @@ define(function(require){
 		}
 		
 		return matchFound;
+	}
+	
+	// Check for keyboard activity in order to avoid displaying the prompt while
+	// the user is interacting with an existing UI element.
+	function _initializeActivityCheck() {
+		$(document).keypress(function(e){_recordUserInteraction(e);}); // keystroke.
+		$(document).click(function(e){_recordUserInteraction(e);}); // Mouse click
+	}
+	
+	function _recordUserInteraction(event) {
+		// Date.now() is not supported by IE before version 9.
+		_userActivity.lastActivityTime =  new Date().getTime();
+		_userActivity.activeElement = document.activeElement;
+	}
+	
+	function _getSecondsSinceLastInteraction() {
+		var now = new Date().getTime(); // Time in milliseconds
+		var elapsed = now - _userActivity.lastActivityTime;
+		return Math.floor(elapsed / 1000);
 	}
 	
 	// Sets the _hostServer variable to the correct chat server depending on
