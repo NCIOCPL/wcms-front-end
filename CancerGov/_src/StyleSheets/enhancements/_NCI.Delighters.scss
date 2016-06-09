@@ -3,19 +3,80 @@
   text-align: center; 
   margin-right: -65px;
   float: right;
+	
+	a, a:hover {
+		text-decoration: none;	
+	}
+	
+	p {
+		line-height: 1.166667 !important;
+	}
+	
+	.cts-livehelp {
+		p, a, li, span, h4 {
+			color: #4938bc !important;
+		}
+		h4 {
+			font-size: 15px;	
+		}
+	}
+	
+	.cts-which {
+		background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-purple-circles.jpg);	
+		color: white;
+		
+		h4, p, li, a {
+			color: white;
+			font-size: 12px;
+		}
+		
+		h4 {
+			font-size: 15px;	
+		}
+	}
+
+	
+	.cts-what {
+		background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-blue-triangles.jpg);	
+		color: white;
+		
+		h4, p, li, a {
+			color: white;
+			font-size: 12px;
+		}	
+		
+		h4 {
+			font-size: 15px;	
+		}
+	}
+	
+	.cts-next-step {
+		background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);	
+		color: white;
+		
+		h4, p, li, a {
+			color: white;
+			font-size: 12px;
+		}	
+		
+		h4 {
+			font-size: 15px;	
+		}
+	}
+	
+	
 }
 .delighter {
   background-color: #fbfbfb;
   border: 3px solid #2a7bba;
   border-right: none;
-  margin-bottom: 22px;
-  padding: 12px;
+  margin-bottom: 18px;
+  padding: 15px;
   font-size: 0.80em;
+	font-family: Montserrat;
+	
   h4, p, hr {
     margin: 0;
-  }
-  p {
-    line-height: 1.2em;
   }
   hr {
     border: 0;
@@ -39,7 +100,6 @@
 @include bp(medium-down) {
   .delighter-rail {
     margin-right: -15px;
-	padding: 0px;
   } 
 }
 /* Mobile styles */   
@@ -50,7 +110,6 @@
   }
   .delighter {
 	border: 0;
-	padding: 0;
   }
 }
 /****************** End Delighters styling ***************** */
