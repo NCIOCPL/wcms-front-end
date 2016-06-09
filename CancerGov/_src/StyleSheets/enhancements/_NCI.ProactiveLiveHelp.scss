@@ -4,26 +4,15 @@
 	top:40%;
 	left:50%;
 	width:400px;
-	height:200px;
-	padding: 12px;
+	padding: 20px 15px 12px 15px;
 	border: 6px solid #2A7CB8;
 	z-index: 200;
 	transform: translateY(-50%) translateX(-50%);
 	font:normal .875em Montserrat, Arial, sans-serif;
 	color:#606060;
-	background:#fff;
+	background: #fff url(/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg) no-repeat bottom right;
 
-	img {
-		height: 188px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: -1;
-	}
-	
 	input {
-		position:absolute;
-		bottom:12px;
 		background: #086F89;
 		color: #ffffff;
 		border: none;
@@ -36,9 +25,27 @@
 	h2 {
 		margin:0;
 	}
+	
+	form {
+		margin-bottom: 0;
+	}
 
-	p {
+	.content {
 		width:65%;
+		font-size: 17px;
+		
+		p {
+			margin-top: 12px;
+			line-height: 1.12;
+		}
+	}
+
+	.live-help {
+		background: url(/publishedcontent/images/images/design-elements/css/livehelp-proactive-chat.png) no-repeat 0;
+		content: " ";
+		min-height: 37px;
+		margin-left: 20px;
+		margin-top: 10px;
 	}
 
 	.close {
