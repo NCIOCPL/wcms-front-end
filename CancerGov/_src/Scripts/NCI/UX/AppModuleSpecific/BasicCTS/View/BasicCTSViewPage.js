@@ -6,6 +6,7 @@ define(function(require) {
 
 	$(document).ready(function($){
 		require('BasicCTSView/Enhancements/LocationFilter').init();
+		require('BasicCTSView/Enhancements/accordionEnhancements').init();
 	});
 
 });
