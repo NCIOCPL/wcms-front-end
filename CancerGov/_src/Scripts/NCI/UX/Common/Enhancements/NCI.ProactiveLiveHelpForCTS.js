@@ -112,6 +112,10 @@ define(function(require){
 			// In any event where the prompt is being dismissed, opt the user
 			// out of seeing the pop-up again.
 			_setUserToOptedOut();
+			
+			// If possible, return focus to the last-known UI element.
+			if(!!_userActivity.activeElement)
+				_userActivity.activeElement.focus();
 		}
 	}
 	
@@ -189,6 +193,7 @@ define(function(require){
 		$(document).keypress(function(e){_recordUserInteraction(e);}); // keystroke.
 		$(document).click(function(e){_recordUserInteraction(e);}); // Mouse click
 	}
+	
 	
 	function _recordUserInteraction(event) {
 		// Date.now() is not supported by IE before version 9.
