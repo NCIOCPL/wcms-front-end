@@ -96,6 +96,10 @@ $icon-sitewide-search-submit-height: 16px;
 	margin-right: 0.5em;
 	padding: 0 0.25em;
 
+	&:hover {
+		background-color: transparent;
+  }
+	
 	&:before {
 		content: "";
 		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
