@@ -19,9 +19,9 @@ define(function(require){
 	var HOST_SERVER_LIVE = "nci--tst.custhelp.com";
 	var HOST_SERVER_TEST = "nci--tst.custhelp.com";
 
-	var POPUP_DELAY_SECONDS = 180;	// Number of seconds to delay before displaying the popup..
-	var POPUP_TITLE	= "Need Help?";
-	var POPUP_MESSAGE = '<p>Would you like to speak to an NCI Information Specialist about finding a clinical trial?</p>';
+	var POPUP_DELAY_SECONDS = 15;	// Number of seconds to delay before displaying the popup..
+	var POPUP_TITLE	= "Need help?";
+	var POPUP_MESSAGE = '<p>Speak to an NCI Information Specialist about a clinical trial</p>';
 	var PROMPT_WIDTH = 400;
 	var PROMPT_HEIGHT = 200;
 	
@@ -48,7 +48,7 @@ define(function(require){
 	
 	// Initialization for the enhancement.
 	function _initialize() {
-		if(_isACtsPage(location.pathname) && !_userIsOptedOut()) {
+		if(_isACtsPage(location.pathname) && !_userIsOptedOut() && _liveHelpIsAvailable()) {
 			// Set up a countdown for the "Do you want help?" popup.
 			_setHostServer();
 			_initializeActivityCheck();
@@ -76,10 +76,11 @@ define(function(require){
 		var popupBody = POPUP_MESSAGE
 			+ '<form onsubmit="return false;">'
 			+ '<input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-buttons" value="Chat Now">'
-			+ '</form>';
+			+ '</form>'
+			+ '<div class="live-help"</div>';
 		
 		// Create the pop up.
-		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><img src="/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg" alt="woman with headset" /><h2 class="title">' + POPUP_TITLE + '</h2><div id="popup-message-content">' + popupBody + '</div></div>');
+		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><h2 class="title">' + POPUP_TITLE + '</h2><div class="content">' + popupBody + '</div></div>');
 		
 		$("#chat-button").click(function(){
 			window.open("https://" + _hostServer + "/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
@@ -185,6 +186,78 @@ define(function(require){
 		}
 		
 		return matchFound;
+	}
+	
+	/*
+		Live Help is only available between 8:00 AM and 11:00 PM US Eastern Time.
+		This (currently) translates as later than 1200 UTC or less than 0300 UTC.
+		Skip holidays. Skip weekends.
+		
+		(This is obviously a huge kludge. Ideally, we can get a simple yes/no from the
+		 live help server.)
+	*/
+	function _liveHelpIsAvailable(){
+		var isOpen = false;
+		
+		var dateNow = new Date();
+		var utcHour = dateNow.getUTCHours();
+		if(( utcHour >= 12 || utcHour <= 3 )
+			&& _dateIsNotTheWeekend(dateNow)
+			&& _dateIsNotAHoliday(dateNow)){
+			isOpen = true;
+		}
+		return isOpen;
+	}
+	
+	function _dateIsNotTheWeekend(theDate){
+		
+		var nonWeekend = true;
+		
+		/*
+			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
+			US East Coast is one day earlier. So to have to check two cases.
+			
+			Case 1: 0400 and later, compare to Saturday and Sunday.
+			Case 2: 0359 and earlier, comapre to Friday and Saturday.
+		*/
+
+		hour = theDate.getUTCHours();
+		day = theDate.getUTCDay();
+		
+		if(hour >= 4 ){  // 0400 (midnight EDT) and later.
+			if( day == 6 || day == 0) nonWeekend = false; // Saturday or Sunday
+		} else { // 0359 and earlier (midnight EDT)
+			if( day == 5 || day == 6) nonWeekend = false; // Friday or Saturday
+		}
+
+		return nonWeekend;
+	}
+	
+	function _dateIsNotAHoliday(theDate){
+		
+		var nonHoliday = true;
+		
+		/*
+			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
+			US East Coast is one day earlier. So to have to check two cases.
+			
+			Case 1: 0400 and later, compare to the US holiday date.
+			Case 2: 0359 and earlier, comapre to one day earlier.
+		*/
+
+		hour = theDate.getUTCHours();
+		day = theDate.getUTCDate();
+		month = theDate.getUTCMonth();
+		
+		if(hour >= 4 ){  // 0400 (midnight EDT) and later.
+			if( month == 7 && day == 4) nonHoliday = false; // Independence Day
+			if( month == 9 && day == 5) nonHoliday = false; // Labor Day
+		} else { // 0359 and earlier (midnight EDT)
+			if( month == 7 && day == 3) nonHoliday = false; // Independence Day
+			if( month == 9 && day == 4) nonHoliday = false; // Labor Day
+		}
+
+		return nonHoliday;
 	}
 	
 	// Check for keyboard activity in order to avoid displaying the prompt while
