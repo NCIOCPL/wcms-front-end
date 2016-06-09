@@ -16,10 +16,10 @@ define(function(require){
 
 	// Which chat server should be used? Test or production.
 	var _hostServer = null; // Will be set in initialize().
-	var HOST_SERVER_LIVE = "nci--tst.custhelp.com";
+	var HOST_SERVER_LIVE = "livehelp.cancer.gov";
 	var HOST_SERVER_TEST = "nci--tst.custhelp.com";
 
-	var POPUP_DELAY_SECONDS = 15;	// Number of seconds to delay before displaying the popup..
+	var POPUP_DELAY_SECONDS = 180;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Need help?";
 	var POPUP_MESSAGE = '<p>Speak to an NCI Information Specialist about a clinical trial</p>';
 	var PROMPT_WIDTH = 400;
@@ -281,10 +281,15 @@ define(function(require){
 	}
 	
 	// Sets the _hostServer variable to the correct chat server depending on
-	// the current environment.  STAGE and PROD use the production server, everywhere
+	// the current environment.  PROD uses the production server, everywhere
 	// else uses the test server.
 	function _setHostServer() {
-		_hostServer = HOST_SERVER_TEST;
+		var currentHost = location.hostname.toLowerCase();
+		
+		if(currentHost === "www.cancer.gov")
+			_hostServer = HOST_SERVER_LIVE;
+		else
+			_hostServer = HOST_SERVER_TEST;
 	}
 	
 	/* Flag for telling whether this enhancement has been initialized. */
