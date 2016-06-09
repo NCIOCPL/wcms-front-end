@@ -1,6 +1,7 @@
 define(function(require) {
 	var $ = require('jquery');
 	require('Common/Plugins/Widgets/jquery.ui.autocompleteselector');
+	require('BasicCTSSearch/Plugins/jquery.basicctsformtrack')
 	var NCI = require('Common/Enhancements/NCI');
 
 
@@ -33,6 +34,33 @@ define(function(require) {
 			fetchSrc: '/BasicCTS.Service/v1/CancerTypeAutoSuggest',
 			queryParam: 'q'
 		});
+
+		//Wire Up Web Analytics
+		$(".clinical-trials-search-form").basicctsformtrack({
+			formName: 'clinicaltrials_basic'
+		});
+
+		$(".clinical-trials-search-form").submit(function() {
+			//VALIDATE FIELDS!!!
+			
+
+			var fieldsAreValid = true;
+			
+			if (fieldsAreValid) {
+				$(this).basicctsformtrack().completed();
+			} else {
+			// IF NOT VALID, call $(this).basicctsformtrack().errorMessages([
+			// 	{
+			// 		fieldid,
+			// 		errormessage
+			// 	}
+			// ]);				
+				return false;
+			}
+			
+
+		})
+		
 	}
 
 	/**
