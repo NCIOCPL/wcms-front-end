@@ -40,7 +40,7 @@ define(function(require) {
 	 * @param  {[type]} $locationContainer [description]
 	 * @return {[type]}                    [description]
 	 */
-	function _renderStateSelectors($locationContainer) {
+	function _renderStateSelectors($locationContainer, $selectContainer) {
 		var countrystates = $locationContainer.data("basiccts-countrystates");		
 		var countryusa = countrystates[0];
 
@@ -91,11 +91,11 @@ define(function(require) {
 			}
 		);
 
-		var $stateddholder = $('<div>');
+		var $stateddholder = $('<div class="medium-6 column">');
 		$stateddholder.append($label);
 		$stateddholder.append($stateDropDown);
 
-		$locationContainer.prepend($stateddholder);
+		$selectContainer.prepend($stateddholder);
 		$locationContainer.data('basiccts-state-selector', $stateddholder); //Add it so we can hide for country dropdown changes to non-usa		
 
 		//This must be done AFTER it is added to the main document dom
@@ -118,7 +118,7 @@ define(function(require) {
 	 * @param  {[type]} $locationContainer [description]
 	 * @return {[type]}                    [description]
 	 */
-	function _renderCountrySelectors($locationContainer) {
+	function _renderCountrySelectors($locationContainer, $selectContainer) {
 		var countrystates = $locationContainer.data("basiccts-countrystates");		
 
 		var $countryDropDown = 
@@ -162,11 +162,11 @@ define(function(require) {
 			}
 		);
 
-		var $countryddholder = $('<div>');
+		var $countryddholder = $('<div class="medium-6 column">');
 		$countryddholder.append($label);
 		$countryddholder.append($countryDropDown);
 
-		$locationContainer.prepend($countryddholder);
+		$selectContainer.prepend($countryddholder);
 		$locationContainer.data('basiccts-country-selector', $countryddholder); //Add it so we can hide for country dropdown changes to non-usa
 		$locationContainer.data('basiccts-country-dropdown', $countryDropDown);
 
@@ -196,14 +196,23 @@ define(function(require) {
 
 		var hasMultipleCountries = countrystates.length > 1;
 		var hasMultipleUSStates = (countrystates.length > 0 && countrystates[0].name == 'U.S.A.' && countrystates[0].states.length > 1);
+		
+		var addSelectContainer = false;
+		var $selectContainer = $('<div class="row">');
 
 		if (hasMultipleUSStates) {
-			_renderStateSelectors($locationContainer);
+			_renderStateSelectors($locationContainer, $selectContainer);
+			addSelectContainer = true;
 		}
 
 		if (hasMultipleCountries || hasMultipleUSStates) {
-			_renderCountrySelectors($locationContainer);
+			_renderCountrySelectors($locationContainer, $selectContainer);
+			addSelectContainer = true;
 
+		}
+		
+		if(addSelectContainer) {
+			$locationContainer.prepend($selectContainer);
 		}
 
 		//initialize the location display to only the first country visible
