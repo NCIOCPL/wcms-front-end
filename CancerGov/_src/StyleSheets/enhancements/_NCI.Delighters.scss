@@ -106,10 +106,13 @@
 @include bp(small) {
   .delighter-rail {
     margin: 0;
-    text-align: left; 
-  }
-  .delighter {
-	border: 0;
-  }
+	}
+
+} 
+.cts-which,  .cts-what {
+	padding-left: 30px;
+	padding-right: 30px;
+	max-width: 400px;
+	margin: 15px auto;
 }
 /****************** End Delighters styling ***************** */
