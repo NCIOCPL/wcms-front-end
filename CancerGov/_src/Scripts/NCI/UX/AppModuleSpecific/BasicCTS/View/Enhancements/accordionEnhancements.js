@@ -2,7 +2,18 @@ define(function(require) {
     var $ = require('jquery');
     require('jquery-ui');
 
+	var urlParams;
+	(window.onpopstate = function () {
+		var match,
+			pl     = /\+/g,  // Regex for replacing addition symbol with a space
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+			query  = window.location.search.substring(1);
 
+		urlParams = {};
+		while (match = search.exec(query))
+		   urlParams[decode(match[1])] = decode(match[2]);
+	})();
 
     function addControls($accordions){
 
@@ -51,6 +62,12 @@ define(function(require) {
 
         //activate the first section
         $accordion.accordion('option','active',0);
+		
+		// if showing all locations, expand accordion
+		if(urlParams['all'] != null) {
+			$accordion.accordion('option','active',2);
+			
+		}
 
         addControls($accordion);
 

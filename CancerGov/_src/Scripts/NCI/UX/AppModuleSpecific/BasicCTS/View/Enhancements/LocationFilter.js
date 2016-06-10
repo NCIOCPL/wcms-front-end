@@ -193,6 +193,10 @@ define(function(require) {
 	function _renderSelectors($locationContainer) {
 
 		var countrystates = $locationContainer.data("basiccts-countrystates");
+		
+		if(countrystates == null) {
+			return;
+		}
 
 		var hasMultipleCountries = countrystates.length > 1;
 		var hasMultipleUSStates = (countrystates.length > 0 && countrystates[0].name == 'U.S.A.' && countrystates[0].states.length > 1);
