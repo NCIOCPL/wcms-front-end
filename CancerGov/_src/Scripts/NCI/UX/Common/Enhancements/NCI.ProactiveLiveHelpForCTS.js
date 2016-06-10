@@ -200,19 +200,26 @@ define(function(require){
 		var isOpen = false;
 		
 		var dateNow = new Date();
-		var utcHour = dateNow.getUTCHours();
-		if(( utcHour >= 12 || utcHour <= 3 )
+		
+		if( _isBusinessHours(dateNow)
 			&& _dateIsNotTheWeekend(dateNow)
 			&& _dateIsNotAHoliday(dateNow)){
 			isOpen = true;
 		}
 		return isOpen;
 	}
-	
+
+	function _isBusinessHours(theDate){
+		var duringHours = false;
+		var utcHour = theDate.getUTCHours();
+		// EDT 0800 == UTC 1200
+		// EDT 2300 == UTC 0300 (a day later, but that's a different check)
+		if(( utcHour >= 12 || utcHour <	 3 ))
+			duringHours = true;
+		return duringHours;
+	}
+
 	function _dateIsNotTheWeekend(theDate){
-		
-		var nonWeekend = true;
-		
 		/*
 			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
 			US East Coast is one day earlier.
@@ -222,21 +229,50 @@ define(function(require){
 			UTC     |    Saturday             |    Sunday               |   Monday
 			EDT  Fri      |     Saturday            |         Sunday          |  Mon
 			
-			So we have have to check two cases:
-			Case 1: 0400 and later, compare to Saturday and Sunday.
-			Case 2: 0359 and earlier, comapre to Friday and Saturday.
+			So we have have to handle these cases:
+			Case 1: Day is Saturday and the time is before 0400 - NOT Weekend
+			Case 2: Day is Saturday and the time is 0400 or later - Weekend
+			Case 3: Day is Sunday - Weekend
+			Case 4: Day is Monday and the time is before 0400 - Weekend
+			Case 5: Day is Monday and the time ias 0400 or later - NOT Weekend
+			Case 6: Any other day - NOT Weekend
 		*/
 
+		var weekday = true;
 		hour = theDate.getUTCHours();
 		day = theDate.getUTCDay();
 		
-		if(hour >= 4 ){  // 0400 (midnight EDT) and later.
-			if( day == 6 || day == 0) nonWeekend = false; // Saturday or Sunday
-		} else { // 0359 and earlier (midnight EDT)
-			if( day == 5 || day == 6) nonWeekend = false; // Friday or Saturday
+		switch(day) {
+			// Sunday
+			case 0:
+				weekday = false;
+				break;
+			
+			// Monday
+			case 1: 
+				if(hour < 4) // Still Sunday UDT
+					weekday = false;
+				else
+					weekday = true;
+				break;
+				
+			case 2: // Tuesday
+			case 3: // Wednesday
+			case 4: // Thursday
+			case 5: // Friday
+				weekday = true;
+				break;
+
+			// Saturday
+			case 6:
+				if(hour < 4) // Still Friay UDT
+					weekday = true;
+				else
+					weekday = false;
+				break;
 		}
 
-		return nonWeekend;
+		return weekday;
 	}
 	
 	function _dateIsNotAHoliday(theDate){
@@ -263,7 +299,7 @@ define(function(require){
 
 		hour = theDate.getUTCHours();
 		day = theDate.getUTCDate();
-		month = theDate.getUTCMonth();
+		month = theDate.getUTCMonth() + 1; // Months are zero-based. Add one for readability.
 		
 		if(hour >= 4 ){  // 0400 (midnight EDT) and later.
 			if( month == 7 && day == 4) nonHoliday = false; // Independence Day
