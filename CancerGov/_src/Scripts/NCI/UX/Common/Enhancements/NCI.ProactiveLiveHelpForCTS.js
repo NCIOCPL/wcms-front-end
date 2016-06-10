@@ -215,8 +215,14 @@ define(function(require){
 		
 		/*
 			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
-			US East Coast is one day earlier. So to have to check two cases.
+			US East Coast is one day earlier.
+
+			                    11111111112222|          111111111122222            11
+			UTC TIME 01234|5678901234567890123|01234|5678901234567890123|01234|5678901
+			UTC     |    Saturday             |    Sunday               |   Monday
+			EDT  Fri      |     Saturday            |         Sunday          |  Mon
 			
+			So we have have to check two cases:
 			Case 1: 0400 and later, compare to Saturday and Sunday.
 			Case 2: 0359 and earlier, comapre to Friday and Saturday.
 		*/
@@ -239,10 +245,20 @@ define(function(require){
 		
 		/*
 			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
-			US East Coast is one day earlier. So to have to check two cases.
+			US East Coast is one day earlier.
 			
+			UTC    12222            11111111112222|          1111111111222
+			TIME   90123|01234|5678901234567890123|01234|56789012345678901
+			UTC    Jul 3|          July 4         |    July 5
+			EDT     July 3    |         July 4          |       July 5
+
+			Indepdence Day and Labor Day are both on Mondays, so the day before
+			is a Sunday and Live Help is closed (handled by the weekend check).
+			But at Midnight UTC, it's still the holiday on the US East coast
+			
+			So we have to check two cases:
 			Case 1: 0400 and later, compare to the US holiday date.
-			Case 2: 0359 and earlier, comapre to one day earlier.
+			Case 2: 0359 and earlier, comapre to the day after the holiday.
 		*/
 
 		hour = theDate.getUTCHours();
@@ -253,8 +269,8 @@ define(function(require){
 			if( month == 7 && day == 4) nonHoliday = false; // Independence Day
 			if( month == 9 && day == 5) nonHoliday = false; // Labor Day
 		} else { // 0359 and earlier (midnight EDT)
-			if( month == 7 && day == 3) nonHoliday = false; // Independence Day
-			if( month == 9 && day == 4) nonHoliday = false; // Labor Day
+			if( month == 7 && day == 5) nonHoliday = false; // Independence Day
+			if( month == 9 && day == 6) nonHoliday = false; // Labor Day
 		}
 
 		return nonHoliday;
