@@ -51,7 +51,7 @@
                         xhr = $.ajax({
                             url: src,
                             data: dataQuery,
-                            dataType: 'json',
+                            dataType: 'json'
                         });
                     } else {
                         xhr = src.call(this, term)

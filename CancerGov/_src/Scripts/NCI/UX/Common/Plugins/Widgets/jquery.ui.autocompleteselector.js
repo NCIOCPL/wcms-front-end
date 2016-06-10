@@ -39,7 +39,7 @@
                     thisautosuggest.$hiddenInput.val(ui.item.id);
 
                     // Add unselect button
-                    if (!thisautosuggest.unselectBtn) {
+                    if (!thisautosuggest.$unselectBtn) {
                         thisautosuggest.$unselectBtn = $('<button type="button">Remove Selection</button>');
                         $el.after(thisautosuggest.$unselectBtn);
                         thisautosuggest.$unselectBtn.click(function() {
@@ -55,6 +55,14 @@
                     //Disable our text box
                     $el.attr('disabled', true);
                 },
+                close:function(event,ui){
+                    if(event.originalEvent){
+                        if(event.originalEvent.type === 'menuselect'){
+                            $el.removeClass("error").prev('.error-msg').hide();
+                        }
+                    }
+                }
+
             });
         }
 
