@@ -7,16 +7,16 @@ define(function(require) {
 
 	function _showCancerType() {
 		$("#fieldset-type").show()
-			.find('input').prop("disabled", false).removeClass("error").prev(".error-msg").hide();
+			.find('input').val('').prop("disabled", false).removeClass("error").prev(".error-msg").hide();
 		$("#fieldset-keyword").hide()
-			.find('input').prop("disabled", true);
+			.find('input').val('').prop("disabled", true);
 	}
 
 	function _showKeyword() {
 		$("#fieldset-type").hide()
-			.find('input').prop("disabled", true).removeClass("error").prev(".error-msg").hide();
+			.find('input').val('').prop("disabled", true).removeClass("error").prev(".error-msg").hide();
 		$("#fieldset-keyword").show()
-			.find('input').prop("disabled", false);
+			.find('input').val('').prop("disabled", false);
 	}
 
 	function _validateZip(val){
@@ -107,7 +107,9 @@ define(function(require) {
 
 				//validate zip format
 				_toggleError(_validateZip($this.val()),$this);
-				_toggleError(!_validateNotNull($this.val()),$this);
+				if(!_validateNotNull($this.val())) {
+					_toggleError(true,$this);
+				}
 			})
 		;
 
@@ -118,7 +120,9 @@ define(function(require) {
 
 				//validate age format
 				_toggleError(_validateAge($this.val()),$this);
-				_toggleError(!_validateNotNull($this.val()),$this);
+				if(!_validateNotNull($this.val())) {
+					_toggleError(true,$this);
+				}
 			})
 		;
 
@@ -132,18 +136,17 @@ define(function(require) {
 				e.preventDefault();
 
 				//trigger input blur event
-				//$(this).find('input[type=text]:visible').trigger('blur');
+				$(this).find('input[type=text]:visible').trigger('blur');
 
-				//check for errors again
-				//var fieldsAreValid = $(this).find('input.error').length === 0;
+				//check for inputs that have errors
+				var fieldsAreValid = $(this).find('input.error').length === 0;
 
 				//fields are not required
-				var fieldsAreValid = true;
+				//var fieldsAreValid = true;
 
 				if (fieldsAreValid) {
 
 					try {
-
 						$(this).basicctsformtrack("completed");
 					} catch (e) {
 						console.log(e);
