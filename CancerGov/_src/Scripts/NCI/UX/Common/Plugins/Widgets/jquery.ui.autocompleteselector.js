@@ -40,7 +40,7 @@
 
                     // Add unselect button
                     if (!thisautosuggest.$unselectBtn) {
-                        thisautosuggest.$unselectBtn = $('<button type="button">Remove Selection</button>');
+                        thisautosuggest.$unselectBtn = $('<button type="button">Clear Selection</button>');
                         $el.after(thisautosuggest.$unselectBtn);
                         thisautosuggest.$unselectBtn.click(function() {
                             thisautosuggest.$hiddenInput.val('');
