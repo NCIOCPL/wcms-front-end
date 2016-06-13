@@ -401,6 +401,46 @@ module.exports = function(grunt) {
 		grunt.task.run(tasks);
 	});
 
+	grunt.registerTask('build-local', 'Build all files for local CDE and watch for changes.', function(path) {
+
+		//Assumes path is a PublishedContent folder.
+		if (path == null || path == '') {
+				grunt.log.error('path for build-local cannot be null or empty');
+				return false;
+		}
+
+		//HACK: Figure out how to override the dist.
+		grunt.config('dirs', {
+			src: {
+				base: "_src/",
+				templates: "_src/PageTemplates/",
+				sublayouttemplates: "_src/SublayoutTemplates/",
+				velocitytemplates: "_src/VelocityTemplates/",
+				styles: "_src/StyleSheets/",
+				scripts: "_src/Scripts/"
+			},
+			tmp: {
+				base: "_tmp/",
+				templates: "_tmp/Templates/",
+				sublayouttemplates: "_tmp/SublayoutTemplates/",
+				velocitytemplates: "_tmp/VelocityTemplates/",
+				styles: "_tmp/Styles/",
+				scripts: "_tmp/js/"
+			},
+			dist: {
+				base: path + "/",
+				templates: path + "/PageTemplates/",
+				sublayouttemplates: path + "/SublayoutTemplates/",
+				velocitytemplates: path + "/VelocityTemplates/",
+				styles: path + "/Styles/",
+				scripts: path + "/js/"
+			},
+			bower: 'bower_components/'
+		});
+
+		var tasks = ['build:dev', 'watch'];
+		grunt.task.run(tasks);
+	});
 
 	grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
 		var proxy;
