@@ -45,7 +45,7 @@ define(function(require) {
 
 	function _validateLocked(el){
 		if(!el.prop('disabled')) {
-			el.val("");
+			//el.val("");
 		}
 		return el.prop('disabled');
 	}
@@ -86,8 +86,12 @@ define(function(require) {
 			.data('error-message','Please select a cancer type from the list.')
 			.on('blur.null',function(){
 				var $this = $(this);
-				_toggleError(_validateNotNull($this.val()),$this,true);
-				_toggleError(_validateLocked($this),$this,true);
+
+				_toggleError(_validateLocked($this),$this);
+
+				if(!_validateNotNull($this.val())) {
+					_toggleError(true,$this);
+				}
 			})
 		;
 
@@ -103,6 +107,7 @@ define(function(require) {
 
 				//validate zip format
 				_toggleError(_validateZip($this.val()),$this);
+				_toggleError(!_validateNotNull($this.val()),$this);
 			})
 		;
 
@@ -113,6 +118,7 @@ define(function(require) {
 
 				//validate age format
 				_toggleError(_validateAge($this.val()),$this);
+				_toggleError(!_validateNotNull($this.val()),$this);
 			})
 		;
 
