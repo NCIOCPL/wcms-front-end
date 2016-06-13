@@ -17,7 +17,7 @@ $form-label-line-height: 1em;
 // $form-label-bottom-margin: em-calc(3);
 // $input-font-family: inherit;
 $input-font-color: $body-font-color;
-$input-font-size: em-calc(16);
+$input-font-size: em-calc(14);
 $input-placeholder-font-family: inherit;
 $input-placeholder-font-color: lighten($input-font-color, 30%);
 $input-placeholder-font-size: inherit;
@@ -43,10 +43,10 @@ $fieldset-margin: 0;
 // We use these to style the legends when you use them
 
 // $legend-bg: #fff;
-$legend-font-family: #{$montserrat-font-stack};
-$legend-font-size: em-calc(20px);
+$legend-font-family: #{$noto-font-stack};
+$legend-font-size: em-calc(14px);
 $legend-font-weight: bold;
-$legend-lineheight: em-calc(25px, 22px);
+$legend-lineheight: em-calc(25px); // was 25px 22px
 // $legend-padding: em-calc(0 3);
 
 // We use these to style the prefix and postfix input elements
@@ -325,7 +325,7 @@ fieldset {
 	legend {
 		margin-#{$default-float}: 0;
 		font-family: $legend-font-family;
-		color: $header-font-color;
+		color: #2e2e2e;    // was $header-font-color
 		font-size: $legend-font-size;
 		line-height: $legend-lineheight;
 	}
@@ -671,7 +671,7 @@ fieldset fieldset
 fieldset fieldset .legend
 {
 	font-size: 1.2em;
-	color: $header-font-color;
+	color: #2e2e2e;    // was $header-font-color
 	background: transparent;
 }
 #drugListSubBox .radio {
