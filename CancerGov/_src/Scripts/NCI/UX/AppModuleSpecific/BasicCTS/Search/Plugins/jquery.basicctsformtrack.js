@@ -1,6 +1,3 @@
-/*
- This is a jQuery plug-in for turning links to audio files into a hidden jPlayer player.
- */
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -13,19 +10,17 @@
 
     "use strict";
 
-    // undefined is used here as the undefined global variable in ECMAScript 3 is
-    // mutable (ie. it can be changed by someone else). undefined isn't really being
-    // passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-    // can no longer be modified.
-
-    // window and document are passed through as local variable rather than global
-    // as this (slightly) quickens the resolution process and can be more efficiently
-    // minified (especially when both are regularly referenced in your plugin).
-
-    // Create the defaults once
-    var pluginName = "basicctsformtrack",
-
-        trackingConfig = {
+    $.widget( "NCI.basicctsformtrack", {
+        options: {
+            formName:'',
+            propertyName: "value",
+            isDisplayed: false,
+            isStarted: false,
+            isComplete: false,
+            canAbandon: false,
+            lastFieldTouched: ''
+        },
+        trackingConfig: {
             formVar: 'eVar47',
             formProp: 'prop74',
             formErrorProp: 'prop75',
@@ -35,47 +30,10 @@
             abandon: 'event40',
             error: 'event40'
         },
-
-        defaults = {
-            propertyName: "value",
-            isDisplayed: false,
-            isStarted: false,
-            isComplete: false,
-            canAbandon: false,
-            lastFieldTouched: ''
-        };
-
-    // The actual plugin constructor
-    function Plugin ( element, options) {
-        this.element = element;
-        // jQuery has an extend method which merges the contents of two or
-        // more objects, storing the result in the first object. The first object
-        // is generally empty as we don't want to alter the default options for
-        // future instances of the plugin
-        this.settings = $.extend( {}, defaults, options );
-        this._defaults = defaults;  //Why are defaults to options being used to hold state?
-        this._name = pluginName;
-
-        //This is the name of the form we will send to Adobe
-        this._formName = options.formName || '';
-
-        this.init();
-    }
-
-    // Avoid Plugin.prototype conflicts
-    $.extend(Plugin.prototype, {
-        init: function () {
-
-            // Place initialization logic here
-            // You already have access to the DOM element and
-            // the options via the instance, e.g. this.element
-            // and this.settings
-            // you can add more functions like the one below and
-            // call them like so: this.yourOtherFunction(this.element, this.settings).
-
+        _create: function(){
             this._bindInputsOnChange();
             this._bindOnBeforeUnloadTrackingEvents();
-            this._trackFormDisplayed();            
+            this._trackFormDisplayed();
         },
         _bindInputsOnChange : function() {
             var self = this;
@@ -87,12 +45,12 @@
                 // whenever input value changes do something with input id
                 // could change event - change method too
                 $input.on('change', function() {
-                    self._defaults.lastFieldTouched = this.id;
+                    self.options.lastFieldTouched = this.id;
 
                     // set isStarted to true on a successful change
-                    if (!self._defaults.isStarted) {
-                        self._defaults.isStarted = true;
-                        self._defaults.canAbandon = true;
+                    if (!self.options.isStarted) {
+                        self.options.isStarted = true;
+                        self.options.canAbandon = true;
 
                         self.adobeCall('start');
                     }
@@ -109,7 +67,7 @@
         },
         _trackFormDisplayed : function() {
             if (typeof $(this.element) === 'object') {
-                this._defaults.isDisplayed = true;
+                this.options.isDisplayed = true;
 
                 this.adobeCall('display');
             }
@@ -121,24 +79,24 @@
          * @return {[type]}        [description]
          */
         adobeCall: function(action) {
-            s.linkTrackVars = 'events,' + trackingConfig.formProp + ',' + trackingConfig.formVar;                
-            s.events = s.linkTrackEvents = trackingConfig[action];
-            s[trackingConfig.formProp] = this._formName + '|' + action;
-            s[trackingConfig.formVar] = this._formName;
-            s[trackingConfig.formErrorProp] = '';
+            s.linkTrackVars = 'events,' + this.trackingConfig.formProp + ',' + this.trackingConfig.formVar;
+            s.events = s.linkTrackEvents = this.trackingConfig[action];
+            s[this.trackingConfig.formProp] = this._formName + '|' + action;
+            s[this.trackingConfig.formVar] = this._formName;
+            s[this.trackingConfig.formErrorProp] = '';
 
             if (action === 'abandon') {
-                s[trackingConfig.formProp] += '|' + this._defaults.lastFieldTouched;
+                s[this.trackingConfig.formProp] += '|' + this.options.lastFieldTouched;
             }
 
             if (action === 'error') {
-                s.linkTrackVars += ',' + trackingConfig.formErrorProp;
+                s.linkTrackVars += ',' + this.trackingConfig.formErrorProp;
 
                 // after concat
-                s[trackingConfig.formErrorProp] = this.errorMessages;
+                s[this.trackingConfig.formErrorProp] = this.errorMessages;
             }
 
-            var trackString = 'formAnalysis|' + s[trackingConfig.formProp];
+            var trackString = 'formAnalysis|' + s[this.trackingConfig.formProp];
 
             s.tl(true, 'o', trackString);
         },
@@ -149,20 +107,19 @@
          */
         completed: function() {
             // set canAbandon to false to prevent abandon call
-            this._defaults.canAbandon = false;
-            this._defaults.isComplete = true;
+            this.options.canAbandon = false;
+            this.options.isComplete = true;
 
             this.adobeCall('complete');
         },
-
         /**
          * Track that the form has been abandoned.
          * @return {[type]} [description]
          */
         trackFormAbandonment: function() {
             // if form is started and can be abandoned, track it
-            if (this._defaults.isStarted && this._defaults.canAbandon) {
-                this.adobeCall('abandon');  
+            if (this.options.isStarted && this.options.canAbandon) {
+                this.adobeCall('abandon');
             }
         },
 
@@ -175,7 +132,7 @@
             // build concatenated string of error messages (field|message~field|message)
             var messageArray  = [];
             for(var i = 0, max = errorMessages.length; i < max; i++) {
-              messageArray.push(errorMessages[i].field + '|' + errorMessages[i].message);
+                messageArray.push(errorMessages[i].field + '|' + errorMessages[i].message);
             }
             //Why store the error messages if we are doing the call.
             //we should pass them into the call.  Do we reference them later?
@@ -183,19 +140,5 @@
             this.adobeCall('error');
         }
 
-
     });
-
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
-    $.fn[ pluginName ] = function ( options ) {
-
-        // Handle normal plugin initialization
-        return this.each(function() {
-            if ( !$.data( this, "plugin_" + pluginName ) ) {
-                $.data( this, "plugin_" + pluginName, new Plugin( this, options) );
-            }
-        });
-    };
-
 }));

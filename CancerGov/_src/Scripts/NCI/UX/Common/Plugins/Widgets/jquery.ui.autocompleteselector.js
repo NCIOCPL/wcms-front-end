@@ -44,8 +44,7 @@
                         $el.after(thisautosuggest.$unselectBtn);
                         thisautosuggest.$unselectBtn.click(function() {
                             thisautosuggest.$hiddenInput.val('');
-                            $el.val('');
-                            $el.attr('disabled', false);
+                            $el.val('').attr('disabled', false).focus();
                             thisautosuggest.$unselectBtn.hide();
                         });
                     } else {
@@ -59,6 +58,7 @@
                     if(event.originalEvent){
                         if(event.originalEvent.type === 'menuselect'){
                             $el.removeClass("error").prev('.error-msg').hide();
+                            $el.next().focus();
                         }
                     }
                 }
