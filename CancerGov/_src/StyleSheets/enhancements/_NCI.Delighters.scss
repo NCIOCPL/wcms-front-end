@@ -21,6 +21,9 @@
 		h4 {
 			font-size: 15px;	
 		}
+		a {
+			display: block;
+		}
 	}
 	
 	.cts-which {
@@ -90,10 +93,9 @@
     color: black;
   }
   span.live-help-button {
-    background-size: 780.4878% 1648.14815%;
-    background-position: 41.85% 1.3%;
-    width: 89px;
-    height: 31px;
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/livehelp-delighter.png) no-repeat left 4px;
+    width: 81px;
+    height: 32px;
     margin-bottom: 15px;
 	img {
       padding-bottom: 40px;
