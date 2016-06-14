@@ -6,7 +6,11 @@
     #set($loc = $trial.GetUSLocations().get(0))
     $loc.FacilityName, $loc.PostalAddress.City, $loc.PostalAddress.PoliticalSubUnitName
   #elseif ($trial.GetUSLocations().length == 0)
-    See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID">Clinical Trials.gov</a>
+    #if($resultItem.CurrentProtocolStatus == "Not yet active")
+		Location information is not yet available.
+	#else
+		See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID">Clinical Trials.gov</a>
+	#end
   #else
     #if ($SearchResults.Control.HasZip())
       $trial.GetUSLocations().length locations, including $trial.GetUSLocations($SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you
