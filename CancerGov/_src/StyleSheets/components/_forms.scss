@@ -325,7 +325,7 @@ fieldset {
 	legend {
 		margin-#{$default-float}: 0;
 		font-family: $legend-font-family;
-		color: $header-font-color
+		color: $header-font-color;
 		font-size: $legend-font-size;
 		line-height: $legend-lineheight;
 	}
@@ -671,7 +671,7 @@ fieldset fieldset
 fieldset fieldset .legend
 {
 	font-size: 1.2em;
-	color: $header-font-color
+	color: $header-font-color;
 	background: transparent;
 }
 #drugListSubBox .radio {
