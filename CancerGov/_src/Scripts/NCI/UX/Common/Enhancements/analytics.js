@@ -216,16 +216,19 @@ define(function(require) {
 		});
 
 		// Track accordion expand/collapse
+		/// TODO: need to add logic for other accordion implementations
 		$('.accordion section').each(function(i, el) {
 			$(el).on('click', 'h2', function(event) {
 				var $this = $(this);
 				if(document.URL.indexOf("/clinical-trials/") > -1) {
-					var controlId = "clinical trial";
-					var action = "expand";
+					accordionId = "clinical trial";
+					displayedName = $this.text();
+					sectionId = $this.index('h2') + '-' + displayedName.replace(/\W+/g,'-').toLowerCase();
+					action = "expand";
 					if($this.attr('aria-expanded') === 'false'){
 						action = "collapse";
 					}
-					NCIAnalytics.AccordionClick($this, controlId, $this.index('h2'), $this.text(), action);
+					NCIAnalytics.AccordionClick($this, accordionId, sectionId, displayedName, action);
 				}
 			});
 		});

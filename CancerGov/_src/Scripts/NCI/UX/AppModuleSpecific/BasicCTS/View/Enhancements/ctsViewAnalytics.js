@@ -5,10 +5,12 @@ define(function(require) {
 	* Main function
 	*/
 	function _initialize() {
-    /* Snippet to track clicks on accordion controls */
-		$('.accordion-controls').on('click.analytics', function (e) {
+	/* Snippet to track clicks on accordion controls */
+		$('.accordion-controls').on('click.analytics', 'a', function (e) {
 			var $this = $(this);
-      NCIAnalytics.AccordionClick($this, 'control id', '', '', 'click all control' );
+			id = 'clinical trial';
+			action = $this.attr('class');
+			NCIAnalytics.AccordionClick($this, id, action);
 		});
   }
 
