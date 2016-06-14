@@ -92,16 +92,16 @@
   span {
     color: black;
   }
-  span.live-help-button {
-    background: url(/publishedcontent/images/images/design-elements/background-graphics/livehelp-delighter.png) no-repeat left 4px;
-    width: 81px;
-    height: 32px;
-    margin-bottom: 15px;
-    img {
-      padding-bottom: 40px;
-    }
-  }
-}
+  .chat-with-us {
+		margin-bottom: 10px;
+		
+		.live-help-button {
+   		width: 85px;
+    	height: 29px;
+			background: none;
+  	}
+	}
+
 #delighter-homePage {
   //display: none;
   position:fixed;
