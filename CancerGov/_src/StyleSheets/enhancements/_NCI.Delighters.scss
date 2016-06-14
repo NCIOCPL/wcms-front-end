@@ -1,93 +1,93 @@
-/****************** BEGIN Delighters styling ***************** */  
+/****************** BEGIN Delighters styling ***************** */
 .delighter-rail {
-  text-align: center; 
+  text-align: center;
   margin-right: -65px;
   float: right;
-	
-	a, a:hover, a:active {
-		text-decoration: none;	
-	}
-	
-	p {
-		line-height: 1.166667 !important;
-	}
-	
-	.cts-livehelp {
-		border: 3px solid #2c13a3;
-		
-		p, a, li, span, h4 {
-			color: #4938bc !important;
-		}
-		h4 {
-			font-size: 15px;	
-		}
-		a {
-			display: block;
-		}
-	}
-	
-	.cts-which {
-		background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-purple-circles.jpg);	
-		border: 3px solid #2c13a3;
-		color: white;
-		
-		h4, p, li, a {
-			color: white;
-			font-size: 12px;
-		}
-		
-		h4 {
-			font-size: 15px;	
-		}
-	}
 
-	
-	.cts-what {
-		background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-blue-triangles.jpg);	
-		border: 3px solid #0bd3ca;
-		color: white;
-		
-		h4, p, li, a {
-			color: white;
-			font-size: 12px;
-		}	
-		
-		h4 {
-			font-size: 15px;	
-		}
-	}
-	
-	.cts-next-step {
-		background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
-		border: 3px solid #cf0549;
-		color: white;
-		
-		h4, p, li, a {
-			color: white;
-			font-size: 12px;
-		}	
-		
-		h4 {
-			font-size: 15px;	
-		}
-	}
-	
-	
+  a, a:hover, a:active {
+    text-decoration: none;
+  }
+
+  p {
+    line-height: 1.166667 !important;
+  }
+
+  .cts-livehelp {
+    border: 3px solid #2c13a3;
+
+    p, a, li, span, h4 {
+      color: #4938bc !important;
+    }
+    h4 {
+      font-size: 15px;
+    }
+    a {
+      display: block;
+    }
+  }
+
+  .cts-which {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-purple-circles.jpg);
+    border: 3px solid #2c13a3;
+    color: white;
+
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+
+  .cts-what {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-blue-triangles.jpg);
+    border: 3px solid #0bd3ca;
+    color: white;
+
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+  .cts-next-step {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
+    border: 3px solid #cf0549;
+    color: white;
+
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+
 }
 .delighter {
   background-color: #fbfbfb;
-	border-right: 0 !important;
+  border-right: 0 !important;
   margin-bottom: 18px;
   padding: 15px;
   font-size: 0.80em;
-	font-family: Montserrat;
-	
+  font-family: Montserrat;
+
   h4, p, hr {
     margin: 0;
   }
   hr {
     border: 0;
-		padding: 0.375em 0em;
+    padding: 0.375em 0em;
   }
   span {
     color: black;
@@ -97,47 +97,63 @@
     width: 81px;
     height: 32px;
     margin-bottom: 15px;
-	img {
+    img {
       padding-bottom: 40px;
     }
+  }
+}
+#delighter-homePage {
+  //display: none;
+  position:fixed;
+  top:51%;
+  right:0;
+  z-index: 998;
+  background-color: #82368C;
+  padding: 5px 10px;
+  max-width: 115px;
+  text-align: center;
+
+  a {
+    color:#fff;
+    font:bold 14px/16px Montserrat;
   }
 }
 /* Tablet styles */
 @include bp(medium-down) {
   .delighter-rail {
     margin-right: -15px;
-  } 
+  }
 }
-/* Mobile styles */   
+/* Mobile styles */
 @include bp(small) {
   .delighter-rail {
     margin: 0;
-	}
+  }
 
-	.delighter {
-   border-right: inherit;
-	}
-	
-	.cts-which,  .cts-what, .cts-livehelp, .cts-next-step {
-		padding-left: 30px;
-		padding-right: 30px;
-		max-width: 300px;
-		margin: 15px auto;
-	}
-	
-	.delighter.cts-livehelp {
-		border-right: 3px solid #2c13a3 !important;
-	}
-	.delighter.cts-which {
-		border-right: 3px solid #2c13a3 !important;
-	}
-	.delighter.cts-what {
-		border-right: 3px solid #0bd3ca !important;
-	}
-	.delighter.cts-next-step {
-		border-right: 3px solid #cf0549 !important;
-	}
+  .delighter {
+    border-right: inherit;
+  }
 
-} 
+  .cts-which,  .cts-what, .cts-livehelp, .cts-next-step {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 300px;
+    margin: 15px auto;
+  }
+
+  .delighter.cts-livehelp {
+    border-right: 3px solid #2c13a3 !important;
+  }
+  .delighter.cts-which {
+    border-right: 3px solid #2c13a3 !important;
+  }
+  .delighter.cts-what {
+    border-right: 3px solid #0bd3ca !important;
+  }
+  .delighter.cts-next-step {
+    border-right: 3px solid #cf0549 !important;
+  }
+
+}
 
 /****************** End Delighters styling ***************** */
