@@ -187,29 +187,39 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
     Status: $SearchResults.Trial.CurrentProtocolStatus
   </div>
   <div class="accordion desktop">
-    <section>
-      <h2>Description</h2>
-      <div>
-        $SearchResults.Trial.BriefSummary
-      </div>
-    </section>
-    <section>
-      <h2>Eligibility Criteria</h2>
-      <div>
-        $SearchResults.Trial.CTEntryCriteria
-      </div>
-    </section>
+    #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.BriefSummary))
+      <section>
+        <h2>Description</h2>
+        <div>
+          $SearchResults.Trial.BriefSummary
+        </div>
+      </section>
+    #end
+
+    #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.CTEntryCriteria))
+      <section>
+        <h2>Eligibility Criteria</h2>
+        <div>
+          $SearchResults.Trial.CTEntryCriteria
+        </div>
+      </section>
+    #end
+
+
     <section>
       <h2>Locations & Contacts</h2>
       #DrawLocations()
     </section>
 
+    #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.DetailedDescription))
     <section>
       <h2>Trial Objectives and Outline</h2>
       <div>
         $SearchResults.Trial.DetailedDescription
       </div>
     </section>
+    #end
+
     <section>
       <h2>Trial Phase & Type</h2>
       <div>
