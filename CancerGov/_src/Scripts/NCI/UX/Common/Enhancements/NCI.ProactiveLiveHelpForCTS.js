@@ -48,16 +48,24 @@ define(function(require){
 	
 	// Initialization for the enhancement.
 	function _initialize() {
-		if(_isACtsPage(location.pathname) && !_userIsOptedOut() && _liveHelpIsAvailable()) {
-			// Set up a countdown for the "Do you want help?" popup.
+
+		if(_isACtsPage(location.pathname)) {
+			
 			_setHostServer();
-			_initializeActivityCheck();
-			_initializeCountdownTimer();
+
+			// If the user hasn't opted out, and live help is available,
+			// Set up a countdown for the "Do you want help?" prompt.
+			if(!_userIsOptedOut() && _liveHelpIsAvailable()){
+				_initializeActivityCheck();
+				_initializeCountdownTimer();
+			}
+
+			// Connect chat button in delighter rail.
+			_connectDelighterChatButton();
 		} else {
 			// If we're not on a CTS page, clear the timer if it exists.
 			CookieManager.remove(TIMING_COOKIE_NAME);
 		}
-
 	}
 	
 	var popupStatus = false;
@@ -83,7 +91,7 @@ define(function(require){
 		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><h2 class="title">' + POPUP_TITLE + '</h2><div class="content">' + popupBody + '</div></div>');
 		
 		$("#chat-button").click(function(){
-			window.open("https://" + _hostServer + "/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
+			_openChatWindow();
 			_dismissPrompt();
 		});
 		
@@ -120,6 +128,11 @@ define(function(require){
 		}
 	}
 	
+	// Opens the external browser window (as opposed to the chat prompt which isn't really a window).
+	function _openChatWindow() {
+		window.open("https://" + _hostServer + "/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
+	}
+	
 	function _userIsOptedOut() {
 		var optedOut = !!CookieManager.get(OPT_OUT_COOKIE_NAME);
 		return optedOut;
@@ -129,6 +142,20 @@ define(function(require){
 		CookieManager.set(OPT_OUT_COOKIE_NAME, 'true', { expires: OPT_OUT_DURATION_DAYS });
 	}
 
+
+	// Sets up a click handler on the chat button in the delighter rail for CTS pages.
+	function _connectDelighterChatButton() {
+		var button = $(".delighter.cts-livehelp .live-help-button");
+		if(!!button)
+			button.click(function(e){
+				_openChatWindow();
+				_dismissPrompt();
+				// Prevent any <a> tags from firing.
+				e.preventDefault();
+			});
+	}
+
+	
 	var _countdownIntervalID;
 	
 	function _initializeCountdownTimer(){
