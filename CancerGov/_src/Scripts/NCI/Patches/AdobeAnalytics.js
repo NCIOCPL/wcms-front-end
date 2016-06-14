@@ -4,5 +4,9 @@
  * @return {[type]}          [description]
  */
 define(function(require) {
-	return window.s;
+	return {
+			getInstance: function() {
+				return window.s;
+			}
+	}
 });

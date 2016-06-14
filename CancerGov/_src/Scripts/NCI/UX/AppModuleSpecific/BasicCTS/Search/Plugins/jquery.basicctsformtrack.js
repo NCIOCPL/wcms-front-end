@@ -4,9 +4,13 @@
         define(["jquery", "Patches/AdobeAnalytics"], factory);
     } else {
         // Browser globals
-        factory(jQuery, window.s);
+        factory(jQuery, {
+          getInstance() {
+              return window.s;
+          }
+        });
     }
-}(function ($, s) {
+}(function ($, sInstance) {
 
     "use strict";
 
