@@ -19,7 +19,8 @@
 
         options: {
             fetchSrc: false, //String or Promise
-            queryParam: false
+            queryParam: false,
+            buttonText: 'Clear Selection'
         },
         _create: function () {     
    
@@ -40,7 +41,7 @@
 
                     // Add unselect button
                     if (!thisautosuggest.$unselectBtn) {
-                        thisautosuggest.$unselectBtn = $('<button type="button">Clear Selection</button>');
+                        thisautosuggest.$unselectBtn = $('<button class="remove-suggestion" type="button">'+ thisautosuggest.options.buttonText +'</button>');
                         $el.after(thisautosuggest.$unselectBtn);
                         thisautosuggest.$unselectBtn.click(function() {
                             thisautosuggest.$hiddenInput.val('');

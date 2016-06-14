@@ -5,10 +5,10 @@
 
     <fieldset id="fieldset-type" aria-labelledby="legend-type">
       <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-type">Type/Condition</div>
+        <div class="large-4 small-11 columns legend" id="legend-type"><label class="bold" for="ct">Type/Condition</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input placeholder="Start typing to select a cancer type"  type="text" id="ct" maxlength="100" name="ct" autocomplete="off">
+            <input placeholder="Start typing to select a cancer type" type="text" id="ct" maxlength="100" name="ct" autocomplete="off">
                 </div>
           <div class="row">
             Not sure of your cancer type? <a class="basiccts-keyword-toggle" href="#">Search by keyword</a> instead.
@@ -19,10 +19,10 @@
 
     <fieldset id="fieldset-keyword" aria-labelledby="legend-keyword" style="display: none;">
       <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-keyword">Keyword</div>
+        <div class="large-4 small-11 columns legend" id="legend-keyword"><label class="bold" for="q">Keyword</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input type="text" id="q" maxlength="100" name="q">
+            <input type="text" id="q" maxlength="100" name="q" placeholder="Examples: PSA, HER-2, &quot;Paget disease&quot;">
                 </div>
           <div class="row">
             <a class="basiccts-cancertype-toggle" href="#">Search by cancer type</a> instead.
@@ -33,10 +33,10 @@
 
     <fieldset aria-labelledby="legend-zip">
       <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-zip">U.S. ZIP Code</div>
+        <div class="large-4 small-11 columns legend" id="legend-zip"><label class="bold" for="z">U.S. ZIP Code</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input id="z" type="text" maxlength="10" name="z">
+            <input id="z" type="text" maxlength="5" name="z">
                 </div>
           <div class="row">Show trials near this U.S. ZIP code.</div>
         </div>
@@ -45,10 +45,10 @@
 
     <fieldset aria-labelledby="legend-age">
       <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-age">Age</div>
+        <div class="large-4 small-11 columns legend" id="legend-age"><label class="bold" for="a">Age</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input class="small-3" type="text" id="a" maxlength="4" name="a">
+            <input class="small-3" type="text" id="a" maxlength="3" name="a">
                 </div>
           <div class="row">Your age helps determine which trials are right for you.</div>
         </div>
@@ -71,7 +71,7 @@
 		<p><a href="tel:1-800-422-2637">Call us: <span>1-800-4-CANCER</span></a></p>
 		<p><a href="tel:1-800-422-2637"><span>(1-800-422-6237)</span></a></p>
 	</div>
-	<a href="/about-cancer/treatment/clinical-trials/search/trial-guide  ">
+	<a href="/about-cancer/treatment/clinical-trials/search/trial-guide">
 		<div class="delighter cts-which">
 			<h4>Which trials are right for you?</h4><hr/>
 			<p>Use the checklist in our guide to gather the information you’ll need.</p>

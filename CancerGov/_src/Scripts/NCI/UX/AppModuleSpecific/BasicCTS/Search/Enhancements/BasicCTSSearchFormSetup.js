@@ -4,19 +4,27 @@ define(function(require) {
 	require('BasicCTSSearch/Plugins/jquery.basicctsformtrack');
 	var NCI = require('Common/Enhancements/NCI');
 
+	var messages = {
+		ctError:'Please select a cancer type from the list.',
+		zipError:'Please enter a valid 5 digit ZIP code',
+		ageError:'Please enter a number between 1 and 120'
+	};
+
 
 	function _showCancerType() {
 		$("#fieldset-type").show()
-			.find('input').val('').prop("disabled", false).removeClass("error").prev(".error-msg").hide();
+			.find('input').val('').prop("disabled", false).removeClass("error").focus()
+			.prev(".error-msg").hide();
 		$("#fieldset-keyword").hide()
 			.find('input').val('').prop("disabled", true);
 	}
 
 	function _showKeyword() {
 		$("#fieldset-type").hide()
-			.find('input').val('').prop("disabled", true).removeClass("error").prev(".error-msg").hide();
+			.find('input').val('').prop("disabled", true).removeClass("error")
+			.prev(".error-msg").hide();
 		$("#fieldset-keyword").show()
-			.find('input').val('').prop("disabled", false);
+			.find('input').val('').prop("disabled", false).focus();
 	}
 
 	function _validateZip(val){
@@ -35,7 +43,7 @@ define(function(require) {
 	function _validateAge(val){
 		// match 1-9 or 10-99 or 100-119
 		// numbers only, no dashes or dots allowed
-		var pattern = /^[1-9]$|^[1-9][0-9]$|^1[0-1][0-9]$/;
+		var pattern = /^[1-9]$|^[1-9][0-9]$|^1[0-1][0-9x]|^120$/;
 		return val.match(pattern);
 	}
 
@@ -83,7 +91,7 @@ define(function(require) {
 				fetchSrc: '/BasicCTS.Service/v1/CancerTypeAutoSuggest',
 				queryParam: 'q'
 			})
-			.data('error-message','Please select a cancer type from the list.')
+			.data('error-message',messages.ctError)
 			.on('blur.null',function(){
 				var $this = $(this);
 
@@ -95,13 +103,9 @@ define(function(require) {
 			})
 		;
 
-		$("#legend-keyword").next().find('input')
-			.prop('placeholder','Enter a keyword')
-		;
-
 
 		$("#legend-zip").next().find('input')
-			.data('error-message','Please enter a valid 5 digit ZIP code')
+			.data('error-message',messages.zipError)
 			.on('blur.error',function(){
 				var $this = $(this);
 
@@ -114,7 +118,7 @@ define(function(require) {
 		;
 
 		$('#legend-age').next().find('input')
-			.data('error-message','Please enter a number between 1 and 120')
+			.data('error-message',messages.ageError)
 			.on('blur.error',function(){
 				var $this = $(this);
 
