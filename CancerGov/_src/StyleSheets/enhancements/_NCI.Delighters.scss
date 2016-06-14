@@ -109,20 +109,32 @@
   top:51%;
   right:0;
   z-index: 998;
-  background-color: #82368C;
-  padding: 5px 10px;
-  max-width: 115px;
-  text-align: center;
 
   a {
+    display:inline-block;
     color:#fff;
     font:bold 14px/16px Montserrat;
+    background-color: #82368C;
+    padding: 5px 10px;
+    max-width: 115px;
+    text-align: center;
+    &:hover {
+      background-color: #3f0557;
+      text-decoration: none;
+    }
   }
 }
 /* Tablet styles */
 @include bp(medium-down) {
   .delighter-rail {
     margin-right: -15px;
+  }
+
+  #delighter-homePage {
+    position:relative;
+    float:right;
+    top:13px;
+    right:10px;
   }
 }
 /* Mobile styles */
@@ -153,6 +165,18 @@
   }
   .delighter.cts-next-step {
     border-right: 3px solid #cf0549 !important;
+  }
+
+  #PageOptionsControl1 {
+    padding-left:5px;
+    padding-right:0;
+    width:auto;
+    .po-pinterest {
+      margin:0;
+    }
+  }
+  #delighter-homePage {
+    right:5px;
   }
 
 }
