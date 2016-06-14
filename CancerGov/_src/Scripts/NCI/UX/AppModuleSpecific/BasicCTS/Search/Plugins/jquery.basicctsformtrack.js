@@ -13,12 +13,14 @@
     $.widget( "NCI.basicctsformtrack", {
         options: {
             formName:'',
-            propertyName: "value",
-            isDisplayed: false,
-            isStarted: false,
-            isComplete: false,
-            canAbandon: false,
-            lastFieldTouched: ''
+            propertyName: "value" //Where is this used?
+        },
+        state: {
+          isDisplayed: false,
+          isStarted: false,
+          isComplete: false,
+          canAbandon: false,
+          lastFieldTouched: ''
         },
         trackingConfig: {
             formVar: 'eVar47',
@@ -45,12 +47,12 @@
                 // whenever input value changes do something with input id
                 // could change event - change method too
                 $input.on('change', function() {
-                    self.options.lastFieldTouched = this.id;
+                    self.state.lastFieldTouched = this.id;
 
                     // set isStarted to true on a successful change
-                    if (!self.options.isStarted) {
-                        self.options.isStarted = true;
-                        self.options.canAbandon = true;
+                    if (!self.state.isStarted) {
+                        self.state.isStarted = true;
+                        self.state.canAbandon = true;
 
                         self.adobeCall('start');
                     }
@@ -67,7 +69,7 @@
         },
         _trackFormDisplayed : function() {
             if (typeof $(this.element) === 'object') {
-                this.options.isDisplayed = true;
+                this.state.isDisplayed = true;
 
                 this.adobeCall('display');
             }
@@ -81,12 +83,12 @@
         adobeCall: function(action) {
             s.linkTrackVars = 'events,' + this.trackingConfig.formProp + ',' + this.trackingConfig.formVar;
             s.events = s.linkTrackEvents = this.trackingConfig[action];
-            s[this.trackingConfig.formProp] = this._formName + '|' + action;
-            s[this.trackingConfig.formVar] = this._formName;
+            s[this.trackingConfig.formProp] = this.options.formName + '|' + action;
+            s[this.trackingConfig.formVar] = this.options.formName;
             s[this.trackingConfig.formErrorProp] = '';
 
             if (action === 'abandon') {
-                s[this.trackingConfig.formProp] += '|' + this.options.lastFieldTouched;
+                s[this.trackingConfig.formProp] += '|' + this.state.lastFieldTouched;
             }
 
             if (action === 'error') {
@@ -107,8 +109,8 @@
          */
         completed: function() {
             // set canAbandon to false to prevent abandon call
-            this.options.canAbandon = false;
-            this.options.isComplete = true;
+            this.state.canAbandon = false;
+            this.state.isComplete = true;
 
             this.adobeCall('complete');
         },
@@ -117,8 +119,9 @@
          * @return {[type]} [description]
          */
         trackFormAbandonment: function() {
+
             // if form is started and can be abandoned, track it
-            if (this.options.isStarted && this.options.canAbandon) {
+            if (this.state.isStarted && this.state.canAbandon) {
                 this.adobeCall('abandon');
             }
         },
