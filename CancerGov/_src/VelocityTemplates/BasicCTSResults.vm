@@ -47,7 +47,7 @@
     </div>
 
     ## If there are results then...
-    <div class="ct-results-lower-control">
+    <div class="ct-results-lower-control basic">
       <div class="pagination">
         ## Get Curr Page
 
