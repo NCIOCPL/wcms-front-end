@@ -1255,7 +1255,7 @@ var NCIAnalytics = {
     //******************************************************************************************************
     OnThisPageClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
-		
+
         clickParams.Props = {
             66: linkText,
             67: pageName
@@ -1338,6 +1338,20 @@ var NCIAnalytics = {
         }
         clickParams.Props = {
             42: fontSize
+        };
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    AccordionClick: function(sender, accordionId, sectionId, name, action) {
+        clickParams = new NCIAnalytics.ClickParams(this, 'nciglobal', 'o', 'LinkTracking');
+
+        var accordionInfo = accordionId;
+        if(sectionId) accordionInfo += ('|' + sectionId);
+        if(name) accordionInfo += ('|' + name);
+        if(action) accordionInfo += ('|' + action);		
+        clickParams.Props = {
+            41: accordionInfo
         };
         clickParams.LogToOmniture();
     },
