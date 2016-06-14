@@ -14,6 +14,8 @@
 
     "use strict";
 
+    var s = sInstance.getInstance();
+
     $.widget( "NCI.basicctsformtrack", {
         options: {
             formName:'',
@@ -84,7 +86,7 @@
          * @param  {[type]} action The event to capture, 'abandon', 'error'
          * @return {[type]}        [description]
          */
-        adobeCall: function(action) {
+        adobeCall: function(action, args) {
             s.linkTrackVars = 'events,' + this.trackingConfig.formProp + ',' + this.trackingConfig.formVar;
             s.events = s.linkTrackEvents = this.trackingConfig[action];
             s[this.trackingConfig.formProp] = this.options.formName + '|' + action;
@@ -99,7 +101,7 @@
                 s.linkTrackVars += ',' + this.trackingConfig.formErrorProp;
 
                 // after concat
-                s[this.trackingConfig.formErrorProp] = this.errorMessages;
+                s[this.trackingConfig.formErrorProp] = args;
             }
 
             var trackString = 'formAnalysis|' + s[this.trackingConfig.formProp];
@@ -138,13 +140,15 @@
         errors: function(errorMessages) {
             // build concatenated string of error messages (field|message~field|message)
             var messageArray  = [];
+
             for(var i = 0, max = errorMessages.length; i < max; i++) {
                 messageArray.push(errorMessages[i].field + '|' + errorMessages[i].message);
             }
             //Why store the error messages if we are doing the call.
             //we should pass them into the call.  Do we reference them later?
-            this.errorMessages = messageArray.join('~');
-            this.adobeCall('error');
+            var joinedErrorMessages = messageArray.join('~');
+
+            this.adobeCall('error', joinedErrorMessages);
         }
 
     });

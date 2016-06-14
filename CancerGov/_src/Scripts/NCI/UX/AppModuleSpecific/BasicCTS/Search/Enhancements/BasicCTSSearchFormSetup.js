@@ -59,6 +59,7 @@ define(function(require) {
 	}
 
 	function _toggleError(valid,el,skipTrue){
+
 		if(valid && !skipTrue){
 			el.removeClass("error");
 			el.prev('.error-msg').hide();
@@ -69,6 +70,13 @@ define(function(require) {
 				el.prev('.error-msg').show();
 			} else {
 				el.before('<div class="error-msg">' + el.data("error-message") + '</div>');
+
+				//Log Error Message Here.  It would be nice to have an instance of
+				//this...
+				$(".clinical-trials-search-form").basicctsformtrack("errors", [{
+					field: el.attr('id'),
+					message: el.data("error-message")
+				}]);
 			}
 		}
 	}
@@ -95,9 +103,13 @@ define(function(require) {
 			.on('blur.null',function(){
 				var $this = $(this);
 
-				_toggleError(_validateLocked($this),$this);
-
-				if(!_validateNotNull($this.val())) {
+				//If there is a string and we have not picked a cancer type,
+				//show the error.
+				//We must ensure that we only toggle the error if there IS
+				//and error for analytics purposes.
+				if (_validateNotNull($this.val()) && !_validateLocked($this)) {
+					_toggleError(false,$this);
+				} else {
 					_toggleError(true,$this);
 				}
 			})
@@ -110,8 +122,13 @@ define(function(require) {
 				var $this = $(this);
 
 				//validate zip format
-				_toggleError(_validateZip($this.val()),$this);
-				if(!_validateNotNull($this.val())) {
+
+				//If there is a string and it is a zip code, show the error.
+				//We must ensure that we only toggle the error if there IS
+				//and error for analytics purposes.
+				if (_validateNotNull($this.val()) && !_validateZip($this.val())) {
+					_toggleError(false,$this);
+				} else {
 					_toggleError(true,$this);
 				}
 			})
@@ -122,9 +139,13 @@ define(function(require) {
 			.on('blur.error',function(){
 				var $this = $(this);
 
-				//validate age format
-				_toggleError(_validateAge($this.val()),$this);
-				if(!_validateNotNull($this.val())) {
+				//If there is a string and it is a valid age,
+				//show the error.
+				//We must ensure that we only toggle the error if there IS
+				//and error for analytics purposes.
+				if (_validateNotNull($this.val()) && !_validateAge($this.val())) {
+					_toggleError(false,$this);
+				} else {
 					_toggleError(true,$this);
 				}
 			})
@@ -153,16 +174,18 @@ define(function(require) {
 					try {
 						$(this).basicctsformtrack("completed");
 					} catch (e) {
-						console.log(e);
+						window.console && console.log(e);
 					}
 					$(this).data('valid', true).submit();
 				} else {
-					// IF NOT VALID, call $(this).basicctsformtrack().errorMessages([
-					// 	{
-					// 		fieldid,
-					// 		errormessage
-					// 	}
-					// ]);
+
+					//Log an Analytics message that someone tried to submit the form
+					//with active error messages showing.
+					$(this).basicctsformtrack("errors", [{
+						field: 'submit',
+						message: 'attempted form submit with errors'
+					}]);
+
 					$(this).find('input.error:first').focus();
 
 					return false;
@@ -175,7 +198,7 @@ define(function(require) {
 			// 	$(this).data('valid', false);
 			// }
 		});
-		
+
 	}
 
 	/**
