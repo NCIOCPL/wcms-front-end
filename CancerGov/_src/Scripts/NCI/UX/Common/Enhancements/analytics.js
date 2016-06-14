@@ -215,6 +215,21 @@ define(function(require) {
 			NCIAnalytics.SectionLinkClick(this,url,heading,linkText,depth,parent);
 		});
 
+		// Track accordion expand/collapse
+		$('.accordion section').each(function(i, el) {
+			$(el).on('click', 'h2', function(event) {
+				var $this = $(this);
+				if(document.URL.indexOf("/clinical-trials/") > -1) {
+					var controlId = "clinical trial";
+					var action = "expand";
+					if($this.attr('aria-expanded') === 'false'){
+						action = "collapse";
+					}
+					NCIAnalytics.AccordionClick($this, controlId, $this.index('h2'), $this.text(), action);
+				}
+			});
+		});
+
 		$('.add_this_btn').each(function() {
 			var $this = $(this);
 			$this.parent().on('click.analytics', $this, function(e) {
