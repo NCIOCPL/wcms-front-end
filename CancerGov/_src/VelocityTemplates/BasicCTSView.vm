@@ -258,7 +258,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
     <p class="chat-with-us">
       <a href="/contact">Chat with us: <img alt="LiveHelp" src="/publishedcontent/images/images/design-elements/background-graphics/livehelp-delighter.png" class="live-help-button"></a>
     </p>
-    <p>Call us: <span>1-800-4-CANCER</span></p>
+    <p>Call us:<br><span>1-800-4-CANCER</span></p>
     <p><span>(1-800-422-6237)</span></p>
   </div>
   <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">
@@ -268,28 +268,19 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       <p>Refer to our guide on how to join a treatment trial.</p>
     </div>
   </a>
-</div>
-
-<div class="row">
-  <div class="large-9 columns">
-    #set($currentUrl = $SearchResults.Control.PageInstruction.GetUrl("currenturl"))##
-    #set($printOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;print&#39;, &#39;$currentUrl&#39;); NCIAnalytics.PrintLink(this);")##
-    #set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
-    #set($emailOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;email&#39;, &#39;$currentUrl&#39;); NCIAnalytics.eMailLink(this); dynPopWindow(&#39;${emailUrl}&#39;, &#39;emailPopUp&#39;, &#39;height=525,width=492&#39;); return false;")##
-    <div class="page-options no-resize cts-share">
-      <span class="share-text">Share this clinical trial with your doctor:</span>
-      <span class="po-print">
-        <a title="Print" href="#" onclick="$printOnClick">
-          <span class="icon icon-print"></span>
-          <span class="text">Print</span>
-        </a>
-      </span>
-      <span class="po-email">
-        <a title="Email" href="$emailUrl" onclick="$emailOnClick">
-          <span class="icon icon-email"></span>
-          <span class="text">Email</span>
-        </a>
-      </span>
+	#set($currentUrl = $SearchResults.Control.PageInstruction.GetUrl("currenturl"))##
+	#set($printOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;print&#39;, &#39;$currentUrl&#39;); NCIAnalytics.PrintLink(this);")##
+	#set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
+	#set($emailOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;email&#39;, &#39;$currentUrl&#39;); NCIAnalytics.eMailLink(this); dynPopWindow(&#39;${emailUrl}&#39;, &#39;emailPopUp&#39;, &#39;height=525,width=492&#39;); return false;")##
+	<div class="no-resize cts-share">
+		<div class="share-text">Share this clinical trial with your doctor:</div>
+		<a class="print" title="Print" href="#" onclick="$printOnClick">
+			<span class="icon icon-print"></span>
+			<span class="text">Print</span>
+		</a>
+		<a class="email" title="Email" href="$emailUrl" onclick="$emailOnClick">
+			<span class="icon icon-email"></span>
+			<span class="text">Email</span>
+		</a>
   </div>
-	</div>
 </div>
