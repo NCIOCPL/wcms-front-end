@@ -11,7 +11,6 @@ define(function(require) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
 					rank = $this.index('.clinical-trial-individual-result a');
-					console.log("clicked link. rank=" + rank);
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
 		});	
