@@ -19,6 +19,7 @@ requirejs.config({
 		'BasicCTSSearch': 'UX/AppModuleSpecific/BasicCTS/Search',
 		'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results',
 		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
+		'BasicCTSCommon': 'UX/AppModuleSpecific/BasicCTS/Common',
 		'Vendor': 'Vendor',
 
 		// Common.js-included vendor libraries
