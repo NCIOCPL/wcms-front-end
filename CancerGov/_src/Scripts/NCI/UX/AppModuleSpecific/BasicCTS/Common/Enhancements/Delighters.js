@@ -6,11 +6,11 @@ define(function(require){
 	function _initialize() {
 		LiveChat.init();
 		_initializeAnalytics();
-		_setLiveChatLink();
+		_setLiveChatLinks();
 	}
 
-	// Connect the live chat delighter to the live chat window.
-	function _setLiveChatLink(){
+	function _setLiveChatLinks(){
+		// Connect the live chat delighter button to the live chat window.
 		var button = $(".delighter.cts-livehelp .live-help-button");
 		if(!!button){
 			button.click(function(e){
@@ -19,9 +19,18 @@ define(function(require){
 				e.preventDefault();
 			});
 		}
+		
+		// Conect the inline "chat online" link to the live chat window.
+		var link = $("#cgvBody .live-help-link");
+		if(!!link){
+			link.click(function(e){
+				LiveChat.openChatWindow();
+				// Prevent any <a> tags from firing.
+				e.preventDefault();
+			});
+		}
 	}
 
-	
 	// Attach analytics to live help chat buttons in the delighter rail.
 	function _initializeAnalytics(){
 		$(".delighter.cts-livehelp .live-help-button").each(function(i,el){
