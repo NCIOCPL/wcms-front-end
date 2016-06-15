@@ -35,18 +35,6 @@
 }
 
 /* Trial Description Page */
-.accordion-controls {
-  float:right;
-  margin-right:-0.9375em; //negative gutter margin
-  margin-top:-5px; //correcting for vertical center position of icons
-
-  a {
-    font:normal 13px Montserrat, Arial, sans-serif;
-    &:last-child {
-      margin-left:30px;
-    }
-  }
-}
 .status {
   float:left;
   margin-left:-0.9375em; //negative gutter margin
@@ -146,6 +134,21 @@ $icon-expand-width: 20px;
 }
 .accordion {
   margin-top:20px;
+  padding-top: 2em;
+  position: relative;
+  
+	  .accordion-controls {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+
+	  a {
+		font:normal 13px Montserrat, Arial, sans-serif;
+		&:last-child {
+		  margin-left:30px;
+		}
+	  }
+	}
 }
 
 /* tablet and mobile

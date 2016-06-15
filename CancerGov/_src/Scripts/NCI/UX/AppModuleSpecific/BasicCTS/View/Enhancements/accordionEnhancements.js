@@ -45,7 +45,7 @@ define(function(require) {
 
             controls.append(open).append(close);
 
-            $this.before(controls);
+            $this.prepend(controls);
 
         });
 
