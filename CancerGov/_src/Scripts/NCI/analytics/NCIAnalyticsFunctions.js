@@ -1356,6 +1356,59 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 
+	// Record that an item in the delighter rail was clicked.
+	// sender - the element responsible for this event.
+	// type - the delighter type.
+	RecordDelighterRailClick: function(sender, type) {
+		var pageName = window.location.hostname + window.location.pathname;
+		if( type === 'livehelp'){
+			clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'DelighterLiveChat');
+			clickParams.Props = {
+				5 : 'rrail_chat with us|[' + pageName + ']'
+			};
+			clickParams.LogToOmniture();
+			console.log("Recorded livehelp click on delighter rail");
+		}
+	},
+
+	// Record that the proactive chat prompt was displayed.
+	// sender - the element responsible for this event.
+	RecordProactiveChatPromptDisplay: function(sender){
+		var pageName = window.location.hostname + window.location.pathname;
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
+		clickParams.Props = {
+			5 : 'livehelp_proactive chat - display|[' + pageName + ']'
+		};
+		clickParams.Events = [42];
+		clickParams.LogToOmniture();
+		console.log("Recording display of chat prompt.");
+	},
+
+	// Record that the proactive "Chat Now" button was clicked.
+	// sender - the element responsible for this event.
+	RecordProactiveChatPromptClick: function(sender){
+		var pageName = window.location.hostname + window.location.pathname;
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
+		clickParams.Props = {
+			5 : 'livehelp_proactive chat - launch|[' + pageName + ']'
+		};
+		clickParams.Events = [44];
+		clickParams.LogToOmniture();
+		console.log("Recording click of \"Chat Now\" button.");
+	},
+
+	// Record that the proactive chat prompt was dismissed.
+	// sender - the element responsible for this event.
+	RecordProactiveChatPromptDismissal: function(sender){
+		var pageName = window.location.hostname + window.location.pathname;
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
+		clickParams.Props = {
+			5 : 'livehelp_proactive chat - dismiss|[' + pageName + ']'
+		};
+		clickParams.Events = [43];
+		clickParams.LogToOmniture();
+		console.log("Recording dismisal of chat prompt.");
+	},
     //******************************************************************************************************
     /* SPLF_Hier1: function() {
      // URL structure
