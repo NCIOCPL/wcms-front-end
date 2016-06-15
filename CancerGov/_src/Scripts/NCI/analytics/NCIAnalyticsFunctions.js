@@ -1349,11 +1349,25 @@ var NCIAnalytics = {
         var accordionInfo = accordionId;
         if(sectionId) accordionInfo += ('|' + sectionId);
         if(name) accordionInfo += ('|' + name);
-        if(action) accordionInfo += ('|' + action);		
+        if(action) accordionInfo += ('|' + action);
         clickParams.Props = {
             41: accordionInfo
         };
         clickParams.LogToOmniture();
+    },
+
+    // Home Page Delighter Click
+    // sender - the element responsible for this event.
+    // type - the delighter type.
+    // value - pageName
+    HomePageDelighterClick: function(sender, type, value) {
+        if( type === 'hp_find'){
+            clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'HomePageFindDelighter');
+            clickParams.Props = {
+                5 : 'hp_find ct delighter|' + value
+            };
+            clickParams.LogToOmniture();
+        }
     },
 
 	// Record that an item in the delighter rail was clicked.
@@ -1364,7 +1378,7 @@ var NCIAnalytics = {
 		if( type === 'livehelp'){
 			clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'DelighterLiveChat');
 			clickParams.Props = {
-				5 : 'rrail_chat with us|[' + pageName + ']'
+				5 : 'rrail_chat with us|' + pageName
 			};
 			clickParams.LogToOmniture();
 		}
@@ -1376,7 +1390,7 @@ var NCIAnalytics = {
 		var pageName = window.location.hostname + window.location.pathname;
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
 		clickParams.Props = {
-			5 : 'livehelp_proactive chat - display|[' + pageName + ']'
+			5 : 'livehelp_proactive chat - display|' + pageName
 		};
 		clickParams.Events = [42];
 		clickParams.LogToOmniture();
@@ -1388,7 +1402,7 @@ var NCIAnalytics = {
 		var pageName = window.location.hostname + window.location.pathname;
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
 		clickParams.Props = {
-			5 : 'livehelp_proactive chat - launch|[' + pageName + ']'
+			5 : 'livehelp_proactive chat - launch|' + pageName
 		};
 		clickParams.Events = [44];
 		clickParams.LogToOmniture();
@@ -1400,12 +1414,12 @@ var NCIAnalytics = {
 		var pageName = window.location.hostname + window.location.pathname;
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
 		clickParams.Props = {
-			5 : 'livehelp_proactive chat - dismiss|[' + pageName + ']'
+			5 : 'livehelp_proactive chat - dismiss|' + pageName
 		};
 		clickParams.Events = [43];
 		clickParams.LogToOmniture();
 	},
-	
+
     /******************************************************************************************************
 	* Track link clicks on CTS pages
 	*/
