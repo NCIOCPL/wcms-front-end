@@ -157,7 +157,7 @@ $icon-expand-width: 20px;
       }
     }
   }
-  #state-selector-button,#country-selector-button {
+  #country-selector-button, #state-selector-button {
     width:70% !important;
     margin-left:10px;
   }
@@ -170,9 +170,10 @@ $icon-expand-width: 20px;
   }
 
   .accordion {
-    #state-selector-button,#country-selector-button {
-      display:block;
-      margin-left:0;
+    label[for=country-selector],label[for=state-selector] {
+      width:60px;
+    }
+    #country-selector-button, #state-selector-button {
       margin-bottom:10px;
     }
   }
@@ -202,6 +203,8 @@ $icon-expand-width: 20px;
   }
   .accordion {
     #state-selector-button,#country-selector-button {
+      display:block;
+      margin-left:0;
       width:100% !important;
     }
   }
