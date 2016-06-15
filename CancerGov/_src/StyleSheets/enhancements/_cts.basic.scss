@@ -92,19 +92,31 @@ $icon-expand-width: 20px;
   margin-top:40px;
 
   $icon-po-width: 23px;
-  .page-options {
+  .cts-share {
+    margin-top: 30px;
+	margin-left: 10px;
+	
+	vertical-align: top;
+
+  
+	.share-text {
+	  font-family: $noto-font-stack;
+	  font-size: 16px;
+	  line-height: 18px;
+	  margin-right: 15px;
+	}
+  
     a {
       display:inline-block;
-      width:auto;
+      width:7em;
       height:auto;
-      padding:5px 15px;
+      padding:5px 0;
       border-radius: 3px;
       color:#fff;
       font: normal 14px Montserrat, Arial, sans-serif;
       text-align: center;
-      margin-right: 28px;
+	  margin: 10px 10px 0 0;
       &[title="Print"]{
-        margin-left:.5em;
         background-color: #24B2A1;
       }
       &[title="Email"]{
@@ -134,4 +146,34 @@ $icon-expand-width: 20px;
 }
 .accordion {
   margin-top:20px;
+}
+
+/* tablet and mobile
+@include bp(medium) {
+  #cgvBody .cts-share a.print {
+    display: none;
+  }
+}
+
+/* Mobile styles */
+@include bp(small) {
+  #cgvBody .cts-share {
+    max-width: 300px;
+    margin: 15px auto;
+	position: relative;
+	
+	.share-text {
+	  margin: 0;
+	  display: inline-block;
+	  width: 12em;
+	}
+	
+	a {
+	  margin: 0;
+	  
+	  &.print {
+        display: none;
+      }
+	}
+  }
 }
