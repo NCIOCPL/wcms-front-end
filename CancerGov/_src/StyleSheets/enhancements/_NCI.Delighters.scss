@@ -115,13 +115,34 @@
     color:#fff;
     font:bold 14px/16px Montserrat;
     background-color: #82368C;
-    padding: 5px 10px;
+    padding: 7px 10px;
     max-width: 115px;
     text-align: center;
     &:hover {
       background-color: #3f0557;
       text-decoration: none;
     }
+  }
+}
+
+/* Large Screens */
+@include bp('(min-width:1250px)') {
+  #delighter-homePage {
+    left:0;
+    max-width: 1250px;
+    width: 100%;
+    text-align: right;
+    margin:0 auto;
+  }
+}
+/* Extra Large Screens */
+@include bp(xtra-large) {
+  #delighter-homePage {
+    left:0;
+    max-width: 1450px;
+    width: 100%;
+    text-align: right;
+    margin:0 auto;
   }
 }
 /* Tablet styles */
