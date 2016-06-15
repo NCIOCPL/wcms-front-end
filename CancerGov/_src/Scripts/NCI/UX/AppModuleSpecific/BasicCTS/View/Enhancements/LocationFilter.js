@@ -202,7 +202,7 @@ define(function(require) {
 		var hasMultipleUSStates = (countrystates.length > 0 && countrystates[0].name == 'U.S.A.' && countrystates[0].states.length > 1);
 		
 		var addSelectContainer = false;
-		var $selectContainer = $('<div class="row">');
+		var $selectContainer = $('<div class="row location-filter">');
 
 		if (hasMultipleUSStates) {
 			_renderStateSelectors($locationContainer, $selectContainer);

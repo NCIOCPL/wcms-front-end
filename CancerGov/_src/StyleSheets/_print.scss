@@ -40,6 +40,10 @@
 	}
 	
 	.ui-accordion {	
+		.accordion-controls, .location-filter, .location-link {
+			display: none;
+		}
+	
 		h2 {
 			font-size: 1.75em !important;
 			margin: 1.0em 0 0.5em 0 !important;
