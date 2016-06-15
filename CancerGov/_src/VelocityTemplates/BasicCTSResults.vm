@@ -118,3 +118,7 @@
     </div>
   </a>
 </div>
+
+## Javascript snippet to fire off tracking for pageload ##
+## TODO: Pass in params
+<script type="text/javascript">$(function(){CTSResultsAnalytics.trackOnPageLoad()});</script>
