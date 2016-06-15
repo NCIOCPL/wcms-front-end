@@ -1,6 +1,7 @@
 /****************** BEGIN Delighters styling ***************** */
 .delighter-rail {
   margin-right: -65px;
+  width: calc(25% + 45px);
   float: right;
 
   a, a:hover, a:active {
@@ -9,7 +10,7 @@
 
   > a {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
     &:hover .delighter:before {
       content: " ";
@@ -29,7 +30,7 @@
 
   .cts-livehelp {
     border: 3px solid #2c13a3;
-    margin-bottom:10px;
+    margin-bottom:20px;
 
     p, a, li, span, h4 {
       color: #4938bc !important;
@@ -168,6 +169,8 @@
 @include bp(medium-down) {
   .delighter-rail {
     margin-right: -15px;
+    width: calc(25% + 10px);
+    padding-right:0;
   }
 
   #delighter-homePage {
@@ -180,7 +183,9 @@
 /* Mobile styles */
 @include bp(small) {
   .delighter-rail {
-    margin: 0;
+    margin: 20px 0 0;
+    padding:0;
+    width:100%;
   }
 
   .delighter {

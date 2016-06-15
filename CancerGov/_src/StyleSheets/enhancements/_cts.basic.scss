@@ -137,24 +137,36 @@ $icon-expand-width: 20px;
   padding-top: 2em;
   position: relative;
   
-	  .accordion-controls {
-	  position: absolute;
-	  top: 0;
-	  right: 0;
+  .accordion-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
 
-	  a {
-		font:normal 13px Montserrat, Arial, sans-serif;
-		&:last-child {
-		  margin-left:30px;
-		}
-	  }
-	}
+    a {
+      font:normal 13px Montserrat, Arial, sans-serif;
+      &:last-child {
+        margin-left:30px;
+      }
+    }
+  }
+  #state-selector-button,#country-selector-button {
+    width:70% !important;
+    margin-left:10px;
+  }
 }
 
-/* tablet and mobile
-@include bp(medium) {
+/* tablet and mobile */
+@include bp(medium-down) {
   #cgvBody .cts-share a.print {
     display: none;
+  }
+
+  .accordion {
+    #state-selector-button,#country-selector-button {
+      display:block;
+      margin-left:0;
+      margin-bottom:10px;
+    }
   }
 }
 
@@ -179,5 +191,10 @@ $icon-expand-width: 20px;
         display: none;
       }
 	}
+  }
+  .accordion {
+    #state-selector-button,#country-selector-button {
+      width:100% !important;
+    }
   }
 }
