@@ -136,7 +136,18 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #end
 
 <div class="large-9 columns">
-  <div class="status">
+  #if ($SearchResults.Trial.CurrentProtocolStatus == "Active")
+    #set($statusClass = " active")
+  #elseif($SearchResults.Trial.CurrentProtocolStatus == "Enrolling by invitation")
+    #set($statusClass = " invite")
+  #elseif($SearchResults.Trial.CurrentProtocolStatus == "Temporarily closed")
+    #set($statusClass = " closed")
+  #elseif($SearchResults.Trial.CurrentProtocolStatus == "Not yet active")
+    #set($statusClass = " not-active")
+  #else
+    #set($statusClass = "")
+  #end
+  <div class="status $statusClass">
     Status: $SearchResults.Trial.CurrentProtocolStatus
   </div>
   <div class="accordion desktop">
