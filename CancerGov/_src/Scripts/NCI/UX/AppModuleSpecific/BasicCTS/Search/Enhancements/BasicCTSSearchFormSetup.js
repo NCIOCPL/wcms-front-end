@@ -3,6 +3,7 @@ define(function(require) {
 	require('Common/Plugins/Widgets/jquery.ui.autocompleteselector');
 	require('BasicCTSSearch/Plugins/jquery.basicctsformtrack');
 	var NCI = require('Common/Enhancements/NCI');
+	var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
 	var messages = {
 		ctError:'Please select a cancer type from the list.',
@@ -89,11 +90,12 @@ define(function(require) {
 	 */
 	function _trackTypePhraseToggleAnalytics(sender, proptext) {
 		var pageName = sender.ownerDocument.location.hostname + sender.ownerDocument.location.pathname;
+		var s = AdobeAnalytics.getInstance();
 
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'TypeKeywordToggle');
 
 		clickParams.Props = {
-				5: proptext + "|" + pageName
+				5: proptext + "|" + s.pageName
 		};
 		clickParams.LogToOmniture();
 	}
