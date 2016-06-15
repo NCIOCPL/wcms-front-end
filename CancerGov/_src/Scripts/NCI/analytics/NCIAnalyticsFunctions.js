@@ -1420,6 +1420,22 @@ var NCIAnalytics = {
 		};
 		clickParams.LogToOmniture();
 	},
+
+    /******************************************************************************************************
+	* Track search result click on CTS Results page
+	*/
+	CTSResultsClick: function(sender, rank) {
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
+		clickParams.Events = [42];
+		clickParams.Props = {
+			12: 'clinicaltrials_basic',
+			13: rank
+		};
+		clickParams.Evars = {
+			12: 'clinicaltrials_basic'
+		};
+		clickParams.LogToOmniture();
+	},
     //******************************************************************************************************
     /* SPLF_Hier1: function() {
      // URL structure
