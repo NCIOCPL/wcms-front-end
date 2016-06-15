@@ -42,7 +42,10 @@
         </div>
         </div>
       #nodata
-      No Items
+		<p>No results were found matching your criteria.</p>
+        <li>Please check if your spelling is correct.</li>
+        <li>Please check if your zip code and age are valid.</li>
+        <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4CANCER (1-800-622-6237).</p>
     #end
     </div>
 
@@ -70,25 +73,29 @@
 <div class="large-9 columns">
   #if($SearchResults.Results.TotalResults > 0)
     #if($SearchResults.Control.HasInvalidParams() == false)
-      <h5 id="ui-id-4">
-        Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of $SearchResults.Results.TotalResults for: $SearchResults.Control.GetParamsList()
-      </h5>
+	  <h5 id="ui-id-4">
+		Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of $SearchResults.Results.TotalResults for: $SearchResults.Control.GetParamsList($SearchResults.Results.TotalResults)
+	  </h5>
       <br>
       #DrawResults($SearchResults)
     #else
-      <p>No results were found matching your criteria.</p>
-      <li>Please check if your spelling is correct.</li>
-      <li>Please check if your zip code and age are valid.</li>
-      <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4CANCER (1-800-622-6237).</p>
-      <br>
-      <a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
+	  <div>
+		  No results were found matching your criteria.
+		  <li>Please check if your spelling is correct.</li>
+		  <li>Please check if your zip code and age are valid.</li>
+		  For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4CANCER (1-800-622-6237).
+		  <br>
+		  <a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
+	  </div>
     #end
   ## If there are no results, then we need to show a different message
   #else
-    <p>No clinical trials matched your search for $SearchResults.Control.NoResultsParams().</p>
-    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4CANCER (1-800-622-6237).</p>
-    <br>
-    <a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
+    <div>
+		No clinical trials matched your search for $SearchResults.Control.GetParamsList($SearchResults.Results.TotalResults).
+		<p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4CANCER (1-800-622-6237).</p>
+		<br>
+		<a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
+	</div>
   #end
 </div>
   
