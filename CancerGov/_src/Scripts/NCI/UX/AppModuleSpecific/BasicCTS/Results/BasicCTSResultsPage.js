@@ -5,6 +5,6 @@ define(function(require) {
 		require('BasicCTSCommon/Enhancements/Delighters').init();
 		require('UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics').init();
 		require('UX/AppModuleSpecific/BasicCTS/Results/Enhancements/ctsResultsAnalytics').init();
-		require('UX/AppModuleSpecific/BasicCTS/Results/Components/ctsResultsAnalytics').init();
+		require('UX/AppModuleSpecific/BasicCTS/Results/Components/ctsResultsAnalytics');
 	});
 });
