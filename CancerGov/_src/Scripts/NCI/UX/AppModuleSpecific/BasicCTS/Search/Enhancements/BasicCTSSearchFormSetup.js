@@ -82,16 +82,42 @@ define(function(require) {
 	}
 
 
+	/**
+	 * Tracks the analytics for the Cancer Type/Keyword toggle
+	 * @param  {[type]} sender   The element that raised the event
+	 * @param  {[type]} proptext The text to track (clinicaltrial_search_by_keyword or clinicaltrial_search_by_cancer_type)
+	 */
+	function _trackTypePhraseToggleAnalytics(sender, proptext) {
+		var pageName = sender.ownerDocument.location.hostname + sender.ownerDocument.location.pathname;
 
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'TypeKeywordToggle');
+
+		clickParams.Props = {
+				5: proptext + "|" + pageName
+		};
+		clickParams.LogToOmniture();
+	}
 
 	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
 	 * @return {[type]} Initialize Object
 	 */
 	function _initialize() {
+
 		//Add click handlers to the toggle
-		$('.basiccts-cancertype-toggle').click(function(){_showCancerType(); return false;});
-		$('.basiccts-keyword-toggle').click(function(){_showKeyword(); return false;});
+		$('.basiccts-cancertype-toggle').click(function(){
+			_showCancerType();
+			_trackTypePhraseToggleAnalytics(this, "clinicaltrial_search_by_cancer_type");
+
+			return false;
+		});
+
+		$('.basiccts-keyword-toggle').click(function(){
+			_showKeyword();
+			_trackTypePhraseToggleAnalytics(this, "clinicaltrial_search_by_keyword");
+			return false;
+		});
+
 		_showCancerType(); //Start by hiding the keyword input.
 
 		$('#ct')
