@@ -1413,10 +1413,10 @@ var NCIAnalytics = {
     /******************************************************************************************************
 	* Track link clicks on CTS pages
 	*/
-	SimpleCTSLink: function(sender, value) {
+	SimpleCTSLink: function(sender, type, value) {
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
-		clickParams.Evars = {
-			5: value
+		clickParams.Props = {
+			5: 'clinical trial_' + type + '|' + value
 		};
 		clickParams.LogToOmniture();
 	},
