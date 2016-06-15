@@ -161,6 +161,15 @@ $icon-expand-width: 20px;
     width:70% !important;
     margin-left:10px;
   }
+  .location-text {
+    display:inline-block;
+    width:65%;
+    margin-bottom:10px;
+  }
+  #proximity-trialslist > div:first-of-type {
+    clear:both;
+    margin-top:20px;
+  }
 }
 
 /* tablet and mobile */
@@ -207,5 +216,15 @@ $icon-expand-width: 20px;
       margin-left:0;
       width:100% !important;
     }
+    .location-text {
+      width:100%;
+      float:none;
+    }
+    .location-link {
+      display:block;
+      margin-top:10px;
+      float:none !important;
+    }
+
   }
 }
