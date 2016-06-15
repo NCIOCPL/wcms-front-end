@@ -21,6 +21,17 @@
   <br>
 #end
 
+#macro(DrawNoResultsText)
+  <div>
+    No results were found matching your criteria.
+    <li>Please check if your spelling is correct.</li>
+    <li>Please check if your zip code and age are valid.</li>
+    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+    <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
+	<br>
+  </div>
+#end
+
 #macro(DrawResults $SearchResults)
   <div class="cts-results-container">
     #foreach($resultItem in $SearchResults.Results.Results)
@@ -42,10 +53,7 @@
         </div>
         </div>
       #nodata
-		<p>No results were found matching your criteria.</p>
-        <li>Please check if your spelling is correct.</li>
-        <li>Please check if your zip code and age are valid.</li>
-        <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+		#DrawNoResultsText()
     #end
     </div>
 
@@ -73,20 +81,17 @@
 <div class="large-9 columns">
   #if($SearchResults.Results.TotalResults > 0)
     #if($SearchResults.Control.HasInvalidParams() == false)
-	  <h5 id="ui-id-4">
-		Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of $SearchResults.Results.TotalResults for: $SearchResults.Control.GetParamsList($SearchResults.Results.TotalResults)
-	  </h5>
-      <br>
+	  #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
+	    <h5 id="ui-id-4">
+		  Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of $SearchResults.Results.TotalResults for: $SearchResults.Control.GetParamsList($SearchResults.Results.TotalResults)
+	    </h5>
+        <br>
+	  #else
+	    ## Draw no title here
+	  #end
       #DrawResults($SearchResults)
     #else
-	  <div>
-		  No results were found matching your criteria.
-		  <li>Please check if your spelling is correct.</li>
-		  <li>Please check if your zip code and age are valid.</li>
-		  For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).
-		  <br>
-		  <a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
-	  </div>
+	  #DrawNoResultsText()
     #end
   ## If there are no results, then we need to show a different message
   #else
@@ -107,7 +112,9 @@
     <p class="chat-with-us">
       <a href="/contact">Chat with us: <img alt="LiveHelp" src="/publishedcontent/images/images/design-elements/background-graphics/livehelp-delighter.png" class="live-help-button"></a>
     </p>
-    <p>Call us: <span>1-800-4-CANCER</span></p>
+    <p>Call us:
+	  <br><span>1-800-4-CANCER</span>
+	</p>
     <p><span>(1-800-422-6237)</span></p>
   </div>
   <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">
