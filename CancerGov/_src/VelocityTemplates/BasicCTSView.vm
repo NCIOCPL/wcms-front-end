@@ -62,8 +62,8 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   #else
   <div>
   	#if($SearchResults.Control.GetShowAll() > 0)
-		<span class="right">
-			<a id="location-link" href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#ui-id-6">Show locations near me</a>
+		<span class="right location-link">
+			<a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#ui-id-6">Show locations near me</a>
 		</span>
 		#end
 
@@ -121,12 +121,10 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   #DrawNoLocations()##
   #else
 
-  <span class="right">
-    <a id="location-link" href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#ui-id-6">Show all locations</a>
+  <span class="location-text">Locations within $SearchResults.Control.ZipRadius miles of ZIP code "$SearchResults.Control.ZipLookup.PostalCode_ZIP"</span>
+  <span class="right location-link">
+    <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#ui-id-6">Show all locations</a>
   </span>
-  Locations within $SearchResults.Control.ZipRadius miles of ZIP code "$SearchResults.Control.ZipLookup.PostalCode_ZIP"
-  <br />
-  <br />
     #foreach($loc in $SearchResults.Trial.GetLocationsNearZip($SearchResults.Control.ZipLookup.GeoCode,$SearchResults.Control.ZipRadius))
     #each
       #DrawLocation($loc)
