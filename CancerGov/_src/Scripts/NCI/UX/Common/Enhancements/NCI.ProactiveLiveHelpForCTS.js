@@ -2,6 +2,7 @@ define(function(require){
 	
 	var $ = require('jquery');
 	var CookieManager = require('js-cookie');
+	var LiveChat = require('BasicCTSCommon/Enhancements/LiveChat');
 
 	// List of pages where the proactive search is active.
 	// These values MUST, MUST, MUST be lowercase.
@@ -13,11 +14,6 @@ define(function(require){
 		"/about-cancer/treatment/clinical-trials/search/results",
 		"/about-cancer/treatment/clinical-trials/search/view"
 	];
-
-	// Which chat server should be used? Test or production.
-	var _hostServer = null; // Will be set in initialize().
-	var HOST_SERVER_LIVE = "livehelp.cancer.gov";
-	var HOST_SERVER_TEST = "nci--tst.custhelp.com";
 
 	var POPUP_DELAY_SECONDS = 180;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Need help?";
@@ -49,19 +45,9 @@ define(function(require){
 	// Initialization for the enhancement.
 	function _initialize() {
 
-		if(_isACtsPage(location.pathname)) {
-			
-			_setHostServer();
-
-			// If the user hasn't opted out, and live help is available,
-			// Set up a countdown for the "Do you want help?" prompt.
-			if(!_userIsOptedOut() && _liveHelpIsAvailable()){
-				_initializeActivityCheck();
-				_initializeCountdownTimer();
-			}
-
-			// Connect chat button in delighter rail.
-			_connectDelighterChatButton();
+		if(_isACtsPage(location.pathname) && !_userIsOptedOut() && _liveHelpIsAvailable()){
+			_initializeActivityCheck();
+			_initializeCountdownTimer();
 		} else {
 			// If we're not on a CTS page, clear the timer if it exists.
 			CookieManager.remove(TIMING_COOKIE_NAME);
@@ -83,7 +69,7 @@ define(function(require){
 
 		var popupBody = POPUP_MESSAGE
 			+ '<form onsubmit="return false;">'
-			+ '<input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-buttons" value="Chat Now">'
+			+ '<input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-button" value="Chat Now">'
 			+ '</form>'
 			+ '<div class="live-help"</div>';
 		
@@ -91,7 +77,7 @@ define(function(require){
 		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><h2 class="title">' + POPUP_TITLE + '</h2><div class="content">' + popupBody + '</div></div>');
 		
 		$("#chat-button").click(function(){
-			_openChatWindow();
+			LiveChat.openChatWindow();
 			_dismissPrompt();
 		});
 		
@@ -101,6 +87,9 @@ define(function(require){
 		// Set up event handlers for the various ways to close the pop up
 		$(".ProactiveLiveHelpPrompt .close").click(function() { _dismissPrompt(); });
 		$(document).keypress(function(e) {if( e.keyCode == 27 && popupStatus == true) _dismissPrompt();});
+		
+		// Hook up analytics for the dynamically created elements.
+		_activatePromptAnalytics();
 	}
 
 	function _makePromptVisible() {
@@ -128,11 +117,6 @@ define(function(require){
 		}
 	}
 	
-	// Opens the external browser window (as opposed to the chat prompt which isn't really a window).
-	function _openChatWindow() {
-		window.open("https://" + _hostServer + "/app/chat/chat_landing?_icf_22=92", "ProactiveLiveHelpForCTS", "height=600,width=633");
-	}
-	
 	function _userIsOptedOut() {
 		var optedOut = !!CookieManager.get(OPT_OUT_COOKIE_NAME);
 		return optedOut;
@@ -143,18 +127,35 @@ define(function(require){
 	}
 
 
-	// Sets up a click handler on the chat button in the delighter rail for CTS pages.
-	function _connectDelighterChatButton() {
-		var button = $(".delighter.cts-livehelp .live-help-button");
-		if(!!button)
-			button.click(function(e){
-				_openChatWindow();
-				_dismissPrompt();
-				// Prevent any <a> tags from firing.
-				e.preventDefault();
+	function _activatePromptAnalytics(){
+		// Record prompt activation.
+		if(NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptDisplay)
+			NCIAnalytics.RecordProactiveChatPromptDisplay($(".ProactiveLiveHelpPrompt"));
+		console.log("recording chat button display");
+
+
+		// Set up analytics handler for "Chat Now" button.
+		var button = $(".ProactiveLiveHelpPrompt .chat-button");
+		if(!!button) {
+			button.click(function(){
+				if(NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptClick)
+					NCIAnalytics.RecordProactiveChatPromptClick(this);
+				console.log("recording click on \"Chat Now\" button.");
 			});
+		}
+
+		// Set up analytics for dismissal button.
+		button = $(".ProactiveLiveHelpPrompt .close");
+		if(!!button) {
+			button.click(function(){
+				if(NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptDismissal)
+					NCIAnalytics.RecordProactiveChatPromptDismissal(this);
+				console.log("recording chat dismissal.");
+			});
+		}
 	}
 
+	
 	
 	var _countdownIntervalID;
 	
@@ -224,6 +225,7 @@ define(function(require){
 		 live help server.)
 	*/
 	function _liveHelpIsAvailable(){
+		return true;
 		var isOpen = false;
 		
 		var dateNow = new Date();
@@ -357,18 +359,6 @@ define(function(require){
 		var now = new Date().getTime(); // Time in milliseconds
 		var elapsed = now - _userActivity.lastActivityTime;
 		return Math.floor(elapsed / 1000);
-	}
-	
-	// Sets the _hostServer variable to the correct chat server depending on
-	// the current environment.  PROD uses the production server, everywhere
-	// else uses the test server.
-	function _setHostServer() {
-		var currentHost = location.hostname.toLowerCase();
-		
-		if(currentHost === "www.cancer.gov")
-			_hostServer = HOST_SERVER_LIVE;
-		else
-			_hostServer = HOST_SERVER_TEST;
 	}
 	
 	/* Flag for telling whether this enhancement has been initialized. */
