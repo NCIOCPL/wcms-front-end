@@ -1,3 +1,7 @@
+.large-8 .row:nth-child(2) {
+	font-size: 14px;
+}
+
 /* Basic Search Form */
 .clinical-trials-search-form {
   input {
@@ -30,6 +34,10 @@
 			font-size: 16px;
 			font-weight: normal;
 			margin-top: 15px;
+		}
+		// targeting the descripters below the form fields on the basic search page
+		.large-8 .row:nth-child(2) {
+			font-size: 14px;
 		}
 	}
 }
