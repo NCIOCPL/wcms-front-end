@@ -8,12 +8,29 @@
     text-decoration: none;
   }
 
+  > a {
+    display: block;
+    margin-bottom: 10px;
+
+    &:hover .delighter:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top:0;
+      left:0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(3,3,3,0.2);
+    }
+  }
+
   p {
     line-height: 1.166667 !important;
   }
 
   .cts-livehelp {
     border: 3px solid #2c13a3;
+    margin-bottom:10px;
 
     p, a, li, span, h4 {
       color: #4938bc !important;
@@ -75,14 +92,15 @@
 
 }
 .delighter {
+  position: relative;
   background-color: #fbfbfb;
   border-right: 0 !important;
-  margin-bottom: 18px;
   padding: 15px;
   font-size: 0.80em;
   font-family: Montserrat;
 
   h4, p, hr {
+    position: relative;
     margin: 0;
   }
   hr {
@@ -93,14 +111,15 @@
     color: black;
   }
   .chat-with-us {
-		margin-bottom: 10px;
-		
-		.live-help-button {
-   		width: 83.5px;
-    	height: 28px;
-			background: none;
-  	}
-	}
+    margin-bottom: 10px;
+
+    .live-help-button {
+      width: 83.5px;
+      height: 28px;
+      background: none;
+    }
+  }
+
 }
 
 #delighter-homePage {
