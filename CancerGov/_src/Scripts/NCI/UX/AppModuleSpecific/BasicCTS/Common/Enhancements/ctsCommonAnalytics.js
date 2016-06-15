@@ -1,13 +1,16 @@
 define(function(require) {
 	var $ = require('jquery');
+  var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
 	/***
 	* Main function
 	*/
 	function _initialize() {
 		/* Track right rail links */
-		var pageName = document.location.hostname + document.location.pathname;
-		var identifier = '';		
+		var s = AdobeAnalytics.getInstance();
+		var pageName = s.pageName;
+		
+		var identifier = '';
 		$('a .delighter.cts-which').on('click.analytics', function (e) {
 			var $this = $(this);
 			identifier = 'rrail_which trials are right for you';
