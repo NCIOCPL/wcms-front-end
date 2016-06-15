@@ -360,6 +360,10 @@ module.exports = function(grunt) {
 			files: '<%= dirs.src.scripts %>**/*.js',
 			tasks: ['build-scripts:' + 'dev']
 		},
+		vm: {
+			files: '<%= dirs.src.velocitytemplates %>**/*.vm',
+			tasks: ['build-templates:' + 'dev']
+		},
 		templates: {
 			files: [
 				'<%= dirs.src.templates %>*.aspx',
