@@ -88,7 +88,6 @@
          * @return {[type]}        [description]
          */
         adobeCall: function(action, args) {
-          var s = sInstance.getInstance();
 
           var formPropHolder = this.options.formName + '|' + action;
           var trackString = 'formAnalysis|' + formPropHolder;
