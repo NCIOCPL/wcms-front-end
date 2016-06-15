@@ -11,9 +11,9 @@
     font-size: 12px;
   }
 	.row {
-		padding-bottom: 10px;	
+		padding-bottom: 10px;
 	}
-	
+
 	// zip code
 	#z {
 		width: 25%;
@@ -23,7 +23,7 @@
 		width: 15%;
 	}
 	.submit.button {
-		margin-top: 30px;	
+		margin-top: 30px;
 	}
 	&.basic-search {
 		label {
@@ -50,10 +50,29 @@
 .status {
   float:left;
   margin-left:-0.9375em; //negative gutter margin
-  margin-bottom:20px;
+  margin-bottom:10px;
   font:normal 16px Montserrat, Arial, sans-serif;
   text-transform: uppercase;
   color:#7F3187;
+  border: 2px solid #7F3187;
+  padding: 10px 15px;
+
+  &.active {
+    color: #2DC799;
+    border-color: #2DC799;
+  }
+  &.invite {
+    color: #82368C;
+    border-color: #82368C;
+  }
+  &.closed {
+    color: #BB0E3D;
+    border-color: #BB0E3D;
+  }
+  &.not-active {
+    color: #606060;
+    border-color: #606060;
+  }
 }
 
 $icon-expand-width: 20px;
