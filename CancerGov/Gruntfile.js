@@ -361,10 +361,17 @@ module.exports = function(grunt) {
 			tasks: ['build-scripts:' + 'dev']
 		},
 		templates: {
-			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
+			files: [
+				'<%= dirs.src.templates %>*.aspx',
+				'<%= dirs.src.templates %>Includes/*.inc',
+				'<%= dirs.src.sublayouttemplates %>*.ascx',
+				'<%= dirs.src.sublayouttemplates %>Includes/*.inc',
+				'<%= dirs.src.velocitytemplates %>*.vm',
+				'<%= dirs.src.velocitytemplates %>Includes/*.inc',
+				'<%= dirs.src.velocitytemplates %>/*.inc'
+			],
 			tasks: ['build-templates:' + 'dev']
 		}
-		//NOT adding sublayouts or dynamic list templates, I wonder why templates are here...
 	});
 
 
