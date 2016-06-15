@@ -10,30 +10,18 @@ define(function(require) {
 		var identifier = '';		
 		$('a .delighter.cts-which').on('click.analytics', function (e) {
 			var $this = $(this);
-			indentifier = 'rrail_which trials are right for you|' + pageName;
-			NCIAnalytics.SimpleCTSLink($this, identifier);
+			identifier = 'rrail_which trials are right for you';
+			NCIAnalytics.SimpleCTSLink($this, identifier, pageName);
 		});
 		$('a .delighter.cts-what').on('click.analytics', function (e) {
 			var $this = $(this);
-			indentifier = 'rrail_what are cancer clinical trials|' + pageName;
-			NCIAnalytics.SimpleCTSLink($this, identifier);
+			identifier = 'rrail_what are cancer clinical trials';
+			NCIAnalytics.SimpleCTSLink($this, identifier, pageName);
 		});
 		$('a .delighter.cts-next-step').on('click.analytics', function (e) {
 			var $this = $(this);
-			indentifier = 'rrail_how to find a cancer treatment trial|' + pageName;
-			NCIAnalytics.SimpleCTSLink($this, identifier);
-		});
-		
-		/* Track print & email clicks*/
-		$('.po-email').on('click.analytics', 'a', function (e) {
-			var $this = $(this);
-			indentifier = 'clinical trial_email|' + pageName;
-			NCIAnalytics.SimpleCTSLink($this, identifier);
-		});
-		$('.po-print').on('click.analytics', 'a', function (e) {
-			var $this = $(this);
-			indentifier = 'clinical trial_print|' + pageName;
-			NCIAnalytics.SimpleCTSLink($this, identifier);
+			identifier = 'rrail_how to find a cancer treatment trial';
+			NCIAnalytics.SimpleCTSLink($this, identifier, pageName);
 		});
 	}
 

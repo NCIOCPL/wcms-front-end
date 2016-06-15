@@ -3,5 +3,6 @@ define(function(require) {
 
 	$(document).ready(function($){		
 		require('BasicCTSCommon/Enhancements/Delighters').init();
+	require('UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics').init();
 	});
 });
