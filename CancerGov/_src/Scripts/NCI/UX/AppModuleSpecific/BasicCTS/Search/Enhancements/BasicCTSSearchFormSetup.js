@@ -43,7 +43,7 @@ define(function(require) {
 	function _validateAge(val){
 		// match 1-9 or 10-99 or 100-119
 		// numbers only, no dashes or dots allowed
-		var pattern = /^[1-9]$|^[1-9][0-9]$|^1[0-1][0-9x]|^120$/;
+		var pattern = /^[1-9]$|^[1-9][0-9]$|^1[0-1][0-9]|^120$/;
 		return val.match(pattern);
 	}
 
