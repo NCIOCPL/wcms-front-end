@@ -1367,7 +1367,6 @@ var NCIAnalytics = {
 				5 : 'rrail_chat with us|[' + pageName + ']'
 			};
 			clickParams.LogToOmniture();
-			console.log("Recorded livehelp click on delighter rail");
 		}
 	},
 
@@ -1381,7 +1380,6 @@ var NCIAnalytics = {
 		};
 		clickParams.Events = [42];
 		clickParams.LogToOmniture();
-		console.log("Recording display of chat prompt.");
 	},
 
 	// Record that the proactive "Chat Now" button was clicked.
@@ -1394,7 +1392,6 @@ var NCIAnalytics = {
 		};
 		clickParams.Events = [44];
 		clickParams.LogToOmniture();
-		console.log("Recording click of \"Chat Now\" button.");
 	},
 
 	// Record that the proactive chat prompt was dismissed.
@@ -1407,7 +1404,6 @@ var NCIAnalytics = {
 		};
 		clickParams.Events = [43];
 		clickParams.LogToOmniture();
-		console.log("Recording dismisal of chat prompt.");
 	},
 	
     /******************************************************************************************************
