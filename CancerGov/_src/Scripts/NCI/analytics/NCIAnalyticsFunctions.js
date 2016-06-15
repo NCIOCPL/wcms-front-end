@@ -1374,7 +1374,7 @@ var NCIAnalytics = {
 	// sender - the element responsible for this event.
 	// type - the delighter type.
 	RecordDelighterRailClick: function(sender, type) {
-		var pageName = window.location.hostname + window.location.pathname;
+		var pageName = s.pageName;
 		if( type === 'livehelp'){
 			clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'DelighterLiveChat');
 			clickParams.Props = {
@@ -1387,7 +1387,7 @@ var NCIAnalytics = {
 	// Record that the proactive chat prompt was displayed.
 	// sender - the element responsible for this event.
 	RecordProactiveChatPromptDisplay: function(sender){
-		var pageName = window.location.hostname + window.location.pathname;
+		var pageName = s.pageName;
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
 		clickParams.Props = {
 			5 : 'livehelp_proactive chat - display|' + pageName
@@ -1399,7 +1399,7 @@ var NCIAnalytics = {
 	// Record that the proactive "Chat Now" button was clicked.
 	// sender - the element responsible for this event.
 	RecordProactiveChatPromptClick: function(sender){
-		var pageName = window.location.hostname + window.location.pathname;
+		var pageName = s.pageName;
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
 		clickParams.Props = {
 			5 : 'livehelp_proactive chat - launch|' + pageName
@@ -1411,7 +1411,7 @@ var NCIAnalytics = {
 	// Record that the proactive chat prompt was dismissed.
 	// sender - the element responsible for this event.
 	RecordProactiveChatPromptDismissal: function(sender){
-		var pageName = window.location.hostname + window.location.pathname;
+		var pageName = s.pageName;
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'ProactiveChat');
 		clickParams.Props = {
 			5 : 'livehelp_proactive chat - dismiss|' + pageName
