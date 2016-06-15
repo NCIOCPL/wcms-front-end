@@ -7,9 +7,9 @@ define(function(require) {
 	*/
 	function _initialize() {
 		/* Track right rail links */
-		var s = AdobeAnalytics.getInstance();
+		var s = AdobeAnalytics.getSObject();
 		var pageName = s.pageName;
-		
+
 		var identifier = '';
 		$('a .delighter.cts-which').on('click.analytics', function (e) {
 			var $this = $(this);

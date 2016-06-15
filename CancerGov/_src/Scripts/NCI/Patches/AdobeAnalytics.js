@@ -5,8 +5,11 @@
  */
 define(function(require) {
 	return {
-			getInstance: function() {
+			getSObject: function() {
 				return window.s;
+			},
+			getInstance: function() {
+				return window.s_gi(window.s_account);
 			}
 	}
 });

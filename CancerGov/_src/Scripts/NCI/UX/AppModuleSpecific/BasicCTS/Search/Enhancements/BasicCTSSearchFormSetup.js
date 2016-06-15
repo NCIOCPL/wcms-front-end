@@ -90,7 +90,7 @@ define(function(require) {
 	 */
 	function _trackTypePhraseToggleAnalytics(sender, proptext) {
 		var pageName = sender.ownerDocument.location.hostname + sender.ownerDocument.location.pathname;
-		var s = AdobeAnalytics.getInstance();
+		var s = AdobeAnalytics.getSObject();
 
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'TypeKeywordToggle');
 
