@@ -23,11 +23,6 @@ define(function(require) {
 			identifier = 'rrail_how to find a cancer treatment trial';
 			NCIAnalytics.SimpleCTSLink($this, identifier, pageName);
 		});
-		$('#delighter-homePage a').on('click.analytics',function(e){
-			var $this = $(this);
-			identifier = 'hp_find';
-			NCIAnalytics.HomePageDelighterClick($this, identifier, pageName);
-		});
 	}
 
 	/**
