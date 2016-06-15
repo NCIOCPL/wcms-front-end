@@ -28,7 +28,7 @@
         #end
 
         #if (!$Tools.IsNullOrWhitespace($loc.CTGovContact.Email))
-        Email: $loc.CTGovContact.Email
+        Email: <a href="mailto:$loc.CTGovContact.Email">$loc.CTGovContact.Email</a>
         #end
         #end
         <br>
@@ -233,7 +233,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       <div>
         <strong>Primary ID</strong> $SearchResults.Trial.OrgStudyID <br>
           <strong>Secondary IDs</strong> $SearchResults.Trial.SecondaryIDList <br>
-            <strong>Clinicaltrials.gov ID</strong> $SearchResults.Trial.NCTID <br>
+            <strong>Clinicaltrials.gov ID</strong> <a href="http://clinicaltrials.gov/show/$SearchResults.Trial.NCTID">$SearchResults.Trial.NCTID</a> <br>
 
 			</div>
     </section>
