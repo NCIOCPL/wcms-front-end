@@ -26,7 +26,7 @@
     No results were found matching your criteria.
     <li>Please check if your spelling is correct.</li>
     <li>Please check if your zip code and age are valid.</li>
-    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
     <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
 	<br>
   </div>
@@ -97,7 +97,7 @@
   #else
     <div>
 		No clinical trials matched your search for $SearchResults.Control.GetParamsList($SearchResults.Results.TotalResults).
-		<p>For assistance, please contact our Cancer Information Service. You can <a href="/contact">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+		<p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
 		<br>
 		<a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
 	</div>
