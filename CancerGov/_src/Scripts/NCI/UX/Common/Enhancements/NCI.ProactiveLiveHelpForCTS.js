@@ -131,7 +131,6 @@ define(function(require){
 		// Record prompt activation.
 		if(NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptDisplay)
 			NCIAnalytics.RecordProactiveChatPromptDisplay($(".ProactiveLiveHelpPrompt"));
-		console.log("recording chat button display");
 
 
 		// Set up analytics handler for "Chat Now" button.
@@ -140,7 +139,6 @@ define(function(require){
 			button.click(function(){
 				if(NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptClick)
 					NCIAnalytics.RecordProactiveChatPromptClick(this);
-				console.log("recording click on \"Chat Now\" button.");
 			});
 		}
 
@@ -150,13 +148,12 @@ define(function(require){
 			button.click(function(){
 				if(NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptDismissal)
 					NCIAnalytics.RecordProactiveChatPromptDismissal(this);
-				console.log("recording chat dismissal.");
 			});
 		}
 	}
 
-	
-	
+
+
 	var _countdownIntervalID;
 	
 	function _initializeCountdownTimer(){

@@ -28,9 +28,7 @@ define(function(require){
 			$(el).click(function(e){
 				if(!!NCIAnalytics && !!NCIAnalytics.RecordDelighterRailClick)
 					NCIAnalytics.RecordDelighterRailClick(this, 'livehelp');
-				console.log("delighter click recorded");
 			});
-			console.log("delighter connected");
 		});
 	}
 
