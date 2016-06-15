@@ -1409,6 +1409,17 @@ var NCIAnalytics = {
 		clickParams.LogToOmniture();
 		console.log("Recording dismisal of chat prompt.");
 	},
+	
+    /******************************************************************************************************
+	* Track link clicks on CTS pages
+	*/
+	SimpleCTSLink: function(sender, value) {
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
+		clickParams.Evars = {
+			5: value
+		};
+		clickParams.LogToOmniture();
+	},
     //******************************************************************************************************
     /* SPLF_Hier1: function() {
      // URL structure
