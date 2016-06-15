@@ -2,16 +2,16 @@
 * Create a CTSResultsAnalytics object with functions that can be called from the .vm HTML
 */
 var CTSResultsAnalytics = {	
-	isEnabled: true,
 	/**
 	* Track specified events and variables on page load
-	* @param
-	* @param
-	* @param 
+	* @param count - total number of result items
+	* @param term - term or keyword used in search
+	* @param zip - zip code used in search
+	* @param age - age used in search
 	*/
-	trackOnPageLoad: function() {
+	trackOnPageLoad: function(count) {
 		s.events='event2'; // Internal search event
-		s.prop10='#'; // # of results
+		s.prop10=count; // # of results
 		s.eVar11=s.prop11='clinicaltrials_basic'; // Search type
 		s.eVar22=s.prop22='term|zip|age'; // Search criteria
 		s.t();
@@ -20,4 +20,3 @@ var CTSResultsAnalytics = {
 		//console.log("debugging statement");
 	}	
 };
-
