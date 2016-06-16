@@ -188,17 +188,11 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
         <div class="row">
           <div class="medium-6 columns">
             <strong>Trial Phase</strong>
+            <p>$SearchResults.GlossifiedPhase</p>
           </div>
           <div class="medium-6 columns">
             <strong>Trial Type</strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="medium-6 columns">
-            $SearchResults.GlossifiedPhase
-          </div>
-          <div class="medium-6 columns">
-            $SearchResults.Trial.JoinedTrialTypes
+            <p>$SearchResults.Trial.JoinedTrialTypes</p>
           </div>
         </div>
       </div>
