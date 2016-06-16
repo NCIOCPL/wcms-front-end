@@ -126,7 +126,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     #if($SearchResults.Control.HasInvalidParams() == false)
 	  #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
 	    <h5 id="ui-id-4">
-		  Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of $SearchResults.Results.TotalResults for: #DrawSearchParams($SearchResults)
+		  Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParams($SearchResults)
 	    </h5>
         <br>
 	  #else
