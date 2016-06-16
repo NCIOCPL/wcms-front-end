@@ -44,9 +44,8 @@
 
 /* Trial Description Page */
 .status {
-  float:left;
+  display:inline-block;
   margin-left:-0.9375em; //negative gutter margin
-  margin-bottom:10px;
   font:normal 16px Montserrat, Arial, sans-serif;
   text-transform: uppercase;
   color:#7F3187;
@@ -140,23 +139,21 @@ $icon-expand-width: 20px;
     }
   }
 }
-.accordion {
-  margin-top:20px;
-  padding-top: 2em;
-  position: relative;
-  
-  .accordion-controls {
-    position: absolute;
-    top: 0;
-    right: 0;
+.accordion-controls {
+  float:right;
+  margin:18px -0.9375em 10px 0; //negative right gutter margin
 
-    a {
-      font:normal 13px Montserrat, Arial, sans-serif;
-      &:last-child {
-        margin-left:30px;
-      }
+  a {
+    font:normal 13px Montserrat, Arial, sans-serif;
+    &:last-child {
+      margin-left:30px;
     }
   }
+}
+
+.accordion {
+  margin-top:20px;
+
   #country-selector-button, #state-selector-button {
     width:70% !important;
     margin-left:10px;
