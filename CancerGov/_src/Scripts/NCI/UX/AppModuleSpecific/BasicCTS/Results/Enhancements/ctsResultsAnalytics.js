@@ -1,25 +1,54 @@
 define(function(require) {
 	var $ = require('jquery');
 
+	
 	function _trackSearchFields($locationsContainer) {	
 		//Fetch 
 		var count = '';
-		var allParams = '';
-		$('#cgvBody')
-			.find('span[data-basiccts-searchparam]')
-			.each(function(index, element) {
-				$el = $(element);
-				$val = $el.attr('data-basiccts-searchparam');
-				if($val == 'n')
-					count = $el.text();
-				else
-					allParams += ($el.text() + '|'); 
-			});
-		s.events='event2'; // Internal search event
-		s.prop10=count; // # of results
-		s.eVar11=s.prop11='clinicaltrials_basic'; // Search type
-		s.eVar22=s.prop22=allParams; // Search criteria
-		s.t();	
+		
+		var count = $('span[data-basiccts-searchparam="n"]').text();
+		var type = $('span[data-basiccts-searchparam="t"]').text();
+		var keyword = $('span[data-basiccts-searchparam="q"]').text();
+		var age = $('span[data-basiccts-searchparam="a"]').text();
+		var zip = $('span[data-basiccts-searchparam="z"]').text();
+
+		var allParams = [];
+		
+		if(type)
+			allParams.push(type);
+		else if (keyword)
+			allParams.push(keyword);
+		else 
+			allParams.push("none");
+		
+		if (age)
+			allParams.push(age);
+		else
+			allParams.push("none");
+		
+		
+		if (zip)
+			allParams.push(zip);
+		else
+			allParams.push("none");
+		
+		var allParamStr = allParams.join("|");
+		
+		
+		var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_basic|results');
+          var props = {};
+          var evars = {};
+          var events = [2];
+
+        props[10] = count;
+		evars[11] = props[11] = 'clinicaltrials_basic';
+		evars[22] = props[22] = allParamStr;
+		
+            clickParams.Props = props;
+            clickParams.Evars = evars;
+            clickParams.Events = events;
+            clickParams.LogToOmniture();
+		
 	}
 
 	
