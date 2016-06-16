@@ -260,10 +260,10 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       <p>Refer to our guide on how to join a treatment trial.</p>
     </div>
   </a>
-	#set($currentUrl = $SearchResults.Control.PageInstruction.GetUrl("currenturl"))##
-	#set($printOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;print&#39;, &#39;$currentUrl&#39;); NCIAnalytics.PrintLink(this);")##
+	#set($currentUrl = $SearchResults.Control.PageInstruction.GetUrl("canonicalurl"))##
+	#set($printOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;print&#39;, &#39;www.cancer.gov$currentUrl&#39;); NCIAnalytics.PrintLink(this);")##
 	#set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
-	#set($emailOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;email&#39;, &#39;$currentUrl&#39;); NCIAnalytics.eMailLink(this); dynPopWindow(&#39;${emailUrl}&#39;, &#39;emailPopUp&#39;, &#39;height=525,width=492&#39;); return false;")##
+	#set($emailOnClick = "NCIAnalytics.SimpleCTSLink(this, &#39;email&#39;, &#39;www.cancer.gov$currentUrl&#39;); NCIAnalytics.eMailLink(this); dynPopWindow(&#39;${emailUrl}&#39;, &#39;emailPopUp&#39;, &#39;height=525,width=492&#39;); return false;")##
 	<div class="no-resize cts-share">
 		<div class="share-text">Share this clinical trial with your doctor:</div>
 		<a class="print" title="Print" href="#" onclick="$printOnClick">

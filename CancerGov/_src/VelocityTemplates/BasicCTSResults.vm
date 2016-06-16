@@ -153,7 +153,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     <h4 id="ui-id-2">Have a question?</h4>
     <p>We're here to help</p><hr>
     <p class="chat-with-us">
-      <a href="/contact">Chat with us: <img alt="LiveHelp" src="/publishedcontent/images/images/design-elements/background-graphics/livehelp-delighter.png" class="live-help-button"></a>
+      <a href="/contact">Chat with us: <img alt="LiveHelp" src="/publishedcontent/images/images/design-elements/background-graphics/live-help-logo.svg" class="live-help-button"></a>
     </p>
     <p>Call us:
 	  <br><span>1-800-4-CANCER</span>
