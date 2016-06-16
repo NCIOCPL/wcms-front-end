@@ -1,6 +1,28 @@
 define(function(require) {
 	var $ = require('jquery');
 
+	function _trackSearchFields($locationsContainer) {	
+		//Fetch 
+		var count = '';
+		var allParams = '';
+		$('#cgvBody')
+			.find('span[data-basiccts-searchparam]')
+			.each(function(index, element) {
+				$el = $(element);
+				$val = $el.attr('data-basiccts-searchparam');
+				if($val == 'n')
+					count = $el.text();
+				else
+					allParams += ($el.text() + '|'); 
+			});
+		s.events='event2'; // Internal search event
+		s.prop10=count; // # of results
+		s.eVar11=s.prop11='clinicaltrials_basic'; // Search type
+		s.eVar22=s.prop22=allParams; // Search criteria
+		s.t();	
+	}
+
+	
 	/***
 	* Main function
 	*/
@@ -14,6 +36,7 @@ define(function(require) {
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
 		});	
+		_trackSearchFields();
 	}
 
 	/**
@@ -32,7 +55,6 @@ define(function(require) {
 			}
 
 			_initialize();
-
 			initialized = true;
 		}
 	};
