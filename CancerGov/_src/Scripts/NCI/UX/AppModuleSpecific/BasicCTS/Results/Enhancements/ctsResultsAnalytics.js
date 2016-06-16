@@ -47,7 +47,6 @@ define(function(require) {
             clickParams.Evars = evars;
             clickParams.Events = events;
             clickParams.LogToOmniture();
-		
 	}
 
 	
@@ -56,11 +55,20 @@ define(function(require) {
 	*/
 	function _initialize() {
 		
+		var url = document.URL;
+		var pn;
+		if(url.indexOf("pn=") > -1)
+			pn = url.substring(url.indexOf("pn=") + 3, url.length);
 		/* Track clicks of individual results */
 		$('.clinical-trial-individual-result').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
-					rank = $this.index('.clinical-trial-individual-result a');
+					rank = $this.index('.clinical-trial-individual-result a') + 1;
+					rank += '|page ';
+					if(pn)
+						rank += pn;
+					else 
+						rank += '1';
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
 		});	
