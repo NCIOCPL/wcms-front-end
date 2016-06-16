@@ -53,7 +53,7 @@
 
                 // whenever input value changes do something with input id
                 // could change event - change method too
-                $input.on('change', function() {
+                $input.on('change keyup paste', function() {
                     self.state.lastFieldTouched = this.id;
 
                     // set isStarted to true on a successful change
