@@ -5,7 +5,7 @@
     } else {
         // Browser globals
         factory(jQuery, {
-          getInstance() {
+          getInstance: function() {
               return window.s;
           }
         });
