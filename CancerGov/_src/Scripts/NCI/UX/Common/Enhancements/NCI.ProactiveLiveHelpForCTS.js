@@ -7,10 +7,12 @@ define(function(require){
 	// List of pages where the proactive search is active.
 	// These values MUST, MUST, MUST be lowercase.
 	var CTS_URLS = [
-		"/about-cancer/treatment/clinical-trials/basic",
-		"/about-cancer/treatment/clinical-trials/basic/results",
-		"/about-cancer/treatment/clinical-trials/basic/view",
 		"/about-cancer/treatment/clinical-trials/search",
+		// 'basic' included for initial development, can be removed once paths updated on all tiers
+		"/about-cancer/treatment/clinical-trials/basic",
+		"/about-cancer/treatment/clinical-trials/search/r",
+		"/about-cancer/treatment/clinical-trials/search/v",
+		"/about-cancer/treatment/clinical-trials/advanced-search",
 		"/about-cancer/treatment/clinical-trials/search/results",
 		"/about-cancer/treatment/clinical-trials/search/view"
 	];
