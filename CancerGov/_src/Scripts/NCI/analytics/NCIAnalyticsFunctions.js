@@ -1426,7 +1426,7 @@ var NCIAnalytics = {
 	SimpleCTSLink: function(sender, type, value) {
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
 		clickParams.Props = {
-			5: 'clinical trial_' + type + '|' + value
+			5: type + '|' + value
 		};
 		clickParams.LogToOmniture();
 	},
