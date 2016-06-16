@@ -138,7 +138,7 @@ define(function(require) {
 				if (_validateNotNull($this.val()) && !_validateLocked($this)) {
 					_toggleError(false,$this);
 					//clear value if invalid - must select from list
-					$this.val('');
+					//$this.val('');
 				} else {
 					_toggleError(true,$this);
 				}
