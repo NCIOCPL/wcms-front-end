@@ -63,12 +63,12 @@ define(function(require) {
 
 		if(valid && !skipTrue){
 			el.removeClass("error");
-			el.prev('.error-msg').hide();
+			el.prev('.error-msg').css('visibility','hidden');
 		}
 		if(!valid){
 			el.addClass("error");
 			if(el.prev('.error-msg')[0]){
-				el.prev('.error-msg').show();
+				el.prev('.error-msg').css('visibility','visible');
 			} else {
 				el.before('<div class="error-msg">' + el.data("error-message") + '</div>');
 

@@ -1,5 +1,5 @@
 .large-8 .row:nth-child(2) {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 /* Basic Search Form */
@@ -11,35 +11,36 @@
     margin:20px 0 0;
   }
   .error-msg {
+    margin-top:-20px;
     color:#c60f13;
     font-size: 12px;
   }
-	.row {
-		padding-bottom: 10px;
-	}
+  .row {
+    padding-bottom: 10px;
+  }
 
-	// zip code
-	#z {
-		width: 25%;
-	}
-	// age
-	#a {
-		width: 15%;
-	}
-	.submit.button {
-		margin-top: 30px;
-	}
-	&.basic-search {
-		label {
-			font-size: 16px;
-			font-weight: normal;
-			margin-top: 15px;
-		}
-		// targeting the descripters below the form fields on the basic search page
-		.large-8 .row:nth-child(2) {
-			font-size: 14px;
-		}
-	}
+  // zip code
+  #z {
+    width: 25%;
+  }
+  // age
+  #a {
+    width: 15%;
+  }
+  .submit.button {
+    margin-top: 30px;
+  }
+  &.basic-search {
+    label {
+      font-size: 16px;
+      font-weight: normal;
+      margin-top: 15px;
+    }
+    // targeting the descripters below the form fields on the basic search page
+    .large-8 .row:nth-child(2) {
+      font-size: 14px;
+    }
+  }
 }
 
 /* Trial Description Page */
@@ -89,18 +90,18 @@ $icon-expand-width: 20px;
   $icon-po-width: 23px;
   .cts-share {
     margin-top: 30px;
-	margin-left: 10px;
-	
-	vertical-align: top;
+    margin-left: 10px;
 
-  
-	.share-text {
-	  font-family: $noto-font-stack;
-	  font-size: 16px;
-	  line-height: 18px;
-	  margin-right: 15px;
-	}
-  
+    vertical-align: top;
+
+
+    .share-text {
+      font-family: $noto-font-stack;
+      font-size: 16px;
+      line-height: 18px;
+      margin-right: 15px;
+    }
+
     a {
       display:inline-block;
       width:7em;
@@ -110,7 +111,7 @@ $icon-expand-width: 20px;
       color:#fff;
       font: normal 14px Montserrat, Arial, sans-serif;
       text-align: center;
-	  margin: 10px 10px 0 0;
+      margin: 10px 10px 0 0;
       &[title="Print"]{
         background-color: #24B2A1;
       }
@@ -190,22 +191,22 @@ $icon-expand-width: 20px;
   #cgvBody .cts-share {
     max-width: 300px;
     margin: 15px auto;
-	position: relative;
-	
-	.share-text {
-	  margin: 0;
-	  display: inline-block;
-	  width: 12em;
-	  margin-bottom: 1em;
-	}
-	
-	a {
-	  margin: 0;
-	  
-	  &.print {
+    position: relative;
+
+    .share-text {
+      margin: 0;
+      display: inline-block;
+      width: 12em;
+      margin-bottom: 1em;
+    }
+
+    a {
+      margin: 0;
+
+      &.print {
         display: none;
       }
-	}
+    }
   }
   .accordion {
     #state-selector-button,#country-selector-button {
