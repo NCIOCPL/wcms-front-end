@@ -20,15 +20,14 @@ define(function(require) {
 			allParams.push(keyword);
 		else 
 			allParams.push("none");
-		
-		if (age)
-			allParams.push(age);
+
+		if (zip)
+			allParams.push(zip);
 		else
 			allParams.push("none");
 		
-		
-		if (zip)
-			allParams.push(zip);
+		if (age)
+			allParams.push(age);
 		else
 			allParams.push("none");
 		
