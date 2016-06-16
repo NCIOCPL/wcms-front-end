@@ -15,7 +15,7 @@ define(function(require) {
 	function _showCancerType() {
 		$("#fieldset-type").show()
 			.find('input').val('').prop("disabled", false).removeClass("error").focus()
-			.prev(".error-msg").hide();
+			.prev(".error-msg").css('visibility','hidden');
 		$("#fieldset-keyword").hide()
 			.find('input').val('').prop("disabled", true);
 	}
@@ -23,7 +23,7 @@ define(function(require) {
 	function _showKeyword() {
 		$("#fieldset-type").hide()
 			.find('input').val('').prop("disabled", true).removeClass("error")
-			.prev(".error-msg").hide();
+			.prev(".error-msg").css('visibility','hidden');
 		$("#fieldset-keyword").show()
 			.find('input').val('').prop("disabled", false).focus();
 	}
@@ -134,9 +134,11 @@ define(function(require) {
 				//If there is a string and we have not picked a cancer type,
 				//show the error.
 				//We must ensure that we only toggle the error if there IS
-				//and error for analytics purposes.
+				//an error for analytics purposes.
 				if (_validateNotNull($this.val()) && !_validateLocked($this)) {
 					_toggleError(false,$this);
+					//clear value if invalid - must select from list
+					$this.val('');
 				} else {
 					_toggleError(true,$this);
 				}
@@ -153,7 +155,7 @@ define(function(require) {
 
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
-				//and error for analytics purposes.
+				//an error for analytics purposes.
 				if (_validateNotNull($this.val()) && !_validateZip($this.val())) {
 					_toggleError(false,$this);
 				} else {
@@ -170,7 +172,7 @@ define(function(require) {
 				//If there is a string and it is a valid age,
 				//show the error.
 				//We must ensure that we only toggle the error if there IS
-				//and error for analytics purposes.
+				//an error for analytics purposes.
 				if (_validateNotNull($this.val()) && !_validateAge($this.val())) {
 					_toggleError(false,$this);
 				} else {

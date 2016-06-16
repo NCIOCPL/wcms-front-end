@@ -58,7 +58,7 @@
                 close:function(event,ui){
                     if(event.originalEvent){
                         if(event.originalEvent.type === 'menuselect'){
-                            $el.removeClass("error").prev('.error-msg').hide();
+                            $el.removeClass("error").prev('.error-msg').css('visibility','hidden');
                             $el.next().focus();
                         }
                     }
