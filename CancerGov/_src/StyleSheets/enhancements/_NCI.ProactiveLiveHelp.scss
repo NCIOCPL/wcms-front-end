@@ -1,0 +1,61 @@
+// Set up appearance for proactive live help messages.
+.ProactiveLiveHelpPrompt {
+	position: fixed;
+	top:40%;
+	left:50%;
+	width:400px;
+	padding: 20px 15px 12px 15px;
+	border: 6px solid #2A7CB8;
+	z-index: 200;
+	transform: translateY(-50%) translateX(-50%);
+	font:normal .875em Montserrat, Arial, sans-serif;
+	color:#606060;
+	background: #fff url(/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg) no-repeat bottom right;
+
+	input {
+		background: #086F89;
+		color: #ffffff;
+		border: none;
+		font:bold 1.1em Montserrat, Arial, sans-serif;
+		padding: .35em 1.8em;
+		border-radius: .2em;
+		cursor: pointer;
+	}
+	
+	h2 {
+		margin:0;
+	}
+	
+	form {
+		margin-bottom: 0;
+	}
+
+	.content {
+		width:65%;
+		font-size: 17px;
+		
+		p {
+			margin-top: 12px;
+			line-height: 1.12;
+		}
+	}
+
+	.live-help {
+		background: url(/publishedcontent/images/images/design-elements/css/livehelp-proactive-chat.png) no-repeat 0;
+		content: " ";
+		min-height: 37px;
+		margin-left: 20px;
+		margin-top: 10px;
+	}
+
+	.close {
+		position: absolute;
+		text-indent: -2000%; // Move the text portion very, very far offscreen.
+		right: 10px;
+		top: 10px;
+		width: 1.1875em;
+		height: 1.1875em;
+		display: inline-block;
+		background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
+	}
+}

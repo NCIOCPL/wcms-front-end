@@ -12,7 +12,7 @@ $form-spacing: em-calc(16);
 $form-label-display: inline-block;
 // $form-label-font-size: em-calc(14);
 $form-label-font-weight: normal;
-$form-label-font-color: $body-font-color;
+$form-label-font-color: #606060;
 $form-label-line-height: 1em;
 // $form-label-bottom-margin: em-calc(3);
 // $input-font-family: inherit;
@@ -46,7 +46,7 @@ $fieldset-margin: 0;
 $legend-font-family: #{$montserrat-font-stack};
 $legend-font-size: em-calc(20px);
 $legend-font-weight: bold;
-$legend-lineheight: em-calc(25px, 22px);
+$legend-lineheight: em-calc(25px 22px); // was 25px 22px
 // $legend-padding: em-calc(0 3);
 
 // We use these to style the prefix and postfix input elements
@@ -336,7 +336,7 @@ fieldset {
 }
 
 form fieldset {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 fieldset div.row
@@ -562,6 +562,9 @@ fieldset {
 	label.field {
 		float: right;
 		text-align: right;
+		font-family: $legend-font-family;
+		font-size: 16px;
+		margin-top: 14px;
 	}
 }
 .columns.legend {

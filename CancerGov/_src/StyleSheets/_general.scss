@@ -51,9 +51,12 @@ h6 {
 	font-style: italic;
 }
 .related-resources h6 {
-		@extend h4;
-		margin-top: 40px;
-		font-style: normal;
+	@extend h4;
+	margin-top: 40px;
+	font-style: normal;
+}
+.article-footer h6 {
+	font-style: normal;
 }
 // mixin to create all combinations of headers
 h1, h2, h3,

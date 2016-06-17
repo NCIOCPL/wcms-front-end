@@ -1,0 +1,229 @@
+/****************** BEGIN Delighters styling ***************** */
+.delighter-rail {
+  margin-right: -65px;
+  width: calc(25% + 45px);
+  float: right;
+
+  a, a:hover, a:active {
+    text-decoration: none;
+  }
+
+  > a {
+    display: block;
+    margin-bottom: 20px;
+
+    &:hover .delighter:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top:0;
+      left:0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(3,3,3,0.2);
+    }
+  }
+
+  p {
+    line-height: 1.166667 !important;
+  }
+
+  .cts-livehelp {
+    border: 3px solid #2c13a3;
+    margin-bottom:20px;
+
+    p, a, li, span, h4 {
+      color: #4938bc !important;
+    }
+    h4 {
+      font-size: 15px;
+    }
+    a {
+      display: block;
+    }
+  }
+
+  .cts-which {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-purple-circles.jpg);
+    border: 3px solid #2c13a3;
+    color: white;
+
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+
+  .cts-what {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-blue-triangles.jpg);
+    border: 3px solid #0bd3ca;
+    color: white;
+
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+  .cts-next-step {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
+    border: 3px solid #cf0549;
+    color: white;
+
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+
+}
+.delighter {
+  position: relative;
+  background-color: #fbfbfb;
+  border-right: 0 !important;
+  padding: 15px;
+  font-size: 0.80em;
+  font-family: Montserrat;
+  text-align: center;
+
+  h4, p, hr {
+    position: relative;
+    margin: 0;
+  }
+  hr {
+    border: 0;
+    padding: 0.375em 0em;
+  }
+  span {
+    color: black;
+  }
+  .chat-with-us {
+    margin-bottom: 10px;
+
+    .live-help-button {
+      width: 84px;
+      height: 28px;
+      background: none;
+    }
+  }
+
+}
+
+#delighter-homePage {
+  //display: none;
+  position:fixed;
+  top:51%;
+  right:0;
+  z-index: 998;
+
+  a {
+    display:inline-block;
+    color:#fff;
+    font:bold 14px/16px Montserrat;
+    background-color: #82368C;
+    padding: 7px 10px;
+    max-width: 115px;
+    text-align: center;
+    &:hover {
+      background-color: #3f0557;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Large Screens */
+@include bp('(min-width:1250px)') {
+  #delighter-homePage {
+    left:0;
+    max-width: 1250px;
+    width: 100%;
+    text-align: right;
+    margin:0 auto;
+  }
+}
+/* Extra Large Screens */
+@include bp(xtra-large) {
+  #delighter-homePage {
+    left:0;
+    max-width: 1450px;
+    width: 100%;
+    text-align: right;
+    margin:0 auto;
+  }
+}
+/* Tablet styles */
+@include bp(medium-down) {
+  .delighter-rail {
+    margin-right: -15px;
+    width: calc(25% + 10px);
+    padding-right:0;
+  }
+
+  #delighter-homePage {
+    position:relative;
+    float:right;
+    top:13px;
+    right:10px;
+  }
+}
+/* Mobile styles */
+@include bp(small) {
+  .delighter-rail {
+    margin: 20px 0 0;
+    padding:0;
+    width:100%;
+  }
+
+  .delighter {
+    border-right: inherit;
+  }
+
+  .cts-which,  .cts-what, .cts-livehelp, .cts-next-step {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 300px;
+    margin: 15px auto;
+  }
+
+  .delighter.cts-livehelp {
+    border-right: 3px solid #2c13a3 !important;
+  }
+  .delighter.cts-which {
+    border-right: 3px solid #2c13a3 !important;
+  }
+  .delighter.cts-what {
+    border-right: 3px solid #0bd3ca !important;
+  }
+  .delighter.cts-next-step {
+    border-right: 3px solid #cf0549 !important;
+  }
+
+  #PageOptionsControl1 {
+    padding-left:5px;
+    padding-right:0;
+    width:auto;
+    .po-pinterest {
+      margin:0;
+    }
+  }
+  #delighter-homePage {
+    right:5px;
+  }
+
+}
+
+/****************** End Delighters styling ***************** */

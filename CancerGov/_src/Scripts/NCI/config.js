@@ -12,6 +12,14 @@ requirejs.config({
 		'Landing': 'UX/PageSpecific/Landing',
 		'PDQ': 'UX/PageSpecific/PDQ',
 		'Topic': 'UX/PageSpecific/Topic',
+		//So the following are required because of how a stand-alone require
+		//file gets built.  At the end it calls require('JSNAME') and if it 
+		//is not in this file, then require looks for it relative to the 
+		//current page.  Absolutely silly, but oh well.  
+		'BasicCTSSearch': 'UX/AppModuleSpecific/BasicCTS/Search',
+		'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results',
+		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
+		'BasicCTSCommon': 'UX/AppModuleSpecific/BasicCTS/Common',
 		'Vendor': 'Vendor',
 
 		// Common.js-included vendor libraries
@@ -24,6 +32,7 @@ requirejs.config({
 		'headroom': 'Vendor/headroom',
 		'routie': 'Vendor/routie',
 		'placeholders': 'Vendor/placeholders.min',
+		'js-cookie' : '../../../bower_components/js-cookie/src/js.cookie',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 

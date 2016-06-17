@@ -64,7 +64,7 @@ $icon-cdr-audiofile-height: 19px;
 }
 
 $icon-sitewide-search-submit-width: 16px;
-$icon-sitewide-search-submit-height: 16px;
+$icon-sitewide-search-submit-height: 20px;
 #sitesearch {
 	// reset general <button> styling
 	background: none;
@@ -77,6 +77,7 @@ $icon-sitewide-search-submit-height: 16px;
 	background: url($icons + 'nci-sprite.png') no-repeat -199px -261px;
 	width: $icon-sitewide-search-submit-width;
 	height: $icon-sitewide-search-submit-height;
+	min-height: $icon-sitewide-search-submit-height;
 	display: block;
 	position: absolute;
 	top: 50%;
@@ -96,6 +97,10 @@ $icon-sitewide-search-submit-height: 16px;
 	margin-right: 0.5em;
 	padding: 0 0.25em;
 
+	&:hover {
+		background-color: transparent;
+  }
+	
 	&:before {
 		content: "";
 		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
