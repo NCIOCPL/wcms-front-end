@@ -37,7 +37,7 @@
             start: 38,
             complete: 39,
             abandon: 40,
-            error: 41
+            error: 40
         },
         _create: function(){
             this._bindInputsOnChange();
