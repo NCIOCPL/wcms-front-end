@@ -27,6 +27,14 @@
   #a {
     width: 15%;
   }
+	@include bp(small) {
+		#z {
+    	width: 30%;
+  	}
+    #a {
+    	width: 22%;
+  	}
+	}
   .submit.button {
     margin-top: 30px;
   }
