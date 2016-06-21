@@ -133,6 +133,53 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 </div>
 #end
 
+#macro(DrawMatchingParams $SearchResults)
+  #set($plist = $Tools.CreateEmptyStringList())
+  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
+	  $plist.Add("type")
+  #end
+  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetPhrase()))
+    $plist.Add("phrase")
+  #end
+  #if($SearchResults.Control.HasZip())
+    $plist.Add("zip")
+  #end
+  #if($SearchResults.Control.SearchParams.Age > 0)
+    $plist.Add("age")
+  #end
+  #if(($SearchResults.Control.Gender == "Female") || ($SearchResults.Control.Gender == "Male"))
+    $plist.Add("gender")
+  #end
+  #if($SearchResults.Control.GetSearchForAllTrials == true)
+    $plist.Add("all trials")
+  #end
+  
+#foreach($param in $plist)##
+#each
+#if($param == "type")##
+"<span data-basiccts-searchparam='t'>$SearchResults.Control.GetCancerType()</span>"##
+#elseif($param == "phrase")##
+"<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
+#elseif($param == "zip")##
+near ZIP code "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
+#elseif($param == "age")##
+taking patients age <span data-basiccts-searchparam='a'>$SearchResults.Control.SearchParams.Age</span>##
+#elseif($param == "gender")##
+Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams.Gender</span>"##
+#elseif($param == "all trials")##
+"all trials"##
+#else##
+## do nothing
+#end##
+#between
+; ##
+#end##
+#end##	
+
+<h5>
+This clinical trial matches: #DrawMatchingParams($SearchResults).
+</h5>
+
 <div class="medium-9 columns">
   #if ($SearchResults.Trial.CurrentProtocolStatus == "Active")
     #set($statusClass = " active")
