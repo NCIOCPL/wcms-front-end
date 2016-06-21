@@ -1,6 +1,6 @@
-﻿<script src="/PublishedContent/js/BasicCTSSearchPage.js" type="text/javascript"></script>
+<script src="/PublishedContent/js/BasicCTSSearchPage.js" type="text/javascript"></script>
 
-<div class="large-9 columns">
+<div class="medium-9 columns">
   <form class="clinical-trials-search-form basic-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
 
     <fieldset id="fieldset-type" aria-labelledby="legend-type">
@@ -63,7 +63,7 @@
   </form>
 </div>
 ## Begin "Delighter" section ##
-<div class="delighter-rail large-3 columns">
+<div class="delighter-rail medium-3 columns">
 	<div class="delighter cts-livehelp">
 		<h4 id="ui-id-2">Have a question?</h4>
 		<p>We're here to help</p><hr>
