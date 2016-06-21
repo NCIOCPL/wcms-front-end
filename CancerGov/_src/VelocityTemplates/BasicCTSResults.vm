@@ -104,7 +104,7 @@
 #if($param == "type")##
 Type/Condition: "<span data-basiccts-searchparam='t'>$SearchResults.Control.HasType()</span>"##
 #elseif($param == "phrase")##
-Keyword: "<span data-basiccts-searchparam='q'>$SearchResults.Control.HasPhrase</span>"##
+Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.HasPhrase, '"', '')</span>"##
 #elseif($param == "zip")##
 ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
 #elseif($param == "age")##
