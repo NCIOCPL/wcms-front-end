@@ -178,6 +178,7 @@
     float:right;
     top:13px;
     right:10px;
+
   }
 	.delighter.cts-livehelp {
     border-right: 3px solid #2c13a3 !important;
@@ -230,19 +231,15 @@
     padding:0;
     width:100%;
   }
-
   .delighter {
     border-right: inherit;
   }
-
   .cts-which,  .cts-what, .cts-livehelp, .cts-next-step {
     padding-left: 30px;
     padding-right: 30px;
     max-width: 300px;
     margin: 15px auto;
   }
-
-
   #PageOptionsControl1 {
     padding-left:5px;
     padding-right:0;
@@ -254,7 +251,12 @@
   #delighter-homePage {
     right:5px;
   }
-
 }
-
+// to fix find a clinical trial button positioning at small widths
+@include bp('(max-width: 360px)') {
+	#delighter-homePage {
+		top: 0;
+		margin-bottom: 8px;
+	}
+}
 /****************** End Delighters styling ***************** */
