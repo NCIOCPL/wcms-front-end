@@ -12,12 +12,6 @@
 	color:#606060;
 	background: #fff url(/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg) no-repeat bottom right;
 	
-	@include bp(small) {
-		width: 300px;
-		background-size: 53%;
-		background-position: 115% 100%;
-	}
-
 	input {
 		background: #086F89;
 		color: #ffffff;
@@ -63,5 +57,23 @@
 		height: 1.1875em;
 		display: inline-block;
 		background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
+	}
+	
+	@include bp(small) {
+		width: 300px;
+		background-size: 53%;
+		background-position: 115% 100%;
+		
+		input {
+			padding: .35em 1.3em;
+		}
+		.content {
+			width:73%;
+			font-size: 15px;
+
+			p {
+				line-height: 1.2;
+			}
+		}
 	}
 }
