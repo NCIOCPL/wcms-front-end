@@ -11,6 +11,12 @@
 	font:normal .875em Montserrat, Arial, sans-serif;
 	color:#606060;
 	background: #fff url(/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg) no-repeat bottom right;
+	
+	@include bp(small) {
+		width: 300px;
+		background-size: 53%;
+		background-position: 115% 100%;
+	}
 
 	input {
 		background: #086F89;
