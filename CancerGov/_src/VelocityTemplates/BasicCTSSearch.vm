@@ -9,7 +9,7 @@
         <div class="large-8 columns">
           <div class="row">
             <input placeholder="Start typing to select a cancer type" type="text" id="ct" maxlength="100" name="ct" autocomplete="off">
-                </div>
+          </div>
           <div class="row">
             Not sure of your cancer type? <a class="basiccts-keyword-toggle" href="#">Search by keyword</a> instead.
           </div>
@@ -22,8 +22,8 @@
         <div class="large-4 small-11 columns legend" id="legend-keyword"><label class="bold" for="q">Keyword</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input type="text" id="q" maxlength="100" name="q" placeholder="Examples: PSA, HER-2, &quot;Paget disease&quot;">
-                </div>
+            <input type="text" id="q" maxlength="100" name="q" placeholder="Examples: PSA, HER-2, &quot;Paget disease&quot;" autocomplete="off">
+          </div>
           <div class="row">
             <a class="basiccts-cancertype-toggle" href="#">Search by cancer type</a> instead.
           </div>
@@ -36,8 +36,8 @@
         <div class="large-4 small-11 columns legend" id="legend-zip"><label class="bold" for="z">U.S. ZIP Code</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input id="z" type="text" maxlength="5" name="z">
-                </div>
+            <input id="z" type="text" maxlength="5" name="z" autocomplete="off">
+          </div>
           <div class="row">Show trials near this U.S. ZIP code.</div>
         </div>
       </div>
@@ -48,8 +48,8 @@
         <div class="large-4 small-11 columns legend" id="legend-age"><label class="bold" for="a">Age</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input class="small-3" type="text" id="a" maxlength="3" name="a">
-                </div>
+            <input class="small-3" type="text" id="a" maxlength="3" name="a" autocomplete="off">
+          </div>
           <div class="row">Your age helps determine which trials are right for you.</div>
         </div>
       </div>
