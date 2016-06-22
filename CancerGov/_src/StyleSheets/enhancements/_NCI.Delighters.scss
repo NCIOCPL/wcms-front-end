@@ -196,7 +196,7 @@
 @include bp(medium) {
 	.delighter-rail {
 		width: 100%;
-		margin-top: 1em;
+		margin-top: 30px;
 		
 		a {
 			margin: 0;
@@ -206,9 +206,11 @@
 			float: left;
 			width: 31%;
 			margin-right: 2%;
-			height: 160px;
+			height: 172px;
 			
 			@include bp('(max-width: 1024px) and (min-width: 850px)') {
+				height: 160px;
+				
 				&.cts-which, &.cts-what {
 					padding-left: 50px;
 					padding-right: 50px;
