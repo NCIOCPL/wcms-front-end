@@ -80,10 +80,10 @@
 
 #macro(DrawSearchParams $SearchResults)
   #set($plist = $Tools.CreateEmptyStringList())
-  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.HasType()))
+  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
 	$plist.Add("type")
   #end
-  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.HasPhrase()))
+  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetPhrase()))
     $plist.Add("phrase")
   #end
   #if($SearchResults.Control.HasZip())
@@ -102,9 +102,9 @@
 #foreach($param in $plist)##
 #each
 #if($param == "type")##
-Type/Condition: "<span data-basiccts-searchparam='t'>$SearchResults.Control.HasType()</span>"##
+Type/Condition: "<span data-basiccts-searchparam='t'>$SearchResults.Control.GetCancerType()</span>"##
 #elseif($param == "phrase")##
-Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.HasPhrase, '"', '')</span>"##
+Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase, '"', '')</span>"##
 #elseif($param == "zip")##
 ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
 #elseif($param == "age")##
