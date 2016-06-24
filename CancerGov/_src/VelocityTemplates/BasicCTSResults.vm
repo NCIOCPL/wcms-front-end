@@ -1,34 +1,33 @@
 <script src="/PublishedContent/js/BasicCTSResultsPage.js" type="text/javascript"></script>
 
-#macro(DrawLocationInformation $trial)
-  <strong>Location: </strong>
-  #if ($trial.GetUSLocations().length == 1)
-    #set($loc = $trial.GetUSLocations().get(0))
-    $loc.FacilityName, $loc.PostalAddress.City, $loc.PostalAddress.PoliticalSubUnitName
-  #elseif ($trial.GetUSLocations().length == 0)
-    #if($resultItem.CurrentProtocolStatus == "Not yet active")
-		Location information is not yet available.
-	#else
-		See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">Clinical Trials.gov</a>
-	#end
-  #else
-    #if ($SearchResults.Control.HasZip())
-      $trial.GetUSLocations().length locations, including $trial.GetUSLocations($SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you
-    #else
-      $trial.GetUSLocations().length locations
-    #end
-  #end
-  <br>
-#end
+#macro(DrawLocationInformation $trial)##
+<strong>Location: </strong>##
+#if ($trial.GetUSLocations().length == 1)##
+#set($loc = $trial.GetUSLocations().get(0))##
+$loc.FacilityName, $loc.PostalAddress.City, $loc.PostalAddress.PoliticalSubUnitName##
+#elseif ($trial.GetUSLocations().length == 0)##
+#if($resultItem.CurrentProtocolStatus == "Not yet active")##
+Location information is not yet available.##
+#else##
+See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">Clinical Trials.gov</a>##
+#end##
+#else##
+$trial.GetUSLocations().length locations##
+#if ($SearchResults.Control.HasZip())##
+, including $trial.GetUSLocations($SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you##
+#end##
+#end##
+#end##
 
 #macro(DrawNoResultsText)
   <div>
     No results were found matching your criteria.
-	<li>Please check if your spelling is correct.</li>
-	<li>Please check if your zip code and age are valid.</li>
+	<ul>
+		<li>Please check if your spelling is correct.</li>
+		<li>Please check if your zip code and age are valid.</li>
+	<ul>
     <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
     <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
-	<br>
   </div>
 #end
 
@@ -38,14 +37,12 @@
       #each
         ## Attach Onclick for Analytics elsewhere
         <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCTID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
-        <div>
+        <div class="cts-result-item">
           <strong>Status: </strong>$resultItem.CurrentProtocolStatus<br>
           <strong>Age: </strong>$resultItem.Eligibility.AgeText<br>
           <strong>Gender: </strong>$resultItem.Eligibility.Gender<br>
-			    #DrawLocationInformation($resultItem)
-		    </div>
-        <br>
-        <br>
+		  #DrawLocationInformation($resultItem)
+		</div>
       #before
         <div class="row collapse">
         <div class="medium-12 columns clinical-trial-individual-result">
@@ -125,7 +122,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
   #if($SearchResults.Results.TotalResults > 0)
     #if($SearchResults.Control.HasInvalidParams() == false)
 	  #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
-	    <h5>
+	    <h5 class="cts-results-title">
 		  Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParams($SearchResults)
 	    </h5>
 	  #else
@@ -140,8 +137,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     <div>
 		No clinical trials matched your search for #DrawSearchParams($SearchResults).
 		<p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
-		<br>
-		<a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a>
+		<p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
 	</div>
   #end
 </div>
