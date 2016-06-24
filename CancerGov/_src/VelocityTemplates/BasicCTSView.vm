@@ -63,7 +63,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   <div>
   	#if($SearchResults.Control.GetShowAll() > 0)
 		<span class="right location-link">
-			<a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#ui-id-6">Show locations near me</a>
+			<a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#trial-location">Show locations near me</a>
 		</span>
 		#end
 
@@ -123,7 +123,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 
   <span class="location-text">Locations within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP code "$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP"</span>
   <span class="right location-link">
-    <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#ui-id-6">Show all locations</a>
+    <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#trial-location">Show all locations</a>
   </span>
     #foreach($loc in $SearchResults.Trial.GetLocationsNearZip($SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
     #each
@@ -199,7 +199,7 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
   </div>
   <div class="accordion desktop">
     #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.BriefSummary))
-      <section>
+      <section id="trial-description">
         <h2>Description</h2>
         <div>
           $SearchResults.Trial.BriefSummary
@@ -208,7 +208,7 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
     #end
 
     #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.CTEntryCriteria))
-      <section>
+      <section id="trial-criteria">
         <h2>Eligibility Criteria</h2>
         <div>
           $SearchResults.Trial.CTEntryCriteria
@@ -217,13 +217,13 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
     #end
 
 
-    <section>
+    <section id="trial-location">
       <h2>Locations & Contacts</h2>
       #DrawLocations()
     </section>
 
     #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.DetailedDescription))
-    <section>
+    <section id="trial-outline">
       <h2>Trial Objectives and Outline</h2>
       <div>
         $SearchResults.Trial.DetailedDescription
@@ -231,7 +231,7 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
     </section>
     #end
 
-    <section>
+    <section id="trial-phase">
       <h2>Trial Phase & Type</h2>
       <div>
         <div class="row">
@@ -247,7 +247,7 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
       </div>
     </section>
 
-    <section>
+    <section id="trial-organization">
       <h2>Lead Organization</h2>
       <div>
         <strong>Lead Sponsor</strong>
@@ -280,7 +280,7 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
 			</div>
     </section>
 
-    <section>
+    <section id="trial-ids">
       <h2>Trial IDs</h2>
       <div>
         <strong>Primary ID</strong> $SearchResults.Trial.OrgStudyID <br>
