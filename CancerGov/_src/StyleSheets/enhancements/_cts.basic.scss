@@ -1,0 +1,228 @@
+.large-8 .row:nth-child(2) {
+  font-size: 14px;
+}
+
+/* Basic Search Form */
+.clinical-trials-search-form {
+  input {
+    margin-bottom:0;
+  }
+  button.remove-suggestion {
+    margin:20px 0 0;
+  }
+  .error-msg {
+    margin-top:-20px;
+    color:#c60f13;
+    font-size: 12px;
+  }
+  .row {
+    padding-bottom: 10px;
+  }
+
+  // zip code
+  #z {
+    width: 25%;
+  }
+  // age
+  #a {
+    width: 15%;
+  }
+  .submit.button {
+    margin-top: 30px;
+  }
+  &.basic-search {
+    label {
+      font-size: 16px;
+      font-weight: normal;
+      margin-top: 15px;
+    }
+    // targeting the descripters below the form fields on the basic search page
+    .large-8 .row:nth-child(2) {
+      font-size: 14px;
+    }
+  }
+}
+
+/* Trial Description Page */
+.status {
+  display:inline-block;
+  margin-left:-0.9375em; //negative gutter margin
+  font:normal 16px Montserrat, Arial, sans-serif;
+  text-transform: uppercase;
+  color:#7F3187;
+  border: 2px solid #7F3187;
+  padding: 10px 15px;
+
+  &.active {
+    color: #2DC799;
+    border-color: #2DC799;
+  }
+  &.invite {
+    color: #82368C;
+    border-color: #82368C;
+  }
+  &.closed {
+    color: #BB0E3D;
+    border-color: #BB0E3D;
+  }
+  &.not-active {
+    color: #606060;
+    border-color: #606060;
+  }
+}
+
+$icon-expand-width: 20px;
+.icon-expand, .icon-collapse {
+  display: inline-block;
+  position: relative;
+  top:5px;
+  margin-right: 8px;
+  width: $icon-expand-width;
+  height: $icon-expand-width;
+  background: url($icons + 'nci-sprite.png') no-repeat -256px -259px;
+}
+.icon-collapse {
+  background: url($icons + 'nci-sprite.png') no-repeat -285px -259px;
+}
+#cgvBody {
+  margin-top:40px;
+
+  $icon-po-width: 23px;
+  .cts-share {
+    margin-top: 30px;
+    margin-left: 10px;
+
+    vertical-align: top;
+
+
+    .share-text {
+      font-family: $noto-font-stack;
+      font-size: 16px;
+      line-height: 18px;
+      margin-right: 15px;
+    }
+
+    a {
+      display:inline-block;
+      width:7em;
+      height:auto;
+      padding:5px 0;
+      border-radius: 3px;
+      color:#fff;
+      font: normal 14px Montserrat, Arial, sans-serif;
+      text-align: center;
+      margin: 10px 10px 0 0;
+      &[title="Print"]{
+        background-color: #24B2A1;
+      }
+      &[title="Email"]{
+        background-color: #14819b;
+      }
+      .text {
+        position: relative;
+        top:-3px;
+        padding-left:6px;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .icon-print,.icon-email {
+      display:inline-block;
+      width:$icon-po-width;
+      height:$icon-po-width;
+    }
+    .icon-print {
+      background: url($icons + 'nci-sprite.png') no-repeat -123px -62px;
+    }
+    .icon-email {
+      background: url($icons + 'nci-sprite.png') no-repeat -123px -105px;
+    }
+  }
+}
+.accordion-controls {
+  float:right;
+  margin:18px -0.9375em 10px 10px; //negative right gutter margin
+
+  a {
+    font:normal 13px Montserrat, Arial, sans-serif;
+    &:last-child {
+      margin-left:30px;
+    }
+  }
+}
+
+.accordion {
+  margin-top:20px;
+
+  #country-selector-button, #state-selector-button {
+    width:70% !important;
+    margin-left:10px;
+  }
+  .location-text {
+    display:inline-block;
+    width:65%;
+    margin-bottom:10px;
+  }
+  #proximity-trialslist > div:first-of-type {
+    clear:both;
+    margin-top:20px;
+  }
+}
+
+/* tablet and mobile */
+@include bp(medium-down) {
+  #cgvBody .cts-share a.print {
+    display: none;
+  }
+
+  .accordion {
+    label[for=country-selector],label[for=state-selector] {
+      width:60px;
+    }
+    #country-selector-button, #state-selector-button {
+      margin-bottom:10px;
+    }
+  }
+}
+
+/* Mobile styles */
+@include bp(small) {
+  #cgvBody .cts-share {
+    max-width: 300px;
+    margin: 15px auto;
+    position: relative;
+
+    .share-text {
+      margin: 0;
+      display: inline-block;
+      width: 12em;
+      margin-bottom: 1em;
+    }
+
+    a {
+      margin: 0;
+
+      &.print {
+        display: none;
+      }
+    }
+  }
+  .accordion {
+    #state-selector-button,#country-selector-button {
+      display:block;
+      margin-left:0;
+      width:100% !important;
+    }
+    .location-text {
+      width:100%;
+      float:none;
+    }
+    .location-link {
+      display:block;
+      margin-top:10px;
+      float:none !important;
+    }
+
+  }
+}

@@ -1,0 +1,22 @@
+
+<!--(bake Macros.inc)-->
+
+#DrawLanguageStrings($CDEContext)
+
+<div class="dynamic list has-images">
+	#if($SearchResults.SearchTitle != "")
+		#set($anchortag = $SearchResults.SearchTitle.replace(" ", "+"))##
+		<p id="$anchortag" tabindex="0" class="title">$SearchResults.SearchTitle</h3>
+	#end##
+	<ul>
+		#foreach($resultItem in $SearchResults.Results)
+			#DrawListItem($resultItem true true true $CDEContext)
+		#end##
+		<li>
+			<div class="image container">&nbsp;</div>
+			<div class="title container">
+				<a class="arrow-link news-footer" href="#">$newsString</a>
+			</div>
+		</li>
+	</ul>
+</div>

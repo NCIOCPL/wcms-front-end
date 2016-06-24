@@ -6,6 +6,7 @@ module.exports = function(grunt) {
 			base: "_src/",
 			templates: "_src/PageTemplates/",
 			sublayouttemplates: "_src/SublayoutTemplates/",
+			velocitytemplates: "_src/VelocityTemplates/",
 			styles: "_src/StyleSheets/",
 			scripts: "_src/Scripts/"
 		},
@@ -13,6 +14,7 @@ module.exports = function(grunt) {
 			base: "_tmp/",
 			templates: "_tmp/PageTemplates/",
 			sublayouttemplates: "_tmp/SublayoutTemplates/",
+			velocitytemplates: "_tmp/VelocityTemplates/",
 			styles: "_tmp/Styles/",
 			scripts: "_tmp/js/"
 		},
@@ -20,6 +22,7 @@ module.exports = function(grunt) {
 			base: "_dist/",
 			templates: "_dist/PageTemplates/",
 			sublayouttemplates: "_dist/SublayoutTemplates/",
+			velocitytemplates: "_dist/VelocityTemplates/",
 			styles: "_dist/Styles/",
 			scripts: "_dist/js/"
 		},
@@ -93,6 +96,16 @@ module.exports = function(grunt) {
 				dest: '<%= dirs.tmp.sublayouttemplates %>',
 				ext: ".ascx"
 			}]
+		},
+		velocitytemplates: {
+			options: {},
+			files: [{
+				expand: true,
+				cwd: '<%= dirs.src.velocitytemplates %>',
+				src: ['**/*.vm'],
+				dest: '<%= dirs.tmp.velocitytemplates %>',
+				ext: ".vm"
+			}]
 		}
 	});
 
@@ -118,7 +131,10 @@ module.exports = function(grunt) {
 				'LandingPage': 'UX/PageSpecific/Landing/LandingPage',
 				'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
 				'TopicPage': 'UX/PageSpecific/Topic/TopicPage',
-				'Popups': 'UX/PageSpecific/Popups/Popups'
+				'Popups': 'UX/PageSpecific/Popups/Popups',
+				'BasicCTSResultsPage': 'UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
+				'BasicCTSSearchPage': 'UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
+				'BasicCTSViewPage': 'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage'
 			},
 			mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
 			modules: [
@@ -160,7 +176,23 @@ module.exports = function(grunt) {
 					name: 'Popups',
 					insertRequire: ['Popups'],
 					exclude: []
+				},
+				{
+					name: 'BasicCTSResultsPage',
+					insertRequire: ['BasicCTSResultsPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'BasicCTSSearchPage',
+					insertRequire: ['BasicCTSSearchPage'],
+					exclude: ['ContentPage']
+				},
+				{
+					name: 'BasicCTSViewPage',
+					insertRequire: ['BasicCTSViewPage'],
+					exclude: ['ContentPage']
 				}
+
 			]
 		},
 		dev: {
@@ -261,6 +293,16 @@ module.exports = function(grunt) {
 				filter: 'isFile'
 			}]
 		},
+		velocitytemplates: {
+			nonull: true,
+			files: [{
+				expand: true,
+				flatten: true,
+				src: ['<%= dirs.tmp.velocitytemplates %>**/*.vm'],
+				dest: '<%= dirs.dist.velocitytemplates %>',
+				filter: 'isFile'
+			}]
+		},
 		styles: {
 			nonull: true,
 			files: [{
@@ -319,10 +361,17 @@ module.exports = function(grunt) {
 			tasks: ['build-scripts:' + 'dev']
 		},
 		templates: {
-			files: ['<%= dirs.src.templates %>*.aspx', '<%= dirs.src.templates %>Includes/*.inc'],
+			files: [
+				'<%= dirs.src.templates %>*.aspx',
+				'<%= dirs.src.templates %>Includes/*.inc',
+				'<%= dirs.src.sublayouttemplates %>*.ascx',
+				'<%= dirs.src.sublayouttemplates %>Includes/*.inc',
+				'<%= dirs.src.velocitytemplates %>*.vm',
+				'<%= dirs.src.velocitytemplates %>Includes/*.inc',
+				'<%= dirs.src.velocitytemplates %>/*.inc'
+			],
 			tasks: ['build-templates:' + 'dev']
 		}
-		//NOT adding sublayouts, I wonder why templates are here...
 	});
 
 
@@ -343,11 +392,11 @@ module.exports = function(grunt) {
 		grunt.task.run(tasks);
 	});
 
-	grunt.registerTask('build-templates', 'Build the CDE page & sublayout templates.', function(env) {
+	grunt.registerTask('build-templates', 'Build the CDE page, sublayout & velocity templates.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['bake:templates', 'copy:templates', 'bake:sublayouttemplates', 'copy:sublayouttemplates', 'clean:tmp'];
+		var tasks = ['bake:templates', 'copy:templates', 'bake:sublayouttemplates', 'copy:sublayouttemplates', 'bake:velocitytemplates', 'copy:velocitytemplates', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
@@ -359,6 +408,46 @@ module.exports = function(grunt) {
 		grunt.task.run(tasks);
 	});
 
+	grunt.registerTask('build-local', 'Build all files for local CDE and watch for changes.', function(path) {
+
+		//Assumes path is a PublishedContent folder.
+		if (path == null || path == '') {
+				grunt.log.error('path for build-local cannot be null or empty');
+				return false;
+		}
+
+		//HACK: Figure out how to override the dist.
+		grunt.config('dirs', {
+			src: {
+				base: "_src/",
+				templates: "_src/PageTemplates/",
+				sublayouttemplates: "_src/SublayoutTemplates/",
+				velocitytemplates: "_src/VelocityTemplates/",
+				styles: "_src/StyleSheets/",
+				scripts: "_src/Scripts/"
+			},
+			tmp: {
+				base: "_tmp/",
+				templates: "_tmp/Templates/",
+				sublayouttemplates: "_tmp/SublayoutTemplates/",
+				velocitytemplates: "_tmp/VelocityTemplates/",
+				styles: "_tmp/Styles/",
+				scripts: "_tmp/js/"
+			},
+			dist: {
+				base: path + "/",
+				templates: path + "/PageTemplates/",
+				sublayouttemplates: path + "/SublayoutTemplates/",
+				velocitytemplates: path + "/VelocityTemplates/",
+				styles: path + "/Styles/",
+				scripts: path + "/js/"
+			},
+			bower: 'bower_components/'
+		});
+
+		var tasks = ['build:dev', 'watch'];
+		grunt.task.run(tasks);
+	});
 
 	grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
 		var proxy;
@@ -380,6 +469,8 @@ module.exports = function(grunt) {
 			case 'dev':
 			default:
 				proxy = 'www-blue-dev';
+				if(/^\d+$/.test(env))
+					proxy = 'www-ocdev' + env + '.ha2';
 				break;
 			case 'qa':
 				proxy = 'www-qa';

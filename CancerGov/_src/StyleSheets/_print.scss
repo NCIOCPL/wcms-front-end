@@ -3,7 +3,7 @@
 	font-size: 75%;
   }
 
-  nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, #section-menu-button, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle, .hero, .carousel-title, .other-nci-sites, .icon-exit-notification {
+  nav, .navigation, .nav, .language-bar, .nav-search-bar, .fixedtotop, .breadcrumbs, .bcrumbs, .page-options, .local-navigation, #section-menu-button, .site-footer, #nvcgSlNotificationArea, .toptoc, .pagination, .syndication, .article-image-enlarge, .previous-next-links, .general-page-body-container > div.large-12, .cthp-version-toggle, .hero, .carousel-title, .other-nci-sites, .icon-exit-notification, .accordion-controls {
     display: none !important; // important used because in some places foundation classes are overwriting
 	}
 	a {
@@ -37,5 +37,34 @@
 	}
 	.cthp-content h1 {
 		color: inherit;
+	}
+	
+	.ui-accordion {	
+		.location-filter, .location-link {
+			display: none;
+		}
+	
+		h2 {
+			font-size: 1.75em !important;
+			margin: 1.0em 0 0.5em 0 !important;
+			line-height: 1.215em !important;
+			border: none !important;
+			padding: 0 !important;
+			background-color: rgba(0, 0, 0, 0) !important;
+			min-height: 0 !important;
+		}
+	
+		.ui-accordion-content {
+			padding: 5px 0 !important;
+			display: block !important;
+		}
+		
+		.ui-accordion-header-icon {
+			display: none !important;
+		}
+	}
+	
+	.delighter-rail {
+		display: none !important;
 	}
 }
