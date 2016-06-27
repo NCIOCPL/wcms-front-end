@@ -65,8 +65,13 @@ define(function(require) {
 		
 		// if showing all locations, expand accordion
 		if(urlParams['all'] != null) {
-			$accordion.accordion('option','active',2);
+			// find the section containing location information withing the accordion
+			var locationIndex = $accordion.find("section#trial-location").index();
 			
+            // if the index is greater than -1, expand that accordion section.
+			if(locationIndex >= 0) {
+                $accordion.accordion('option', 'active', locationIndex);
+			}
 		}
 
         addControls($accordion);

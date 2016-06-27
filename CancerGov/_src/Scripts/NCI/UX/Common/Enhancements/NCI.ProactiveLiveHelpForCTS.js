@@ -224,6 +224,7 @@ define(function(require){
 		 live help server.)
 	*/
 	function _liveHelpIsAvailable(){
+
 		var isOpen = false;
 		
 		var dateNow = new Date();
