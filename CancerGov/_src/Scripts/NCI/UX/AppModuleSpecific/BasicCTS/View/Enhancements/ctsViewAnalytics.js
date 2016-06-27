@@ -13,10 +13,11 @@ define(function(require) {
 		/* Snippet to track clicks on accordion controls */
 		$('.accordion-controls').on('click.analytics', 'a', function (e) {
 			var $this = $(this);
-			id = 'clinical trial';
+			id = $this.closest('.accordion-controls').attr('id')
 			action = $this.attr('class');
-			NCIAnalytics.AccordionClick($this, id, action);
+			NCIAnalytics.AccordionClick($this, id, 'none', 'none', action);
 		});
+
 		
 		/* Fire off analytics for print share click */
 		$('.cts-share a.print').on('click.analytics', function (e) {
