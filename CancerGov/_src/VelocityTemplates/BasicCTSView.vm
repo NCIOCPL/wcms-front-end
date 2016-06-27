@@ -197,7 +197,7 @@ This clinical trial matches: #DrawMatchingParams($SearchResults).
   <div class="status $statusClass">
     Status: $SearchResults.Trial.CurrentProtocolStatus
   </div>
-  <div class="accordion desktop">
+  <div class="accordion desktop" id="clinical_trial">
     #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.BriefSummary))
       <section id="trial-description">
         <h2>Description</h2>
