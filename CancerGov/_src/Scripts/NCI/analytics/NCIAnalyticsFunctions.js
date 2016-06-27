@@ -1342,7 +1342,14 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 
-    //******************************************************************************************************
+    /******************************************************************************************************
+    * General accordion click tracking
+    * sender - the element responsible for this event.
+    * accordionId - identifier for the whole accordion 
+	* sectionId - identifier for the clicked accordion section
+	* name - readable accordion section name
+	* action - expand or collapse
+	*/
     AccordionClick: function(sender, accordionId, sectionId, name, action) {
         clickParams = new NCIAnalytics.ClickParams(this, 'nciglobal', 'o', 'LinkTracking');
 
@@ -1422,6 +1429,9 @@ var NCIAnalytics = {
 
     /******************************************************************************************************
 	* Track link clicks on CTS pages
+	* sender - the element responsible for this event.
+	* type - info about which component is being tracked
+	* value - pagename 
 	*/
 	SimpleCTSLink: function(sender, type, value) {
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
@@ -1433,6 +1443,8 @@ var NCIAnalytics = {
 
     /******************************************************************************************************
 	* Track search result click on CTS Results page
+	* sender - the element responsible for this event
+	* rank - the position of the selected item on a given page
 	*/
 	CTSResultsClick: function(sender, rank) {
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
