@@ -101,7 +101,11 @@ $trial.GetUSLocations().length locations##
 #if($param == "type")##
 Type/Condition: "<span data-basiccts-searchparam='t'>$SearchResults.Control.GetCancerType()</span>"##
 #elseif($param == "phrase")##
-Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase, '"', '')</span>"##
+#if($SearchResults.Control.HasBrokenCTSearchParam())##
+Type/Condition: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
+#else##
+Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
+#end##
 #elseif($param == "zip")##
 ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
 #elseif($param == "age")##
