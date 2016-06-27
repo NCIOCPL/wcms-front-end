@@ -52,10 +52,10 @@
 			#set($fileSize = "($mbFileSize MB)")##
 		#end##
 	#end##
-	
+
 	##
 	## Set mime type
-	##							
+	##
 	#set($printOutExt="")##
 	#set($fileType = $resultItem.MimeType)##
 	#if($fileType == "application/vnd.ms-excel" || $fileType == "application/excel" || $fileType == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")##
@@ -77,7 +77,7 @@
 		#set($fileClass = "list-ebook")##
 		#set($fileType_safe = "ebook")##
 	#elseif($fileType == "text/plain")##
-		#set($fileClass = "list-txt")##	
+		#set($fileClass = "list-txt")##
 		#set($fileType_safe = "txt")##
 	#else##
 		#set($fileClass = "list-item-link link")##
@@ -92,7 +92,7 @@
 		#if($showImage)
 			#DrawImage($resultItem)
 		#end##
-		
+
 		<div class="title-and-desc title desc container">##
 			##
 			## Display title
@@ -110,25 +110,25 @@
 				</span>##
 			#end##
 			 <span class="filesize">$fileSize</span>##
-		
+
 			#if($showDate || $showLongDescription)##
 				<div class="description">##
 			#end##
-			
+
 			##
 			## Show date if required
 			##
 			#if($showDate)
 				#DrawDate($resultItem $CDEContext)
 			#end##
-			
+
 			##
 			## Show description if required
 			##
 			#if($showDescription)
 				#DrawDescription($resultItem)
 			#end##
-			
+
 			#if($showDate || $showLongDescription)##
 				</div>##
 			#end##
@@ -145,7 +145,7 @@
 		#if($showImage)
 			#DrawImage($resultItem)
 		#end##
-		
+
 		<div class="title-and-desc title desc container">##
 			##
 			## Display title
@@ -154,25 +154,25 @@
 				$resultItem.LongTitle##
 			</a>
 			<span class="media-type">($infographicContent)</span>##
-			
+
 			#if($showDate || $showDescription)##
 				<div class="description">##
 			#end##
-			
+
 			##
 			## Show date if required
 			##
 			#if($showDate)
 				#DrawDate($resultItem $CDEContext)
 			#end##
-			
+
 			##
 			## Show description if required
 			##
 			#if($showDescription)
 				#DrawDescription($resultItem)
 			#end##
-			
+
 			#if($showDate || $showLongDescription)##
 				</div>##
 			#end##
@@ -188,7 +188,7 @@
 		#if($showImage)
 			#DrawImage($resultItem)
 		#end##
-		
+
 		<div class="title-and-desc title desc container">##
 			##
 			## Display title
@@ -197,25 +197,25 @@
 				$resultItem.LongTitle##
 			</a>
 			<span class="media-type">($videoContent)</span>##
-			
+
 			#if($showDate || $showDescription)##
 				<div class="description">##
 			#end##
-			
+
 			##
 			## Show date if required
 			##
 			#if($showDate)
 				#DrawDate($resultItem $CDEContext)
 			#end##
-			
+
 			##
 			## Show description if required
 			##
 			#if($showDescription)
 				#DrawDescription($resultItem)
 			#end##
-			
+
 			#if($showDate || $showLongDescription)##
 				</div>##
 			#end##
@@ -231,7 +231,7 @@
 		#if($showImage)
 			#DrawImage($resultItem)
 		#end##
-		
+
 		<div class="title-and-desc title desc container">##
 			##
 			## Display title
@@ -240,25 +240,25 @@
 				$resultItem.LongTitle##
 			</a>
 			<span class="media-type">($carouselContent)</span>##
-			
+
 			#if($showDate || $showDescription)##
 				<div class="description">##
 			#end##
-			
+
 			##
 			## Show date if required
 			##
 			#if($showDate)
 				#DrawDate($resultItem $CDEContext)
 			#end##
-			
+
 			##
 			## Show description if required
 			##
 			#if($showDescription)
 				#DrawDescription($resultItem)
 			#end##
-			
+
 			#if($showDate || $showLongDescription)##
 				</div>##
 			#end##
@@ -274,7 +274,7 @@
 		#if($showImage)
 			#DrawImage($resultItem)
 		#end##
-		
+
 		<div class="title-and-desc title desc container">##
 			##
 			## Display title
@@ -282,25 +282,25 @@
 			<a class="title" href="$resultItem.Href" onclick="NCIAnalytics.SearchResults(this,$resultItem.RecNumber);">
 				$resultItem.LongTitle##
 			</a>
-			
+
 			#if($showDate || $showDescription)##
 				<div class="description">##
 			#end##
-			
+
 			##
 			## Show date if required
 			##
 			#if($showDate)
 				#DrawDate($resultItem $CDEContext)
 			#end##
-			
+
 			##
 			## Show description if required
 			##
 			#if($showDescription)
 				#DrawDescription($resultItem)
 			#end##
-			
+
 			#if($showDate || $showLongDescription)##
 				</div>##
 			#end##
@@ -316,7 +316,7 @@
 		#if($showImage)
 			#DrawImage($resultItem)
 		#end##
-		
+
 		<div class="title-and-desc title desc container">##
 			##
 			## Display title
@@ -324,29 +324,29 @@
 			<a class="title" href="$resultItem.Href" onclick="NCIAnalytics.SearchResults(this,$resultItem.RecNumber);">
 				$resultItem.LongTitle##
 			</a>
-			
+
 			#if($showDate || $showDescription)##
 				<div class="description">##
 			#end##
-			
+
 			##
 			## Show date if required
 			##
 			#if($showDate)
 				#DrawBlogDate($resultItem $CDEContext)
 			#end##
-			
+
 			##
 			## Show description if required
 			##
 			#if($showDescription)
 				#DrawBlogDescription($resultItem)
 			#end##
-			
+
 			<p>
 				<a href="$resultItem.Href">$continueReading &gt;</a>
 			</p>
-			
+
 			#if($showDate || $showLongDescription)##
 				</div>##
 			#end##
@@ -357,11 +357,11 @@
 #macro(DrawImage $resultItem)
 	<div class="list-item-image image container">
 		#if($resultItem.ThumbnailURL)##
-			<a class="item-image image" href="$myExtLink">##
+			<a class="item-image image" href="$resultItem.Href">##
 				#set($alt = "image")##
-				#if($resultItem.Alt)## 
+				#if($resultItem.Alt)##
 					#set($alt = "$resultItem.Alt")##
-				#elseif($resultItem.AltText)## 
+				#elseif($resultItem.AltText)##
 					#set($alt = "$resultItem.AltText")##
 				#else##
 					#set($alt = "image")##
