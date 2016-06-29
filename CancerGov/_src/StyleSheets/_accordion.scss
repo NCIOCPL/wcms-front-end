@@ -11,7 +11,7 @@
 }
 // removing margin from the first and last paragraphs in an accordion content area
 .ui-accordion-content {
-		p:first-child {
+		p:first-child, h3:first-child {
 			margin-top: 0;
 		}
 		p:last-child {
