@@ -167,6 +167,13 @@ table caption {
 		}
 	}
 }
+
+/* style to collapse individual columns */
+.row .column.collapse,
+.row .columns.collapse {
+	padding-left: 0;
+	padding-right: 0;
+}
 /* end add-on functionality to foundation rows */
 
 .bcrumbs {
