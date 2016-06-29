@@ -22,10 +22,10 @@ $trial.GetUSLocations().length locations##
 #macro(DrawNoResultsText)
   <div>
     No results were found matching your criteria.
-	<ul>
-		<li>Please check if your spelling is correct.</li>
-		<li>Please check if your zip code and age are valid.</li>
-	<ul>
+  <ul>
+    <li>Please check if your spelling is correct.</li>
+    <li>Please check if your zip code and age are valid.</li>
+  <ul>
     <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
     <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
   </div>
@@ -41,36 +41,35 @@ $trial.GetUSLocations().length locations##
           <strong>Status: </strong>$resultItem.CurrentProtocolStatus<br>
           <strong>Age: </strong>$resultItem.Eligibility.AgeText<br>
           <strong>Gender: </strong>$resultItem.Eligibility.Gender<br>
-		  #DrawLocationInformation($resultItem)
-		</div>
+          #DrawLocationInformation($resultItem)
+        </div>
       #before
         <div class="row collapse">
-        <div class="medium-12 columns clinical-trial-individual-result">
+          <div class="medium-12 columns clinical-trial-individual-result">
       #after
-        </div>
+          </div>
         </div>
       #nodata
-		#DrawNoResultsText()
+        #DrawNoResultsText()
     #end
-    </div>
+  </div>
 
-    ## If there are results then...
-    <div class="ct-results-lower-control basic">
-      <div class="pagination">
-        ## Get Curr Page
+  ## If there are results then...
+  <div class="ct-results-lower-control basic">
+    <div class="pagination">
+      ## Get Curr Page
 
-        ## Shows 3 before and 3 after
-        #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
-          #each
-            #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
-              <span>$pagerItem.Text</span>
-            #else
-              <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
-            #end
-          #after
-            &nbsp;
-        #end
-      </div>
+      ## Shows 3 before and 3 after
+      #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
+        #each
+          #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+            <span>$pagerItem.Text</span>
+          #else
+            <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
+          #end
+        #after
+          &nbsp;
+      #end
     </div>
   </div>
 #end
@@ -78,7 +77,7 @@ $trial.GetUSLocations().length locations##
 #macro(DrawSearchParams $SearchResults)
   #set($plist = $Tools.CreateEmptyStringList())
   #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
-	$plist.Add("type")
+  $plist.Add("type")
   #end
   #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetPhrase()))
     $plist.Add("phrase")
@@ -120,34 +119,36 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 #between
 , ##
 #end##
-#end##	
+#end##  
 
-<div class="medium-9 columns">
-  #if($SearchResults.Results.TotalResults > 0)
-    #if($SearchResults.Control.HasInvalidParams() == false)
-	  #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
-	    <h5 class="cts-results-title">
-		  Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParams($SearchResults)
-	    </h5>
-	  #else
-	    ## Draw no title here
-	  #end
-      #DrawResults($SearchResults)
+<div class="row">
+  <div class="medium-9 columns collapse">
+    #if($SearchResults.Results.TotalResults > 0)
+      #if($SearchResults.Control.HasInvalidParams() == false)
+      #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
+        <div class="cts-results-title">
+          Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParams($SearchResults)
+        </div>
+      #else
+        ## Draw no title here
+      #end
+        #DrawResults($SearchResults)
+      #else
+        #DrawNoResultsText()
+      #end
+    ## If there are no results, then we need to show a different message
     #else
-	  #DrawNoResultsText()
+      <div>
+        No clinical trials matched your search for #DrawSearchParams($SearchResults).
+      <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
+    </div>
     #end
-  ## If there are no results, then we need to show a different message
-  #else
-    <div>
-		No clinical trials matched your search for #DrawSearchParams($SearchResults).
-		<p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
-		<p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
-	</div>
-  #end
-</div>
-  
-## Begin "Delighter" section ##
-<div class="delighter-rail medium-3 columns">
-	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake NextStepDelighter.inc)-->
+  </div>
+    
+  ## Begin "Delighter" section ##
+  <div class="delighter-rail medium-3 columns">
+    <!--(bake LiveHelpDelighter.inc)-->
+    <!--(bake NextStepDelighter.inc)-->
+  </div>
 </div>

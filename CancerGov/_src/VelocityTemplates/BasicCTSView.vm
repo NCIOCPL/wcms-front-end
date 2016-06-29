@@ -33,7 +33,7 @@
         #end
         <br>
           <br>
-	</div>
+  </div>
 #end
 
 #macro(DrawLocations)
@@ -61,53 +61,53 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   #DrawNoLocations()##
   #else
   <div>
-  	#if($SearchResults.Control.GetShowAll() > 0)
-		<span class="right location-link">
-			<a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#trial-location">Show locations near me</a>
-		</span>
-		#end
+    #if($SearchResults.Control.GetShowAll() > 0)
+    <span class="right location-link">
+      <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#trial-location">Show locations near me</a>
+    </span>
+    #end
 
-		#if ($SearchResults.Trial.GetAllSortedLocations().USA.Count > 0)
-		<div data-basiccts-countrygroup="U.S.A.">
-			#foreach($state in $SearchResults.Trial.GetAllSortedLocations().USA)
-			#each
-			<div data-basiccts-psunitgroup="$state.key">
-				<h3>$state.key</h3>
-				#foreach($loc in $state.Value)
-				#each
-				#DrawLocation($loc)
-				#end
-			</div>
-			#end
-		</div>
-		#end
-		#if ($SearchResults.Trial.GetAllSortedLocations().Canada.Count > 0)
-		<div data-basiccts-countrygroup="Canada">
-			#foreach($state in $SearchResults.Trial.GetAllSortedLocations().Canada)
-			#each
-			<div data-basiccts-psunitgroup="$state.key">
-				<h3>$state.key</h3>
-				#foreach($loc in $state.Value)
-				#each
-				#DrawLocation($loc)
-				#end
-			</div>
-			#end
-		</div>
-		#end
-		#if ($SearchResults.Trial.GetAllSortedLocations().Other.Count > 0)
-		<div data-basiccts-countrygroup="Other">
-			#foreach($country in $SearchResults.Trial.GetAllSortedLocations().Other)
-			#each
-			<div data-basiccts-psunitgroup="$country.key">
-				<h3>$country.key</h3>
-				#foreach($loc in $country.value)
-				#each
-				#DrawLocation($loc)
-				#end
-			</div>
-			#end
-		</div>
+    #if ($SearchResults.Trial.GetAllSortedLocations().USA.Count > 0)
+    <div data-basiccts-countrygroup="U.S.A.">
+      #foreach($state in $SearchResults.Trial.GetAllSortedLocations().USA)
+      #each
+      <div data-basiccts-psunitgroup="$state.key">
+        <h3>$state.key</h3>
+        #foreach($loc in $state.Value)
+        #each
+        #DrawLocation($loc)
+        #end
+      </div>
+      #end
+    </div>
+    #end
+    #if ($SearchResults.Trial.GetAllSortedLocations().Canada.Count > 0)
+    <div data-basiccts-countrygroup="Canada">
+      #foreach($state in $SearchResults.Trial.GetAllSortedLocations().Canada)
+      #each
+      <div data-basiccts-psunitgroup="$state.key">
+        <h3>$state.key</h3>
+        #foreach($loc in $state.Value)
+        #each
+        #DrawLocation($loc)
+        #end
+      </div>
+      #end
+    </div>
+    #end
+    #if ($SearchResults.Trial.GetAllSortedLocations().Other.Count > 0)
+    <div data-basiccts-countrygroup="Other">
+      #foreach($country in $SearchResults.Trial.GetAllSortedLocations().Other)
+      #each
+      <div data-basiccts-psunitgroup="$country.key">
+        <h3>$country.key</h3>
+        #foreach($loc in $country.value)
+        #each
+        #DrawLocation($loc)
+        #end
+      </div>
+      #end
+    </div>
   </div>
   #end
   #end
@@ -136,7 +136,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #macro(DrawMatchingParams $SearchResults)
   #set($plist = $Tools.CreateEmptyStringList())
   #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
-	  $plist.Add("type")
+    $plist.Add("type")
   #end
   #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetPhrase()))
     $plist.Add("phrase")
@@ -174,137 +174,139 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 #between
 ; ##
 #end##
-#end##	
+#end##  
 
-<p>
 #set($resultsUrl = $SearchResults.Control.PageInstruction.GetUrl("ResultsUrl"))##
-<a href="$resultsUrl">&lt; Back to search results</a><br>
-This clinical trial matches: #DrawMatchingParams($SearchResults).
-</p>
-
-<div class="medium-9 columns">
-  #if ($SearchResults.Trial.CurrentProtocolStatus == "Active")
-    #set($statusClass = " active")
-  #elseif($SearchResults.Trial.CurrentProtocolStatus == "Enrolling by invitation")
-    #set($statusClass = " invite")
-  #elseif($SearchResults.Trial.CurrentProtocolStatus == "Temporarily closed")
-    #set($statusClass = " closed")
-  #elseif($SearchResults.Trial.CurrentProtocolStatus == "Not yet active")
-    #set($statusClass = " not-active")
-  #else
-    #set($statusClass = "")
-  #end
-  <div class="status $statusClass">
-    Status: $SearchResults.Trial.CurrentProtocolStatus
-  </div>
-  <div class="accordion desktop" id="clinical_trial">
-    #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.BriefSummary))
-      <section id="trial-description">
-        <h2>Description</h2>
-        <div>
-          $SearchResults.Trial.BriefSummary
-        </div>
-      </section>
+<span class="cts-results-info">
+  <a href="$resultsUrl">&lt; Back to search results</a>
+  <p>
+    This clinical trial matches: #DrawMatchingParams($SearchResults).
+  </p>
+</span>
+<div class="row">
+  <div class="medium-9 columns">
+    #if ($SearchResults.Trial.CurrentProtocolStatus == "Active")
+      #set($statusClass = " active")
+    #elseif($SearchResults.Trial.CurrentProtocolStatus == "Enrolling by invitation")
+      #set($statusClass = " invite")
+    #elseif($SearchResults.Trial.CurrentProtocolStatus == "Temporarily closed")
+      #set($statusClass = " closed")
+    #elseif($SearchResults.Trial.CurrentProtocolStatus == "Not yet active")
+      #set($statusClass = " not-active")
+    #else
+      #set($statusClass = "")
     #end
-
-    #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.CTEntryCriteria))
-      <section id="trial-criteria">
-        <h2>Eligibility Criteria</h2>
-        <div>
-          $SearchResults.Trial.CTEntryCriteria
-        </div>
-      </section>
-    #end
-
-
-    <section id="trial-location">
-      <h2>Locations & Contacts</h2>
-      #DrawLocations()
-    </section>
-
-    #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.DetailedDescription))
-    <section id="trial-outline">
-      <h2>Trial Objectives and Outline</h2>
-      <div>
-        $SearchResults.Trial.DetailedDescription
-      </div>
-    </section>
-    #end
-
-    <section id="trial-phase">
-      <h2>Trial Phase & Type</h2>
-      <div>
-        <div class="row">
-          <div class="medium-6 columns">
-            <strong>Trial Phase</strong>
-            <p>$SearchResults.GlossifiedPhase</p>
-          </div>
-          <div class="medium-6 columns">
-            <strong>Trial Type</strong>
-            <p>$SearchResults.Trial.JoinedTrialTypes</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="trial-organization">
-      <h2>Lead Organization</h2>
-      <div>
-        <strong>Lead Sponsor</strong>
-        <br>
-          $SearchResults.Trial.LeadSponsor<br>
-            <br>
-              #if($SearchResults.Trial.Collaborators.Count > 0)
-              #if($SearchResults.Trial.Collaborators.Count > 1)
-              Collaborators<br>
-                #else
-                Collaborator<br>
-                  #end
-                  #foreach($collab in $SearchResults.Trial.Collaborators)
-                  #each
-                  $collab<br>
-                    #end
-                    #end
-                    <br>
-                      #if($SearchResults.Trial.OverallOfficials.Count > 0)
-                      #if($SearchResults.Trial.OverallOfficials.Count > 1)
-                      Principal Investigators<br>
-                        #else
-                        Principal Investigator<br>
-                          #end
-                          #foreach($official in $SearchResults.Trial.OverallOfficials)
-                          #each
-                          $official.SurName<br>
-         #end
-        #end
-			</div>
-    </section>
-
-    <section id="trial-ids">
-      <h2>Trial IDs</h2>
-      <div>
-        <strong>Primary ID</strong> $SearchResults.Trial.OrgStudyID <br>
-          <strong>Secondary IDs</strong> $SearchResults.Trial.SecondaryIDList <br>
-            <strong>Clinicaltrials.gov ID</strong> <a href="http://clinicaltrials.gov/show/$SearchResults.Trial.NCTID">$SearchResults.Trial.NCTID</a> <br>
-
-			</div>
-    </section>
-  </div>
-</div>
-
-<div class="delighter-rail medium-3 columns">
-	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake NextStepDelighter.inc)-->
-	<div class="no-resize cts-share">
-		<div class="share-text">Share this clinical trial with your doctor:</div>
-		<a class="print" title="Print" href="#">
-			<span class="icon icon-print"></span>
-			<span class="text">Print</span>
-		</a>
-		#set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
-		<a class="email" title="Email" href="$emailUrl">
-			<span class="icon icon-email"></span>
-			<span class="text">Email</span>
-		</a>
+    <div class="status $statusClass">
+      Status: $SearchResults.Trial.CurrentProtocolStatus
     </div>
+    <div class="accordion desktop" id="clinical_trial">
+      #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.BriefSummary))
+        <section id="trial-description">
+          <h2>Description</h2>
+          <div>
+            $SearchResults.Trial.BriefSummary
+          </div>
+        </section>
+      #end
+
+      #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.CTEntryCriteria))
+        <section id="trial-criteria">
+          <h2>Eligibility Criteria</h2>
+          <div>
+            $SearchResults.Trial.CTEntryCriteria
+          </div>
+        </section>
+      #end
+
+
+      <section id="trial-location">
+        <h2>Locations & Contacts</h2>
+        #DrawLocations()
+      </section>
+
+      #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.DetailedDescription))
+      <section id="trial-outline">
+        <h2>Trial Objectives and Outline</h2>
+        <div>
+          $SearchResults.Trial.DetailedDescription
+        </div>
+      </section>
+      #end
+
+      <section id="trial-phase">
+        <h2>Trial Phase & Type</h2>
+        <div>
+          <div class="row">
+            <div class="medium-6 columns">
+              <strong>Trial Phase</strong>
+              <p>$SearchResults.GlossifiedPhase</p>
+            </div>
+            <div class="medium-6 columns">
+              <strong>Trial Type</strong>
+              <p>$SearchResults.Trial.JoinedTrialTypes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trial-organization">
+        <h2>Lead Organization</h2>
+        <div>
+          <strong>Lead Sponsor</strong>
+          <br>
+          $SearchResults.Trial.LeadSponsor<br>
+          <br>
+          #if($SearchResults.Trial.Collaborators.Count > 0)
+            #if($SearchResults.Trial.Collaborators.Count > 1)
+              Collaborators<br>
+            #else
+              Collaborator<br>
+            #end
+            #foreach($collab in $SearchResults.Trial.Collaborators)
+              #each
+                $collab<br>
+            #end
+          #end
+          <br>
+          #if($SearchResults.Trial.OverallOfficials.Count > 0)
+            #if($SearchResults.Trial.OverallOfficials.Count > 1)
+              Principal Investigators<br>
+            #else
+              Principal Investigator<br>
+            #end
+            #foreach($official in $SearchResults.Trial.OverallOfficials)
+              #each
+                $official.SurName<br>
+            #end
+          #end
+        </div>
+      </section>
+
+      <section id="trial-ids">
+        <h2>Trial IDs</h2>
+        <div>
+          <strong>Primary ID</strong> $SearchResults.Trial.OrgStudyID <br>
+          <strong>Secondary IDs</strong> $SearchResults.Trial.SecondaryIDList <br>
+          <strong>Clinicaltrials.gov ID</strong> <a href="http://clinicaltrials.gov/show/$SearchResults.Trial.NCTID">$SearchResults.Trial.NCTID</a> <br>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="delighter-rail medium-3 columns">
+    <!--(bake LiveHelpDelighter.inc)-->
+    <!--(bake NextStepDelighter.inc)-->
+    <div class="no-resize cts-share">
+      <div class="share-text">Share this clinical trial with your doctor:</div>
+      <a class="print" title="Print" href="#">
+        <span class="icon icon-print"></span>
+        <span class="text">Print</span>
+      </a>
+      #set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
+      <a class="email" title="Email" href="$emailUrl">
+        <span class="icon icon-email"></span>
+        <span class="text">Email</span>
+      </a>
+    </div>
+  </div>
 </div>
