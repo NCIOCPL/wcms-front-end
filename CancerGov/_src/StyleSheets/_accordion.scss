@@ -11,6 +11,10 @@
 }
 // removing margin from the first and last paragraphs in an accordion content area
 .ui-accordion-content {
+		.location-filter {
+			margin: 1em 0 2em;	
+		}
+	
 		p:first-child, h3:first-child {
 			margin-top: 0;
 		}
