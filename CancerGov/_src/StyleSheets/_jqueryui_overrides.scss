@@ -244,10 +244,10 @@ $ui-selectmenu-maxitems: 7;
 	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_75_e6e6e6_1x400.png");
 }
 .ui-state-hover,
-.ui-widget-content .ui-state-hover,
+// .ui-widget-content .ui-state-hover,   // was interfering with autocomplete dropdown styling
 .ui-widget-header .ui-state-hover,
 .ui-state-focus,
-.ui-widget-content .ui-state-focus,
+// .ui-widget-content .ui-state-focus,   // was interfering with autocomplete dropdown styling
 .ui-widget-header .ui-state-focus {
 	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_75_dadada_1x400.png");
 }
