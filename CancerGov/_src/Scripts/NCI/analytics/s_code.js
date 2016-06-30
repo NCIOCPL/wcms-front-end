@@ -175,13 +175,28 @@ function s_doPlugins(s) {
     /* Set 'protoclsearchid' value */
     s.prop15=s.eVar15=s.getQueryParam('protocolsearchid');
 
-    /* Set the campagin value */
+    /* Set the campagin value if there are any matching queries in the URL*/
     var sCampaign;
+    var hasUtm = false;
+    var utmArr = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+    var utmJoin  = [];
     sCampaign = s.getQueryParam('cid');
     if (!sCampaign) {
         sCampaign = s.getQueryParam('gclid');
         if (!sCampaign) {
-            sCampaign=s.getQueryParam('utm_source,utm_medium,utm_campaign,utm_term,utm_content','|');
+            for (i = 0; i < utmArr.length; i++) {
+                val = s.getQueryParam(utmArr[i]); 
+                if(val) {
+                    hasUtm = true;
+                }
+                else {
+                    val = '';
+                }
+                utmJoin.push(val);
+            }
+            if(hasUtm) {
+                sCampaign = utmJoin.join('|');
+            }
         }
     }
     s.eVar35 = sCampaign;
