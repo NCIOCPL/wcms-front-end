@@ -54,21 +54,22 @@ define(function(require) {
 	* Main function
 	*/
 	function _initialize() {
-		
+		/* Get our page number from the URL, if it exists */	
 		var url = document.URL;
-		var pn;
-		if(url.indexOf("pn=") > -1)
-			pn = url.substring(url.indexOf("pn=") + 3, url.length);
+		var pn = 1;
+		if(url.indexOf('pn=') > -1) {
+			var pnq = url.match(/pn=[0-9]*/g); // get the "pn=xx" query value
+			pn = pnq[0].replace('pn=',''); // strip out the "pn=" for the page number
+			if(pn.length < 1) {
+				pn = 1;
+			}
+		}
 		/* Track clicks of individual results */
 		$('.clinical-trial-individual-result').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
 					rank = $this.index('.clinical-trial-individual-result a') + 1;
-					rank += '|page ';
-					if(pn)
-						rank += pn;
-					else 
-						rank += '1';
+					rank += ('|page ' + pn);
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
 		});	

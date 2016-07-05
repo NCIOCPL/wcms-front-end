@@ -216,22 +216,31 @@ define(function(require) {
 		});
 
 		// Track accordion expand/collapse
-		/// TODO: need to add logic for other accordion implementations
+		/// Note: this will only work for accordion items that have an ID set. 
+		/// We will need to update published HTML for other accordion items to include an 'id' attribute and to verify 
+		/// that they are following a consistent pattern across all pages
 		$('.accordion section').each(function(i, el) {
 			$(el).on('click', 'h2', function(event) {
 				var $this = $(this);
-				if(document.URL.indexOf("/clinical-trials/") > -1) {
-					accordionId = "clinical trial";
+				accordionId = $this.closest('.accordion').attr('id')
+				sectionId = $this.closest('section').attr('id');				
+				// Track only if the accordion wrapper has an ID
+				if(accordionId) {
+					if(!sectionId) {
+						sectionId = 'none';
+					}
 					displayedName = $this.text();
-					sectionId = $this.index('h2') + '-' + displayedName.replace(/\W+/g,'-').toLowerCase();
-					action = "expand";
+					if (!displayedName) {
+						displayedName = 'none';
+					}
+					action = 'expand';
 					if($this.attr('aria-expanded') === 'false'){
 						action = "collapse";
 					}
 					NCIAnalytics.AccordionClick($this, accordionId, sectionId, displayedName, action);
 				}
 			});
-		});
+		});	
 
 		$('.add_this_btn').each(function() {
 			var $this = $(this);
