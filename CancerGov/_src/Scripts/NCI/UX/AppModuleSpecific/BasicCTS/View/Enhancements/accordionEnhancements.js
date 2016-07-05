@@ -22,7 +22,7 @@ define(function(require) {
 
             var open = $('<a href="#" class="open-all"><span class="icon-expand"></span><span class="text">Open All</span></a>');
             var close = $('<a href="#" class="close-all"><span class="icon-collapse"></span><span class="text">Close All</span></a>');
-            var controls = $('<div class="accordion-controls"></div>');
+            var controls = $('<div class="accordion-controls" id="clinical_trial"></div>');
 
             var toggleAccordion = function(state){
                 $this.find('section > h2 ').each(function(i,el){

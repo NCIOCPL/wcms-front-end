@@ -81,7 +81,12 @@ define(function(require) {
 			}
 		}
 	}
-
+	// to reset the search form on browser back
+	$(document).ready(function($){	
+		$('form').each(function() {
+			this.reset();
+		});
+	});	
 
 	/**
 	 * Tracks the analytics for the Cancer Type/Keyword toggle
