@@ -13,6 +13,13 @@
     background-color: #81b9ec;
   }
 }
+
+@include bp(medium-down) {
+  &.language-bar {
+    background-color: #8b0f71;
+  }
+}
+
 /* Fix for guide card spacing on microsite home */
 /* TODO: verify if the guide card spacing is due to CSS or an incorrect HTML block */
 @include bp(large-up) {
@@ -20,4 +27,5 @@
     margin-left: 0;
   }
 }
+
 /********************* END Microsite-specific Styles ******************************************/

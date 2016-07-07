@@ -11,6 +11,7 @@ define(function(require) {
 		if(url.indexOf('/doc/ocnr') > -1) {
 			//Add the 'micro-a' class to the utility nav
 			$('#nvcgSlUtilityBar').addClass('micro-a');
+			$('.language-bar').addClass('micro-a');
 			
 			//Add the 'micro-a' class to the guide card row
 			$('.row.guide-card').addClass('micro-a');
