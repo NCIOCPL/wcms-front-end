@@ -6,8 +6,18 @@
   &.feature-primary .feature-card {
     background-color: #365d96;
   }
+  &.feature-primary .card {
+    background-color: #365d96;
+  }
   &.multimedia-slot {
     background-color: #81b9ec;
+  }
+}
+/* Fix for guide card spacing on microsite home */
+/* TODO: verify if the guide card spacing is due to CSS or an incorrect HTML block */
+@include bp(large-up) {
+  .micro-a .nvcgSlLayoutGuideB .card:first-child {
+    margin-left: 0;
   }
 }
 /********************* END Microsite-specific Styles ******************************************/

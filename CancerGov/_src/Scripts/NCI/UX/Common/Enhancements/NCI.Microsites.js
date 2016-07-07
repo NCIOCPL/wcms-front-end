@@ -12,6 +12,9 @@ define(function(require) {
 			//Add the 'micro-a' class to the utility nav
 			$('#nvcgSlUtilityBar').addClass('micro-a');
 			
+			//Add the 'micro-a' class to the guide card row
+			$('.row.guide-card').addClass('micro-a');
+			
 			//Do not show the delighter
 			$('#delighter-homePage').css('display','none'); 
 		}
