@@ -485,6 +485,9 @@ module.exports = function(grunt) {
 			case 'training':
 				proxy = 'www-training';
 				break;
+			case 'preview':
+				proxy = 'preview';
+				break;
 			case 'production':
 			case 'prod':
 				proxy = 'www';

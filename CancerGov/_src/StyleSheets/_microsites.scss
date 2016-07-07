@@ -1,5 +1,13 @@
 /********************* BEGIN Microsite-specific Styles ******************************************/
 .micro-a {
+  &.utility-background {
+    background-color: #8b0f71;
+  }
+  &.feature-primary .feature-card {
+    background-color: #365d96;
+  }
+  &.multimedia-slot {
+    background-color: #81b9ec;
+  }
 }
-
 /********************* END Microsite-specific Styles ******************************************/
