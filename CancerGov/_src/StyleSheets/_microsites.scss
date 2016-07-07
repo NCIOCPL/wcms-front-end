@@ -3,23 +3,23 @@
   &.utility-background {
     background-color: #8b0f71;
   }
-  &.feature-primary .feature-card {
-    background-color: #365d96;
-  }
-  &.feature-primary .card {
+  &.feature-primary .feature-card, &.feature-primary .card {
     background-color: #365d96;
   }
   &.multimedia-slot {
     background-color: #81b9ec;
   }
 }
-
 @include bp(medium-down) {
-  &.language-bar {
-    background-color: #8b0f71;
+  .micro-a {
+    &.language-bar {
+      background-color: #8b0f71;
+    }
+    &.feature-primary-title {
+      background-color: #365d96;
+    }
   }
 }
-
 /* Fix for guide card spacing on microsite home */
 /* TODO: verify if the guide card spacing is due to CSS or an incorrect HTML block */
 @include bp(large-up) {

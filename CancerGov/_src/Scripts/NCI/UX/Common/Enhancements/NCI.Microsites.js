@@ -9,12 +9,12 @@ define(function(require) {
 
 		//Set styles for OCNR microsite only
 		if(url.indexOf('/doc/ocnr') > -1) {
-			//Add the 'micro-a' class to the utility nav
-			$('#nvcgSlUtilityBar').addClass('micro-a');
-			$('.language-bar').addClass('micro-a');
 			
-			//Add the 'micro-a' class to the guide card row
-			$('.row.guide-card').addClass('micro-a');
+			//Add the 'micro-a' class to various elements 
+			$('#nvcgSlUtilityBar').addClass('micro-a'); // Utility nav
+			$('.language-bar').addClass('micro-a'); // Language bar (for mobile)
+			$('.feature-primary-title').addClass('micro-a'); // Feature card title (for mobile)
+			$('.row.guide-card').addClass('micro-a'); // Guide card row
 
 			/** TODO: Remove these hacks once permanent fixes are in place */
 			//Do not show the delighter
@@ -23,8 +23,7 @@ define(function(require) {
 			// Permanent fix will be in CDE code
 			if($('.breadcrumbs li a').first().attr('href') == '/') {
 				$('.breadcrumbs li').first().remove();
-			}
-			/** End hacks */
+			} /** End hacks */
 		}
 	}
 
