@@ -190,7 +190,7 @@ function s_doPlugins(s) {
                     hasUtm = true;
                 }
                 else {
-                    val = '';
+                    val = '_';
                 }
                 utmJoin.push(val);
             }
