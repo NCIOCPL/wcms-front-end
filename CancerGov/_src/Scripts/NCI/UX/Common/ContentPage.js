@@ -841,8 +841,6 @@ define(function(require) {
 		require("Common/Enhancements/NCI.ProactiveLiveHelpForCTS").init();
 		// END Clinical Trial Search Setup
 		
-		// Require microsite specific Javascript
-		require("Common/Enhancements/NCI.Microsites").init(); 
 
 	});
 
