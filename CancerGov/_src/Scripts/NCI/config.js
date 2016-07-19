@@ -24,7 +24,7 @@ requirejs.config({
 
 		// Common.js-included vendor libraries
 		'respond': 'empty:',
-		'modernizr': 'empty:',
+		'modernizr': 'empty',
 		'jquery': 'empty:',
 		'jquery-ui': 'empty:',
 

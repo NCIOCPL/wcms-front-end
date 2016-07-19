@@ -60,7 +60,7 @@
 					@include transform(translateX(-50%) translateY(-50%));
 				}
 				&:hover {
-					background-color: $cranberry;
+					background-color: $lcranberry;
 				}
 			}
 
@@ -155,7 +155,7 @@
 		position: relative;
 		float: none;
 	}
-	
+
 	.page-options {
 		margin-top: 1.25em;
 		float: right;

@@ -116,7 +116,7 @@ define(function(require) {
 					i18n: {
 						title: {
 							en: "On This Page",
-							es: "En Este Página"
+							es: "En Esta Página"
 						}
 					},
 					class: 'on-this-page',

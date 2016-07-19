@@ -171,7 +171,7 @@ define(function(require) {
 			var options = {
 					titleText: {
 						en: "On This Page",
-						es: "En Este Página"
+						es: "En Esta Página"
 					},
 					class: "on-this-page hide-otp-on-collapse",
 					placement: {

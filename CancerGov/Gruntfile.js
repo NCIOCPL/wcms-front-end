@@ -108,6 +108,93 @@ module.exports = function(grunt) {
 			}]
 		}
 	});
+	
+	
+  /***************************************
+   * Modernizr Builder
+   * Builds a custom version of modernizr with our options.
+   ***************************************/
+  grunt.loadNpmTasks('grunt-modernizr');
+  grunt.config('modernizr', {
+    dist: {
+      "crawl": false,
+      "parseFiles": false,
+      "customTests": [],
+      "dest": '<%= dirs.tmp.scripts%>modernizr.js',
+      "tests": [
+        "audio",
+        "canvas",
+        "canvastext",
+        "cookies",
+        "eventlistener",
+        "geolocation",
+        "hashchange",
+        "input",
+        "inputtypes",
+        "json",
+        "postmessage",
+        "svg",
+        "touchevents",
+        "video",
+        "webgl",
+        "websockets",
+        "cssanimations",
+        "bgpositionxy",
+        "backgroundsize",
+        "bgsizecover",
+        "borderimage",
+        "borderradius",
+        "boxshadow",
+        "boxsizing",
+        "csscalc",
+        "checked",
+        "csscolumns",
+        "cssexunit",
+        "flexbox",
+        "flexboxlegacy",
+        "flexboxtweener",
+        "fontface",
+        "generatedcontent",
+        "cssgradients",
+        "hsla",
+        "lastchild",
+        "multiplebgs",
+        "nthchild",
+        "opacity",
+        "cssreflections",
+        "cssremunit",
+        "rgba",
+        "textshadow",
+        "csstransforms",
+        "csstransforms3d",
+        "csstransitions",
+        "cssvalid",
+        "websqldatabase",
+        "svgclippaths",
+        "inlinesvg",
+        "smil",
+        "webworkers"
+      ],
+      "options": [
+        "domPrefixes",
+        "prefixes",
+        "addTest",
+        "atRule",
+        "hasEvent",
+        "mq",
+        "prefixed",
+        "prefixedCSS",
+        "prefixedCSSValue",
+        "testAllProps",
+        "testProp",
+        "testStyles",
+        "html5shiv",
+        "setClasses"
+      ],
+      "uglify": false //We will let requirejs handle that
+    }
+  }
+);
 
 	/*****************************************
 	 * Require.js
@@ -123,6 +210,7 @@ module.exports = function(grunt) {
 			dir: '<%= dirs.tmp.scripts %>NCI',
 			paths: {
 				'requirejs': '../../../bower_components/requirejs/require',
+				//'modernizr': '../../../<%= dirs.tmp.scripts %>/modernizr',
 				'config': 'config',
 				'ContentPage': 'UX/Common/ContentPage',
 				'CTHPPage': 'UX/PageSpecific/CTHP/CTHPPage',
@@ -226,7 +314,8 @@ module.exports = function(grunt) {
 	var commonFile = {
 		'<%= dirs.tmp.scripts %>Common.js': [
 			'<%= dirs.src.scripts %>NCI/Vendor/respond.js',
-			'<%= dirs.src.scripts %>NCI/Vendor/modernizr.custom.2.7.1.js',
+			// '<%= dirs.src.scripts %>NCI/Vendor/modernizr.custom.2.7.1.js',
+			'<%= dirs.tmp.scripts %>/modernizr.js',
 			'<%= dirs.bower %>jquery/jquery.js',
 			'<%= dirs.bower %>jquery-ui/jquery-ui.js',
 			'<%= dirs.bower %>requirejs/require.js',
@@ -380,7 +469,7 @@ module.exports = function(grunt) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['requirejs:' + env, 'clean:requirejs', 'uglify:' + env, 'copy:scripts', 'clean:tmp'];
+		var tasks = ['modernizr:dist', 'requirejs:' + env, 'clean:requirejs', 'uglify:' + env, 'copy:scripts', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
@@ -484,6 +573,9 @@ module.exports = function(grunt) {
 				break;
 			case 'training':
 				proxy = 'www-training';
+				break;
+			case 'preview':
+				proxy = 'preview';
 				break;
 			case 'production':
 			case 'prod':
