@@ -1,5 +1,5 @@
 define(function(require){
-	
+
 	var $ = require('jquery');
 	var CookieManager = require('js-cookie');
 	var LiveChat = require('BasicCTSCommon/Enhancements/LiveChat');
@@ -17,12 +17,12 @@ define(function(require){
 		"/about-cancer/treatment/clinical-trials/search/view"
 	];
 
-	var POPUP_DELAY_SECONDS = 180;	// Number of seconds to delay before displaying the popup..
+	var POPUP_DELAY_SECONDS = 90;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Need help?";
 	var POPUP_MESSAGE = '<p>Speak to an NCI Information Specialist about a clinical trial</p>';
 	var PROMPT_WIDTH = 400;
 	var PROMPT_HEIGHT = 200;
-	
+
 	// Constants for opting out of the proactive prompt.
 	var OPT_OUT_COOKIE_NAME = "pcs4cts-opt";
 	var OPT_OUT_DURATION_DAYS = 30;
@@ -35,15 +35,15 @@ define(function(require){
 
 	// Track activity to prevent displaying the prompt while the user
 	// is interacting with another UI element.
-	
+
 	var INTERACTION_DELAY_SECONDS = 10;	// Minimum number of seconds to wait after a user
 										// interaction before displaying the prompt.
 	var _userActivity = {
 		lastActivityTime : 0,	// Time of the last keypress.
 		activeElement : null	// Last element being interacted with.
 	}
-	
-	
+
+
 	// Initialization for the enhancement.
 	function _initialize() {
 
@@ -55,9 +55,9 @@ define(function(require){
 			CookieManager.remove(TIMING_COOKIE_NAME);
 		}
 	}
-	
+
 	var popupStatus = false;
-	
+
 	// Display a message prompting the user to choose whether they
 	// would like to do a chat with a Live Help Specialist.
 	function _displayPrompt() {
@@ -74,22 +74,22 @@ define(function(require){
 			+ '<input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-button" value="Chat Now">'
 			+ '</form>'
 			+ '<div class="live-help"</div>';
-		
+
 		// Create the pop up.
 		$('body').append('<div id="' + POPUP_WINDOW_ID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><h2 class="title">' + POPUP_TITLE + '</h2><div class="content">' + popupBody + '</div></div>');
-		
+
 		$("#chat-button").click(function(){
 			LiveChat.openChatWindow();
 			_dismissPrompt();
 		});
-		
+
 		// Center and display the pop up.
 		_makePromptVisible();
-		
+
 		// Set up event handlers for the various ways to close the pop up
 		$(".ProactiveLiveHelpPrompt .close").click(function() { _dismissPrompt(); });
 		$(document).keypress(function(e) {if( e.keyCode == 27 && popupStatus == true) _dismissPrompt();});
-		
+
 		// Hook up analytics for the dynamically created elements.
 		_activatePromptAnalytics();
 	}
@@ -108,22 +108,22 @@ define(function(require){
 			$("#" + POPUP_WINDOW_ID).fadeOut("slow");
 			$('#popup-message-content').empty().remove();
 			popupStatus = false;
-			
+
 			// In any event where the prompt is being dismissed, opt the user
 			// out of seeing the pop-up again.
 			_setUserToOptedOut();
-			
+
 			// If possible, return focus to the last-known UI element.
 			if(!!_userActivity.activeElement)
 				_userActivity.activeElement.focus();
 		}
 	}
-	
+
 	function _userIsOptedOut() {
 		var optedOut = !!CookieManager.get(OPT_OUT_COOKIE_NAME);
 		return optedOut;
 	}
-	
+
 	function _setUserToOptedOut() {
 		CookieManager.set(OPT_OUT_COOKIE_NAME, 'true', { expires: OPT_OUT_DURATION_DAYS });
 	}
@@ -157,9 +157,9 @@ define(function(require){
 
 
 	var _countdownIntervalID;
-	
+
 	function _initializeCountdownTimer(){
-		
+
 		// If the timer cookie doesn't exist, create it.
 		if(!CookieManager.get(TIMING_COOKIE_NAME)){
 			CookieManager.set(TIMING_COOKIE_NAME, POPUP_DELAY_SECONDS);
@@ -171,12 +171,12 @@ define(function(require){
 		var tick = (( timeleft >= TIMER_INTERVAL ) ? TIMER_INTERVAL : timeleft) * 1000;
 		_countdownIntervalID = window.setInterval(_decrementCountdownTimer, tick);
 	}
-	
+
 	function _decrementCountdownTimer(){
 		var timeleft = _getCountdownTimeRemaining();
 		timeleft -= TIMER_INTERVAL;
 		CookieManager.set(TIMING_COOKIE_NAME, timeleft);
-		
+
 		// If the timer hasn't run out yet, keep ticking.
 		if(timeleft <= 0) {
 			// Otherwise, clear the interval timer and diplay the prompt.
@@ -184,7 +184,7 @@ define(function(require){
 			_displayPrompt();
 		}
 	}
-	
+
 	// Get the amount of time left on the countdown timer. If the
 	// timer hasn't been set, return POPUP_DELAY_SECONDS. Guarantee a
 	// minimum of zero seconds.
@@ -197,12 +197,12 @@ define(function(require){
 			timeleft = 0;
 		return timeleft;
 	}
-	
+
 	// Checks whether the specified url is part of the Clnical Trial Search set.
 	function _isACtsPage(url){
 		var matchFound = false;
 		var itemCount = CTS_URLS.length;
-		
+
 		// so we don't have to worry about casing.
 		url = url.toLowerCase();
 		for(var i = 0; i < itemCount; ++i) {
@@ -211,24 +211,24 @@ define(function(require){
 				break;
 			}
 		}
-		
+
 		return matchFound;
 	}
-	
+
 	/*
 		Live Help is only available between 8:00 AM and 11:00 PM US Eastern Time.
 		This (currently) translates as later than 1200 UTC or less than 0300 UTC.
 		Skip holidays. Skip weekends.
-		
+
 		(This is obviously a huge kludge. Ideally, we can get a simple yes/no from the
 		 live help server.)
 	*/
 	function _liveHelpIsAvailable(){
 
 		var isOpen = false;
-		
+
 		var dateNow = new Date();
-		
+
 		if( _isBusinessHours(dateNow)
 			&& _dateIsNotTheWeekend(dateNow)
 			&& _dateIsNotAHoliday(dateNow)){
@@ -256,7 +256,7 @@ define(function(require){
 			UTC TIME 01234|5678901234567890123|01234|5678901234567890123|01234|5678901
 			UTC     |    Saturday             |    Sunday               |   Monday
 			EDT  Fri      |     Saturday            |         Sunday          |  Mon
-			
+
 			So we have have to handle these cases:
 			Case 1: Day is Saturday and the time is before 0400 - NOT Weekend
 			Case 2: Day is Saturday and the time is 0400 or later - Weekend
@@ -269,21 +269,21 @@ define(function(require){
 		var weekday = true;
 		hour = theDate.getUTCHours();
 		day = theDate.getUTCDay();
-		
+
 		switch(day) {
 			// Sunday
 			case 0:
 				weekday = false;
 				break;
-			
+
 			// Monday
-			case 1: 
+			case 1:
 				if(hour < 4) // Still Sunday UDT
 					weekday = false;
 				else
 					weekday = true;
 				break;
-				
+
 			case 2: // Tuesday
 			case 3: // Wednesday
 			case 4: // Thursday
@@ -302,15 +302,15 @@ define(function(require){
 
 		return weekday;
 	}
-	
+
 	function _dateIsNotAHoliday(theDate){
-		
+
 		var nonHoliday = true;
-		
+
 		/*
 			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
 			US East Coast is one day earlier.
-			
+
 			UTC    12222            11111111112222|          1111111111222
 			TIME   90123|01234|5678901234567890123|01234|56789012345678901
 			UTC    Jul 3|          July 4         |    July 5
@@ -319,7 +319,7 @@ define(function(require){
 			Indepdence Day and Labor Day are both on Mondays, so the day before
 			is a Sunday and Live Help is closed (handled by the weekend check).
 			But at Midnight UTC, it's still the holiday on the US East coast
-			
+
 			So we have to check two cases:
 			Case 1: 0400 and later, compare to the US holiday date.
 			Case 2: 0359 and earlier, comapre to the day after the holiday.
@@ -328,7 +328,7 @@ define(function(require){
 		hour = theDate.getUTCHours();
 		day = theDate.getUTCDate();
 		month = theDate.getUTCMonth() + 1; // Months are zero-based. Add one for readability.
-		
+
 		if(hour >= 4 ){  // 0400 (midnight EDT) and later.
 			if( month == 7 && day == 4) nonHoliday = false; // Independence Day
 			if( month == 9 && day == 5) nonHoliday = false; // Labor Day
@@ -339,30 +339,30 @@ define(function(require){
 
 		return nonHoliday;
 	}
-	
+
 	// Check for keyboard activity in order to avoid displaying the prompt while
 	// the user is interacting with an existing UI element.
 	function _initializeActivityCheck() {
 		$(document).keypress(function(e){_recordUserInteraction(e);}); // keystroke.
 		$(document).click(function(e){_recordUserInteraction(e);}); // Mouse click
 	}
-	
-	
+
+
 	function _recordUserInteraction(event) {
 		// Date.now() is not supported by IE before version 9.
 		_userActivity.lastActivityTime =  new Date().getTime();
 		_userActivity.activeElement = document.activeElement;
 	}
-	
+
 	function _getSecondsSinceLastInteraction() {
 		var now = new Date().getTime(); // Time in milliseconds
 		var elapsed = now - _userActivity.lastActivityTime;
 		return Math.floor(elapsed / 1000);
 	}
-	
+
 	/* Flag for telling whether this enhancement has been initialized. */
 	var initialized = false;
-	
+
 	/* Exposes functions from this module which are available from the outside. */
 	return {
 		init: function() {
