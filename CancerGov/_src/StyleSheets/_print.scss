@@ -76,7 +76,8 @@
 	 margin-bottom: 15px;
  }
  /* Type/Stage are label elements; need to be left aligned in print view */
- fieldset label.field {
+ /* Same for checkbox on results page */
+ fieldset label.field, .cts-results-container .row .checkbox {
   float: none;
  }
 }
