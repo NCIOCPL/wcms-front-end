@@ -3,7 +3,7 @@
     TagPrefix="NCI" %>
 	
 <!DOCTYPE html>
-<html>
+<html runat="server">
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
 <body class="genGeneral">
 	<div class="genSiteSkipToContent"><a href="#genSiteContent">Skip to Content</a></div>
