@@ -3,7 +3,7 @@
     TagPrefix="NCI" %>
 
 <!DOCTYPE html>
-<html>
+<html runat="server">
 <head runat="server">
 <link rel="icon" href="/publishedcontent/files/shareditems/favicon/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="/publishedcontent/files/shareditems/favicon/favicon.ico" type="image/x-icon" />
