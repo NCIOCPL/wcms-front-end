@@ -18,8 +18,8 @@ define(function(require){
 	];
 
 	var POPUP_DELAY_SECONDS = 90;	// Number of seconds to delay before displaying the popup..
-	var POPUP_TITLE	= "Need help?";
-	var POPUP_MESSAGE = '<p>Speak to an NCI Information Specialist about a clinical trial</p>';
+	var POPUP_TITLE	= "Questions about Clinical Trials?";
+	var POPUP_MESSAGE = '<p>Chat with an Information Specialist who can help you.</p>';
 
 	// Constants for opting out of the proactive prompt.
 	var OPT_OUT_COOKIE_NAME = "pcs4cts-opt";
