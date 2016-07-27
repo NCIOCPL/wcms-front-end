@@ -6,6 +6,7 @@
 <head id="header" runat="server">
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-AnalyticsMin.js?agency=HHS&subagency=NCI"></script>
 </head>
 <body runat="server">
 <!-- CGov Container -->
