@@ -92,7 +92,9 @@
 		&:hover, &:focus {
 			.image-hover {
 				// default styling for Card image behavior on hover
-				background-color: $black;
+    // Removed the black background for images on hover. VE - WCMSFEQ-152
+				//background-color: $black;
+				background-color: inherit;
 
 				img {
 					opacity: 0.8;
@@ -177,7 +179,7 @@
 		color: white;
 		padding: 0.625em 30px;
 		margin: 0em;
-	}	
+	}
 }
 
 .feature-secondary {
@@ -188,12 +190,12 @@
 	}
 	h3 {
 		font-size: 1.375em;
-		line-height: 1.272;	
+		line-height: 1.272;
 	}
 	a {
 		h3 {
 			font-weight: normal;
-			color: $color-link;			
+			color: $color-link;
 		}
 		&:hover, &:focus {
 			h3 {
@@ -266,14 +268,14 @@
 
 	h3 {
 		font-size: 1.375em;
-		line-height: 1.272;	
+		line-height: 1.272;
 	}
 	a {
 		padding: 1.875em;
 		display: block;
 		h3 {
 			font-weight: normal;
-			color: $color-link;			
+			color: $color-link;
 		}
 		&:hover, &:focus {
 			h3 {
@@ -345,15 +347,15 @@
 			margin-bottom: 0;
 			margin-top: 0;
 			padding: 0;
-			
+
 			.card {
 				background: #1d5e86;
 				padding-top: 0;
 				padding-bottom: 0;
 				margin: 0;
-				
+
 				h2 {
-					line-height: 1.111em;	
+					line-height: 1.111em;
 					font-size: 1.125em;
 				}
 				h3 {
@@ -361,7 +363,7 @@
 					background: url($buttons + "small-arrow.png") 95% center no-repeat;
 					border-bottom: 1px solid black;
 					padding: 0.3em 0.9375em;
-					margin: 0;	
+					margin: 0;
 				}
 				h3.last {
 					border-bottom: none;
@@ -371,7 +373,7 @@
 				background: #1d5e86;
 				padding-top: 0;
 				padding-bottom: 0;
-				margin: 0;	
+				margin: 0;
 			}
 		}
 	}
@@ -417,17 +419,17 @@ a.learn-more {
 	padding-bottom: 1em;
 
 	h3 {
-		margin-top: 0.5em;	
+		margin-top: 0.5em;
 	}
 	.small-2 {
 		margin-top: 1em;
 	}
 	.image-hover {
 		display: block;
-		
+
 		img {
 			width: 100%;
-		}	
+		}
 
 		&:hover, &:focus {
 			background-color: $black;
@@ -459,7 +461,7 @@ a.learn-more {
 	/*margin-bottom: 1em;*/
 	padding: 1em 0;
 	margin-bottom: 1em;
-	
+
 	a {
 			&:hover, &:focus {
 				h3 {
@@ -478,10 +480,10 @@ a.learn-more {
 			line-height: 1.272;
 			color: $color-link;
 		}
-		
+
 		@extend %card-link-hover;
 		}
-		
+
 }
 @include bp(small) {
 	.multimedia-slot {
@@ -491,7 +493,7 @@ a.learn-more {
 		.equalheight {
 			.slot-item {
 				margin-right:15px;
-				
+
 			}
 			&:last-child .slot-item{
 				margin-right:0;
