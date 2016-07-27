@@ -47,7 +47,7 @@ h5 {
 }
 h6 {
 	line-height: 1.125em;
-	font-size: 1em;       // 16px 
+	font-size: 1em;       // 16px
 	font-style: italic;
 }
 .related-resources h6 {
@@ -176,11 +176,16 @@ table caption {
 }
 /* end add-on functionality to foundation rows */
 
+/* We needed to set the min-height style so that pages without */
+/* bread crumbs create enough space so that the social media   */
+/* buttons would be displayed with the same spacing to the top */
+/* menu as those pages including bread crumbs                  */
 .bcrumbs {
-	font-size: 0.8em;
-	margin-bottom: 1.25em;
-	margin-top: 2em;
-	@include font-montserrat;
+    font-size: 0.8em;
+   	margin-bottom: 1.25em;
+   	margin-top: 2em;
+    min-height: 1.1875em;
+   	@include font-montserrat;
 }
 /* clearfix for clearing floated items */
 
@@ -212,10 +217,10 @@ figcaption {
 /* The Previous/Next, Older/Newer navigation links need to be   */
 /* separated more from the content of the page                  */
 div#cgvSlPagination, div.previous-next-links {
-    margin-top: 3em  !important; 
+    margin-top: 3em  !important;
 }
 /* End Previous/Next */
-    
+
 /* Pullquotes */
 .pullquote {
 	width: 75%;
@@ -261,7 +266,7 @@ div#cgvSlPagination, div.previous-next-links {
 /* we are doing quotes manually for spanish pages due to difference in grammar where period comes after quote in spanish */
 :lang(es) .pullquote-text:before {
 	content: "";
-} 
+}
 .pullquote-text:after {
 	content: "\201d"
 }
