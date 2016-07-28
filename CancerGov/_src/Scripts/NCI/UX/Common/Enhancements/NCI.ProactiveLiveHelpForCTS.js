@@ -27,7 +27,7 @@ define(function(require){
 
 	// Constants for the pop-up timer.
 	var TIMING_COOKIE_NAME = "pcs4cts";
-	var TIMER_INTERVAL = 10; // seconds
+	var TIMER_INTERVAL = 5; // seconds
 
 	var POPUP_WINDOW_ID = "ProactiveLiveHelpForCTSPrompt";	// Pop up window element's ID.
 
