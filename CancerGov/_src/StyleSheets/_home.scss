@@ -92,9 +92,7 @@
 		&:hover, &:focus {
 			.image-hover {
 				// default styling for Card image behavior on hover
-    // Removed the black background for images on hover. VE - WCMSFEQ-152
-				//background-color: $black;
-				background-color: inherit;
+				background-color: $black;
 
 				img {
 					opacity: 0.8;
