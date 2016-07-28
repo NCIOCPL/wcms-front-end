@@ -138,7 +138,8 @@
     padding: 7px 10px;
     max-width: 115px;
     text-align: center;
-    &:hover {
+    
+		&:hover {
       background-color: #3f0557;
       text-decoration: none;
     }
@@ -146,23 +147,22 @@
 }
 
 /* Large Screens */
-@include bp('(min-width:1250px)') {
+@include bp('(min-width:1025px)') {
   #delighter-homePage {
-    left:0;
-    max-width: 1250px;
+    // left:0;
+    // max-width: 1250px;
     width: 100%;
     text-align: right;
     margin:0 auto;
+		display: inline;
+		right: 1%;
+		width: 110px;
   }
 }
 /* Extra Large Screens */
-@include bp(xtra-large) {
+@include bp('(min-width:1770px)') {
   #delighter-homePage {
-    left:0;
-    max-width: 1450px;
-    width: 100%;
-    text-align: right;
-    margin:0 auto;
+		right: 10%;
   }
 }
 /* Tablet/Mobile styles */
