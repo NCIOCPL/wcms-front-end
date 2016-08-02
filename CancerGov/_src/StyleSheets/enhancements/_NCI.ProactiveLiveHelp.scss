@@ -3,15 +3,15 @@
 	position: fixed;
 	top:40%;
 	left:50%;
-	width:400px;
 	padding: 20px 15px 12px 15px;
+	width:400px;
 	border: 6px solid #2A7CB8;
 	z-index: 200;
 	transform: translateY(-50%) translateX(-50%);
 	font:normal .875em Montserrat, Arial, sans-serif;
 	color:#606060;
 	background: #fff url(/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg) no-repeat bottom right;
-	
+
 	input {
 		background: #086F89;
 		color: #ffffff;
@@ -21,19 +21,20 @@
 		border-radius: .2em;
 		cursor: pointer;
 	}
-	
+
 	h2 {
 		margin:0;
+		width: 60%;
 	}
-	
+
 	form {
 		margin-bottom: 0;
 	}
 
 	.content {
-		width:65%;
+		width:60%;
 		font-size: 17px;
-		
+
 		p {
 			margin-top: 12px;
 			line-height: 1.12;
@@ -58,15 +59,20 @@
 		display: inline-block;
 		background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
 	}
-	
+
 	@include bp(small) {
 		width: 300px;
 		background-size: 53%;
 		background-position: 115% 100%;
-		
+
 		input {
 			padding: .35em 1.3em;
 		}
+
+		h2 {
+			width: 73%;
+		}
+
 		.content {
 			width:73%;
 			font-size: 15px;

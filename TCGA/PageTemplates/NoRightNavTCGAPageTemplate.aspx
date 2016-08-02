@@ -2,7 +2,7 @@
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls" TagPrefix="NCI" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" runat="server">
 <head runat="server">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <link rel="icon" href="/publishedcontent/Files/SharedItems/Images/favicon.ico" type="image/x-icon"> 

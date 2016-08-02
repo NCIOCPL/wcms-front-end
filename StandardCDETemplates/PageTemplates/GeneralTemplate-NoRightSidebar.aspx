@@ -2,7 +2,7 @@
 <%@ Register Assembly="NCILibrary.Web.ContentDeliveryEngine.UI" Namespace="NCI.Web.CDE.UI.WebControls"
     TagPrefix="NCI" %>
 <!DOCTYPE html>
-<html>
+<html runat="server">
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
 
 <body class="genGeneral">
