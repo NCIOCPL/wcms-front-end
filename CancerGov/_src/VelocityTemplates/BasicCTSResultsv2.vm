@@ -33,14 +33,14 @@ $trial.GetUSLocations().length locations##
 
 #macro(DrawResults $SearchResults)
   <div class="cts-results-container">
-    #foreach($resultItem in $SearchResults.Results.Results)
+    #foreach($resultItem in $SearchResults.Results.Trials)
       #each
         ## Attach Onclick for Analytics elsewhere
         <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCTID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
         <div class="cts-result-item">
-          <strong>Status: </strong>$resultItem.CurrentProtocolStatus<br>
-          <strong>Age: </strong>$resultItem.Eligibility.AgeText<br>
-          <strong>Gender: </strong>$resultItem.Eligibility.Gender<br>
+          <strong>Status: </strong>$resultItem.CurrentTrialStatus<br>
+          <strong>Age: </strong>$resultItem.GetAgeText<br>
+          <strong>Gender: </strong>$resultItem.EligibilityInfo.Gender<br>
           #DrawLocationInformation($resultItem)
         </div>
       #before
@@ -94,7 +94,7 @@ $trial.GetUSLocations().length locations##
   #if($SearchResults.Control.GetSearchForAllTrials == true)
     $plist.Add("all trials")
   #end
-  
+
 #foreach($param in $plist)##
 #each
 #if($param == "type")##
@@ -119,7 +119,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 #between
 , ##
 #end##
-#end##  
+#end##
 
 <div class="row">
   <div class="medium-9 columns collapse">
@@ -145,7 +145,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     </div>
     #end
   </div>
-    
+
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
     <!--(bake LiveHelpDelighter.inc)-->
