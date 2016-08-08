@@ -266,7 +266,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
             </div>
             <div class="medium-6 columns">
               <strong>Trial Type</strong>
-              <p>$SearchResults.Trial.JoinedTrialTypes</p>
+              <p>$SearchResults.TrialTools.GetPrimaryPurpose($SearchResults.Trial)</p>
             </div>
           </div>
         </div>
