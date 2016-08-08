@@ -82,11 +82,11 @@ define(function(require) {
 		}
 	}
 	// to reset the search form on browser back
-	$(document).ready(function($){	
+	$(document).ready(function($){
 		$('form').each(function() {
 			this.reset();
 		});
-	});	
+	});
 
 	/**
 	 * Tracks the analytics for the Cancer Type/Keyword toggle
@@ -129,8 +129,34 @@ define(function(require) {
 
 		$('#ct')
 			.autocompleteselector({
-				fetchSrc: '/BasicCTS.Service/v1/CancerTypeAutoSuggest',
-				queryParam: 'q'
+				fetchSrc: function(term) {
+					//https://clinicaltrialsapi.cancer.gov/terms?term=breast&term_type=_diseases&size=10
+					dataQuery = {
+							'term': term,
+							'term_type': '_diseases',
+							'size': 10
+					};
+
+					return $.ajax({
+						url: 'https://clinicaltrialsapi.cancer.gov/terms',
+						data: dataQuery,
+						dataType: 'json'
+					}).pipe(function(res){
+						var items = {
+							result: []
+						};
+
+						if (res.terms) {
+							res.terms.forEach(function(term) {
+								items.result.push({
+									term: term.term,
+									id: term.term_key
+								})
+							})
+						}
+						return items;
+					})
+				}
 			})
 			.data('error-message',messages.ctError)
 			.on('blur.null',function(){

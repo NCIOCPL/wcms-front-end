@@ -4,31 +4,31 @@
 
 #macro(DrawLocation $loc)
 <div itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-  <strong itemprop="name">$loc.FacilityName</strong>
+  <strong itemprop="name">$loc.Org.Name</strong>
   <br>
     <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-      <meta itemprop="addressCountry" content="$loc.PostalAddress.CountryName" />
-      <span itemprop="addressLocality">$loc.PostalAddress.City</span>##
-#if (!$Tools.IsNullOrWhitespace($loc.PostalAddress.PoliticalSubUnitName))##
-, <span itemprop="addressRegion">$loc.PostalAddress.PoliticalSubUnitName</span>
+      <meta itemprop="addressCountry" content="$loc.Org.Country" />
+      <span itemprop="addressLocality">$loc.Org.City</span>##
+#if (!$Tools.IsNullOrWhitespace($loc.Org.StateOrProvince))##
+, <span itemprop="addressRegion">$loc.Org.StateOrProvince</span>
       #end
     </span>
     <br>
 
-      #if ($loc.HasContact)
+      #if ($SearchResults.TrialTools.HasContact($loc))
       Contact:
-      #if (!$Tools.IsNullOrWhitespace($loc.CTGovContact.SurName))
-      $loc.CTGovContact.SurName
+      #if (!$Tools.IsNullOrWhitespace($loc.ContactName))
+      $loc.ContactName
       #else
       Name Not Available
       #end
       <br>
-        #if (!$Tools.IsNullOrWhitespace($loc.CTGovContact.Phone))
-        Phone: $loc.CTGovContact.Phone
+        #if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))
+        Phone: $loc.ContactPhone
         #end
 
-        #if (!$Tools.IsNullOrWhitespace($loc.CTGovContact.Email))
-        Email: <a href="mailto:$loc.CTGovContact.Email">$loc.CTGovContact.Email</a>
+        #if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
+        Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
         #end
         #end
         <br>
@@ -57,7 +57,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 ## This is used to draw all study sites with filters.
 #macro(DrawFilterableLocations)
 <div id="filterable-trialslist">
-  #if ($SearchResults.Trial.GetAllSortedLocations().USA.Count == 0 && $SearchResults.Trial.GetAllSortedLocations().Canada.Count == 0 && $SearchResults.Trial.GetAllSortedLocations().Other.Count == 0)
+  #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).USA.Count == 0 && $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Canada.Count == 0 && $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Other.Count == 0)
   #DrawNoLocations()##
   #else
   <div>
@@ -67,9 +67,9 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
     </span>
     #end
 
-    #if ($SearchResults.Trial.GetAllSortedLocations().USA.Count > 0)
+    #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).USA.Count > 0)
     <div data-basiccts-countrygroup="U.S.A.">
-      #foreach($state in $SearchResults.Trial.GetAllSortedLocations().USA)
+      #foreach($state in $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).USA)
       #each
       <div data-basiccts-psunitgroup="$state.key">
         <h3>$state.key</h3>
@@ -81,9 +81,9 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       #end
     </div>
     #end
-    #if ($SearchResults.Trial.GetAllSortedLocations().Canada.Count > 0)
+    #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Canada.Count > 0)
     <div data-basiccts-countrygroup="Canada">
-      #foreach($state in $SearchResults.Trial.GetAllSortedLocations().Canada)
+      #foreach($state in $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Canada)
       #each
       <div data-basiccts-psunitgroup="$state.key">
         <h3>$state.key</h3>
@@ -95,9 +95,9 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       #end
     </div>
     #end
-    #if ($SearchResults.Trial.GetAllSortedLocations().Other.Count > 0)
+    #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Other.Count > 0)
     <div data-basiccts-countrygroup="Other">
-      #foreach($country in $SearchResults.Trial.GetAllSortedLocations().Other)
+      #foreach($country in $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Other)
       #each
       <div data-basiccts-psunitgroup="$country.key">
         <h3>$country.key</h3>
@@ -153,7 +153,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   #if($SearchResults.Control.GetSearchForAllTrials == true)
     $plist.Add("all trials")
   #end
-  
+
 #foreach($param in $plist)##
 #each
 #if($param == "type")##
@@ -174,7 +174,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 #between
 ; ##
 #end##
-#end##  
+#end##
 
 #set($resultsUrl = $SearchResults.Control.PageInstruction.GetUrl("ResultsUrl"))##
 <span class="cts-results-info">
@@ -185,19 +185,19 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 </span>
 <div class="row">
   <div class="medium-9 columns">
-    #if ($SearchResults.Trial.CurrentProtocolStatus == "Active")
+    #if ($SearchResults.Trial.CurrentTrialStatus == "Active")
       #set($statusClass = " active")
-    #elseif($SearchResults.Trial.CurrentProtocolStatus == "Enrolling by invitation")
+    #elseif($SearchResults.Trial.CurrentTrialStatus == "Enrolling by invitation")
       #set($statusClass = " invite")
-    #elseif($SearchResults.Trial.CurrentProtocolStatus == "Temporarily closed")
+    #elseif($SearchResults.Trial.CurrentTrialStatus == "Temporarily closed")
       #set($statusClass = " closed")
-    #elseif($SearchResults.Trial.CurrentProtocolStatus == "Not yet active")
+    #elseif($SearchResults.Trial.CurrentTrialStatus == "Not yet active")
       #set($statusClass = " not-active")
     #else
       #set($statusClass = "")
     #end
     <div class="status $statusClass">
-      Status: $SearchResults.Trial.CurrentProtocolStatus
+      Status: $SearchResults.Trial.CurrentTrialStatus
     </div>
     <div class="accordion desktop" id="clinical_trial">
       #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.BriefSummary))
@@ -209,11 +209,34 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
         </section>
       #end
 
-      #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.CTEntryCriteria))
+      #if ($SearchResults.TrialTools.HasEligibilityCriteria($SearchResults.Trial))
         <section id="trial-criteria">
           <h2>Eligibility Criteria</h2>
           <div>
-            $SearchResults.Trial.CTEntryCriteria
+            #foreach($criterion in $SearchResults.TrialTools.GetInclusionCriteria($SearchResults.Trial))##
+              #beforeall
+              <h3>Inclusion Criteria</h3>
+              <ul>
+              ##end
+              #each
+                <li>$criterion</li>
+              ##end
+              #afterall
+              </ul>
+              ##end
+            #end
+            #foreach($criterion in $SearchResults.TrialTools.GetExclusionCriteria($SearchResults.Trial))##
+              #beforeall
+              <h3>Exclusion Criteria</h3>
+              <ul>
+              ##end
+              #each
+                <li>$criterion</li>
+              ##end
+              #afterall
+              </ul>
+              ##end
+            #end
           </div>
         </section>
       #end
@@ -228,7 +251,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
       <section id="trial-outline">
         <h2>Trial Objectives and Outline</h2>
         <div>
-          $SearchResults.Trial.DetailedDescription
+          $SearchResults.TrialTools.GetPrettyDescription($SearchResults.Trial)
         </div>
       </section>
       #end
@@ -286,7 +309,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
         <h2>Trial IDs</h2>
         <div>
           <strong>Primary ID</strong> $SearchResults.Trial.ProtocolID <br>
-          <strong>Secondary IDs</strong> $SearchResults.Trial.SecondaryIDList <br>
+          <strong>Secondary IDs</strong> $SearchResults.TrialTools.GetSecondaryIDsString($SearchResults.Trial) <br>
           <strong>Clinicaltrials.gov ID</strong> <a href="http://clinicaltrials.gov/show/$SearchResults.Trial.NCTID">$SearchResults.Trial.NCTID</a> <br>
         </div>
       </section>
