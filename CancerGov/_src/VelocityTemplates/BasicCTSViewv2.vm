@@ -291,15 +291,16 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
             #end
           #end
           <br>
-          #if($SearchResults.Trial.OverallOfficials.Count > 0)
-            #if($SearchResults.Trial.OverallOfficials.Count > 1)
+          #set($principals = $SearchResults.TrialTools.GetPrincipalArray($SearchResults.Trial))
+          #if($principals.length > 0)
+            #if($principals.length > 1)
               Principal Investigators<br>
             #else
               Principal Investigator<br>
             #end
-            #foreach($official in $SearchResults.Trial.OverallOfficials)
+            #foreach($principal in $principals)
               #each
-                $official.SurName<br>
+                $principal
             #end
           #end
         </div>
