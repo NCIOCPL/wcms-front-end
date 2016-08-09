@@ -11,7 +11,13 @@
       <span itemprop="addressLocality">$loc.Org.City</span>##
 #if (!$Tools.IsNullOrWhitespace($loc.Org.StateOrProvince))##
 , <span itemprop="addressRegion">$loc.Org.StateOrProvince</span>
-      #end
+#end
+#if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
+<br>Contact: $loc.ContactName
+#end
+#if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))##
+<br>Phone: $loc.ContactPhone
+#end
     </span>
     <br>
 
