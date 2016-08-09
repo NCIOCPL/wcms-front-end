@@ -57,7 +57,8 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 ## This is used to draw all study sites with filters.
 #macro(DrawFilterableLocations)
 <div id="filterable-trialslist">
-  #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).USA.Count == 0 && $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Canada.Count == 0 && $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Other.Count == 0)
+  #set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial)) 
+  #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 0 && $SearchResults.TrialTools.GetLocCount($allLocations.Canada) == 0 && $SearchResults.TrialTools.GetLocCount($allLocations.Other) == 0)
   #DrawNoLocations()##
   #else
   <div>
@@ -67,9 +68,9 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
     </span>
     #end
 
-    #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).USA.Count > 0)
+    #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) > 0)
     <div data-basiccts-countrygroup="U.S.A.">
-      #foreach($state in $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).USA)
+      #foreach($state in $allLocations.USA)
       #each
       <div data-basiccts-psunitgroup="$state.key">
         <h3>$state.key</h3>
@@ -81,9 +82,9 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       #end
     </div>
     #end
-    #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Canada.Count > 0)
+    #if ($SearchResults.TrialTools.GetLocCount($allLocations.Canada) > 0)
     <div data-basiccts-countrygroup="Canada">
-      #foreach($state in $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Canada)
+      #foreach($state in $allLocations.Canada)
       #each
       <div data-basiccts-psunitgroup="$state.key">
         <h3>$state.key</h3>
@@ -95,9 +96,9 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       #end
     </div>
     #end
-    #if ($SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Other.Count > 0)
+    #if ($SearchResults.TrialTools.GetLocCount($allLocations.Other) > 0)
     <div data-basiccts-countrygroup="Other">
-      #foreach($country in $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial).Other)
+      #foreach($country in $allLocations.Other)
       #each
       <div data-basiccts-psunitgroup="$country.key">
         <h3>$country.key</h3>
