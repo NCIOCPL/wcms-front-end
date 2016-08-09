@@ -279,13 +279,14 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
           <br>
           $SearchResults.TrialTools.GetLeadSponsor($SearchResults.Trial)<br>
           <br>
-          #if($SearchResults.Trial.Collaborators.Count > 0)
-            #if($SearchResults.Trial.Collaborators.Count > 1)
+          #set($collabs = $SearchResults.TrialTools.GetCollabsArray($SearchResults.Trial))
+          #if($collabs.length > 0)
+            #if($collabs.length > 1)
               Collaborators<br>
             #else
               Collaborator<br>
             #end
-            #foreach($collab in $SearchResults.Trial.Collaborators)
+            #foreach($collab in $collabs)
               #each
                 $collab<br>
             #end
