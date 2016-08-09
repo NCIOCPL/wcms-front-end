@@ -277,7 +277,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
         <div>
           <strong>Lead Sponsor</strong>
           <br>
-          $SearchResults.Trial.LeadSponsor<br>
+          $SearchResults.TrialTools.GetLeadSponsor($SearchResults.Trial)<br>
           <br>
           #if($SearchResults.Trial.Collaborators.Count > 0)
             #if($SearchResults.Trial.Collaborators.Count > 1)
