@@ -41,8 +41,8 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
         <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCTID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
         <div class="cts-result-item">
           <strong>Status: </strong>$resultItem.CurrentTrialStatus<br>
-          <strong>Age: </strong>$resultItem.EligibilityInfo.StructuredCriteria.MinAgeStr to $resultItem.EligibilityInfo.StructuredCriteria.MaxAgeStr<br>
-          <strong>Gender: </strong>$resultItem.EligibilityInfo.Gender<br>
+          <strong>Age: </strong>$SearchResults.TrialTools.GetAgeString($resultItem)<br>
+          <strong>Gender: </strong>$SearchResults.TrialTools.GetGenderString($resultItem)<br>
           #DrawLocationInformation($resultItem)
         </div>
       #before
