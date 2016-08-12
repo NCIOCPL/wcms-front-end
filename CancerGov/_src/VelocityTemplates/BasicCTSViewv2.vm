@@ -6,40 +6,26 @@
 <div itemprop="location" itemscope="" itemtype="http://schema.org/Place">
   <strong itemprop="name">$loc.Org.Name</strong>
   <br>
-    <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-      <meta itemprop="addressCountry" content="$loc.Org.Country" />
-      <span itemprop="addressLocality">$loc.Org.City</span>##
-#if (!$Tools.IsNullOrWhitespace($loc.Org.StateOrProvince))##
-, <span itemprop="addressRegion">$loc.Org.StateOrProvince</span>
-#end
-#if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
-<br>Contact: $loc.ContactName
-#end
-#if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))##
-<br>Phone: $loc.ContactPhone
-#end
-    </span>
-    <br>
-
-      #if ($SearchResults.TrialTools.HasContact($loc))
-      Contact:
-      #if (!$Tools.IsNullOrWhitespace($loc.ContactName))
-      $loc.ContactName
-      #else
-      Name Not Available
-      #end
-      <br>
-        #if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))
-        Phone: $loc.ContactPhone
-        #end
-
-        #if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
-        Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
-        #end
-        #end
-        <br>
-          <br>
-  </div>
+  <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+    <meta itemprop="addressCountry" content="$loc.Org.Country" />
+    <span itemprop="addressLocality">$loc.Org.City</span>##
+    #if (!$Tools.IsNullOrWhitespace($loc.Org.StateOrProvince))##
+    , <span itemprop="addressRegion">$loc.Org.StateOrProvince</span>
+    #end
+    #if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
+    <br>Contact: $loc.ContactName
+    #else
+    <br>Name Not Available
+    #end
+    #if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))##
+    <br>Phone: $loc.ContactPhone
+    #end
+    #if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
+    Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
+    #end
+  </span>
+  <p/>
+</div>
 #end
 
 #macro(DrawLocations)
