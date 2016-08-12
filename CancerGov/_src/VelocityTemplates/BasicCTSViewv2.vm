@@ -268,22 +268,9 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
       <section id="trial-organization">
         <h2>Lead Organization</h2>
         <div>
-          <strong>Lead Sponsor</strong>
+          <strong>Lead Organization</strong>
           <br>
           $SearchResults.TrialTools.GetLeadSponsor($SearchResults.Trial)<br>
-          <br>
-          #set($collabs = $SearchResults.TrialTools.GetCollabsArray($SearchResults.Trial))
-          #if($collabs.length > 0)
-            #if($collabs.length > 1)
-              Collaborators<br>
-            #else
-              Collaborator<br>
-            #end
-            #foreach($collab in $collabs)
-              #each
-                $collab<br>
-            #end
-          #end
           <br>
           #set($principals = $SearchResults.TrialTools.GetPrincipalArray($SearchResults.Trial))
           #if($principals.length > 0)
