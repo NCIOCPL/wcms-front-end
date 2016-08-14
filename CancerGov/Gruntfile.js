@@ -534,7 +534,10 @@ module.exports = function(grunt) {
 			bower: 'bower_components/'
 		});
 
-		var tasks = ['build:dev', 'watch'];
+		//Watch cannot work yet because it would need to push in the new paths.
+		//removing it for now so we don't have to hit CTRL-C everytime we do
+		//a build
+		var tasks = ['build:dev'];
 		grunt.task.run(tasks);
 	});
 
