@@ -4,13 +4,13 @@
 
 #macro(DrawLocation $loc)
 <div itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-  <strong itemprop="name">$loc.Org.Name</strong>
+  <strong itemprop="name">$loc.Name</strong>
   <br>
   <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-    <meta itemprop="addressCountry" content="$loc.Org.Country" />
-    <span itemprop="addressLocality">$loc.Org.City</span>##
-    #if (!$Tools.IsNullOrWhitespace($loc.Org.StateOrProvince))##
-    , <span itemprop="addressRegion">$loc.Org.StateOrProvince</span>
+    <meta itemprop="addressCountry" content="$loc.Country" />
+    <span itemprop="addressLocality">$loc.City</span>##
+    #if (!$Tools.IsNullOrWhitespace($loc.StateOrProvince))##
+    , <span itemprop="addressRegion">$loc.StateOrProvince</span>
     #end
     #if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
     <br>Contact: $loc.ContactName

@@ -5,8 +5,13 @@
 <strong>Location: </strong>##
 
 #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 1)##
-#set($loc = $SearchResults.TrialTools.GetLocCount($allLocations.USA).get(0))##
-$loc.Org.Name, $loc.Org.City, $loc.Org.StateOrProvince##
+#foreach($state in $allLocations.USA)
+#each
+#foreach($loc in $state.Value)
+#each
+$loc.Name, $loc.City, $loc.StateOrProvince##
+#end
+#end
 #elseif ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 0)##
 #if($resultItem.CurrentProtocolStatus == "Not yet active")##
 Location information is not yet available.##
@@ -16,7 +21,7 @@ See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">C
 #else##
 $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
 #if ($SearchResults.Control.HasZip())##
-, including $trial.GetUSLocations($SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you##
+, including $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you##
 #end##
 #end##
 #end##
