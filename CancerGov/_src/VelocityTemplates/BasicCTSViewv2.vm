@@ -197,7 +197,9 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
         <section id="trial-description">
           <h2>Description</h2>
           <div>
-            $SearchResults.Trial.BriefSummary
+		    <p class="ctrp">##
+              $SearchResults.Trial.BriefSummary
+			</p>
           </div>
         </section>
       #end
