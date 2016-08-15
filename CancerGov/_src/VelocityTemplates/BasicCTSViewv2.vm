@@ -110,7 +110,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 ## This is used to draw the closest sites when viewing by proximity
 #macro(DrawProximityLocations)
 <div id="proximity-trialslist">
-  #if($SearchResults.Trial.GetLocationsNearZip($SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length == 0)
+  #if($SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length == 0)
   #DrawNoLocations()##
   #else
 
@@ -118,7 +118,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   <span class="right location-link">
     <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#trial-location">Show all locations</a>
   </span>
-    #foreach($loc in $SearchResults.Trial.GetLocationsNearZip($SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
+    #foreach($loc in $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
     #each
       #DrawLocation($loc)
     #end
