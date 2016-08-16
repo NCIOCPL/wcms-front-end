@@ -82,11 +82,11 @@ define(function(require) {
 		}
 	}
 	// to reset the search form on browser back
-	$(document).ready(function($){
+	$(document).ready(function($){	
 		$('form').each(function() {
 			this.reset();
 		});
-	});
+	});	
 
 	/**
 	 * Tracks the analytics for the Cancer Type/Keyword toggle
@@ -129,6 +129,29 @@ define(function(require) {
 
 		$('#ct')
 			.autocompleteselector({
+				fetchSrc: '/BasicCTS.Service/v1/CancerTypeAutoSuggest',
+				queryParam: 'q'
+			})
+			.data('error-message',messages.ctError)
+			.on('blur.null',function(){
+				var $this = $(this);
+
+				//If there is a string and we have not picked a cancer type,
+				//show the error.
+				//We must ensure that we only toggle the error if there IS
+				//an error for analytics purposes.
+				if (_validateNotNull($this.val()) && !_validateLocked($this)) {
+					_toggleError(false,$this);
+					//clear value if invalid - must select from list
+					//$this.val('');
+				} else {
+					_toggleError(true,$this);
+				}
+			})
+		;
+		
+		$('.new-form #q')
+			.autocompleteselector({
 				fetchSrc: function(term) {
 					//https://clinicaltrialsapi.cancer.gov/terms?term=breast&term_type=_diseases&size=10
 					dataQuery = {
@@ -158,24 +181,7 @@ define(function(require) {
 					})
 				}
 			})
-			.data('error-message',messages.ctError)
-			.on('blur.null',function(){
-				var $this = $(this);
-
-				//If there is a string and we have not picked a cancer type,
-				//show the error.
-				//We must ensure that we only toggle the error if there IS
-				//an error for analytics purposes.
-				if (_validateNotNull($this.val()) && !_validateLocked($this)) {
-					_toggleError(false,$this);
-					//clear value if invalid - must select from list
-					//$this.val('');
-				} else {
-					_toggleError(true,$this);
-				}
-			})
 		;
-
 
 		$("#legend-zip").next().find('input')
 			.data('error-message',messages.zipError)
