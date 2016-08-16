@@ -8,7 +8,7 @@
         <div class="large-4 small-11 columns legend" id="legend-type"><label class="bold" for="q">Type/Condition</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input class="new-form" placeholder="Start typing to select a cancer type" type="text" id="ct" maxlength="100" name="ct" autocomplete="off">
+            <input class="new-form" placeholder="Start typing to select a cancer type" type="text" id="q" maxlength="100" name="q" autocomplete="off">
           </div>
           <div class="row"></div>
         </div>
