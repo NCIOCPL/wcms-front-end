@@ -9,20 +9,20 @@
   <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
     <meta itemprop="addressCountry" content="$loc.Country" />
     <span itemprop="addressLocality">$loc.City</span>##
-    #if (!$Tools.IsNullOrWhitespace($loc.StateOrProvince))##
-    , <span itemprop="addressRegion">$loc.StateOrProvince</span>
-    #end
-    #if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
-    <br>Contact: $loc.ContactName
-    #else
-    <br>Name Not Available
-    #end
-    #if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))##
-    <br>Phone: $loc.ContactPhone
-    #end
-    #if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
-    Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
-    #end
+#if (!$Tools.IsNullOrWhitespace($loc.StateOrProvince))##
+, <span itemprop="addressRegion">$loc.StateOrProvince</span>
+#end
+#if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
+<br>Contact: $loc.ContactName
+#else
+<br>Name Not Available
+#end
+#if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))##
+<br>Phone: $loc.ContactPhone
+#end
+#if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
+Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
+#end
   </span>
   <p/>
 </div>
