@@ -150,7 +150,7 @@ define(function(require) {
 			})
 		;
 		
-		$('.new-form #q')
+		$('.basic-cts-v2 #q')
 			.autocompleteselector({
 				fetchSrc: function(term) {
 					//https://clinicaltrialsapi.cancer.gov/terms?term=breast&term_type=_diseases&size=10
