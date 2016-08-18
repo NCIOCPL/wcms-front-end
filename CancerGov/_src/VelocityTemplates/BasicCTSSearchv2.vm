@@ -17,10 +17,10 @@
 
     <fieldset id="fieldset-keyword" aria-labelledby="legend-keyword" style="display: none;">
       <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-keyword"><label class="bold" for="q">Keyword</label></div>
+        <div class="large-4 small-11 columns legend" id="legend-keyword"><label class="bold" for="">Keyword</label></div>
         <div class="large-8 columns">
           <div class="row">
-            <input type="text" id="q" maxlength="100" name="q" placeholder="Examples: PSA, HER-2, &quot;Paget disease&quot;" autocomplete="off">
+            <input type="text" id="" maxlength="100" name="" placeholder="Examples: PSA, HER-2, &quot;Paget disease&quot;" autocomplete="off">
           </div>
           <div class="row">
             <a class="basiccts-cancertype-toggle" href="#">Search by cancer type</a> instead.
