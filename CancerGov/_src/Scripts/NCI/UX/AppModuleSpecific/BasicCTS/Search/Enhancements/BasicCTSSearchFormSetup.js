@@ -1,4 +1,7 @@
 define(function(require) {
+
+	var config = require('generated/configuration');
+
 	var $ = require('jquery');
 	require('Common/Plugins/Widgets/jquery.ui.autocompleteselector');
 	require('BasicCTSSearch/Plugins/jquery.basicctsformtrack');
@@ -10,6 +13,8 @@ define(function(require) {
 		zipError:'Please enter a valid 5 digit ZIP code',
 		ageError:'Please enter a number between 1 and 120'
 	};
+
+	var APISERVER = config.clinicaltrialsearch.apiServer + ':' + config.clinicaltrialsearch.apiPort;
 
 
 	function _showCancerType() {
@@ -160,8 +165,11 @@ define(function(require) {
 							'size': 10
 					};
 
+					var apiURL = 'http://' + APISERVER + '/terms';
+
 					return $.ajax({
-						url: 'http://nci-ocdev09-v.nci.nih.gov:3000/terms',
+						//url: 'nci-ocdev09-v.nci.nih.gov:3000/terms',
+						url: apiURL,
 						data: dataQuery,
 						dataType: 'json'
 					}).pipe(function(res){

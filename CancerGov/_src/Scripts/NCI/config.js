@@ -21,6 +21,7 @@ requirejs.config({
 		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
 		'BasicCTSCommon': 'UX/AppModuleSpecific/BasicCTS/Common',
 		'Vendor': 'Vendor',
+		'generated' : 'Generated',
 
 		// Common.js-included vendor libraries
 		'respond': 'empty:',

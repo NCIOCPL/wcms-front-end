@@ -29,6 +29,22 @@ module.exports = function(grunt) {
 		bower: 'bower_components/'
 	});
 
+	// Configuration values to be passed to generated JavaScript runtime.
+	grunt.config('runtime', {
+		clinicaltrialsearch : {
+			apiserver : {
+				name : {
+					dev : 'nci-ocdev09-v.nci.nih.gov',
+					prod : 'clinicaltrialsapi.cancer.gov'
+				},
+				port : {
+					dev : '3000',
+					prod : '80'
+				}
+			}
+		}
+	});
+
 	// Project Config
 	grunt.config('pkg', grunt.file.readJSON('package.json'));
 
@@ -465,11 +481,30 @@ module.exports = function(grunt) {
 
 
 	// Tasks
+
+	/**
+	 * Generates the configuration.js file which is embedded into a front-end build to provide
+	 * different values according to which tier the build is targetting.
+	 */
+	grunt.registerTask('generate-config', 'Generate tier-specific configuration files', function(env) {
+		var configPath = grunt.template.process('<%= dirs.src.scripts %>/NCI/Generated/configuration.js');
+		// Skeleton for the configuration object.
+		var config = {
+			'clinicaltrialsearch' : {
+				'apiServer' : 'server-name-goes-here',
+				'apiPort' : 'port-goes-here'
+			}
+		};
+		config['clinicaltrialsearch']['apiServer']	= grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.name.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>'); 
+		config['clinicaltrialsearch']['apiPort']	= grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.port.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>'); 
+		grunt.file.write(configPath, "define(" + JSON.stringify(config) + ");");
+	});
+
 	grunt.registerTask('build-scripts', 'Build the JavaScript.', function(env) {
 		env = (env === 'prod' ? 'prod' : 'dev');
 		grunt.config('env', env);
 
-		var tasks = ['modernizr:dist', 'requirejs:' + env, 'clean:requirejs', 'uglify:' + env, 'copy:scripts', 'clean:tmp'];
+		var tasks = ['generate-config:' + env , 'modernizr:dist', 'requirejs:' + env, 'clean:requirejs', 'uglify:' + env, 'copy:scripts', 'clean:tmp'];
 		grunt.task.run(tasks);
 	});
 
