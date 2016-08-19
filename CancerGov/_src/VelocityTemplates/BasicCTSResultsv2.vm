@@ -113,7 +113,7 @@ Type/Condition: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResul
 Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
 #end##
 #elseif($param == "zip")##
-ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
+within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
 #elseif($param == "age")##
 Age: "<span data-basiccts-searchparam='a'>$SearchResults.Control.SearchParams.Age</span>"##
 #elseif($param == "gender")##
