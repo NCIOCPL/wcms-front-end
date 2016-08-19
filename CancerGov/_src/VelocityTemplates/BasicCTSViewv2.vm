@@ -179,14 +179,14 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 </span>
 <div class="row">
   <div class="medium-9 columns">
-    #if ($SearchResults.Trial.CurrentTrialStatus == "Active")
-      #set($statusClass = " active")
-    #elseif($SearchResults.Trial.CurrentTrialStatus == "Enrolling by invitation")
-      #set($statusClass = " invite")
-    #elseif($SearchResults.Trial.CurrentTrialStatus == "Temporarily closed")
-      #set($statusClass = " closed")
-    #elseif($SearchResults.Trial.CurrentTrialStatus == "Not yet active")
-      #set($statusClass = " not-active")
+    #if ($SearchResults.Trial.CurrentTrialStatus.toLower == "active")
+      #set($statusClass = "active")
+    #elseif($SearchResults.Trial.CurrentTrialStatus.toLower == "enrolling by invitation")
+      #set($statusClass = "invite")
+    #elseif($SearchResults.Trial.CurrentTrialStatus.toLower == "temporarily closed" || $SearchResults.Trial.CurrentTrialStatus.toLower == "temporarily closed to accrual" || $SearchResults.Trial.CurrentTrialStatus.toLower == "temporarily closed to accrual and intervention")
+      #set($statusClass = "closed")
+    #elseif($SearchResults.Trial.CurrentTrialStatus.toLower == "not yet active" || $SearchResults.Trial.CurrentTrialStatus.toLower == "in review" || $SearchResults.Trial.CurrentTrialStatus.toLower == "approved")
+  	  #set($statusClass = "not-active")
     #else
       #set($statusClass = "")
     #end
