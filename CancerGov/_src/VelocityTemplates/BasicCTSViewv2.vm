@@ -12,6 +12,7 @@
 #if (!$Tools.IsNullOrWhitespace($loc.StateOrProvince))##
 , <span itemprop="addressRegion">$loc.StateOrProvince</span>
 #end
+<br>Status: $SearchResults.TrialTools.GetFormattedString($loc.RecruitmentStatus)##
 #if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
 <br>Contact: $loc.ContactName
 #else
