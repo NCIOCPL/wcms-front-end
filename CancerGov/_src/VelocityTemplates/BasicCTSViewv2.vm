@@ -198,7 +198,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
           <h2>Description</h2>
           <div>
 		    <p class="ctrp">##
-              $SearchResults.Trial.BriefSummary
+              $Tools.Enc($SearchResults.Trial.BriefSummary)
 			</p>
           </div>
         </section>
@@ -214,7 +214,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
               <ul>
               ##end
               #each
-                <li>$criterion</li>
+                <li>$Tools.Enc($criterion)</li>
               ##end
               #afterall
               </ul>
@@ -226,7 +226,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
               <ul>
               ##end
               #each
-                <li>$criterion</li>
+                <li>$Tools.Enc($criterion)</li>
               ##end
               #afterall
               </ul>
