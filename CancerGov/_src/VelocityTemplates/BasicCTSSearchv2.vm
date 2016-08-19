@@ -5,7 +5,7 @@
 
     <fieldset id="fieldset-type" aria-labelledby="legend-type">
       <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-type"><label class="bold" for="q">Type/Condition</label></div>
+        <div class="large-4 small-11 columns legend" id="legend-type"><label class="bold" for="q">Cancer Type/Keyword</label></div>
         <div class="large-8 columns">
           <div class="row">
             <input placeholder="Start typing to select a cancer type" type="text" id="q" maxlength="100" name="q" autocomplete="off">
