@@ -165,7 +165,7 @@ define(function(require) {
 							'size': 10
 					};
 
-					var apiURL = 'http://' + APISERVER + '/terms';
+					var apiURL = 'https://' + APISERVER + '/terms';
 
 					return $.ajax({
 						//url: 'nci-ocdev09-v.nci.nih.gov:3000/terms',
