@@ -34,11 +34,11 @@ module.exports = function(grunt) {
 		clinicaltrialsearch : {
 			apiserver : {
 				name : {
-					dev : 'nci-ocdev09-v.nci.nih.gov',
+					dev : 'clinicaltrialsapi-prod.cancer.gov',
 					prod : 'clinicaltrialsapi.cancer.gov'
 				},
 				port : {
-					dev : '3000',
+					dev : '443',
 					prod : '80'
 				}
 			}
