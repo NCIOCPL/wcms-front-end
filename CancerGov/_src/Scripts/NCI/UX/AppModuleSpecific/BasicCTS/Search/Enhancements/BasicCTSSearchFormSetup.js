@@ -161,7 +161,7 @@ define(function(require) {
 					};
 
 					return $.ajax({
-						url: 'http://nci-ocdev01-v.nci.nih.gov:3000/terms',
+						url: 'http://nci-ocdev09-v.nci.nih.gov:3000/terms',
 						data: dataQuery,
 						dataType: 'json'
 					}).pipe(function(res){
