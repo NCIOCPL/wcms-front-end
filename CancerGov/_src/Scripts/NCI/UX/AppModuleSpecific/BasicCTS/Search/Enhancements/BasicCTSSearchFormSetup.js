@@ -161,7 +161,7 @@ define(function(require) {
 					};
 
 					return $.ajax({
-						url: 'https://clinicaltrialsapi.cancer.gov/terms',
+						url: 'http://nci-ocdev01-v.nci.nih.gov:3000/terms',
 						data: dataQuery,
 						dataType: 'json'
 					}).pipe(function(res){
@@ -171,9 +171,12 @@ define(function(require) {
 
 						if (res.terms) {
 							res.terms.forEach(function(term) {
+								//A term from the API can have multiple keys
+								var key = term.codes.join(",");
+								key += "|" + term.term_key;
 								items.result.push({
 									term: term.term,
-									id: term.term_key
+									id: key
 								})
 							})
 						}
