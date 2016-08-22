@@ -2,7 +2,7 @@
 
 ## Draws a Single Location Item
 
-#macro(DrawLocation $loc)
+#macro(DrawLocationV2 $loc)
 <div itemprop="location" itemscope="" itemtype="http://schema.org/Place">
   <strong itemprop="name">$loc.Name</strong>
   <br>Status: $SearchResults.TrialTools.GetFormattedString($loc.RecruitmentStatus)##
@@ -29,17 +29,17 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
 </div>
 #end
 
-#macro(DrawLocations)
+#macro(DrawLocationsV2)
 #if($SearchResults.Control.GetShowAll() > 0)
-#DrawFilterableLocations()
+#DrawFilterableLocationsV2()
 #elseif($SearchResults.Control.HasZip())
-#DrawProximityLocations()
+#DrawProximityLocationsV2()
 #else
-#DrawFilterableLocations()
+#DrawFilterableLocationsV2()
 #end
 #end
 
-#macro(DrawNoLocations)
+#macro(DrawNoLocationsV2)
 #if($SearchResults.Trial.CurrentTrialStatus.toLower == "not yet active" || $SearchResults.Trial.CurrentTrialStatus.toLower == "in review" || $SearchResults.Trial.CurrentTrialStatus.toLower == "approved")
 Location information is not yet available.
 #else
@@ -48,11 +48,11 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #end
 
 ## This is used to draw all study sites with filters.
-#macro(DrawFilterableLocations)
+#macro(DrawFilterableLocationsV2)
 <div id="filterable-trialslist">
   #set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial)) 
   #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 0 && $SearchResults.TrialTools.GetLocCount($allLocations.Canada) == 0 && $SearchResults.TrialTools.GetLocCount($allLocations.Other) == 0)
-  #DrawNoLocations()##
+  #DrawNoLocationsV2()##
   #else
   <div>
     #if($SearchResults.Control.GetShowAll() > 0)
@@ -69,7 +69,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
         <h3>$state.key</h3>
         #foreach($loc in $state.Value)
         #each
-        #DrawLocation($loc)
+        #DrawLocationV2($loc)
         #end
       </div>
       #end
@@ -83,7 +83,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
         <h3>$state.key</h3>
         #foreach($loc in $state.Value)
         #each
-        #DrawLocation($loc)
+        #DrawLocationV2($loc)
         #end
       </div>
       #end
@@ -97,7 +97,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
         <h3>$country.key</h3>
         #foreach($loc in $country.value)
         #each
-        #DrawLocation($loc)
+        #DrawLocationV2($loc)
         #end
       </div>
       #end
@@ -109,10 +109,10 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #end
 
 ## This is used to draw the closest sites when viewing by proximity
-#macro(DrawProximityLocations)
+#macro(DrawProximityLocationsV2)
 <div id="proximity-trialslist">
   #if($SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length == 0)
-  #DrawNoLocations()##
+  #DrawNoLocationsV2()##
   #else
 
   <span class="location-text">Locations within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP code "$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP"</span>
@@ -121,13 +121,13 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   </span>
     #foreach($loc in $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
     #each
-      #DrawLocation($loc)
+      #DrawLocationV2($loc)
     #end
     #end
 </div>
 #end
 
-#macro(DrawMatchingParams $SearchResults)
+#macro(DrawMatchingParamsV2 $SearchResults)
   #set($plist = $Tools.CreateEmptyStringList())
   #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
     $plist.Add("type")
@@ -174,7 +174,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
   <p>
-    This clinical trial matches: #DrawMatchingParams($SearchResults).
+    This clinical trial matches: #DrawMatchingParamsV2($SearchResults).
   </p>
 </span>
 <div class="row">
@@ -240,7 +240,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 
       <section id="trial-location">
         <h2>Locations & Contacts</h2>
-        #DrawLocations()
+        #DrawLocationsV2()
       </section>
 
       #if (!$Tools.IsNullOrWhitespace($SearchResults.Trial.DetailedDescription))

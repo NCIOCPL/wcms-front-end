@@ -1,6 +1,6 @@
 <script src="/PublishedContent/js/BasicCTSResultsPage.js" type="text/javascript"></script>
 
-#macro(DrawLocationInformation $trial)##
+#macro(DrawLocationInformationV2 $trial)##
 #set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($trial)) 
 <strong>Location: </strong>##
 
@@ -26,7 +26,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
 #end##
 #end##
 
-#macro(DrawNoResultsText)
+#macro(DrawNoResultsTextV2)
   <div>
     No results were found matching your criteria.
   <ul>
@@ -38,7 +38,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
   </div>
 #end
 
-#macro(DrawResults $SearchResults)
+#macro(DrawResultsV2 $SearchResults)
   <div class="cts-results-container">
     #foreach($resultItem in $SearchResults.Results.Trials)
       #each
@@ -48,7 +48,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
           <strong>Status: </strong>$resultItem.CurrentTrialStatus<br>
           <strong>Age: </strong>$SearchResults.TrialTools.GetAgeString($resultItem)<br>
           <strong>Gender: </strong>$SearchResults.TrialTools.GetGenderString($resultItem)<br>
-          #DrawLocationInformation($resultItem)
+          #DrawLocationInformationV2($resultItem)
         </div>
       #before
         <div class="row collapse">
@@ -57,7 +57,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
           </div>
         </div>
       #nodata
-        #DrawNoResultsText()
+        #DrawNoResultsTextV2()
     #end
   </div>
 
@@ -81,7 +81,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
   </div>
 #end
 
-#macro(DrawSearchParams $SearchResults)
+#macro(DrawSearchParamsV2 $SearchResults)
   #set($plist = $Tools.CreateEmptyStringList())
   #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
   $plist.Add("type")
@@ -134,19 +134,19 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
       #if($SearchResults.Control.HasInvalidParams() == false)
       #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
         <div class="cts-results-title">
-          Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParams($SearchResults)
+          Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
         </div>
       #else
         ## Draw no title here
       #end
-        #DrawResults($SearchResults)
+        #DrawResultsV2($SearchResults)
       #else
-        #DrawNoResultsText()
+        #DrawNoResultsTextV2()
       #end
     ## If there are no results, then we need to show a different message
     #else
       <div>
-        No clinical trials matched your search for #DrawSearchParams($SearchResults).
+        No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
       <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
     </div>
