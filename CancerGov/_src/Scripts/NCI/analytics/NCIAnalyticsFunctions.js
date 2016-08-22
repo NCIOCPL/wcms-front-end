@@ -1399,7 +1399,7 @@ var NCIAnalytics = {
 		clickParams.Props = {
 			5 : 'livehelp_proactive chat - display|' + pageName
 		};
-		clickParams.Events = [42];
+		clickParams.Events = [45];
 		clickParams.LogToOmniture();
 	},
 
