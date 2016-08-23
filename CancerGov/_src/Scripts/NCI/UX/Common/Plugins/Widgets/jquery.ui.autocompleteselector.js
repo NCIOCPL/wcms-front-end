@@ -22,6 +22,30 @@
             queryParam: false,
             buttonText: 'Clear Selection'
         },
+        setSelection: function(id) {
+
+            var $el = $(this.element);
+            var thisautosuggest = this;
+            
+            thisautosuggest.$hiddenInput.val(id);
+
+            // Add unselect button
+            if (!thisautosuggest.$unselectBtn) {
+                thisautosuggest.$unselectBtn = $('<button class="remove-suggestion" type="button">'+ thisautosuggest.options.buttonText +'</button>');
+                $el.after(thisautosuggest.$unselectBtn);
+                thisautosuggest.$unselectBtn.click(function() {
+                    thisautosuggest.$hiddenInput.val('');
+                    $el.val('').attr('disabled', false).focus();
+                    thisautosuggest.$unselectBtn.hide();
+                });
+            } else {
+                thisautosuggest.$unselectBtn.show();
+            }
+            
+            //Disable our text box
+            $el.attr('disabled', true);
+
+        },
         _create: function () {     
    
             var $el = $(this.element);
@@ -35,25 +59,12 @@
                 queryParam: thisautosuggest.options.queryParam,
                 select: function(event, ui) {
                     event.preventDefault();
-                    event.stopPropagation();
-                    $(this).val(ui.item.item || ui.item.term);
-                    thisautosuggest.$hiddenInput.val(ui.item.id);
+                    event.stopPropagation();                                        
 
-                    // Add unselect button
-                    if (!thisautosuggest.$unselectBtn) {
-                        thisautosuggest.$unselectBtn = $('<button class="remove-suggestion" type="button">'+ thisautosuggest.options.buttonText +'</button>');
-                        $el.after(thisautosuggest.$unselectBtn);
-                        thisautosuggest.$unselectBtn.click(function() {
-                            thisautosuggest.$hiddenInput.val('');
-                            $el.val('').attr('disabled', false).focus();
-                            thisautosuggest.$unselectBtn.hide();
-                        });
-                    } else {
-                        thisautosuggest.$unselectBtn.show();
-                    }
-                    
-                    //Disable our text box
-                    $el.attr('disabled', true);
+                    $(this).val(ui.item.item || ui.item.term);
+
+                    thisautosuggest.setSelection(ui.item.id);
+
                 },
                 close:function(event,ui){
                     if(event.originalEvent){

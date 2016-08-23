@@ -8,6 +8,33 @@ define(function(require) {
 	var NCI = require('Common/Enhancements/NCI');
 	var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
+	//Move this to a utility file.
+	/**
+	 * Calculates the Levenshtein distance between two words
+	 * https://en.wikipedia.org/wiki/Levenshtein_distance
+	 */
+	String.prototype.levenshtein = function(string) {
+		var a = this, b = string + "", m = [], i, j, min = Math.min;
+
+		if (!(a && b)) return (b || a).length;
+
+		for (i = 0; i <= b.length; m[i] = [i++]);
+		for (j = 0; j <= a.length; m[0][j] = j++);
+
+		for (i = 1; i <= b.length; i++) {
+			for (j = 1; j <= a.length; j++) {
+				m[i][j] = b.charAt(i - 1) == a.charAt(j - 1)
+					? m[i - 1][j - 1]
+					: m[i][j] = min(
+						m[i - 1][j - 1] + 1, 
+						min(m[i][j - 1] + 1, m[i - 1 ][j] + 1))
+			}
+		}
+
+		return m[b.length][a.length];
+	}
+
+
 	var messages = {
 		ctError:'Please select a cancer type from the list.',
 		zipError:'Please enter a valid 5 digit ZIP code',
@@ -16,6 +43,9 @@ define(function(require) {
 
 	var APISERVER = config.clinicaltrialsearch.apiServer + ':' + config.clinicaltrialsearch.apiPort;
 
+	function _getAPIURL() {
+		return 'https://' + APISERVER + '/terms';
+	}
 
 	function _showCancerType() {
 		$("#fieldset-type").show()
@@ -165,11 +195,9 @@ define(function(require) {
 							'size': 10
 					};
 
-					var apiURL = 'https://' + APISERVER + '/terms';
-
 					return $.ajax({
 						//url: 'nci-ocdev09-v.nci.nih.gov:3000/terms',
-						url: apiURL,
+						url: _getAPIURL(),
 						data: dataQuery,
 						dataType: 'json'
 					}).pipe(function(res){
@@ -233,8 +261,20 @@ define(function(require) {
 		$(".clinical-trials-search-form").basicctsformtrack({
 			formName: 'clinicaltrials_basic'
 		}).submit(function(e) {
+			
 			var $this = $(this);
+
 			if(!$this.data('valid')){
+
+				function analyticsAndSubmit() {
+					try {
+						$this.basicctsformtrack("completed");
+					} catch (e) {
+						window.console && console.log(e);
+					}
+					$this.data('valid', true).submit();
+				}
+
 				//VALIDATE FIELDS!!!
 				e.preventDefault();
 
@@ -249,12 +289,52 @@ define(function(require) {
 
 				if (fieldsAreValid) {
 
-					try {
-						$(this).basicctsformtrack("completed");
-					} catch (e) {
-						window.console && console.log(e);
+					//if fields are valid, then let's see if they selected
+					//an exact autosuggestion item.
+
+					var $queryField = $('.basic-cts-v2 #q');
+					if ($queryField && !$queryField.prop("disabled")) {
+				
+						var searchTerm = $queryField.val();
+
+                        dataQuery = {
+                                'term': searchTerm,
+                                'term_type': '_diseases',
+                                'size': 10
+                        };
+
+						//Lookup term, then 
+                        $.ajax({
+                            //url: 'nci-ocdev09-v.nci.nih.gov:3000/terms',
+                            url: _getAPIURL(), 
+                            data: dataQuery,
+                            dataType: 'json'
+                        }).done(function(res){
+
+							if (res.terms && res.terms.length > 0) {
+								var term = res.terms[0];
+
+								//If the distance between the two terms is 0,
+								//then the user probably wanted to select that
+								//term and hit enter instead.
+								var st = searchTerm.toLowerCase();
+								var tt = term.term.toLowerCase();
+
+								if (st.levenshtein(tt) == 0) {
+									var key = term.codes.join(",");
+										key += "|" + term.term_key;
+									//if it matches, then set the autosuggest
+									$queryField.autocompleteselector("setSelection", key);
+								}								
+							}
+
+							analyticsAndSubmit();
+						});
+					} else {
+						analyticsAndSubmit();
 					}
-					$(this).data('valid', true).submit();
+
+
 				} else {
 
 					//Log an Analytics message that someone tried to submit the form
