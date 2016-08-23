@@ -13,7 +13,7 @@ $loc.Name, $loc.City, $loc.StateOrProvince##
 #end
 #end
 #elseif ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 0)##
-#if($resultItem.CurrentProtocolStatus == "Not yet active")##
+#if($resultItem.CurrentTrialStatus.toLower == "not yet active" || $resultItem.CurrentTrialStatus.toLower == "in review" || $resultItem.CurrentTrialStatus.toLower == "approved")##
 Location information is not yet available.##
 #else##
 See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">Clinical Trials.gov</a>##
@@ -155,7 +155,23 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
-    <!--(bake LiveHelpDelighter.inc)-->
-    <!--(bake NextStepDelighter.inc)-->
+    <div class="delighter cts-livehelp">
+    	<h4 id="ui-id-2">Have a question?</h4>
+    	<p>We're here to help</p><hr>
+    	<p class="chat-with-us">
+    		<a href="/contact">Chat with us: <img alt="LiveHelp" src="/publishedcontent/images/images/design-elements/background-graphics/live-help-logo.svg" class="live-help-button"></a>
+    	</p>
+    	<p>Call us:
+    	  <span>1-800-4-CANCER</span>
+    	</p>
+    	<p><span>(1-800-422-6237)</span></p>
+    </div>
+    <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">
+      <div class="delighter cts-next-step">
+        <h4>I’ve found a trial—what’s my next step?</h4>
+        <hr/>
+        <p>Refer to our guide on how to join a treatment trial.</p>
+      </div>
+    </a>
   </div>
 </div>
