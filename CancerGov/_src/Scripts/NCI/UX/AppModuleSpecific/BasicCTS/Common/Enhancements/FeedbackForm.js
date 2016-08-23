@@ -58,20 +58,26 @@ define(function(require){
      */
     function _submitFeedback(action, content) {        
 
+        //Validate message
+
+        //Show Spinner
+
         $.ajax({
             type: "POST",
             url: action,
             data: JSON.stringify({
                 Message: content,
                 URL: window.location.pathname + window.location.search,
-                MailRecipiantKey: 'CTSFeedbackRecipient'
+                MailRecipientKey: 'CTSFeedbackRecipient'
             }),
             dataType : 'json',
             contentType: 'application/json; charset=utf-8',
             encode: true
         }).done(function(data) {
             //Show thank you message?
-            
+            //Clear Spinner
+            //show thank you
+            //fade in time.
         }).error(function(err) {
             //Show error message on dialog.
             console.log(err);
