@@ -1,0 +1,43 @@
+
+.cts-feedback-dialog {
+
+    &.ui-widget-content {
+        border: none;
+        border-top: 3px solid #178DAA;
+        background: #ffffff;
+        box-shadow: -3px 3px 3px #DEDEDE;
+        //height: 55px;
+        //width: 62px;
+        //opacity: .75;
+    }
+
+
+    .ui-dialog-titlebar {
+        padding: .4em 1em;
+        background: none;
+        border: none;
+
+        .ui-dialog-title {
+            color: #178DAA;
+        }
+
+        .ui-button {
+            background: none;
+            border: none;
+            span.ui-button-icon-primary {
+                background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
+                border: none;
+            }
+        }
+
+    }
+
+    .ui-widget-header {
+        background-image: none;
+    }
+
+    .ui-corner-all {
+        
+    }
+
+}
