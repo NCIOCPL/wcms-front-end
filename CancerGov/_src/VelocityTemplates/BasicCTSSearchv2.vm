@@ -66,3 +66,7 @@
 	<!--(bake WhichTrialsDelighter.inc)-->
 	<!--(bake WhatAreTrialsDelighter.inc)-->
 </div>
+## Begin section for referencing API instructions page ##
+<div class="api-reference-section">
+	<!--(bake APIReferenceSection.inc)-->
+</div>
