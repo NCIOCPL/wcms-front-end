@@ -1,6 +1,7 @@
 define(function(require){
     var $ = require('jquery');
     require('jquery-ui');
+    require('Spinner');
 
     function _openFeedbackForm($delighterControl) {
         var $dialog = $delighterControl.data("feedbackdialog");
@@ -29,24 +30,64 @@ define(function(require){
         
         _addHidden($form, '__recipient', value='CTSFeedbackRecipient');
         var $messageInput = _addField($form);
-        _addSubmit($form);
+        var $submitBtn = _addSubmit($form);
 
-
-        $form.on('submit',function(event) {
-            event.preventDefault();
-            //loading gif
-            _submitFeedback(action, $messageInput.val());   
-            //close dialog 
-        });
-
+        //Create dialog
         var dialog = $('<div>').append($form).dialog({
             dialogClass: 'cts-feedback-dialog',
             title: 'Send us your feedback',
             autoOpen: false,
             modal: true,
             resizable: false,
-            width: '600px'
+            width: '600px',
+            position: {
+                my: "center",
+                at: "center",
+                of: window
+            }
         });
+
+        $form.on('submit',function(event) {
+            event.preventDefault();
+            
+            //Show spinner
+            //dialog.spin();
+            //disable close button
+
+            //disable submit button
+            $submitBtn.attr("disabled", true);
+            
+            _submitFeedback(action, $messageInput.val(), function(err){
+                //Remove spinner.
+                //dialog.spin();
+                $submitBtn.attr("disabled", false);
+
+                if (err) {
+                    
+                }
+            });   
+            //close dialog 
+        });
+
+        //Close at tablet, recenter on resize.
+        $(window).resize(function() {
+            var curWidth = window.innerWidth || $(window).width();
+
+            if (curWidth < 1024) {
+                dialog.dialog("close");
+            } else {
+                dialog.dialog(
+                    "option",
+                    "position",
+                    {
+                        my: "center",
+                        at: "center",
+                        of: window
+                    }
+                )
+            }
+        })
+
         return dialog;
     }
 
@@ -56,11 +97,10 @@ define(function(require){
      * @param {any} action
      * @param {any} content
      */
-    function _submitFeedback(action, content) {        
+    function _submitFeedback(action, content, callback) {        
 
         //Validate message
 
-        //Show Spinner
 
         $.ajax({
             type: "POST",
@@ -74,13 +114,9 @@ define(function(require){
             contentType: 'application/json; charset=utf-8',
             encode: true
         }).done(function(data) {
-            //Show thank you message?
-            //Clear Spinner
-            //show thank you
-            //fade in time.
+            callback(false);
         }).error(function(err) {
-            //Show error message on dialog.
-            console.log(err);
+            callback(err);
         })
     }
 
@@ -115,18 +151,18 @@ define(function(require){
     }
 
     function _addSubmit($form) {
+        var submitBtn = $('<button>', {
+                type: 'submit',
+                class: 'submit button'
+            }).text("Submit");
+
         $('<div>', {
             class: "row"
         }).append(
-            $('<div>', {
-                class: 'medium-8 right columns'
-            }).append(
-                $('<button>', {
-                    type: 'submit',
-                    class: 'submit button'
-                }).text("Submit")
-            )
-        ).appendTo($form);        
+            submitBtn
+        ).appendTo($form);
+
+        return submitBtn;        
     }
 
     // Initialization for this enhancement.

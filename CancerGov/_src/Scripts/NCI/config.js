@@ -34,6 +34,8 @@ requirejs.config({
 		'routie': 'Vendor/routie',
 		'placeholders': 'Vendor/placeholders.min',
 		'js-cookie' : '../../../bower_components/js-cookie/src/js.cookie',
+		'spin': '../../../bower_components/spin.js/spin',
+		'Spinner': '../../../bower_components/spin.js/jquery.spin',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 

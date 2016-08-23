@@ -2,13 +2,9 @@
 .cts-feedback-dialog {
 
     &.ui-widget-content {
-        border: none;
-        border-top: 3px solid #178DAA;
         background: #ffffff;
-        box-shadow: -3px 3px 3px #DEDEDE;
-        //height: 55px;
-        //width: 62px;
-        //opacity: .75;
+    	border: 6px solid #2A7CB8;
+
     }
 
 
@@ -37,7 +33,11 @@
     }
 
     .ui-corner-all {
-        
+        border-radius: 0;
     }
 
+    button.submit {
+        transform: translateX(-50%);
+        left: 50%;
+    }
 }
