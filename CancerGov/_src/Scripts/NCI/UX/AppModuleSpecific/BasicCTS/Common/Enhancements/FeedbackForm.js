@@ -199,6 +199,7 @@ define(function(require){
                 href: "#"
             }).on('click', function(){
                 _openFeedbackForm($feedbackDelighter);                
+				_initializeFormOpenAnalytics();
                 return false;
             }).prependTo($delighterContainer)
             .append(
@@ -211,9 +212,16 @@ define(function(require){
             ); 
 
         }
-	}
+    }
+    
+    // Track feedback form opening on right rail
+    function _initializeFormOpenAnalytics(){
+        if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
+            NCIAnalytics.FeedbackFormClick(this, 'rrail_send us your feedback');
+        }
+    }
 
-	/* Flag for telling whether this enhancement has been initialized. */
+    /* Flag for telling whether this enhancement has been initialized. */
 	var _initialized = false;
 	
 	/* Exposes functions from this module which are available from the outside. */
