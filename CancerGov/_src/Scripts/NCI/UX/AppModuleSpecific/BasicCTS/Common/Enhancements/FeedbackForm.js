@@ -24,46 +24,71 @@ define(function(require){
 
         var action = '/Feedback.Service'; 
 
+        var $dialogContents = $("<div>");
+
+        //Create form "View"
         var $form = $('<form></form>', {
             name: 'ctsFeedback'
-        });
+        }).appendTo($dialogContents);
         
         _addHidden($form, '__recipient', value='CTSFeedbackRecipient');
         var $messageInput = _addField($form);
         var $submitBtn = _addSubmit($form);
 
-        //Create dialog
-        var dialog = $('<div>').append($form).dialog({
+
+        //Create Loading Message "View"
+        var $loadingMessage = $("<div>", {
+            class: "loading-message"
+        }).append(
+            $("<div>").html("Sending")
+        ).hide().appendTo($dialogContents);
+
+        //Create Succeeded Message "View"
+        var $succeedMessage = $("<div>", {
+            class: "success-message"
+        }).append(
+            $("<div>").text("Thanks for your feedback!")
+        ).hide().appendTo($dialogContents);
+
+        //Create dialog        
+        var dialog = $dialogContents.dialog({
             dialogClass: 'cts-feedback-dialog',
             title: 'Send us your feedback',
             autoOpen: false,
             modal: true,
             resizable: false,
+            draggable: false,            
             width: '600px',
             position: {
                 my: "center",
                 at: "center",
                 of: window
-            }
+            } 
         });
 
         $form.on('submit',function(event) {
             event.preventDefault();
             
-            //Show spinner
-            //dialog.spin();
-            //disable close button
+            $form.hide();
+            $loadingMessage.show().spin();
 
-            //disable submit button
-            $submitBtn.attr("disabled", true);
+            //disable close button
+            dialog.parent().find(".ui-dialog-titlebar").hide();
+            console.log(dialog);
+            console.log(dialog.find(".ui-dialog-titlebar"));
             
             _submitFeedback(action, $messageInput.val(), function(err){
                 //Remove spinner.
-                //dialog.spin();
-                $submitBtn.attr("disabled", false);
+                $loadingMessage.spin(false);
+                $loadingMessage.hide();
 
                 if (err) {
-                    
+                    console.log("There was an error");
+                } else {
+                    $succeedMessage.show();
+                    $dialogContents.dialog({hide: { effect: "fadeOut", duration: 5000 }});
+                    $dialogContents.dialog("close");
+                    $dialogContents.dialog("destroy");
                 }
             });   
             //close dialog 
