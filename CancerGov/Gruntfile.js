@@ -40,6 +40,10 @@ module.exports = function(grunt) {
 				port : {
 					dev : '443',
 					prod : '80'
+				},
+				basePath : {
+					dev : 'v1',
+					prod : 'v1'
 				}
 			}
 		}
@@ -492,11 +496,13 @@ module.exports = function(grunt) {
 		var config = {
 			'clinicaltrialsearch' : {
 				'apiServer' : 'server-name-goes-here',
-				'apiPort' : 'port-goes-here'
+				'apiPort' : 'port-goes-here',
+				'apiBasePath' : 'basePath-goes-here'
 			}
 		};
 		config['clinicaltrialsearch']['apiServer']	= grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.name.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>'); 
 		config['clinicaltrialsearch']['apiPort']	= grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.port.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>'); 
+		config['clinicaltrialsearch']['apiBasePath'] = grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.basePath.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>'); 
 		grunt.file.write(configPath, "define(" + JSON.stringify(config) + ");");
 	});
 

@@ -41,10 +41,10 @@ define(function(require) {
 		ageError:'Please enter a number between 1 and 120'
 	};
 
-	var APISERVER = config.clinicaltrialsearch.apiServer + ':' + config.clinicaltrialsearch.apiPort;
+	var APISERVER = config.clinicaltrialsearch.apiServer + ':' + config.clinicaltrialsearch.apiPort + '/' + config.clinicaltrialsearch.apiBasePath;
 
 	function _getAPIURL() {
-		return 'https://' + APISERVER + '/v1/terms';
+		return 'https://' + APISERVER + '/terms';
 	}
 
 	function _showCancerType() {
