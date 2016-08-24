@@ -1426,7 +1426,20 @@ var NCIAnalytics = {
 		clickParams.Events = [43];
 		clickParams.LogToOmniture();
 	},
-
+	
+	/******************************************************************************************************
+	* Track clicks on CTS feedback form
+	* sender - the element responsible for this event.
+	*/	
+	FeedbackFormClick: function(sender, value){
+		var pageName = s.pageName;
+		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'FeedbackForm');
+		clickParams.Props = {
+			5 : value + '|' + pageName
+		};
+		clickParams.LogToOmniture();
+	},
+	
     /******************************************************************************************************
 	* Track link clicks on CTS pages
 	* sender - the element responsible for this event.
