@@ -328,8 +328,7 @@ body {
 			**/
 			
 			.genSiteContentColumn {
-				float: left;
-				width: 67%;
+				width: 100%;
 			}
 		
 			/**
@@ -337,8 +336,9 @@ body {
 			**/
 
 			.genSiteRightColumn {
-				float: left;
+				float: right;
 				width: 220px;
+				margin-left: 10px;
 			}
 			
 			.gennewsletterdetails .genSiteRightColumn {
