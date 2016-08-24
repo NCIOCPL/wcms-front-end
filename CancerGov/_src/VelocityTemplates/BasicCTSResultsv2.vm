@@ -43,7 +43,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     #foreach($resultItem in $SearchResults.Results.Trials)
       #each
         ## Attach Onclick for Analytics elsewhere
-        <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCTID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
+        <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCIID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
         <div class="cts-result-item">
           <strong>Status: </strong>$resultItem.CurrentTrialStatus<br>
           <strong>Age: </strong>$SearchResults.TrialTools.GetAgeString($resultItem)<br>
