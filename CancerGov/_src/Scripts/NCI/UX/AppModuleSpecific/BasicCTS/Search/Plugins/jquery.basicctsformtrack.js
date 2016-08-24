@@ -120,6 +120,12 @@
                 props[this.trackingConfig.formErrorProp] = args;
             }
 
+            if (action === 'complete') {
+                if (args) {
+                    events.push(this.trackingConfig["keywordMatch"]);
+                }
+            }
+
             clickParams.Props = props;
             clickParams.Evars = evars;
             clickParams.Events = events;
@@ -131,19 +137,12 @@
          * be successful.
          * @return {[type]} [description]
          */
-        completed: function() {
+        completed: function(hasKeywordMatch) {
             // set canAbandon to false to prevent abandon call
             this.state.canAbandon = false;
             this.state.isComplete = true;
 
-            this.adobeCall('complete');
-        },
-		/**
-         * Track if a typed keyword matches autosuggest and switches the field type
-         * @return {[type]} [description]
-         */
-        keywordMatched: function() {
-            this.adobeCall('keywordMatch');
+            this.adobeCall('complete', hasKeywordMatch);
         },
 
         /**

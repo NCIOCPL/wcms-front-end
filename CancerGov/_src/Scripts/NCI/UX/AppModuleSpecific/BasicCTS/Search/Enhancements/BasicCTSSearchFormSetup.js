@@ -268,10 +268,7 @@ define(function(require) {
 
 				function analyticsAndSubmit(hasKeywordMatch) {
 					try {
-						$this.basicctsformtrack("completed");
-						if(hasKeywordMatch) {
-							$this.basicctsformtrack("keywordMatched");
-						}
+						$this.basicctsformtrack("completed", hasKeywordMatch);
 					} catch (e) {
 						window.console && console.log(e);
 					}
