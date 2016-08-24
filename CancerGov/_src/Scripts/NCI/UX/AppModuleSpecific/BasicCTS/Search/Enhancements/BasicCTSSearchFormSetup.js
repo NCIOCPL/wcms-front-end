@@ -44,7 +44,7 @@ define(function(require) {
 	var APISERVER = config.clinicaltrialsearch.apiServer + ':' + config.clinicaltrialsearch.apiPort;
 
 	function _getAPIURL() {
-		return 'https://' + APISERVER + '/terms';
+		return 'https://' + APISERVER + '/v1/terms';
 	}
 
 	function _showCancerType() {
@@ -293,7 +293,7 @@ define(function(require) {
 					//an exact autosuggestion item.
 
 					var $queryField = $('.basic-cts-v2 #q');
-					if ($queryField && !$queryField.prop("disabled")) {
+					if ($queryField && ($queryField.length > 0) && !$queryField.prop("disabled")) {
 				
 						var searchTerm = $queryField.val();
 
