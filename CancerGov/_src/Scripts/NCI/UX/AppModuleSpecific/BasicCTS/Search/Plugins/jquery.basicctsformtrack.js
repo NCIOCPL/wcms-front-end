@@ -37,7 +37,8 @@
             start: 38,
             complete: 39,
             abandon: 40,
-            error: 41
+            error: 41,
+			keywordMatch: 46
         },
         _create: function(){
             this._bindInputsOnChange();
@@ -137,6 +138,14 @@
 
             this.adobeCall('complete');
         },
+		/**
+         * Track if a typed keyword matches autosuggest and switches the field type
+         * @return {[type]} [description]
+         */
+        keywordMatched: function() {
+            this.adobeCall('keywordMatch');
+        },
+
         /**
          * Track that the form has been abandoned.
          * @return {[type]} [description]

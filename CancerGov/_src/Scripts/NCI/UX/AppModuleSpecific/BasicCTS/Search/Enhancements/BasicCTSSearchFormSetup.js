@@ -266,9 +266,12 @@ define(function(require) {
 
 			if(!$this.data('valid')){
 
-				function analyticsAndSubmit() {
+				function analyticsAndSubmit(hasKeywordMatch) {
 					try {
 						$this.basicctsformtrack("completed");
+						if(hasKeywordMatch) {
+							$this.basicctsformtrack("keywordMatched");
+						}
 					} catch (e) {
 						window.console && console.log(e);
 					}
@@ -293,6 +296,8 @@ define(function(require) {
 					//an exact autosuggestion item.
 
 					var $queryField = $('.basic-cts-v2 #q');
+					var $hasKeywordMatch = false;
+					
 					if ($queryField && ($queryField.length > 0) && !$queryField.prop("disabled")) {
 				
 						var searchTerm = $queryField.val();
@@ -313,6 +318,7 @@ define(function(require) {
 
 							if (res.terms && res.terms.length > 0) {
 								var term = res.terms[0];
+								$hasKeywordMatch = true;
 
 								//If the distance between the two terms is 0,
 								//then the user probably wanted to select that
@@ -328,10 +334,10 @@ define(function(require) {
 								}								
 							}
 
-							analyticsAndSubmit();
+							analyticsAndSubmit($hasKeywordMatch);
 						});
 					} else {
-						analyticsAndSubmit();
+						analyticsAndSubmit($hasKeywordMatch);
 					}
 
 
