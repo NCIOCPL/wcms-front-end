@@ -466,7 +466,10 @@ module.exports = function(grunt) {
 			tasks: ['build-styles:' + 'dev']
 		},
 		js: {
-			files: '<%= dirs.src.scripts %>**/*.js',
+			files: [
+				'<%= dirs.src.scripts %>**/*.js',
+				'<%= dirs.src.scripts %>**/*.hbs',
+			],
 			tasks: ['build-scripts:' + 'dev']
 		},
 		templates: {

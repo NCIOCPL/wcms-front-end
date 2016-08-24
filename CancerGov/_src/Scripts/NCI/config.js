@@ -36,6 +36,8 @@ requirejs.config({
 		'js-cookie' : '../../../bower_components/js-cookie/src/js.cookie',
 		'spin': '../../../bower_components/spin.js/spin',
 		'Spinner': '../../../bower_components/spin.js/jquery.spin',
+		'brite':'../../../bower_components/britejs/dist/brite',
+		'hbs':'../../../bower_components/require-handlebars-plugin/hbs',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
@@ -69,6 +71,11 @@ requirejs.config({
 		'jquery/slick': ['jquery'],
 		'jquery/scrolltofixed': ['jquery'],
 		'jquery/touchswipe': ['jquery']
+	},
+	hbs: {
+		helpers: true,
+		templateExtension: 'hbs',
+		partialUrl: ''
 	}
 });
 
@@ -77,3 +84,5 @@ define('jquery', [], function() {
 });
 
 define('jquery-ui', ['jquery'], function() {});
+
+define('brite', [], function() { return brite});

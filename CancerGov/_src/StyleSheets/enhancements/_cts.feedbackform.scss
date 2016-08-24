@@ -1,6 +1,12 @@
 
 .cts-feedback-dialog {
 
+    .error-msg {
+        margin-top:-20px;
+        color: #c60F13;
+        font-size: 12px;
+    }
+
     &.ui-widget-content {
         background: #ffffff;
     	border: 6px solid #2A7CB8;
@@ -9,6 +15,7 @@
 
 
     .ui-dialog-titlebar {
+        display: none;
         padding: .4em 1em;
         background: none;
         border: none;
@@ -36,8 +43,25 @@
         border-radius: 0;
     }
 
-    button.submit {
-        transform: translateX(-50%);
-        left: 50%;
+    textarea {
+        @include placeholder {
+                color: #888;
+                height: 100%;
+                position: relative;
+                display: block;
+        }
+    } 
+
+    div.pending-view {
+        div.spinwrap {
+            min-height: 50px;
+            .spinner {
+                top: 70% !important;
+            }
+        }
+
+        div.pending-content {
+            
+        }
     }
 }
