@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 		clinicaltrialsearch : {
 			apiserver : {
 				name : {
-					dev : 'clinicaltrialsapi-prod.cancer.gov',
+					dev : 'clinicaltrialsapi.cancer.gov',
 					prod : 'clinicaltrialsapi.cancer.gov'
 				},
 				port : {
