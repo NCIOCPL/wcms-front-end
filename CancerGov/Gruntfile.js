@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 				},
 				port : {
 					dev : '443',
-					prod : '80'
+					prod : '443'
 				},
 				basePath : {
 					dev : 'v1',
