@@ -29,7 +29,7 @@ define(function(require){
                     class: "delighter cts-feedback"
                 }).html(
                     '<h4>Send us your feedback</h4>' +
-                    '<p>Help us make clinical trials searching better</p>'    
+                    '<p>Help us improve our clinical trials search.</p>'
                 )
             ); 
         }
