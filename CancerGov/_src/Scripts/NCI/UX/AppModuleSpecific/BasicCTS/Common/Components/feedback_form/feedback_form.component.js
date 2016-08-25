@@ -9,12 +9,19 @@ define(function (require) {
     //Include the view for brite.
     var mainView = require("UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/views/feedback_form.main.view");
 
+    //Track actions on the Feedback Form:
+    // - User presses ESC
+    // - User clicks cancel button
+    // - User Submits form
+    // - User get server error on form submission
+    // - User Clicks close button on thank you screen
+    //Tracked events are passed to FeedbackFormClick() in NCIAnalyticsFunctions.js
     function _sendAnalytics(prop) {
         var analyticsProp5 = "cts_basic_feedback - ";
         analyticsProp5 += prop;
-        //ADD | PAGE NAME
-        //SUBMIT 
-        console.log(analyticsProp5);
+        if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
+            NCIAnalytics.FeedbackFormClick(this, analyticsProp5);
+        }
     }
 
     function _create(options){

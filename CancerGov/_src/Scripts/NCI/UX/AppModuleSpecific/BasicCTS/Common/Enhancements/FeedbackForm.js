@@ -21,7 +21,7 @@ define(function(require){
                 href: "#"
             }).on('click', function(){                
                 _openFeedbackForm($feedbackDelighter);                
-				_initializeFeedbackFormAnalytics();
+				_openFeedbackFormFormAnalytics();
                 return false;
             }).prependTo($delighterContainer)
             .append(
@@ -37,28 +37,10 @@ define(function(require){
     
     // Initialize Feedback Form analytics tracking upon opening of the form
 	// Tracked events are passed to FeedbackFormClick() in NCIAnalyticsFunctions.js
-	//  1) Track clicks on the Right Rail to open the feedback form
-	//  2) Track "cancel" button click in the form (event is bound to the form's button element containing "Close" as inner text)
-	//  3) Track "submit" button click in the form (event is bound to the form's button element with the "submit" class attribute)
-	// - TODO: Update jQuery elements as needed once design is finalized
-    function _initializeFeedbackFormAnalytics(){
+	//  - Track clicks on the Right Rail to open the feedback form
+    function _openFeedbackFormFormAnalytics(){
         if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
-            // 1) Track feedback form opening on right rail
             NCIAnalytics.FeedbackFormClick(this, 'rrail_send us your feedback');
-			
-            // 2) Track cancel/close events inside the feedback form
-            $(".cts-feedback-dialog button:contains('Close')").each(function(i,el){
-                $(el).click(function(e){
-                    NCIAnalytics.FeedbackFormClick(this, 'cts_basic_feedback - dismiss');
-                });
-            });
-
-            // 3) Track submit events inside the feedback form
-            $(".cts-feedback-dialog button.submit.button").each(function(i,el){
-                $(el).click(function(e){
-                    NCIAnalytics.FeedbackFormClick(this, 'cts_basic_feedback - submit');
-                });
-            });
         }
     }
 	
