@@ -81,6 +81,10 @@
 @import "enhancements/cts.basic";
 /****************** END NCI ENHANCEMENTS SECTION ********************/
 
+/****************** Blue Ribbon Panel ********************/
+//Temporary home since this is a page specific style
+@import "brp";
+
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
 @import "mediaqueries/medium-down";
