@@ -32,9 +32,7 @@ $text-icon-help-border-size: 2px;
 $icon-exit-notification-width: 13px;
 $icon-exit-notification-height: 11px;
 .icon-exit-notification {
-	background: url($icons + 'nci-sprite.png') no-repeat -470px -264px;
-	width: $icon-exit-notification-width;
-	height: $icon-exit-notification-height;
+	@include sprite($x-coordinate: -470px, $y-coordinate: -264px, $width: 13px, $height: 11px);
 	display: inline-block;
 	margin-left: 0.25em;
 	margin-right: 0.25em;
@@ -64,7 +62,7 @@ $icon-exit-notification-height: 11px;
 $icon-cdr-audiofile-width: 27px;
 $icon-cdr-audiofile-height: 19px;
 .CDR_audiofile {
-	background: url($icons + 'nci-sprite.png') no-repeat -379px -259px;
+	@include sprite($x-coordinate: -379px, $y-coordinate: -259px, $width: 27px, $height: 19px);
 	width: $icon-cdr-audiofile-width;
 	height: $icon-cdr-audiofile-height;
 	display: inline-block;
@@ -83,9 +81,7 @@ $icon-sitewide-search-submit-height: 20px;
 	padding: 0;
 	margin: 0;
 
-	background: url($icons + 'nci-sprite.png') no-repeat -199px -261px;
-	width: $icon-sitewide-search-submit-width;
-	height: $icon-sitewide-search-submit-height;
+	@include sprite($x-coordinate: -199px, $y-coordinate: -261px, $width: 16px, $height: 20px);
 	min-height: $icon-sitewide-search-submit-height;
 	display: block;
 	position: absolute;
@@ -112,9 +108,7 @@ $icon-sitewide-search-submit-height: 20px;
 	
 	&:before {
 		content: "";
-		background: url($icons + 'nci-sprite.png') no-repeat -438px -260px;
-		width: 15px;
-		height: 15px;
+		@include sprite($x-coordinate: -438px, $y-coordinate: -260px, $width: 15px, $height: 15px);
 		display: inline-block;
 	}
 }

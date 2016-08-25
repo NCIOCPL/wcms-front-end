@@ -188,10 +188,7 @@ form button,
 			content: "";
 			position: absolute;
 			left: 0.75em;
-			background: url($icons + "nci-sprite.png") no-repeat;
-			background-position: -245px -348px;
-			width: 23px;
-			height: 20px;
+			@include sprite($x-coordinate: -245px, $y-coordinate: -348px, $width: 23px, $height: 20px);
 		}
 	}
 

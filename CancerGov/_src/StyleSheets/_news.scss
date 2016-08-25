@@ -16,39 +16,31 @@ a.arrow-link.news-footer {
   }	
 
 	a:before {
-		background: url($icons + "nci-sprite.png") no-repeat 0 0;
 		content: " ";
 		display: inline-block;
-		width: 19px;
-		height: 21px;
 		margin-right: 0.25em;
 	}
 
 	a.news-twitter:before {
 		// background position has been moved (from -16px to -17px) to shift the icon to be center aligned
-		background-position: -17px -201px;
-		height: 16px;
+		@include sprite($x-coordinate: -17px, $y-coordinate: -201px, $width: 19px, $height: 16px);
 	}
 	
 	a.news-facebook:before {
 		// background position has been moved (from -25px to -20px) to shift the icon to be center aligned
-		background-position: -20px -156px;
-		height: 17px;
+		@include sprite($x-coordinate: -20px, $y-coordinate: -156px, $width: 19x, $height: 17px);
 	}
 
 	a.news-youtube:before {
-		background-position: -19px -336px;
-		height: 21px;
+		@include sprite($x-coordinate: -19px, $y-coordinate: -336px, $width: 19px, $height: 21px);
 		top: 0 !important;
 	}
 
 	a.news-rss:before {
-		background-position: -20px -381px;
-		height: 16px;
+		@include sprite($x-coordinate: -20px, $y-coordinate: -381px, $width: 19px, $height: 16px);
 	}
 	a.news-govdelivery:before {
-		background-position: -126px -563px;
-		height: 18px;
+		@include sprite($x-coordinate: -126px, $y-coordinate: -563px, $width: 19px, $height: 18px);
 		top: 6px !important;
 		position: relative;
 	}

@@ -59,9 +59,7 @@ a.definition:hover, a.definition:focus {
 	&:before {
 		content: " ";
 		display: block;
-		background: transparent url($icons + "nci-sprite.png") no-repeat -311px -80px;
-		height: 51px;
-		width: 51px;
+		@include sprite($x-coordinate: -311px, $y-coordinate: -80px, $width: 51px, $height: 51px);
 	}
 	&:hover, &:focus {
 		color: $body-font-color;

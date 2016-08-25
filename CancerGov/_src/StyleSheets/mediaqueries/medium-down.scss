@@ -98,10 +98,8 @@
 					top: 50%;
 					left: 25%;
 					display: block;
-					background: url($icons + "nci-sprite.png") no-repeat -173px -298px;
-					width: 46px;
+					@include sprite($x-coordinate: -173px, $y-coordinate: -298px, $width: 46px, $height: 18px);
 					$searching-menu-arrow-height: 18px;
-					height: $searching-menu-arrow-height;
 					margin-top: -($searching-menu-arrow-height / 2);
 				}
 			}

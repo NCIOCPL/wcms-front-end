@@ -111,46 +111,33 @@ div.ebook-title h4 {
 }
 
 .pub-buttons a.icon:before {
-	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat 0 0;
 	content: "";
 	display: inline-block;
-	height: 25px;
 }
 
+// Used in the /publications/patient-education section of site
 // background-position-y below is to account for the difference in height between the max height (above, 25px) and the icon's height
 // it should center the icon vertically
 // example:
 // background-position: X (Y + (maxHeight - iconHeight) / 2);
 .pub-buttons a.kindle.icon:before {
-	background-position: -18px (-513px + (25px - 18px) / 2);
-	width: 21px;
-	//height: 18px;
+	@include sprite($x-coordinate: -18px, $y-coordinate: (-513px + (25px - 18px) / 2), $width: 21px, $height: 25px);
 }
 
 .pub-buttons a.html.icon:before {
-	background-position: -20px (-590px + (25px - 13px) / 2);
-	width: 23px;
-	//height: 13px;
+	@include sprite($x-coordinate: -20px, $y-coordinate: (-590px + (25px - 13px) / 2), $width: 23px, $height: 25px);
 }
 
 .pub-buttons a.pdf.icon:before {
-	background-position: -21px (-475px + (25px - 19px) / 2);
-	width: 17px;
-	//height: 19px;
+	@include sprite($x-coordinate: -21px, $y-coordinate: (-475px + (25px - 19px) / 2), $width: 17px, $height: 25px);
 }
 
 .pub-buttons a.epub.icon:before,
 .pub-buttons a.lector.icon:before {
-	background-position: -21px (-547px + (25px - 25px) / 2);
-	width: 17px;
-	//height: 25px;
+	@include sprite($x-coordinate: -21px, $y-coordinate: (-547px + (25px - 25px) / 2), $width: 17px, $height: 25px);
 }
 
 .pub-buttons a.free.icon:before {
-	background-position: -21px (-625px + (25px - 24px) / 2);
-	width: 17px;
-	//height: 24px;
+	@include sprite($x-coordinate: -21px, $y-coordinate: (-625px + (25px - 24px) / 2), $width: 17px, $height: 19px);
 }
-
-
 /* End eBook buttons */

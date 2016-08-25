@@ -94,14 +94,11 @@ $ui-selectmenu-maxitems: 7;
 	vertical-align: middle;
 
 	span.ui-icon {
+		@include sprite($x-coordinate: -378.5px, $y-coordinate: -172px, $width: 8px, $height: 11px);
 		top: 0;
 		right: 0;
 		margin-top: 0;
 		padding: 2 * $ui-selectmenu-padding-topbottom;
-
-		height: 11px;
-		width: 8px;
-		background: $color-link url($icons + "nci-sprite.png") no-repeat -378.5px -172px;
 	}
 	span.ui-selectmenu-text {
 		@include ui-selectmenu-padding();

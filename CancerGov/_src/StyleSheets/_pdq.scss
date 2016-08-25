@@ -301,11 +301,9 @@ form .row .view-content-for-container {
 }
 %criteria-link {
 	content: " ";
-	background: url($icons + "nci-sprite.png") no-repeat -460px -186px;
+	@include sprite($x-coordinate: -460px, $y-coordinate: -186px, $width: 8px, $height: 5px);
 	display: inline-block;
 	position: relative;
-	width: 8px;
-	height: 5px;
 	margin-left: 5px;
 	margin-bottom: 2px;
 	padding: 0 10px;

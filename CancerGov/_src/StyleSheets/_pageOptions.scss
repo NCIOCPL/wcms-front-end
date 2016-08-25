@@ -13,8 +13,6 @@
 	li {
 		display: inline-block;
 		margin: 0;
-		//background-image: url($icons + "nci-sprite.png"); /* Sprites */
-		//background-repeat: no-repeat;
 	}
 	a {
 		display: block;
@@ -169,43 +167,32 @@
 
 		li {
 			margin: 0 0 0 0.875em;
-			height: 25px;
-			width: 25px;
-			display: inline-block;
-			background-image: url($icons + "nci-sprite.png"); /* Sprites */
-			background-repeat: no-repeat;
+			@include sprite($width: 25px, $height: 25px);
 		}
 
 		.po-view-entire-document {
-			background-position: 0 0px;
+			@include sprite($x-coordinate: 0, $y-coordinate: 0, $width: 25px, $height: 25px);
 		}
 		.po-font-resize {
-			background-position: -17px -16px;
-			width: 22px;
+			@include sprite($x-coordinate: -17px, $y-coordinate: -16px, $width: 22px, $height: 25px);
 		}
 		.po-print {
-			background-position: -16px -62px;
-			width: 23px;
+			@include sprite($x-coordinate: -16px, $y-coordinate: -62px, $width: 23px, $height: 25px);
 		}
 		.po-email {
-			background-position: -16px -105px;
-			width: 23px;
+			@include sprite($x-coordinate: -16px, $y-coordinate: -105px, $width: 23px, $height: 25px);
 		}
 		.po-facebook {
-			background-position: -25px -151px;
-			width: 8px;
+			@include sprite($x-coordinate: -25px, $y-coordinate: -151px, $width: 8px, $height: 25px);
 		}
 		.po-twitter {
-			background-position: -16px -195px;
-			width: 19px;
+			@include sprite($x-coordinate: -16px, $y-coordinate: -195px, $width: 19px, $height: 25px);
 		}
 		.po-googleplus {
-			background-position: -16px -241px;
-			width: 19px;
+			@include sprite($x-coordinate: -16px, $y-coordinate: -241px, $width: 19px, $height: 25px);
 		}
 		.po-pinterest {
-			background-position: -20px -287px;
-			width: 15px;
+			@include sprite($x-coordinate: -20px, $y-coordinate: -287px, $width: 15px, $height: 25px);
 		}
 	}
 
