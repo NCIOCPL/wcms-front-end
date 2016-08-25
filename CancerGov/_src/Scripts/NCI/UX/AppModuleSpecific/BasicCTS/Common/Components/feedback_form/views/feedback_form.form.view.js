@@ -51,7 +51,7 @@ define(function (require) {
         }
     });
 
-	function _validateNotNull(val){
+    function _validateNotNull(val){
 		return val.length !== 0;
 	}
 
@@ -71,12 +71,19 @@ define(function (require) {
 				el.prev('.error-msg').css('visibility','visible');
 			} else {
 				el.before('<div class="error-msg">' + el.data("error-message") + '</div>');
-
+                _sendErrorAnalytics();
 				//TODO: Log Error Message Here.  It would be nice to have an instance of
 				//this...
 			}
 		}
 	}
-
+	
+	// Track error event on the Feedback Form
+    function _sendErrorAnalytics() {
+        var analyticsProp5 = "cts_basic_feedback - error";	
+        if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
+            NCIAnalytics.FeedbackFormClick(this, analyticsProp5);
+        }
+    }
 
 });
