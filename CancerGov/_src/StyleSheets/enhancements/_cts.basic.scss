@@ -51,6 +51,28 @@
   }
 }
 
+.api-reference-section {
+  position: absolute;
+  font-size: 14px;
+  bottom: 0;
+  background-color: #f3f3f3;
+  width: 100%;
+  margin-left: -50px;
+  padding: 15px 10px;
+}  
+
+.api-reference-section .small-2{
+  text-align: center;
+}  
+
+.api-reference-section img{
+  width: 85px;
+  padding-top: 15px;
+  display: inline;
+}  
+
+
+
 /* Search Results Page */
 .cts-results-title {
   padding-bottom: 1.25em;
@@ -199,6 +221,9 @@ a {
       margin-bottom:10px;
     }
   }
+  .api-reference-section{
+    margin-left: -15px;
+  }	 
 }
 
 /* Mobile styles */
@@ -238,6 +263,11 @@ a {
       margin-top:10px;
       float:none !important;
     }
-
   }
+  .api-reference-section .small-2 {
+    display: none; 
+  }
+  .api-reference-section .small-10 {
+    width: 100%; 
+  }  
 }
