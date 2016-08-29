@@ -40,6 +40,12 @@
 }
 .results-pager {
 	margin-bottom: em-calc(85px);
+	
+	.pagination {
+		span {
+			margin-left: 0;	
+		}
+	}
 }
 .sitewide-results {
 	ul.no-bullets > li {
