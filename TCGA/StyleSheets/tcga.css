@@ -1369,8 +1369,7 @@ div.accessible_news_slider.business_as_usual .storywrapper {
 .popup-pages .nci-logo {
   font-weight: bold;
   font-size: 37.7px;
-  /*background: url("/publishedcontent/images/images/design-elements/logos/NIH-red-logo.png") no-repeat 0 0;*/
-  background: url("/publishedcontent//Images/SharedItems/Images/TCGA_54px Logo COLOR.svg") no-repeat 0 0;
+  background: url("/publishedcontent/images/images/design-elements/logos/NIH-red-logo.png") no-repeat 0 0;
   min-height: 54px; }
   .popup-pages .nci-logo.columns {
     padding-left: 0;
