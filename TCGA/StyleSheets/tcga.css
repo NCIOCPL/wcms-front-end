@@ -1362,9 +1362,10 @@ div.accessible_news_slider.business_as_usual .storywrapper {
    
    }    
  
- /* popup */
+/* popup */
 .popup-pages .popuplogo{
 	max-width: 500px;
+	margin-top: 10px;
 }
 .popup-pages .nci-logo {
   font-weight: bold;
