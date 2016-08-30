@@ -65,3 +65,10 @@
         }
     }
 }
+
+/* Begin tablet styles */
+@include bp(medium-down) {
+    .delighter.cts-feedback {
+        display: none; 
+    }
+}
