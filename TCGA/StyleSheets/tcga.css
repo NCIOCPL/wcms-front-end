@@ -14,17 +14,6 @@ body {
 ol, ul {
 	list-style: none;
 }
-/* begin no bullets */
-ul.no-bullets, ol.no-bullets {
-	list-style: none;
-	padding-left: 0;
-	margin-left: 0;
-}
-ul.no-bullets li {
-	background: none;
-	list-style: none;
-}
-/* end no bullets */
 blockquote, q {
 	quotes: none;
 }
@@ -175,6 +164,23 @@ figcaption p:last-child {
     margin-bottom: 0;
 	padding-bottom: 0;
 }
+
+.hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden; }
+
+/* clearfix for clearing floated items */
+.clearfix, .pullquote, .pullquote-right, .pullquote-left {
+  zoom: 1; }
+  .clearfix:after, .pullquote:after, .pullquote-right:after, .pullquote-left:after {
+    clear: both; }
+  .clearfix:before, .pullquote:before, .pullquote-right:before, .pullquote-left:before, .clearfix:after, .pullquote:after, .pullquote-right:after, .pullquote-left:after {
+    content: " ";
+    display: table; }
 
 /* media highlight item css (Cheetoh IT1) */
 .media-highlight {
@@ -1347,6 +1353,132 @@ div.accessible_news_slider.business_as_usual .storywrapper {
 	padding: 0;
 }
 /* END Multimedia Library content slider */
+
+
+  
+ /****************** BEGIN Pop-ups ********************/
+ body.popup-pages { 
+   background:none;
+   
+   }    
+ 
+ /* popup */
+.popup-pages .popuplogo{
+	max-width: 500px;
+}
+.popup-pages .nci-logo {
+  font-weight: bold;
+  font-size: 37.7px;
+  /*background: url("/publishedcontent/images/images/design-elements/logos/NIH-red-logo.png") no-repeat 0 0;*/
+  background: url("/publishedcontent//Images/SharedItems/Images/TCGA_54px Logo COLOR.svg") no-repeat 0 0;
+  min-height: 54px; }
+  .popup-pages .nci-logo.columns {
+    padding-left: 0;
+    padding-right: 0; }
+  .popup-pages .nci-logo a {
+    color: #bb0e3d;
+    padding-left: 113px;
+    padding-top: 16px;
+    display: block; }
+	.popup-pages .nci-logo a:hover {
+		text-decoration: none;
+	}
+    .popup-pages .nci-logo a span {
+      position: absolute;
+      left: -10000px;
+      color: #5d5d5d;
+      font-size: 0.6em; }}
+  
+	  
+	  
+
+ 	.popup {
+		margin: 0 18px;
+	}
+ .popup .heading {
+	margin: 10px 0;
+	font-weight: bold;
+  }
+
+.popup .definition {
+   }
+
+.popup .definitionImage {
+  }
+.popup .audioPronounceLink {
+	margin: 20px 0;
+}
+.popup .term {
+	font-weight: bold;
+}
+
+.popup .nci-logo {
+  margin: 0.5em 1.8125em 0 0em;
+  float: left;
+  padding: 0 0 0.2em; }
+  .popup .nci-logo a {
+    padding-top: 6px;
+    padding-left: 95px; }
+    .popup .nci-logo a:hover {
+      cursor: inherit; }
+
+
+.popup .caption-container {
+  display: none; }
+
+.popup-close a {
+  background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -436px -256px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: relative; }
+
+.popup-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin: 0.3125em;
+  opacity: 0.9; }
+
+.popup .CDR_audiofile {
+  margin-left: 0.625em; }
+  
+  /*Pop-up media queries*/
+  
+  @media only screen and (min-width: 641px) and (max-width: 1024px) {
+  .popup-pages .nci-logo {
+    background: url("/publishedcontent/images/images/design-elements/logos/NIH-red-logo-tablet.png") no-repeat 0 0;
+    font-size: 24px;
+    }
+    .popup-pages .nci-logo a {
+      padding-left: 50px;
+      padding-top: 3px; }
+ }
+
+ 
+ @media only screen and (max-width: 640px) {
+  .popup-pages .nci-logo {
+    background: url("/publishedcontent/images/images/design-elements/logos/NIH-red-logo-smartphone.png") no-repeat 0 0;
+    font-size: 16px;
+    min-height: 28px; }
+    .popup-pages  .nci-logo a {
+      padding-left: 50px;
+      padding-top: 5px; }
+ }
+ 
+ @media only screen and (min-width: 676px) {
+ 
+    .popup-pages  .nci-logo a {
+      padding-left: 95px;
+      padding-top: 6px; }
+ }
+  
+@media only screen and (max-width: 390px) {
+  .popup-pages .nci-logo {
+    font-size: 13px; }
+ }*/
+ 
+/****************** END Pop-ups ********************/
 
 /* How it Works Widget */
 #how-it-works {
