@@ -315,7 +315,6 @@ define(function(require) {
 
 							if (res.terms && res.terms.length > 0) {
 								var term = res.terms[0];
-								$hasKeywordMatch = true;
 
 								//If the distance between the two terms is 0,
 								//then the user probably wanted to select that
@@ -328,7 +327,9 @@ define(function(require) {
 										key += "|" + term.term_key;
 									//if it matches, then set the autosuggest
 									$queryField.autocompleteselector("setSelection", key);
-								}								
+									//Set $hasKeywordMatch flag to true in order to track term instead of keyword
+									$hasKeywordMatch = true;
+								}
 							}
 
 							analyticsAndSubmit($hasKeywordMatch);
