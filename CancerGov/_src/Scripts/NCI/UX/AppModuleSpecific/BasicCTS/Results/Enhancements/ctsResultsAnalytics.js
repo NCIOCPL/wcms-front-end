@@ -15,9 +15,9 @@ define(function(require) {
 		var allParams = [];
 		
 		if(type)
-			allParams.push(type);
+			allParams.push("typecondition|" + type);
 		else if (keyword)
-			allParams.push(keyword);
+			allParams.push("keyword|" + keyword);
 		else 
 			allParams.push("none");
 

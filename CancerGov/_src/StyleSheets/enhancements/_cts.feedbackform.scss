@@ -1,0 +1,74 @@
+
+.cts-feedback-dialog {
+
+    .error-msg {
+        margin-top:-20px;
+        color: #c60F13;
+        font-size: 12px;
+    }
+
+    &.ui-widget-content {
+        background: #ffffff;
+    	border: 6px solid #2A7CB8;
+
+    }
+
+
+    .ui-dialog-titlebar {
+        display: none;
+        padding: .4em 1em;
+        background: none;
+        border: none;
+
+        .ui-dialog-title {
+            color: #178DAA;
+        }
+
+        .ui-button {
+            background: none;
+            border: none;
+            span.ui-button-icon-primary {
+                background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
+                border: none;
+            }
+        }
+
+    }
+
+    .ui-widget-header {
+        background-image: none;
+    }
+
+    .ui-corner-all {
+        border-radius: 0;
+    }
+
+    textarea {
+        @include placeholder {
+                color: #888;
+                height: 100%;
+                position: relative;
+                display: block;
+        }
+    } 
+
+    div.pending-view {
+        div.spinwrap {
+            min-height: 50px;
+            .spinner {
+                top: 70% !important;
+            }
+        }
+
+        div.pending-content {
+            
+        }
+    }
+}
+
+/* Begin tablet styles */
+@include bp(medium-down) {
+    .delighter.cts-feedback {
+        display: none; 
+    }
+}

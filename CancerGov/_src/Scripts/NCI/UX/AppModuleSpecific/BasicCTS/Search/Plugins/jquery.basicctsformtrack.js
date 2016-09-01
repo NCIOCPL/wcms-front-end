@@ -37,7 +37,8 @@
             start: 38,
             complete: 39,
             abandon: 40,
-            error: 41
+            error: 41,
+			keywordMatch: 46
         },
         _create: function(){
             this._bindInputsOnChange();
@@ -119,6 +120,12 @@
                 props[this.trackingConfig.formErrorProp] = args;
             }
 
+            if (action === 'complete') {
+                if (args) {
+                    events.push(this.trackingConfig["keywordMatch"]);
+                }
+            }
+
             clickParams.Props = props;
             clickParams.Evars = evars;
             clickParams.Events = events;
@@ -130,13 +137,14 @@
          * be successful.
          * @return {[type]} [description]
          */
-        completed: function() {
+        completed: function(hasKeywordMatch) {
             // set canAbandon to false to prevent abandon call
             this.state.canAbandon = false;
             this.state.isComplete = true;
 
-            this.adobeCall('complete');
+            this.adobeCall('complete', hasKeywordMatch);
         },
+
         /**
          * Track that the form has been abandoned.
          * @return {[type]} [description]

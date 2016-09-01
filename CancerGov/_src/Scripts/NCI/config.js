@@ -21,6 +21,7 @@ requirejs.config({
 		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
 		'BasicCTSCommon': 'UX/AppModuleSpecific/BasicCTS/Common',
 		'Vendor': 'Vendor',
+		'generated' : 'Generated',
 
 		// Common.js-included vendor libraries
 		'respond': 'empty:',
@@ -33,6 +34,10 @@ requirejs.config({
 		'routie': 'Vendor/routie',
 		'placeholders': 'Vendor/placeholders.min',
 		'js-cookie' : '../../../bower_components/js-cookie/src/js.cookie',
+		'spin': '../../../bower_components/spin.js/spin',
+		'Spinner': '../../../bower_components/spin.js/jquery.spin',
+		'brite':'../../../bower_components/britejs/dist/brite',
+		'hbs':'../../../bower_components/require-handlebars-plugin/hbs',
 
 		// NOTE: DO NOT add Modernizr to this; we cannot load it with require.js
 
@@ -66,6 +71,11 @@ requirejs.config({
 		'jquery/slick': ['jquery'],
 		'jquery/scrolltofixed': ['jquery'],
 		'jquery/touchswipe': ['jquery']
+	},
+	hbs: {
+		helpers: true,
+		templateExtension: 'hbs',
+		partialUrl: ''
 	}
 });
 
@@ -74,3 +84,5 @@ define('jquery', [], function() {
 });
 
 define('jquery-ui', ['jquery'], function() {});
+
+define('brite', [], function() { return brite});
