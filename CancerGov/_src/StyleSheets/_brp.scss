@@ -1,0 +1,216 @@
+$blue: #77CBC7;
+$yellow: #DFE21F;
+$navy: #183663;
+
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+
+.feature {
+  margin-top: 20px;
+
+  color: $navy;
+  background-color: $blue;
+
+  .column {
+    &:nth-child(1) {
+      padding-left: 0;
+    }
+    &:nth-last-child(1) {
+      padding-right: 0;
+    }
+    @include bp(small) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+  }
+
+  .video {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    text-align: center;
+
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .hero, .profiles, .columns {
+    padding: 20px 20px 0;
+  }
+
+  .hero {
+    box-shadow: none;
+
+    @include bp(small) {
+      .column {
+        float: none;
+        margin-bottom: 20px;
+        padding: 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .video {
+      img {
+        width: 100%;
+      }
+    }
+
+    .columns {
+      padding: 20px 0 0;
+
+      @include bp((max-width:680px)) {
+        text-align: center;
+
+        img {
+          width: 100%;
+        }
+      }
+      img {
+        border: 5px solid #FFF;
+      }
+    }
+
+    .intro {
+      margin-top: 20px;
+
+      font-size: 14px;
+      color: $navy;
+    }
+
+    .icons {
+      clear: both;
+      padding-top: 20px;
+
+      text-align: center;
+
+      a {
+        display: inline-block;
+        margin: 0 5%;
+
+        vertical-align: top;
+        span {
+          display: block;
+          margin-top: 10px;
+
+          font: bold 16px 'Roboto Condensed';
+          color: $navy;
+        }
+      }
+    }
+  }
+
+  .profiles {
+    text-align: center;
+
+    h3 {
+      position: relative;
+      z-index: 1;
+      margin-top: 0;
+
+      font-family: 'Roboto Condensed';
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      color: $navy;
+
+      &:before {
+        position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+        z-index: -1;
+        top: 50%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: '';
+        margin: 0 auto; /* this centers the line to the full width specified */
+        border-top: 1px solid #FFF;
+      }
+
+      span {
+        padding: 0 15px;
+        /* to hide the lines from behind the text, you have to set the background color the same as the container */
+
+        background-color: $blue;
+      }
+    }
+
+    .profile {
+      display: inline-block;
+      margin: 0 4% 4%;
+
+      span {
+        display: block;
+        margin-top: 10px;
+
+        font-family: 'Roboto Condensed';
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+  .recommendations {
+    > h4 {
+      margin: 0;
+      padding: 20px 0;
+
+      font-family: 'Roboto Condensed';
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      color: $navy;
+      background-color: #FFF;
+      &:before, &:after {
+        display: inline-block;
+        content: '';
+        border-width: 13.0px 7.5px 0 7.5px;
+        border-style: solid;
+        border-color: $navy transparent transparent transparent;
+      }
+      &:before {
+        margin-right: 6px;
+      }
+      &:after {
+        margin-left: 6px;
+      }
+    }
+    p.title {
+      margin-top: 0;
+
+      font-weight: bold;
+      @include bp(small) {
+        margin-top: 10px;
+      }
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    .rec {
+      padding-bottom: 20px;
+
+      font-size: 14px;
+      color: #000;
+      &:nth-child(even) {
+        background-color: $yellow;
+      }
+      .video {
+        padding-bottom: 28.125%;
+
+        @include bp(small) {
+          img {
+            width:100%;
+          }
+          padding-bottom: 56.25%;
+        }
+      }
+    }
+  }
+}
