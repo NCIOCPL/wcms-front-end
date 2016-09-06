@@ -27,7 +27,10 @@ define(function(require) {
         }
 
         // hide the header on BRP page
-        if($("meta[property='og:title']").attr("content") == "Blue Ribbon Panel Refresh") {
+		/// If the ".hide-page-title" class exists on the page, add the "hidden" class to the Page Title
+		/// TODO: Move this outside of the NCI.Video.js module - it would be better to make this a 
+		/// more general function
+        if($(".hide-page-title").length > 0) {
             $(".resize-content > h1").addClass("hidden");
         }
     }
