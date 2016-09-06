@@ -1514,5 +1514,27 @@ var NCIAnalytics = {
 
     SPLF_Lang: function() {
         //alert('Lang');
+    },
+    //******************************************************************************************************
+    VideoSplashImageClick: function(sender, video, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
+
+        clickParams.Props = {
+            66: "VideoStart_" + video,
+            67: pageName
+        };
+        clickParams.Events = [51];
+        clickParams.LogToOmniture();
+    },
+    //******************************************************************************************************
+    BRPiconClick: function(sender, file, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
+
+        clickParams.Props = {
+            66: "FileDownload_" + file,
+            67: pageName
+        };
+        clickParams.Events = [52];
+        clickParams.LogToOmniture();
     }
 };
