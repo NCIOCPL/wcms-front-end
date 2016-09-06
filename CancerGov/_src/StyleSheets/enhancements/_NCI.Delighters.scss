@@ -180,9 +180,11 @@
     float:right;
     top:13px;
     right:10px;
-
   }
-	.delighter.cts-livehelp {
+  .delighter.cts-feedback {
+    display: none; 
+  }  
+  .delighter.cts-livehelp {
     border-right: 3px solid #2c13a3 !important;
   }
   .delighter.cts-which {
