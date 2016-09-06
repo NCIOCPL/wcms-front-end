@@ -215,6 +215,30 @@ define(function(require) {
 			NCIAnalytics.SectionLinkClick(this,url,heading,linkText,depth,parent);
 		});
 
+		// Track clicks on video splash images on BRP that trigger YouTube video loads
+		$('.feature .video').each(function(i, el) {
+			$(el).on('click.analytics', 'a', function(event) {
+
+				var $this = $(this),
+					video = $this.attr("data-analytics"),
+					pageName = window.location.hostname + window.location.pathname
+				;
+
+				NCIAnalytics.VideoSplashImageClick(this,video,pageName);
+			});
+		});
+		$('.feature .icons').each(function(i, el) {
+			$(el).on('click.analytics', 'a', function (event) {
+				//event.preventDefault(); //uncomment when testing link clicks
+				var $this = $(this),
+					file = $this.attr("data-analytics"),
+					pageName = window.location.hostname + window.location.pathname
+				;
+
+				NCIAnalytics.BRPiconClick(this, file, pageName);
+			});
+		});
+
 		// Track accordion expand/collapse
 		/// Note: this will only work for accordion items that have an ID set. 
 		/// We will need to update published HTML for other accordion items to include an 'id' attribute and to verify 
