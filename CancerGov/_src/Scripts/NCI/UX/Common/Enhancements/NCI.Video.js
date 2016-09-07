@@ -21,7 +21,7 @@ define(function(require) {
 
                 new YT.Player(this, {
                     videoId: id,
-                    playerVars: { 'autoplay': 1, 'controls': 2 }
+                    playerVars: { 'autoplay': 1, 'controls': 2, 'rel': 0 }
                 });
             });
         }
