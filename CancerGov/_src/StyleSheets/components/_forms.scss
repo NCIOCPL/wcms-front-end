@@ -559,12 +559,14 @@ html.borderradius.generatedcontent {
 		}
 }
 fieldset {
-	label.field {
-		float: right;
-		text-align: right;
-		font-family: $legend-font-family;
-		font-size: 16px;
-		margin-top: 14px;
+	label, .label {
+		&.field {
+			float: right;
+			text-align: right;
+			font-family: $legend-font-family;
+			font-size: 16px;
+			margin-top: 14px;
+		}
 	}
 }
 .columns.legend {
