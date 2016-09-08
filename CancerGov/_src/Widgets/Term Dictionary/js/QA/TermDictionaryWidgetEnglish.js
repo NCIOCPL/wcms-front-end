@@ -2,7 +2,7 @@
 iframe.style.width = '260px';
 iframe.style.height = '340px';
 iframe.frameBorder= '0';
-iframe.src = "http://wwwqa.cancer.gov/widgets/TermDictionaryWidgetEnglish";
+iframe.src = "https://www-qa.cancer.gov/widgets/TermDictionaryWidgetEnglish";
 iframe.id = 'NCITermDictionaryWidgetContainerEnglish';
 
 document.write('<div id="NCITermDictionaryWidgetEnglish"></div>');
