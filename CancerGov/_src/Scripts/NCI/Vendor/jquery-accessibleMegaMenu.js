@@ -992,7 +992,7 @@ limitations under the License.
 }
      * @example <h4>JavaScript</h4><hr/>
 &lt;!-- include jquery --&gt;
-&lt;script src=&quot;http://code.jquery.com/jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//code.jquery.com/jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- include the jquery-accessibleMegaMenu plugin script --&gt;
 &lt;script src=&quot;js/jquery-accessibleMegaMenu.js&quot;&gt;&lt;/script&gt;
