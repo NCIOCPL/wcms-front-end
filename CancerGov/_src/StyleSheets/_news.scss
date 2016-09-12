@@ -51,6 +51,15 @@ a.arrow-link.news-footer {
 	}
 }
 
+@include bp(small){
+	.news-share {
+		margin: 0;
+	}
+	.news .list .general-list-item a.news-footer {
+		padding-left: 15px;
+	}
+}
+
 .news .card {
 	padding-top: 0em;
 }
@@ -58,6 +67,7 @@ a.arrow-link.news-footer {
 .news .list .general-list-item {
 	display: list-item;
 }
+
 
 .news .list li {
 	display: none;

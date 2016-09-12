@@ -236,6 +236,12 @@ dl {
 .large-8 .list .container.image + .container.title {
 	width: 73%;
 }
+@include bp(small){
+	.large-8 .list .container.image + .container.title {
+		width: 100%;
+	}
+}
+
 p.date.dynamic-date {
 	margin: 0;
 }

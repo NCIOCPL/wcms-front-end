@@ -95,6 +95,22 @@ a.definition:hover, a.definition:focus {
 	margin-right: -2em;
 	padding: 1em;
 }
+@include bp(medium-down){
+	/* hide the TOC on small/medium screens. The accordion serves the same purpose */
+	.toc-container {
+		display: none;
+	}
+	.back-to-top {
+		display: none !important;
+	}
+	.feature-zone-image img {
+		display: block;
+		margin: 0 auto;
+	}
+	.featured-zone {
+		margin-right: 0;
+	}
+}
 #my-toc {
 	background-color: #fff;
 	padding: 25px 0 30px 35px;
@@ -125,6 +141,13 @@ a.definition:hover, a.definition:focus {
 #my-toc ul a {
 	color: $color-link;
 	font-weight: bold;
+}
+
+@include bp(large-up){
+	/* large screen styles for TOC */
+	#my-toc {
+		margin: 10px 0 0 10px;
+	}
 }
 
 /* BEGIN general content page styles */
@@ -241,6 +264,7 @@ table.no-bullet-padding ul {
 	padding: 0 1em;
 	margin: 1em -1em 1em 1em;
 }
+
 /* END general content page styles */
 
 #cgvDate {
@@ -308,6 +332,11 @@ table.no-bullet-padding ul {
 .media-contact-info {
 	display: inline;
 }
+@include bp(small){
+	.media-contact-info {
+		display: block;	
+	}
+}
 
 @include bp(medium-down) {
 	.contentzone .document-dates,
@@ -344,12 +373,18 @@ hr.ps-divider {
 .syndication {
 	overflow: hidden; }
 
+@include bp(medium-down){
+	.syndication{
+		font-size: 0.875em;
+	}
+}
 /* icon that goes with syndication image */
 
 .syndication-image {
 	margin: 0 0.7em 0.5em 0.5em;
 	float: left;
 }
+
 
 /* Separator line for right above the public use and/or syndication text blocks */
 #nvcgSlPublicUse,

@@ -26,4 +26,10 @@
       color: white;
 	}
 }
+@include bp(small) {
+	/* remove padding on language links to fit all on one line */
+	.sitewide-language {
+		padding-right: 0;
+	}
+}
 /********************* END Language Bar Styles ******************************************/

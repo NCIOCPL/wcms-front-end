@@ -82,6 +82,17 @@
         }
     }
 }
+@include bp(small){
+	.site-footer {
+		background-position: -120% 150px;
+	}
+}
+@include bp(medium){
+	/** Hide feature card title on tablets and up **/
+	.site-footer {
+		background-position: 130% 150px;
+	}
+}
 
 .follow-us {
   margin: 0.5em 0;  
@@ -121,4 +132,20 @@
 .tagline {
     text-align: center;
 }
+
+@include bp(medium-down){
+	.footer-utility .columns {
+		width: 100%;
+	}
+	.agencies ul {
+		text-align: left;
+	}
+	.agencies ul li {
+		display: block;
+		background: none;
+		padding-right: 0;
+		margin-right: 0;
+	}
+}
+
 /********************* END Footer Styles ******************************************/

@@ -46,7 +46,15 @@
 		}
 	}
 }
-
+@include bp(medium-down){
+	.key-facts,
+	.key-points {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+		float: none;
+	}
+}
 // suppress the OTP on mobile
 // Need to add the sibling div.pre-otp as a selector to prevent 
 // non-collapsable OTPs from disappearing.

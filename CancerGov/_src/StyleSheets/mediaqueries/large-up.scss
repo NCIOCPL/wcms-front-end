@@ -10,171 +10,8 @@
 			padding-left: em-calc(50px);
 		}
 	}
-	.toptoc {
-		margin-right: em-calc(-50px, 0.8*$em-base);
-	}
+	
 
-	/* large screen styles for TOC */
-	#my-toc {
-		margin: 10px 0 0 10px;
-	}
-
-	/*** BEGIN Megamenus/Search Styles ***/
-	/* hide mobile nav */
-	#mega-nav .mobile-item, .mobile-menu-bar, #searchclear {
-		display: none !important;
-	}
-	#mega-nav .toggle {
-		display: none;
-	}
-
-	#mega-nav {
-		.nav-item.contains-current > .nav-item-title > a,
-		.nav-item.current-page > .nav-item-title > a {
-			background-color: #fff;
-			/* the height of the border bottom (7px) is already set. Here we are only changing its color
-			/* from transparent to teal. If the border height ever changes, it's changed in one place, not two.
-			*/
-			border-bottom-color: #14819b;
-			color: #2f2f2f;
-		}
-	}
-	/*** END Megamenus/Search styles ***/
-
-	/*** BEGIN desktop section nav ("left nav") styles ***/
-	.general-page-body-container .local-navigation {
-		margin-top: 1.3em;
-		padding-left: 0;
-		padding-right: 38px;
-	}
-
-	/* remove default margin to butt menu up against container */
-	.section-nav,
-	.section-nav ul,
-	.section-nav ul li {
-		margin-left: 0;
-	}
-
-	.section-nav div {
-		position: relative;
-		font-size: 0.875em;
-		line-height: 1.2;
-		padding-top: 0.625em;
-		padding-bottom: 0.625em;
-	}
-	.section-nav .contains-current > div {
-		font-weight: bold;
-		
-		a {
-			color: $purple;
-		}	
-	}
-
-	.section-nav .current-page:after {
-		left: 100%;
-		top: 50%;
-		margin-top: -12px;
-		border: 12px solid transparent;
-		border-right-style: dotted;
-		border-left-color: #14819b;
-		content: " ";
-		height: 0;
-		width: 0;
-		position: absolute;
-		pointer-events: none;
-	}
-	.section-nav .current-page + ul,
-	.section-nav .contains-current > ul {
-		display: block !important;
-	}
-	.section-nav .current-page > .toggle,
-	.section-nav .contains-current > div > .toggle {
-		display: none !important;
-	}
-	.section-nav div > a {
-		display: inline-block;
-		color: $header-font-color;
-		margin-left: 20px;
-		margin-right: 45px;
-	}
-	.section-nav div.current-page > a {
-		color: white;
-		font-weight: bold;
-	}
-
-	/** BEGIN level-by-level styling **/
-	/* level 0 */
-	.section-nav .level-0 > div {
-		font-size: 19px;
-		font-weight: bold;
-		line-height: 21px;
-		padding-top: 0.625em;
-		padding-bottom: 0.625em;
-		background-color: #1c5e86;
-		text-transform: uppercase;
-	}
-	.section-nav .level-0 > div > a {
-		color: #FFFFFF;
-	}
-
-	/* level 1 */
-	.section-nav .level-1 {
-		font-size: 15px;
-		line-height: 17px;
-		border-top: 1px solid #d5d5d2;
-	}
-	.section-nav .level-1 > div > a {
-		text-transform: none;
-	}
-	.section-nav .level-1.contains-current {
-		background-color: #eeedf4;
-	}
-	.section-nav .level-1 > ul {
-		margin-left: 2.0625em;
-	}
-
-	/* level 2 */
-	.section-nav .level-2 div > a {
-		margin-left: 7px;
-	}
-	.section-nav .level-2 > ul {
-		margin-left: 0.875em;
-	}
-
-	/* level 3 */
-	.section-nav .level-3 > ul {
-		margin-left: 0.875em;
-	}
-
-	/* level 4 */
-	.section-nav .level-4 > ul {
-		margin-left: 0.875em;
-	}
-	/** END level-by-level styling **/
-
-	/* this rule to be below the level-by-level styles */
-	.section-nav div.current-page {
-		background: #14819b;
-	}
-
-	/* hide section menu clicker on desktop */
-	#section-menu-button {
-		display: none;
-	}
-	/*** END desktop section nav ("left nav") styles ***/
-
-
-	/* equal height cards for desktop, visually push a div to the bottom of it's container */
-	.equalheight {
-		overflow: hidden;
-	}
-	.equalheight .push-to-bottom-desktop {
-		height: 100%;
-	}
-
-	.cthp-title {
-		margin: 0;
-	}
 
 	.row.hero-slot {
 		max-width: 1350px;
@@ -203,41 +40,8 @@
 		margin: 0 auto;
 	}
 
-	/*CAROUSEL STYLES*/
-	/* desktop arrows */
-	.arrows-for-other-nci-sites .next {
-		background: transparent url($buttons + "blue-arrow-right.png") no-repeat 0 0;
-	}
-	.arrows-for-other-nci-sites .next:hover {
-		background: transparent url($buttons + "red-arrow-right.png") no-repeat 0 0;
-	}
-	.arrows-for-other-nci-sites .previous {
-		background: transparent url($buttons + "blue-arrow-left.png") no-repeat 0 0;
-	}
-	.arrows-for-other-nci-sites .previous:hover {
-		background: transparent url($buttons + "red-arrow-left.png") no-repeat 0 0;
-	}
-	/* spacing */
-	.slick-slide .container {
-		margin: 0 11px;
-	}
 
-	/** BEGIN PDQ Styles **/
-	section.hide, div.hide {
-		display: none;
-	}
-	section.show, div.show {
-		display: block;
-	}
-	/** END PDQ Styles **/
-		/** BEGIN Feature Primary Row **/
-		.feature-primary a:hover h3 {
-			color: white;
-		}
-		.feature-primary-title {
-			display: none;
-		}
-		/** End Feature Primary Row **/
+
 	.medium-1 {
 		position: relative;
 		width: 8.33333%;
@@ -335,7 +139,5 @@
 		margin-left: 91.66667%;
 	}
 	
-	.contact-infos-mobile {
-		display: none;
-	}
+	
 }
