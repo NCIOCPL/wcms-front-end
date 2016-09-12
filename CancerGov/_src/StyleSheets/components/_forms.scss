@@ -134,6 +134,8 @@ label, .label {
 	@include form-label;
 	display: $form-label-display;
 	line-height: $form-label-line-height;
+	font-family: #{$montserrat-font-stack};
+	font-size: 16px;
 
 	&.right {
 		@include form-label(right, false);
