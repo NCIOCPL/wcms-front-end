@@ -232,6 +232,12 @@ dl {
 	line-height: 1.11111em;
 }
 
+@include bp(small) {	
+	.dynamic {
+		padding: 0 15px;
+	}	
+}
+
 // Fix for wrapping width issues on Dynamic Lists combined with right nav
 .large-8 .list .container.image + .container.title {
 	width: 73%;

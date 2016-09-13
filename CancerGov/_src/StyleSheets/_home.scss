@@ -83,6 +83,26 @@
 		display: none;
 	}
 }
+@include bp(large-up){
+	.row.hero-slot {
+		max-width: 1350px;
+	}
+	.row .gutter {
+		width: 32%;
+		margin-left: 2%;
+	}
+	.row .large-6.gutter {
+		width: 48.5%;
+		margin-left: 2%;
+	}
+	.row .gutter:first-child {
+		margin-left: 0;
+	}
+	.nvcgSlLayoutGuideB .card:first-child {
+		margin-left: 2%;
+	}
+}
+
 /* END Hero Section */
 
 /* BEGIN CARDS GENERAL RULES */

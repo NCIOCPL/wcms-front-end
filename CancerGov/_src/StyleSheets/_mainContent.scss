@@ -43,6 +43,15 @@ a.definition:hover, a.definition:focus {
 	width: 100%;
 }
 
+@include bp(large-up){
+	.contentzone {
+		padding-right: em-calc(50px);
+
+		&:first-child {
+			padding-left: em-calc(50px);
+		}
+	}
+}
 .site-footer .back-to-top {
 	/* place on top of all other elements */
 	z-index: 998;
