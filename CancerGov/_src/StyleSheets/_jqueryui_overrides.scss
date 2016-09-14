@@ -95,6 +95,7 @@ $ui-selectmenu-maxitems: 7;
 
 	span.ui-icon {
 		@include sprite($x-coordinate: -378.5px, $y-coordinate: -172px, $width: 8px, $height: 11px);
+		background-color: #2b7bba;
 		top: 0;
 		right: 0;
 		margin-top: 0;
