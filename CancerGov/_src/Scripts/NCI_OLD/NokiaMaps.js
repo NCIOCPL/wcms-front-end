@@ -7,6 +7,7 @@ function initMaps() {
 	// the app id and code are set according to the key names current as of Here maps 2.5.3
 	nokia.Settings.set("app_id", "LwhO0PgtFaQWvmSKfagq");
 	nokia.Settings.set("app_code", "5AywnMXHSs-Tv2qqtFcx7g");
+    nokia.Settings.set("secureConnection","force");
 	
 	// create the kml manager once, rather than once for each map
 	kmlManager = new nokia.maps.kml.Manager();
