@@ -672,6 +672,7 @@ module.exports = function(grunt) {
     // ----------------------------------------------------------------
     grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
         var proxy;
+        var useHttps = true;
 
         switch (env) {
             case 'dev/red':
@@ -705,6 +706,7 @@ module.exports = function(grunt) {
                 break;
             case 'training':
                 proxy = 'www-training';
+                useHttps = false;
                 break;
             case 'preview':
                 proxy = 'preview';
@@ -722,7 +724,8 @@ module.exports = function(grunt) {
             develop: {
                 server: {
                     env: {
-                        PROXY_ENV: proxy
+                        PROXY_ENV: proxy,
+                        PROXY_HTTPS: useHttps
                     }
                 }
             }
