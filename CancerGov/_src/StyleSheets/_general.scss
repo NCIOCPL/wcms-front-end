@@ -510,7 +510,7 @@ div#cgvSlPagination, div.previous-next-links {
 	padding: 25px;
 
 	// to prevent extra space at top of callout box area
-	> h2:first-child, > h3:first-child, h4, p:first-child, ul:first-child {
+	> div > h2:first-child, > div > h3:first-child, h4, p:first-child, ul:first-child {
 		margin-top: 0;
 	}
 	
