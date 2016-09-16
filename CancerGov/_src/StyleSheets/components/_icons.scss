@@ -108,7 +108,7 @@ $icon-sitewide-search-submit-height: 20px;
 	
 	&:before {
 		content: "";
-		@include sprite($x-coordinate: -438px, $y-coordinate: -260px, $width: 15px, $height: 15px);
+		@include sprite($x-coordinate: -438px, $y-coordinate: -260px, $width: 16px, $height: 16px);
 		display: inline-block;
 	}
 }
