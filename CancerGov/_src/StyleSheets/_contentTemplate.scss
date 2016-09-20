@@ -10,6 +10,11 @@
     background: url($buttons + "share_plus.png") no-repeat center left;
     cursor: pointer;
 }
+@include bp(medium-down){
+	.shareBtn {
+		margin-top: 0;
+	}
+}
 .shareBtnOpen {
     color: $color-link;
     margin: 1.25em 0 0 2.4em;
@@ -32,9 +37,21 @@
     float: left;
     width: 80%;
 }
+@include bp(medium-down){
+	.section-head {
+		float: none;
+		width: 100%;
+	}
+}
 .shareComponent {
     float: left;
     width: 20%;
+}
+@include bp(medium-down){
+	.shareComponent {
+		float: right;
+		width: initial;
+	}
 }
 
 /******* END CONTENT-TEMPLATE STYLES ***************************************/

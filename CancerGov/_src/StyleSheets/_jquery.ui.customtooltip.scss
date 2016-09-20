@@ -87,12 +87,10 @@
   }
 
   .ui-icon {
-    background: url($icons + 'nci-sprite.png') no-repeat -436px -256px;
+    @include sprite($x-coordinate: -436px, $y-coordinate: -256px, $width: 1.1875em, $height: 1.1875em);
     margin: 0;
     left:0;
     top: inherit;
-    width: 1.1875em;
-    height: 1.1875em;
   }
 
 }

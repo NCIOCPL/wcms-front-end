@@ -164,13 +164,11 @@ figure.image-left-medium {
 }
 /* image center 75% width */
 figure.image-center {
-    width: 75%;
-    margin: 0 auto 1em auto;
+     margin: 0 auto 1em auto;
 }
 /* image center 100% width */
 figure.image-center-full {
-    width: 100%;
-    margin: 0 auto 1em auto;
+     margin: 0 auto 1em auto;
 }
 /* contain image inside fig */
 figure img {

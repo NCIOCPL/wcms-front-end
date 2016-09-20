@@ -54,10 +54,8 @@
 		text-indent: -2000%; // Move the text portion very, very far offscreen.
 		right: 10px;
 		top: 10px;
-		width: 1.1875em;
-		height: 1.1875em;
 		display: inline-block;
-		background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
+		@include sprite($x-coordinate: -438px, $y-coordinate: -260px, $width: 1.1875em, $height: 1.1875em);
 	}
 
 	@include bp(small) {

@@ -642,7 +642,7 @@ img.center {
 		
 		.genSiteLeftColumn {
 			margin-right: 3%; /* Right hand margin for the Left column */
-			width: 20%; /* Width adjustment to account for Right hand margin */
+			width: 18%; /* Width adjustment to account for Right hand margin */
 			/*line-height: 1.4;*/
 		}
 				
@@ -885,15 +885,12 @@ img.center {
 				width: 74%; /* Width adjusted to account for margin */
 			}
 			
-			.genSiteContentColumn {
-				margin-right: 2%; /* Right hand side margin */
-				width: 67%; /* Width adjusted to account for margin */
-			}
+
 			.gennewsletterdetails .genSiteContentColumn {
 				width: 100%;
 			}
 				.genSiteContentColumn .slot-item {
-					overflow: hidden;
+					
 				}
 			
 				/* Page Options */
@@ -1148,7 +1145,7 @@ img.center {
 		box-shadow: 1px 5px 5px #bbbbbb;*/
 		margin: 0 0 30px 0;
 		padding: 0;
-		width: 99%;
+		width: auto;
 		overflow:hidden;
 	}
 		/* container for featured item */
@@ -1409,27 +1406,6 @@ ol.genAggroWidget {
 	margin: 0;
 	padding: 0 0 8px 0;
 }
-	
-	/* clearFix is used in these lists to allow floated elements to remain properly inside of the box model in these elements. Using this is as opposed to overflow:hidden or clear:both; in order to ensure cross-browser compatibility and for smoother development */
-
-	ul.genList li,
-	ol.genList li,
-	ul.genAggroWidget li,
-	ol.genAggroWidget li {
-		zoom: 1; /* triggers hasLayout in IE */
-		display: block; /* resets display for IE/Windows */
-		margin-bottom: 10px;
-	}
-	ul.genList li:after,
-	ol.genList li:after,
-	ul.genAggroWidget li:after,
-	ol.genAggroWidget li:after {
-		content: ".";
-		display: block;
-		height: 0;
-		clear: both;
-		visibility: hidden;
-	}
 
 	/* Slim Lists (Used in Snippet Templates) */
 	
@@ -1732,6 +1708,7 @@ ol li.genSearchItem {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+		clear: both;
 	}
 		ul.genSitePagination li {
 			display: inline;
@@ -1981,7 +1958,18 @@ p.byline{ padding: 18px 0;}
 		vertical-align: middle;
     width: 70px;
 }
-
+.subscribe-linkage {
+	float: left; 
+	width: 475px; 
+	margin: 1em auto; 
+	background: #e9e4db; 
+	border: 1px solid #dbdbdb; 
+	font-size: 1.1em; 
+	padding: 12px 12px 0;
+}
+.genHome .subscribe-linkage {
+	width: 90%; 
+}
 /***
 	Subscribe Linkage Newsletter Form
 ***/
@@ -2086,7 +2074,7 @@ p.byline{ padding: 18px 0;}
 		box-shadow: 1px 5px 5px #bbbbbb;*/
 		margin: 0 0 30px 0;
 		padding: 0;
-		width: 99%;
+		width: auto;
 		overflow:hidden;
 	}
 		/* container for featured item */

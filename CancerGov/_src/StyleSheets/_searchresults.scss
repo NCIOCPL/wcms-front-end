@@ -40,6 +40,12 @@
 }
 .results-pager {
 	margin-bottom: em-calc(85px);
+	
+	.pagination {
+		span {
+			margin-left: 0;	
+		}
+	}
 }
 .sitewide-results {
 	ul.no-bullets > li {
@@ -102,7 +108,8 @@
 		font-size: 1em;
 		font-family: inherit;
 		color: $color-link;
-		margin-left: 0.75em;
+		margin-left: 20px;
+		
 		&:hover, &:focus {
 			text-decoration: underline;
 		}
@@ -111,16 +118,26 @@
 		}
 	}
 	span {
-		margin-left: 0.75em;	
-		padding-left: 6px;
-		padding-right: 6px;
 		display: inline-block;
 	}
 }
 // Special spacing for active item in the pagination on clinical trial basic search
-.ct-results-lower-control.basic span {
+.ct-results-lower-control.basic span, .ct-results-lower-control.basic a {
 	padding-left: 0;
-	margin-left: 0;
+	margin-left: 15px;
 	padding-right: 0;
+	margin-right: 0;
+}
+// Special spacing for active item in the pagination on clinical trial regular search
+.ct-results-lower-control input, .ct-results-lower-control span {
+	margin-left: 20px;
+	padding: 0;
+}
+// Spacing for main search results
+.results-pager .pagination li {
+	margin-left: 20px;
+}
+.results-pager .pagination li span {
+	margin-left: 0;
 	margin-right: 0;
 }
