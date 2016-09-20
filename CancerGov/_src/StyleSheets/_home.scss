@@ -4,6 +4,11 @@
 	margin: 0.5em 0;
 }
 
+// override default top margin for h1 elements on home/landing pages
+.ncilandingpage h1{
+	margin-top: .58em;
+}
+
 /* BEGIN Hero Section */
 .row .hero {
 	position: relative;
@@ -41,6 +46,26 @@
 		}
 	}
 }
+
+@include bp(medium-down){
+	.hero-text {
+		position: absolute;
+		bottom: 0;
+		color: white;
+		background-color: rgba(10, 21, 28, 0.8);
+		font-size: 1.2em;
+		font-weight: bold;
+		width: 100%;
+		padding: 0 0.8em;
+		left: 0;
+		top: auto;
+	}
+	.hero-text p {
+		line-height: 1;
+		margin: 0.2em;
+	}
+}
+
 .hero-call-to-action {
 	font-size: 18px;
 	background: url($buttons + "hero-arrow.png") no-repeat center right;
@@ -58,6 +83,26 @@
 		display: none;
 	}
 }
+@include bp(large-up){
+	.row.hero-slot {
+		max-width: 1350px;
+	}
+	.row .gutter {
+		width: 32%;
+		margin-left: 2%;
+	}
+	.row .large-6.gutter {
+		width: 48.5%;
+		margin-left: 2%;
+	}
+	.row .gutter:first-child {
+		margin-left: 0;
+	}
+	.nvcgSlLayoutGuideB .card:first-child {
+		margin-left: 2%;
+	}
+}
+
 /* END Hero Section */
 
 /* BEGIN CARDS GENERAL RULES */
@@ -177,6 +222,14 @@
 		color: white;
 		padding: 0.625em 30px;
 		margin: 0em;
+	}
+}
+@include bp(large-up){
+	.feature-primary a:hover h3 {
+		color: white;
+	}
+	.feature-primary-title {
+		display: none;
 	}
 }
 
@@ -446,9 +499,21 @@ a.learn-more {
 @include bp(small) {
 	.card-thumbnail {
 		h3 {
+			margin-top: 0;
 			font-size: 1.125em;
 			line-height: 1.111em;
 		}
+		.small-2, .small-3 {
+			width: 0;
+		}
+		.small-10, .small-9 {
+			width: 100%;
+		}
+	}
+	/* no gutter on left and right in mobile */
+	.card, .card-thumbnail div {
+		padding-right: 0;
+		padding-left: 0;
 	}
 }
 /* END THUMBNAIL CARDS ROW */
@@ -504,6 +569,17 @@ a.learn-more {
 		padding: 1em;
 	}
 }
+
+@include bp(large-up){
+	/* equal height cards for desktop, visually push a div to the bottom of it's container */
+	.equalheight {
+		overflow: hidden;
+	}
+	.equalheight .push-to-bottom-desktop {
+		height: 100%;
+	}
+}
+
 .multimedia {
 	.card {
 		background: none;
@@ -519,6 +595,14 @@ a.learn-more {
 	}
 	h3 a {
 		@extend %card-link-hover;
+	}
+}
+
+@include bp(medium-down){
+	/* Multimedia row does need padding in tablet */
+	.multimedia h3,
+	.multimedia p {
+		 padding-left: 15px;
 	}
 }
 
@@ -639,5 +723,12 @@ a.learn-more {
 	padding: 0.5em 1em 0.2em;
 	margin-top: -10px;
 }
+@include bp(medium-down){
+	.home-director-stories,
+	.infographic {
+		background: none
+	}
+}
+
 /* END Director's Row */
 /********************* END Home Page Styles ******************************************/

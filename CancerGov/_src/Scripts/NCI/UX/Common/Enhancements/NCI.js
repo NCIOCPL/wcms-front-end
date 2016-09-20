@@ -179,7 +179,7 @@ define(function(require) {
 						to: '[data-otp-selector]'
 					},
 					ignore: {
-						heading: ['h6'],
+						heading: ['h6', '.ignore-this h2', '.callout-box h3', '.callout-box-full h3', '.callout-box-left h3', '.callout-box-right h3', '.card-thumbnail h3'],
 						node: ['aside']
 					},
 					maxLevel: $('[data-otp-depth]')[0]?$('[data-otp-depth]').data('otp-depth'):1

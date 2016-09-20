@@ -25,6 +25,11 @@
 		<!-- </div> -->
 		<!-- END Main Navigation Slot (#genSlotMainNav) -->
 		<div class="genSiteContentContainer clearFix"><a name="skiptocontent" id="skiptocontent "></a> 		
+				
+				<div class="genSiteRightColumn">
+					<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
+				</div><!-- END Right Content Column (#genSiteRightColumn) -->
+			
 				<div class="genSiteContentColumn">
 					<!-- Timely Content Slot (#genSlotTC) -->
 					<!-- <div id="genSlotTC">  -->
@@ -45,9 +50,6 @@
 					<NCI:TemplateSlot ID="genSlotHighlight3" runat="server" />
 					</div>
 				</div>
-				<div class="genSiteRightColumn">
-					<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
-				</div><!-- END Right Content Column (#genSiteRightColumn) -->
 		</div>
 		<!-- Site Footer Slot (#genSlotSiteFooter) -->
 		<!-- <div id="genSlotSiteFooter"> -->

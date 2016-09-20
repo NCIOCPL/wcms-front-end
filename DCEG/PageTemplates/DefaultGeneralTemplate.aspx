@@ -28,6 +28,7 @@
 				<!-- END Left Sidebar Slot (#genSlotLeftSidebar) -->
 			</div><!-- END Left Content Column (#genSiteLeftColumn) -->
 			<div class="genSiteMainColumn clearFix">
+								
 				<!-- Section Banner Slot -->
 				<NCI:TemplateSlot ID="genSlotSectionBanner" runat="server"/>
 				<!-- END Section Banner Slot (#genSlotContentHeader) -->
@@ -39,19 +40,22 @@
 					<NCI:TemplateSlot ID="genSlotPageOptions" runat="server"/>
 					<!-- END Page Options (#genSlotPageOptions) -->
 					<!-- Body Slot (#genSlotBody) -->
+					
+					<div class="genSiteRightColumn">
+					<!-- Additional Section Navigation Slot -->
+					<NCI:TemplateSlot ID="genSlotRightNav" runat="server"  />
+					<!-- END Additional Section Navigation Slot (#genSlotRightNav) -->
+					<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
+					<!-- END Related Content Slot (#genSlotRightSidebar) -->
+					</div><!-- END Right Content Column (#genSiteRightColumn) -->
+					
+					
 					<NCI:TemplateSlot ID="genSlotBody" runat="server"/>
 					<!-- END Body Slot (#genSlotBody) -->
 					<!-- Related Links Slot -->
 					<NCI:TemplateSlot ID="genSlotRelatedLinks" runat="server"/>
 					<!-- END Related Links Slot (#genSlotRelatedLinks) -->
 				</div>
-				<div class="genSiteRightColumn">
-					<!-- Additional Section Navigation Slot -->
-					<NCI:TemplateSlot ID="genSlotRightNav" runat="server"  />
-					<!-- END Additional Section Navigation Slot (#genSlotRightNav) -->
-					<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
-					<!-- END Related Content Slot (#genSlotRightSidebar) -->
-				</div><!-- END Right Content Column (#genSiteRightColumn) -->
 			</div><!-- END Main Content Column (#genSiteMainColumn) -->
 		</div>
 		<!-- Site Footer Slot (#genSlotSiteFooter) -->

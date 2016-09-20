@@ -200,12 +200,31 @@
 		margin: 8px 0 0 0;
 		padding: 0;
 	}
-
+	
+	/* MegaMenu styles for side exits */
+	nav .sub-nav-group-wrapper {
+		max-width: 70em;
+	}
+	nav .sub-nav-group-subwrapper {
+		max-width: 62.5em;
+		margin: 0 auto;
+	}
 }
 
 @include bp(xtra-large) {
 	.nav-item > .nav-item-title > a {
 		padding: 14px 20px 8px;
+	}
+	.row, nav .sub-nav-group-wrapper {
+		max-width: 1200px;
+	}
+	/* MegaMenu styles for side exits */
+		nav .sub-nav-group-wrapper {
+		max-width: 90em;
+	}
+	nav .sub-nav-group-subwrapper {
+		max-width: 75em;
+		margin: 0 auto;
 	}
 }
 

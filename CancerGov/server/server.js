@@ -12,6 +12,7 @@ var querystring = require('querystring');
 var app = express();
 
 var proxyEnv = process.env.PROXY_ENV;
+var useHttps = process.env.PROXY_HTTPS === 'true';
 
 //We will use handlebars to deal with certain types of templating
 //mainly error pages.  THIS SHOULD NOT BE USED FOR WEBSITE CONTENT!!!
@@ -57,8 +58,15 @@ app.use('/PublishedContent',
 	express.static(__dirname.replace("server","_dist")) // Load from local directory
 );
 
+/** Proxy expects http requests to specify a bare host name; however to request from an https site,
+ * it requires the URL to begin with https://
+ */
+var scheme = '';
+if(useHttps)
+    scheme = 'https://';
+
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
-app.use('*', proxy(proxyEnv + '.cancer.gov', {
+app.use('*', proxy(scheme + proxyEnv + '.cancer.gov', {
     forwardPath: function(req, res) {
         return require('url').parse(req.originalUrl).path;
     }
@@ -129,6 +137,7 @@ app.use(function(err, req, res, next) {
  * Start listening on a port
  ************************************************/
 app.set('port', process.env.PORT || 3000);
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'; // ignore certicate verification (i.e. Allow self-signed certs)
 
 var server = app.listen(app.get('port'), function() {
     console.log('proxying "' + proxyEnv + '.cancer.gov" at "localhost:' + server.address().port + '".');

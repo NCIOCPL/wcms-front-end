@@ -34,17 +34,28 @@
 				<!-- Section Banner Slot -->
 				<NCI:TemplateSlot ID="genSlotSectionBanner" runat="server"/>
 				<!-- END Section Banner Slot (#genSlotContentHeader) -->
-				<div class="genSiteContentColumn"><a name="skiptocontent" id="skiptocontent "></a>
+				<div class="genSiteContentColumn clearfix"><a name="skiptocontent" id="skiptocontent "></a>
+					
+					
+					
 					<!-- Content Title Slot // Includes Subtitle (#genSlotTitle) -->
 					<NCI:TemplateSlot ID="genSlotTitle" runat="server"/>
 					<!-- END Content Title Slot // Includes Subtitle (#genSlotTitle) -->
 					<!-- Page Options (#genSlotPageOptions) -->
 					<NCI:TemplateSlot ID="genSlotPageOptions" runat="server"/>
 					<!-- END Page Options (#genSlotPageOptions) -->
+					
+					<div class="genSiteRightColumn">
+					<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
+					</div><!-- END Right Content Column (#genSiteRightColumn) -->
+									
+										
 					<!-- Timely Content Slot (#genSlotTC) -->
 					<NCI:TemplateSlot ID="genSlotTC" runat="server"/>
 					<!-- END Timely Content Slot (#genSlotTC) -->
 					<!-- Body Slot (#genSlotBody) -->
+											
+					
 					<NCI:TemplateSlot ID="genSlotBody" runat="server"  />
 					<!-- END Body Slot (#genSlotBody) -->
 					<!-- Column Slots Container (.genSlotColumnContainer) // If no content is put in to the Slots, then this div is not printed out. -->
@@ -60,9 +71,7 @@
 					<!-- END Highlight Slots Container (.genSiteHighlightContainer) -->					
 					<NCI:TemplateSlot ID="genSlotBodyBottom" runat="server"  />
 				</div>
-				<div class="genSiteRightColumn">
-				<NCI:TemplateSlot ID="genSlotRightSidebar" runat="server"  />
-				</div><!-- END Right Content Column (#genSiteRightColumn) -->
+				
 			</div><!-- END Main Content Column (#genSiteMainColumn) -->
 		</div>
 		<!-- Site Footer Slot (#genSlotSiteFooter) -->

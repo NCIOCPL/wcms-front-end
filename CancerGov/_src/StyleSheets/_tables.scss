@@ -111,6 +111,14 @@ figure.table {
 	}
 }
 
+@include bp(small){
+	table .article-image-enlarge {
+		font-size: 7px;
+		margin-top: -5px;
+		padding-left: 3px !important;
+		padding-right: 24px !important;
+	}
+}
 .ui-front {
 	z-index: 1001 !important;
 }

@@ -54,7 +54,14 @@
 	}
 }
 
-@include bp(medium) {
+@include bp(small){
+	/* Hide 'On This Page' section on PDQ & factsheet pages */
+	#pdq-toc-article nav.on-this-page, body.cgvfactsheet nav.on-this-page {
+		display: none;
+	}
+}
+
+@include bp(medium-down) {
 	// show the full-page (all sections) OTP
 	#pdq-toc-article > .on-this-page {
 		display: block;
@@ -63,6 +70,33 @@
 	.pdq-sections .on-this-page {
 		display: none;
 	}
+	
+	/*** BEGIN PDQ Styles ***/
+	.toptoc {
+		display: none;
+	}
+	div#_toc_article {
+		display: none;
+	}
+	section.hide {
+		display: block;
+	}
+	/*** END PDQ Styles ***/
+}
+
+@include bp(large-up){
+	.toptoc {
+		margin-right: em-calc(-50px, 0.8*$em-base);
+	}
+	
+	/** BEGIN PDQ Styles **/
+	section.hide, div.hide {
+		display: none;
+	}
+	section.show, div.show {
+		display: block;
+	}
+	/** END PDQ Styles **/
 }
 
 .next-link {
@@ -134,6 +168,7 @@ body.pdqcancerinfosummary table.table-default, .summary-sections table.table-def
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
+
 /* per ticket OCECREATIV-905 */
 
 /* following two classes are for lists */
@@ -301,11 +336,9 @@ form .row .view-content-for-container {
 }
 %criteria-link {
 	content: " ";
-	background: url($icons + "nci-sprite.png") no-repeat -460px -186px;
+	@include sprite($x-coordinate: -460px, $y-coordinate: -186px, $width: 8px, $height: 5px);
 	display: inline-block;
 	position: relative;
-	width: 8px;
-	height: 5px;
 	margin-left: 5px;
 	margin-bottom: 2px;
 	padding: 0 10px;
