@@ -34,7 +34,7 @@ Uncomment the following for the new tool tip look and feel
     padding: 0;
 }
 .referencetooltip li {
-    border: #080086 2px solid;
+    border: #b3b3b3 1px solid;
     max-width: 260px;
     padding: 10px 8px 13px 8px;
     margin: 0px;
@@ -43,14 +43,14 @@ Uncomment the following for the new tool tip look and feel
 }
 .referencetooltip li + li {
     margin-left: 7px;
-    margin-top: -2px;
+    margin-top: -1px;
     border: 0;
     padding: 0;
     height: 3px;
     width: 0px;
     background-color: transparent;
     @include box-shadow(none);
-    border-top: 12px #080086 solid;
+    border-top: 12px #b3b3b3 solid;
     border-right: 7px transparent solid;
     border-left: 7px transparent solid;
 }
@@ -80,9 +80,9 @@ Uncomment the following for the new tool tip look and feel
 }
 .referencetooltip.RTflipped li + li {
     position: absolute;
-    top: 2px;
+    top: 1px;
     border-top: 0;
-    border-bottom: 12px #080086 solid;
+    border-bottom: 12px #b3b3b3 solid;
 }
 .referencetooltip.RTflipped li + li:after {
     border-top: 0;
@@ -91,5 +91,5 @@ Uncomment the following for the new tool tip look and feel
     margin-top: 7px;
 }
 .RTTarget {
-    border: #080086 2px solid;
+    border: #b3b3b3 1px solid;
 }

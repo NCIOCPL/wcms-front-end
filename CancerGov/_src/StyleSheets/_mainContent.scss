@@ -43,6 +43,15 @@ a.definition:hover, a.definition:focus {
 	width: 100%;
 }
 
+@include bp(large-up){
+	.contentzone {
+		padding-right: em-calc(50px);
+
+		&:first-child {
+			padding-left: em-calc(50px);
+		}
+	}
+}
 .site-footer .back-to-top {
 	/* place on top of all other elements */
 	z-index: 998;
@@ -59,9 +68,7 @@ a.definition:hover, a.definition:focus {
 	&:before {
 		content: " ";
 		display: block;
-		background: transparent url($icons + "nci-sprite.png") no-repeat -311px -80px;
-		height: 51px;
-		width: 51px;
+		@include sprite($x-coordinate: -311px, $y-coordinate: -80px, $width: 51px, $height: 51px);
 	}
 	&:hover, &:focus {
 		color: $body-font-color;
@@ -97,6 +104,22 @@ a.definition:hover, a.definition:focus {
 	margin-right: -2em;
 	padding: 1em;
 }
+@include bp(medium-down){
+	/* hide the TOC on small/medium screens. The accordion serves the same purpose */
+	.toc-container {
+		display: none;
+	}
+	.back-to-top {
+		display: none !important;
+	}
+	.feature-zone-image img {
+		display: block;
+		margin: 0 auto;
+	}
+	.featured-zone {
+		margin-right: 0;
+	}
+}
 #my-toc {
 	background-color: #fff;
 	padding: 25px 0 30px 35px;
@@ -127,6 +150,13 @@ a.definition:hover, a.definition:focus {
 #my-toc ul a {
 	color: $color-link;
 	font-weight: bold;
+}
+
+@include bp(large-up){
+	/* large screen styles for TOC */
+	#my-toc {
+		margin: 10px 0 0 10px;
+	}
 }
 
 /* BEGIN general content page styles */
@@ -177,8 +207,8 @@ li {
 .contentzone ol.no-bullets > li,
 .rawHtml ul.no-bullets > li,
 .rawHtml ol.no-bullets > li {
-	margin-top: 0.25em;
-	margin-bottom: 0.25em;
+	margin-top: 30px;
+	margin-bottom: 30px;
 	margin-left: 0;
 }
 .contentzone ul,
@@ -243,6 +273,7 @@ table.no-bullet-padding ul {
 	padding: 0 1em;
 	margin: 1em -1em 1em 1em;
 }
+
 /* END general content page styles */
 
 #cgvDate {
@@ -310,6 +341,11 @@ table.no-bullet-padding ul {
 .media-contact-info {
 	display: inline;
 }
+@include bp(small){
+	.media-contact-info {
+		display: block;	
+	}
+}
 
 @include bp(medium-down) {
 	.contentzone .document-dates,
@@ -346,12 +382,18 @@ hr.ps-divider {
 .syndication {
 	overflow: hidden; }
 
+@include bp(medium-down){
+	.syndication{
+		font-size: 0.875em;
+	}
+}
 /* icon that goes with syndication image */
 
 .syndication-image {
 	margin: 0 0.7em 0.5em 0.5em;
 	float: left;
 }
+
 
 /* Separator line for right above the public use and/or syndication text blocks */
 #nvcgSlPublicUse,

@@ -116,12 +116,10 @@ $icon-expand-width: 20px;
   position: relative;
   top:5px;
   margin-right: 8px;
-  width: $icon-expand-width;
-  height: $icon-expand-width;
-  background: url($icons + 'nci-sprite.png') no-repeat -256px -259px;
+  @include sprite($x-coordinate: -256px, $y-coordinate: -259px, $width: 20, $height: 20px);
 }
 .icon-collapse {
-  background: url($icons + 'nci-sprite.png') no-repeat -285px -259px;
+  @include sprite($x-coordinate: -285px, $y-coordinate: -259px, $width: 20px, $height: 20px);
 }
 
 $icon-po-width: 23px;
@@ -170,10 +168,10 @@ a {
   height:$icon-po-width;
 }
 .icon-print {
-  background: url($icons + 'nci-sprite.png') no-repeat -123px -62px;
+  @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
 }
 .icon-email {
-  background: url($icons + 'nci-sprite.png') no-repeat -123px -105px;
+  @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
 }
 }
 

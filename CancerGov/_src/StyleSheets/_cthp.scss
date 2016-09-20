@@ -76,6 +76,12 @@
 		margin-top: 0;
 	}
 }
+@include bp(large-up){
+	.cthp-title {
+		margin: 0;
+	}
+}
+
 .cthp-body h3 {
 	margin-top: 0px;
 	float:left;

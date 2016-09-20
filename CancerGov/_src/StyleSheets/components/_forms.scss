@@ -134,6 +134,8 @@ label, .label {
 	@include form-label;
 	display: $form-label-display;
 	line-height: $form-label-line-height;
+	font-family: #{$montserrat-font-stack};
+	font-size: 16px;
 
 	&.right {
 		@include form-label(right, false);
@@ -170,12 +172,14 @@ label, .label {
 .postfix.button {
 	@include button-size(false, false, false);
 	@include postfix(false, true);
-	height: 2.8125em;
+	height: 2.4375em;
+	font-size: 1em;
 }
 .prefix.button {
 	@include button-size(false, false, false);
 	@include prefix(false, true);
 	height: 2.4375em;
+	font-size: 1em;
 }
 .prefix.button.radius {
 	@include radius(0);
