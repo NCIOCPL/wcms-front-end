@@ -213,75 +213,110 @@ define(function(require){
 		return matchFound;
 	}
 
-	/*
-		Live Help is only available between 8:00 AM and 11:00 PM US Eastern Time.
-		This (currently) translates as later than 1200 UTC or less than 0300 UTC.
-		Skip holidays. Skip weekends.
+	function _localToEasternTime(localDate) {
+		var EDT_OFFSET = 4; // Daylight Savings time offset to UTC
+		var EST_OFFSET = 5; // Standard time offset to UTC    		
 
-		(This is obviously a huge kludge. Ideally, we can get a simple yes/no from the
-		 live help server.)
-	*/
-	function _liveHelpIsAvailable(){
+		// Function to check if the date UTC falls during Daylight Savings
+		// 2nd Sunday in March - 1st Sunday in November
+		// @ 7am UTC which is 2AM Eastern
+		// @ 6am UTC (end) which is 2AM Eastern
+		Date.prototype.dst = function () {
+			var timeUTC = new Date(this.getUTCFullYear(),
+				this.getUTCMonth(),
+				this.getUTCDate(),
+				this.getUTCHours(),
+				this.getUTCMinutes(),
+				this.getUTCSeconds());
+			var dstStart = new Date();
+			dstStart.setUTCHours(7, 0, 0, 0);
+			dstStart.setUTCMonth(2); // March
+			dstStart.setUTCDate(1);
+			// Find Sunday.
+			var SUNDAY = 0;
+			while (dstStart.getDay() != SUNDAY) {
+				dstStart.setUTCDate(dstStart.getUTCDate() + 1);
+			}
+			// Add 1 week.
+			dstStart.setUTCDate(dstStart.getUTCDate() + 7);
 
-		var isOpen = false;
+			var dstEnd = new Date();
+			dstEnd.setHours(6, 0, 0, 0);
+			dstEnd.setMonth(10);
+			dstEnd.setDate(1);
+			// Find Sunday.
+			var SUNDAY = 0;
+			while (dstEnd.getDay() != SUNDAY) {
+				dstEnd.setUTCDate(dstEnd.getUTCDate() + 1);
+			}
+			if (timeUTC > dstStart && timeUTC < dstEnd)
+				return true;
 
-		var dateNow = new Date();
-
-		if( _isBusinessHours(dateNow)
-			&& _dateIsNotTheWeekend(dateNow)
-			&& _dateIsNotAHoliday(dateNow)){
-			isOpen = true;
+			return false;
 		}
-		return isOpen;
+
+		// First, convert local time to UTC
+		var dateUTC = new Date(localDate.getUTCFullYear(),
+						localDate.getUTCMonth(),
+						localDate.getUTCDate(),
+						localDate.getUTCHours(),
+						localDate.getUTCMinutes(),
+						localDate.getUTCSeconds());
+
+		var easternTime = new Date(dateUTC.getTime());
+
+		if (localDate.dst()) {
+			// Adjust hours to EDT from UTC
+			easternTime.setUTCHours(easternTime.getUTCHours() - EDT_OFFSET);
+		}
+		else {
+			// Adjust hours to EST from UTC
+			easternTime.setUTCHours(easternTime.getUTCHours() - EST_OFFSET);
+		}
+
+		return easternTime;
 	}
 
-	function _isBusinessHours(theDate){
+	/*
+		Live Help is only available between 8:00 AM and 11:00 PM US Eastern Time.
+		Skip holidays. Skip weekends.
+	*/
+	function _liveHelpIsAvailable() {
+
+		var isAvailable = false;
+
+		var dateNow = new Date(); // Local time to user
+		var dateEastern = _localToEasternTime(dateNow);
+		if (_isBusinessHours(dateEastern)
+			&& _dateIsWorkDay(dateEastern)
+			&& !_isHoliday(dateEastern)) {
+			isAvailable = true;
+		}
+		return isAvailable;
+	}
+
+	function _isBusinessHours(dateEastern) {
+
 		var duringHours = false;
-		var utcHour = theDate.getUTCHours();
-		// EDT 0800 == UTC 1200
-		// EDT 2300 == UTC 0300 (a day later, but that's a different check)
-		if(( utcHour >= 12 || utcHour <	 3 ))
+		var hour = dateEastern.getHours();
+
+		if ((hour >= 8 && hour < 23))
 			duringHours = true;
+
 		return duringHours;
 	}
 
-	function _dateIsNotTheWeekend(theDate){
-		/*
-			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
-			US East Coast is one day earlier.
-
-			                    11111111112222|          111111111122222            11
-			UTC TIME 01234|5678901234567890123|01234|5678901234567890123|01234|5678901
-			UTC     |    Saturday             |    Sunday               |   Monday
-			EDT  Fri      |     Saturday            |         Sunday          |  Mon
-
-			So we have have to handle these cases:
-			Case 1: Day is Saturday and the time is before 0400 - NOT Weekend
-			Case 2: Day is Saturday and the time is 0400 or later - Weekend
-			Case 3: Day is Sunday - Weekend
-			Case 4: Day is Monday and the time is before 0400 - Weekend
-			Case 5: Day is Monday and the time ias 0400 or later - NOT Weekend
-			Case 6: Any other day - NOT Weekend
-		*/
-
+	function _dateIsWorkDay(dateEastern) {
 		var weekday = true;
-		hour = theDate.getUTCHours();
-		day = theDate.getUTCDay();
+		day = dateEastern.getDay();
 
-		switch(day) {
+		switch (day) {
 			// Sunday
 			case 0:
 				weekday = false;
 				break;
 
-			// Monday
-			case 1:
-				if(hour < 4) // Still Sunday UDT
-					weekday = false;
-				else
-					weekday = true;
-				break;
-
+			case 1: // Monday
 			case 2: // Tuesday
 			case 3: // Wednesday
 			case 4: // Thursday
@@ -291,51 +326,156 @@ define(function(require){
 
 			// Saturday
 			case 6:
-				if(hour < 4) // Still Friay UDT
-					weekday = true;
-				else
-					weekday = false;
+				weekday = false;
 				break;
 		}
-
 		return weekday;
 	}
 
-	function _dateIsNotAHoliday(theDate){
-
-		var nonHoliday = true;
-
+	function _findObservedHoliday(holiday) {
 		/*
-			So here's the crazy bit.  On UTC time, from 0000-0400, the date on the
-			US East Coast is one day earlier.
-
-			UTC    12222            11111111112222|          1111111111222
-			TIME   90123|01234|5678901234567890123|01234|56789012345678901
-			UTC    Jul 3|          July 4         |    July 5
-			EDT     July 3    |         July 4          |       July 5
-
-			Indepdence Day and Labor Day are both on Mondays, so the day before
-			is a Sunday and Live Help is closed (handled by the weekend check).
-			But at Midnight UTC, it's still the holiday on the US East coast
-
-			So we have to check two cases:
-			Case 1: 0400 and later, compare to the US holiday date.
-			Case 2: 0359 and earlier, comapre to the day after the holiday.
+		When a federal holiday falls on a Saturday, it is usually observed on the preceding Friday. 
+		When the holiday falls on a Sunday, it is usually observed on the following Monday.
 		*/
 
-		hour = theDate.getUTCHours();
-		day = theDate.getUTCDate();
-		month = theDate.getUTCMonth() + 1; // Months are zero-based. Add one for readability.
+		var dayOfWeek = holiday.getDay();
 
-		if(hour >= 4 ){  // 0400 (midnight EDT) and later.
-			if( month == 7 && day == 4) nonHoliday = false; // Independence Day
-			if( month == 9 && day == 5) nonHoliday = false; // Labor Day
-		} else { // 0359 and earlier (midnight EDT)
-			if( month == 7 && day == 5) nonHoliday = false; // Independence Day
-			if( month == 9 && day == 6) nonHoliday = false; // Labor Day
+		if (dayOfWeek == 6) {
+			// Holiday fell on a Saturday, is observed on Friday
+			holiday.setDate(holiday.getDate() - 1);
+		}
+		else if (dayOfWeek == 0) {
+			// Holiday fell on a Sunday, is observed on Monday
+			holiday.setDate(holiday.getDate() + 1)
 		}
 
-		return nonHoliday;
+		return holiday;
+	}
+
+	function _isHoliday(dateEastern) {
+		var THURSDAY = 4;
+		var MONDAY = 1;
+
+		date = dateEastern.getDate();
+		day = dateEastern.getDay();
+		month = dateEastern.getMonth(); // Months are zero-based. 0 = Jan | 11 = Dec.
+
+		var holidayDate = new Date();
+		holidayDate.setHours(0, 0, 0, 0);
+
+		// New Years
+		holidayDate.setDate(1);
+		holidayDate.setMonth(0); // January
+		var observedHoliday = _findObservedHoliday(holidayDate);
+		if (month == observedHoliday.getMonth() && date == observedHoliday.getDate()) {
+			return true; // New Year's Day
+		}
+
+		// Martin Luther King, Jr. Day
+		// Falls on the 3rd Monday in January    
+		holidayDate.setDate(1);
+		holidayDate.setMonth(0); // January		
+		// Find Monday.
+		while (holidayDate.getDay() != MONDAY) {
+			holidayDate.setDate(holidayDate.getDate() + 1);
+		}
+		// Add 2 weeks.
+		holidayDate.setDate(holidayDate.getDate() + 14);
+		if (month == holidayDate.getMonth() && date == holidayDate.getDate()) {
+			return true; // MLK Jr. day
+		}
+
+		// George Washington's birthday
+		// Falls on the 3rd Monday in February    
+		holidayDate.setDate(1);
+		holidayDate.setMonth(1); // February		
+		// Find Monday.
+		while (holidayDate.getDay() != MONDAY) {
+			holidayDate.setDate(holidayDate.getDate() + 1);
+		}
+		// Add 2 weeks.
+		holidayDate.setDate(holidayDate.getDate() + 14);
+		if (month == holidayDate.getMonth() && date == holidayDate.getDate()) {
+			return true; // George Washtington's birthday
+		}
+
+		// Memorial Day
+		// Falls on the last Monday in May    
+		holidayDate.setDate(1);
+		holidayDate.setMonth(5); // June	
+		// Find last day of May.
+		holidayDate.setDate(holidayDate.getDate() - 1);
+		while (holidayDate.getDay() != MONDAY) {
+			holidayDate.setDate(holidayDate.getDate() - 1);
+		}
+		if (month == holidayDate.getMonth() && date == holidayDate.getDate()) {
+			return true; // Memorial Day
+		}
+
+		// Independence Day
+		holidayDate.setDate(4);
+		holidayDate.setMonth(6); // July
+		var observedHoliday = _findObservedHoliday(holidayDate);
+		if (month == observedHoliday.getMonth() && date == observedHoliday.getDate()) {
+			return true; // Independence Day
+		}
+
+		// Labor Day
+		// falls on the 1st Monday in September    
+		holidayDate.setDate(1);
+		holidayDate.setMonth(8); // September		
+		// Find Monday.
+		while (holidayDate.getDay() != MONDAY) {
+			holidayDate.setDate(holidayDate.getDate() + 1);
+		}
+		if (month == holidayDate.getMonth() && date == holidayDate.getDate()) {
+			return true; // Labor Day
+		}
+
+		// Columbus Day
+		// falls on the 2nd Monday in October    
+		holidayDate.setDate(1);
+		holidayDate.setMonth(9); // October		
+		// Find Monday.
+		while (holidayDate.getDay() != MONDAY) {
+			holidayDate.setDate(holidayDate.getDate() + 1);
+		}
+		// Add 1 week.
+		holidayDate.setDate(holidayDate.getDate() + 7);
+		if (month == holidayDate.getMonth() && date == holidayDate.getDate()) {
+			return true; // Columbus Day
+		}
+
+		// Veteran's Day
+		holidayDate.setDate(11);
+		holidayDate.setMonth(10); // November
+		var observedHoliday = _findObservedHoliday(holidayDate);
+		if (month == observedHoliday.getMonth() && date == observedHoliday.getDate()) {
+			return true; // Veteran's Day  
+		}
+
+		// Thanksgiving 
+		// Falls on the 4th Thursday in November    
+		holidayDate.setDate(1);
+		holidayDate.setMonth(10);
+		// Find Thursday.    
+		while (holidayDate.getDay() != THURSDAY) {
+			holidayDate.setDate(holidayDate.getDate() + 1);
+		}
+		// Add 3 weeks.
+		holidayDate.setDate(holidayDate.getDate() + 21);
+		if (month == holidayDate.getMonth() && date == holidayDate.getDate()) {
+			return true; // Thanksgiving Day
+		}
+
+		// Christmas
+		holidayDate.setDate(25);
+		holidayDate.setMonth(11); // December
+		var observedHoliday = _findObservedHoliday(holidayDate);
+		if (month == observedHoliday.getMonth() && date == observedHoliday.getDate()) {
+			return true; // Christmas   
+		}
+		return false;
 	}
 
 	// Check for keyboard activity in order to avoid displaying the prompt while
