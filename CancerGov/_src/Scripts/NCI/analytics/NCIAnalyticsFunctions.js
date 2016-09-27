@@ -65,6 +65,7 @@ var NCIAnalytics = {
         this.Props = {};
         this.Evars = {};
         this.Events = {};
+        this.EventsWithIncrementors = {};
 
         this.LogToOmniture = function() {
             var local_s = s_gi(this.ReportSuites);
@@ -82,6 +83,27 @@ var NCIAnalytics = {
                     local_s.linkTrackVars += ',';
 
                 local_s.linkTrackVars += 'prop' + i;
+            }
+
+            // add link page prop (prop67) to all link tracking calls when not already present; existing values are given preference
+            if(!this.Props[67]) {
+                var pageName = s.pageName.split('/')[0];;
+                local_s['prop67'] = pageName;
+
+                if (local_s.linkTrackVars.length > 0)
+                  local_s.linkTrackVars += ',';
+                
+                local_s.linkTrackVars += 'prop67';
+            }
+
+            // add link.href value (prop4) to all link tracking calls when not already present; existing values are given preference
+            if(!this.Props[4]) {
+                local_s['prop4'] = sender.getAttribute ? sender.getAttribute("href"): null;
+
+                if (local_s.linkTrackVars.length > 0)
+                  local_s.linkTrackVars += ',';
+                
+                local_s.linkTrackVars += 'prop4';
             }
 
             // add language eVar2 - Warning: adding eVar2 to individual onclick functions will cause duplication
@@ -113,6 +135,31 @@ var NCIAnalytics = {
                 }
                 local_s.linkTrackEvents = eventsString;
                 local_s.events = eventsString;
+            }
+
+            // provide support for events including values (event999=4) or serial ids (event999:abc123)
+            if (this.EventsWithIncrementors.length > 0) {
+                var eventNum = '',
+                    eventsString = '',
+                    cleanEventsString = '';
+                if (local_s.linkTrackVars.length > 0 && local_s.linkTrackVars.indexOf('events') < 0)
+                    local_s.linkTrackVars += ',';
+                local_s.linkTrackVars += 'events';
+
+                for (var i = 0; i < this.EventsWithIncrementors.length; i++) {
+                    if (eventsString.length > 0)
+                        eventsString += ',';
+
+                    eventNum = 'event' + this.EventsWithIncrementors[i];
+                    eventsString += eventNum;
+
+                    cleanEventsString = eventNum.split(':');
+                    cleanEventsString = cleanEventsString[0].split('=');
+                    cleanEventsString = cleanEventsString[0];
+
+                }
+                local_s.linkTrackEvents = (local_s.linkTrackEvents) ? local_s.linkTrackEvents + ',' + cleanEventsString : cleanEventsString;
+                local_s.events = (local_s.events) ? local_s.events + ',' + eventsString : eventsString;;
             }
 
             local_s.tl(sender, this.LinkType, this.LinkName);
@@ -816,8 +863,13 @@ var NCIAnalytics = {
         clickParams = new NCIAnalytics.ClickParams(sender,
             'nciglobal', 'o', 'RightNavLink-');
         clickParams.Props = {
-            27: sender.innerHTML,
+            27: sender.innerHTML, // Right Navigation Section Clicked c27
         };
+        
+        clickParams.Evars = {
+            49: sender.innerHTML // Right Navigation Section Clicked v49 | visit | recent
+        };
+        
         clickParams.Events = [8];
         clickParams.LogToOmniture();
     },
