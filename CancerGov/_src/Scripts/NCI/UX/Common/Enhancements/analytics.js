@@ -268,7 +268,7 @@ define(function(require) {
 
 		$('.add_this_btn').each(function() {
 			var $this = $(this);
-			$this.parent().on('click.analytics', $this, function(e) {
+			$this.on('click.analytics', $this, function(e) {
 				NCIAnalytics.BookmarkShareClick(this);
 			});
 		});
