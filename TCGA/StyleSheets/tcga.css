@@ -1365,8 +1365,13 @@ div.accessible_news_slider.business_as_usual .storywrapper {
 /* popup */
 .popup-pages .popuplogo{
 	max-width: 500px;
-	margin-top: 10px;
+	margin: 10px 0 0 0;
 }
+
+.popup .popuplogo img{
+	max-height: 44px;
+}
+
 .popup-pages .nci-logo {
   font-weight: bold;
   font-size: 37.7px;
