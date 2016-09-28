@@ -276,11 +276,11 @@
 		padding-top: 15px;
 		overflow: auto;
 	}
-	.feature-primary .image-hover, .feature-secondary .image-hover {
+	.feature-primary .image-hover, .feature-secondary .image-hover, .topic-feature .image-hover {
 		float: left;
 		width: 30%;
 	}
-	.feature-primary h3, .feature-secondary h3 {
+	.feature-primary h3, .feature-secondary h3, .topic-feature h3, .topic-feature p {
 		margin-top: 0;
 		float: right;
 		width: 70%;
