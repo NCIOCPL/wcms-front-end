@@ -87,8 +87,8 @@ var NCIAnalytics = {
 
             // add link page prop (prop67) to all link tracking calls when not already present; existing values are given preference
             if(!this.Props[67]) {
-                var pageName = s.pageName.split('/')[0];;
-                local_s['prop67'] = pageName;
+
+                local_s['prop67'] = s.pageName;
 
                 if (local_s.linkTrackVars.length > 0)
                   local_s.linkTrackVars += ',';
