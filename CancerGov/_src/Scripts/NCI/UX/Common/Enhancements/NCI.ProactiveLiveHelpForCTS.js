@@ -3,6 +3,7 @@ define(function(require){
 	var $ = require('jquery');
 	var CookieManager = require('js-cookie');
 	var LiveChat = require('BasicCTSCommon/Enhancements/LiveChat');
+	var DateUtility = require('UX/Common/Enhancements/DateUtility');
 
 	// List of pages where the proactive search is active.
 	// These values MUST, MUST, MUST be lowercase.
@@ -214,46 +215,8 @@ define(function(require){
 	}
 
 	function _localToEasternTime(localDate) {
-		var EDT_OFFSET = 4; // Daylight Savings time offset to UTC
-		var EST_OFFSET = 5; // Standard time offset to UTC    		
-
-		// Function to check if the date UTC falls during Daylight Savings
-		// 2nd Sunday in March - 1st Sunday in November
-		// @ 7am UTC which is 2AM Eastern
-		// @ 6am UTC (end) which is 2AM Eastern
-		Date.prototype.dst = function () {
-			var timeUTC = new Date(this.getUTCFullYear(),
-				this.getUTCMonth(),
-				this.getUTCDate(),
-				this.getUTCHours(),
-				this.getUTCMinutes(),
-				this.getUTCSeconds());
-			var dstStart = new Date();
-			dstStart.setUTCHours(7, 0, 0, 0);
-			dstStart.setUTCMonth(2); // March
-			dstStart.setUTCDate(1);
-			// Find Sunday.
-			var SUNDAY = 0;
-			while (dstStart.getDay() != SUNDAY) {
-				dstStart.setUTCDate(dstStart.getUTCDate() + 1);
-			}
-			// Add 1 week.
-			dstStart.setUTCDate(dstStart.getUTCDate() + 7);
-
-			var dstEnd = new Date();
-			dstEnd.setHours(6, 0, 0, 0);
-			dstEnd.setMonth(10);
-			dstEnd.setDate(1);
-			// Find Sunday.
-			var SUNDAY = 0;
-			while (dstEnd.getDay() != SUNDAY) {
-				dstEnd.setUTCDate(dstEnd.getUTCDate() + 1);
-			}
-			if (timeUTC > dstStart && timeUTC < dstEnd)
-				return true;
-
-			return false;
-		}
+		var EDT_OFFSET = -4; // Daylight Savings time offset
+		var EST_OFFSET = -5; // Standard time offset   		
 
 		// First, convert local time to UTC
 		var dateUTC = new Date(localDate.getUTCFullYear(),
@@ -265,13 +228,13 @@ define(function(require){
 
 		var easternTime = new Date(dateUTC.getTime());
 
-		if (localDate.dst()) {
+		if (DateUtility.IsDaylightSavingsTime(localDate)) {
 			// Adjust hours to EDT from UTC
-			easternTime.setUTCHours(easternTime.getUTCHours() - EDT_OFFSET);
+			easternTime.setUTCHours(easternTime.getUTCHours() + EDT_OFFSET);
 		}
 		else {
 			// Adjust hours to EST from UTC
-			easternTime.setUTCHours(easternTime.getUTCHours() - EST_OFFSET);
+			easternTime.setUTCHours(easternTime.getUTCHours() + EST_OFFSET);
 		}
 
 		return easternTime;
