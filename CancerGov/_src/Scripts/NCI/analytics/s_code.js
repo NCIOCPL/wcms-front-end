@@ -353,7 +353,11 @@ function getViewPort() {
 function trackViewPortResize() {
 	var viewPortResized = getViewPort();
 	if (viewPortLoaded != viewPortResized) {
-		NCIAnalytics.Resize(this,viewPortResized);
+		if(typeof NCIAnalytics !== 'undefined') {
+			if(typeof NCIAnalytics.Resize === 'function') {
+				NCIAnalytics.Resize(this,viewPortResized);
+			}
+		}
 		viewPortLoaded = viewPortResized;
 	}
 	return viewPortResized;
