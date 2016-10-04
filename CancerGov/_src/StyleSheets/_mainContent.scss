@@ -211,6 +211,11 @@ li {
 	margin-bottom: 30px;
 	margin-left: 0;
 }
+.contentzone ul.no-description > li,
+.contentzone ul.no-description > li {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
 .contentzone ul,
 .rawHtml ul {
 	& > li {
