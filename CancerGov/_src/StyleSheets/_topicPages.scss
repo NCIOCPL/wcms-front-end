@@ -27,8 +27,25 @@ div.cc-main-pages div.title-red-arrow {
 		p {
 			line-height: 1.375;
 		}
+		
+		@include bp(small) {
+			h3 {
+				margin-top: 0;
+				float: right;
+				width: 70%;
+				font-size: 1.13em;
+				line-height: 1.111em;
+			}
+			p {
+				float: right;
+				width: 70%;
+			}
+		}
 	}
 }
+
+
+
 
 .landing-thumb {
 	clear: both;

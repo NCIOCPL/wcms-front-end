@@ -276,7 +276,7 @@
 		padding-top: 15px;
 		overflow: auto;
 	}
-	.feature-primary .image-hover, .feature-secondary .image-hover {
+	.feature-primary .image-hover, .feature-secondary .image-hover, .topic-feature .image-hover {
 		float: left;
 		width: 30%;
 	}
@@ -287,6 +287,7 @@
 		font-size: 1.13em;
 		line-height: 1.111em;
 	}
+
 	.feature-primary a:hover h3,
 	.feature-primary a:hover h3,
 	.topic-feature a:hover {
@@ -366,6 +367,20 @@
 			margin-top: 0.5em;
 			margin-bottom: 0.5em;
 		}
+
+        ul.cancer-types li {
+            background: none;
+            float: left;
+            width: 2.5em;
+            padding-right: 0;
+            margin: 0;
+
+            a { @extend %card-link-hover; }
+            a, span { 
+                line-height: 1.875;
+                font-size: 24px; 
+                font-size: 1.5rem; }
+        }
 		// this was done because the columns were becoming too narrow in tablet and had to stack before they reached mobile.
 		 @include bp('(max-width: 765px)') {
 			width: 100%;
@@ -382,15 +397,6 @@
 		a.arrow-link-white:hover {
 			@extend %card-link-hover;
 		}
-	}
-	ul.cancer-types li {
-		background: none;
-		float: left;
-		padding-right: 0;
-		width: 2.5em;
-		height: 2.3em;
-
-		a { @extend %card-link-hover; }
 	}
 }
 	@include bp(small) {

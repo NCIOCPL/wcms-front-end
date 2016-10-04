@@ -116,7 +116,7 @@
 			<!-- new search button -->
 			<div class="row">
 				<div class="medium-12 columns">
-					<a class="action" href="/search/search_geneticsservices.aspx">New Search</a>
+					<a class="action search-link" href="/search/search_geneticsservices.aspx">New Search</a>
 				</div>
 			</div>
 		</div>
