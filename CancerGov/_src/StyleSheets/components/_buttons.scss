@@ -222,6 +222,13 @@ a.button {
 	padding-top: 9px;	
 }
 
+// The "New Search" link of the Genetics Directory result used to be styled
+// as a button but was changed to a link.  This link needs to set the 
+// font specificly
+a.search-link {
+	font-family: Montserrat, Arial, sans-serif;	
+}
+
 @media only screen {
 	form button,
 	form .button {
