@@ -1,8 +1,31 @@
+// global
+var oga_pattern = /grants\-training\/grants/gi,
+    cct_pattern = /grants\-training\/training/gi,
+    pdq_pattern = /pdq/gi;
+
 var NCIAnalytics = {
 
     displayAlerts: false,
     stringDelimiter: '|',
     fieldDelimiter: '~',
+
+    /**
+     * Determines site section based on page path; Returns empty string if no match is found; Used as c66 prefix
+     * @author Evolytics <nci@evolytics.com>
+     * @since 2016-08-08
+     * @param {string=} pagePathOverride - Optional override to use in place of document.location.pathname
+     * @returns {string}
+     */
+    siteSection: (function(pagePathOverride) {
+        var path = pagePathOverride || document.location.pathname;
+
+        if(oga_pattern.test(path)) { return('oga'); }
+        if(cct_pattern.test(path)) { return('cct'); }
+        if(pdq_pattern.test(path)) { return('pdq'); }
+
+        return('');
+
+    })(),
 
     SelectedTextList: function(listId, delimiter) {
         var checked = $("#" + listId + " input:checked"); // get all checked inputs under the given id
@@ -791,7 +814,8 @@ var NCIAnalytics = {
             'nciglobal', 'o', 'eMailLink');
 
         clickParams.Props = {
-            43: 'Email'
+            43: 'Email',
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + 'email'
         };
 
         clickParams.Events = [17];
@@ -814,7 +838,8 @@ var NCIAnalytics = {
             'nciglobal', 'o', 'PrintLink');
 
         clickParams.Props = {
-            43: 'Print'
+            43: 'Print',
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + 'print'
         };
 
         clickParams.Events = [17];
@@ -864,6 +889,7 @@ var NCIAnalytics = {
             'nciglobal', 'o', 'RightNavLink-');
         clickParams.Props = {
             27: sender.innerHTML, // Right Navigation Section Clicked c27
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + sender.innerHTML.toLowerCase()
         };
         
         clickParams.Evars = {
@@ -916,13 +942,52 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    /**
+     * Generic / global link tracking method
+     * @param {object} payload
+     * @param {object=} [payload.sender=true] - html element clicked, defaults to Boolean true
+     * @param {string} payload.label - text of link clicked
+     * @param {string} payload.eventList - used to specify adobe success events
+     * @param {string} payload.timeToClickLink - time (in seconds) elapsed from page load to first link clicked
+     * @example NCIAnalytics.GlobalLinkTrack({sender:this, label:jQuery(this).text(), siteSection: 'oga', eventList: 'ogapreaward'});
+     */
+    GlobalLinkTrack: function(payload) {
+      var events = '', eventsWithIncrementors = '', // placeholder for success events, if needed
+        sender = payload.sender || true, // default to Boolean true if no object passed
+        label = payload.label || '',
+        section = this.siteSection || '';
+      
+      if(payload.eventList) {
+        switch(payload.eventList.toLowerCase()) {
+          case 'ogapreaward':   events = [101]; break;
+          case 'ogareceiving':  events = [102]; break;
+          case 'ogacloseout':   events = [103]; break;
+          case 'cctappdownload':events = [104]; break;
+          case 'ccthowtoapply': events = [105]; break;
+          case 'timetoclick':   eventsWithIncrementors = (payload.timeToClickLink) ? ['106=' + payload.timeToClickLink] : ''; break;
+        }
+      }
+
+      var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
+      clickParams.Props = {
+          66: ((section) ? section + '_' : '') + label.toLowerCase()
+      };
+      clickParams.Events = events;
+      clickParams.EventsWithIncrementors = eventsWithIncrementors;
+      clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     BookmarkShareClick: function(sender) {
 
         clickParams = new NCIAnalytics.ClickParams(sender,
             'nciglobal', 'o', 'BookmarkShareClick');
 
+        var linkText = (sender.title) ? sender.title : jQuery(sender).find("a").attr("title");
+
         clickParams.Props = {
-            43: sender.title
+            43: sender.title,
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + 'social-share_' + linkText.toLowerCase()
         };
 
         clickParams.Events = [17];
@@ -1313,6 +1378,12 @@ var NCIAnalytics = {
             67: pageName
         };
         clickParams.Events = [29];
+
+        // account for cct 'how to apply' success event
+        if(linkText.search(/^how\sto\sapply/gi) > -1) {
+            clickParams.Events.push(105);
+        }
+
         clickParams.LogToOmniture();
     },
 
@@ -1358,7 +1429,8 @@ var NCIAnalytics = {
             45: heading
         };
         clickParams.Props = {
-            68: state + "|" + parent
+            68: state + "|" + parent,
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + state.toLowerCase() + "|" + parent.toLowerCase()
         };
         clickParams.LogToOmniture();
     },
@@ -1368,11 +1440,18 @@ var NCIAnalytics = {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'SectionLinkClick');
 
         clickParams.Events = [33];
+
+        // account for cct 'how to apply' success event
+        if(linkText.search(/^how\sto\sapply/gi) > -1) {
+            clickParams.Events.push(105);
+        }
+
         clickParams.Evars = {
             43: "Section Menu",
             45: heading
         };
         clickParams.Props = {
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + linkText.toLowerCase(),
             69: heading,
             70: linkText,
             71: depth,
@@ -1389,7 +1468,8 @@ var NCIAnalytics = {
             clickParams.Events = [36];
         }
         clickParams.Props = {
-            42: fontSize
+            42: fontSize,
+            66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + 'font-resize_' + ((fontSize) ? fontSize.toLowerCase() : '')
         };
         clickParams.LogToOmniture();
     },
