@@ -303,11 +303,12 @@ define(function(require) {
 
 		});
         
-        // Analytics Pilot - track all links under the following headings:
-        // "How to Submit a Grant Application"
-        // "Application Development Resources"
-        // "Application Submission Resources"
-    	jQuery('#how-to-submit-a-grant-application, #application-development, #application-submission-resources').find('a').on('click.analytics', function() {
+    	// Analytics Pilot - track all links under the following pages : headings:
+        // grants-training/grants-process/overview : "How to Submit a Grant Application"
+        // grants-training/grants-process/application/development : "Application Development Resources"
+        // grants-training/grants-process/application/development : "Application Submission Resources"
+        // grants-training/grants/funding-opportunities : "Funding Opportunities" 
+    	jQuery('#how-to-submit-a-grant-application, #application-development, #application-submission-resources, #grants-funding-opportunities').find('a').on('click.analytics', function() {
             NCIAnalytics.GlobalLinkTrack({
                 sender: this,
                 label: jQuery(this).text(),
@@ -315,7 +316,7 @@ define(function(require) {
             }); 
         });
 
-        // Analytics Pilot - track "grants" links under "Application Submission" section
+        // Analytics Pilot - track "grants" links under "Application Submission" section on /grants-training/grants/funding-opportunities
         jQuery('#application-submission').find('p a, ol a').on('click.analytics', function() {
             var href = jQuery(this).attr('href');
             if(href.indexOf('grants\.') > -1) {
