@@ -306,12 +306,25 @@ define(function(require) {
         // Analytics Pilot - track all links under the following headings:
         // "How to Submit a Grant Application"
         // "Application Development Resources"
-        jQuery('#how-to-submit-a-grant-application, #application-development').find('a').on('click.analytics', function() {
+        // "Application Submission Resources"
+    	jQuery('#how-to-submit-a-grant-application, #application-development, #application-submission-resources').find('a').on('click.analytics', function() {
             NCIAnalytics.GlobalLinkTrack({
                 sender: this,
                 label: jQuery(this).text(),
                 eventList:'ogapreaward'
             }); 
+        });
+
+        // Analytics Pilot - track "grants" links under "Application Submission" section
+        jQuery('#application-submission').find('p a, ol a').on('click.analytics', function() {
+            var href = jQuery(this).attr('href');
+            if(href.indexOf('grants\.') > -1) {
+                NCIAnalytics.GlobalLinkTrack({
+                    sender: this,
+                    label: jQuery(this).text(),
+                    eventList:'ogapreaward' 
+                }); 
+            }
         });
 
         jQuery("#apply").on("click", "a", function() {
