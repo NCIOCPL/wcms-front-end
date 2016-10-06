@@ -346,6 +346,30 @@ define(function(require) {
             }); 
         });
 
+        // Analytics Pilot - track post-award activity links on the following pages:
+        // grants-training/grants-process/application/administration
+        // grants-training/grants-process/rppr
+        // grants-training/grants-process/grant-closeout
+        jQuery('.post-award-links').find('a').on('click.analytics', function() {
+            NCIAnalytics.GlobalLinkTrack({
+                sender: this,
+                label: jQuery(this).text(),
+                eventList:'ogacloseout'
+            }); 
+        });
+        if(location.pathname.indexOf('grants-training/grants-process/grant-closeout') > -1){
+            jQuery('.related-resources').find('a').on('click.analytics', function() {
+                var href = jQuery(this).attr('href'); 
+                if(href.indexOf('grants\.') > -1) {
+                    NCIAnalytics.GlobalLinkTrack({
+                        sender: this,
+                        label: jQuery(this).text(),
+                        eventList:'ogacloseout'
+                    }); 
+                }
+            });
+        }
+
         jQuery("#apply").on("click", "a", function() {
 			var linkText = jQuery(this).text();
 			if(linkText.search(/^(download the)(.+)(award application)/gi) > -1) {
