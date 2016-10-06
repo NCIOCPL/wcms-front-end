@@ -302,6 +302,16 @@ define(function(require) {
 			});
 
 		});
+		
+		// Analytics Pilot - track all links under the "How to Submit a Grant Application" heading
+        jQuery("#how-to-submit-a-grant-application").find("a").on("click.analytics", function() {
+              NCIAnalytics.GlobalLinkTrack({
+              sender: this,
+              label: jQuery(this).text(),
+              eventList:'ogapreaward'
+            }); 
+        });
+
 
 		jQuery("#apply").on("click", "a", function() {
 			var linkText = jQuery(this).text();
