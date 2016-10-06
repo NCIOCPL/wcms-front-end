@@ -329,7 +329,7 @@ define(function(require) {
         });
     
         // Analytics Pilot - track links under "Pre-Award Activities" section on /grants-training/grants-process/application/award page
-        jQuery("#pre-award-activities").find("a").on("click", function() {
+        jQuery("#pre-award-activities").find('a').on('click.analytics', function() {
             NCIAnalytics.GlobalLinkTrack({
                 sender: this,
                 label: jQuery(this).text(),
@@ -337,6 +337,14 @@ define(function(require) {
             }); 
         });
 
+    	// Analytics Pilot - track links under Preparation of Awards and Obligation of Funds heading on /grants-training/grants-process/application/award page
+        jQuery('h3:contains("Preparation of Awards")').nextAll().find('a').on('click.analytics', function() {
+            NCIAnalytics.GlobalLinkTrack({
+                sender: this,
+                label: jQuery(this).text(),
+                eventList:'ogareceiving'
+            }); 
+        });
 
         jQuery("#apply").on("click", "a", function() {
 			var linkText = jQuery(this).text();
