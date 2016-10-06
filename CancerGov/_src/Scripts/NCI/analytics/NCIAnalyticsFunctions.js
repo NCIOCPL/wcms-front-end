@@ -1372,7 +1372,7 @@ var NCIAnalytics = {
     //******************************************************************************************************
     OnThisPageClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
-
+        linkText = "OnThisPage_" + linkText;
         clickParams.Props = {
             66: linkText,
             67: pageName
@@ -1670,3 +1670,43 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     }
 };
+
+/**
+ * start page load timer for use with custom link tracking
+ * @author Evolytics <nci@evolytics.com>
+ * @since 2016-08-12
+ */
+jQuery().ready(function() {
+    window.pageLoadedAtTime = new Date().getTime(); 
+});
+
+/**
+ * dynamic link tracking for http://www.cancer.gov/grants-training
+ * tracks clicks on all links to an oga or cct page, including time from page load to link click
+ * @author Evolytics <nci@evolytics.com>
+ * @since 2016-08-12
+ */
+if(document.location.pathname === '/grants-training') {
+    jQuery("#content").on('click', "a[href*='grants-training']", function() {
+        var href = jQuery(this).attr('href'),
+            linkText = jQuery(this).text().toLowerCase().substring(0,89).trim(),
+            linkClickedAtTime = new Date().getTime(),
+            destinationSiteSection = '';
+
+        // identify destination site section; used to determine whether or not to send a call
+        if(oga_pattern.test(href)) {
+            destinationSiteSection = 'oga';
+        } else if(cct_pattern.test(href)) {
+            destinationSiteSection = 'cct'
+        }
+
+        if(destinationSiteSection && window.pageLoadedAtTime) {
+            NCIAnalytics.GlobalLinkTrack({
+                sender: this,
+                label: (destinationSiteSection) ? destinationSiteSection + '_' +linkText : linkText,
+                timeToClickLink: Math.round((linkClickedAtTime - window.pageLoadedAtTime) / 1000), // calculate time to click
+                eventList: 'timetoclick' // specify success event (event106)
+            });    
+        }
+    });
+}
