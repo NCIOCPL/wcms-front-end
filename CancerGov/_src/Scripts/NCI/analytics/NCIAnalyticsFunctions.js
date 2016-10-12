@@ -882,23 +882,50 @@ var NCIAnalytics = {
         clickParams.Events = [16];
         clickParams.LogToOmniture();
     },
+
     //******************************************************************************************************
     RightNavLink: function(sender, label) {
 
         clickParams = new NCIAnalytics.ClickParams(sender,
             'nciglobal', 'o', 'RightNavLink-');
+
         clickParams.Props = {
             27: sender.innerHTML, // Right Navigation Section Clicked c27
             66: ((NCIAnalytics.siteSection) ? NCIAnalytics.siteSection + '_' : '') + sender.innerHTML.toLowerCase()
         };
-        
+
+        // // scroll tracking - specific to pdq content where page updates, but does not reload
+        // if (NCIAnalytics.siteSection === 'pdq') {
+
+
+        //     // reset scroll info for next section    
+        //     var scrollInfo = NCIAnalytics.getScrollDetails({
+        //         source: 'RightNavLink', // optional; identifies where getScrollInfo call origniated
+
+        //         reset: true, // clears history, treating the dynamic content as a brand new page load
+        //         pageOverride: s.pageName + '/' + sender.innerHTML.toLowerCase().replace(/\s/gi,'-')
+
+        //     });
+
+        //     // include 'maxScrollPercentage' info in call to adobe
+        //     clickParams.Props["48"] = scrollInfo.previousPageMaxVerticalTrackingString;
+
+        //     /** Due to the way the PDQ pages behave when calling the RightNavLink() method, */
+        //     /** we are unable to accurately identify the percent of page visible above the fold */
+        //     /** in time to include in this call */
+        //     // include 'percentAboveFold' info in call to adobe
+        //     clickParams.Props["47"] = scrollInfo.percentAboveFoldAtLoadTrackingString;
+
+        // }
+
         clickParams.Evars = {
             49: sender.innerHTML // Right Navigation Section Clicked v49 | visit | recent
         };
-        
+
         clickParams.Events = [8];
         clickParams.LogToOmniture();
     },
+	
     //******************************************************************************************************
     BulletinSubscription: function(sender) {
 
@@ -970,6 +997,8 @@ var NCIAnalytics = {
 
       var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
       clickParams.Props = {
+          47: payload.percentAboveFoldAtLoadTrackingString || '',
+          48: payload.previousPageMaxVerticalTrackingString || '',
           66: ((section) ? section + '_' : '') + label.toLowerCase()
       };
       clickParams.Events = events;
@@ -1671,13 +1700,42 @@ var NCIAnalytics = {
     }
 };
 
+/* ********************************************************************** */
+/* ********************************************************************** */
+/* ********************************************************************** */
+/* ********************************************************************** */
+/* ********************************************************************** */
+
+/**
+ * defines page detail value, primary focus is pdq page sections as of initial logic
+ * this logic should be part of the initial page load call (s.prop28)
+ * @author Evolytics <nci@evolytics.com>
+ * @since 2016-08-12
+ */
+NCIAnalytics.buildPageDetail = function() {
+    var hash = document.location.hash,
+        return_val = '';
+
+    // find name of current pdq section
+    hash = hash.replace(/#section\//g, '');
+    if (hash) {
+        return_val = jQuery("#" + hash + " h2").text().toLowerCase();
+    }
+
+    // add '/' as prefix, if return_val exists and '/' not already present
+    if (return_val && return_val.indexOf('/') != 0) {
+        return_val = '/' + return_val;
+    }
+    return (return_val);
+};
+
 /**
  * start page load timer for use with custom link tracking
  * @author Evolytics <nci@evolytics.com>
  * @since 2016-08-12
  */
 jQuery().ready(function() {
-    window.pageLoadedAtTime = new Date().getTime(); 
+    window.pageLoadedAtTime = new Date().getTime();
 });
 
 /**
@@ -1686,27 +1744,316 @@ jQuery().ready(function() {
  * @author Evolytics <nci@evolytics.com>
  * @since 2016-08-12
  */
-if(document.location.pathname === '/grants-training') {
+if (document.location.pathname === '/grants-training/') {
     jQuery("#content").on('click', "a[href*='grants-training']", function() {
         var href = jQuery(this).attr('href'),
-            linkText = jQuery(this).text().toLowerCase().substring(0,89).trim(),
+            linkText = jQuery(this).text().toLowerCase().substring(0, 89).trim(),
             linkClickedAtTime = new Date().getTime(),
             destinationSiteSection = '';
 
         // identify destination site section; used to determine whether or not to send a call
-        if(oga_pattern.test(href)) {
+        if (oga_pattern.test(href)) {
             destinationSiteSection = 'oga';
-        } else if(cct_pattern.test(href)) {
+        } else if (cct_pattern.test(href)) {
             destinationSiteSection = 'cct'
         }
 
-        if(destinationSiteSection && window.pageLoadedAtTime) {
+        if (destinationSiteSection && window.pageLoadedAtTime) {
             NCIAnalytics.GlobalLinkTrack({
                 sender: this,
-                label: (destinationSiteSection) ? destinationSiteSection + '_' +linkText : linkText,
+                label: (destinationSiteSection) ? destinationSiteSection + '_' + linkText : linkText,
                 timeToClickLink: Math.round((linkClickedAtTime - window.pageLoadedAtTime) / 1000), // calculate time to click
                 eventList: 'timetoclick' // specify success event (event106)
-            });    
+            });
         }
     });
 }
+
+/***********************************************************************************************************
+/**
+ * Creates or updates specified cookie
+ * @param {string} pv_cookieName - name of cookie to create/update
+ * @param {string} pv_cookieValue - value to store in cookie
+ * @param {string=} pv_expireDays - optional number of days to store cookie (defaults to session expiration)
+ * @example this.cookieWrite('my_cookie', 'example', '10');
+ */
+NCIAnalytics.cookieWrite = function(pv_cookieName, pv_cookieValue, pv_expireDays) {
+    var exdate = (pv_expireDays) ? new Date() : '';
+    if (exdate) {
+        exdate.setDate(exdate.getDate() + pv_expireDays || 0);
+        exdate = exdate.toUTCString();
+    }
+
+    var h = window.location.hostname;
+    h = h.split('.');
+    h = h.splice(h.length - 2, 2); //grab lst 2 positions of hostname (ie//"example.com")
+    h = h.join('.');
+
+    var aryCookieCrumbs = [];
+    aryCookieCrumbs.push(pv_cookieName + '=' + encodeURI(pv_cookieValue));
+    aryCookieCrumbs.push('path=/');
+    aryCookieCrumbs.push('domain=' + h);
+    if (exdate) {
+        aryCookieCrumbs.push('expires=' + exdate);
+    }
+    document.cookie = aryCookieCrumbs.join(';');
+}
+
+/**
+ * Retrieve cookie value
+ * @param {string} c_name - name of cookie to retrieve
+ * @return {string} cookie value
+ * @example this.getCookie('cookie_name'); => {string} cookie value
+ */
+NCIAnalytics.cookieRead = function(c_name) {
+    if (document.cookie.length > 0) {
+        var c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            var c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return decodeURI(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+
+/**
+ * calculate visible page percentages on page load and max percent of previous page viewed based on scroll depth
+ * @author Evolytics <nci@evolytics.com>
+ * @since 2016-09-30
+ * @returns {object}
+ * @param {object} payload
+ * @param {Boolean} payload.updateOnly - Restricts functionality when updating data; Typically only used with onscroll
+ * @param {Boolean} payload.reset - Simulates a true page load/broswer referesh on SPA pages
+ * @param {string} payload.source - Identifies location where call to getScrollDetails occurred 
+ * @param {string} payload.pageOverride - Override value for last element of TrackingString properties
+ * @requires jQuery
+ * @requires s
+ */
+NCIAnalytics.getScrollDetails = function(payload) {
+    var previousPageScroll = NCIAnalytics.previousPageMaxVerticalTrackingString || '',
+        pageSection = '';//jQuery(".accordion").find("section.show h2").text(); // pdq page section (same as right rail menu links)
+    page = s.pageName + ((pageSection) ? '/' + pageSection : '');
+
+    if (payload) {
+        // only grab the previousPageScroll value from cookie if NOT a scroll update
+        if (payload.updateOnly != true) {
+            previousPageScroll = NCIAnalytics.cookieRead('nci_scroll');
+            NCIAnalytics.cookieWrite('nci_scroll', ''); // assume we only want to use the value once
+        }
+
+        // manual reset for pages that update length without a page load/refresh (simulate a new page load)
+        if (payload.reset === true) {
+            NCIAnalytics.maxVerticalScroll = 0;
+            NCIAnalytics.maxPageHeight = 0;
+            NCIAnalytics.scrollDetails_orig = "";
+        }
+
+        // allows for special handling based on where the getScrollDetails() call originates
+        if (payload.source) {
+            // console.info('source: ' + payload.source);
+        }
+
+        // allow for override of page property
+        if (payload.pageOverride) {
+            page = payload.pageOverride;
+        }
+    }
+
+    page = page.replace(/www\.cancer\.gov/i, '').replace(/\s/gi, '-').toLowerCase();
+
+    var maxVerticalScroll = NCIAnalytics.maxVerticalScroll || 0,
+        maxPageHeight = NCIAnalytics.maxPageHeight || 0,
+        viewportHeight = window.innerHeight,
+        verticalScrollDistance = window.pageYOffset,
+        fullPageHeight = (function() {
+            var body = document.body,
+                html = document.documentElement;
+
+            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight
+            );
+            return (height);
+        })();
+
+    // calculate max scroll distance, always choosing larger of current scroll distance and max distance already recorded
+    NCIAnalytics.maxVerticalScroll = (verticalScrollDistance > maxVerticalScroll) ? verticalScrollDistance : maxVerticalScroll;
+    NCIAnalytics.maxPageHeight = (fullPageHeight > maxPageHeight) ? fullPageHeight : maxPageHeight;
+
+    // calculate percentages and total pixels viewed
+    var totalPageViewed = NCIAnalytics.maxVerticalScroll + viewportHeight;
+    percentAboveFoldAtLoad = Math.round(100 * (viewportHeight / fullPageHeight)),
+        percentOfTotalPageViewed = Math.round(100 * (totalPageViewed / NCIAnalytics.maxPageHeight));
+
+    // create object for packaging up the data
+    function updateScrollDetails(pv_scrollObject) {
+        var retVal = pv_scrollObject || {};
+
+        // measurements
+        retVal.viewportHeight = viewportHeight; // px
+        retVal.fullPageHeight = fullPageHeight; // px
+        retVal.verticalScrollDistance = verticalScrollDistance; // px
+        retVal.maxVerticalScroll = NCIAnalytics.maxVerticalScroll; // px
+        retVal.maxPageHeight = NCIAnalytics.maxPageHeight; // px
+        retVal.totalPageViewed = totalPageViewed; // px
+
+        // capture percentAboveFoldAtLoad and generate tracking string
+        retVal.percentAboveFoldAtLoad = (percentAboveFoldAtLoad === Infinity) ? 100 : percentAboveFoldAtLoad;
+        retVal.percentAboveFoldAtLoadTrackingString = retVal.percentAboveFoldAtLoad + 'pct|' +
+            NCIAnalytics.maxPageHeight + 'px|' + page;
+
+        // store percentOfTotalPageViewed in cookie for capture on next non-updateOnly page call (store in nci_scroll cookie)
+        retVal.percentOfTotalPageViewed = (percentOfTotalPageViewed === Infinity) ? 100 : percentOfTotalPageViewed;
+        retVal.previousPageMaxVerticalTrackingString = previousPageScroll;
+
+        return (retVal);
+    }
+
+    NCIAnalytics.scrollDetails = updateScrollDetails();
+
+    // set cookie for capture on next page (or next non-updateOnly call to this function)
+    NCIAnalytics.cookieWrite('nci_scroll', NCIAnalytics.scrollDetails.percentOfTotalPageViewed + 'pct|' + NCIAnalytics.maxPageHeight + 'px|' + page);
+
+    // preserve values captured first time function is called (on page load)
+    if (!NCIAnalytics.scrollDetails_orig || NCIAnalytics.scrollDetails_orig == "") {
+        NCIAnalytics.scrollDetails_orig = updateScrollDetails();
+    }
+
+    // send analytics call
+    if(payload && payload.sendCall === true) {
+        NCIAnalytics.GlobalLinkTrack({
+            percentAboveFoldAtLoadTrackingString: NCIAnalytics.scrollDetails.percentAboveFoldAtLoadTrackingString,
+            previousPageMaxVerticalTrackingString: NCIAnalytics.scrollDetails.previousPageMaxVerticalTrackingString
+        })
+    }
+
+    // console.table(NCIAnalytics.scrollDetails);
+    return (NCIAnalytics.scrollDetails);
+};
+
+/**
+ * builds page detail-like string, including pageName and hash value
+ * for pdq content, checks for section name in html based on provided hash/section id
+ * @param {object} payload
+ * @param {string} payload.hash
+ * @param {string} payload.page
+ * @returns {string}
+ */
+function buildPageOverride(payload) {
+    var retVal = '',
+        section = '',
+        hash = payload.hash,
+        page = payload.page;
+
+    retVal = page || '';
+
+    // clean up the hash, if needed
+    hash = hash.replace(/^\#?section\//i, '');
+
+    // get the page detail (section name) string
+    section = NCIAnalytics.buildPageDetail();
+    section = (section) ? section : hash; // default to hash value if nothing returns from buildPageDetail()
+    section = section.replace(/^\//, '');
+    
+    // stitch it all together
+    retVal += (section) ? '/' + section : '';
+
+    return(retVal);
+}
+
+/**
+ * watches for any change in value for specified variables
+ * @param {object} payload
+ * @param {string} payload.name - name of variable being monitored; stored in window scope as window[payload.name]
+ * @param payload.value
+ * @param {function} payload.callback - action to complete if variable value changes
+ */
+function changeMonitor(payload) {
+  var variableName = payload.name,
+      variableValue = payload.value;
+  
+  if(window[variableName] != variableValue) {
+    // console.info('window["' + variableName + '"] has changed from ' + window[variableName] + ' to "' + variableValue + '"');
+
+    if(payload.callback) {
+      payload.callback();
+    }
+    window[variableName] = variableValue;                 
+  }
+}
+
+/**
+ * cross-browser eventListener logic
+ * @author Evolytics <nci@evolytics.com>
+ */
+function attachEvents(payload) {
+    var element = payload.element,
+        event = payload.event,
+        action = payload.action;
+
+    if (element['addEventListener']) {
+        element['addEventListener'](event, action);
+    } else if (element['attachEvent']) {
+        element['attachEvent']('on' + event, action);
+    }
+}
+
+// trigger initial NCIAnalytics.getScrollDetails() call on window.load, but can be called inline, prior
+// to calling adobe's s.t() method
+attachEvents({
+    element: window,
+    event: 'load',
+    action: function() {
+        NCIAnalytics.getScrollDetails({
+            source: 'window.load',
+            pageOverride: buildPageOverride({page: s.pageName, hash: document.location.hash})
+        });
+    }
+});
+
+// on scroll, start timer. once scroll stops, run specified function...
+var timer;
+attachEvents({
+    element: window,
+    event: 'scroll',
+    action: function() {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+            NCIAnalytics.getScrollDetails({
+                updateOnly: true,
+                source: 'window.scroll',
+                pageOverride: buildPageOverride({page: s.pageName, hash: document.location.hash})
+            })
+        }, 150);
+    }
+});
+
+/**
+ * monitor for changes in document.location.hash
+ */  
+attachEvents({
+    element: window,
+    event: 'hashchange',
+    action: function() {
+        changeMonitor({
+            name: 'hash',
+            value: document.location.hash,
+            callback: function() {
+                setTimeout(function() {
+                    NCIAnalytics.getScrollDetails({
+                        source: 'hashMonitor', // optional; identifies where getScrollInfo call origniated
+                        reset: true, // clears history, treating the dynamic content as a brand new page load
+                        sendCall: true, // sends link tracking call with scroll data
+                        pageOverride: buildPageOverride({
+                            page: s.pageName,
+                            hash: document.location.hash
+                        })
+                    });
+                }, 100); // wait 200ms after change; allows for page resizing and content updates to complete
+            }
+        });
+    }
+});
