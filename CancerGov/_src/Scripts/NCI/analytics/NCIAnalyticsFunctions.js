@@ -996,7 +996,9 @@ var NCIAnalytics = {
       }
 
       var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
+	  var pageDetail = NCIAnalytics.buildPageDetail() || '';
       clickParams.Props = {
+          28: s.pageName + pageDetail,	  
           47: payload.percentAboveFoldAtLoadTrackingString || '',
           48: payload.previousPageMaxVerticalTrackingString || '',
           66: ((section) ? section + '_' : '') + label.toLowerCase()
