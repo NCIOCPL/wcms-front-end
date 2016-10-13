@@ -999,7 +999,7 @@ var NCIAnalytics = {
 	  var pageDetail = NCIAnalytics.buildPageDetail() || '';
       clickParams.Props = {
           28: s.pageName + pageDetail,	  
-          47: payload.percentAboveFoldAtLoadTrackingString || '',
+          // 47: payload.percentAboveFoldAtLoadTrackingString || '',
           48: payload.previousPageMaxVerticalTrackingString || '',
           66: ((section) ? section + '_' : '') + label.toLowerCase()
       };
@@ -1702,6 +1702,7 @@ var NCIAnalytics = {
     }
 };
 
+
 /* ********************************************************************** */
 /* ********************************************************************** */
 /* ********************************************************************** */
@@ -1719,7 +1720,7 @@ NCIAnalytics.buildPageDetail = function() {
         return_val = '';
 
     // find name of current pdq section
-    hash = hash.replace(/#section\//g, '');
+    hash = hash.replace(/#?(section|link)\//g, '');
     if (hash) {
         return_val = jQuery("#" + hash + " h2").text().toLowerCase();
     }
@@ -1904,10 +1905,9 @@ NCIAnalytics.getScrollDetails = function(payload) {
 
         // capture percentAboveFoldAtLoad and generate tracking string
         retVal.percentAboveFoldAtLoad = (percentAboveFoldAtLoad === Infinity) ? 100 : percentAboveFoldAtLoad;
-        retVal.percentAboveFoldAtLoadTrackingString = retVal.percentAboveFoldAtLoad + 'pct|' +
-            NCIAnalytics.maxPageHeight + 'px|' + page;
+        // retVal.percentAboveFoldAtLoadTrackingString = retVal.percentAboveFoldAtLoad + 'pct|' +
+        //     NCIAnalytics.maxPageHeight + 'px|' + page;
 
-        // store percentOfTotalPageViewed in cookie for capture on next non-updateOnly page call (store in nci_scroll cookie)
         retVal.percentOfTotalPageViewed = (percentOfTotalPageViewed === Infinity) ? 100 : percentOfTotalPageViewed;
         retVal.previousPageMaxVerticalTrackingString = previousPageScroll;
 
@@ -1917,7 +1917,12 @@ NCIAnalytics.getScrollDetails = function(payload) {
     NCIAnalytics.scrollDetails = updateScrollDetails();
 
     // set cookie for capture on next page (or next non-updateOnly call to this function)
-    NCIAnalytics.cookieWrite('nci_scroll', NCIAnalytics.scrollDetails.percentOfTotalPageViewed + 'pct|' + NCIAnalytics.maxPageHeight + 'px|' + page);
+    NCIAnalytics.cookieWrite('nci_scroll', 
+        NCIAnalytics.scrollDetails.percentOfTotalPageViewed + 'pct|' + 
+        NCIAnalytics.scrollDetails.percentAboveFoldAtLoad + 'pct|' +
+        NCIAnalytics.maxPageHeight + 'px|' + 
+        page
+    );
 
     // preserve values captured first time function is called (on page load)
     if (!NCIAnalytics.scrollDetails_orig || NCIAnalytics.scrollDetails_orig == "") {
@@ -1927,7 +1932,7 @@ NCIAnalytics.getScrollDetails = function(payload) {
     // send analytics call
     if(payload && payload.sendCall === true) {
         NCIAnalytics.GlobalLinkTrack({
-            percentAboveFoldAtLoadTrackingString: NCIAnalytics.scrollDetails.percentAboveFoldAtLoadTrackingString,
+            // percentAboveFoldAtLoadTrackingString: NCIAnalytics.scrollDetails.percentAboveFoldAtLoadTrackingString,
             previousPageMaxVerticalTrackingString: NCIAnalytics.scrollDetails.previousPageMaxVerticalTrackingString
         })
     }
@@ -1979,9 +1984,14 @@ function changeMonitor(payload) {
   
   if(window[variableName] != variableValue) {
     // console.info('window["' + variableName + '"] has changed from ' + window[variableName] + ' to "' + variableValue + '"');
+    var fireCallback = true;
 
-    if(payload.callback) {
-      payload.callback();
+    if(variableName === 'hash' && variableValue.indexOf('#link/') > -1) { fireCallback = false; }
+
+    if(fireCallback) {
+        if(payload.callback) {
+          payload.callback();
+        }
     }
     window[variableName] = variableValue;                 
   }
@@ -2054,8 +2064,11 @@ attachEvents({
                             hash: document.location.hash
                         })
                     });
-                }, 100); // wait 200ms after change; allows for page resizing and content updates to complete
+                }, 100); // wait 100ms after change; allows for page resizing and content updates to complete
             }
         });
     }
 });
+
+
+//console.info(NCIAnalytics.cookieRead("nci_scroll"));
