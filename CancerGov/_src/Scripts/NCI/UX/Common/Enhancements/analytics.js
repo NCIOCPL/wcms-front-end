@@ -316,7 +316,7 @@ define(function(require) {
             }); 
         });
 
-        // Analytics Pilot - track "grants" links under "Application Submission" section on /grants-training/grants/funding-opportunities
+        // Analytics Pilot - track "grants" links under "Application Submission" section on /grants-training/grants-process/application/development
         jQuery('#application-submission').find('p a, ol a').on('click.analytics', function() {
             var href = jQuery(this).attr('href');
             if(href.indexOf('grants\.') > -1) {
