@@ -433,13 +433,13 @@ define(function(require) {
 
 			// Track app download links
 			$('#app-download-iphone').on('click.analytics', function(){
-				NCIAnalytics.GlobalLinkTrack({sender: this, label: 'download-iphone'});
+				NCIAnalytics.GlobalLinkTrack({sender: this, label: 'download-fyi-app_iphone'});
 			});
 			$('#app-download-ipad').on('click.analytics', function(){
-				NCIAnalytics.GlobalLinkTrack({sender: this, label: 'download-ipad'});
+				NCIAnalytics.GlobalLinkTrack({sender: this, label: 'download-fyi-app_ipad'});
 			});
 			$('#app-download-android').on('click.analytics', function(){
-				NCIAnalytics.GlobalLinkTrack({sender: this, label: 'download-android'});
+				NCIAnalytics.GlobalLinkTrack({sender: this, label: 'download-fyi-app_android'});
 			});
 
 
