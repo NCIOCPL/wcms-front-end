@@ -1,7 +1,8 @@
 // global
 var oga_pattern = /grants\-training\/grants/gi,
     cct_pattern = /grants\-training\/training/gi,
-    pdq_pattern = /pdq/gi;
+    pdq_pattern = /pdq/gi,
+	trimmedPathname = document.location.pathname.replace(/\/$/, '');
 
 var NCIAnalytics = {
 
@@ -1748,7 +1749,7 @@ jQuery().ready(function() {
  * @author Evolytics <nci@evolytics.com>
  * @since 2016-08-12
  */
-if (document.location.pathname === '/grants-training/') {
+if (trimmedPathname === '/grants-training') {
     jQuery("#content").on('click', "a[href*='grants-training']", function() {
         var href = jQuery(this).attr('href'),
             linkText = jQuery(this).text().toLowerCase().substring(0, 89).trim(),
