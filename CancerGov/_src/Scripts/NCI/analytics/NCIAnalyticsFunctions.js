@@ -1001,8 +1001,8 @@ var NCIAnalytics = {
           28: s.pageName + pageDetail,	  
           // 47: payload.percentAboveFoldAtLoadTrackingString || '',
           48: payload.previousPageMaxVerticalTrackingString || '',
-          66: ((section) ? section + '_' : '') + label.toLowerCase()
       };
+	  if(!clickParams.Props[48]) { clickParams.Props[66] = (((section) ? section + '_' : '') + label.toLowerCase()); }
       clickParams.Events = events;
       clickParams.EventsWithIncrementors = eventsWithIncrementors;
       clickParams.LogToOmniture();
@@ -1721,6 +1721,7 @@ NCIAnalytics.buildPageDetail = function() {
 
     // find name of current pdq section
     hash = hash.replace(/#?(section|link)\//g, '');
+    hash = hash.replace(/#/g, '');
     if (hash) {
         return_val = jQuery("#" + hash + " h2").text().toLowerCase();
     }
@@ -2021,6 +2022,7 @@ attachEvents({
     action: function() {
         NCIAnalytics.getScrollDetails({
             source: 'window.load',
+            sendCall: true, 
             pageOverride: buildPageOverride({page: s.pageName, hash: document.location.hash})
         });
     }
