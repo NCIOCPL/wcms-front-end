@@ -984,7 +984,8 @@ var NCIAnalytics = {
         sender = payload.sender || true, // default to Boolean true if no object passed
         label = payload.label || '',
         section = this.siteSection || '',
-        hash = document.location.hash;
+        hash = document.location.hash,
+        isTrackable = true;
       
       if(payload.eventList) {
         switch(payload.eventList.toLowerCase()) {
@@ -998,19 +999,26 @@ var NCIAnalytics = {
       }
 
       var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
-	  var pageDetail = NCIAnalytics.buildPageDetail() || '';	  
+      var pageDetail = NCIAnalytics.buildPageDetail() || '';	  
 
-      if(hash.indexOf('#section') > -1) {
-          clickParams.Props = {
-              28: s.pageName + pageDetail,      
-              48: payload.previousPageMaxVerticalTrackingString || '',
-          };
+      // Don't track on-this-page or other non-PDQ hash links
+      if(hash.length > 0 && hash.match(/^(#link|#section)/) == null) {          
+        isTrackable = false;
       }
+      
+      clickParams.Props = {
+          28: s.pageName + pageDetail,      
+          48: payload.previousPageMaxVerticalTrackingString || '',
+      };
+
       if(!clickParams.Props[48]) { clickParams.Props[66] = (((section) ? section + '_' : '') + label.toLowerCase()); }
 
       clickParams.Events = events;
       clickParams.EventsWithIncrementors = eventsWithIncrementors;
-      clickParams.LogToOmniture();
+      
+      if(isTrackable) {
+        clickParams.LogToOmniture();
+      }
     },
 
     //******************************************************************************************************
