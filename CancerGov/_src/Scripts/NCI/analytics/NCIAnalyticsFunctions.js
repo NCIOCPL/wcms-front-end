@@ -1416,7 +1416,7 @@ var NCIAnalytics = {
         clickParams.Events = [29];
 
         // account for cct 'how to apply' success event
-        if(linkText.search(/^how\sto\sapply/gi) > -1) {
+        if(linkText.search(/^OnThisPage_how\sto\sapply/gi) > -1) {
             clickParams.Events.push(105);
         }
 
