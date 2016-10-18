@@ -332,6 +332,13 @@ function set_hier1() {
 /* Dynamically Capture Hierarchy Variable via Custom Plugin */
 s.hier1 = set_hier1();
 
+/* Track scroll percentage of previous page / percent visible on current page */
+if(typeof NCIAnalytics !== 'undefined') {
+    if(typeof NCIAnalytics.cookieRead === 'function') {
+        s.prop48=NCIAnalytics.cookieRead("nci_scroll");
+    }
+}
+
 /** Custom functions to track screen size changes */
 var viewPortLoaded = s.eVar5 = getViewPort(); // Set eVar for browser width on page load
 window.onresize = trackViewPortResize; // If the current browser screen is resized, call the trackViewPortResize() function

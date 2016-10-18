@@ -2,7 +2,7 @@
 var oga_pattern = /grants\-training\/grants/gi,
     cct_pattern = /grants\-training\/training/gi,
     pdq_pattern = /pdq/gi,
-	trimmedPathname = document.location.pathname.replace(/\/$/, '');
+    trimmedPathname = document.location.pathname.replace(/\/$/, '');
 
 var NCIAnalytics = {
 
@@ -983,7 +983,8 @@ var NCIAnalytics = {
       var events = '', eventsWithIncrementors = '', // placeholder for success events, if needed
         sender = payload.sender || true, // default to Boolean true if no object passed
         label = payload.label || '',
-        section = this.siteSection || '';
+        section = this.siteSection || '',
+        hash = document.location.hash;
       
       if(payload.eventList) {
         switch(payload.eventList.toLowerCase()) {
@@ -997,13 +998,16 @@ var NCIAnalytics = {
       }
 
       var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
-	  var pageDetail = NCIAnalytics.buildPageDetail() || '';
-      clickParams.Props = {
-          28: s.pageName + pageDetail,	  
-          // 47: payload.percentAboveFoldAtLoadTrackingString || '',
-          48: payload.previousPageMaxVerticalTrackingString || '',
-      };
-	  if(!clickParams.Props[48]) { clickParams.Props[66] = (((section) ? section + '_' : '') + label.toLowerCase()); }
+	  var pageDetail = NCIAnalytics.buildPageDetail() || '';	  
+
+      if(hash.indexOf('#section') > -1) {
+          clickParams.Props = {
+              28: s.pageName + pageDetail,      
+              48: payload.previousPageMaxVerticalTrackingString || '',
+          };
+      }
+      if(!clickParams.Props[48]) { clickParams.Props[66] = (((section) ? section + '_' : '') + label.toLowerCase()); }
+
       clickParams.Events = events;
       clickParams.EventsWithIncrementors = eventsWithIncrementors;
       clickParams.LogToOmniture();
@@ -2023,7 +2027,7 @@ attachEvents({
     action: function() {
         NCIAnalytics.getScrollDetails({
             source: 'window.load',
-            sendCall: true, 
+            //sendCall: true, 
             pageOverride: buildPageOverride({page: s.pageName, hash: document.location.hash})
         });
     }
