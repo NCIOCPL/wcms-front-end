@@ -1417,7 +1417,9 @@ var NCIAnalytics = {
     OnThisPageClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
         linkText = "OnThisPage_" + linkText;
+        href = sender.getAttribute ? sender.getAttribute("href") : jQuery(sender).attr("href");
         clickParams.Props = {
+            4: href,
             66: linkText,
             67: pageName
         };
