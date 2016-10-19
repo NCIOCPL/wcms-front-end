@@ -1,19 +1,25 @@
 define(function(require) {
-	var $ = require('jquery');
+    var $ = require('jquery');
 
-	/***
-	* Snippet to track clicks on "On This Page" links
-	*/
-	function _initialize() {
-		$('.on-this-page').each(function(i, el) {
-			$(el).on('click', 'a', function(event) {
-				var $this = $(this);
-				var linkText = $this.text();
-				var pageName = window.location.hostname + window.location.pathname;
-				NCIAnalytics.OnThisPageClick($this, linkText, pageName);
-			});
-		});		
-	}
+    /***
+    * Snippet to track clicks on "On This Page" links
+    */
+    function _initialize() {
+        var pageName = 'www.cancer.gov/';
+        if(s) {
+            if(s.pageName) {
+                pageName = s.pageName;
+            }
+        }
+        
+        $('.on-this-page').each(function(i, el) {
+            $(el).on('click', 'a', function(event) {
+                var $this = $(this);
+                var linkText = $this.text();
+                NCIAnalytics.OnThisPageClick($this, linkText, pageName);
+            });
+        });
+    }
 
 	/**
 	 * Identifies if this enhancement has been initialized or not.
