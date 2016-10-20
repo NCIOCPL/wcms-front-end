@@ -37,7 +37,7 @@ define(function(require) {
                 var enlargeButton = $('<a/>', {
                     'class': 'article-image-enlarge no-resize',
                     'href': '#',
-                    'onclick': 'return false;',
+                    'onclick': "NCIAnalytics.GlobalLinkTrack({sender: this, label:'table-enlarge'});",
                     'html': settings.enlargeTxt
                 }).insertBefore(fig.data('scrollWrapper'));
 
