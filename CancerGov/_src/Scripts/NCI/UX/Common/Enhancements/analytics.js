@@ -447,7 +447,7 @@ define(function(require) {
 			// 1. Anchor click events to each of the items in the "On This Page" section
 			// 2. Anchor click events to each of the email address links within the tables.
 			var pathname = window.location.pathname;
-			if(pathname.includes("/grants-training/training/contact")){
+			if(pathname.indexOf("/grants-training/training/contact") != -1){
 				$('#cgvBody ul').eq(0).find('li').each(function(){
 					$(this).find('a').on('click', function(){
 						NCIAnalytics.GlobalLinkTrack({
@@ -458,7 +458,7 @@ define(function(require) {
 				});
 
 				$('#cgvBody table tr td a').each(function(){ // each table
-					if($(this).attr('href').includes("mailto:")){
+					if($(this).attr('href').indexOf("mailto:") != -1){
 						$(this).on('click', function(){
 							NCIAnalytics.GlobalLinkTrack({
 								sender: this, // html link element
