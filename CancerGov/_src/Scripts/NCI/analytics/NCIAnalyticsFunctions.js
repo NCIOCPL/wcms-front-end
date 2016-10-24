@@ -1001,24 +1001,18 @@ var NCIAnalytics = {
       var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
       var pageDetail = NCIAnalytics.buildPageDetail() || '';	  
 
-      // Don't track on-this-page or other non-PDQ hash links
-      if(hash.length > 0 && hash.match(/^(#link|#section)/) == null) {          
-        isTrackable = false;
+      // Don't duplicate tracking on on-this-page or other non-PDQ hash links
+      if(hash.length > 0 && hash.match(/^(#link|#section)/) == null) {      
+          clickParams.Props = {
+              28: s.pageName + pageDetail,      
+              48: payload.previousPageMaxVerticalTrackingString || '',
+          };
       }
-      
-      clickParams.Props = {
-          28: s.pageName + pageDetail,      
-          48: payload.previousPageMaxVerticalTrackingString || '',
-      };
-
       if(!clickParams.Props[48]) { clickParams.Props[66] = (((section) ? section + '_' : '') + label.toLowerCase()); }
 
       clickParams.Events = events;
-      clickParams.EventsWithIncrementors = eventsWithIncrementors;
-      
-      if(isTrackable) {
-        clickParams.LogToOmniture();
-      }
+      clickParams.EventsWithIncrementors = eventsWithIncrementors;      
+      clickParams.LogToOmniture();
     },
 
     //******************************************************************************************************
