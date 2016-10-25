@@ -19,15 +19,6 @@ define(function(require) {
                 NCIAnalytics.OnThisPageClick($this, linkText, pageName);
             });
         });
-        
-        // Hotfix for PDQ email tracking issue https://tracker.nci.nih.gov/browse/WCMSFEQ-403
-        // Track email share link clicks only - temporary fix until the link behavior is fixed
-        if(location.pathname.indexOf('/types/') > -1 && location.pathname.indexOf('-pdq') > -1){
-            jQuery('.po-email').on('click.analytics', function() {
-                var $this = $(this);
-                NCIAnalytics.eMailLink($this);
-            });
-        }
     }
 
 	/**
