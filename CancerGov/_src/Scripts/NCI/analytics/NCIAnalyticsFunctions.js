@@ -1001,13 +1001,10 @@ var NCIAnalytics = {
       var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'GlobalLinkTrack');
       var pageDetail = NCIAnalytics.buildPageDetail() || '';	  
 
-      // Don't duplicate tracking on on-this-page or other non-PDQ hash links
-      if(hash.length > 0 && hash.match(/^(#link|#section)/) == null) {      
-          clickParams.Props = {
-              28: s.pageName + pageDetail,      
-              48: payload.previousPageMaxVerticalTrackingString || '',
-          };
-      }
+      clickParams.Props = {
+          28: s.pageName + pageDetail,      
+          48: payload.previousPageMaxVerticalTrackingString || '',
+      };
       if(!clickParams.Props[48]) { clickParams.Props[66] = (((section) ? section + '_' : '') + label.toLowerCase()); }
 
       clickParams.Events = events;
@@ -1941,10 +1938,14 @@ NCIAnalytics.getScrollDetails = function(payload) {
 
     // send analytics call
     if(payload && payload.sendCall === true) {
-        NCIAnalytics.GlobalLinkTrack({
-            // percentAboveFoldAtLoadTrackingString: NCIAnalytics.scrollDetails.percentAboveFoldAtLoadTrackingString,
-            previousPageMaxVerticalTrackingString: NCIAnalytics.scrollDetails.previousPageMaxVerticalTrackingString
-        })
+        var hash = document.location.hash || '';
+        // If this is a PDQ page, track scroll pct as a click event 
+        if(hash.match(/^(#link|#section)/) != null) {      
+            NCIAnalytics.GlobalLinkTrack({
+                // percentAboveFoldAtLoadTrackingString: NCIAnalytics.scrollDetails.percentAboveFoldAtLoadTrackingString,
+                previousPageMaxVerticalTrackingString: NCIAnalytics.scrollDetails.previousPageMaxVerticalTrackingString
+            })
+        }
     }
 
     // console.table(NCIAnalytics.scrollDetails);
