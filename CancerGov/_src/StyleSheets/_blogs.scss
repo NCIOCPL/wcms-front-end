@@ -133,6 +133,40 @@ a.comment-count {
 .blog-post-newer p {
 	margin-top: 0;
 }
+
+.right-rail {
+	margin-top: 1.25em;
+	padding-left: 0;
+
+	.slot-item {
+		box-shadow: 0 0 10px 0 lightgray;
+		padding: 0.25em 1em;
+		margin-bottom: 1em;
+	}
+	.managed.list{
+		ul > li {
+			margin: 0.5em 0 0.85em 0;
+		}
+
+		p.title {
+			margin: 0.5em 0;
+		}
+		a.title {
+			font-size: 1em;
+		}
+
+		.byline p{
+			margin: 0;
+			font-size: 0.85em;
+		}
+	}
+}
+
+@include bp(medium-down) {
+	.right-rail {
+		padding-left: 0.9375em;
+	}
+}
 /*end Blog Content CSS*/
 
 /********** END Blogs Styles ******************************************/
