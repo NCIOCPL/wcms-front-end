@@ -340,7 +340,7 @@
 			## Show description if required
 			##
 			#if($showDescription)
-				#DrawBlogDescription($resultItem)
+				#DrawDescription($resultItem)
 			#end##
 
 			<p>
@@ -388,7 +388,7 @@
 #end##
 
 #macro(DrawDescription $resultItem)
-	<p class="body">##
+	<p>##
 		#if($resultItem.LongDescription)##
 			$resultItem.LongDescription ##
 		#else##
@@ -402,7 +402,7 @@
 		#if($CDEContext.Language == "es")##
 			$resultItem.DateForBlogsEs##
 		#else##
-			$resultItem.DateForBlogs##
+			$resultItem.DateForBlogs,##
 		#end##
 		#if($resultItem.Author.length()>0)##
 			$by $resultItem.Author##
@@ -410,16 +410,4 @@
 			&nbsp;##
 		#end##
 	</div>
-#end##
-
-#macro(DrawBlogDescription $resultItem)
-	<p class="body">##
-		#if($resultItem.BlogBody.length()>0)##
-			$resultItem.BlogBody
-		#elseif($resultItem.LongDescription.length()>0)##
-			$resultItem.LongDescription
-		#else##
-			&nbsp;##
-		#end##
-	</p>##
 #end##
