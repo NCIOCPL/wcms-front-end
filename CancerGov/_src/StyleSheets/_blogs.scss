@@ -71,6 +71,10 @@ p.blog-post-publishing-info {
 			font-size: 1.5em;	
 		}
 	}
+
+	.contentzone:first-child {
+		padding-left: 1.7em;
+	}
 }
 
 @include bp(small) {
@@ -134,12 +138,39 @@ a.comment-count {
 	margin-top: 0;
 }
 
+.cgvblogpost {
+	figure.image-right-medium {
+		margin-left: 1em;
+		padding-left: 2.5em;
+		background-color: $white;
+	}
+}
+
+.blog-intro-text {
+	width: 100%;
+	margin-bottom: 1em;
+	padding: 1em 1.25em;
+	border-left: 3px solid $purple;
+	background-color: $white03;
+
+	p {
+		margin: 0;
+		padding-bottom: 1em;
+		font-size: 0.8em;
+		@include font-montserrat;
+	}
+	p:last-child {
+		padding: 0;
+	}
+}
+
 .right-rail {
 	margin-top: 1.25em;
 	padding-left: 0;
 
 	.slot-item {
-		box-shadow: 0 0 10px 0 lightgray;
+		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+		border-radius: 1px;
 		padding: 0.25em 1em;
 		margin-bottom: 1em;
 	}
@@ -165,6 +196,31 @@ a.comment-count {
 @include bp(medium-down) {
 	.right-rail {
 		padding-left: 0.9375em;
+	}
+}
+
+@include bp(medium-up) {
+	figure.image-right-medium + .blog-intro-text { 
+		width: 60%;
+	}
+
+	figure.image-right-small + .blog-intro-text {
+		width: 75%;
+	}
+}
+
+@include bp(large-up) {
+	.cgvblogpost .contentzone:first-child{
+		padding-left: 1.6em;
+	}
+}
+
+@include bp(small) {
+	.cgvblogpost {
+		figure.image-right-medium {
+			padding-left: 0;
+			margin-left: 0;
+		}
 	}
 }
 /*end Blog Content CSS*/
