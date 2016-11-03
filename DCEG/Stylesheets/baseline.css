@@ -2320,9 +2320,15 @@ h3.video100title{padding: 0;font-size:18px;}
 .size100{width:533px; overflow: hide; margin-left:0 !important;}
 
 
-.media-caption{	display:block;color:#666;background:#DDDDDD;padding:10px;margin-top:5px; font-size:12px; line-height:1.2em;}
+.media-caption{	display:block;color:#666666;background:#f7f7f7;padding:10px;margin-top:5px; font-size:12px; line-height:1.2em;}
 	
-.caption-line{margin-top:5px;border-top: 1px solid #BDBDBD;}	
+.caption-line{margin-top:5px;border-top: 1px solid #BDBDBD;}
+
+.caption-container {
+	font-size: 12px;
+	background-color: #f7f7f7 !important;
+	color: #666666;
+}
 
 /* begin Fellows on the Move */
 .fellow-left-column {
