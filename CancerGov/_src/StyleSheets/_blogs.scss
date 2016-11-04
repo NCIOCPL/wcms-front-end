@@ -171,25 +171,43 @@ a.comment-count {
 	.slot-item {
 		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 		border-radius: 1px;
-		padding: 0.25em 1em;
+		padding: 0.25em 1em 0.1em 1em;
 		margin-bottom: 1em;
 	}
-	.managed.list{
+
+	.managed.list {
+		margin-bottom: 0.25em;
+
 		ul > li {
-			margin: 0.5em 0 0.85em 0;
+			margin: 0;
 		}
 
 		p.title {
 			margin: 0.5em 0;
 		}
+
 		a.title {
 			font-size: 1em;
 		}
 
-		.byline p{
-			margin: 0;
-			font-size: 0.85em;
+		.byline {
+			padding-bottom: 0.75em;
+
+			p {
+				margin: 0;
+				font-size: 0.85em;
+			}
 		}
+
+		.no-date {
+			margin-bottom: 0.75em;
+		}
+	}
+}
+
+[data-cde-template="NVCGBlogSeriesPageTemplate"] {
+	.resize-content {
+		padding-left: 1.6em;
 	}
 }
 
