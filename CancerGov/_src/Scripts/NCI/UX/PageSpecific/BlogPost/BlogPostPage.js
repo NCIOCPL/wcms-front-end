@@ -22,6 +22,22 @@ define(function(require) {
 	});
     $( document ).ready(function() {
         setContentWidth();
+
+		// Make accordions work
+		$('.blog-archive-accordion').on("click", function(){
+			this.classList.toggle("active");
+        	this.nextElementSibling.classList.toggle("show");
+			var element = $(this).find( ".archive-accordion-expand" )[0];
+			if($(element).text() == "+"){
+				$(element).text("-");
+			}
+			else{
+				$(element).text("+");
+			}
+		});
+
+		$('.blog-archive-accordion-panel').find("a[href='" + location.pathname + location.search +"']").parent().addClass("current-archive-link");
+		$('.right-rail').find("a[href='" + location.pathname + location.search +"']").closest('li').addClass("current-categories-link");
     });
 });
 

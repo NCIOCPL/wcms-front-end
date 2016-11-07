@@ -176,10 +176,11 @@ a.comment-count {
 	}
 
 	.managed.list {
-		margin-bottom: 0.25em;
+		margin-bottom: 0.35em;
 
 		ul > li {
 			margin: 0;
+			padding: 0.15em 0;
 		}
 
 		p.title {
@@ -191,7 +192,8 @@ a.comment-count {
 		}
 
 		.byline {
-			padding-bottom: 0.75em;
+			margin-bottom: 0.5em;
+			//padding-bottom: 0.5em;
 
 			p {
 				margin: 0;
@@ -199,8 +201,12 @@ a.comment-count {
 			}
 		}
 
-		.no-date {
-			margin-bottom: 0.75em;
+		.current-categories-link {
+			border-left: 3px solid #82368d;
+    		background-color: #f5f5f5;
+			margin-left: -1.1em;
+			margin-right: -1.1em;
+			padding: 0.15em 1em;
 		}
 	}
 }
@@ -321,6 +327,11 @@ div.blog-archive-accordion-panel.show {
     margin-left: -13px;
     padding-left: 13px;
     background-color: #f5f5f5;
+}
+
+.current-archive-link a {
+     pointer-events: none;
+     color: #2e2e2e;
 }
 
 .archive-title-header{

@@ -37,5 +37,6 @@ define(function(require) {
 		});
 
 		$('.blog-archive-accordion-panel').find("a[href='" + location.pathname + location.search +"']").parent().addClass("current-archive-link");
+		$('.right-rail').find("a[href='" + location.pathname + location.search +"']").closest('li').addClass("current-categories-link");
     });
 });
