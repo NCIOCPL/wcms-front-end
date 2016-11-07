@@ -71,10 +71,6 @@ p.blog-post-publishing-info {
 			font-size: 1.5em;	
 		}
 	}
-
-	.contentzone:first-child {
-		padding-left: 1.7em;
-	}
 }
 
 @include bp(small) {
@@ -142,7 +138,7 @@ a.comment-count {
 	figure.image-right-medium {
 		margin-left: 1em;
 		padding-left: 2.5em;
-		background-color: $white;
+		background-color: #fff;
 	}
 }
 
@@ -192,7 +188,7 @@ a.comment-count {
 		}
 
 		.byline {
-			margin-bottom: 0.5em;
+			margin-bottom: 0.4em;
 			//padding-bottom: 0.5em;
 
 			p {
@@ -208,12 +204,6 @@ a.comment-count {
 			margin-right: -1.1em;
 			padding: 0.15em 1em;
 		}
-	}
-}
-
-[data-cde-template="NVCGBlogSeriesPageTemplate"] {
-	.resize-content {
-		padding-left: 1.6em;
 	}
 }
 
@@ -236,6 +226,12 @@ a.comment-count {
 @include bp(large-up) {
 	.cgvblogpost .contentzone:first-child{
 		padding-left: 1.6em;
+	}
+
+	[data-cde-pagetemplate="NVCGBlogSeriesPageTemplate"] {
+		.contentzone:first-child {
+			padding-left: 1.6em !important;
+		}
 	}
 }
 
