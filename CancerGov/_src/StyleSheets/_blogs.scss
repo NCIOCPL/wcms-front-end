@@ -241,6 +241,104 @@ a.comment-count {
 		}
 	}
 }
+
+.blog-archive-accordion{
+	border: 1px solid black;
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.blog-archive-accordion {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+	margin: 0;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.blog-archive-accordion.active, button.blog-archive-accordion:hover {
+    background-color: white;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.blog-archive-accordion-panel {
+    background-color: white;
+    display: none;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+div.blog-archive-accordion-panel.show {
+    display: block;
+}
+
+.blog-archive-accordion p, .blog-archive-accordion h4{
+	display: inline-block;
+}
+
+.archive-accordion-expand{
+	height: 40px;	
+    width: 40px;
+	float: right;
+    background-color: #2a71a5;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 6px;
+}
+
+.blog-archive-year-container{
+    padding: 0 0 0 12px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); 
+	margin: 10px;
+	border: 1px solid #eee;
+}
+
+.archive-year-panel{
+	@include font-montserrat;
+	line-height: 24px;
+	color: #2e2e2e;
+}
+.archive-year-panel a{
+	color: #2b7bba;
+}
+.archive-year-header{
+	@include font-montserrat;
+	display: inline-block;
+    line-height: 1em;
+    font-size: 16px;
+    margin-top: .75em;
+    margin-bottom: .75em;
+    color: #606060;
+    font-weight: bold;
+}
+.current-archive-link{
+	color: #2e2e2e !important;
+	border-left: 3px solid #82368d;
+    margin-left: -13px;
+    padding-left: 13px;
+    background-color: #f5f5f5;
+}
+
+.archive-title-header{
+	font-size: 16px;
+
+}
+.global-expand{
+	margin-top: -.1em;
+	margin-right: -.5em;
+	height: 50px;
+	width: 50px;
+	font-size: 30px;
+	padding-top: 12px;
+}
+#archive{
+	line-height: 1em;
+}
+
 /*end Blog Content CSS*/
 
 /********** END Blogs Styles ******************************************/
