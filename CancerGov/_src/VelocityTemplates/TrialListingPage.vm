@@ -81,53 +81,6 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
   </div>
 #end
 
-#macro(DrawSearchParamsV2 $SearchResults)
-  #set($plist = $Tools.CreateEmptyStringList())
-  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
-  $plist.Add("type")
-  #end
-  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetPhrase()))
-    $plist.Add("phrase")
-  #end
-  #if($SearchResults.Control.HasZip())
-    $plist.Add("zip")
-  #end
-  #if($SearchResults.Control.SearchParams.Age > 0)
-    $plist.Add("age")
-  #end
-  #if(($SearchResults.Control.Gender == "Female") || ($SearchResults.Control.Gender == "Male"))
-    $plist.Add("gender")
-  #end
-  #if($SearchResults.Control.GetSearchForAllTrials == true)
-    $plist.Add("all trials")
-  #end
-
-#foreach($param in $plist)##
-#each
-#if($param == "type")##
-Type/Condition: "<span data-basiccts-searchparam='t'>$SearchResults.Control.GetCancerType()</span>"##
-#elseif($param == "phrase")##
-#if($SearchResults.Control.HasBrokenCTSearchParam())##
-Type/Condition: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
-#else##
-Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
-#end##
-#elseif($param == "zip")##
-within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
-#elseif($param == "age")##
-Age: "<span data-basiccts-searchparam='a'>$SearchResults.Control.SearchParams.Age</span>"##
-#elseif($param == "gender")##
-Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams.Gender</span>"##
-#elseif($param == "all trials")##
-"all trials"##
-#else##
-## do nothing
-#end##
-#between
-, ##
-#end##
-#end##
-
 <div class="row">
   <div class="medium-12 columns collapse">
     #if($SearchResults.Results.TotalResults > 0)
@@ -146,10 +99,10 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     ## If there are no results, then we need to show a different message
     #else
       <div>
-        No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
-      <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
-      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
-    </div>
+        No clinical trials matched your search.
+        <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+        <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
+      </div>
     #end
   </div>
 
