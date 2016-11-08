@@ -125,15 +125,17 @@ a.definition:hover, a.definition:focus {
 	.toc-container {
 		display: none;
 	}
-	.back-to-top {
-		display: none !important;
-	}
 	.feature-zone-image img {
 		display: block;
 		margin: 0 auto;
 	}
 	.featured-zone {
 		margin-right: 0;
+	}
+}
+@include bp(small) {
+	.back-to-top {
+		display: none !important;
 	}
 }
 #my-toc {
