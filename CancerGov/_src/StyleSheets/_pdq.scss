@@ -147,14 +147,15 @@ tfoot.pdq-footer {
 	padding: 10px;
 }
 tfoot.pdq-footer td {
-	background: none repeat scroll 0 0 #ddd;
+	background: none repeat scroll 0 0;
+	background-color: $caption-background;
 	border: medium none;
 	font-style: italic;
 	padding: 5px;
 }
 table tfoot {
 	font-weight: normal;
-	background-color: #cfcfcf;
+	background-color: $caption-background;
 }
 // Publish preview does not have class names on the body, hence summary-sections.
 body.pdqcancerinfosummary table.table-default, .summary-sections table.table-default {
@@ -304,7 +305,7 @@ table.table-default tfoot td {
 	font-style: normal;
 	margin: 0;
 	padding: 8px 10px;
-	background: #F2F3F7;
+	background: $caption-background;
 }
 .dis-disclaimer {
 }
