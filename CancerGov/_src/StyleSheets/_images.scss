@@ -126,17 +126,19 @@ table figure {
 .caption-container {
 	padding: 1.25em 0.9375em;
 	line-height: 1.5em;
-	background-color: #f7f7f3;
+	background-color: $caption-background;
 	font-size: 0.875em;
 	text-align: left;
 	margin-top: -0.3125em;
+
+	p {
+		margin:0;
+	}
+	.image-photo-credit {
+		font-size: 0.85714em;
+	}
 }
-.caption-container p {
-	margin:0;
-}
-.caption-container .image-photo-credit {
-	font-size: 0.85714em;
-}
+
 // this is done to fix a problem in tables/chrome, where a figure image is causing text in other tds to go beyond their borders
 table figure img {
 	display: inline-block;

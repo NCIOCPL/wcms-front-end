@@ -310,9 +310,14 @@ define(function(require) {
 		makeAllAccordions: function() {
 			var $ = require('jquery');
 
+			// we need to dynamically find what header is the first header in the article and assume that this header
+			// is the primary heading used (h2 or h3).
+			var firstHeader = $( ".accordion" ).find( "h2, h3" ).get(0);
+			var headingTag =  firstHeader ? firstHeader.tagName : null;
+			
 			var targets = {
 				//'selector' : 'header'
-				'.accordion' : 'h2:not([data-display-excludedevice~="mobile"] h2)',
+				'.accordion' : headingTag + ':not([data-display-excludedevice~="mobile"] ' + headingTag + '):not([class~=callout-box] ' + headingTag + ')',
 				'#nvcgRelatedResourcesArea' : 'h6',
 				'#cgvCitationSl' : 'h6',
 				'.cthp-content' : 'h3'

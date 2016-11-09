@@ -65,10 +65,26 @@ a.definition:hover, a.definition:focus {
 	text-align: center;
 	padding: 10px 5px 0;
 
+	text-shadow:
+		-1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
+
 	&:before {
-		content: " ";
+		//content: " ";
 		display: block;
-		@include sprite($x-coordinate: -311px, $y-coordinate: -80px, $width: 51px, $height: 51px);
+		font-family: Flaticon;
+		content: "\e014";
+		height: 55px;
+		padding: 10px;
+		font-size: 30px;
+		line-height: .85;
+		color: #7fd0d1;
+		border: 4px solid #7fd0d1;
+		border-radius: 50%;
+		background-color: #fff;
+		//@include sprite($x-coordinate: -311px, $y-coordinate: -80px, $width: 51px, $height: 51px);
 	}
 	&:hover, &:focus {
 		color: $body-font-color;
@@ -109,15 +125,17 @@ a.definition:hover, a.definition:focus {
 	.toc-container {
 		display: none;
 	}
-	.back-to-top {
-		display: none !important;
-	}
 	.feature-zone-image img {
 		display: block;
 		margin: 0 auto;
 	}
 	.featured-zone {
 		margin-right: 0;
+	}
+}
+@include bp(small) {
+	.back-to-top {
+		display: none !important;
 	}
 }
 #my-toc {
