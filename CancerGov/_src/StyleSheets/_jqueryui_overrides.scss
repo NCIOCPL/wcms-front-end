@@ -20,7 +20,7 @@
 		border-top: 0;
 		border-radius: 0;
 		border-bottom: 1px solid #96aeb8;
-		background: #1D5E86;
+		background: #bcedf2;
 		color: #fff;
 		margin: 0 -0.9375em;
 		padding: 14.5px 70px 14.5px 20px;
@@ -74,6 +74,20 @@
 		position: absolute;
 		top: 50%;
 		margin-top: -0.5em;
+	}
+}
+
+/* Blog Series Archive accordion in right rail */
+.ui-accordion {
+
+	#archive, .ui-accordion .ui-accordion-header.ui-state-active, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+		background-image: none;
+		background-color: white;		
+	}
+	ul li {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		@include font-montserrat;
 	}
 }
 

@@ -9,11 +9,11 @@ define(function(require) {
 		if($('#nvcgSlListBlogRTRail').length){
 			if ($(window).width() >= 1025){
             	$('.contentzone').css('width', '75%');
-				$("#PageOptionsControl1").appendTo("#blogPageOptionsOuterContainer");
+                $("#PageOptionsControl1").appendTo("#blogPageOptionsOuterContainer");
 			}
 			else{
 				$('.contentzone').css('width', '100%');
-				$("#PageOptionsControl1").appendTo("#blogPageOptionsInnerContainer");
+                $("#PageOptionsControl1").appendTo("#blogPageOptionsInnerContainer");
 			}
         }
 	};
@@ -24,19 +24,21 @@ define(function(require) {
         setContentWidth();
 
 		// Make accordions work
-		$('.blog-archive-accordion').on("click", function(){
-			this.classList.toggle("active");
-        	this.nextElementSibling.classList.toggle("show");
-			var element = $(this).find( ".archive-accordion-expand" )[0];
-			if($(element).text() == "+"){
-				$(element).text("-");
-			}
-			else{
-				$(element).text("+");
-			}
-		});
+		NCI.doAccordion($("#blog-archive-accordion"), {header: "h3"});
+        NCI.doAccordion($('#blog-archive-accordion-year'), {header: "h4"});
 
-		$('.blog-archive-accordion-panel').find("a[href='" + location.pathname + location.search +"']").parent().addClass("current-archive-link");
+		// This little blurb is searching for the parent accordion elements of the currently selected archive link and expanding the 
+		// accordion to that element. This keeps the accordion collapsed on the elements not currently being viewed.
+		var selectedArchiveLink = $('#blog-archive-accordion').find("a[href='" + location.pathname + location.search +"']").parent();
+		if(selectedArchiveLink.length > 0){
+			selectedArchiveLink.addClass("current-archive-link");
+			var indexOfLink = selectedArchiveLink.parent().prev().index() / 2;
+			$('#blog-archive-accordion-year').accordion('option', 'active', indexOfLink);
+			$('#blog-archive-accordion').accordion('option', 'active', 0);
+		}
+
 		$('.right-rail').find("a[href='" + location.pathname + location.search +"']").closest('li').addClass("current-categories-link");
     });
 });
+
+
