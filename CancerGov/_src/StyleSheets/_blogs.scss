@@ -165,6 +165,7 @@ a.comment-count {
 	padding-left: 0;
 
 	.slot-item {
+		// shadowing around each box in the right rail
 		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 		border-radius: 1px;
 		padding: 0.25em 1em 0.1em 1em;
@@ -198,6 +199,7 @@ a.comment-count {
 		}
 
 		.current-categories-link {
+			// on-state styling for categories list
 			border-left: 3px solid #82368d;
     		background-color: #f5f5f5;
 			margin-left: -1.1em;
@@ -214,20 +216,22 @@ a.comment-count {
 }
 
 @include bp(medium-up) {
+	// set width of blog intro text for tablet and desktop, depending on size of image
 	figure.image-right-medium + .blog-intro-text { 
 		width: 60%;
 	}
-
 	figure.image-right-small + .blog-intro-text {
 		width: 75%;
 	}
 }
 
 @include bp(large-up) {
+	// change padding on left for main content zone, as there is no longer a left nav
 	.cgvblogpost .contentzone:first-child{
 		padding-left: 1.6em;
 	}
 
+	// change padding on left for main content zone, as there is no longer a left nav
 	[data-cde-pagetemplate="NVCGBlogSeriesPageTemplate"] {
 		.contentzone:first-child {
 			padding-left: 1.6em !important;
@@ -236,11 +240,19 @@ a.comment-count {
 }
 
 @include bp(small) {
+	// remove extra padding (used for intro text on desktop/tablet only)
 	.cgvblogpost {
 		figure.image-right-medium {
 			padding-left: 0;
 			margin-left: 0;
 		}
+	}
+}
+
+@include bp(large-down) {
+	// hide blog feature cards on tablet/mobile
+	.blog-cards {
+		display: none;
 	}
 }
 
@@ -344,6 +356,21 @@ div.blog-archive-accordion-panel.show {
 }
 #archive{
 	line-height: 1em;
+}
+
+.blog-feature {
+	margin-bottom: 1em;
+
+	h3 {
+		font-weight: normal;
+		color: #2b7bba;
+		font-size: 0.95em;
+		line-height: 1.272;
+	}
+}
+
+.card.blog-feature {
+	background: #f5f5f5;
 }
 
 /*end Blog Content CSS*/

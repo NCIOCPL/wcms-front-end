@@ -6,6 +6,7 @@
      - related-resources
      - pagination
      - comments
+     - feature cards
 
      cgvDate, nvcgSlPublicUse, and nvcgSlSyndication always display.
 -->
@@ -22,10 +23,11 @@
     <NCI:TemplateSlot ID="cgvSlPagination" runat="server" CssClass="clearfix" />
     <!--(bake-end)-->
     <!--(bake-start _if="blog_feature_cards")-->
-    <div id="blog-cards">
-        <h4><NCI:CDEField scope="Page" fieldName="BlogFeatureCardsHeader" runat="server" /></h4>
-        <NCI:TemplateSlot id="nvcgSlBlogPostCards" CssClass="row" AdditionalSnippetClasses="equalheight large-4 columns card gutter" runat="server" data-match-height="" />
-    </div>
+        
+    <NCI:TemplateSlot id="nvcgSlLayoutFeatureA" CssClass="row" AdditionalSnippetClasses="equalheight large-4 columns card gutter blog-feature" runat="server" data-match-height="">
+        <HeaderHtml><div id="blog-cards"><h4>{mx:CancerGov.ViewProperty(BlogFeatureCardsHeader)}</h4></HeaderHtml>
+        <FooterHtml></div></FooterHtml>
+    </NCI:TemplateSlot>
     <!--(bake-end)-->
     <NCI:TemplateSlot ID="nvcgSlPublicUse" runat="server" />
     <NCI:TemplateSlot ID="nvcgSlSyndication" runat="server" />
