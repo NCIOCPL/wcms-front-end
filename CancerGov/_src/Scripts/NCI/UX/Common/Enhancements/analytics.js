@@ -489,6 +489,10 @@ define(function(require) {
 			    });
 			});
 
+			$("#blog-archive-accordion").on("click", "a", function() {
+				NCIAnalytics.BlogArchiveLinkClick(this, window.location.hostname + window.location.pathname);
+			});
+
 		});
 	})();
 });
