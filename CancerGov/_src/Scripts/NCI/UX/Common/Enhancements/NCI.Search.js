@@ -1,5 +1,6 @@
 define(function(require) {
 	var $ = require('jquery');
+	require('Patches/Hotfixes/WCMSFEQ-410');
 
 	var Search = {
 		classname: "searching",
