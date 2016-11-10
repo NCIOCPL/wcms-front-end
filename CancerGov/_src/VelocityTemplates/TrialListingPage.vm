@@ -20,9 +20,6 @@ See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">C
 #end##
 #else##
 $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
-#if ($SearchResults.Control.HasZip())##
-, including $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you##
-#end##
 #end##
 #end##
 
