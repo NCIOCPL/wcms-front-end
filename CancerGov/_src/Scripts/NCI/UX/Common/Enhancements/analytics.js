@@ -489,8 +489,20 @@ define(function(require) {
 			    });
 			});
 
+			// Track clicks on blog archives accordion on all blog pages.
 			$("#blog-archive-accordion").on("click", "a", function() {
 				NCIAnalytics.BlogArchiveLinkClick(this, window.location.hostname + window.location.pathname);
+			});
+
+			// Track clicks on feature cards on blog posts.
+			$('.blog-feature .feature-card').each(function(i, el) {
+				$(el).on('click', 'a', function(event) {
+					var $this = $(this);
+					var linkText = $this.children('h3').text();
+					var containerIndex = i + 1;
+
+					NCIAnalytics.BlogCardClick(this, linkText, containerIndex, window.location.hostname + window.location.pathname);
+				});
 			});
 
 		});
