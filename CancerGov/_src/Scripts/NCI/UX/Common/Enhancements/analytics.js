@@ -505,6 +505,17 @@ define(function(require) {
 				});
 			});
 
+			// Track clicks on featured posts section of Blog Right Rail.
+			$('.right-rail .managed.list.with-date li').each(function(i, el) {
+				$(el).on('click', 'a', function(event) {
+					var $this = $(this);
+					var linkText = $this.text();
+					var containerIndex = i + 1;
+
+					NCIAnalytics.FeaturedPostsClick(this, linkText, containerIndex, window.location.hostname + window.location.pathname);
+				});
+			});
+
 		});
 	})();
 });
