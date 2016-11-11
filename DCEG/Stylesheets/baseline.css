@@ -1788,7 +1788,7 @@ ol li.genSearchItem {
 
 }
 
-.dceg-bio-content{ clear:both;}
+.dceg-bio-content{ clear:left;}
 
 .bio-img {margin-right: 20px; float:left; width:162px;}
 
