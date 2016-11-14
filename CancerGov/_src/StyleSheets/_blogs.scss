@@ -253,7 +253,7 @@ a.comment-count {
 	}
 }
 
-@include bp(large-down) {
+@include bp(medium-down) {
 	// hide blog feature cards on tablet/mobile
 	#blog-cards {
 		display: none;
