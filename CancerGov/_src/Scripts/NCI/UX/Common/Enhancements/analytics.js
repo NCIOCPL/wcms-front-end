@@ -526,6 +526,36 @@ define(function(require) {
 					NCIAnalytics.CategoryClick(this, linkText, containerIndex, window.location.hostname + window.location.pathname);
 				});
 			});
+
+			// Track clicks on Older Posts/Newer Posts on Blog Series pages
+			$('.blog-pager.clearfix').on("click", "a", function() {
+				var $this = $(this);
+				var pagerClass = $this.attr('class');
+				var olderNewer = "";
+				if (pagerClass == "older") {
+					olderNewer = "Older";
+				}
+				else if (pagerClass == "newer") {
+					olderNewer = "Newer";
+				}
+
+				NCIAnalytics.OlderNewerClick(this, olderNewer, window.location.hostname + window.location.pathname);
+			});
+
+			// Track clicks on Older Posts/Newer Posts on Blog Series pages
+			$('#cgvSlPagination').on("click", "a", function() {
+				var $this = $(this);
+				var pagerClass = $this.parent().attr('class');
+				var olderNewer = "";
+				if (pagerClass == "blog-post-older") {
+					olderNewer = "Older";
+				}
+				else if (pagerClass == "blog-post-newer") {
+					olderNewer = "Newer";
+				}
+
+				NCIAnalytics.OlderNewerClick(this, olderNewer, window.location.hostname + window.location.pathname);
+			});
 		});
 	})();
 });
