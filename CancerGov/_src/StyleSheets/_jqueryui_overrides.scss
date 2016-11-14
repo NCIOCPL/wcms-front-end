@@ -78,16 +78,30 @@
 }
 
 /* Blog Series Archive accordion in right rail */
-.ui-accordion {
+.desktop{
+	#blog-archive-accordion {
 
-	#archive, .ui-accordion .ui-accordion-header.ui-state-active, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-		background-image: none;
-		background-color: white;		
-	}
-	ul li {
-		margin-top: 5px;
-		margin-bottom: 5px;
-		@include font-montserrat;
+		#archive, .ui-accordion .ui-accordion-header.ui-state-active, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+			background-image: none;
+			background-color: white;		
+		}
+		ul li {
+			margin-top: 5px;
+			margin-bottom: 5px;
+			@include font-montserrat;
+		}
+
+		.ui-accordion-header .toggle{
+			background-color: white;
+		}
+		.accordion-header-active .toggle{
+			color: #14819b;
+		}
+		@include bp(medium-down) {
+		.ui-accordion .ui-accordion-header{
+			margin-right: 0 !important;
+		}
+		}
 	}
 }
 
