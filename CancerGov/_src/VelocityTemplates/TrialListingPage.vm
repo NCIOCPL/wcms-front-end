@@ -83,6 +83,9 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     #if($SearchResults.Results.TotalResults > 0)
       #if($SearchResults.Control.HasInvalidParams() == false)
       #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
+        <div class="cts-results-description">
+          <p>The trials listed below are currently active and may be recruiting. If you decide to look for trials on your own, these <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">steps</a> can guide you in your search. This information should not be used in place of advice from your doctor or other members of your health care team.</p>
+        </div>
         <div class="cts-results-title">
           Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
         </div>
@@ -96,7 +99,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     ## If there are no results, then we need to show a different message
     #else
       <div>
-        No clinical trials matched your search.
+        There are currently no actively recruiting clinical trials that match the specified criteria.
         <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
         <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
       </div>
