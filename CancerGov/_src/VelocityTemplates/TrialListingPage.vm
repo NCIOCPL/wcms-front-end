@@ -83,9 +83,8 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     #if($SearchResults.Results.TotalResults > 0)
       #if($SearchResults.Control.HasInvalidParams() == false)
       #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
-        <div class="cts-results-description">
-          <p>The trials listed below are currently active and may be recruiting. If you decide to look for trials on your own, these <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">steps</a> can guide you in your search. This information should not be used in place of advice from your doctor or other members of your health care team.</p>
-        </div>
+        The trials listed below are currently active and may be recruiting. If you decide to look for trials on your own, these <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">steps</a> can guide you in your search. This information should not be used in place of advice from your doctor or other members of your health care team.
+        <p/>
         <div class="cts-results-title">
           Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
         </div>
