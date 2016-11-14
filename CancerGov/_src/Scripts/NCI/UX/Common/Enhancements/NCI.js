@@ -362,9 +362,9 @@ define(function(require) {
 					var builtAccordionHeaders = $('.ui-accordion-header');
 					for(var i = 1; i <= builtAccordionHeaders.length; i++) {
 						if(i % 2 === 0) {
-							builtAccordionHeaders.get(i-1).className += ' ' + 'even';
+							$(builtAccordionHeaders.get(i-1)).addClass('even');
 						} else {
-							builtAccordionHeaders.get(i-1).className += ' ' + 'odd';
+							$(builtAccordionHeaders.get(i-1)).addClass('odd');
 						}
 					}
 
