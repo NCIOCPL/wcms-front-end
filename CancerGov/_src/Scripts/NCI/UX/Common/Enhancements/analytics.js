@@ -489,9 +489,34 @@ define(function(require) {
 			    });
 			});
 
+
+			var pageName = window.location.hostname + window.location.pathname;
 			// Track clicks on blog archives accordion on all blog pages.
 			$("#blog-archive-accordion").on("click", "a", function() {
-				NCIAnalytics.BlogArchiveLinkClick(this, window.location.hostname + window.location.pathname);
+				NCIAnalytics.BlogArchiveLinkClick(this, pageName);
+			});
+
+			$(".blogRSS").on("click", function(){
+				NCIAnalytics.BlogSubscribeClick(this, pageName);
+			});
+
+			$('.cgvblogpost #cgvBody').on("click", "a",  function(){
+				var $this = $(this);
+				var linkText = $this.text();
+
+				if($this.hasClass('definition')){
+					NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName, true);
+				}
+				else
+					NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName);
+				
+			});
+
+			$('#nvcgRelatedResourcesArea').on("click", "a", function(){
+				var $this = $(this);
+				var linkText = $this.text();
+				var index = $this.closest('li').index() + 1;
+				NCIAnalytics.BlogRelatedLinksClick(this, linkText, pageName, index);
 			});
 
 			// Track clicks on feature cards on blog posts.
@@ -501,7 +526,7 @@ define(function(require) {
 					var linkText = $this.children('h3').text();
 					var containerIndex = i + 1;
 
-					NCIAnalytics.BlogCardClick(this, linkText, containerIndex, window.location.hostname + window.location.pathname);
+					NCIAnalytics.BlogCardClick(this, linkText, containerIndex, pageName);
 				});
 			});
 
@@ -512,7 +537,7 @@ define(function(require) {
 					var linkText = $this.text();
 					var containerIndex = i + 1;
 
-					NCIAnalytics.FeaturedPostsClick(this, linkText, containerIndex, window.location.hostname + window.location.pathname);
+					NCIAnalytics.FeaturedPostsClick(this, linkText, containerIndex, pageName);
 				});
 			});
 
@@ -523,7 +548,7 @@ define(function(require) {
 					var linkText = $this.text();
 					var containerIndex = i + 1;
 
-					NCIAnalytics.CategoryClick(this, linkText, containerIndex, window.location.hostname + window.location.pathname);
+					NCIAnalytics.CategoryClick(this, linkText, containerIndex, pageName);
 				});
 			});
 
@@ -539,7 +564,7 @@ define(function(require) {
 					olderNewer = "Newer";
 				}
 
-				NCIAnalytics.OlderNewerClick(this, olderNewer, window.location.hostname + window.location.pathname);
+				NCIAnalytics.OlderNewerClick(this, olderNewer, pageName);
 			});
 
 			// Track clicks on Older Posts/Newer Posts on Blog Series pages
@@ -554,7 +579,7 @@ define(function(require) {
 					olderNewer = "Newer";
 				}
 
-				NCIAnalytics.OlderNewerClick(this, olderNewer, window.location.hostname + window.location.pathname);
+				NCIAnalytics.OlderNewerClick(this, olderNewer, pageName);
 			});
 		});
 	})();

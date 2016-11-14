@@ -24,7 +24,58 @@ define(function(require) {
         setContentWidth();
 
 		// Make accordions work
-		NCI.doAccordion($("#blog-archive-accordion"), {header: "h3"});
+		var $target = $("#blog-archive-accordion");
+		NCI.doAccordion($target, 
+			{header: "h3",
+			//Override the beforeActivate just to add Analytics tracking for blog archive accordion
+			beforeActivate: function (event, ui) {
+ 
+						// Track blog analytics on click of expand/collapse
+						var isOpen = $(this).find('.ui-state-active').length;
+						if(isOpen){
+							NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isOpen);
+						}
+						else{
+							NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isOpen);
+						}
+
+
+						var icons = $(this).accordion('option', 'icons');
+						// The accordion believes a panel is being opened
+						var currHeader;
+						if (ui.newHeader[0]) {
+							currHeader = ui.newHeader;
+							// The accordion believes a panel is being closed
+						} else {
+							currHeader = ui.oldHeader;
+						}
+						var currContent = currHeader.next('.ui-accordion-content');
+						// Since we've changed the default behavior, this detects the actual status
+						var isPanelSelected = currHeader.attr('aria-selected') == 'true';
+
+						// Toggle the panel's header
+						currHeader.toggleClass('ui-corner-all', isPanelSelected).toggleClass('accordion-header-active ui-state-active ui-corner-top', !isPanelSelected).attr('aria-selected', (!isPanelSelected).toString()).attr('aria-expanded', (!isPanelSelected).toString());
+
+						// Toggle the panel's icon if the active and inactive icons are different
+						if(icons.header !== icons.activeHeader) {
+							currHeader.children('.ui-icon').toggleClass(icons.header, isPanelSelected).toggleClass(icons.activeHeader, !isPanelSelected);
+						}
+
+						// Toggle the panel's content
+						currContent.toggleClass('accordion-content-active', !isPanelSelected);
+						if (isPanelSelected) {
+							currContent.slideUp(function() {
+								$target.trigger('accordionactivate', ui);
+							});
+						} else {
+							currContent.slideDown(function() {
+								$target.trigger('accordionactivate', ui);
+							});
+						}
+
+						return false; // Cancels the default action
+					}
+		});
         NCI.doAccordion($('#blog-archive-accordion-year'), {header: "h4"});
 
 		// This little blurb is searching for the parent accordion elements of the currently selected archive link and expanding the 
