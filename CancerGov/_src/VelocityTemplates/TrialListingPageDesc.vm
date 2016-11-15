@@ -25,7 +25,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
 
 #macro(DrawNoResultsTextV2)
   ## Get the "no trials" HTML from the content item 
-  ## TODO: update CDE to pull in this value from XML
+  $SearchResults.Control.GetNoTrialsHTML()##
 #end
 
 #macro(DrawResultsV2 $SearchResults)
