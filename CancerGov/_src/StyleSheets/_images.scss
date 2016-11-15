@@ -127,7 +127,9 @@ table figure {
 	padding: 1.25em 0.9375em;
 	line-height: 1.5em;
 	background-color: $caption-background;
-	font-size: 0.875em;
+	font-size: 12.8px;
+	font-size: 0.8rem;
+	@include font-montserrat;
 	text-align: left;
 	margin-top: -0.3125em;
 
