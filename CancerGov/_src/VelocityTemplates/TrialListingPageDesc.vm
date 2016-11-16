@@ -24,8 +24,10 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
 #end##
 
 #macro(DrawNoResultsTextV2)
-  ## Get the "no trials" HTML from the content item 
+  ## Get the "no trials" HTML from the content item
+  <div id="listing-no-trials">
   $SearchResults.Control.GetNoTrialsHTML()##
+  </div>
 #end
 
 #macro(DrawResultsV2 $SearchResults)
