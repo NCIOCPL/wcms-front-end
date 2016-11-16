@@ -207,10 +207,6 @@ a.comment-count {
 			padding: 0.15em 1em;
 		}
 	}
-
-	[class~='slot-item']:nth-child(4)  {
-    	display: none !important;
-	}
 }
 
 @include bp(medium-down) {
@@ -257,6 +253,12 @@ a.comment-count {
 	// hide blog feature cards on tablet/mobile
 	#blog-cards {
 		display: none;
+	}
+}
+
+@include bp(medium) {
+	#nvcgSlListBlogRTRail > div {
+		float: left; width: 30%; margin: 10px;
 	}
 }
 .current-archive-link{
