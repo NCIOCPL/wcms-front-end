@@ -149,9 +149,9 @@ tfoot.pdq-footer {
 tfoot.pdq-footer td {
 	background: none repeat scroll 0 0;
 	background-color: $caption-background;
-	font-size: 12.8px;
-	font-size: 0.8rem;
+	font-size: 14px;
 	@include font-montserrat;
+	line-height: 1.5em;
 	border: medium none;
 	font-style: italic;
 	padding: 5px;
@@ -159,8 +159,8 @@ tfoot.pdq-footer td {
 table tfoot {
 	font-weight: normal;
 	background-color: $caption-background;
-	font-size: 12.8px;
-	font-size: 0.8rem;
+	font-size: 14px;
+	line-height: 1.5em;
 	@include font-montserrat;
 }
 // Publish preview does not have class names on the body, hence summary-sections.
@@ -312,8 +312,8 @@ table.table-default tfoot td {
 	margin: 0;
 	padding: 8px 10px;
 	background: $caption-background;
-	font-size: 12.8px;
-	font-size: 0.8rem;
+	font-size: 14px;
+	line-height: 1.5em;
 	@include font-montserrat;
 }
 .dis-disclaimer {
