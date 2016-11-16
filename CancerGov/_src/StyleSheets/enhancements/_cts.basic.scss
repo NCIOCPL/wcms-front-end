@@ -205,6 +205,19 @@ a {
   }
 }
 
+/* trial listing page styles */
+.listing-page-body {
+  .clinical-trial-individual-result { 
+    a {
+      font-family:'Montserrat', Arial, sans-serif;
+      font-size:18px;
+    }
+    .cts-result-item {
+      margin: 4px 0px 4px 0px;
+    }
+  }
+}
+
 /* tablet and mobile */
 @include bp(medium-down) {
   #cgvBody .cts-share a.print {
@@ -269,3 +282,4 @@ a {
     width: 100%; 
   }  
 }
+

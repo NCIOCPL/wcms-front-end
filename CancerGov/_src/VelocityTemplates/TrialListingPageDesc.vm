@@ -31,13 +31,13 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
 #end
 
 #macro(DrawResultsV2 $SearchResults)
-  <div class="cts-results-container">
+  <div class="listing-page-body cts-results-container">
     #foreach($resultItem in $SearchResults.Results.Trials)
       #each
         ## Attach Onclick for Analytics elsewhere
         <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCIID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
         <div class="cts-result-item">
-          <strong>Summary: </strong>$SearchResults.TrialTools.GetBriefSummary($resultItem)<br>
+          $SearchResults.TrialTools.GetBriefSummary($resultItem)<br>
           #DrawLocationInformationV2($resultItem)
         </div>
       #before
