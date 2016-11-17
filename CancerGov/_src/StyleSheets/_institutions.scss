@@ -67,6 +67,11 @@ margin: 0 0 1em 0;
 
 /* Overwriting HERE maps styles to match our requirements. VE */
 .ncigeneral {
+    /* Note:  This style is very fragile but HERE maps doesn't provide */
+    /*        a class allowing the HERE map logo to be hidden easily   */
+    #mapContainer div[style*="z-index: 1"] {
+        display: none;
+    }
     .H_ib {
         font-size: 1em; 
         
