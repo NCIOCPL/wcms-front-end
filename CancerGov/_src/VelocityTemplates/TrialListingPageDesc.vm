@@ -29,6 +29,7 @@
   <div id="listing-no-trials">
   $SearchResults.Control.GetNoTrialsHTML()##
     <img sizes="100vw" srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-smartphone.jpg 640w, /publishedcontent/Images/images/clinicaltrials/cts-cis-banner-xl.jpg 970w" src="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-smartphone.jpg" alt="Questions? Chat with an information specialist">
+    <a href="#" class="no-trials-button">Chat Now</a>
   </div>
 #end
 

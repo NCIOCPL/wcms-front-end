@@ -218,6 +218,32 @@ a {
   }
 }
 
+a.no-trials-button {
+  position: relative;
+  z-index: 2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background-color: #62539d;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px #888888;
+  padding: 3px 10px;
+  text-decoration: none;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: block;
+  color: #fff;
+  line-height: 24px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.125em; 
+  margin-left: 32%;
+  margin-top: -8%;
+}
+
+a.no-trials-button:hover {
+  text-decoration: none; 
+}
+
 /* tablet and mobile */
 @include bp(medium-down) {
   #cgvBody .cts-share a.print {
