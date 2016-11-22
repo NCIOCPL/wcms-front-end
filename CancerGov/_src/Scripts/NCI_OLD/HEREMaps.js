@@ -40,11 +40,11 @@ function initMap( dada, mapId, layers ) {
     // the entire US
     // --------------------------------------------------------
     var map = new H.Map(
-    document.getElementById('mapContainer'),
-    layers.normal.map,
-    {
-      zoom: 3,
-      center: { lng: -113.029722, lat: 34.461944 }
+        document.getElementById('mapContainer'),
+        layers.normal.map,
+        {
+          zoom: 3,
+          center: { lng: -113.029722, lat: 34.461944 }
     });
 
     // Retain the map display
@@ -56,8 +56,8 @@ function initMap( dada, mapId, layers ) {
 
     // Add event listener:
     map.addEventListener('tap', function(evt) {
-      // Log 'tap' and 'mouse' events:
-      console.log(evt.type, evt.currentPointer.type); 
+        // Log 'tap' and 'mouse' events:
+        console.log(evt.type, evt.currentPointer.type); 
     });
 
     // Instantiate the default behavior, providing the mapEvents object:
@@ -102,7 +102,10 @@ function initMap( dada, mapId, layers ) {
 
 	    map.addObject(group);
 
-            // add 'tap' event listener, that opens info bubble, to the group
+        // add 'tap' event listener, that opens info bubble, to the group
+        group.addEventListener('tap', onMarkerClick);
+
+        /***
 	    group.addEventListener('tap', function (evt) {
 
             // event target is the marker itself, group is a parent event
@@ -114,9 +117,10 @@ function initMap( dada, mapId, layers ) {
             // show info bubble
             ui.addBubble(bubble);
         }, false);
+        ***/
 
         // Setting our CC markers
-	var iconPath  = '/PublishedContent/Images/images/';
+        var iconPath  = '/PublishedContent/Images/images/';
         var ccMarker  = iconPath + 'cancercenter_icon.png';
         var ccIcon    = new H.map.Icon(ccMarker);
         var cccMarker = iconPath + 'comprehensivecancercenter_icon.png';
@@ -161,6 +165,43 @@ function initMap( dada, mapId, layers ) {
         //map.setViewBounds(bbox);
      };
   });
+
+
+    // This function ensures that only one pop-up is open when the user
+    // clicks on a marker.  
+    function onMarkerClick(evt) {
+        var position = evt.target.getPosition(),
+            data = evt.target.getData(),
+            bubbleContent = data,
+            bubble = onMarkerClick.bubble;
+
+            if (!bubble) {
+                // console.log('NO bubble');
+                bubble = new H.ui.InfoBubble(position, {
+                    content: bubbleContent
+                });
+                ui.addBubble(bubble);
+                onMarkerClick.bubble = bubble;
+            } else {
+                // console.log('We have a bubble');
+                bubble.setPosition(position);
+                bubble.setContent(bubbleContent);
+                bubble.open();
+            }
+
+            map.setCenter(position, true);
+
+            var bbox = map.getViewBounds();
+            var bottom = bbox.getBottom();
+            var topx   = bbox.getTop();
+            var left   = bbox.getLeft();
+            var right  = bbox.getRight();
+
+            var newBbox = new H.geo.Rect(topx, left, 
+                                        position.lat, position.lng);
+            map.setViewBounds(newBbox, true);
+
+    }
 
 
 }
