@@ -31,7 +31,8 @@
     "grunt-sass": "1.1.0",
     "grunt-svn-fetch": "^1.0",
     "phantomcss": "^1.1.4",
-    "request": "^2.72"
+    "request": "^2.72",
+    "url": "^0.11.0"
   },
   "repository": {
     "type": "svn",
