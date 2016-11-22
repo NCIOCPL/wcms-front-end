@@ -33,7 +33,7 @@
       <source srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-smartphone.jpg" media="(max-width: 640px)">
       <source srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-xl.jpg">
       <img srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-smartphone.jpg" alt="Questions? Chat with an information specialist">
-      <a href="#" class="no-trials-button">Chat Now</a>
+      <a href="#" class="listing-chat-button">Chat Now</a>
     </picture>
   </div>
 #end
