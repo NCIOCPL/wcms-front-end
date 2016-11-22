@@ -552,6 +552,7 @@ a.learn-more {
 			color: $color-link;
 		}
 
+
 		@extend %card-link-hover;
 		}
 
@@ -737,6 +738,11 @@ a.learn-more {
 		background: none
 	}
 }
-
 /* END Director's Row */
+// adding a position relative to feature card images so exit disclaimer notification icon can be positioned to its bottom right
+.feature-card {
+	.image-hover {
+		position: relative;
+	}
+}
 /********************* END Home Page Styles ******************************************/
