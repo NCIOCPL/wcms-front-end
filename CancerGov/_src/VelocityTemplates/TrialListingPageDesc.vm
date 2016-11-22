@@ -33,7 +33,7 @@
       <source srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-smartphone.jpg" media="(max-width: 640px)">
       <source srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-xl.jpg">
       <img srcset="/publishedcontent/Images/images/clinicaltrials/cts-cis-banner-smartphone.jpg" alt="Questions? Chat with an information specialist">
-      <a href="#" class="listing-chat-button">Chat Now</a>
+      <a href="#" onclick="window.open('https://livehelp.cancer.gov/app/chat/chat_landing?_icf_22=92', 'ProactiveLiveHelpForCTS', 'height=600,width=633');" class="listing-chat-button">Chat Now</a>
     </picture>
   </div>
 #end
