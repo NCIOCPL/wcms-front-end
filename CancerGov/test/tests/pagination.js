@@ -7,3 +7,12 @@ VisualTest.Run(
     ],
     name: "Pagination"
 });
+VisualTest.Run(
+    casper.test.currentTestFile,
+    {
+        path : '/about-cancer/treatment/clinic',
+        selectors : [
+            '.pagination'
+        ],
+        name: "Search Pagination"
+    });

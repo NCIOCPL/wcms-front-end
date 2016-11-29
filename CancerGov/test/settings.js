@@ -17,7 +17,7 @@ exports.server = "http://localhost:3000";
 
 // if dev was specified then use localhost as server
 if(casper.cli.get('server') == 'prod'){
-    exports.server = "http://cancer.gov";
+    exports.server = "https://www.cancer.gov";
 }
 
 //casper.echo(exports.server);

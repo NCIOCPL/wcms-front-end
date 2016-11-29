@@ -37,10 +37,12 @@ Most of the visual test implementation details has been abstracted away in the `
 The visualTest.js has a public method `Run` that accepts two arguments to run a test, or a variadic number of arrays with arguments to run multiple tests in a row. `VisualTest.Run(filename[string],options[object])`
 
 **filename**: *string* is filled in by  CasperJS suite as `casper.test.currentTestFile`
-**options**: *object* { path, selectors, testname }
-  - **path**: *string* The page url to send to PhantomJS. Also used for naming the output folder
-  - **selectors**: *array* A collection of selectors to look for on the provided path
-  - **testname**: *string (optional)* The name of the test that will be reported in the console and appended to screenshot file names
+
+**options**: *object* path, selectors, testname
+
+- **path**: *string* The page url to send to PhantomJS. Also used for naming the output folder
+- **selectors**: *array* A collection of selectors to look for on the provided path
+- **testname**: *string (optional)* The name of the test that will be reported in the console and appended to screenshot file names
 
 ### Simple Test
 ```
@@ -100,3 +102,7 @@ VisualTest.Run(
 5. Create a functionalTest.js module to support simple functional tests
 6. Create a runTests.js module that can invoke all other test modules
 7. Support ES2015?
+8. resolve 404 errors - logs as passed currently
+9. resolve no selector found errors
+10. set max time for tests
+11. jsdoc for test comments to track test purpose and coverage
