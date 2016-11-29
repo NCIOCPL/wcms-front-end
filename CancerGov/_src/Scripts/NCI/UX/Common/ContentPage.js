@@ -315,6 +315,9 @@ define(function(require) {
 					'<span class="hidden">' + altText + '</span>' +
 				'</a>'
 			));
+			
+			// move the feature card exit notification within the dom to come right after the image in the feature card to meet design request, WCMSFEQ-282
+			$('.feature-card a.icon-exit-notification').insertAfter('.feature-card a:not([href^="/"]):not([href*=".gov"]) div img');
 		})(jQuery);
 		/*** END Exit Disclaimer ***/
 
