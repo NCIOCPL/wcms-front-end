@@ -57,8 +57,38 @@ margin: 0 0 1em 0;
 
 
 /********** End Institutions Styles ******************************************/
-/********** Begin cancer Center Map Styles ******************************************/
+/********** Begin cancer Center Map Styles ***********************************/
+/* The ".H_*" styles are for HERE Maps v3.0, the other styles are for the    */
+/* old version of Nokia maps. VE                                             */
+/*****************************************************************************/
 .nm_bubble_content a, .nm_bubble_content a:visited {
  color: $color-link !important;
 }
-/********** End cancer Center Map Styles ******************************************/
+
+/* Overwriting HERE maps styles to match our requirements. VE */
+.ncigeneral {
+    /* Note:  This style is very fragile but HERE maps doesn't provide */
+    /*        a class allowing the HERE map logo to be hidden easily   */
+    #mapContainer div[style*="z-index: 1"] {
+        display: none;
+    }
+    .H_ib {
+        font-size: 1em; 
+        
+        .H_ib_body {
+            padding: 1.5em; 
+        }
+
+        table {
+            margin-bottom: 0;
+
+            span {
+                white-space: nowrap; 
+            }
+        }
+    }
+    .H_ib_content a, .H_ib_content a:visited, {
+        color: $color-link !important;
+    }
+}
+/********** End cancer Center Map Styles *************************************/

@@ -38,25 +38,24 @@ $icon-exit-notification-height: 11px;
 	margin-right: 0.25em;
 }
 
-/* commenting out as part of hotfix because display for this is not working properly
-/*
-.feature-primary .icon-exit-notification {
+.feature-card .image-hover a.icon-exit-notification {
 	position: absolute;
-	top: 201px;
-	background-color: rgba(0, 0, 0, 0.8);
-	background-position: -494px -258px;
-	right: 30px;
+	right: 0;
+	bottom: 0;
 	margin: 0;
-	padding: 12px;
+	padding: 0;
+	width: 35.1774px;
+	height: 30px;
 	display: inline-block;
+	background: url($icons + "exit-disclaimer-purple.svg") bottom right no-repeat; 
+	@include bp(small) {
+		.feature-card .image-hover a.icon-exit-notification {
+			width: 23.4488x;
+			height: 20px;
+		}	
+	}
 }
-*/
 
-// temporary fix to not show exit icon in feature row
-.feature-primary .icon-exit-notification {
-	display: none !important;
-	height: 0;
-}
 
 
 $icon-cdr-audiofile-width: 27px;
