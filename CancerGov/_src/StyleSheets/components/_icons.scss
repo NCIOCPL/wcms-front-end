@@ -38,7 +38,7 @@ $icon-exit-notification-height: 11px;
 	margin-right: 0.25em;
 }
 
-.feature-card .image-hover a.icon-exit-notification {
+.feature-card .image-hover a.icon-exit-notification, .cthp-card-image a.icon-exit-notification {
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -48,16 +48,28 @@ $icon-exit-notification-height: 11px;
 	height: 30px;
 	display: inline-block;
 	background: url($icons + "exit-disclaimer-purple.svg") bottom right no-repeat; 
-	@include bp(small) {
+}
+@include bp(small) {
 		.feature-card .image-hover a.icon-exit-notification {
 			width: 23.4488x;
 			height: 20px;
-		}	
+		}
+		.cthp-card-image a.icon-exit-notification {
+			display: none;
+		}
 	}
+// the cthp cards produce multiple links (around image and caption) this hides the exit disclaimer from the caption.
+.cgvcancertypehome .cardBody .icon-exit-notification {
+	display: none;
 }
-
-
-
+.cthp-card-image {
+	position: relative;
+}
+.cthp-card-image .icon-exit-notification {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
 $icon-cdr-audiofile-width: 27px;
 $icon-cdr-audiofile-height: 19px;
 .CDR_audiofile {
