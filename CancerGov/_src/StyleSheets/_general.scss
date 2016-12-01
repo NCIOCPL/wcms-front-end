@@ -64,6 +64,9 @@ h6 {
 .article-footer h6 {
 	font-style: normal;
 }
+.article-footer {
+	clear: both;
+}
 // mixin to create all combinations of headers
 h1, h2, h3,
 h4, h5, h6 {
