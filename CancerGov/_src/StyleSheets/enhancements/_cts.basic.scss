@@ -199,9 +199,13 @@ a {
     width:65%;
     margin-bottom:10px;
   }
-  #proximity-trialslist > div:first-of-type {
-    clear:both;
-    margin-top:20px;
+  #proximity-trialslist > div {
+		margin-bottom: 20px;
+	
+	  &:first-of-type {
+			clear:both;
+			margin-top:20px;
+	  }
   }
 }
 
