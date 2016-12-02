@@ -226,15 +226,17 @@ a.comment-count {
 }
 
 @include bp(large-up) {
-	// change padding on left for main content zone, as there is no longer a left nav
 	[data-cde-pagetemplate="NVCGBlogSeriesPageTemplate"], [data-cde-pagetemplate="NVCGBlogPostPageTemplate"] {
+		/* hide the left nav from view on large-up for blog posts*/
 		#nvcgSlSectionNav {
 			display: none !important;
 		}
 		
+		/* correct the contentzone padding, as the nav is hidden */
 		.contentzone {
 			padding-left: 1.6em !important;
 			
+			/* if the right rail is missing, set the contentzone width to 100*/
 			&:last-child {
 				width:100%;
 			}
