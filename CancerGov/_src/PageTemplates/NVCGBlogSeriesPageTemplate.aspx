@@ -11,7 +11,9 @@
                     </div> <!-- END "row" -->
                 </div> <!-- END "large-12 columns" -->
                 <div class="row">                    
-                    
+                    <!--    SECTION NAVIGATION -->
+                    <NCI:TemplateSlot ID="nvcgSlSectionNav" CssClass="medium-3 columns local-navigation" runat="server" />
+                    <!--    END SECTION NAVIGATION -->
                     <div class="medium-9 columns contentzone" id="main" tabindex="0" role="main">
                         <!-- ********************************* BEGIN Page Content ********************************** -->
                         <article>
@@ -35,9 +37,9 @@
                         <!-- ********************************* END Page Content ********************************** -->
                     </div> <!-- END Main -->
 
-                    <!--    SECTION NAVIGATION -->
+                    <!-- RIGHT RAIL -->
                     <NCI:TemplateSlot ID="nvcgSlListBlogRTRail" CssClass="medium-3 columns right right-rail" runat="server" />
-                    <!--    END SECTION NAVIGATION -->
+                    <!-- END RIGHT RAIL -->
                     
                 </div> <!-- END "row" -->
             </div> <!-- END "row general-page-body-container collapse" -->

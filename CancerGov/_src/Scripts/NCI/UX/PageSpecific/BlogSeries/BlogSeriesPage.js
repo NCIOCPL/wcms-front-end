@@ -4,7 +4,24 @@ define(function(require) {
 		require('Common/Enhancements/analytics.After').init();
 	});
 
+	// Ensure the .contentzone is given a width of 75% making room for the right rail when present
+	var setPageOptions = function(){
+		if ($(window).width() >= 1025){;
+            $("#PageOptionsControl1").appendTo("#blogPageOptionsOuterContainer");
+		}
+		else{
+            $("#PageOptionsControl1").appendTo("#blogPageOptionsInnerContainer");
+		}
+        
+	};
+	$(window).resize(function(){
+		setPageOptions();
+	});
+
 	$( document ).ready(function() {
+		// Place page options
+		setPageOptions();
+
 		// Make accordions work
 		var $target = $("#blog-archive-accordion");
 		NCI.doAccordion($target, 
