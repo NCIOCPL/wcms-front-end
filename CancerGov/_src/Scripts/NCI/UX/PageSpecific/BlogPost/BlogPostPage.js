@@ -28,16 +28,6 @@ define(function(require) {
 			{header: "h3", 
 			//Override the beforeActivate just to add Analytics tracking for blog archive accordion
 			beforeActivate: function (event, ui) {
- 
-						// Track blog analytics on click of expand/collapse
-						var isOpen = $(this).find('.ui-state-active').length;
-						if(isOpen){
-							NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isOpen);
-						}
-						else{
-							NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isOpen);
-						}
-
 
 						var icons = $(this).accordion('option', 'icons');
 						// The accordion believes a panel is being opened
