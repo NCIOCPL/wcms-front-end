@@ -1,12 +1,16 @@
 define(function(require) {
    /* Logic for displaying either the body field or alternate text, depending on number of trials shown.
-    * This uses the "listing-show-trials" and "listing-no-trials" selectors. If "listing-no-trials" is found on the page, hide elements wrapped in "listing-show-trials".
+    * If the "listing-no-trials" ID is present, do not show the bodyfield by default. 
+    * BUT -- if the "listing-keep-body" ID is present, keep displaying the bodyfield even if no results.
     */
     var $ = require('jquery');
-    var bodyFieldWrapper = $.find('#listing-show-trials');
-    var noTrialsWrapper = $.find('#listing-no-trials');
+    var bodyFieldWrapper = $('#cgvBody .first-SI');
+    var noTrialsWrapper = $('#listing-no-trials');
+    var keepBodyWrapper = $('#listing-keep-body');
+    
     if(noTrialsWrapper.length > 0 && bodyFieldWrapper.length > 0) {
-        $('#listing-show-trials').css('display','none');
-    }    
-
+        if(keepBodyWrapper.length < 1) {
+            $('#cgvBody .first-SI').css('display','none');
+        }
+    }
 });
