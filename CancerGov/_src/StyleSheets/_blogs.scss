@@ -227,14 +227,17 @@ a.comment-count {
 
 @include bp(large-up) {
 	// change padding on left for main content zone, as there is no longer a left nav
-	.cgvblogpost .contentzone:first-child{
-		padding-left: 1.6em;
-	}
-
-	// change padding on left for main content zone, as there is no longer a left nav
-	[data-cde-pagetemplate="NVCGBlogSeriesPageTemplate"] {
-		.contentzone:first-child {
+	[data-cde-pagetemplate="NVCGBlogSeriesPageTemplate"], [data-cde-pagetemplate="NVCGBlogPostPageTemplate"] {
+		#nvcgSlSectionNav {
+			display: none !important;
+		}
+		
+		.contentzone {
 			padding-left: 1.6em !important;
+			
+			&:last-child {
+				width:100%;
+			}
 		}
 	}
 }
