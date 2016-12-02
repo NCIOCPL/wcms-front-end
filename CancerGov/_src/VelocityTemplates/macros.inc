@@ -388,13 +388,9 @@
 #end##
 
 #macro(DrawDescription $resultItem)
-	<p>##
-		#if($resultItem.LongDescription)##
-			$resultItem.LongDescription ##
-		#else##
-			&nbsp;##
-		#end##
-	</p>##
+	#if($resultItem.LongDescription)##
+		<p>$resultItem.LongDescription</p>##
+	#end##
 #end##
 
 #macro(DrawBlogDate $resultItem $CDEContext)
