@@ -499,7 +499,7 @@ define(function(require) {
 			// Track the expand/collapse of the accordion
 			$("#blog-archive-accordion").on("click", "h3, h4", function(){
 				var isClosing = !$(this).hasClass('ui-state-active');
-				NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathnaem, isClosing);
+				NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isClosing);
 			});
 
 			$(".blogRSS").on("click", function(){
