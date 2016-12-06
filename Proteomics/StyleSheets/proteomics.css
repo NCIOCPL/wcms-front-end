@@ -27,14 +27,14 @@
 
 .logo-utility {
 	overflow: auto;
-	padding: 45px;
+	padding: 20px 21px 25px;
 }
 
 .banner-subheader {
 	background-color: #2a72a5;
-	padding: 17px 45px;
+	padding: 10px 22px;
 	color: white;
-	font-size: 30px;
+	font-size: 16.8px;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -44,9 +44,9 @@ h1.genSiteLogo {
 	text-indent: -9999px;
 }
 	h1.genSiteLogo a {
-		background-image: url('/publishedcontent/images/images/banners/proteomics-logo.svg');
+		background: url('/publishedcontent/images/images/banners/proteomics-logo.svg') no-repeat;
 		display: block;
-		height: 54.3px;
+		height: 54.5px;
 		width: 348.4px;
 	}
 	
