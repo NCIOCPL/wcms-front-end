@@ -1334,6 +1334,10 @@ ol.genAggroWidget {
 		width: 615px; /* changed from 100% to fix problem when hitting ctl + minus making the widget break apart */
 	}
 		/* container for featured item */
+
+#news-slider .exitNotification {
+	display: none;
+}
 		
 		#news-slider .ui-tabs-panel-x {
 			border: 0;
