@@ -24,6 +24,7 @@
   #end##
 #end##
 
+
 ### Draw HTML for pages that do not return any trials
 #macro(DrawListingPgNoTrials)
   ## Get the "no trials" HTML from the content item
@@ -38,20 +39,37 @@
   </div>
 #end
 
-### Draw the trials list and pager
+
+### Draw the pager
+#macro(DrawListingPager $SearchResults)
+  ## Get the current page
+  ## Show up to the next 3 and previous 3 numbers from the current page
+  #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
+    #each
+      #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+        <span>$pagerItem.Text</span>
+      #else
+        <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
+      #end
+    ## end 'each'
+  #end
+#end##
+
+      
+### Draw the trials list with pager
 #macro(DrawListingPgTrials $SearchResults)
-  <div class="listing-page-body cts-results-container">
+  <div class="listing-page-body">
     #foreach($resultItem in $SearchResults.Results.Trials)
       #each
         ## Attach Onclick for Analytics elsewhere
         <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCIID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
-        <div class="cts-result-item">
+        <div class="ct-listing-item">
           $SearchResults.TrialTools.GetBriefSummary($resultItem)<br>
           #DrawListingPgLocationInfo($resultItem)
         </div>
       #before
         <div class="row collapse">
-          <div class="medium-12 columns clinical-trial-individual-result">
+          <div class="medium-12 columns ct-individual-trial">
       #after
           </div>
         </div>
@@ -61,20 +79,9 @@
   </div>
 
   ## If there are results, add the lower control (draw the pager)
-  <div class="ct-results-lower-control basic">
+  <div class="ct-listing-util">
     <div class="pagination">
-      ## Get the current page
-      ## Show up to the next 3 and previous 3 numbers from the current page
-      #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
-        #each
-          #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
-            <span>$pagerItem.Text</span>
-          #else
-            <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
-          #end
-        #after
-          &nbsp;
-      #end
+      #DrawListingPager($SearchResults)##
     </div>
   </div>
 #end
@@ -84,11 +91,14 @@
   <div class="medium-12 columns collapse">
     #if($SearchResults.Results.TotalResults > 0)
       #if($SearchResults.Control.HasInvalidParams() == false)
-        <div class="cts-results-title">
+        <div class="ct-listing-util">
           #if($SearchResults.Results.TotalResults == 1)
             Trial 1 of <span data-basiccts-searchparam='n'>1</span>
           #else
             Trials $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
+            <div class="pagination">
+              #DrawListingPager($SearchResults)##
+            </div>
           #end
           </div>
         #DrawListingPgTrials($SearchResults)
