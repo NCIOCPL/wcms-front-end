@@ -248,7 +248,9 @@ module.exports = function(grunt) {
                 'BasicCTSSearchPage': 
                     'UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
                 'BasicCTSViewPage': 
-                    'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage'
+                    'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
+                'CTListingPage': 
+                    'UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage'
             },
             mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
             modules: [
@@ -304,6 +306,11 @@ module.exports = function(grunt) {
                 {
                     name: 'BasicCTSViewPage',
                     insertRequire: ['BasicCTSViewPage'],
+                    exclude: ['ContentPage']
+                },
+                {
+                    name: 'CTListingPage',
+                    insertRequire: ['CTListingPage'],
                     exclude: ['ContentPage']
                 }
 
