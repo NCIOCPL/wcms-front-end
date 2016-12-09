@@ -225,7 +225,17 @@ a {
   padding-bottom: 1.25em; 
   .pagination {
     a, span {
-      padding-left: 24px;
+      font-size: 16px;
+      padding: 0 5px 1px 5px;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    a:hover, .ct-pager-current {
+      text-decoration: none;
+      color: white;
+      font-weight: normal;
+      background-color: #2A71A5;
     }
   }
 }

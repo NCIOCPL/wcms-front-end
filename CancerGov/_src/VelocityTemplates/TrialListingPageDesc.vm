@@ -47,9 +47,11 @@
   ## First / last pages always show by default
   #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2, 2, $SearchResults.Results.TotalResults))
     #each
-      #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString() || $pagerItem.IsLink == false)
+      #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+        <span class="ct-pager-current">$pagerItem.Text</span>
+      #elseif($pagerItem.IsLink == false)
         <span>$pagerItem.Text</span>
-	  #else
+      #else
         <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
       #end
     ## end 'each'
