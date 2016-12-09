@@ -222,11 +222,12 @@ a {
   padding-bottom: 2.25em;
 }
 .ct-listing-util {
-  padding-bottom: 1.25em; 
+  padding-bottom: 1.25em;
   .pagination {
     a, span {
       font-size: 16px;
       padding: 0 5px 1px 5px;
+      font-weight: normal;
     }
     a:link {
       text-decoration: none;
