@@ -1,9 +1,9 @@
 define(function(require) {
 	var $ = require('jquery');
 
-	
-	function _trackSearchFields($locationsContainer) {	
+	function _trackListingPageLoad($locationsContainer) {	
 		//Fetch 
+        /*
 		var count = '';
 		
 		var count = $('span[data-basiccts-searchparam="n"]').text();
@@ -32,21 +32,22 @@ define(function(require) {
 			allParams.push("none");
 		
 		var allParamStr = allParams.join("|");
-		
-		
-		var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_basic|results');
-          var props = {};
-          var evars = {};
-          var events = [2];
+        */
+				
+        var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_basic|results');
+        var props = {};
+        var evars = {};
+        var events = [2];
 
-        props[10] = count;
-		evars[11] = props[11] = 'clinicaltrials_basic';
-		evars[22] = props[22] = allParamStr;
-		
-            clickParams.Props = props;
-            clickParams.Evars = evars;
-            clickParams.Events = events;
-            clickParams.LogToOmniture();
+        //props[10] = count;
+        evars[11] = props[11] = 'clinicaltrials_custom';
+        evars[47] = 'clinicaltrials_custom';
+        // evars[22] = props[22] = allParamStr;
+
+        clickParams.Props = props;
+        clickParams.Evars = evars;
+        clickParams.Events = events;
+        clickParams.LogToOmniture();
 	}
 
 	
@@ -73,7 +74,7 @@ define(function(require) {
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
 		});	
-		_trackSearchFields();
+		_trackListingPageLoad();
 	}
 
 	/**
