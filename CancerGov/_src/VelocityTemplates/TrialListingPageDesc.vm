@@ -43,12 +43,13 @@
 ### Draw the pager
 #macro(DrawListingPager $SearchResults)
   ## Get the current page
-  ## Show up to the next 3 and previous 3 numbers from the current page
-  #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
+  ## Show up to the next 2 and previous 2 numbers from the current page
+  ## First / last pages always show by default
+  #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2, 2, $SearchResults.Results.TotalResults))
     #each
-      #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+      #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString() || $pagerItem.IsLink == false)
         <span>$pagerItem.Text</span>
-      #else
+	  #else
         <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
       #end
     ## end 'each'
