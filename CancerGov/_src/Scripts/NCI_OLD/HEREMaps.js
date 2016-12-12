@@ -137,7 +137,7 @@ function initMap( dada, mapId, layers ) {
         for (var i = 0; i < arrayLength; i++) {
             var myLat  = parsedObjects[i].bb.lat;
             var myLng  = parsedObjects[i].bb.lng;
-            var ccType = parsedObjects[i].cj.kmlNode.childNodes[3].textContent;
+            var ccType = parsedObjects[i].ej.kmlNode.childNodes[3].textContent;
 
             // Setting the marker icon based on the styleUrl text-content
             if ( ccType === '#cancerCenter' ) {
@@ -150,7 +150,7 @@ function initMap( dada, mapId, layers ) {
                 var icon = rccIcon;
             }
 
-            var html = parsedObjects[i].cj.description;
+            var html = parsedObjects[i].ej.description;
             addMarkerToGroup(group, { lat: myLat, lng: myLng }, icon, 
                              html);
         }
