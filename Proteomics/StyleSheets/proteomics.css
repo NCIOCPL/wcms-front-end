@@ -21,7 +21,7 @@
 	background-color: white;
 	margin-left: 11px;
 }
-#genSlotSiteBanner .exitNotification {
+#genSlotSiteBanner .exitNotification, .exit-image + .exitNotification {
 	display: none;
 }
 
