@@ -66,12 +66,12 @@ define(function(require) {
 			}
 		}
 		/* Track clicks of individual results */
-		$('.clinical-trial-individual-result').each(function(i, el) {
+		$('.ct-individual-trial').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
-					rank = $this.index('.clinical-trial-individual-result a') + 1;
+					rank = $this.index('.ct-individual-trial a') + 1;
 					rank += ('|page ' + pn);
-					NCIAnalytics.CTSResultsClick($this, rank);
+					NCIAnalytics.CTSResultsClick($this, rank, true);
 			});
 		});	
 		_trackListingPageLoad();
