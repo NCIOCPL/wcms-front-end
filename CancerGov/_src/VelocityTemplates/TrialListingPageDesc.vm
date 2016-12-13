@@ -82,7 +82,7 @@
   </div>
 
   ## If there are results, add the lower control (draw the pager)
-  <div class="ct-listing-util">
+  <div class="ct-listing-util-bottom">
     <div class="pagination">
       #DrawListingPager($SearchResults)##
     </div>
@@ -94,7 +94,7 @@
   <div class="medium-12 columns collapse">
     #if($SearchResults.Results.TotalResults > 0)
       #if($SearchResults.Control.HasInvalidParams() == false)
-        <div class="ct-listing-util">
+        <div class="ct-listing-util-top">
           #if($SearchResults.Results.TotalResults == 1)
             Trial 1 of <span data-basiccts-searchparam='n'>1</span>
           #else

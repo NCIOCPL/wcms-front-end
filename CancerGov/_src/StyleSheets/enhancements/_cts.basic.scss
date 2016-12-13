@@ -221,7 +221,7 @@ a {
 .ct-listing-item {
   padding-bottom: 2.25em;
 }
-.ct-listing-util {
+.ct-listing-util-top, .ct-listing-util-bottom {
   padding-bottom: 1.25em;
   .pagination {
     a, span {
@@ -288,7 +288,21 @@ a.listing-chat-button:visited {
     margin-left: -15px;
   }	 
 }
-
+/* Custom breakpoint styles for pager */
+@media only screen and (max-width: 765px) {
+  .ct-listing-util-top {
+    .pagination {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+  .ct-listing-util-bottom {
+    .pagination {
+      width: 100%;
+    }
+  }
+}
 /* Mobile styles */
 @include bp(small) {
   #cgvBody .cts-share {
