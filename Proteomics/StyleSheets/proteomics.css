@@ -21,8 +21,8 @@
 	background-color: white;
 	margin-left: 11px;
 }
-#genSlotSiteBanner .exitNotification, .exit-image + .exitNotification {
-	display: none;
+#genSlotSiteBanner .exitNotification, .exit-image + .exitNotification, #genSlotRightSidebar .exitNotification {
+	display: none !important;
 }
 
 .logo-utility {
