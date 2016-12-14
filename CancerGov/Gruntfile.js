@@ -680,6 +680,11 @@ module.exports = function(grunt) {
             case 'red':
                 proxy = 'www-red-dev';
                 break;
+            case 'dev/red/preview':
+            case 'preview-red-dev':
+            case 'preview-red':
+                proxy = 'preview-red-dev';
+                break;
             case 'dev/pink':
             case 'pink-dev':
             case 'pink':

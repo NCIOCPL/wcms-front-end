@@ -90,47 +90,47 @@
          */
         adobeCall: function(action, args) {
 
-          var formPropHolder = this.options.formName + '|' + action;
-          var trackString = 'formAnalysis|' + formPropHolder;
-          var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', trackString);
+            if(typeof(NCIAnalytics) !== 'undefined') {
+                var formPropHolder = this.options.formName + '|' + action;
+                var trackString = 'formAnalysis|' + formPropHolder;
+                var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', trackString);
 
-          var props = {};
-          var evars = {};
-          var events = [];
+                var props = {};
+                var evars = {};
+                var events = [];
 
-          events.push(this.trackingConfig[action]);
+                events.push(this.trackingConfig[action]);
 
-          props[this.trackingConfig.formProp] = formPropHolder;
+                props[this.trackingConfig.formProp] = formPropHolder;
 
-            //s.linkTrackVars = 'events,' + this.trackingConfig.formProp + ',' + this.trackingConfig.formVar;
-            //s.events = s.linkTrackEvents = this.trackingConfig[action];
+                //s.linkTrackVars = 'events,' + this.trackingConfig.formProp + ',' + this.trackingConfig.formVar;
+                //s.events = s.linkTrackEvents = this.trackingConfig[action];
 
-            props[this.trackingConfig.formProp] = this.options.formName + '|' + action;
-            evars[this.trackingConfig.formVar] = this.options.formName;
-            //props[this.trackingConfig.formErrorProp] = '';
+                props[this.trackingConfig.formProp] = this.options.formName + '|' + action;
+                evars[this.trackingConfig.formVar] = this.options.formName;
+                //props[this.trackingConfig.formErrorProp] = '';
 
-            if (action === 'abandon') {
-                props[this.trackingConfig.formProp] += '|' + this.state.lastFieldTouched;
-            }
-
-            if (action === 'error') {
-                //s.linkTrackVars += ',' + this.trackingConfig.formErrorProp;
-
-                // after concat
-                props[this.trackingConfig.formErrorProp] = args;
-            }
-
-            if (action === 'complete') {
-                if (args) {
-                    events.push(this.trackingConfig["keywordMatch"]);
+                if (action === 'abandon') {
+                    props[this.trackingConfig.formProp] += '|' + this.state.lastFieldTouched;
                 }
+
+                if (action === 'error') {
+                    //s.linkTrackVars += ',' + this.trackingConfig.formErrorProp;
+                    // after concat
+                    props[this.trackingConfig.formErrorProp] = args;
+                }
+
+                if (action === 'complete') {
+                    if (args) {
+                        events.push(this.trackingConfig["keywordMatch"]);
+                    }
+                }
+
+                clickParams.Props = props;
+                clickParams.Evars = evars;
+                clickParams.Events = events;
+                clickParams.LogToOmniture();
             }
-
-            clickParams.Props = props;
-            clickParams.Evars = evars;
-            clickParams.Events = events;
-
-            clickParams.LogToOmniture();
         },
         /**
          * Track that the form will be submitted, and everything should

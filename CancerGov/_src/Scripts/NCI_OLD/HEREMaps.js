@@ -137,7 +137,7 @@ function initMap( dada, mapId, layers ) {
         for (var i = 0; i < arrayLength; i++) {
             var myLat  = parsedObjects[i].bb.lat;
             var myLng  = parsedObjects[i].bb.lng;
-            var ccType = parsedObjects[i].cj.kmlNode.childNodes[3].textContent;
+            var ccType = parsedObjects[i].getData().kmlNode.childNodes[3].textContent;
 
             // Setting the marker icon based on the styleUrl text-content
             if ( ccType === '#cancerCenter' ) {
@@ -150,19 +150,10 @@ function initMap( dada, mapId, layers ) {
                 var icon = rccIcon;
             }
 
-            var html = parsedObjects[i].cj.description;
+            var html = parsedObjects[i].getData().description;
             addMarkerToGroup(group, { lat: myLat, lng: myLng }, icon, 
                              html);
         }
-
-        // Set the view point by state or area
-        //var north =  35.
-        //var east  = -84.51
-        //var south =  30.13
-        //var west  = -88.28
-
-        //var bbox = new H.geo.Rect(north, west, south, east);
-        //map.setViewBounds(bbox);
      };
   });
 

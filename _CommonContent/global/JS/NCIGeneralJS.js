@@ -30,5 +30,9 @@ if($('.with-image').length == 0){
     $('.list-spacer-image').addClass('image-collapsed');
 	$('.list-item-with-image').addClass('text-collapsed');
 }
+
+// creating a class to temporarily hide exit notifications created by exit links around images	
+$( "a" ).has( "img" ).not(".exitNotification").addClass( "exit-image" );		
+	
 });
 

@@ -150,7 +150,7 @@ tfoot.pdq-footer td {
 	background: none repeat scroll 0 0;
 	background-color: $caption-background;
 	font-size: 14px;
-	// @include font-montserrat;
+	@include font-montserrat;
 	line-height: 1.5em;
 	border: medium none;
 	font-style: italic;
@@ -161,7 +161,7 @@ table tfoot {
 	background-color: $caption-background;
 	font-size: 14px;
 	line-height: 1.5em;
-	// @include font-montserrat;
+	@include font-montserrat;
 }
 // Publish preview does not have class names on the body, hence summary-sections.
 body.pdqcancerinfosummary table.table-default, .summary-sections table.table-default {
@@ -314,7 +314,7 @@ table.table-default tfoot td {
 	background: $caption-background;
 	font-size: 14px;
 	line-height: 1.5em;
-	// @include font-montserrat;
+	@include font-montserrat;
 }
 .dis-disclaimer {
 }
