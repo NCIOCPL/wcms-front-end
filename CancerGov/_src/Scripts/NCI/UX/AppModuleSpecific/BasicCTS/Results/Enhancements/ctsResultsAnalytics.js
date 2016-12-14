@@ -73,7 +73,7 @@ define(function(require) {
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
 		});	
-		_trackSearchFields();
+		//_trackSearchFields();
 	}
 
 	/**

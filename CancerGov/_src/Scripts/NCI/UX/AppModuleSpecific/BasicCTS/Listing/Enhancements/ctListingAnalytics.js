@@ -1,26 +1,5 @@
 define(function(require) {
     var $ = require('jquery');
-
-    /***
-    * Track events, props, and evars on page load
-    */
-    function _trackListingPageLoad($locationsContainer) {
-        
-        var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_custom');
-        var props = {};
-        var evars = {};
-        var events = [2];
-
-        // Set default values for CT Listing pages
-        evars[11] = props[11] = 'clinicaltrials_custom';
-        evars[47] = 'clinicaltrials_custom';
-        evars[62] = props[62] = 'Clinical Trials: Custom';
-
-        clickParams.Props = props;
-        clickParams.Evars = evars;
-        clickParams.Events = events;
-        clickParams.LogToOmniture();
-    }
 	
 	/***
 	* Main function
@@ -48,7 +27,6 @@ define(function(require) {
 			});
 		});
 	
-		_trackListingPageLoad();
 	}
 
 	/**
