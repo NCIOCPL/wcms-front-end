@@ -7,8 +7,11 @@ define(function(require) {
 	* Main function
 	*/
 	function _initialize() {
+        var pageName = 'www.cancer.gov/';
 		var s = AdobeAnalytics.getSObject();
-		var pageName = s.pageName;
+        if(typeof(s) !== 'undefined') {
+            pageName = s.pageName;
+        }
 
 		/* Snippet to track clicks on accordion controls */
 		$('.accordion-controls').on('click.analytics', 'a', function (e) {

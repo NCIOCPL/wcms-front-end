@@ -1,14 +1,17 @@
 define(function(require) {
-	var $ = require('jquery');
-  var AdobeAnalytics = require('Patches/AdobeAnalytics');
+    var $ = require('jquery');
+    var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
 	/***
 	* Main function
 	*/
 	function _initialize() {
 		/* Track right rail links */
+        var pageName = 'www.cancer.gov/';
 		var s = AdobeAnalytics.getSObject();
-		var pageName = s.pageName;
+        if(typeof(s) !== 'undefined') {
+            pageName = s.pageName;
+        }
 
 		var identifier = '';
 		$('a .delighter.cts-which').on('click.analytics', function (e) {

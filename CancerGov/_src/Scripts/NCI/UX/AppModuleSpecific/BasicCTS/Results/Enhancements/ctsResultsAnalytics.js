@@ -72,8 +72,11 @@ define(function(require) {
 					rank += ('|page ' + pn);
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
-		});	
-		_trackSearchFields();
+		});
+	
+        if(typeof(NCIAnalytics) !== 'undefined') {
+            _trackSearchFields();
+        }
 	}
 
 	/**

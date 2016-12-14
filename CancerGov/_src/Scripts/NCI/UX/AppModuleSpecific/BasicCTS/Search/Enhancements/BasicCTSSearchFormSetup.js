@@ -129,13 +129,16 @@ define(function(require) {
 	 * @param  {[type]} proptext The text to track (clinicaltrial_search_by_keyword or clinicaltrial_search_by_cancer_type)
 	 */
 	function _trackTypePhraseToggleAnalytics(sender, proptext) {
-		var pageName = sender.ownerDocument.location.hostname + sender.ownerDocument.location.pathname;
+        var pageName = 'www.cancer.gov/';
 		var s = AdobeAnalytics.getSObject();
-
+        if(typeof(s) !== 'undefined') {
+            pageName = s.pageName;
+        }
+        
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'TypeKeywordToggle');
 
 		clickParams.Props = {
-				5: proptext + "|" + s.pageName
+				5: proptext + "|" + pageName
 		};
 		clickParams.LogToOmniture();
 	}

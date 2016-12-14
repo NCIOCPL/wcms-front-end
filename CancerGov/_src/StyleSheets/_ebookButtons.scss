@@ -7,14 +7,17 @@ div.ebook-info {
 }
 div.ebook-cover {
 	float: left;
-	margin: 0 10px 10px 0;
+	margin: 0 0 10px 0;
 }
 div.ebook-cover img {
 	margin-bottom: 10px;
-	margin-right: 1em;
 }
-div.ebook-title h4 {
-	margin-top: 0;
+div.ebook-title {
+	margin-left: 103px;
+
+	h4 {
+		margin-top: 0;
+	}
 }
 /* End Ebooks */
 

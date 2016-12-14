@@ -25,7 +25,6 @@
 Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
 #end
   </span>
-  <p/>
 </div>
 #end
 
@@ -271,22 +270,25 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
       <section id="trial-organization">
         <h2>Lead Organization</h2>
         <div>
+		<p>
           <strong>Lead Organization</strong>
           <br>
-          $SearchResults.TrialTools.GetLeadSponsor($SearchResults.Trial)<br>
-          <br>
-          #set($principals = $SearchResults.TrialTools.GetPrincipalArray($SearchResults.Trial))
-          #if($principals.length > 0)
-            #if($principals.length > 1)
+          $SearchResults.TrialTools.GetLeadSponsor($SearchResults.Trial)
+		</p>
+#set($principals = $SearchResults.TrialTools.GetPrincipalArray($SearchResults.Trial))
+#if($principals.length > 0)
+		<p>
+#if($principals.length > 1)
               Principal Investigators<br>
-            #else
+#else
               Principal Investigator<br>
-            #end
-            #foreach($principal in $principals)
-              #each
+#end
+#foreach($principal in $principals)
+#each
                 $principal
-            #end
-          #end
+#end
+		</p>
+#end
         </div>
       </section>
 

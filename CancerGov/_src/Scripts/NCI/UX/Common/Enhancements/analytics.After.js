@@ -6,12 +6,12 @@ define(function(require) {
     */
     function _initialize() {
         var pageName = 'www.cancer.gov/';
-        if(s) {
+        if(typeof(s) !== 'undefined') {
             if(s.pageName) {
                 pageName = s.pageName;
             }
         }
-        
+
         $('.on-this-page').each(function(i, el) {
             $(el).on('click', 'a', function(event) {
                 var $this = $(this);
