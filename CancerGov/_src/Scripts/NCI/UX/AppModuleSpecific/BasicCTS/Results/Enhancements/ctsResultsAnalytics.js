@@ -32,21 +32,21 @@ define(function(require) {
 			allParams.push("none");
 		
 		var allParamStr = allParams.join("|");
-		
-		
-		var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_basic|results');
-          var props = {};
-          var evars = {};
-          var events = [2];
+
+        var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_basic|results');
+        var props = {};
+        var evars = {};
+        var events = [2];
 
         props[10] = count;
-		evars[11] = props[11] = 'clinicaltrials_basic';
-		evars[22] = props[22] = allParamStr;
-		
-            clickParams.Props = props;
-            clickParams.Evars = evars;
-            clickParams.Events = events;
-            clickParams.LogToOmniture();
+        evars[11] = props[11] = 'clinicaltrials_basic';
+        evars[22] = props[22] = allParamStr;
+        evars[62] = props[62] = 'Clinical Trials: Basic';
+
+        clickParams.Props = props;
+        clickParams.Evars = evars;
+        clickParams.Events = events;
+        clickParams.LogToOmniture();
 	}
 
 	

@@ -1,60 +1,32 @@
 define(function(require) {
-	var $ = require('jquery');
+    var $ = require('jquery');
 
-	function _trackListingPageLoad($locationsContainer) {	
-		//Fetch 
-        /*
-		var count = '';
-		
-		var count = $('span[data-basiccts-searchparam="n"]').text();
-		var type = $('span[data-basiccts-searchparam="t"]').text();
-		var keyword = $('span[data-basiccts-searchparam="q"]').text();
-		var age = $('span[data-basiccts-searchparam="a"]').text();
-		var zip = $('span[data-basiccts-searchparam="z"]').text();
-
-		var allParams = [];
-		
-		if(type)
-			allParams.push("typecondition|" + type);
-		else if (keyword)
-			allParams.push("keyword|" + keyword);
-		else 
-			allParams.push("none");
-
-		if (zip)
-			allParams.push(zip);
-		else
-			allParams.push("none");
-		
-		if (age)
-			allParams.push(age);
-		else
-			allParams.push("none");
-		
-		var allParamStr = allParams.join("|");
-        */
-				
-        var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_basic|results');
+    /***
+    * Track events, props, and evars on page load
+    */
+    function _trackListingPageLoad($locationsContainer) {
+        
+        var clickParams = new NCIAnalytics.ClickParams(true, 'nciglobal', 'o', 'formAnalysis|clinicaltrials_custom');
         var props = {};
         var evars = {};
         var events = [2];
 
-        //props[10] = count;
+        // Set default values for CT Listing pages
         evars[11] = props[11] = 'clinicaltrials_custom';
         evars[47] = 'clinicaltrials_custom';
-        // evars[22] = props[22] = allParamStr;
+        evars[62] = props[62] = 'Clinical Trials: Custom';
 
         clickParams.Props = props;
         clickParams.Evars = evars;
         clickParams.Events = events;
         clickParams.LogToOmniture();
-	}
-
+    }
 	
 	/***
 	* Main function
 	*/
 	function _initialize() {
+        
 		/* Get our page number from the URL, if it exists */	
 		var url = document.URL;
 		var pn = 1;
@@ -65,6 +37,7 @@ define(function(require) {
 				pn = 1;
 			}
 		}
+        
 		/* Track clicks of individual results */
 		$('.ct-individual-trial').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
@@ -73,7 +46,8 @@ define(function(require) {
 					rank += ('|page ' + pn);
 					NCIAnalytics.CTSResultsClick($this, rank, true);
 			});
-		});	
+		});
+	
 		_trackListingPageLoad();
 	}
 
