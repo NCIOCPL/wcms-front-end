@@ -128,6 +128,9 @@ table {
 .genSiteContentColumn #genSlotBody img {
 	margin: 8px;
 }
+.genSiteContentColumn #genSlotBody .exitNotification img {
+	margin: 0;
+}
 /* remove margin set by above rule for images in figure elements */
 .genSiteContentColumn #genSlotBody figure img {
 	margin: 0;
@@ -285,8 +288,8 @@ figcaption p:last-child {
 	**/
 
 	#genSlotSiteBanner {	
-		margin: 0 12px 0 0;
-		padding: 12px 0 14px 0;
+		margin: 0 11px 0 0;
+		padding: 0;
 	}
 	
 	/* Contains Site Utility Items such as Search and other links */
@@ -297,7 +300,7 @@ figcaption p:last-child {
 		/* Utility Links found in the top right */
 		ol.genSiteUtilityLinks {
 			margin: 0;
-			padding: 14px 0 8px 0;
+			padding: 0 0 8px 0;
 		}
 			ol.genSiteUtilityLinks li {
 				border-right: 1px solid #fff;
@@ -311,7 +314,7 @@ figcaption p:last-child {
 					padding-right: 0;
 				}
 			ol.genSiteUtilityLinks a {
-				color: #fff;
+				color: #4d4d4d;
 			}
 		
 		/* Site Search */	
@@ -366,20 +369,14 @@ figcaption p:last-child {
 		border-top: 1px solid #727373;
 		border-right: 1px solid #727373;
 		border-left: 1px solid #727373;
-		border-top-left-radius: 8px;
-		border-top-right-radius: 8px;
-		box-shadow: 0 -2px 5px #888;
 		color: #fff;
 		font-weight: 900;
 		margin: 0 11px;
-		-moz-border-radius-topleft: 8px;
-		-moz-border-radius-topright: 8px;
-		-moz-box-shadow: 0 -2px 5px #888;
 		padding: 0 9px 0 9px;
-		-webkit-border-top-left-radius: 8px;
-		-webkit-border-top-right-radius: 8px;
-		-webkit-box-shadow: 0 -2px 5px #888;
-	}	
+	}
+#genSlotMainNav .exitNotification {
+	display: none;
+}
 		#genSlotMainNav a {
 			color: #fff;
 			padding: 14px 0; /* Needs the extra padding for IE7 and correct placement of the Flyout Menu */
@@ -1340,6 +1337,10 @@ ol.genAggroWidget {
 		width: 615px; /* changed from 100% to fix problem when hitting ctl + minus making the widget break apart */
 	}
 		/* container for featured item */
+
+#news-slider .exitNotification {
+	display: none;
+}
 		
 		#news-slider .ui-tabs-panel-x {
 			border: 0;
