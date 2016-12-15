@@ -247,7 +247,12 @@ function s_doPlugins(s) {
 	s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
 
 	// Set prop65 to get the initial load time of the page (for use in the page load speed plugin)
-	s.prop65=s_getLoadTime();
+	var loadTime = s_getLoadTime();
+	s.prop65 = loadTime;
+    if(s.events.length > 0){
+        s.events += ",";
+    }
+    s.events += ["event47=" +  loadTime];
 }
 s.doPlugins=s_doPlugins	
 
