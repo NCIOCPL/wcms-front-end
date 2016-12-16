@@ -248,6 +248,9 @@ a {
       background-color: #2A71A5;
     }
   }
+  hr {
+    margin-bottom: 0px;
+  }
 }
 
 a.listing-chat-button {
@@ -301,13 +304,18 @@ a.listing-chat-button:visited {
 @media only screen and (max-width: 765px) {
   .ct-listing-util-top {
     .pagination {
+      line-height: 32px;
       margin-top: 20px;
       margin-bottom: 20px;
       width: 100%;
     }
+    hr {
+      margin-bottom: 5px;
+    }
   }
   .ct-listing-util-bottom {
     .pagination {
+      line-height: 32px;
       width: 100%;
     }
   }
