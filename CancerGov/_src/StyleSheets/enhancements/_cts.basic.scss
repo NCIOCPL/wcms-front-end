@@ -233,9 +233,10 @@ a {
 .ct-listing-util-top, .ct-listing-util-bottom {
   padding-bottom: 1.25em;
   .pagination {
+    margin-top: -3px;
     a, span {
       font-size: 16px;
-      padding: 0 5px 1px 5px;
+      padding: 3px 6px 3px 6px;
       font-weight: normal;
       border-radius: 3px;
     }
@@ -307,9 +308,12 @@ a.listing-chat-button:visited {
     .pagination {
       line-height: 32px;
       width: 100%;
+      a, span {
+        padding: 0px 12px 0px 12px;
+      }
       a:hover {
         padding-top: 5px;
-        padding-bottom: 6px;
+        padding-bottom: 5px;
       }
     }
   }
