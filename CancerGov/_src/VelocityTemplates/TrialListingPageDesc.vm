@@ -103,7 +103,8 @@
               #DrawListingPager($SearchResults)##
             </div>
           #end
-          </div>
+        <hr/>
+        </div>
         #DrawListingPgTrials($SearchResults)
       #else
         #DrawListingPgNoTrials()
