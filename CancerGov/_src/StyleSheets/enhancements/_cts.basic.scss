@@ -237,6 +237,7 @@ a {
       font-size: 16px;
       padding: 0 5px 1px 5px;
       font-weight: normal;
+      border-radius: 3px;
     }
     a:link {
       text-decoration: none;
@@ -302,21 +303,23 @@ a.listing-chat-button:visited {
 }
 /* Custom breakpoint styles for pager */
 @media only screen and (max-width: 765px) {
-  .ct-listing-util-top {
+  .ct-listing-util-top, .ct-listing-util-bottom {
     .pagination {
       line-height: 32px;
+      width: 100%;
+      a:hover {
+        padding-top: 5px;
+        padding-bottom: 6px;
+      }
+    }
+  }
+  .ct-listing-util-top {
+    .pagination {
       margin-top: 20px;
       margin-bottom: 20px;
-      width: 100%;
     }
     hr {
       margin-bottom: 5px;
-    }
-  }
-  .ct-listing-util-bottom {
-    .pagination {
-      line-height: 32px;
-      width: 100%;
     }
   }
 }
