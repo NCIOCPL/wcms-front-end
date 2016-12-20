@@ -199,59 +199,32 @@ a {
     width:65%;
     margin-bottom:10px;
   }
-	
-	/* add spacing below each location item */
-  #proximity-trialslist, #filterable-trialslist {
-		div[itemprop=location] { 
-			margin-bottom: 20px;
-		}
-	}
-	
-	/* add spacing above the first location item in proximity lists */
-	#proximity-trialslist > div[itemprop=location]:first-of-type {
-		clear:both;
-		margin-top:20px;
-	}
-}
-
-/* trial listing page styles */
-.listing-page-body {
-  .ct-individual-trial { 
-    a {
-      font-family:'Montserrat', Arial, sans-serif;
-      font-size:18px;
-    }
-    .ct-listing-item {
-      margin: 4px 0px 4px 0px;
-      line-height: 24px;
-    }
+  #proximity-trialslist > div:first-of-type {
+    clear:both;
+    margin-top:20px;
   }
 }
-.ct-listing-item {
-  padding-bottom: 2.25em;
-}
-.ct-listing-util-top, .ct-listing-util-bottom {
-  .pagination {
+/* Counter / pager styles above listing body*/
+.ct-listing-util-top  {
+  .pagination.full {
     margin-top: -3px;
-    a, span {
-      font-size: 16px;
-      padding: 3px 6px 3px 6px;
-      font-weight: normal;
-      border-radius: 3px;
-    }
-    a:link {
-      text-decoration: none;
-    }
-    a:hover, .ct-pager-current {
-      text-decoration: none;
-      color: white;
-      font-weight: normal;
-      background-color: #2A71A5;
-    }
   }
   hr {
     margin-top: 32px;
     margin-bottom: 0px;
+  }
+}
+/* trial listing page styles */
+.listing-page-body {
+  .clinical-trial-individual-result { 
+    a {
+      font-family:'Montserrat', Arial, sans-serif;
+      font-size:18px;
+    }
+    .cts-result-item {
+      margin: 4px 0px 4px 0px;
+      line-height: 24px;
+    }
   }
 }
 
@@ -302,23 +275,10 @@ a.listing-chat-button:visited {
     margin-left: -15px;
   }	 
 }
-/* Custom breakpoint styles for pager */
+/* Custom styles for pager breakpoint*/
 @media only screen and (max-width: 765px) {
-  .ct-listing-util-top, .ct-listing-util-bottom {
-    .pagination {
-      line-height: 32px;
-      width: 100%;
-      a, span {
-        padding: 0px 12px 0px 12px;
-      }
-      a:hover {
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-    }
-  }
   .ct-listing-util-top {
-    .pagination {
+    .pagination.full {
       margin-top: 20px;
       margin-bottom: 20px;
     }

@@ -42,20 +42,22 @@
 
 ### Draw the pager
 #macro(DrawListingPager $SearchResults)
-  ## Get the current page
-  ## Show up to the next 2 and previous 2 numbers from the current page
-  ## First / last pages always show by default
-  #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2, 2, $SearchResults.Results.TotalResults))
-    #each
-      #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
-        <span class="ct-pager-current">$pagerItem.Text</span>
-      #elseif($pagerItem.IsLink == false)
-        <span>$pagerItem.Text</span>
-      #else
-        <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
-      #end
-    ## end 'each'
-  #end
+  <div class="pagination full">
+    ## Get the current page
+    ## Show up to the next 2 and previous 2 numbers from the current page
+    ## First / last pages always show by default
+    #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2, 2, $SearchResults.Results.TotalResults))
+      #each
+        #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+          <span class="pager-current">$pagerItem.Text</span>
+        #elseif($pagerItem.IsLink == false)
+          <span class="pager-text-only">$pagerItem.Text</span>
+        #else
+          <a class="pager-link" href="$pagerItem.PageUrl">$pagerItem.Text</a>
+        #end
+      ## end 'each'
+    #end
+  </div>
 #end##
 
 
@@ -86,9 +88,7 @@
 
   ## If there are results, add the lower control (draw the pager)
   <div class="ct-listing-util-bottom">
-    <div class="pagination">
-      #DrawListingPager($SearchResults)##
-    </div> 
+    #DrawListingPager($SearchResults)##
   </div>
 #end
 
@@ -102,9 +102,7 @@
             Trial 1 of <span data-basiccts-searchparam='n'>1</span>
           #else
             Trials $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
-            <div class="pagination">
-              #DrawListingPager($SearchResults)##
-            </div>
+            #DrawListingPager($SearchResults)##
           #end
         <hr/>
         </div>
