@@ -231,7 +231,6 @@ a {
   padding-bottom: 2.25em;
 }
 .ct-listing-util-top, .ct-listing-util-bottom {
-  padding-bottom: 1.25em;
   .pagination {
     margin-top: -3px;
     a, span {
@@ -251,6 +250,7 @@ a {
     }
   }
   hr {
+    margin-top: 32px;
     margin-bottom: 0px;
   }
 }
