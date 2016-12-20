@@ -9,7 +9,7 @@
     font-weight: normal;
     text-decoration: none;
   }
-  .pager-link {
+  .pager-link:link, .pager-link:active {
     text-decoration: none;
   }
   .pager-current, .pager-link:hover {
