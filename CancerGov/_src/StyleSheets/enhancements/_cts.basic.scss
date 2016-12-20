@@ -206,25 +206,12 @@ a {
 }
 /* Counter / pager styles above listing body*/
 .ct-listing-util-top  {
-  .pagination.full {
+  .ct-listing-pager {
     margin-top: -3px;
   }
   hr {
     margin-top: 32px;
     margin-bottom: 0px;
-  }
-}
-/* trial listing page styles */
-.listing-page-body {
-  .clinical-trial-individual-result { 
-    a {
-      font-family:'Montserrat', Arial, sans-serif;
-      font-size:18px;
-    }
-    .cts-result-item {
-      margin: 4px 0px 4px 0px;
-      line-height: 24px;
-    }
   }
 }
 
@@ -278,7 +265,7 @@ a.listing-chat-button:visited {
 /* Custom styles for pager breakpoint*/
 @media only screen and (max-width: 765px) {
   .ct-listing-util-top {
-    .pagination.full {
+    .ct-listing-pager {
       margin-top: 20px;
       margin-bottom: 20px;
     }

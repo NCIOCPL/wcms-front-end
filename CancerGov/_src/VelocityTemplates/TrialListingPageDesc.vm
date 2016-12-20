@@ -42,7 +42,7 @@
 
 ### Draw the pager
 #macro(DrawListingPager $SearchResults)
-  <div class="pagination full">
+  <div class="pager ct-listing-pager">
     ## Get the current page
     ## Show up to the next 2 and previous 2 numbers from the current page
     ## First / last pages always show by default
@@ -63,7 +63,7 @@
 
 ### Draw the trials list with pager
 #macro(DrawListingPgTrials $SearchResults)
-  <div class="listing-page-body list">
+  <div class="ct-listing-page-body list">
     <ul>
       #foreach($resultItem in $SearchResults.Results.Trials)
         #each
