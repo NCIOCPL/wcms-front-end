@@ -58,34 +58,37 @@
   #end
 #end##
 
-      
+
 ### Draw the trials list with pager
 #macro(DrawListingPgTrials $SearchResults)
-  <div class="listing-page-body">
-    #foreach($resultItem in $SearchResults.Results.Trials)
-      #each
-        ## Attach Onclick for Analytics elsewhere
-        <a href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCIID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
-        <div class="ct-listing-item">
-          $SearchResults.TrialTools.GetBriefSummary($resultItem)<br>
-          #DrawListingPgLocationInfo($resultItem)
-        </div>
-      #before
-        <div class="row collapse">
-          <div class="medium-12 columns ct-individual-trial">
-      #after
+  <div class="listing-page-body list">
+    <ul>
+      #foreach($resultItem in $SearchResults.Results.Trials)
+        #each
+          <div class="title-and-desc title desc container">
+            <a class="title" href="$SearchResults.Control.GetDetailedViewUrl($resultItem.NCIID)" class="protocol-abstract-link">$resultItem.BriefTitle</a>
+            <div class="description">
+              <p class="body">
+               $SearchResults.TrialTools.GetBriefSummary($resultItem)<br>
+               #DrawListingPgLocationInfo($resultItem)
+              </p>
+            </div>  
           </div>
-        </div>
-      #nodata
-        #DrawListingPgNoTrials()
-    #end
+        #before
+          <li class="ct-list-item">
+        #after
+          </li>
+        #nodata
+          #DrawListingPgNoTrials()
+      #end
+    </ul>
   </div>
 
   ## If there are results, add the lower control (draw the pager)
   <div class="ct-listing-util-bottom">
     <div class="pagination">
       #DrawListingPager($SearchResults)##
-    </div>
+    </div> 
   </div>
 #end
 
