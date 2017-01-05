@@ -18,10 +18,10 @@ define(function(require) {
 		}
         
 		/* Track clicks of individual results */
-		$('.ct-individual-trial').each(function(i, el) {
+		$('.ct-list-item').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
-					rank = $this.index('.ct-individual-trial a') + 1;
+					rank = $this.index('.ct-list-item a') + 1;
 					rank += ('|page ' + pn);
 					NCIAnalytics.CTSResultsClick($this, rank, true);
 			});
