@@ -100,8 +100,11 @@
         <div class="ct-listing-util-top">
           #if($SearchResults.Results.TotalResults == 1)
             Trial 1 of <span data-basiccts-searchparam='n'>1</span>
-          #else
+          #elseif($SearchResults.Control.GetStartItemNum() < $SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults))
             Trials $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
+            #DrawListingPager($SearchResults)##
+          #else
+            <span data-basiccts-searchparam='n'>&nbsp;</span>
             #DrawListingPager($SearchResults)##
           #end
         <hr/>
