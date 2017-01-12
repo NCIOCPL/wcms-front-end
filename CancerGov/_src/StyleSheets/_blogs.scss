@@ -133,6 +133,167 @@ a.comment-count {
 .blog-post-newer p {
 	margin-top: 0;
 }
+
+.cgvblogpost {
+	figure.image-right-medium {
+		margin-left: 1em;
+		padding-left: 2.5em;
+		background-color: #fff;
+	}
+}
+
+.blog-intro-text {
+	width: 100%;
+	margin-bottom: 1em;
+	padding: 1em 1.25em;
+	border-left: 3px solid $purple;
+	background-color: $white03;
+
+	p {
+		margin: 0;
+		padding-bottom: 1em;
+		font-size: 0.8em;
+		@include font-montserrat;
+	}
+	p:last-child {
+		padding: 0;
+	}
+}
+
+.right-rail {
+	margin-top: 1.25em;
+	padding-left: 0;
+
+	.slot-item {
+		// shadowing around each box in the right rail
+		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+		border-radius: 1px;
+		padding: 0.25em 1em 0.1em 1em;
+		margin-bottom: 1em;
+	}
+
+	.managed.list {
+		margin-bottom: 0.35em;
+
+		ul > li {
+			margin: 0;
+			padding: 0.15em 0;
+		}
+
+		p.title {
+			margin: 0.5em 0;
+		}
+
+		a.title {
+			font-size: 1em;
+		}
+
+		.byline {
+			margin-bottom: 0.4em;
+			//padding-bottom: 0.5em;
+
+			p {
+				margin: 0;
+				font-size: 0.85em;
+			}
+		}
+
+		.current-categories-link {
+			// on-state styling for categories list
+			border-left: 3px solid #82368d;
+    		background-color: #f5f5f5;
+			margin-left: -1.1em;
+			margin-right: -1.1em;
+			padding: 0.15em 1em;
+		}
+	}
+}
+
+@include bp(medium-down) {
+	.right-rail {
+		padding-left: 0.9375em;
+	}
+}
+
+@include bp(medium-up) {
+	// set width of blog intro text for tablet and desktop, depending on size of image
+	figure.image-right-medium + .blog-intro-text { 
+		width: 60%;
+	}
+	figure.image-right-small + .blog-intro-text {
+		width: 75%;
+	}
+}
+
+@include bp(large-up) {
+	[data-cde-pagetemplate="NVCGBlogSeriesPageTemplate"], [data-cde-pagetemplate="NVCGBlogPostPageTemplate"] {
+		/* hide the left nav from view on large-up for blog posts*/
+		#nvcgSlSectionNav {
+			display: none !important;
+		}
+		
+		/* correct the contentzone padding, as the nav is hidden */
+		.contentzone {
+			padding-left: 1.6em !important;
+			
+			/* if the right rail is missing, set the contentzone width to 100*/
+			&:last-child {
+				width:100%;
+			}
+		}
+	}
+}
+
+@include bp(small) {
+	// remove extra padding (used for intro text on desktop/tablet only)
+	.cgvblogpost {
+		figure.image-right-medium {
+			padding-left: 0;
+			margin-left: 0;
+		}
+	}
+}
+
+@include bp(medium-down) {
+	// hide blog feature cards on tablet/mobile
+	#blog-cards {
+		display: none;
+	}
+}
+
+@include bp(medium) {
+	#nvcgSlListBlogRTRail > div {
+		float: left; width: 30%; margin: 10px;
+	}
+}
+.current-archive-link{
+	color: #2e2e2e !important;
+	border-left: 3px solid #82368d;
+    margin-left: -13px;
+    padding-left: 10px;
+    background-color: #f5f5f5;
+}
+
+.current-archive-link a {
+     pointer-events: none;
+     color: #2e2e2e;
+}
+
+.blog-feature {
+	margin-bottom: 1em;
+
+	h3 {
+		font-weight: normal;
+		color: #2b7bba;
+		font-size: 0.95em;
+		line-height: 1.272;
+	}
+}
+
+.card.blog-feature {
+	background: #f5f5f5;
+}
+
 /*end Blog Content CSS*/
 
 /********** END Blogs Styles ******************************************/

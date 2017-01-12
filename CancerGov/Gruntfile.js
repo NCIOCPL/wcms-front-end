@@ -242,6 +242,8 @@ module.exports = function(grunt) {
                 'LandingPage': 'UX/PageSpecific/Landing/LandingPage',
                 'PDQPage': 'UX/PageSpecific/PDQ/PDQPage',
                 'TopicPage': 'UX/PageSpecific/Topic/TopicPage',
+                'BlogSeriesPage': 'UX/PageSpecific/BlogPost/BlogPostPage',
+                'BlogPostPage': 'UX/PageSpecific/BlogSeries/BlogSeriesPage',
                 'Popups': 'UX/PageSpecific/Popups/Popups',
                 'BasicCTSResultsPage': 
                     'UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
@@ -284,6 +286,16 @@ module.exports = function(grunt) {
                 {
                     name: 'TopicPage',
                     insertRequire: ['TopicPage'],
+                    exclude: ['ContentPage']
+                },
+                {
+                    name: 'BlogSeriesPage',
+                    insertRequire: ['BlogSeriesPage'],
+                    exclude: ['ContentPage']
+                },
+                {
+                    name: 'BlogPostPage',
+                    insertRequire: ['BlogPostPage'],
                     exclude: ['ContentPage']
                 },
                 {
