@@ -522,6 +522,104 @@ define(function(require) {
 			    });
 			});
 
+
+			var pageName = window.location.hostname + window.location.pathname;
+			// Track clicks on blog archives accordion on all blog pages.
+			$("#blog-archive-accordion").on("click", "a", function() {
+				NCIAnalytics.BlogArchiveLinkClick(this, pageName);
+			});
+
+			// Track the expand/collapse of the accordion
+			$("#blog-archive-accordion").on("click", "h3, h4", function(){
+				var isClosing = !$(this).hasClass('ui-state-active');
+				NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isClosing);
+			});
+
+			$(".blogRSS").on("click", function(){
+				NCIAnalytics.BlogSubscribeClick(this, pageName);
+			});
+
+			$('.cgvblogpost #cgvBody').on("click", "a",  function(){
+				var $this = $(this);
+				var linkText = $this.text();
+
+				if($this.hasClass('definition')){
+					NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName, true);
+				}
+				else
+					NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName);
+				
+			});
+
+			$('#nvcgRelatedResourcesArea').on("click", "a", function(){
+				var $this = $(this);
+				var linkText = $this.text();
+				var index = $this.closest('li').index() + 1;
+				NCIAnalytics.BlogRelatedLinksClick(this, linkText, pageName, index);
+			});
+
+			// Track clicks on feature cards on blog posts.
+			$('.blog-feature .feature-card').each(function(i, el) {
+				$(el).on('click', 'a', function(event) {
+					var $this = $(this);
+					var linkText = $this.children('h3').text();
+					var containerIndex = i + 1;
+
+					NCIAnalytics.BlogCardClick(this, linkText, containerIndex, pageName);
+				});
+			});
+
+			// Track clicks on featured posts section of Blog Right Rail.
+			$('.right-rail .managed.list.with-date li').each(function(i, el) {
+				$(el).on('click', 'a', function(event) {
+					var $this = $(this);
+					var linkText = $this.text();
+					var containerIndex = i + 1;
+
+					NCIAnalytics.FeaturedPostsClick(this, linkText, containerIndex, pageName);
+				});
+			});
+
+			// Track clicks on featured posts section of Blog Right Rail.
+			$('.right-rail .managed.list.without-date li').each(function(i, el) {
+				$(el).on('click', 'a', function(event) {
+					var $this = $(this);
+					var linkText = $this.text();
+					var containerIndex = i + 1;
+
+					NCIAnalytics.CategoryClick(this, linkText, containerIndex, pageName);
+				});
+			});
+
+			// Track clicks on Older Posts/Newer Posts on Blog Series pages
+			$('.blog-pager.clearfix').on("click", "a", function() {
+				var $this = $(this);
+				var pagerClass = $this.attr('class');
+				var olderNewer = "";
+				if (pagerClass == "older") {
+					olderNewer = "Older";
+				}
+				else if (pagerClass == "newer") {
+					olderNewer = "Newer";
+				}
+
+				NCIAnalytics.OlderNewerClick(this, olderNewer, pageName);
+			});
+
+			// Track clicks on Older Posts/Newer Posts on Blog Series pages
+			$('#cgvSlPagination').on("click", "a", function() {
+				var $this = $(this);
+				var pagerClass = $this.parent().attr('class');
+				var olderNewer = "";
+				if (pagerClass == "blog-post-older") {
+					olderNewer = "Older";
+				}
+				else if (pagerClass == "blog-post-newer") {
+					olderNewer = "Newer";
+				}
+
+				NCIAnalytics.OlderNewerClick(this, olderNewer, pageName);
+			});
 		});
 	})();
 });

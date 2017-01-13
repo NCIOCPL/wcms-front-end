@@ -346,6 +346,16 @@
 	}
 	@include card-clickable;
 }
+
+.blog-feature{
+	a {
+		&:hover, &:focus{
+			h3{
+				color:$lcranberry;
+			}
+		}
+	}
+}
 /* END SLOTTED AND INLINE FEATURE CARDS */
 
 /* BEGIN GUIDE CARDS ROW */

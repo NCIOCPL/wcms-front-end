@@ -196,5 +196,14 @@
 		}
 	}
 
+	/* Blog pages template places the page options outside the normal container
+	   To fix styling we simply need to reverse the top margin applied by the page-options class
+	*/
+	#blogPageOptionsOuterContainer {
+		position: absolute;
+		right: 0;
+		top: 3.8em;
+	}
+
 }
 /****** END PAGE OPTIONS *************************************/
