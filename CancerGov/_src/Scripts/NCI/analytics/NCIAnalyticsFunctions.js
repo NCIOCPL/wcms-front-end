@@ -1540,7 +1540,8 @@ var NCIAnalytics = {
         if( type === 'hp_find'){
             clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'HomePageFindDelighter');
             clickParams.Props = {
-                5 : 'hp_find ct delighter|' + value
+                5 : 'hp_find ct delighter|' + value,
+				66 : 'delighter_findclinicaltrials'
             };
             clickParams.LogToOmniture();
         }
