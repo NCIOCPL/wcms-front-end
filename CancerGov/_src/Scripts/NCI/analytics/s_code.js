@@ -369,10 +369,10 @@ if(endsWith(path,'/')) {
   path = path.substring(0, path.length-1);
 }
 if(endsWith(path,'clinical-trials/search')) {
-  s.prop62 = s.eVar62 = 'Clinical Trials: Basic feh';
+  s.prop62 = s.eVar62 = 'Clinical Trials: Basic';
 }
 else if(endsWith(path,'clinical-trials/advanced-search')) {
-  s.prop62 = s.eVar62 = 'Clinical Trials: Advanced feh';
+  s.prop62 = s.eVar62 = 'Clinical Trials: Advanced';
 }
 
 /************************** PLUGINS SECTION *************************/
