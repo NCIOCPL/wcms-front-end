@@ -362,14 +362,17 @@ function getViewPort() {
 
 /* Track initial load of basic and advanced search pages */
 var path = location.pathname;
-if(path.endsWith("/")) {
+function endsWith(str, suffix) {
+  return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+if(endsWith(path,'/')) {
   path = path.substring(0, path.length-1);
 }
-if(path.endsWith("clinical-trials/search")) {
-  s.prop62 = s.eVar62 = 'Clinical Trials: Basic';
+if(endsWith(path,'clinical-trials/search')) {
+  s.prop62 = s.eVar62 = 'Clinical Trials: Basic feh';
 }
-else if(path.endsWith("clinical-trials/advanced-search")) {
-  s.prop62 = s.eVar62 = 'Clinical Trials: Advanced';
+else if(endsWith(path,'clinical-trials/advanced-search')) {
+  s.prop62 = s.eVar62 = 'Clinical Trials: Advanced feh';
 }
 
 /************************** PLUGINS SECTION *************************/
