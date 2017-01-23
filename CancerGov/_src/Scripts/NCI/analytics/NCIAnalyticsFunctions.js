@@ -1711,6 +1711,149 @@ var NCIAnalytics = {
         };
         clickParams.Events = [52];
         clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    BlogArchiveLinkClick: function(sender, pageName){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogArchiveDateClick');
+
+        $.urlParam = function(name){
+            var results = new RegExp("[\?&].*\[" + name + "\]=([^&#]*)").exec(sender.href);
+            if (results==null){
+                return "";
+            }
+            else{
+                return results[1] || 0;
+            }
+        }
+        var year = $.urlParam('[year]');
+        var month = $.urlParam('[month]');
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_Archive",
+            67: pageName,
+            50: $.urlParam('[year]') + (month ? (":" + month) : "")
+        };
+        clickParams.Events = [55];
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    BlogSubscribeClick: function(sender, pageName){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogSubscribeClick');
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_Subscribe",
+            67: pageName
+        };
+
+        clickParams.Events = [58];
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    BlogArchiveAccordionClick: function(sender, pageName, collapse){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogAccordionAction');
+        var expandCollapse = "";
+        if(collapse){
+            expandCollapse = "_Collapse:Archive";
+        }
+        else{
+            expandCollapse = "_Expand:Archive";
+        }
+        
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + expandCollapse,
+            67: pageName
+        };
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    BlogBodyLinkClick: function(sender, linkText, pageName, glossifiedTerm){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogBodyLinkClick');
+        
+        var linkType = "";
+        if(glossifiedTerm)
+            linkType = "_BodyGlossifiedTerm";
+        else
+            linkType = "_BodyLink";
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + linkType,
+            67: pageName,
+            50: linkText
+        };
+
+        clickParams.Events = [56];
+
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    BlogRelatedLinksClick: function(sender, linkText, pageName, index){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogRelatedLinkClick');
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_RelatedResource:" + index,
+            67: pageName,
+            50: linkText
+        };
+
+        clickParams.Events = [57];
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    BlogCardClick: function(sender, linkText, containerIndex, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'BlogFeatureCardClick');
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_BlogCard:" + containerIndex,
+            67: pageName,
+            50: linkText
+        };
+
+        clickParams.Events = [54];
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    FeaturedPostsClick: function(sender, linkText, containerIndex, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'FeaturedPostsClick');
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_FeaturedPosts:" + containerIndex,
+            67: pageName,
+            50: linkText
+        };
+
+        clickParams.Events = [54];
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    CategoryClick: function(sender, linkText, containerIndex, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'CategoryClick');
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_Category:" + containerIndex,
+            67: pageName,
+            50: linkText
+        };
+
+        clickParams.Events = [55];
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    OlderNewerClick: function(sender, olderNewer, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'OlderNewerClick');
+
+        clickParams.Props = {
+            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_" + olderNewer,
+            67: pageName
+        };
+
+        if (NCIAnalytics.blogLocation() == "Post") {
+            clickParams.Events = [55];
+        }
+
+        clickParams.LogToOmniture();
     }
 };
 
@@ -1720,6 +1863,19 @@ var NCIAnalytics = {
 /* ********************************************************************** */
 /* ********************************************************************** */
 /* ********************************************************************** */
+
+NCIAnalytics.blogLocation = function()
+{
+    if( $("body").hasClass('cgvblogpost')) {
+        return "Post";
+    }
+    else if ( $("body").hasClass('cgvblogseries')) {
+        return "Series";
+    }
+    else if ( $("body").hasClass('cgvtopicpage')) {
+        return "Category";
+    }
+}
 
 /**
  * defines page detail value, primary focus is pdq page sections as of initial logic
