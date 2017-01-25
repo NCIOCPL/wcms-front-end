@@ -112,7 +112,7 @@ var NCIAnalytics = {
             // add link page prop (prop67) to all link tracking calls when not already present; existing values are given preference
             if(!this.Props[67]) {
 
-                local_s['prop67'] = s.pageName;
+                local_s['prop67'] = 'D=pageName';
 
                 if (local_s.linkTrackVars.length > 0)
                   local_s.linkTrackVars += ',';
@@ -122,7 +122,7 @@ var NCIAnalytics = {
 
             // add link.href value (prop4) to all link tracking calls when not already present; existing values are given preference
             if(!this.Props[4]) {
-                local_s['prop4'] = sender.getAttribute ? sender.getAttribute("href"): null;
+                local_s['prop4'] = 'D=pev1';
 
                 if (local_s.linkTrackVars.length > 0)
                   local_s.linkTrackVars += ',';
