@@ -21,10 +21,14 @@
 	background-color: white;
 	margin-left: 11px;
 }
-#genSlotSiteBanner .exitNotification, .exit-image + .exitNotification, #genSlotRightSidebar .exitNotification {
+/*
+#genSlotSiteBanner .exitNotification, #genSlotRightSidebar .exitNotification {
 	display: none !important;
 }
-
+*/
+.anchor-contains-image + .exitNotification {
+	display: none !important;
+}
 .logo-utility {
 	overflow: auto;
 	padding: 20px 21px 25px;

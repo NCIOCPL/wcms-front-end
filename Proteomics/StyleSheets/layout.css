@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 /* Google fonts */
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 /*
@@ -19,104 +20,128 @@ body {
 	width: 100%;
 }
 
+
 /***
 	National Cancer Institute Branding Bar
 ***/
 
-#genSlotBrandingBar {
-}
+#genSlotBrandingBar {}
+
 .genSlotBrandingBarContainer {
 	padding: 0 12px;
 }
-	#genSlotBrandingBar ul {
-		list-style-type: none;
-		margin: 0 auto;
-		padding: 0;
-		width: 960px;
-	}
-		#genSlotBrandingBar ul  li.nciLogo {
-			float: left;
-		}
-			#genSlotBrandingBar ul  li.nciLogo a {
-				background-repeat: no repeat;
-				display: block;
-				height: 39px;
-				text-indent: -9999px;
-				width: 263px;
-			}
-		#genSlotBrandingBar ul li.nihText {
-			float: right;
-		}
-			#genSlotBrandingBar ul li.nihText a {
-				background-repeat: no repeat;
-				display: block;
-				height: 39px;
-				text-indent: -9999px;
-				width: 208px;
-			}
-		#genSlotBrandingBar ul  li.nciURL {
-			float: right;		
-		}
-			#genSlotBrandingBar ul  li.nciURL a {
-				background-repeat: no repeat;
-				display: block;
-				height: 39px;
-				text-indent: -9999px;
-				width: 99px;
-			}
-		
-		/**
+
+#genSlotBrandingBar ul {
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 960px;
+}
+
+#genSlotBrandingBar ul li.nciLogo {
+	float: left;
+}
+
+#genSlotBrandingBar ul li.nciLogo a {
+	background-repeat: no repeat;
+	display: block;
+	height: 39px;
+	text-indent: -9999px;
+	width: 263px;
+}
+
+#genSlotBrandingBar ul li.nihText {
+	float: right;
+}
+
+#genSlotBrandingBar ul li.nihText a {
+	background-repeat: no repeat;
+	display: block;
+	height: 39px;
+	text-indent: -9999px;
+	width: 208px;
+}
+
+#genSlotBrandingBar ul li.nciURL {
+	float: right;
+}
+
+#genSlotBrandingBar ul li.nciURL a {
+	background-repeat: no repeat;
+	display: block;
+	height: 39px;
+	text-indent: -9999px;
+	width: 99px;
+}
+
+
+/**
 			Red Banner
 			- Add the class of 'red' to ul to get the Red NCI Banner
 		**/
-		#genSlotBrandingBar .red {
-			background-color: #aa0202;
-			color: #fff;
-		}
-			.red ul li.nciLogo a {
-				background-image: url('/publishedcontent/images/images/banners/red-ncilogo.gif');
-			}
-			.red ul  li.nihText a {
-				background-image: url('/publishedcontent/images/images/banners/red-nihtext.gif');
-			}
-			.red ul li.nciURL a {
-				background-image: url('/publishedcontent/images/images/banners/red-nciurl.gif');
-			}
-	
-		/**
+
+#genSlotBrandingBar .red {
+	background-color: #aa0202;
+	color: #fff;
+}
+
+.red ul li.nciLogo a {
+	background-image: url('/publishedcontent/images/images/banners/red-ncilogo.gif');
+}
+
+.red ul li.nihText a {
+	background-image: url('/publishedcontent/images/images/banners/red-nihtext.gif');
+}
+
+.red ul li.nciURL a {
+	background-image: url('/publishedcontent/images/images/banners/red-nciurl.gif');
+}
+
+
+/**
 			Grey Banner
 		**/
-		#genSlotBrandingBar .gray {
-			background-color: #706f5d;
-			color: #fff;
-		}
-			.gray ul li.nciLogo a {
-				background-image: url('/publishedcontent/images/images/banners/gray-ncilogo.gif');
-			}
-			.gray ul li.nihText a {
-				background-image: url('/publishedcontent/images/images/banners/gray-nihtext.gif');
-			}
-			.gray ul li.nciURL a {
-				background-image: url('/publishedcontent/images/images/banners/gray-nciurl.gif');
-			}
-		
-		/**
+
+#genSlotBrandingBar .gray {
+	background-color: #706f5d;
+	color: #fff;
+}
+
+.gray ul li.nciLogo a {
+	background-image: url('/publishedcontent/images/images/banners/gray-ncilogo.gif');
+}
+
+.gray ul li.nihText a {
+	background-image: url('/publishedcontent/images/images/banners/gray-nihtext.gif');
+}
+
+.gray ul li.nciURL a {
+	background-image: url('/publishedcontent/images/images/banners/gray-nciurl.gif');
+}
+
+
+/**
 			White Banner
 		**/
-		#genSlotBrandingBar .white {
-			background-color: #fff;
-			color: #fff;
-		}
-			.white ul li.nciLogo a {
-				background-image: url('/publishedcontent/images/images/banners/white-ncilogo.gif');
-			}
-			.white ul li.nihText a {
-				background-image: url('/publishedcontent/images/images/banners/white-nihtext.gif');
-			}
-			.white ul li.nciURL a {
-				background-image: url('/publishedcontent/images/images/banners/white-nciurl.gif');
-			}
-			
+
+#genSlotBrandingBar .white {
+	background-color: #fff;
+	color: #fff;
+}
+
+.white ul li.nciLogo a {
+	background-image: url('/publishedcontent/images/images/banners/white-ncilogo.gif');
+}
+
+.white ul li.nihText a {
+	background-image: url('/publishedcontent/images/images/banners/white-nihtext.gif');
+}
+
+.white ul li.nciURL a {
+	background-image: url('/publishedcontent/images/images/banners/white-nciurl.gif');
+}
+
+
 /***
 	Site Layout
 ***/
@@ -127,69 +152,83 @@ body {
 	width: 984px;
 }
 
-	/**
+
+/**
 		Site Header
 	**/
-	
-	#genSlotSiteBanner {
-		margin: 0 12px;
-	}
-		h1.genSiteLogo {
-			float: left;
-			line-height: 0.8em;
-		}
-		
-		/* Contains Site Utility Items such as Search and other links */
-		.genSiteUtilityContainer {
-			float: right;
-			margin: 0 0 0 auto;
-			text-align: right;
-		}
-	
-		/* Utility Links found in the top right */
-		ol.genSiteUtilityLinks {
-		}
-			ol.genSiteUtilityLinks li{
-				display: inline;
-			}
-		
-		/* Site Search */
-		
-		form.genSiteSearchForm {
-			float: right;
-		}
-	
-	/**
+
+#genSlotSiteBanner {
+	margin: 0 12px;
+}
+
+h1.genSiteLogo {
+	float: left;
+	line-height: 0.8em;
+}
+
+
+/* Contains Site Utility Items such as Search and other links */
+
+.genSiteUtilityContainer {
+	float: right;
+	margin: 0 0 0 auto;
+	text-align: right;
+}
+
+
+/* Utility Links found in the top right */
+
+ol.genSiteUtilityLinks {}
+
+ol.genSiteUtilityLinks li {
+	display: inline;
+}
+
+
+/* Site Search */
+
+form.genSiteSearchForm {
+	float: right;
+}
+
+
+/**
 		Site Navigation
 	**/
-	
-	#genSlotMainNav {
-		margin: 0 12px;
-		position: relative;
-		z-index: 9999;
-	}
-		#genSlotMainNav ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-			#genSlotMainNav ul li {
-				float: left;
-				position: relative;
-			}
-		#genSlotMainNav ul.genSiteMainNav {
-			float: left;
-			margin: 0;
-			padding: 0;
-		}
-			ul.genSiteMainNav a,
-			ul.genSiteAdditionalMainNav a {
-				display: block;
-			}
-			
-			/* Fly Out Menus */
-			
-			/* ================================================================ 
+
+#genSlotMainNav {
+	margin: 0 12px;
+	position: relative;
+	z-index: 9999;
+}
+
+#genSlotMainNav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#genSlotMainNav ul li {
+	float: left;
+	position: relative;
+}
+
+#genSlotMainNav ul.genSiteMainNav {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+ul.genSiteMainNav a,
+ul.genSiteAdditionalMainNav a {
+	display: inline-block;
+}
+
+
+/* Fly Out Menus */
+
+
+/* ================================================================ 
 			This copyright notice must be untouched at all times.
 
 			The original version of this stylesheet and the associated (x)html
@@ -200,103 +239,125 @@ body {
 			
 			Edited and simplified by Mal Jones for the National Cancer Institute.
 			=================================================================== */
-			
-			ul.genSiteMainNav li {
-				position: relative;
-			}
-				ul.genSiteMainNav  li ul  {
-					display: none;
-					left: 0;
-					margin: 0;
-					padding: 0;
-					position: absolute;
-					top: 24px;
-					z-index: 999;
-				}
-					ul.genSiteMainNav ul li {
-						display: block;
-						width: 200px;
-					}
-					ul.genSiteMainNav ul a {
-						float: none;
-					}
-			ul.genSiteMainNav  li a:hover {
-			} 
-				ul.genSiteMainNav  li:hover > a {
-				}
-				ul.genSiteMainNav  li:hover > ul {
-					display: block;
-				}		
-		#genSlotMainNav ul.genSiteAdditionalMainNav {
-			float: right;
-			margin: 0 6px 0 auto;
-		}
-	
-	/**
+
+ul.genSiteMainNav li {
+	position: relative;
+}
+
+ul.genSiteMainNav li ul {
+	display: none;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 24px;
+	z-index: 999;
+}
+
+ul.genSiteMainNav ul li {
+	display: block;
+	width: 200px;
+}
+
+ul.genSiteMainNav ul a {
+	float: none;
+}
+
+ul.genSiteMainNav li a:hover {}
+
+ul.genSiteMainNav li:hover > a {}
+
+ul.genSiteMainNav li:hover > ul {
+	display: block;
+}
+
+#genSlotMainNav ul.genSiteAdditionalMainNav {
+	float: right;
+	margin: 0 6px 0 auto;
+}
+
+.genSiteAdditionalMainNav .exitNotification {
+	display: none;
+}
+
+
+/**
 		Site Content Container
 	**/
-	
-	.genSiteContentContainer {
-		margin: 0 12px;
-	}
-	
-		/**
+
+.genSiteContentContainer {
+	margin: 0 12px;
+}
+
+
+/**
 			Left Column
 		**/
-		
-		.genSiteLeftColumn {
-			float: left;
-			width: 20%;
-		}
-		
-			/** 
+
+.genSiteLeftColumn {
+	float: left;
+	width: 20%;
+}
+
+
+/** 
 				Section Navigation
 			**/
-			/** This class was created to allow words to break to a second line in the left nav due to the lack of space. 
+
+
+/** This class was created to allow words to break to a second line in the left nav due to the lack of space. 
 			ul.genSiteSectionNavigation li {
 				word-wrap: break-word;
 			}
 			**/
-		/**
+
+
+/**
 			Main Column
 		**/
-		
-		.genSiteMainColumn {
-			float: left;
-			width: 80%;
-		}
-			/**
+
+.genSiteMainColumn {
+	float: left;
+	width: 80%;
+}
+
+
+/**
 				Content Column
 			**/
-			
-			.genSiteContentColumn {
-				float: left;
-				width: 75%;
-			}
-		
-			/**
+
+.genSiteContentColumn {
+	float: left;
+	width: 75%;
+}
+
+
+/**
 				Right Column
 			**/
 
-			.genSiteRightColumn {
-				float: left;
-				width: 25%;
-			}
-	
-	/**
+.genSiteRightColumn {
+	float: left;
+	width: 25%;
+}
+
+
+/**
 		Site Footer
 	**/
-	
-	#genSlotSiteFooter {
-		margin: 0 12px;
-		text-align: center;
-	}
+
+#genSlotSiteFooter {
+	margin: 0 12px;
+	text-align: center;
+}
+
 
 /***
 	===
 		Content Type Template Specific Styles
 	===
 ***/
+
 
 /**
 	Home page
@@ -310,54 +371,63 @@ body.genHome .genSiteMainContainer {
 /**
 	Full Width Content Column (No Sidebars)
 **/
-body .genSiteContentContainer.noSidebars .genSiteMainColumn   {
+
+body .genSiteContentContainer.noSidebars .genSiteMainColumn {
 	float: none;
 	width: 100%;
 }
-	body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn {
-		float: none;
-		width: 100%;
-	}
+
+body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColumn {
+	float: none;
+	width: 100%;
+}
+
 
 /**
 	Column and Highlight areas used on Home pages and Landing page
 **/
 
+
 /* Two Column Area */
 
-.genSiteColumnContainer {
+.genSiteColumnContainer {}
+
+#genSlotColumn1 {
+	float: left;
+	width: 50%;
 }
-	#genSlotColumn1 {
-		float: left;
-		width: 50%;
-	}
-	#genSlotColumn2 {
-		float: right;
-		width: 49%;
-	}
+
+#genSlotColumn2 {
+	float: right;
+	width: 49%;
+}
+
 
 /* Three Column Area (aka Highlights) */
 
-.genSiteHighlightContainer {
+.genSiteHighlightContainer {}
+
+#genSlotHighlight1 {
+	float: left;
+	width: 33%;
 }
-	#genSlotHighlight1 {
-		float: left;
-		width: 33%;
-	}
-	#genSlotHighlight2 {
-		float: left;
-		width: 33%;
-	}
-	#genSlotHighlight3 { 
-		float: left;
-		width: 33%;
-	}
+
+#genSlotHighlight2 {
+	float: left;
+	width: 33%;
+}
+
+#genSlotHighlight3 {
+	float: left;
+	width: 33%;
+}
+
 
 /**
 	General Content Type with No Right Sidebar
 **/
 
-body .genSiteContentColumn.noRightSidebar{
+body .genSiteContentColumn.noRightSidebar {
 	width: 100%;
 }
 
@@ -366,23 +436,24 @@ body .genSiteContentColumn.noRightSidebar{
 	News Release
 **/
 
-.genNewsMetadata .genNewsEmbargoText{
+.genNewsMetadata .genNewsEmbargoText {
 	float: left;
 	width: 45%;
 }
+
 .genNewsMetadata .genNewsContactInfo {
 	float: right;
 	text-align: right;
 	width: 45%;
 }
 
+
 /**
 	Publications
 **/
 
-.genCitations {
-	
-}
+.genCitations {}
+
 
 /**
 	Funding Opportunities
@@ -393,10 +464,11 @@ ul li.genListItemFundingOpp {
 	margin: 0;
 	padding: 0;
 }
-	ul li.genListItemFundingOpp p.genListItemDesc,
-	ul li.genListItemFundingOpp p.genListItemAdditionalInfo {
-		margin-left: 22px;
-	}
+
+ul li.genListItemFundingOpp p.genListItemDesc,
+ul li.genListItemFundingOpp p.genListItemAdditionalInfo {
+	margin-left: 22px;
+}
 
 
 /**
@@ -404,13 +476,12 @@ ul li.genListItemFundingOpp {
 **/
 
 
-
-	
 /***
 	===
 		Misc Elements
 	===
 ***/
+
 
 /* Skip To Content Link. Used to apply to 508 Compliance rules. Method used is outlined here: http://www.jimthatcher.com/skipnav.htm */
 
@@ -418,24 +489,27 @@ ul li.genListItemFundingOpp {
 	font-size: 1.2em;
 	text-align: left;
 }
-	.genSiteSkipToContent a {
-		left: -9999px;
-		height: 1px;
-		overflow: hidden;
-		position: absolute;
-		text-align: left;
-		width: 1px;
-	}
-		.genSiteSkipToContent a:focus,
-		.genSiteSkipToContent a:active {
-			height: auto;
-			left: 0;
-			overflow: visible;
-			position: static;
-			text-decoration: underline;
-			width: auto;
-		}
-		
+
+.genSiteSkipToContent a {
+	left: -9999px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	text-align: left;
+	width: 1px;
+}
+
+.genSiteSkipToContent a:focus,
+.genSiteSkipToContent a:active {
+	height: auto;
+	left: 0;
+	overflow: visible;
+	position: static;
+	text-decoration: underline;
+	width: auto;
+}
+
+
 /* Pagination used on AggroWidget pages */
 
 ul.genSitePagination {
@@ -443,20 +517,25 @@ ul.genSitePagination {
 	margin: 0;
 	padding: 0;
 }
-	ul.genSitePagination li {
-		display: inline;
-	}
-	
+
+ul.genSitePagination li {
+	display: inline;
+}
+
+
 /* .clearFix is used to allow floated elements to remain properly inside of the box model. Using this is as opposed to overflow:hidden in order to ensure cross-browser compatibility and for smoother development */
 
 .clearFix {
-	zoom: 1; /* triggers hasLayout in IE */
-	display: block; /* resets display for IE/Windows */
+	zoom: 1;
+	/* triggers hasLayout in IE */
+	display: block;
+	/* resets display for IE/Windows */
 }
+
 .clearFix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }

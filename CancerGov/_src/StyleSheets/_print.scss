@@ -88,4 +88,8 @@
  fieldset label.field, .cts-results-container .row .checkbox {
   float: none;
  }
+ /* Styling for PDQ small screen printing */
+    .cis-mobile-print {
+        display: block;
+    } 
 }
