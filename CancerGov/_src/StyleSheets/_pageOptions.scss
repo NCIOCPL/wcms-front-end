@@ -132,6 +132,16 @@
 	//}
 }
 
+/* TABLET page options */
+@include bp(medium) {
+    .ncilandingpage #PageOptionsControl1 ul {
+        float: right;
+    }
+    .espanol-home #PageOptionsControl1 ul {
+        float: left;
+    }
+}
+
 /* DESKTOP page options */
 @include bp(large-up) {
 	// apply homepage- and landing page-only styles

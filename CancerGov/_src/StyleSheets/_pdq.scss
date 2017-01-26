@@ -378,10 +378,21 @@ form .row .view-content-for-container {
 .ct-results-bottom-action {
 }
 .ct-results-top-control {
-	margin: 10px 0 50px 0;
+	margin: 0 0 30px 0;
+	line-height: 3;
+}
+.ct-results-top-control label strong {
+	font-weight: normal;
+}
+@include bp(small) {
+	.ct-results-top-control span
+	{
+		display: block;
+	}
 }
 .ct-results-select-all, .ct-results-sort, .ct-results-show {
 	margin-right: 20px;
+	display: inline-block;
 }
 .ct-results-go {
 }

@@ -30,9 +30,17 @@ if($('.with-image').length == 0){
     $('.list-spacer-image').addClass('image-collapsed');
 	$('.list-item-with-image').addClass('text-collapsed');
 }
-
-// creating a class to temporarily hide exit notifications created by exit links around images	
-$( "a" ).has( "img" ).not(".exitNotification").addClass( "exit-image" );		
 	
-});
+// WCMSFEQ-438 - this code is for exit disclaimers with images. This is on hold pending conversations about whether this should be done	
+// creating a class for anchor tags wrapped around images
+	$( 'a' ).has( 'img' ).not( '.exitNotification' ).addClass( 'anchor-contains-image' );		
+/*	
+// Create a div around the Proteomics image so that we can position the exit disclaimer to it, then move the exit disclaimer inside the newly created div
+	$( '#genSlotBody a.anchor-contains-image' )
+	.wrap( '<div class="proteomics-image"></div>' );
+	
+	$('#genSlotBody .proteomics-image + a.exitNotification').first()
+	.insertAfter('.proteomics-image a.anchor-contains-image');
+*/	
 
+});

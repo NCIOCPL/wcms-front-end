@@ -9,7 +9,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
+    "phantomcss_tests",
     "tests"
   ],
   "devDependencies": {

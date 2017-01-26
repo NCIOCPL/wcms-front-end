@@ -59,8 +59,10 @@ $icon-exit-notification-height: 11px;
 		}
 	}
 // the cthp cards produce multiple links (around image and caption) this hides the exit disclaimer from the caption.
-.cgvcancertypehome .cardBody .icon-exit-notification {
-	display: none;
+@include bp(medium-up) {
+	.cgvcancertypehome .cardBody .icon-exit-notification {
+		display: none;
+	}
 }
 .cthp-card-image {
 	position: relative;

@@ -15,6 +15,13 @@
 		background: none;
 	}
 }
+/* h3 links should have a default of cranberry & no underline for link hovers */
+#cgvBody h3 {
+  a:hover, a:focus {
+    text-decoration: none;
+    color: #bb0e3d;
+  }
+}
 /* content pages need a default of underline for link hovers */
 .general-page-body-container a:hover, .general-page-body-container a:focus {
 	text-decoration: underline;
@@ -398,8 +405,14 @@ hr.ps-divider {
 	font-style: italic;
 	clear: both; }
 
-.public-use, .syndication p{
-	margin-top: 0; }
+.public-use, .syndication p {
+	margin-top: 0;
+}
+
+/* Add spacing above syndication class to prevent image/text from jutting against horizontal rule */
+.syndication {
+    padding-top: 1.1em;
+}
 
 /* this is to prevent the border from writing over a floated element */
 .syndication {

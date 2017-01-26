@@ -2,6 +2,8 @@
 $weight-map: (normal: "400", bold: "700");
 $style-map: (normal: "", italic: "italic");
 
+// mixin for creating fonts with family/weight/style.
+// use with @include font-face("Family", "24", "italic")
 @mixin font-face($family, $weight:normal, $style:normal) {
 	// set the font-family path component (e.g., "Noto-Sans")
 	$path-family: str-replace($family, ' ', '-');
