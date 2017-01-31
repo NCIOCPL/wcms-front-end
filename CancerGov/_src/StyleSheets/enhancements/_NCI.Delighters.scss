@@ -125,7 +125,7 @@
 
 }
 
-#delighter-homePage {
+#delighter-homePage, #delighter-innerpage {
   //display: none;
   position:fixed;
   top:51%;
@@ -150,7 +150,7 @@
 
 /* Large Screens */
 @include bp('(min-width:1025px)') {
-  #delighter-homePage {
+  #delighter-homePage, #delighter-innerpage {
     // left:0;
     // max-width: 1250px;
     width: 100%;
@@ -163,7 +163,7 @@
 }
 /* Extra Large Screens */
 @include bp('(min-width:1770px)') {
-  #delighter-homePage {
+  #delighter-homePage, #delighter-innerpage {
 		right: 10%;
   }
 }
@@ -175,12 +175,16 @@
     padding-right:0;
   }
 
-  #delighter-homePage {
+  #delighter-homePage, #delighter-innerpage {
     position:relative;
     float:right;
     top:13px;
     right:10px;
   }
+  #delighter-innerpage {
+    margin-top: -65px;
+  }
+  
   .delighter.cts-feedback {
     display: none; 
   }  
@@ -252,13 +256,13 @@
       margin:0;
     }
   }
-  #delighter-homePage {
+  #delighter-homePage, #delighter-innerpage {
     right:5px;
   }
 }
 // to fix find a clinical trial button positioning at small widths
 @include bp('(max-width: 360px)') {
-	#delighter-homePage {
+	#delighter-homePage, #delighter-innerpage {
 		top: 0;
 		margin-bottom: 8px;
 	}

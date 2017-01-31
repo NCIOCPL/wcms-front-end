@@ -21,6 +21,39 @@ define(function(require) {
 			return {string:str,depth:depth};
 		}
 
+        
+        /** Functions to track screen size changes */
+        var viewPortLoaded = getWidthForAnalytics(); // Set var for browser width on page load
+        window.onresize = trackViewPortResize; // If the current browser screen is resized, call the trackViewPortResize() function
+         
+        // Set a name for the view port based on the current screen size
+        function getWidthForAnalytics() {
+            var screen = '';
+            if(window.innerWidth)
+            {
+                if (window.innerWidth > 1440) { screen = "Extra wide"; }
+                else if (window.innerWidth > 1024) { screen = "Desktop"; }
+                else if (window.innerWidth > 640) { screen = "Tablet"; }
+                else { screen = "Mobile"; }
+            }
+            return screen;
+        }
+
+        // If the screen is resized past a different breakpoint, track the variable and event
+        function trackViewPortResize() {
+            var viewPortResized = getWidthForAnalytics();
+            if (viewPortLoaded != viewPortResized) {
+                if(typeof NCIAnalytics !== 'undefined') {
+                    if(typeof NCIAnalytics.Resize === 'function') {
+                        NCIAnalytics.Resize(this,viewPortResized);
+                    }
+                }
+                viewPortLoaded = viewPortResized;
+            }
+            return viewPortResized;
+        }
+        
+        
 		$('#mega-nav a')
 			.filter(function() { return $(this).closest('.mobile-item').length === 0; })
 			.on('click.analytics', function(event) {
