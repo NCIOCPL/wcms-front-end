@@ -199,19 +199,46 @@ a {
     width:65%;
     margin-bottom:10px;
   }
-	
-	/* add spacing below each location item */
-  #proximity-trialslist, #filterable-trialslist {
-		div[itemprop=location] { 
-			margin-bottom: 20px;
-		}
-	}
-	
-	/* add spacing above the first location item in proximity lists */
-	#proximity-trialslist > div[itemprop=location]:first-of-type {
-		clear:both;
-		margin-top:20px;
-	}
+  #proximity-trialslist > div:first-of-type {
+    clear:both;
+    margin-top:20px;
+  }
+}
+/* Counter / pager styles above listing body*/
+.ct-listing-util-top  {
+  hr {
+    margin-top: 32px;
+    margin-bottom: 0px;
+  }
+}
+
+a.listing-chat-button {
+  position: relative;
+  z-index: 2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background-color: #62539d;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px #888888;
+  padding: 3px 10px;
+  text-decoration: none;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  display: block;
+  color: #fff;
+  line-height: 24px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.125em; 
+  margin-left: 32%;
+  margin-top: -8%;
+}
+
+a.listing-chat-button:active,
+a.listing-chat-button:hover,
+a.listing-chat-button:link,
+a.listing-chat-button:visited {
+  text-decoration: none; 
 }
 
 /* tablet and mobile */
@@ -232,7 +259,18 @@ a {
     margin-left: -15px;
   }	 
 }
-
+/* Custom styles for pager breakpoint*/
+@media only screen and (max-width: 765px) {
+  .ct-listing-util-top {
+    .ct-listing-pager {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    hr {
+      margin-bottom: 5px;
+    }
+  }
+}
 /* Mobile styles */
 @include bp(small) {
   #cgvBody .cts-share {
@@ -276,5 +314,9 @@ a {
   }
   .api-reference-section .small-10 {
     width: 100%; 
-  }  
+  }
+  a.listing-chat-button {
+    line-height: 22px;
+    font-size: .875em;
+  }
 }
