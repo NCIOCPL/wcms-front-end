@@ -3,6 +3,8 @@ define(function(require) {
         var $ = require('jquery');
 		require('jquery-ui');
 
+		//TODO: Require breakpoints
+
         /*======================================================================================================
 		* function doAccordion
 		*
@@ -153,7 +155,7 @@ define(function(require) {
 
 					for(accordion in targets) {
 						if(targets.hasOwnProperty(accordion)) {
-							NCI.doAccordion(accordion, {'header': targets[accordion]});
+							_doAccordion(accordion, {'header': targets[accordion]});
 						}
 					}
 
