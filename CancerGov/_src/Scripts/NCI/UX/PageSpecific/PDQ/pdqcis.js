@@ -1,7 +1,7 @@
 define(function(require) {
 	var $ = require('jquery');
 	var NCI = require('Common/Enhancements/NCI');
-
+	var NCIAccordion = require('Common/Enhancements/NCI.Accordion');
 	// This file is for the PDQ Cancer Information Summary UX functionality
 	$(function() {
 		// set up outlines
@@ -380,7 +380,7 @@ define(function(require) {
 		// --------------------------------------------------------------
 		$('.summary-sections > section')
 			.wrapAll('<div class="accordion"></div>');
-		NCI.makeAllAccordions();
+		NCIAccordion.makeAllAccordions();
 		//NCI.scrollTo(location.hash);
 
 
