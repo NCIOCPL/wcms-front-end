@@ -1,11 +1,11 @@
 define(function(require) {
-	var $ = require('jquery');
-
-
+    var $ = require('jquery');
+	
 	/***
 	* Main function
 	*/
 	function _initialize() {
+        
 		/* Get our page number from the URL, if it exists */	
 		var url = document.URL;
 		var pn = 1;
@@ -16,15 +16,17 @@ define(function(require) {
 				pn = 1;
 			}
 		}
+        
 		/* Track clicks of individual results */
-		$('.clinical-trial-individual-result').each(function(i, el) {
+		$('.ct-list-item').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
-					rank = $this.index('.clinical-trial-individual-result a') + 1;
+					rank = $this.index('.ct-list-item a') + 1;
 					rank += ('|page ' + pn);
-					NCIAnalytics.CTSResultsClick($this, rank);
+					NCIAnalytics.CTSResultsClick($this, rank, true);
 			});
-		});	
+		});
+	
 	}
 
 	/**

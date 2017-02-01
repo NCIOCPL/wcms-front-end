@@ -170,12 +170,14 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 #end##
 
 #set($resultsUrl = $SearchResults.Control.PageInstruction.GetUrl("ResultsUrl"))##
+#if($SearchResults.Control.IsSearchResult())##
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
   <p>
     This clinical trial matches: #DrawMatchingParamsV2($SearchResults).
   </p>
 </span>
+#end##
 <div class="row">
   <div class="medium-9 columns">
     #if ($SearchResults.Trial.CurrentTrialStatus.toLower == "active")
