@@ -97,8 +97,17 @@ define(function (require) {
 			// viewport size changes
 			$(window).resize(viewportHeight);
 			*/
-            
+			
 		})(jQuery);
+
+		// create a class for mega menu items that have no actual content, so we can unformat them
+		jQuery(document).ready(function(jQuery) {
+			$(".sub-nav-mega").each(function(){
+				if (!$(this).text().trim().length) {
+					$(this).addClass("empty-mega");
+				}
+			})
+		});
 		
 		_initialized = true;
 	}

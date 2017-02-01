@@ -4,7 +4,6 @@ define(function(require) {
 	var jQuery = require('jquery');
 	require('jquery/jplayer');
 	require('Common/Enhancements/analytics');
-	//require('jquery/scrolltofixed');
 	var scrollToFixedPlugin = require('Common/Enhancements/scrollToFixedModule');
 	var NCI = require('Common/Enhancements/NCI');
 	var exitDisclaimer = require('Common/Enhancements/exitDisclaimer');
@@ -15,7 +14,6 @@ define(function(require) {
 	var NCIAutocomplete = require('Common/Enhancements/NCI.Autocomplete');
 	var siteWideSearch = require('Common/Enhancements/SiteWideSearch');
 	require('Common/Plugins/Enlarge');
-	require('jquery/megamenu');
 	var megaMenuModule = require('Common/Enhancements/megaMenuModule');
 	var headroomPlugin = require('Common/Enhancements/headroomModule');
 	require('placeholders');
@@ -24,18 +22,15 @@ define(function(require) {
 	jQuery(document).ready(function(jQuery) {
 		/*** BEGIN header component ***/
 		scrollToFixedPlugin.init();
+		
 		megaMenuModule.init();
 
-		// create a class for mega menu items that have no actual content, so we can unformat them
-		jQuery(document).ready(function(jQuery) {
-			$(".sub-nav-mega").each(function(){
-				if (!$(this).text().trim().length) {
-					$(this).addClass("empty-mega");
-				}
-			})
-		});
-
 		headroomPlugin.init();
+		
+		/*** This initializes jQuery UI Autocomplete on the site-wide search widget.***/
+		(function() {
+			SiteWideSearch.init();
+		})();
 		/*** END header component ***/
 		
 		/*** BEGIN dictionary toggle ***/
@@ -81,14 +76,6 @@ define(function(require) {
 			exitDisclaimer.init();
 		})();
 		/*** END Exit Disclaimer ***/
-		
-		/*** BEGIN Site-Wide Search
-		 * This initializes jQuery UI Autocomplete on the site-wide search widget.
-		 ***/
-		(function() {
-			SiteWideSearch.init();
-		})();
-		/*** END Site-Wide Search ***/
 		
 		/*** BEGIN Page Options
 		 * This functions the font resizer.
