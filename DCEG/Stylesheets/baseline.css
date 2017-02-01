@@ -1365,6 +1365,11 @@ table.carousel-panel-list td {
 
 /* parent container for list items (tabs) */
 
+/* Request to turn thumbnail images off in the TCZ - WCMSFEQ-478 */
+#news-slider ul.news-slider-tabs img {
+	display: none;
+}
+
 #news-slider ul.news-slider-tabs {
 	background: none;
 	margin: 0;
