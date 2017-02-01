@@ -254,6 +254,13 @@ a.comment-count {
 	}
 }
 
+#blog-cards {
+	.columns {
+		// overwrite foundation default behavior of floating last column to the right, WCMSFEQ-506
+		float: left !important;	
+	}
+}
+
 @include bp(medium-down) {
 	// hide blog feature cards on tablet/mobile
 	#blog-cards {
