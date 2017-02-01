@@ -1,31 +1,5 @@
 define(function(require) {
-	var equalHeights = require('./equal_heights');
 	var NCI = {
-		/*======================================================================================================
-		 * function linkToEmpty
-		 *
-		 *  will display an alert if a user clicks on a page that hasn't been created,
-		 *  and focus the user onto the search box
-		 *
-		 * trigger: onclick events (hardcoded in the mega menu)
-		 * returns: null
-		 * paramenters:
-		 *  event[]    (event)    The click event triggering this script
-		 *
-		 * TODO: remove this script after the usability prototype (it probably won't be useful in Devon Rex)
-		 *====================================================================================================*/
-		linkToEmpty: function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-
-			var lang = document.documentElement.lang;
-			var alertText = {
-				'en': "The page you have requested does not yet exist on the prototype.",
-				'es': "La página que ha solicitado no existe todavía en el prototipo. (to be translated)"
-			};
-			alert(alertText[lang] || alertText['en']);
-			document.getElementById('swKeyword').focus();
-		},
 
 		/*======================================================================================================
 		 * function scrollTo
