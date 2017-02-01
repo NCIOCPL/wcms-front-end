@@ -199,10 +199,19 @@ a {
     width:65%;
     margin-bottom:10px;
   }
-  #proximity-trialslist > div:first-of-type {
-    clear:both;
-    margin-top:20px;
-  }
+	
+	/* add spacing below each location item */
+  #proximity-trialslist, #filterable-trialslist {
+		div[itemprop=location] { 
+			margin-bottom: 20px;
+		}
+	}
+	
+	/* add spacing above the first location item in proximity lists */
+	#proximity-trialslist > div[itemprop=location]:first-of-type {
+		clear:both;
+		margin-top:20px;
+	}
 }
 /* Counter / pager styles above listing body*/
 .ct-listing-util-top  {
