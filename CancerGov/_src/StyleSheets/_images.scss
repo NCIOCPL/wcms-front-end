@@ -70,6 +70,15 @@ figure {
 			margin: 0 auto;
 		}
 	}
+	/* image center 40% width */
+	&.image-center-medium{
+		width: 40%;
+		margin: 2.5em auto;
+		/* center images using the centered templates */
+		img{
+			margin: 0 auto;
+		}
+	}
 	/* contain image inside fig */
 	img {
 		max-width: 100%;
