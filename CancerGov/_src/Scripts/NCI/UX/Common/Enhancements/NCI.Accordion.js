@@ -113,17 +113,21 @@ define(function(require) {
 
 			// we need to dynamically find what header is the first header in the article and assume that this header
 			// is the primary heading used (h2 or h3).
-			var firstHeader = $( ".accordion" ).find( "h2, h3" ).get(0);
-			var headingTag =  firstHeader ? firstHeader.tagName : null;
-			
+
+			// TODO: reverting variables used by invalid 'header' below
+			//var firstHeader = $( ".accordion" ).find( "h2, h3" ).get(0);
+			//var headingTag =  firstHeader ? firstHeader.tagName : null;
+
 			var targets = {
 				//'selector' : 'header'
-				'.accordion' : headingTag + ':not([data-display-excludedevice~="mobile"] ' + headingTag + '):not([class~=callout-box] ' + headingTag + ')',
+				// TODO: this is an overly complicated and probably invalid selector for accordion headers and is breaking functionality. Reverting to previous commit
+				//'.accordion' : headingTag + ':not([data-display-excludedevice~="mobile"] ' + headingTag + '):not([class~=callout-box] ' + headingTag + ')',
+				'.accordion' : 'h2:not([data-display-excludedevice~="mobile"] h2)',
 				'#nvcgRelatedResourcesArea' : 'h6',
 				'#cgvCitationSl' : 'h6',
 				'.cthp-content' : 'h3'
 			};
-			var targetsSelector = Object.keys(targets).join(', ');
+			//var targetsSelector = Object.keys(targets).join(', ');
 			var targetsBuiltAccordion = [],
 					targetsHeader = [],
 					accordion;
