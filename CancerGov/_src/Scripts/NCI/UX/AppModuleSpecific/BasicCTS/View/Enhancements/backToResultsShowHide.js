@@ -2,12 +2,12 @@ define(function(require) {
     var $ = require('jquery');
     require('jquery-ui');
 
-	/***
-	* Main function
-	*/
-	function _initialize() {
+    /***
+    * Main function
+    */
+    function _initialize() {
         
-        // If this view page has the "rl=" param set, keep that param stays in place if we change the location list view.
+        // If this view page has the "rl=" param set, keep that param in place if we switch the location list view.
         // This will keep the "back to search results" text on the page.
         var params = window.location.search;
         if(params.indexOf('&rl=') > -1)
@@ -21,24 +21,24 @@ define(function(require) {
         }
     }
 
-	/**
-	 * Identifies if this enhancement has been initialized or not.
-	 * @type {Boolean}
-	 */
-	var initialized = false;
+    /**
+     * Identifies if this enhancement has been initialized or not.
+     * @type {Boolean}
+     */
+    var initialized = false;
 
-	/**
-	 * Exposed functions available to this module.
-	 */
-	return {
-		init: function() {
-			if (initialized) {
-				return;
-			}
+    /**
+     * Exposed functions available to this module.
+     */
+    return {
+        init: function() {
+            if (initialized) {
+                return;
+            }
 
-			_initialize();
+            _initialize();
 
-			initialized = true;
-		}
-	};
+            initialized = true;
+        }
+    };
 });
