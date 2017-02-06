@@ -16,7 +16,7 @@ if (document.URL.indexOf('www.cancer.gov') != -1 ||
 
 /*
  * Mapping of all WCMS reporting suites
- * Last update: 2016-02-16
+ * Last update: 2017-02-06
  */
 var AllSuites =
 {
