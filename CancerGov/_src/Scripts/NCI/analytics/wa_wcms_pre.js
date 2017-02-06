@@ -8,12 +8,9 @@ var wa_lang = '';
  */
 var live_or_other = 'other';
 if (document.URL.indexOf('www.cancer.gov') != -1 ||
-    document.URL.indexOf('ccop.cancer.gov') != -1 ||
     document.URL.indexOf('dceg.cancer.gov') != -1 ||
-    document.URL.indexOf('imaging.cancer.gov') != -1 ||
     document.URL.indexOf('proteomics.cancer.gov') != -1 ||
-    document.URL.indexOf('cancergenome.nih.gov') != -1 ||
-    document.URL.indexOf('tcga.cancer.gov') != -1) {
+    document.URL.indexOf('cancergenome.nih.gov') != -1) {
     live_or_other = 'live';
 };
 
@@ -95,12 +92,6 @@ var AllSuites =
     'ncidceg-cancerepidemiologyandgenetics': {
         live: 'ncidceg-cancerepidemiologyandgenetics',
         other: 'ncidceg-cancerepidemiologyandgenetics-dev'
-    },
-        
-    /// Imaging suites
-    'ncidctd-cancertreatmentanddiagnosis': {
-        live: 'ncidctd-cancertreatmentanddiagnosis',
-        other: 'ncidctd-cancertreatmentanddiagnosis-dev'
     },
 
     /// TCGA and Proteomics suites
