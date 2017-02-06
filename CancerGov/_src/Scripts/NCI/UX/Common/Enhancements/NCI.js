@@ -1,4 +1,6 @@
-define(function(require) {
+define(function (require) {
+	var NCIAutocomplete = require('Common/Enhancements/NCI.Autocomplete');
+
 	var NCI = {
 
 		/*======================================================================================================
@@ -11,11 +13,11 @@ define(function(require) {
 		 *  anchor[]    (string || DOM element)    ID selector of the anchor to be scrolled to, or the element itself
 		 *
 		 *====================================================================================================*/
-		scrollTo: function(anchor, eventType) {
+		scrollTo: function (anchor, eventType) {
 			var $ = require('jquery');
 
 			// ensure the anchor is a string OR an element
-			if(!(typeof anchor === "string" || // string
+			if (!(typeof anchor === "string" || // string
 				(typeof anchor === "object" && anchor !== null && anchor.nodeType === 1 && typeof anchor.nodeName === "string") // DOM element
 			)) {
 				// unknown anchor
@@ -27,9 +29,9 @@ define(function(require) {
 				fuzz = 45;
 
 			// we need to sanitize the string iff the anchor parameter is actually a string
-			if(typeof anchor === "string") {
+			if (typeof anchor === "string") {
 				// remove initial hash
-				if(anchor.indexOf('#') === 0) {
+				if (anchor.indexOf('#') === 0) {
 					anchor = anchor.substring(1, anchor.length);
 				}
 				isSection = anchor.match(/^section\//i);
@@ -46,15 +48,15 @@ define(function(require) {
 					scrollY = window.scrollY || window.pageYOffset,
 					willFreeze = true,
 					anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0)
-				;
+					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz / 2)) && (scrollY !== 0)
+					;
 
 				//TODO: previous state not reliable on mobile since accordions are always collapsed on load
 				// if the anchor is a PDQ section and we're >=desktop
-				if(width > NCI.Breakpoints.large && isSection) {
+				if (width > NCI.Breakpoints.large && isSection) {
 					scrollY = 0;
 					willFreeze = false;
-				} else if(hasPreviousState) {
+				} else if (hasPreviousState) {
 					// returning true does not prevent standard anchors from working on page load
 					return;
 				} else {
@@ -62,16 +64,16 @@ define(function(require) {
 				}
 
 				// freeze headroom
-				if(willFreeze) {
+				if (willFreeze) {
 					$('.headroom-area').addClass('frozen');
 				}
 
 				// unfreeze headroom
-				if(willFreeze) {
-					setTimeout(function() {
+				if (willFreeze) {
+					setTimeout(function () {
 						$('[tabindex="1"]').focus();
 						window.scrollTo(0, scrollY);
-						setTimeout(function() {
+						setTimeout(function () {
 							$('.headroom-area').removeClass('frozen');
 
 						}, 150);
@@ -80,9 +82,9 @@ define(function(require) {
 				$accordion.off('accordionactivate.NCI.scrollTo');
 			}
 
-			if($accordion.length > 0) {
-				$accordion.on('accordionactivate.NCI.scrollTo', function(e) { doTheScroll(); });
-				if(!$accordionPanel.hasClass('accordion-content-active')) {
+			if ($accordion.length > 0) {
+				$accordion.on('accordionactivate.NCI.scrollTo', function (e) { doTheScroll(); });
+				if (!$accordionPanel.hasClass('accordion-content-active')) {
 					$accordion.accordion('option', 'active', accordionIndex);
 				} else {
 					doTheScroll();
@@ -139,36 +141,57 @@ define(function(require) {
 		 * Parameters: null
 		 *
 		 *====================================================================================================*/
-		buildOTP: function() {
+		buildOTP: function () {
 			var $ = require('jquery');
 
 			var options = {
-					titleText: {
-						en: "On This Page",
-						es: "En Esta Página"
-					},
-					class: "on-this-page hide-otp-on-collapse",
-					placement: {
-						insert: 'prependTo',
-						to: '[data-otp-selector]'
-					},
-					ignore: {
-						heading: ['h6', '.ignore-this h2', '.callout-box h3', '.callout-box-full h3', '.callout-box-left h3', '.callout-box-right h3', '.card-thumbnail h3', '.feature-card h3'],
-						node: ['aside']
-					},
-					maxLevel: $('[data-otp-depth]')[0]?$('[data-otp-depth]').data('otp-depth'):1
+				titleText: {
+					en: "On This Page",
+					es: "En Esta Página"
 				},
+				class: "on-this-page hide-otp-on-collapse",
+				placement: {
+					insert: 'prependTo',
+					to: '[data-otp-selector]'
+				},
+				ignore: {
+					heading: ['h6', '.ignore-this h2', '.callout-box h3', '.callout-box-full h3', '.callout-box-left h3', '.callout-box-right h3', '.card-thumbnail h3', '.feature-card h3'],
+					node: ['aside']
+				},
+				maxLevel: $('[data-otp-depth]')[0] ? $('[data-otp-depth]').data('otp-depth') : 1
+			},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
 					.append($('<h6>').text(options.titleText[NCI.page.lang || 'en'])),
 				articleRoot = $('article').data('nci-outline').sections[0]
-			;
+				;
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
 			$nav[options.placement.insert](options.placement.to);
 
 			return $nav;
+		},
+
+		/*======================================================================================================
+		* function doAutocomplete
+		*
+		*  will generate an autocomplete box for an <input type="text"> element, using jQuery UI
+		* 
+		*  DEPRECATED!  Please change code to use NCI.Autocomplete.doAutocomplete.
+		*
+		* returns: null
+		* parameters:
+		*  !target[]            (string)(jQuery selector)    Specific(!) selector of the input to be autocompleted.
+		*  !src[]               (string || function)         URL (string) or function returning a Promise of the autocomplete service.
+		*  contains[false]      (boolean)                    Boolean variable describing whether the autocomplete is for "starts with" (false) or "contains" (true).
+		*  queryParam["term"]   (string)                     Primary search querystring parameter.
+		*  queryString{}        (object)                     Additional parts of the querystring to pass to the autocomplete service.
+		*  opts{}               (object)                     Other options to pass to jQuery UI's autocomplete function.
+		*
+		*====================================================================================================*/
+		doAutocomplete: function (target, src, contains, queryParam, queryString, opts) {
+			NCIAutocomplete.doAutocomplete(target, src, contains, queryParam, queryString, opts);
 		},
 
 		Breakpoints: require('Common/Enhancements/NCI.breakpoints'),
