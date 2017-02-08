@@ -61,21 +61,28 @@
             if(items.length === 0) return;
 
             // get the top-offset of the first item, to check for stacking
-            var firstTopOffset = items.first().offset().top;
-            items.height('inherit');
+            var firstTopOffset = items.first().offset().top,
+                isStacked = false;
 
+            items.height('inherit');
 
             /* iterate through the items to:
              * 1) check if they're stacked, and
              * 2) get the heights of the elements
              */
 
-
             // get all element heights
-            var heights = items.map(function() { return $(this).height() })
+            var heights = items.map(function() {
+                var el = $(this);
+                if (el.offset().top !== firstTopOffset) {
+                    isStacked = true;
+                    return;
+                }
+                return el.height();
+            });
 
             // if they are stacked, we don't need to worry about making them the same height
-            if (base.options.isStacked) return;
+            if (isStacked) return;
 
             // get the maximum height (from the previously-calculated heights)
             var maxHeight = Math.max.apply(null, heights);
@@ -110,7 +117,7 @@
 
     // plugin defaults
     $.NCI.equal_heights.defaultOptions = {
-        isStacked: false
+
     };
 
     // Add plugin to jQuery namespace
