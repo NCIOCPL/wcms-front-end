@@ -1467,7 +1467,9 @@ table.carousel-panel-list td {
 
 /* container for individual list items image and text on hover */
 
-#news-slider li.news-slider-tabs-item a:hover {}
+#news-slider li.news-slider-tabs-item a:hover, #news-slider li.news-slider-tabs-item a:visited {
+	color: #0054a6;
+}
 
 
 /* container for text in individual list items, selected */
