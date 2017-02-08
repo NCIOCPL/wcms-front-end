@@ -1378,6 +1378,8 @@ table.carousel-panel-list td {
 	overflow: hidden;
 }
 
+
+
 #news-slider .ui-widget-header {
 	border: 0;
 }
@@ -1404,12 +1406,12 @@ table.carousel-panel-list td {
 			 End Background Gradient */
 	border-top: 1px solid #dbdbdb;
 	border-right: 1px solid #dbdbdb;
-	float: left;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	width: 33%;
 	overflow: hidden;
+	display: table-cell;
 }
 
 #news-slider ul.news-slider-tabs li.first {
@@ -2435,6 +2437,7 @@ table.carousel-panel-list td {
 	padding: 0;
 	width: 100%;
 	overflow: hidden;
+	display: table;
 }
 
 .genlanding #news-slider .ui-widget-header {
@@ -2463,7 +2466,6 @@ table.carousel-panel-list td {
 			 End Background Gradient */
 	border-top: 1px solid #dbdbdb;
 	border-right: 1px solid #dbdbdb;
-	float: left;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
