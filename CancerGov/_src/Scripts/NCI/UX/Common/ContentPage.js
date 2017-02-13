@@ -539,8 +539,60 @@ define(function(require) {
 		preventEnter.init();
 
 		// Proactive Live Help for CTS
-		require("Common/Enhancements/NCI.ProactiveLiveHelpForCTS").init();
+		var ProactiveLiveHelp = require("Common/Enhancements/NCI.ProactiveLiveHelp");
+
+		ProactiveLiveHelp.init({
+			urls: [
+				"/about-cancer/treatment/clinical-trials/search",
+				"/about-cancer/treatment/clinical-trials/basic",
+				"/about-cancer/treatment/clinical-trials/search/r",
+				"/about-cancer/treatment/clinical-trials/search/v",
+				"/about-cancer/treatment/clinical-trials/advanced-search",
+				"/about-cancer/treatment/clinical-trials/search/results",
+				"/about-cancer/treatment/clinical-trials/search/view"
+			],
+			popupID: 'ProactiveLiveHelpForCTSPrompt',
+			popupTitle: "Questions about Clinical Trials?",
+			optOutDurationDays: 30
+		});
 		// END Clinical Trial Search Setup
+
+		// Proactive Live Help for Colo-rectal Cancer Type Pages
+		ProactiveLiveHelp.init({
+			urls: [
+				'/types/colorectal',
+				'/types/colorectal/patient/colon-treatment-pdq',
+				'/types/colorectal/patient/rectal-treatment-pdq',
+				'/types/colorectal/patient/colorectal-prevention-pdq',
+				'/types/colorectal/patient/colorectal-screening-pdq',
+				'/types/colorectal/hp',
+				'/types/colorectal/hp/colon-treatment-pdq',
+				'/types/colorectal/hp/rectal-treatment-pdq',
+				'/types/colorectal/hp/colorectal-prevention-pdq',
+				'/types/colorectal/hp/colorectal-genetics-pdq',
+				'/types/colorectal/hp/colorectal-screening-pdq',
+				'/types/colorectal/research',
+				'/types/colorectal/screening-fact-sheet',
+				'/types/colorectal/did-you-know-colorectal-cancer-screening-video',
+				'/types/colorectal/research/cetuximab-chemo-no-benefit',
+				'/types/colorectal/research/colonoscopy-reduces-deaths',
+				'/types/colorectal/research/eflornithine-sulindac',
+				'/types/colorectal/research/folfox-celecoxib',
+				'/types/colorectal/research/preop-treatment',
+				'/types/colorectal/research/screening-sigmoidoscopy',
+				'/types/colorectal/research/aspirin-reduces-risk',
+				'/types/colorectal/research/TAS-102-overall-survival',
+				'/types/colorectal/research/bevacizumab-severe-side-effects',
+				'/types/colorectal/research/virtual-colonoscopy-results-qa',
+				'/types/colorectal/research/polyp-fiber-prevention-qa,',
+				'/about-cancer/treatment/drugs/colorectal'
+			],
+			popupID: 'PLH-colorectal',
+			popupTitle: 'Questions about Colo-rectal Cancer?',
+			optOutDurationDays: 3,
+			popupDelaySeconds: 10
+
+		});
 		
 		// Blue Ribbon Panel - Page Specific
 		require("Common/Enhancements/NCI.Video").init();
