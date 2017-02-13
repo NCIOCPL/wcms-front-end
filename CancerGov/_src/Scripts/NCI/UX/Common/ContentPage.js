@@ -558,6 +558,7 @@ define(function(require) {
 		// END Clinical Trial Search Setup
 
 		// Proactive Live Help for Colo-rectal Cancer Type Pages
+		/*
 		ProactiveLiveHelp.init({
 			urls: [
 				'/types/colorectal',
@@ -593,6 +594,7 @@ define(function(require) {
 			popupDelaySeconds: 10
 
 		});
+		*/
 		
 		// Blue Ribbon Panel - Page Specific
 		require("Common/Enhancements/NCI.Video").init();
