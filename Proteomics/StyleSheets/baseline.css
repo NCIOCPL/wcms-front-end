@@ -259,6 +259,13 @@ figure.image-center-full {
 }
 
 
+/* image center 40% width */
+figure.image-center-medium {
+	width: 40%;
+	margin: 0 auto 1em auto;
+}
+
+
 /* contain image inside fig */
 
 figure img {

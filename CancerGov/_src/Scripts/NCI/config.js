@@ -47,7 +47,8 @@ requirejs.config({
 		'jquery/megamenu': 'Vendor/jquery-accessibleMegaMenu',
 		'jquery/scrolltofixed': 'Vendor/jquery-scrolltofixed',
 		'jquery/slick': 'Vendor/slick',
-		'jquery/touchswipe': 'Vendor/jquery.touchSwipe.min'
+		'jquery/touchswipe': 'Vendor/jquery.touchSwipe.min',
+		'jquery/throttledebounce': 'Vendor/jquery.ba-throttle-debounce.min'
 	},
 	/**
 	 * Configure the dependencies, exports, and custom initialization for older, traditional "browser globals" scripts that do not use define() to declare the dependencies and set a module value.
@@ -70,7 +71,8 @@ requirejs.config({
 		'jquery/megamenu': ['jquery'],
 		'jquery/slick': ['jquery'],
 		'jquery/scrolltofixed': ['jquery'],
-		'jquery/touchswipe': ['jquery']
+		'jquery/touchswipe': ['jquery'],
+		'jquery/throttledebounce': ['jquery']
 	},
 	hbs: {
 		helpers: true,
