@@ -11,12 +11,15 @@ define(function(require) {
         // This will keep the "back to search results" text on the page.
         var params = window.location.search;
         if(params.indexOf('&rl=') > -1)
-        {
+        {            
             $selector = $('#filterable-trialslist .right.location-link a, #proximity-trialslist .right.location-link a');
-            $href = $selector.attr('href');
-            if($href.indexOf('#') > -1) {
-                $href = $href.replace('#','&rl=1#');
-                $selector.attr('href', $href);
+            if($selector.length > 0)
+            {
+                $href = $selector.attr('href');
+                if(typeof($href) === 'string' && $href.indexOf('#') > -1) {
+                    $href = $href.replace('#','&rl=1#');
+                    $selector.attr('href', $href);
+                }
             }
         }
     }
