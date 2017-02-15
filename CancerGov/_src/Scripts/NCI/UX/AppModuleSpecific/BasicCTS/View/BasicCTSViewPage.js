@@ -7,7 +7,7 @@ define(function(require) {
 		require('BasicCTSView/Enhancements/LocationFilter').init();
 		require('BasicCTSView/Enhancements/accordionEnhancements').init();
 		require('BasicCTSView/Enhancements/ctsViewAnalytics').init();
-		require('BasicCTSView/Enhancements/hotfix-OCECTS-344').init();
+		require('BasicCTSView/Enhancements/backToSearch').init();
 		require('BasicCTSCommon/Enhancements/Delighters').init();
 		require('UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics').init();
 		
