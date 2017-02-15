@@ -170,6 +170,11 @@ figure.image-center {
 figure.image-center-full {
      margin: 0 auto 1em auto;
 }
+/* image center 40% width */
+figure.image-center-medium {
+	width: 40%;
+	margin: 0 auto 1em auto;
+}
 /* contain image inside fig */
 figure img {
     max-width: 100%;
@@ -237,7 +242,7 @@ figcaption p:last-child {
 }
 
 .media-label.media-infographic.es-us:before {
-    content:"Infografía";
+    content:"Infografï¿½a";
 }
 /* end images using the HTML5 figure and figcaption elements */
 

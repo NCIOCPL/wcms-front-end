@@ -1,5 +1,6 @@
 define(function(require) {
 	require('Common/Enhancements/sharecomponent');
+	var NCIAccordion = require('Common/Enhancements/NCI.Accordion');
 	$(function() {
 		require('Common/Enhancements/analytics.After').init();
 	});
@@ -24,7 +25,7 @@ define(function(require) {
 
 		// Make accordions work
 		var $target = $("#blog-archive-accordion");
-		NCI.doAccordion($target, 
+		NCIAccordion.doAccordion($target, 
 			{header: "h3", 
 			//Override the beforeActivate just to add Analytics tracking for blog archive accordion
 			beforeActivate: function (event, ui) {
@@ -65,7 +66,7 @@ define(function(require) {
 						return false; // Cancels the default action
 					}
 		});
-        NCI.doAccordion($('#blog-archive-accordion-year'), {header: "h4"});
+        NCIAccordion.doAccordion($('#blog-archive-accordion-year'), {header: "h4"});
 
 		// This little blurb is searching for the parent accordion elements of the currently selected archive link and expanding the 
 		// accordion to that element. This keeps the accordion collapsed on the elements not currently being viewed.

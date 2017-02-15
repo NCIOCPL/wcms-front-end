@@ -5,6 +5,7 @@
 var fs = require('fs');
 var url = require('url');
 var hacks = require(fs.absolute( fs.workingDirectory + '' ) + '/hacks');
+var mouse = require("mouse").create(casper);
 
 var settings = hacks.require('settings');
 
@@ -19,7 +20,8 @@ function VisualTest(fileName, options) {
     this.selectors = options.selectors;
     this.testName = options.name;
 
-    this.viewports = settings.viewports;
+    this.viewports = options.viewports || settings.viewports;
+    this.mouseEvent = options.mouseEvent;
 }
 
 // Instance items.
@@ -33,6 +35,14 @@ VisualTest.prototype = {
         // Reference to the VisualTest object for use in callbacks.
         var self = this;
         var testName = this.testName?" - " + this.testName:"";
+        var waitNseconds = function(n) {
+            var seconds = new Date().getTime() / 1000;
+            var time_now = seconds;
+            while ((time_now + n) > seconds)
+            {
+                seconds = new Date().getTime() / 1000;
+            }
+        };
 
         casper.test.begin("Running Test: " + this.fileName + testName, function(test) {
 
@@ -61,6 +71,23 @@ VisualTest.prototype = {
                         // Loop through the test's list of CSS selectors, creating
                         // a screenshot of each one.
                         self.selectors.forEach(function(selector, selectorIndex){
+                            if(self.mouseEvent) {
+                                casper.mouse[self.mouseEvent.event](self.mouseEvent.targets[selectorIndex]);
+                                casper.evaluate(function(){
+
+                                });
+                                if (self.mouseEvent.wait) {
+                                    console.log("waiting "+ self.mouseEvent.wait +"s for hover");
+                                    // casper.wait is async so screenshot would have to go in callback
+                                    // casper.wait(self.mouseEvent.wait,function(){
+                                    //     console.log("The wait is over.")
+                                    //
+                                    // });
+                                    waitNseconds(self.mouseEvent.wait);
+                                }
+                            }
+
+
                             var testBaseName = self.testName?self.testName.replace(/[^a-z0-9]/gi, '-'):self.fileName;
                             var snapshotName = testBaseName + '-(' + port.name + ')-' + selectorIndex;
                     		phantomcss.screenshot( selector, snapshotName );

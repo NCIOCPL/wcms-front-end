@@ -1,31 +1,7 @@
-define(function(require) {
-	var equalHeights = require('./equal_heights');
-	var NCI = {
-		/*======================================================================================================
-		 * function linkToEmpty
-		 *
-		 *  will display an alert if a user clicks on a page that hasn't been created,
-		 *  and focus the user onto the search box
-		 *
-		 * trigger: onclick events (hardcoded in the mega menu)
-		 * returns: null
-		 * paramenters:
-		 *  event[]    (event)    The click event triggering this script
-		 *
-		 * TODO: remove this script after the usability prototype (it probably won't be useful in Devon Rex)
-		 *====================================================================================================*/
-		linkToEmpty: function(event) {
-			event.preventDefault();
-			event.stopPropagation();
+define(function (require) {
+	var NCIAutocomplete = require('Common/Enhancements/NCI.Autocomplete');
 
-			var lang = document.documentElement.lang;
-			var alertText = {
-				'en': "The page you have requested does not yet exist on the prototype.",
-				'es': "La página que ha solicitado no existe todavía en el prototipo. (to be translated)"
-			};
-			alert(alertText[lang] || alertText['en']);
-			document.getElementById('swKeyword').focus();
-		},
+	var NCI = {
 
 		/*======================================================================================================
 		 * function scrollTo
@@ -37,11 +13,11 @@ define(function(require) {
 		 *  anchor[]    (string || DOM element)    ID selector of the anchor to be scrolled to, or the element itself
 		 *
 		 *====================================================================================================*/
-		scrollTo: function(anchor, eventType) {
+		scrollTo: function (anchor, eventType) {
 			var $ = require('jquery');
 
 			// ensure the anchor is a string OR an element
-			if(!(typeof anchor === "string" || // string
+			if (!(typeof anchor === "string" || // string
 				(typeof anchor === "object" && anchor !== null && anchor.nodeType === 1 && typeof anchor.nodeName === "string") // DOM element
 			)) {
 				// unknown anchor
@@ -53,9 +29,9 @@ define(function(require) {
 				fuzz = 45;
 
 			// we need to sanitize the string iff the anchor parameter is actually a string
-			if(typeof anchor === "string") {
+			if (typeof anchor === "string") {
 				// remove initial hash
-				if(anchor.indexOf('#') === 0) {
+				if (anchor.indexOf('#') === 0) {
 					anchor = anchor.substring(1, anchor.length);
 				}
 				isSection = anchor.match(/^section\//i);
@@ -72,15 +48,15 @@ define(function(require) {
 					scrollY = window.scrollY || window.pageYOffset,
 					willFreeze = true,
 					anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0)
-				;
+					hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz / 2)) && (scrollY !== 0)
+					;
 
 				//TODO: previous state not reliable on mobile since accordions are always collapsed on load
 				// if the anchor is a PDQ section and we're >=desktop
-				if(width > NCI.Breakpoints.large && isSection) {
+				if (width > NCI.Breakpoints.large && isSection) {
 					scrollY = 0;
 					willFreeze = false;
-				} else if(hasPreviousState) {
+				} else if (hasPreviousState) {
 					// returning true does not prevent standard anchors from working on page load
 					return;
 				} else {
@@ -88,16 +64,16 @@ define(function(require) {
 				}
 
 				// freeze headroom
-				if(willFreeze) {
+				if (willFreeze) {
 					$('.headroom-area').addClass('frozen');
 				}
 
 				// unfreeze headroom
-				if(willFreeze) {
-					setTimeout(function() {
+				if (willFreeze) {
+					setTimeout(function () {
 						$('[tabindex="1"]').focus();
 						window.scrollTo(0, scrollY);
-						setTimeout(function() {
+						setTimeout(function () {
 							$('.headroom-area').removeClass('frozen');
 
 						}, 150);
@@ -106,9 +82,9 @@ define(function(require) {
 				$accordion.off('accordionactivate.NCI.scrollTo');
 			}
 
-			if($accordion.length > 0) {
-				$accordion.on('accordionactivate.NCI.scrollTo', function(e) { doTheScroll(); });
-				if(!$accordionPanel.hasClass('accordion-content-active')) {
+			if ($accordion.length > 0) {
+				$accordion.on('accordionactivate.NCI.scrollTo', function (e) { doTheScroll(); });
+				if (!$accordionPanel.hasClass('accordion-content-active')) {
 					$accordion.accordion('option', 'active', accordionIndex);
 				} else {
 					doTheScroll();
@@ -165,30 +141,30 @@ define(function(require) {
 		 * Parameters: null
 		 *
 		 *====================================================================================================*/
-		buildOTP: function() {
+		buildOTP: function () {
 			var $ = require('jquery');
 
 			var options = {
-					titleText: {
-						en: "On This Page",
-						es: "En Esta Página"
-					},
-					class: "on-this-page hide-otp-on-collapse",
-					placement: {
-						insert: 'prependTo',
-						to: '[data-otp-selector]'
-					},
-					ignore: {
-						heading: ['h6', '.ignore-this h2', '.callout-box h3', '.callout-box-full h3', '.callout-box-left h3', '.callout-box-right h3', '.card-thumbnail h3'],
-						node: ['aside']
-					},
-					maxLevel: $('[data-otp-depth]')[0]?$('[data-otp-depth]').data('otp-depth'):1
+				titleText: {
+					en: "On This Page",
+					es: "En Esta Página"
 				},
+				class: "on-this-page hide-otp-on-collapse",
+				placement: {
+					insert: 'prependTo',
+					to: '[data-otp-selector]'
+				},
+				ignore: {
+					heading: ['h6', '.ignore-this h2', '.callout-box h3', '.callout-box-full h3', '.callout-box-left h3', '.callout-box-right h3', '.card-thumbnail h3', '.feature-card h3'],
+					node: ['aside']
+				},
+				maxLevel: $('[data-otp-depth]')[0] ? $('[data-otp-depth]').data('otp-depth') : 1
+			},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', "navigation")
 					.append($('<h6>').text(options.titleText[NCI.page.lang || 'en'])),
 				articleRoot = $('article').data('nci-outline').sections[0]
-			;
+				;
 
 			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
@@ -198,197 +174,11 @@ define(function(require) {
 		},
 
 		/*======================================================================================================
-		* function doAccordion
-		*
-		*  will generate an accordion using jQuery UI
-		*
-		* returns: null
-		* parameters:
-		*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
-		*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
-		*
-		*====================================================================================================*/
-		doAccordion: function(target, opts) {
-			var $ = require('jquery');
-			require('jquery-ui');
-
-			var $target = $(target);
-			var defaultOptions = {
-				heightStyle: "content",
-				header: "h2",
-				collapsible: true,
-				active: false,
-				/* override default functionality of accordion that only allows for a single pane to be open
-				 * original source: http://stackoverflow.com/questions/15702444/jquery-ui-accordion-open-multiple-panels-at-once */
-				beforeActivate: function (event, ui) {
-					var icons = $(this).accordion('option', 'icons');
-					// The accordion believes a panel is being opened
-					var currHeader;
-					if (ui.newHeader[0]) {
-						currHeader = ui.newHeader;
-						// The accordion believes a panel is being closed
-					} else {
-						currHeader = ui.oldHeader;
-					}
-					var currContent = currHeader.next('.ui-accordion-content');
-					// Since we've changed the default behavior, this detects the actual status
-					var isPanelSelected = currHeader.attr('aria-selected') == 'true';
-
-					// Toggle the panel's header
-					currHeader.toggleClass('ui-corner-all', isPanelSelected).toggleClass('accordion-header-active ui-state-active ui-corner-top', !isPanelSelected).attr('aria-selected', (!isPanelSelected).toString()).attr('aria-expanded', (!isPanelSelected).toString());
-
-					// Toggle the panel's icon if the active and inactive icons are different
-					if(icons.header !== icons.activeHeader) {
-						currHeader.children('.ui-icon').toggleClass(icons.header, isPanelSelected).toggleClass(icons.activeHeader, !isPanelSelected);
-					}
-
-					// Toggle the panel's content
-					currContent.toggleClass('accordion-content-active', !isPanelSelected);
-					if (isPanelSelected) {
-						currContent.slideUp(function() {
-							$target.trigger('accordionactivate', ui);
-						});
-					} else {
-						currContent.slideDown(function() {
-							$target.trigger('accordionactivate', ui);
-						});
-					}
-
-					return false; // Cancels the default action
-				},
-				icons: {
-					"header": "toggle",
-					"activeHeader": "toggle"
-				}
-			};
-			var options = $.extend({}, defaultOptions, opts);
-
-			if($target.length > 0) {
-				$target.accordion(options);
-			}
-		},
-
-		/*======================================================================================================
-		* function undoAccordion
-		*
-		*  will destroy an accordion using jQuery UI
-		*
-		* returns: null
-		* parameters:
-		*  target[]    (string)(jQuery selector)    Selector of the div to be accordionized.
-		*  opts{}      (object)                     Options to pass to jQuery UI's accordion function.
-		*
-		*====================================================================================================*/
-		undoAccordion: function(target) {
-			var $ = require('jquery');
-			require('jquery-ui');
-
-			var $target = $(target);
-			if($target.length > 0) {
-				/* destroy the accordion if it's already been initialized */
-				$(target).each(function() {
-					if (typeof $(this).data("ui-accordion") !== "undefined") {
-						$(this).accordion("destroy");
-						if (typeof equalHeights === "function") {
-							// if we're on homepage, landing page, or CTHP
-							equalHeights();
-						}
-					}
-				});
-			}
-		},
-
-		/*======================================================================================================
-		* function undoAccordion
-		*
-		*  will generate all possible accordions on the page
-		*
-		* returns: null
-		* parameters: null
-		*
-		*====================================================================================================*/
-		makeAllAccordions: function() {
-			var $ = require('jquery');
-
-			// we need to dynamically find what header is the first header in the article and assume that this header
-			// is the primary heading used (h2 or h3).
-			var firstHeader = $( ".accordion" ).find( "h2, h3" ).get(0);
-			var headingTag =  firstHeader ? firstHeader.tagName : null;
-			
-			var targets = {
-				//'selector' : 'header'
-				'.accordion' : headingTag + ':not([data-display-excludedevice~="mobile"] ' + headingTag + '):not([class~=callout-box] ' + headingTag + ')',
-				'#nvcgRelatedResourcesArea' : 'h6',
-				'#cgvCitationSl' : 'h6',
-				'.cthp-content' : 'h3'
-			};
-			var targetsSelector = Object.keys(targets).join(', ');
-			var targetsBuiltAccordion = [],
-					targetsHeader = [],
-					accordion;
-
-			for(var target in targets) {
-				if(targets.hasOwnProperty(target)) {
-					targetsBuiltAccordion.push(target + '.ui-accordion');
-					targetsHeader.push(target + ' ' + targets[target]);
-				}
-			}
-			var targetsBuiltAccordionSelector = targetsBuiltAccordion.join(', ');
-			var targetsHeaderSelector = targetsHeader.join(', ');
-
-			function accordionize() {
-				/* determine window width */
-				var width = window.innerWidth || $(window).width(),
-					accordion;
-
-				/* If the width is less than or equal to 640px (small screens)
-				 * AND if the accordion(s) isn't (aren't) already built */
-				if (width <= NCI.Breakpoints.medium && $(targetsBuiltAccordionSelector).length === 0 || ($( ".accordion" ).hasClass( "desktop" )) && $(targetsBuiltAccordionSelector).length === 0 ) {
-					// verify that the accordion will build correctly
-					$(targetsHeaderSelector).each(function() {
-						var $this = $(this);
-						if($this.nextAll().length > 0 || $this.next().is('ul, ol')) {
-							$this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
-						}
-					});
-
-					for(accordion in targets) {
-						if(targets.hasOwnProperty(accordion)) {
-							NCI.doAccordion(accordion, {'header': targets[accordion]});
-						}
-					}
-
-					// after all accordions have been built, add appropriate odd/even classes to the accordion headers
-					var builtAccordionHeaders = $('.ui-accordion-header');
-					for(var i = 1; i <= builtAccordionHeaders.length; i++) {
-						if(i % 2 === 0) {
-							$(builtAccordionHeaders.get(i-1)).addClass('even');
-						} else {
-							$(builtAccordionHeaders.get(i-1)).addClass('odd');
-						}
-					}
-
-					/* else, the window must be large */
-				} else if(width > NCI.Breakpoints.medium && !($( ".accordion" ).hasClass( "desktop" ))) {
-					for(accordion in targets) {
-						if(targets.hasOwnProperty(accordion)) {
-							NCI.undoAccordion(accordion, {'header': targets[accordion]});
-						}
-					}
-				}
-			}
-
-			$(window).on('resize', function() {
-				accordionize();
-			});
-
-			accordionize();
-		},
-
-		/*======================================================================================================
 		* function doAutocomplete
 		*
 		*  will generate an autocomplete box for an <input type="text"> element, using jQuery UI
+		* 
+		*  DEPRECATED!  Please change code to use NCI.Autocomplete.doAutocomplete.
 		*
 		* returns: null
 		* parameters:
@@ -400,96 +190,8 @@ define(function(require) {
 		*  opts{}               (object)                     Other options to pass to jQuery UI's autocomplete function.
 		*
 		*====================================================================================================*/
-		doAutocomplete: function(target, src, contains, queryParam, queryString, opts) {
-			var $ = require('jquery');
-
-			var appendTo = null,
-				$target = $(target);
-			if(target !== "#swKeyword") {
-				appendTo = $target.parent();
-			}
-			var queryParameter = queryParam || "term",
-				regexIsContains = contains || false,
-				defaultOptions = {
-					appendTo: appendTo,
-					// Set AJAX service source
-					source: (function() {
-						var xhr;
-
-						return function( request, response ) {
-							var dataQuery = $.extend({}, queryString || {});
-							var term = request.term;
-							dataQuery[queryParameter] = term;
-
-							if (xhr && xhr.abort) {
-								xhr.abort();
-							}
-							if (typeof src === 'string') {
-								xhr = $.ajax({
-									url: src,
-									data: dataQuery,
-									dataType: 'json',
-								});
-							} else {
-								xhr = src.call(this, term)
-									.done(function(data) {
-										return data.result;
-									});
-							}
-
-							$.when(xhr)
-								.done(function(data) {
-									if(data.result) {
-										response(data.result);
-									} else {
-										response(data);
-									}
-								})
-								.fail(function() {
-									response([]);
-								});
-						};
-					})(),
-
-					// Start autocomplete only after three characters are typed
-					minLength: 3,
-
-					focus: function(event, ui) {
-						event.preventDefault();
-						event.stopPropagation();
-						$target.val(ui.item.item || ui.item.term);
-					},
-					select: function(event, ui) {
-						event.preventDefault();
-						event.stopPropagation();
-						$target.val(ui.item.item || ui.item.term);
-					}
-				};
-
-			var options = $.extend({}, defaultOptions, opts || {});
-
-			$target.autocomplete(options)
-				.data('ui-autocomplete')._renderItem = function(ul, item) {
-					//Escape bad characters
-					var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
-					var regexBold = new RegExp();
-
-					if (regexIsContains) {
-						// highlight autocomplete item if it appears anywhere
-						regexBold = new RegExp('(' + lterm + ')', 'i');
-					} else {
-						// highlight autocomplete item if it appears at the beginning
-						regexBold = new RegExp('(^' + lterm + '|\\s+' + lterm + ')', 'i');
-					}
-					var word = (item.item || item.term).replace(regexBold, "<strong>$&</strong>");
-
-					return $("<li></li>")
-						.data('ui-autocomplete-item', item)
-						.append(word)
-						.appendTo(ul);
-				};
-
-			return $target;
+		doAutocomplete: function (target, src, contains, queryParam, queryString, opts) {
+			NCIAutocomplete.doAutocomplete(target, src, contains, queryParam, queryString, opts);
 		},
 
 		Breakpoints: require('Common/Enhancements/NCI.breakpoints'),
