@@ -43,6 +43,6 @@
     "subpath": "CancerGov/"
   },
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install --allow-root"
   }
 }
