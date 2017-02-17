@@ -12,7 +12,13 @@ define(function(require){
 		// List of pages where the proactive search is active.
 		// These values MUST, MUST, MUST be lowercase.
 		urls: [
-			// must specify at least one url
+            // must specify at least one url
+            "/about-cancer/treatment/clinical-trials/search",
+            "/about-cancer/treatment/clinical-trials/search/r",
+            "/about-cancer/treatment/clinical-trials/search/v",
+            "/about-cancer/treatment/clinical-trials/advanced-search",
+            "/about-cancer/treatment/clinical-trials/search/results",
+            "/about-cancer/treatment/clinical-trials/search/view"
 		],
 		popupDelaySeconds: 90, // Number of seconds to delay before displaying the popup.
 		popupID: "ProactiveLiveHelp", // Pop up window element's ID.
