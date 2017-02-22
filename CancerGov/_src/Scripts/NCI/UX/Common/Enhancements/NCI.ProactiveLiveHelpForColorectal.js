@@ -29,7 +29,7 @@ define(function(require){
 		'/types/colorectal/research/preop-treatment',
 		'/types/colorectal/research/screening-sigmoidoscopy',
 		'/types/colorectal/research/aspirin-reduces-risk',
-		'/types/colorectal/research/TAS-102-overall-survival',
+		'/types/colorectal/research/tas-102-overall-survival',
 		'/types/colorectal/research/bevacizumab-severe-side-effects',
 		'/types/colorectal/research/virtual-colonoscopy-results-qa',
 		'/types/colorectal/research/polyp-fiber-prevention-qa',
