@@ -542,6 +542,9 @@ define(function(require) {
 		require("Common/Enhancements/NCI.ProactiveLiveHelpForCTS").init();
 		// END Clinical Trial Search Setup
 		
+		// Proactive Live Help for Colorectal Pages
+		require("Common/Enhancements/NCI.ProactiveLiveHelpForColorectal").init();
+		
 		// Blue Ribbon Panel - Page Specific
 		require("Common/Enhancements/NCI.Video").init();
 		
