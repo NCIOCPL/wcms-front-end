@@ -11,12 +11,12 @@
         <NCI:PageOptionsButtonLanguageItem Language="en">
             <ButtonsCollection>
                 <!--(bake-start _if="resize")-->
-                <NCI:LinkButtonItem
+                <NCI:ClientSideButtonItem
                     Title="Resize font"
                     CssClass="po-font-resize"
                     AlternateContentVersionKey="fontResize" />
                 <!--(bake-end)-->
-                <NCI:LinkButtonItem Title="Print"
+                <NCI:ClientSideButtonItem Title="Print"
                                     CssClass="po-print"
                                     AlternateContentVersionKey="print"
                                     WebAnalytics="NCIAnalytics.PrintLink(this);" />
@@ -49,12 +49,12 @@
         <NCI:PageOptionsButtonLanguageItem Language="es">
             <ButtonsCollection>
                 <!--(bake-start _if="resize")-->
-                <NCI:LinkButtonItem
+                <NCI:ClientSideButtonItem
                     Title="Control de tama&ntilde;o de fuente"
                     CssClass="po-font-resize"
                     AlternateContentVersionKey="fontResize" />
                 <!--(bake-end)-->
-                <NCI:LinkButtonItem
+                <NCI:ClientSideButtonItem
                     Title="Imprimir"
                     CssClass="po-print"
                     AlternateContentVersionKey="print"
