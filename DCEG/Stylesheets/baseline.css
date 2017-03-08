@@ -1773,6 +1773,34 @@ li.genListItemVideo {
 	width: 80%;
 }
 
+.genAggroWidget li.genListItemVideo p.genListItemThumbnail {
+	width: 90px;
+}
+.genAggroWidget li.genListItemVideo p.genListItemThumbnail img {
+	max-width: 80px;
+}
+
+/* Lists with a video image inside the right rail */
+#genSlotRightSidebar .genAggroWidget li.genListItemVideo p.genListItemThumbnail {
+	width: 70px;
+	float: left;
+}
+#genSlotRightSidebar .genAggroWidget li.genListItemVideo p.genListItemThumbnail img {
+	max-width: 60px;
+}
+#genSlotRightSidebar .genAggroWidget li.genListItemVideo p.genListItemThumbnail {
+	width: auto;
+}
+#genSlotRightSidebar .genAggroWidget li.genListItemVideo .genListItemInfo {
+	width: auto;
+}
+#genSlotRightSidebar ul.genAggroWidget li .genListItemTitle {
+	font-weight: normal;
+}
+#genSlotRightSidebar ul.genAggroWidget li p.genListItemDesc, #genSlotRightSidebar ol.genAggroWidget li p.genListItemDesc {
+	clear: both;
+	overflow: 
+}
 
 /* A. List Items in the Sidebars */
 
