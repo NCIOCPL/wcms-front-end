@@ -36,7 +36,7 @@ define(function(require){
 		'/about-cancer/treatment/drugs/colorectal'
 	];
 
-	var POPUP_DELAY_SECONDS = 90;	// Number of seconds to delay before displaying the popup..
+	var POPUP_DELAY_SECONDS = 30;	// Number of seconds to delay before displaying the popup..
 	var POPUP_TITLE	= "Questions about Colorectal Cancer?";
 	var POPUP_MESSAGE = '<p>Chat with an Information Specialist who can help you.</p>';
 
