@@ -1789,7 +1789,7 @@ li.genListItemVideo {
 	max-width: 60px;
 }
 #genSlotRightSidebar .genAggroWidget li.genListItemVideo p.genListItemThumbnail {
-	width: auto;
+	width: 70px;
 }
 #genSlotRightSidebar .genAggroWidget li.genListItemVideo .genListItemInfo {
 	width: auto;
@@ -1799,7 +1799,9 @@ li.genListItemVideo {
 }
 #genSlotRightSidebar ul.genAggroWidget li p.genListItemDesc, #genSlotRightSidebar ol.genAggroWidget li p.genListItemDesc {
 	clear: both;
-	overflow: 
+}
+#genSlotRightSidebar ul.genAggroWidget li .genListItemInfo {
+	float: none;
 }
 
 /* A. List Items in the Sidebars */
