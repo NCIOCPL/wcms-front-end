@@ -43,6 +43,7 @@ define(function(require){
 	// Constants for opting out of the proactive prompt.
 	var OPT_OUT_COOKIE_NAME = "pcs4colorectal-opt";
 	var OPT_OUT_DURATION_DAYS = 14;
+	var END_DATE = '04/01/2017';
 
 	// Constants for the pop-up timer.
 	var TIMING_COOKIE_NAME = "pcs4colorectal";
@@ -64,7 +65,7 @@ define(function(require){
 	// Initialization for the enhancement.
 	function _initialize() {
 
-		if(_isACtsPage(location.pathname) && !_userIsOptedOut() && _liveHelpIsAvailable()){
+        if(_isACtsPage(location.pathname) && !_userIsOptedOut() && _liveHelpIsAvailable() && !_isPastDate(END_DATE)){
 			_initializeActivityCheck();
 			_initializeCountdownTimer();
 		} else {
@@ -257,6 +258,15 @@ define(function(require){
 
 		return easternTime;
 	}
+
+    function _isPastDate(date){
+        var dateNow = new Date(); // Local time to user
+        var dateEastern = _localToEasternTime(dateNow);
+        var endDate = new Date(date);
+
+        // check if current time is beyond the end date
+		return dateEastern > endDate
+    }
 
 	/*
 		Live Help is only available between 8:00 AM and 11:00 PM US Eastern Time.
