@@ -78,8 +78,59 @@
   padding-bottom: 1.25em;
 }
 
+.cts-basic-results-top-control {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #7d7d7d;
+  margin-bottom: 1.3em;
+}
+
+.button {
+  margin: 0 !important;
+}
+
+.top-selections-area {
+  display: inline-block;
+}
+
+.top-pager {
+  display: inline-block;
+  padding-top: 0.5em;
+}
+
 .cts-result-item {
   padding-bottom: 2.25em;
+}
+
+.cts-with-checkbox {
+  padding-left: 1.5em !important;
+}
+
+.cts-checkbox {
+  position: absolute !important;
+  margin-top: -0.6em;
+  z-index: 1;
+}
+
+.ct-results-lower-control.basic {
+  padding: 0.75em 0;
+  border-top: 1px solid #7d7d7d;
+  
+    .ct-results-select-all {
+	  margin-right: 20px;
+	}
+}
+
+.lower-selections-area {
+  display: inline-block;
+}
+
+.lower-pager {
+  padding-top: 0.5em;
+}
+
+input[type="checkbox"] {
+  display: none;
 }
 
 /* Trial Description Page */
@@ -327,5 +378,20 @@ a.listing-chat-button:visited {
   a.listing-chat-button {
     line-height: 22px;
     font-size: .875em;
+  }
+  
+  top-pager {
+    float: left;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.75em;
+  }
+  
+  .lower-pager {
+    padding-top: 1.5em;
+	float: left;
+  }
+  
+  .ct-results-lower-control.basic {
+    border-bottom: 1px solid #7d7d7d;
   }
 }
