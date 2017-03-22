@@ -96,14 +96,10 @@ define(function(require) {
 		$stateddholder.append($stateDropDown);
 
 		$selectContainer.prepend($stateddholder);
-		$locationContainer.data('basiccts-state-selector', $stateddholder); //Add it so we can hide for country dropdown changes to non-usa		
+		$locationContainer.data('basiccts-state-selector', $stateddholder); //Add it so we can hide for country dropdown changes to non-usa
 
 		//This must be done AFTER it is added to the main document dom
 		$stateDropDown.selectmenu({
-			create: function(event, ui) {
-				// this sets the label's 'for' attribute to point to the <select> element, assigns the label a unique id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique id
-				$stateDropDown.selectmenu('widget').attr('aria-labelledby', $stateDropDown.data('ui-selectmenu').label.attr('for', this.id).uniqueId().attr('id'));
-			},
 			change: function(event, ui) {
 				// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 				ui.item.element.change();
@@ -172,10 +168,6 @@ define(function(require) {
 
 		//This must be done AFTER it is added to the main document dom
 		$countryDropDown.selectmenu({
-			create: function(event, ui) {
-				// this sets the label's 'for' attribute to point to the <select> element, assigns the label a unique id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique id
-				$countryDropDown.selectmenu('widget').attr('aria-labelledby', $countryDropDown.data('ui-selectmenu').label.attr('for', this.id).uniqueId().attr('id'));
-			},
 			change: function(event, ui) {
 				// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 				ui.item.element.change();

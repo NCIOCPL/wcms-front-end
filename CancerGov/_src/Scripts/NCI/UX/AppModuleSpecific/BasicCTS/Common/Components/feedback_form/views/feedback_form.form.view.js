@@ -3,10 +3,10 @@
  */
 define(function (require) {
 
-    var BriteJS = require("brite");
+    var BriteJS = require("imports-loader?define=>false!brite");
 
     //Require Template
-    var template = require('hbs!UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/templates/feedback_form.form');
+    var template = require('../templates/feedback_form.form.hbs');
 
     BriteJS.registerView("feedback_form.form", {
         create: function(data) {
