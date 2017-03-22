@@ -1,7 +1,6 @@
 define(function (require) {
-	var jQuery = require('jquery');
 	require('jquery/megamenu');
-	
+
 	var _initialized = false;
 
 	function _initialize() {
@@ -17,7 +16,9 @@ define(function (require) {
 			Modernizr.addTest('ipad', navigator.platform.indexOf("iPad")!=-1);
 			Modernizr.addTest('android', navigator.platform.indexOf("Android")!=-1);
 
-			$("#mega-nav").accessibleMegaMenu({
+			var megaNav = $("#mega-nav");
+
+			megaNav.accessibleMegaMenu({
 				/* prefix for generated unique id attributes, which are
 				 * required to indicate aria-owns, aria-controls and aria-labelledby
 				 */
@@ -45,7 +46,7 @@ define(function (require) {
 				openClass: "open"
 			});
 
-			$("#mega-nav .sub-nav-group-wrapper").bind("mouseleave",function(e){
+			megaNav.find(".sub-nav-group-wrapper").bind("mouseleave",function(e){
 				if($(e.relatedTarget).is('.sub-nav-mega')){
 					$(this).closest(".nav-menu").trigger("mouseout");
 				}
@@ -59,12 +60,12 @@ define(function (require) {
 			//megamenu animations for IE9 which does not support CSS3 transitions
 			if($('html').is(".no-csstransitions")) {
 				//capture initial menu height, save it as a data attribute, then set height to 0
-				$("#mega-nav .sub-nav-mega").each(function () {
+				megaNav.find(".sub-nav-mega").each(function () {
 					var subNav = $(this);
 					subNav.data("initHeight", subNav[0].scrollHeight).height(0);
 				});
 
-				$("#mega-nav").on("mouseenter", "li.nav-item", function () {
+				megaNav.on("mouseenter", "li.nav-item", function () {
 					var subNav = $(this).find(".sub-nav-mega");
 					var height = subNav.data("initHeight");
 					subNav.stop(true, true).delay(500).animate({opacity: 1, height: height}, 500);
@@ -101,7 +102,7 @@ define(function (require) {
 		})(jQuery);
 
 		// create a class for mega menu items that have no actual content, so we can unformat them
-		jQuery(document).ready(function(jQuery) {
+		jQuery(document).ready(function() {
 			$(".sub-nav-mega").each(function(){
 				if (!$(this).text().trim().length) {
 					$(this).addClass("empty-mega");
@@ -117,13 +118,10 @@ define(function (require) {
 	 */
 	return {
 		init: function () {
-			if (_initialized) {
-				return;
+			if (!_initialized) {
+				_initialize();
 			}
-			_initialize();
-
-			_initialized = true;
 		}
-	}
+	};
 	/*** END Mega Menu init ***/
 });

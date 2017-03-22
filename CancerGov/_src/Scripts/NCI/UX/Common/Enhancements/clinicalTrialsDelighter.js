@@ -3,10 +3,13 @@ define(function(require) {
 	var AdobeAnalytics = require('Patches/AdobeAnalytics');
 	var ctsPath = '/about-cancer/treatment/clinical-trials/search';
 	var pathName = location.pathname.replace(/\/$/, "");
+
+	console.log("running");
 	
     /* Only display the delighter on the NCI Home page but not on other
      * pages regardless if they are using the home page template
      * ---------------------------------------------------------------- */
+
     if( $("body").hasClass("ncihome") ) {
 		var delighter = $('<div id="delighter-homePage"><a href="' + ctsPath + '">Find a <br/>Clinical Trial</a></div>');
 		delighter.find('a').on('click.analytics',function(e){

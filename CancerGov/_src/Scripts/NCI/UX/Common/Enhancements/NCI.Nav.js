@@ -1,6 +1,6 @@
 define(function(require) {
 	var $ = require('jquery');
-	require('jquery/touchswipe');
+	// require('jquery-touchswipe');
 
 
 	var Nav = {

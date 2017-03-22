@@ -31,7 +31,7 @@ define(function (require) {
 			});
 		});
 		initialized = true;
-	};
+	}
 
 	return {
 		init: function() {

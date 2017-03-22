@@ -3,7 +3,7 @@
 ***/
 define(function(require) {
     var jQuery = require('jquery');
-    var NCIAutocomplete = require('Common/Enhancements/NCI.Autocomplete');
+    var NCIAutocomplete = require('Modules/autocomplete/autocomplete');
     var initialized = false;
 
     function _initialize() {

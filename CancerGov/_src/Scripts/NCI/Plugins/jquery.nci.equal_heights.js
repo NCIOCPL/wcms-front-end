@@ -6,7 +6,7 @@
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['jquery','jquery/throttledebounce'], factory);
+        define(['jquery','throttle-debounce/throttle'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // Node/CommonJS
         module.exports = function( root, jQuery ) {
@@ -22,16 +22,15 @@
                     jQuery = require('jquery')(root);
                 }
             }
-            factory(jQuery,require('jquery/throttledebounce'));
+            factory(jQuery,require('throttle-debounce/throttle'));
 
             return jQuery;
         };
     } else {
         // Browser globals
-        factory(jQuery,jQuery.throttle);
+        factory(jQuery,throttle);
     }
-}(function ($) {
-    //require('jquery/throttledebounce');
+}(function ($,throttle) {
 
     // BEGIN plugin script
 
@@ -93,7 +92,7 @@
 
             // one time event binding
             if(!base.$el.data( "NCI.equal_heights")){
-                $(window).on('load resize', $.throttle(300,function(){
+                $(window).on('load resize', throttle(300,function(){
                     base.init();
                 }));
 

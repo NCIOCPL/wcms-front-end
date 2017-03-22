@@ -1,6 +1,7 @@
 define(function (require) {
-    var jQuery = require('jquery');
-    require('jquery/headroom');
+	require('./headroom-patch');
+	// Headroom is loaded via CDN but we still need the jQuery wrapper
+	require('headroom.js/dist/jQuery.headroom.min');
 
     var _initialized = false;
 
@@ -34,6 +35,6 @@ define(function (require) {
 
 			_initialized = true;
 		}
-	}
+	};
 	/*** END Headroom initializer ***/
 });

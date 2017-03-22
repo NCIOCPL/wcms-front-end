@@ -1,8 +1,4 @@
 define(function(require) {
-	var $ = require('jquery');
-
-	// Plugins
-	require('jquery-ui');
 	require("UX/Common/Plugins/Widgets/jquery.ui.customtooltip"); //This is the custom tooltip jQUeryUI widget.	
 
 

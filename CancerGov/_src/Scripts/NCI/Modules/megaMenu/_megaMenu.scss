@@ -229,6 +229,13 @@
 }
 
 .nav-menu .nav-item {
+
+	/* clicked link state */
+	> div > a:active {
+		color: $white;
+		background-color: $cranberry;
+	}
+
 	$nav-max-lines: 1;
 	@mixin nav-item-spacing($nav-item-list, $nav-item-width-add) {
 		// calculate maximum number of lines

@@ -2,24 +2,14 @@
  * This script fixes the scroll position for deeplinking.
  ***/
 define(function(require) {
-	var jQuery = require('jquery');
-	var browserDetect = require('Common/Enhancements/browserDetect');
-	var initialized = false;
+	var initialized = false,
+		$ = require('jquery'),
+		browserDetect = require('./browserDetect');
+
+	require('Plugins/jquery.nci.scroll_to.js');
 
 	function _initialize() {
-		// initialize browser detection
-		// MOVED TO Common/Enhancements/browserDetect.js
-		browserDetect.init();
 		// console.log("You are using: " + browserDetect.getBrowser() + " with version: " + browserDetect.getVersion());
-
-		var doScroll = function(event) {
-				if(location.hash !== '') {
-						NCI.scrollTo(location.hash, event.type);
-				}
-				//else if ($(".summary-sections .ui-accordion")[0]){
-				//	window.scrollTo(0, 0);
-				//}
-		};
 
 		$(window).on('load hashchange', function(event) {
 
@@ -31,35 +21,66 @@ define(function(require) {
 				$(window).on("scroll.pageLoad",function(e){
 					//console.log("page scrolled!");
 					$('.headroom-area').removeClass('frozen');
-					doScroll(e);
+					_doScroll(e);
 					$(window).off("scroll.pageLoad");
 				});
 			} else {
-				doScroll(event);
+				_doScroll(event);
 			}
 		});
 
 
 		//redundant check to see if anchor is same as current hash
 		//if it is the same then trigger doScroll since a hashchange will not be triggered
-		$("a[href*=#]").click(function(e) {
+		$("a[href*=\\#]").click(function(e) {
 			var anchor = this.attributes.href.value;
 			if(anchor === location.hash){
-				doScroll(e);
+				_doScroll(e);
 			}
 		});
+
 		initialized = true;
+	}
+
+	function _doScroll(event){
+		if(location.hash !== '') {
+
+			var scroll = function(el){$(window).NCI_scroll_to({
+					anchor:el,
+					event: event
+				});
+			};
+
+			var isSection = location.hash.match(/^#section\//i),
+				anchor = '#' + location.hash.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'),
+				$anchor = $(anchor),
+				$accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
+				$accordion = $accordionPanel.closest('.ui-accordion'),
+				accordionIndex = ($accordion.length > 0) ? $accordion.data('ui-accordion').headers.index($accordionPanel.prev('.ui-accordion-header')) : undefined;
+
+			if($accordion.length > 0) {
+				// subscribe to accordion activate events to trigger scroll
+				$accordion.on('accordionactivate', function(e) { scroll(anchor); });
+
+				// check if the target panel is active. Yes, scroll to it : No, trigger it and callback will scroll
+				if(!$accordionPanel.hasClass('accordion-content-active')) {
+					$accordion.accordion('option', 'active', accordionIndex);
+				} else {
+					scroll(anchor);
+				}
+			} else {
+				scroll(anchor);
+			}
+
+		}
 	}
     
 	/* Exposes functions from this module which are available from the outside. */
 	return {
 		init: function() {
-			if(initialized)
-				return;
-
-			_initialize();
-
-			initialized = true;
+			if (!initialized) {
+				_initialize();
+			}
 		}
 	};
 });
