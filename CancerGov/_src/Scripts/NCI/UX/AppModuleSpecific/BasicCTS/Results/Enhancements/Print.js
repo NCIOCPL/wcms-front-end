@@ -21,7 +21,7 @@ define(function(require) {
 		});
 		
 		$resultsTopControl = $("<div class=\"cts-basic-results-top-control\"></div>");
-		$resultsTopControl.append($(".pagination").clone().addClass("top-pager"));
+		$resultsTopControl.append($(".ct-listing-pager").clone().addClass("top-pager"));
 		$(".cts-results-title").after($resultsTopControl);
 		
 		var $topSelections = $("<div class=\"top-selections-area\">");
@@ -36,18 +36,16 @@ define(function(require) {
 		$topSelections.append($topPrint);
 		$(".top-pager").after($topSelections);
 		
-		$(".ct-results-lower-control.basic .pagination").addClass("lower-pager");
-		
-		var $lowerSelections = $("<div class=\"lower-selections-area\">");
+		var $lowerControl = $("<div class=\"ct-results-lower-control basic\">");
 		var $lowerCheckbox = $("<span class=\"checkbox ct-results-select-all\"></span>");
 		$lowerCheckbox.append("<input id=\"checkAllLower\" name=\"checkAllLower\" type=\"checkbox\">");
 		$lowerCheckbox.append("<label for=\"checkAllLower\"><strong>Select All on Page</strong></label>");
-		$lowerSelections.append($lowerCheckbox);
+		$lowerControl.append($lowerCheckbox);
 		CreateCheckboxMirror("#checkAllLower", "#mirrorcheckAllLower");
 		
 		$lowerPrint = $("<input type=\"submit\" name=\"lowerPrintButton\" value=\"Print Selected\" id=\"lowerPrintButton\" class=\"action button\" alternatetext=\"Print Selected\">");
-		$lowerSelections.append($lowerPrint);
-		$(".lower-pager").before($lowerSelections);
+		$lowerControl.append($lowerPrint);
+		$(".lower-pager-control").before($lowerControl);
 		
 		$("#checkAllTop").click(function() {
 			var isChecked = this.checked;

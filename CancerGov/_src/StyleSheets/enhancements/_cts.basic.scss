@@ -112,26 +112,28 @@
   z-index: 1;
 }
 
-.ct-results-lower-control.basic {
-  padding: 0.75em 0;
-  border-top: 1px solid #7d7d7d;
-  
-    .ct-results-select-all {
-	  margin-right: 20px;
-	}
-}
-
-.lower-selections-area {
-  display: inline-block;
-}
-
-.lower-pager {
-  padding-top: 0.5em;
-}
-
 input[type="checkbox"] {
   display: none;
 }
+
+.ct-results-lower-control.basic {
+  padding: 1em 0;
+  border-top: 1px solid #7d7d7d;
+  border-bottom: 1px solid #7d7d7d;
+  margin-bottom: 0 !important;
+  
+    .ct-results-select-all {
+	  margin-right: 20px;
+	  margin-left: 0 !important;
+	}
+}
+
+
+.lower-pager-control {
+  padding-top: 1.25em;
+  float: left;
+}
+
 
 /* Trial Description Page */
 .status {
@@ -380,18 +382,19 @@ a.listing-chat-button:visited {
     font-size: .875em;
   }
   
-  top-pager {
+  .top-pager {
     float: left;
-	padding-bottom: 0.5em;
-	margin-bottom: 0.75em;
+	padding-bottom: 1em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid #7d7d7d;
+	
   }
   
-  .lower-pager {
-    padding-top: 1.5em;
-	float: left;
+  .lower-pager-control {
+    padding-top: 1.25em;
   }
   
-  .ct-results-lower-control.basic {
+  /* .ct-results-lower-control.basic {
     border-bottom: 1px solid #7d7d7d;
-  }
+  } */
 }

@@ -61,23 +61,24 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     #end
   </div>
 
-  ## If there are results then...
-  <div class="ct-results-lower-control basic">
-    <div class="pagination">
-      ## Get Curr Page
-
-      ## Shows 3 before and 3 after
-      #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
-        #each
-          #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
-            <span>$pagerItem.Text</span>
-          #else
-            <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
-          #end
-        #after
-          &nbsp;
-      #end
-    </div>
+  ## If there are results then draw the pager
+  <div class="lower-pager-control">
+  <div class="pager ct-listing-pager">
+    ## Get the current page
+    ## Show up to the next 2 and previous 2 numbers from the current page
+    ## First / last pages always show by default
+    #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2,2,$SearchResults.Results.TotalResults))
+      #each
+        #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+          <span class="pager-current">$pagerItem.Text</span>
+        #elseif($pagerItem.IsLink == false)
+          <span class="pager-text-only">$pagerItem.Text</span>
+        #else
+          <a class="pager-link" href="$pagerItem.PageUrl">$pagerItem.Text</a>
+        #end
+      ## end 'each'
+    #end
+  </div>
   </div>
 #end
 
