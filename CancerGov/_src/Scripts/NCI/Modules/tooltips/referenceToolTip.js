@@ -1,5 +1,6 @@
 define(function(require) {
-	require("UX/Common/Plugins/Widgets/jquery.ui.customtooltip"); //This is the custom tooltip jQUeryUI widget.	
+	require("UX/Common/Plugins/Widgets/jquery.ui.customtooltip"); //This is the custom tooltip jQUeryUI widget.
+    var config = require('Modules/NCI.config');
 
 
 	// Enhancement global vars:
@@ -199,7 +200,7 @@ define(function(require) {
 
 		// Don't show on smartphone
 		var width = window.innerWidth || $(window).width();
-		if (width <= NCI.Breakpoints.medium) {
+		if (width <= config.breakpoints.medium) {
 			return;
 		}
 

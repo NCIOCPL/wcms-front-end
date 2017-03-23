@@ -2,7 +2,7 @@ define(function(require) {
 
         var $ = require('jquery');
 		require('jquery-ui');
-		require('Modules/NCI.config');
+		var config = require('Modules/NCI.config');
 
 		//TODO: Require breakpoints
 
@@ -149,7 +149,7 @@ define(function(require) {
 
 				/* If the width is less than or equal to 640px (small screens)
 				 * AND if the accordion(s) isn't (aren't) already built */
-				if (width <= NCI.Breakpoints.medium && $(targetsBuiltAccordionSelector).length === 0 || ($( ".accordion" ).hasClass( "desktop" )) && $(targetsBuiltAccordionSelector).length === 0 ) {
+				if (width <= config.breakpoints.medium && $(targetsBuiltAccordionSelector).length === 0 || ($( ".accordion" ).hasClass( "desktop" )) && $(targetsBuiltAccordionSelector).length === 0 ) {
 					// verify that the accordion will build correctly
 					$(targetsHeaderSelector).each(function() {
 						var $this = $(this);
@@ -175,7 +175,7 @@ define(function(require) {
 					}
 
 					/* else, the window must be large */
-				} else if(width > NCI.Breakpoints.medium && !($( ".accordion" ).hasClass( "desktop" ))) {
+				} else if(width > config.breakpoints.medium && !($( ".accordion" ).hasClass( "desktop" ))) {
 					for(accordion in targets) {
 						if(targets.hasOwnProperty(accordion)) {
 							_undoAccordion(accordion, {'header': targets[accordion]});

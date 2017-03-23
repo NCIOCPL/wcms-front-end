@@ -5,6 +5,7 @@ define(function(require) {
     var jQuery = require('jquery');
     var NCIAutocomplete = require('Modules/autocomplete/autocomplete');
     var initialized = false;
+    var config = require('Modules/NCI.config');
 
     function _initialize() {
         require('jquery-ui');
@@ -29,7 +30,7 @@ define(function(require) {
                 position,
                 resizeMenu;
 
-            if(windowWidth <= NCI.Breakpoints.large) {
+            if(windowWidth <= config.breakpoints.large) {
                 // if mobile, make the autocomplete list full-width
                 position = {
                     my: "left top",

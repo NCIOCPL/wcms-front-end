@@ -70,7 +70,7 @@ module.exports = {
         jquery: 'jQuery',
         'jquery-ui': 'jQuery.ui',
         headroom: 'Headroom',
-        'jquery-touchswipe':'jquery-touchswipe'
+        'jquery-touchswipe':'jQuery.fn.swipe'
     },
 
     module: {
