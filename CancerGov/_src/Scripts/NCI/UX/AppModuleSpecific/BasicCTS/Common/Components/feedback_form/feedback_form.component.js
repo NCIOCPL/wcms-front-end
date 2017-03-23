@@ -53,7 +53,7 @@ define(function (require) {
                         callback(false);
                     }).error(function(err) {
                         //TODO: ANALYTICS
-                        _sendAnalytics("server_error")
+                        _sendAnalytics("server_error");
                         callback(err);
                     })
                 }, 
@@ -118,7 +118,7 @@ define(function (require) {
                         }
                     )
                 }
-            })
+            });
 
             $content_elem.dialog("open");
  
