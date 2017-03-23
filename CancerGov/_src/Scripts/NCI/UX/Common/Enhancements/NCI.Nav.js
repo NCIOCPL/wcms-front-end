@@ -1,6 +1,8 @@
 define(function(require) {
 	var $ = require('jquery');
-	// require('jquery-touchswipe');
+
+	// touchSwipe library loaded globally by CDN
+	require('jquery-touchswipe');
 
 
 	var Nav = {

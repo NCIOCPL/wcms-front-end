@@ -3,8 +3,6 @@ define(function(require) {
 	var AdobeAnalytics = require('Patches/AdobeAnalytics');
 	var ctsPath = '/about-cancer/treatment/clinical-trials/search';
 	var pathName = location.pathname.replace(/\/$/, "");
-
-	console.log("running");
 	
     /* Only display the delighter on the NCI Home page but not on other
      * pages regardless if they are using the home page template

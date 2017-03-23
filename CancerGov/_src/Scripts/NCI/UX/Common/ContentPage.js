@@ -40,9 +40,7 @@ define(function(require) {
 				$('#mega-nav .contains-current').removeClass('contains-current');
 			}
 
-			$script('//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js',function(){
-				NCI.Nav.init();
-			});
+			NCI.Nav.init();
 
 			NCI.Search.init();
 		})(jQuery);
