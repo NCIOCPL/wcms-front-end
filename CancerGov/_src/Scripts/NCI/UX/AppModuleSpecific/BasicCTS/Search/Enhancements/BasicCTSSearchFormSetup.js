@@ -275,6 +275,10 @@ define(function(require) {
 					} catch (e) {
 						window.console && console.log(e);
 					}
+					// clear sessionStorage before going to results page
+
+					sessionStorage.removeItem('totalChecked');
+
 					$this.data('valid', true).submit();
 				}
 
