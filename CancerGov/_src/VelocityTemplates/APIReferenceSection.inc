@@ -1,11 +1,16 @@
+<div class="row">
+<div class="medium-9 columns">
+<h3>The Clinical Trials API: Use our data to power your own clinical trial search</h3>	
+<div class="api-reference-content clearfix">
 <div class="small-2 columns">
 	<a href="/syndication/api">
-		<img src="/publishedcontent/Images/images/clinicaltrials/search-code.png" class="" alt="Search Code"/>
+		<img src="/publishedcontent/Images/images/design-elements/icons/api-icon.svg" class="api-section-image" alt="Search Code" />
 	</a>
 </div>
 <div class="small-10 columns">
-	<a href="/syndication/api">
-		<h3>The Clinical Trials API: Use our data to power your own clinical trial search</h3>
-	</a>
-	<p>An application programming interface (API) helps translate large amounts of data in meaningful ways. This clinical trials search is now powered by an API to help provide better search results and for developers to use this open data.</p>
+	<p>An application programming interface (API) helps translate large amounts of data in meaningful ways. NCI’s clinical trials search data is now powered by an API, allowing programmers to build applications <a href="/syndication/api">using this open data.</a></p>
+</div>
+</div>
+
+</div>
 </div>
