@@ -3,7 +3,8 @@ define(function(require) {
 
     var LIMIT = 12,
         checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
-        totalChecked = checkedTrials.length
+        totalChecked = checkedTrials.length,
+		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || []
     ;
 
     function _initialize() {
@@ -115,11 +116,11 @@ define(function(require) {
         $(".printSelected").on('click', function(event){
             // TODO: disable form submit until success or failure
 
-            console.log("Attempting to print trials " + JSON.parse(sessionStorage.getItem("totalChecked")));
+            console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
             $.ajax({
                 type: "POST",
                 url: "/CTS.Print/GenCache",
-                data: JSON.stringify({TrialIDs: sessionStorage.getItem('totalChecked')}),
+                data: JSON.stringify({ TrialIDs: checkedTrials}),
                 dataType: "json",
                 jsonp: false,
                 success: function(response) {
@@ -131,6 +132,12 @@ define(function(require) {
                 }
             });
         });
+		
+		$(".pager-link").on('click', function(event) {
+			var page = $(".cts-results-top-control .pager-current").text();
+			console.log("Current page: " + page);
+			UpdateCheckedPagesList(page, $(".cts-results-container input:checked").length);
+		});
     }
 
     function UpdateCheckedTrialsList(src, isChecked) {
@@ -168,8 +175,33 @@ define(function(require) {
         console.log("--------------------------------------------");
 
         return true;
-
     }
+	
+	function UpdateCheckedPagesList(page, numTrialsChecked) {
+	    console.log("Pages in checkedPages before update: " + checkedPages);
+		if (numTrialsChecked > 0) {
+			// Page has trials checked
+			console.log("Page has trials checked");
+			if ($.inArray(page, checkedPages) == -1) {
+				// Page isn't in checkedPages array, so add it
+				console.log("Page isn't in checkedPages array, so add it");
+				checkedPages.push(page);
+			}
+		}
+		else if (numTrialsChecked == 0) {
+			// Page has no checked trials
+			console.log("Page has no trials checked");
+			if ($.inArray(page, checkedPages) > -1) {
+				// Page is in checkedPages array, remove it
+				console.log("Page is in checkedPages array, remove it");
+                var index = checkedPages.indexOf(page);
+                checkedPages.splice(index, 1);
+            }
+		}
+		console.log("Pages in checkedPages after update: " + JSON.stringify(checkedPages));
+		// update session storage for all pages that have checked items for analytics
+		sessionStorage.setItem('checkedPages', JSON.stringify(checkedPages));
+	}
 
     function areAllChecked() {
         if ($(".cts-results-container input:checked").length === 10) {
