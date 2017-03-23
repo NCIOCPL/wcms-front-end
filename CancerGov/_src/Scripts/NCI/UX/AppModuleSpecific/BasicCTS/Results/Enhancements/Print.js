@@ -3,7 +3,7 @@ define(function(require) {
 
     var LIMIT = 12,
         checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
-        numCheckedTrials = checkedTrials.length
+        totalChecked = checkedTrials.length
     ;
 
     function _initialize() {
@@ -84,18 +84,18 @@ define(function(require) {
             }
 
             // loop through all item checkboxes
-            $('.cts-results-container').find('input[type=checkbox]').each(function(){
-                var $checkBoxItem = $("#" + this.id);
+            $('.cts-results-container').find('input').each(function(){
+                var $this = $(this);
 
                 // if this checkbox is not checked and the select all IS checked then...
-                if (!$checkBoxItem.is(':checked') && isChecked) {
+                if (!$this.is(':checked') && isChecked) {
                     // if we're still below the limit
-                    if(numCheckedTrials < LIMIT ) {
-                        // check the box by triggering click - this will update the numCheckedTrials and sessionStorage
-                        $checkBoxItem.next().click();
+                    if(totalChecked < LIMIT ) {
+                        // check the box by triggering click - this will update the totalChecked and sessionStorage
+                        $this.next().click();
                     } else {
                         // we're over the limit, but we send one more click anyway to propagate the modal show event
-                        $checkBoxItem.next().click();
+                        $this.next().click();
 
                         // and uncheck select all boxes since operation was unsuccessful
                         $("#checkAllTop, #checkAllLower").prop("checked",false);
@@ -105,9 +105,9 @@ define(function(require) {
                     }
                 }
                 // else if the checkbox is checked and the select all IS NOT checked
-                else if ($checkBoxItem.is(':checked') && !isChecked){
-                    // uncheck the item by triggering click - this will update numCheckedTrials and sessionStorage
-                    $checkBoxItem.next().click();
+                else if ($this.is(':checked') && !isChecked){
+                    // uncheck the item by triggering click - this will update totalChecked and sessionStorage
+                    $this.next().click();
                 }
             });
         });
@@ -141,31 +141,29 @@ define(function(require) {
         console.log("Items parsed from storage: ", checkedTrials);
 
         if (isChecked) { // Uncheck it
-            if ($.inArray(trial, checkedTrials) != -1) {
+            if (checkedTrials.indexOf(trial) > -1) {
                 var index = checkedTrials.indexOf(trial);
                 checkedTrials.splice(index, 1);
-                numCheckedTrials = numCheckedTrials - 1;
+                totalChecked--;
             }
         }
         else { // Check it
 
             // Check if we've hit the limit - if so trigger warning modal
-            if(numCheckedTrials >= LIMIT ){
+            if(totalChecked >= LIMIT ){
                 triggerModal('limit');
                 return false;
             }
             else if ($.inArray(trial, checkedTrials) == -1) {
                 checkedTrials.push(trial);
-                numCheckedTrials++;
-
+                totalChecked++;
             }
         }
 
         // update the session storage
         sessionStorage.setItem('totalChecked',JSON.stringify(checkedTrials));
 
-        // TODO: add logic to put new checkedTrials and $numCheckedTrials into session storage
-        console.log("numCheckedTrials: " + numCheckedTrials);
+        console.log("totalChecked: " + totalChecked);
         console.log("Items set in storage: ",JSON.stringify({ TrialIDs: checkedTrials}));
         console.log("--------------------------------------------");
 
