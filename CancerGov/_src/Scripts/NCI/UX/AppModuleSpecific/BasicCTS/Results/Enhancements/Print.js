@@ -20,7 +20,7 @@ define(function(require) {
                 return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '"></label></div>'
 
             })
-            .find('label').on('click',function(e,state){ // checkbox click event
+            .find('label').on('click',function(e){ // checkbox click event
 
                 // UpdateCheckedTrialsList will return false if totalChecked is past the LIMIT
                 var check = UpdateCheckedTrialsList(this.attributes['for'].value, this.previousElementSibling.checked);
@@ -45,10 +45,10 @@ define(function(require) {
                     '<input id="checkAllTop" type="checkbox" />' +
                     '<label for="checkAllTop"><strong>Select All on Page</strong></label>' +
                 '</span>' +
-                '<input type="submit" name="printButton" value="Print Selected" class="action button" alternatetext="Print Selected" />' +
+                '<input class="action button printSelected" type="submit" name="printButton" value="Print Selected" alternatetext="Print Selected" />' +
             '</div>');
 
-        // put pagination and select all in a wrapper for top control
+        // put pagination and 'select all' in a wrapper for top control
         var $topControl = $('<div class="cts-results-top-control" />').append($topPager,$topSelect);
 
 
@@ -87,7 +87,7 @@ define(function(require) {
             $('.cts-results-container').find('input').each(function(){
                 var $this = $(this);
 
-                // if this checkbox is not checked and the select all IS checked then...
+                // if this checkbox is not checked and the 'select all' IS checked then...
                 if (!$this.is(':checked') && isChecked) {
                     // if we're still below the limit
                     if(totalChecked < LIMIT ) {
@@ -97,14 +97,14 @@ define(function(require) {
                         // we're over the limit, but we send one more click anyway to propagate the modal show event
                         $this.next().click();
 
-                        // and uncheck select all boxes since operation was unsuccessful
+                        // uncheck 'select all' boxes since operation was unsuccessful
                         $("#checkAllTop, #checkAllLower").prop("checked",false);
 
                         // exit the loop
                         return false
                     }
                 }
-                // else if the checkbox is checked and the select all IS NOT checked
+                // else if the checkbox is checked and the 'select all' IS NOT checked
                 else if ($this.is(':checked') && !isChecked){
                     // uncheck the item by triggering click - this will update totalChecked and sessionStorage
                     $this.next().click();
@@ -112,7 +112,7 @@ define(function(require) {
             });
         });
 
-        $("#topPrintButton, #lowerPrintButton").click(function (event){
+        $(".printSelected").on('click', function(event){
             // TODO: disable form submit until success or failure
 
             console.log("Attempting to print trials " + JSON.parse(sessionStorage.getItem("totalChecked")));
@@ -171,7 +171,7 @@ define(function(require) {
 
     }
 
-    function areAllChecked () {
+    function areAllChecked() {
         if ($(".cts-results-container input:checked").length === 10) {
             // all are checked
             $("#checkAllTop, #checkAllLower").prop("checked",true);
@@ -183,6 +183,23 @@ define(function(require) {
 
     function triggerModal(type){
         console.log('Modal triggered: ',type);
+        var modal = $('<div>Sorry, but you can\'t select more than '+ LIMIT +' items to print</div>').dialog({
+            dialogClass: 'cts-feedback-dialog',
+            title: 'Send us your feedback',
+            autoOpen: false,
+            modal: true,
+            resizable: false,
+            draggable: false,
+            width: '600px',
+            position: {
+                my: "center",
+                at: "center",
+                of: window
+            },
+            show: { effect: "puff",percent:50, duration: 250 },
+            hide: { effect: "puff",percent:50, duration: 250 }
+        });
+        modal.dialog('open');
     }
 
     /**
