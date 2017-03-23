@@ -7,7 +7,8 @@
 <head runat="server">
 <link rel="icon" href="/publishedcontent/files/shareditems/favicon/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="/publishedcontent/files/shareditems/favicon/favicon.ico" type="image/x-icon" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NCI"></script></head>
 <body class="genHome">
 	<div class="genSiteSkipToContent"><a title="Skip to Content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) // TODO: Color class on slot determined by Content Type field value  -->
