@@ -8,7 +8,7 @@
 			#else
 				#set($zipCode = "")
 			#end
-			#if($SearchResults.SearchTerms.AgeOfEligibility)
+			#if($SearchResults.SearchTerms.ZipCode)
 				#set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
 			#else
 				#set($age = "")
@@ -87,7 +87,7 @@
 					#before
 						<div>
 							<ul>
-				   #after
+					#after
 							</ul>
 						</div>                                
 				#end
@@ -145,7 +145,6 @@
 
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/PublishedContent/js/BasicCTSResultsPage.js" type="text/javascript"></script>
     <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" />
     <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" />
@@ -164,16 +163,26 @@
 
                     #set($resultSet =  $SearchResults.Results)
 
-                    <div id="SearchCriteria">
-                        <p class="searchCriteria"><span>Search Criteria:</span></p>
-                        <p class="searchCriteria"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</p>
-                        <p class="searchCriteria"><span>Zip Code: </span>$SearchResults.SearchTerms.ZipCode</p>
-                        <p class="searchCriteria"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</p>
-                    </div>
+					#if($SearchResults.SearchTerms.CancerType  || $SearchResults.SearchTerms.ZipCode  || $SearchResults.SearchTerms.AgeOfEligibility)
+                    	<div id="SearchCriteria">						
+							<p class="searchCriteria"><span>Search Criteria:</span></p>
+							#if($SearchResults.SearchTerms.CancerType)
+								<p class="searchCriteria"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</p>
+							#end
+							#if($SearchResults.SearchTerms.ZipCode)
+								<p class="searchCriteria"><span>Zip Code: </span>$SearchResults.SearchTerms.ZipCode</p>
+							#end
+							#if($SearchResults.SearchTerms.AgeOfEligibility)
+								<p class="searchCriteria"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</p>
+							#end						
+                    	</div>
+					#end
 
                     <p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
                     <p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
                     
+                                       
+                
                 #DrawResultsTextV2()
             </div>
         </div>
