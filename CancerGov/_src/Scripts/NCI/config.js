@@ -20,6 +20,7 @@ requirejs.config({
 		'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results',
 		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
 		'BasicCTSCommon': 'UX/AppModuleSpecific/BasicCTS/Common',
+		'BasicCTSPrint': 'UX/AppModuleSpecific/BasicCTS/Print',
 		'Vendor': 'Vendor',
 		'generated' : 'Generated',
 
