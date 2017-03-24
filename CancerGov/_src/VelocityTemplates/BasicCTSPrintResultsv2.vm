@@ -137,17 +137,24 @@
 			<h3>Trial Objectives and Outlines</h3>
 			<div>$trial.DetailedDescription</div>
 			<div class="trialFooter">
-				Clinical trials are things with information and blah blah blah this is useless and stupid.
+				Note: Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the NCT number on ClinicalTrials.gov
 			</div>
 		</div>
 	#end                    
 #end
 
 <html>
-<head>
-    <script src="/PublishedContent/js/BasicCTSResultsPage.js" type="text/javascript"></script>
-    <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" />
-    <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" />
+<head> 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
+     <script> 
+          define('jquery', [], function() { 
+               return jQuery; 
+          }); 
+     </script> 
+     <script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script> 
+    <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" /> 
+    <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" /> 
 </head>
 <body>
 	<div id="cgovContainer">
@@ -156,7 +163,7 @@
             <div id="bodyHeading">
                 <h1 id="ctPrintBodyHeading">Your Clinical Trials Results</h1>            
                 <div id="bodyHeadingLinks">
-                    <a href="javascript:window.print();">Print</a> | <a id="ctl10_EmailResults" onclick="javascript: dynPopWindow('/common/popUps/PopEmail.aspx?title=Clinical+Trials+Results&amp;docurl=%2fabout-cancer%2ftreatment%2fclinical-trials%2fsearch%2fprintresults%3fcid%3d267655__amp%3bprotocolsearchid%3d15673988&amp;invokedFrom=2&amp;language=en&amp;a=15703675J48&amp;b=1o4904' , 'emailPopUp', 'height=365,width=525'); return false;" href="/common/popUps/PopEmail.aspx?title=Clinical+Trials+Results&amp;docurl=%2fabout-cancer%2ftreatment%2fclinical-trials%2fsearch%2fprintresults%3fcid%3d267655__amp%3bprotocolsearchid%3d15673988&amp;invokedFrom=2&amp;language=en&amp;a=15703675J48&amp;b=1o4904">E-Mail These Results</a> | <a id="newSearch" href="/about-cancer/treatment/clinical-trials/advanced-search">New Search</a>                    
+                    <a href="javascript:window.print();">Print</a> | <a id="ctl10_EmailResults" onclick="javascript: dynPopWindow('/common/popUps/PopEmail.aspx?title=Clinical+Trials+Results&amp;docurl=%2fabout-cancer%2ftreatment%2fclinical-trials%2fsearch%2fprintresults%3fcid%3d267655__amp%3bprotocolsearchid%3d15673988&amp;invokedFrom=2&amp;language=en&amp;a=15703675J48&amp;b=1o4904' , 'emailPopUp', 'height=365,width=525'); return false;" href="/common/popUps/PopEmail.aspx?title=Clinical+Trials+Results&amp;docurl=%2fabout-cancer%2ftreatment%2fclinical-trials%2fsearch%2fprintresults%3fcid%3d267655__amp%3bprotocolsearchid%3d15673988&amp;invokedFrom=2&amp;language=en&amp;a=15703675J48&amp;b=1o4904">E-Mail These Results</a> | <a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>                    
                 </div>
             </div>
                 <div id="clinical-trials-print">
@@ -206,9 +213,11 @@
     s.prop8='english';
     s.prop10=document.title;
     s.prop25='01/01/1980';
-    s.prop44='NCI Homepage';
+    s.prop44='Clinical Trials';
+	s.prop62='Clinical Trials: Print Selected';
     s.eVar2='english';
-    s.eVar44='NCI Homepage';
+	s.eVar62='Clinical Trials: Print Selected';
+	s.eVar44='Clinical Trials';
     s.events='event1';
 
     var s_code=s.t();
