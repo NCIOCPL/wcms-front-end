@@ -1,0 +1,47 @@
+//@import '../environments/prototype';
+
+.cts-dialog {
+  background: #445159;
+
+  .ui-widget-content {
+    color: white;
+    font-family: "Noto Sans";
+    padding: 3.5em 2.2em;
+    text-align: center;
+  }
+
+  .ui-dialog-titlebar-close {
+    border: none;
+    background: transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    margin:0;
+    z-index: 1;
+
+    .ui-icon {
+      background: url($images + 'modal-close.jpg') top left no-repeat;
+      width: 32px;
+      height: 32px;
+      margin:0;
+      left:0;
+      top:0;
+    }
+    &.btn-close-top {
+      top: 15px;
+    }
+    &.btn-close-bottom {
+      top: auto;
+      bottom: 15px;
+    }
+  }
+
+  i.warning {
+    display: block;
+    text-align: center;
+    background: url($images + 'modal-alert.jpg') top center no-repeat;
+    height: 50px;
+  }
+
+}

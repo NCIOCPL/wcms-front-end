@@ -212,21 +212,27 @@ define(function(require) {
 
     function triggerModal(type){
         console.log('Modal triggered: ',type);
-        var modal = $('<div>Sorry, but you can\'t select more than '+ LIMIT +' items to print</div>').dialog({
-            dialogClass: 'cts-feedback-dialog',
-            title: 'Send us your feedback',
+        var modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have reached the '+ LIMIT +' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>').dialog({
+            dialogClass: 'cts-dialog',
+            closeText: "hide",
             autoOpen: false,
             modal: true,
             resizable: false,
             draggable: false,
-            width: '600px',
+            width: '450px',
             position: {
                 my: "center",
                 at: "center",
                 of: window
             },
             show: { effect: "puff",percent:50, duration: 250 },
-            hide: { effect: "puff",percent:50, duration: 250 }
+            hide: { effect: "puff",percent:50, duration: 250 },
+            create: function(evt, ui) {
+                var $modal = $(evt.target).parent();
+                var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
+                $modal.find('.ui-dialog-titlebar').remove();
+                $modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+            }
         });
         modal.dialog('open');
     }
