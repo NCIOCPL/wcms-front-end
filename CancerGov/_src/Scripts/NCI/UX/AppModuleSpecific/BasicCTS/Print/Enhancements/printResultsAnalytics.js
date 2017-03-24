@@ -5,8 +5,22 @@ define(function(require) {
 	* Main function
 	*/
 	function _initialize() {
-		console.log("initialized print analytics");
+		$('#printPage').on('click.analytics', 'a', function(e){
+			var $this = $(this);
+			NCIAnalytics.ClinicalTrialsPrint($this, 'printPage')
+		});
+
+		$('#ctl10_EmailResults').on('click.analytics', 'a', function(e){
+			var $this = $(this);
+			NCIAnalytics.ClinicalTrialsPrint($this, 'email')
+		});
+
+		$('#newSearch').on('click.analytics', 'a', function(e){
+			var $this = $(this);
+			NCIAnalytics.ClinicalTrialsPrint($this, 'newSearch')
+		});
 	}
+
 
 	/**
 	 * Identifies if this enhancement has been initialized or not.
