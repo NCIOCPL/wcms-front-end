@@ -7,17 +7,17 @@ define(function(require) {
 	function _initialize() {
 		$('#printPage').on('click.analytics', 'a', function(e){
 			var $this = $(this);
-			NCIAnalytics.ClinicalTrialsPrint($this, 'printPage')
+			NCIAnalytics.ClinicalTrialsPrint($this, 'printPage');
 		});
 
 		$('#ctl10_EmailResults').on('click.analytics', 'a', function(e){
 			var $this = $(this);
-			NCIAnalytics.ClinicalTrialsPrint($this, 'email')
+			NCIAnalytics.ClinicalTrialsPrint($this, 'email');
 		});
 
 		$('#newSearch').on('click.analytics', 'a', function(e){
 			var $this = $(this);
-			NCIAnalytics.ClinicalTrialsPrint($this, 'newSearch')
+			NCIAnalytics.ClinicalTrialsPrint($this, 'newSearch');
 		});
 	}
 
