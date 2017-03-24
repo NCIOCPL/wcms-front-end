@@ -135,7 +135,6 @@ define(function(require) {
 		
 		$(".pager-link").on('click', function(event) {
 			var page = $(".cts-results-top-control .pager-current").text();
-			console.log("Current page: " + page);
 			UpdateCheckedPagesList(page, $(".cts-results-container input:checked").length);
 		});
     }
@@ -178,29 +177,27 @@ define(function(require) {
     }
 	
 	function UpdateCheckedPagesList(page, numTrialsChecked) {
-	    console.log("Pages in checkedPages before update: " + checkedPages);
 		if (numTrialsChecked > 0) {
 			// Page has trials checked
-			console.log("Page has trials checked");
 			if ($.inArray(page, checkedPages) == -1) {
 				// Page isn't in checkedPages array, so add it
-				console.log("Page isn't in checkedPages array, so add it");
 				checkedPages.push(page);
 			}
 		}
 		else if (numTrialsChecked == 0) {
 			// Page has no checked trials
-			console.log("Page has no trials checked");
 			if ($.inArray(page, checkedPages) > -1) {
 				// Page is in checkedPages array, remove it
-				console.log("Page is in checkedPages array, remove it");
                 var index = checkedPages.indexOf(page);
                 checkedPages.splice(index, 1);
             }
 		}
-		console.log("Pages in checkedPages after update: " + JSON.stringify(checkedPages));
+		
 		// update session storage for all pages that have checked items for analytics
 		sessionStorage.setItem('checkedPages', JSON.stringify(checkedPages));
+		
+		console.log("Pages in checkedPages after update: " + JSON.stringify(checkedPages));
+		console.log("--------------------------------------------");
 	}
 
     function areAllChecked() {
