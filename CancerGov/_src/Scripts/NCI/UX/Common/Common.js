@@ -6,6 +6,29 @@ define(function(require) {
     var megaMenuModule = require('Modules/megaMenu/megaMenu');
     var headroomPlugin = require('Modules/headroom/headroom');
 
+    // Patch to restore ui-focus-state to menu items
+    $.widget( "ui.menu", $.ui.menu, {
+        focus: function(event,ui){
+            $('.ui-state-focus').removeClass('ui-state-focus');
+            $(ui[0]).addClass('ui-state-focus');
+            return this._super(null, arguments[1]);
+        }
+    });
+
+    $.widget( "ui.autocomplete", $.ui.autocomplete, {
+        _renderItem: function(ul,item){
+            var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
+
+            regexBold = new RegExp('(' + lterm + ')', 'i');
+            var word = (item.value || item.term).replace(regexBold, "<strong>$&</strong>");
+
+            return $("<li>")
+                .data('data-value', item.value)
+                .append(word)
+                .appendTo(ul);
+        }
+    });
+
     jQuery(document).ready(function(jQuery) {
         /*** BEGIN header component ***/
 
@@ -27,8 +50,6 @@ define(function(require) {
         // This initializes jQuery UI Autocomplete on the site-wide search widget.
         SiteWideSearch.init();
 
-
-        /*** END header component ***/
     })
 
 });

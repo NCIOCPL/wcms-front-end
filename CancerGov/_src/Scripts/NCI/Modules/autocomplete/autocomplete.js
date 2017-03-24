@@ -23,7 +23,6 @@ define(function(require) {
 				appendTo = $target.parent();
 			}
 			var queryParameter = queryParam || "term",
-				regexIsContains = contains || false,
 				defaultOptions = {
 					appendTo: appendTo,
 					// Set AJAX service source
@@ -38,11 +37,12 @@ define(function(require) {
 							if (xhr && xhr.abort) {
 								xhr.abort();
 							}
+							console.log(xhr);
 							if (typeof src === 'string') {
 								xhr = $.ajax({
 									url: src,
 									data: dataQuery,
-									dataType: 'json',
+									dataType: 'json'
 								});
 							} else {
 								xhr = src.call(this, term)
@@ -53,11 +53,16 @@ define(function(require) {
 
 							$.when(xhr)
 								.done(function(data) {
-									console.log(data);
+									// console.log(data);
 									if(data.result) {
 										response(data.result);
 									} else {
-										response(data);
+										var values = [];
+                                        for(var i = 0; i < data.length; i++){
+                                        	values.push(data[i].item);
+                                        }
+
+										response(values);
 									}
 								})
 								.fail(function() {
@@ -67,42 +72,12 @@ define(function(require) {
 					})(),
 
 					// Start autocomplete only after three characters are typed
-					minLength: 3,
-
-					focus: function(event, ui) {
-						event.preventDefault();
-						event.stopPropagation();
-						$target.val(ui.item.item || ui.item.term);
-					},
-					select: function(event, ui) {
-						event.preventDefault();
-						event.stopPropagation();
-						$target.val(ui.item.item || ui.item.term);
-					}
+					minLength: 3
 				};
 
 			var options = $.extend({}, defaultOptions, opts || {});
 
-			$target.autocomplete(options)
-				.data('ui-autocomplete')._renderItem = function(ul, item) {
-					//Escape bad characters
-					var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
-					var regexBold = new RegExp();
-
-					if (regexIsContains) {
-						// highlight autocomplete item if it appears anywhere
-						regexBold = new RegExp('(' + lterm + ')', 'i');
-					} else {
-						// highlight autocomplete item if it appears at the beginning
-						regexBold = new RegExp('(^' + lterm + '|\\s+' + lterm + ')', 'i');
-					}
-					var word = (item.item || item.term).replace(regexBold, "<strong>$&</strong>");
-
-					return $("<li></li>")
-						.data('ui-autocomplete-item', item)
-						.append(word)
-						.appendTo(ul);
-				};
+			$target.autocomplete(options);
 
 			return $target;
 		}
