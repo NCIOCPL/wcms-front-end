@@ -52,7 +52,6 @@ define(function(require) {
         // put pagination and 'select all' in a wrapper for top control
         var $topControl = $('<div class="cts-results-top-control" />').append($topPager,$topSelect);
 
-
         // insert top controls after the title
         $(".cts-results-title").after($topControl);
 
@@ -60,12 +59,15 @@ define(function(require) {
         var $lowerControl = $('<div class="cts-results-lower-control" />');
 
         // insert lower pager into bottom controls
-        $lowerControl.append($('.lower-pager-control'),$topSelect.clone())
+        $lowerControl.prepend($topSelect.clone())
             .find("#checkAllTop").attr('id','checkAllLower') // update the checkbox id
             .next().attr('for','checkAllLower'); //update the for attribute
-
-        // insert lower controls after results container
+		
+		// insert lower controls after results container
         $lowerControl.insertAfter('.cts-results-container');
+		
+		// move pager to inside lower control
+		$lowerControl.append($('.cts-results-lower-control').next('.ct-listing-pager'));
 
 
         // check if all checkboxes are checked - if so check Select All as well
@@ -115,6 +117,11 @@ define(function(require) {
 
         $(".printSelected").on('click', function(event){
             // TODO: disable form submit until success or failure
+			
+			// add page to checkedPages if print is selected
+			var pageNum = $(".cts-results-top-control .pager-current").text();
+			console.log("Adding page " + pageNum + " to checkedPages on click of print");
+			UpdateCheckedPagesList(pageNum, $(".cts-results-container input:checked").length);
 
             console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
             $.ajax({

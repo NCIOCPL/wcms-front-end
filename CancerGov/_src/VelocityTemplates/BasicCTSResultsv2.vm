@@ -62,7 +62,6 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
   </div>
 
   ## If there are results then draw the pager
-  <div class="lower-pager-control">
   <div class="pager ct-listing-pager">
     ## Get the current page
     ## Show up to the next 2 and previous 2 numbers from the current page
@@ -78,7 +77,6 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
         #end
       ## end 'each'
     #end
-  </div>
   </div>
 #end
 
