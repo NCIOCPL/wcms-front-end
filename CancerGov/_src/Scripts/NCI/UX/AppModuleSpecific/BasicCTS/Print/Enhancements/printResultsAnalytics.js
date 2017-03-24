@@ -5,19 +5,19 @@ define(function(require) {
 	* Main function
 	*/
 	function _initialize() {
-		$('#printPage').on('click.analytics', 'a', function(e){
+		$('#printPage').click(function(e){
 			var $this = $(this);
-			NCIAnalytics.ClinicalTrialsPrint($this, 'printPage');
+			NCIAnalytics.ClinicalTrialsPrintResults_TopLinkClick($this, 'printPage');
 		});
 
-		$('#ctl10_EmailResults').on('click.analytics', 'a', function(e){
+		$('#ctl10_EmailResults').click(function(e){
 			var $this = $(this);
-			NCIAnalytics.ClinicalTrialsPrint($this, 'email');
+			NCIAnalytics.ClinicalTrialsPrintResults_TopLinkClick($this, 'email');
 		});
 
-		$('#newSearch').on('click.analytics', 'a', function(e){
+		$('#newSearch').click(function(e){
 			var $this = $(this);
-			NCIAnalytics.ClinicalTrialsPrint($this, 'newSearch');
+			NCIAnalytics.ClinicalTrialsPrintResults_TopLinkClick($this, 'newSearch');
 		});
 	}
 
