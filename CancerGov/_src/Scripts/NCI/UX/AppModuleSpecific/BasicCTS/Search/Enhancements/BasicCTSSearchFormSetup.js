@@ -278,6 +278,7 @@ define(function(require) {
 					// clear sessionStorage before going to results page
 
 					sessionStorage.removeItem('totalChecked');
+					sessionStorage.removeItem('checkedPages');
 
 					$this.data('valid', true).submit();
 				}

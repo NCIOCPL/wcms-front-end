@@ -1,5 +1,151 @@
+#macro(DrawResultsTextV2)##                    
+	#foreach($trial in $resultSet) 
+		<div class="trialContainer">
+			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
+			<!-- Check search terms and set them if they are used -->
+			#if($SearchResults.SearchTerms.ZipCode)
+				#set($zipCode = "&z=$SearchResults.SearchTerms.ZipCode")
+			#else
+				#set($zipCode = "")
+			#end
+			#if($SearchResults.SearchTerms.AgeOfEligibility)
+				#set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
+			#else
+				#set($age = "")
+			#end
+			<a class="CheckForUpdatesButton" href="/about-cancer/treatment/clinical-trials/search/v?id=$trial.NCIID$zipCode$age"><span>Check for Updates</span></a>  
+			<table class="trialDataTable">
+				<tr class="trialDataHeaderRow">
+					<td>Phase</td>
+					<td>Type</td>
+					<td>Status</td>
+					<td>Age</td>
+					<td>Trial IDs</td>
+				</tr>
+				<tr>
+					<td>Phase $trial.TrialPhase.PhaseNumber</td>
+					<td>$trial.TrialType</td>
+					<td>$trial.CurrentTrialStatus</td>
+					<td>$trial.EligibilityInfo.StructuredCriteria.MinAgeInt 
+						#if($trial.EligibilityInfo.StructuredCriteria.MaxAgeInt == 999)
+							and over
+						#else
+							to $trial.EligibilityInfo.StructuredCriteria.MaxAgeInt years
+						#end
+						
+						</td>
+					<td>
+						<span class = "dataTableIDLabel">Primary ID</span> $trial.CTEPID<br>
+						<span class = "dataTableIDLabel">Secondary IDs</span> $trial.NCIID<br>
+						<span class = "dataTableIDLabel">Clinicaltrials.gov ID</span> $trial.NCTID<br>
+					</td>
+			</table>
+
+			<h3>Description</h3>
+			<div>$trial.BriefSummary</div>
+
+			<h3 class="eligibilityCriteria">Eligibility Criteria</h3>
+
+			## Find inclusion and exclusion criteria
+			#set($inclusionCriteria =  [])
+			#set($exclusionCriteria =  [])
+			## This seems necessary because velocity sucks
+			#set($inclusionBool = false)
+			#set($exclusionBool = false)
+			#foreach($criterion in $trial.EligibilityInfo.UnstructuredCriteria)								
+				#each
+					#if($criterion.IsInclusionCriterion == true)
+						#set($trash = $inclusionCriteria.add($criterion))
+						#if($inclusionBool == false)
+							#set($inclusionBool = true)
+						#end
+					#else
+						#set($trash = $exclusionCriteria.add($criterion))
+						#if($exclusionBool == false)
+							#set($exclusionBool = true)
+						#end
+				#end
+			#end
+			#if($inclusionBool == true)
+				<h4>Inclusion Criteria</h4>
+				#foreach($include in $inclusionCriteria)
+					#each					
+					<li>$include.Description</li>                               
+					#before
+						<div>                                    
+							<ul>                                    
+					#after
+							</ul> 
+						</div>
+				#end
+			#end
+			#if($exclusionBool == true)
+				<h4>Exclusion Criteria</h4>
+				#foreach($criterion in $exclusionCriteria)
+					#each							
+						<li>$criterion.Description</li>
+					#before
+						<div>
+							<ul>
+				   #after
+							</ul>
+						</div>                                
+				#end
+			#end
+			<h3>Locations & Contacts</h3>
+			<div>                               
+				#if ($SearchResults.SearchTerms.ZipCode)##
+					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
+				#else
+					#set($locationsToPrint =  $SearchResults.TrialTools.GetAllStudySites($trial))
+				#end
+				#set($headingVal = "none")
+				#foreach($location in $locationsToPrint)
+				#each
+					<!-- if the state we're on now isn't the previous one, start a new heading-->
+					#if($headingVal != $location.StateOrProvince)
+						#if($location.StateOrProvince)
+							#set($headingVal = $location.StateOrProvince)
+							<h4 class="locationStateLabel">$location.StateOrProvince</h4>
+						#end
+					#end                                        
+					<div class="locationBlock">                                            
+						#if($location.City)
+							<span class="locationCity">$location.City</span>
+							<br>
+						#end
+						#if($location.Name)
+							<span class="locationName">$location.Name</span>
+							<br>
+						#end
+						#if($location.ContactName)
+							<span class="locationContactName">Contact: $location.ContactName</span>
+							<br>
+						#end    
+						#if($location.ContactPhone)
+							<span class="locationPhone">Phone: $location.ContactPhone</span>
+							<br>
+						#end                        
+						#if($location.ContactEmail)
+							<span class="locationEmail">Email: $location.ContactEmail</span>
+							<br>
+						#end                                            
+						<br />
+					</div>  
+				#end
+			</div>
+			<h3>Trial Objectives and Outlines</h3>
+			<div>$trial.DetailedDescription</div>
+			<div class="trialFooter">
+				Clinical trials are things with information and blah blah blah this is useless and stupid.
+			</div>
+		</div>
+	#end                    
+#end
+
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/PublishedContent/js/BasicCTSResultsPage.js" type="text/javascript"></script>
     <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" />
     <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" />
@@ -28,152 +174,7 @@
                     <p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
                     <p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
                     
-                                       
-                #macro(DrawNoResultsTextV2)##                    
-                    #foreach($trial in $resultSet) 
-                        <div class="trialContainer">
-                            <h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
-                            <!-- Check search terms and set them if they are used -->
-                            #if($SearchResults.SearchTerms.ZipCode)
-                                #set($zipCode = "&z=$SearchResults.SearchTerms.ZipCode")
-                            #else
-                                #set($zipCode = "")
-                            #end
-                            #if($SearchResults.SearchTerms.AgeOfEligibility)
-                                #set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
-                            #else
-                                #set($age = "")
-                            #end
-                            <a class="CheckForUpdatesButton" href="/about-cancer/treatment/clinical-trials/search/v?id=$trial.NCIID$zipCode$age"><span>Check for Updates</span></a>  
-                            <table class="trialDataTable">
-                                <tr class="trialDataHeaderRow">
-                                    <td>Phase</td>
-                                    <td>Type</td>
-                                    <td>Status</td>
-                                    <td>Age</td>
-                                    <td>Trial IDs</td>
-                                </tr>
-                                <tr>
-                                    <td>Phase $trial.TrialPhase.PhaseNumber</td>
-                                    <td>$trial.TrialType</td>
-                                    <td>$trial.CurrentTrialStatus</td>
-                                    <td>$trial.EligibilityInfo.StructuredCriteria.MinAgeInt 
-                                        #if($trial.EligibilityInfo.StructuredCriteria.MaxAgeInt == 999)
-                                            and over
-                                        #else
-                                            to $trial.EligibilityInfo.StructuredCriteria.MaxAgeInt years
-                                        #end
-                                        
-                                        </td>
-                                    <td>
-                                        <span class = "dataTableIDLabel">Primary ID</span> $trial.CTEPID<br>
-                                        <span class = "dataTableIDLabel">Secondary IDs</span> $trial.NCIID<br>
-                                        <span class = "dataTableIDLabel">Clinicaltrials.gov ID</span> $trial.NCTID<br>
-                                    </td>
-                            </table>
-
-                            <h3>Description</h3>
-                            <div>$trial.BriefSummary</div>
-
-                            <h3 class="eligibilityCriteria">Eligibility Criteria</h3>
-
-                            ## Find inclusion and exclusion criteria
-                            #set($inclusionCriteria =  [])
-                            #set($exclusionCriteria =  [])
-                            ## This seems necessary because velocity sucks
-                            #set($inclusionBool = false)
-                            #set($exclusionBool = false)
-                            #foreach($criterion in $trial.EligibilityInfo.UnstructuredCriteria)								
-                                #each
-                                    #if($criterion.IsInclusionCriterion == true)
-                                        #set($trash = $inclusionCriteria.add($criterion))
-                                        #if($inclusionBool == false)
-                                            #set($inclusionBool = true)
-                                        #end
-                                    #else
-                                        #set($trash = $exclusionCriteria.add($criterion))
-                                        #if($exclusionBool == false)
-                                            #set($exclusionBool = true)
-                                        #end
-                                #end
-                            #end
-                            #if($inclusionBool == true)
-                                <h4>Inclusion Criteria</h4>
-                                #foreach($include in $inclusionCriteria)
-                                    #each					
-                                    <li>$include.Description</li>                               
-                                    #before
-                                        <div>                                    
-                                            <ul>                                    
-                                    #after
-                                            </ul> 
-                                        </div>
-                                #end
-                            #end
-                            #if($exclusionBool == true)
-                                <h4>Exclusion Criteria</h4>
-                                #foreach($criterion in $exclusionCriteria)
-                                    #each							
-                                        <li>$criterion.Description</li>
-                                    #before
-                                        <div>
-                                            <ul>
-                                   #after
-                                            </ul>
-                                        </div>                                
-                                #end
-                            #end
-                            <h3>Locations & Contacts</h3>
-                            <div>                               
-                                #if ($SearchResults.SearchTerms.ZipCode)##
-                                    #set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
-                                #else
-                                    #set($locationsToPrint =  $SearchResults.TrialTools.GetAllStudySites($trial))
-                                #end
-                                #set($headingVal = "none")
-                                #foreach($location in $locationsToPrint)
-                                #each
-                                    <!-- if the state we're on now isn't the previous one, start a new heading-->
-                                    #if($headingVal != $location.StateOrProvince)
-                                        #if($location.StateOrProvince)
-                                            #set($headingVal = $location.StateOrProvince)
-                                            <h4 class="locationStateLabel">$location.StateOrProvince</h4>
-                                        #end
-                                    #end                                        
-                                    <div class="locationBlock">                                            
-                                        #if($location.City)
-                                            <span class="locationCity">$location.City</span>
-                                            <br>
-                                        #end
-                                        #if($location.Name)
-                                            <span class="locationName">$location.Name</span>
-                                            <br>
-                                        #end
-                                        #if($location.ContactName)
-                                            <span class="locationContactName">Contact: $location.ContactName</span>
-                                            <br>
-                                        #end    
-                                        #if($location.ContactPhone)
-                                            <span class="locationPhone">Phone: $location.ContactPhone</span>
-                                            <br>
-                                        #end                        
-                                        #if($location.ContactEmail)
-                                            <span class="locationEmail">Email: $location.ContactEmail</span>
-                                            <br>
-                                        #end                                            
-                                        <br />
-                                    </div>  
-                                #end
-                            </div>
-                            <h3>Trial Objectives and Outlines</h3>
-                            <div>$trial.DetailedDescription</div>
-                            <div class="trialFooter">
-                                Clinical trials are things with information and blah blah blah this is useless and stupid.
-                            </div>
-                        </div>
-                    #end                    
-                #end
-                #DrawNoResultsTextV2()
+                #DrawResultsTextV2()
             </div>
         </div>
 	</div>
