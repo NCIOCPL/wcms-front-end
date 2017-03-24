@@ -37,7 +37,6 @@ define(function(require) {
 							if (xhr && xhr.abort) {
 								xhr.abort();
 							}
-							console.log(xhr);
 							if (typeof src === 'string') {
 								xhr = $.ajax({
 									url: src,
