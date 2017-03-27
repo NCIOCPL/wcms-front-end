@@ -207,18 +207,29 @@
     <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
     <script language="JavaScript" type="text/javascript">
     <!--
-    s.channel='NCI ctsPrintResultsPage';
-    s.prop3='/';
-    s.prop6='Comprehensive Cancer Information';
-    s.prop8='english';
-    s.prop10=document.title;
-    s.prop25='01/01/1980';
-    s.prop44='Clinical Trials';
-	s.prop62='Clinical Trials: Print Selected';
-    s.eVar2='english';
-	s.eVar62='Clinical Trials: Print Selected';
-	s.eVar44='Clinical Trials';
-    s.events='event1';
+	function getPrintID(){
+		var url = window.location.href;
+		var regex = new RegExp("[?&]" + "PrintID" + "(=([^&#]*)|&|#|$)");
+        var results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+    s.channel = 'NCI ctsPrintResultsPage';
+    s.prop3 = '/';
+    s.prop6 = 'Comprehensive Cancer Information';
+    s.prop8 = 'english';
+    s.prop10 = document.title;
+	s.prop15 = getPrintID();
+    s.prop25 ='01/01/1980';
+    s.prop44 ='Clinical Trials';
+	s.prop62 ='Clinical Trials: Print Selected';	
+    s.eVar2 ='english';
+	s.eVar15 = getPrintID();
+	s.eVar62 ='Clinical Trials: Print Selected';
+	s.eVar44 ='Clinical Trials';
+    s.events ='event1';
 
     var s_code=s.t();
     if(s_code)
