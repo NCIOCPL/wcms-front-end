@@ -3,7 +3,7 @@
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
+        define(['jquery','Modules/NCI.config'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // Node/CommonJS
         module.exports = function( root, jQuery ) {
@@ -19,14 +19,14 @@
                     jQuery = require('jquery')(root);
                 }
             }
-            factory(jQuery);
+            factory(jQuery,require('Modules/NCI.config'));
             return jQuery;
         };
     } else {
         // Browser globals
-        factory(jQuery);
+        factory(jQuery,NCI.config);
     }
-}(function ($) {
+}(function ($,config) {
     // Add to NCI namespace
     if (!$.NCI) {
         $.NCI = {};
@@ -67,7 +67,7 @@
 
             //TODO: previous state not reliable on mobile since accordions are always collapsed on load
             // if the anchor is a PDQ section and we're >=desktop
-            if(width > NCI.Breakpoints.large && isSection) {
+            if(width > config.breakpoints.large && isSection) {
                 scrollY = 0;
                 willFreeze = false;
             } else if(hasPreviousState) {

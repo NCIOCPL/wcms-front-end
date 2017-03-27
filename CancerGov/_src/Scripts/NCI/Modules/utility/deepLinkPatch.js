@@ -6,7 +6,7 @@ define(function(require) {
 		$ = require('jquery'),
 		browserDetect = require('./browserDetect');
 
-	require('Plugins/jquery.nci.scroll_to.js');
+	require('Plugins/jquery.nci.scroll_to');
 
 	function _initialize() {
 		// console.log("You are using: " + browserDetect.getBrowser() + " with version: " + browserDetect.getVersion());
@@ -52,7 +52,7 @@ define(function(require) {
 			};
 
 			var isSection = location.hash.match(/^#section\//i),
-				anchor = '#' + location.hash.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'),
+				anchor = ('#' + location.hash.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).replace('#\\',''),
 				$anchor = $(anchor),
 				$accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
 				$accordion = $accordionPanel.closest('.ui-accordion'),
