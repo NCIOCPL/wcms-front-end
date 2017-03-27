@@ -1,15 +1,16 @@
 define(function(require) {
     require('jquery');
 
-    var LIMIT = 12,
-        checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
-        totalChecked = checkedTrials.length,
-		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || []
+    var LIMIT = 20,
+		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
+		totalChecked = checkedTrials.length,
+		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [],
+		selectAllChecked = sessionStorage.getItem('hasSelectAll') || false
     ;
 
     function _initialize() {
 
-        // inset checkboxes next to each result
+        // insert checkboxes next to each result
         $(".clinical-trial-individual-result")
             .prepend(function(){
                 var nciid = this.attributes['data-nciid'].value;
@@ -118,28 +119,33 @@ define(function(require) {
         $(".printSelected").on('click', function(event){
             // TODO: disable form submit until success or failure
 			
-			// add page to checkedPages if print is selected
+			// Attempt to add current page to checkedPages if print is selected
 			var pageNum = $(".cts-results-top-control .pager-current").text();
-			console.log("Adding page " + pageNum + " to checkedPages on click of print");
 			UpdateCheckedPagesList(pageNum, $(".cts-results-container input:checked").length);
 
-            console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
-            $.ajax({
-                type: "POST",
-                url: "/CTS.Print/GenCache",
-                data: JSON.stringify({ TrialIDs: checkedTrials}),
-                dataType: "json",
-                jsonp: false,
-                success: function(response) {
-                    console.log("Success, return is: " + response.printID);
-                    window.location="/CTS.Print/Display?printid=" + response.printID;
-                },
-                error:function(jqXHR, textStatus, errorThrown){
-                    console.log("Error occurred " + errorThrown + "; text status: " + textStatus);
-                }
-            });
+            if(checkedTrials.length > 0) {
+				console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
+				$.ajax({
+					type: "POST",
+					url: "/CTS.Print/GenCache",
+					data: JSON.stringify({ TrialIDs: checkedTrials}),
+					dataType: "json",
+					jsonp: false,
+					success: function(response) {
+						console.log("Success, return is: " + response.printID);
+						window.location="/CTS.Print/Display?printid=" + response.printID;
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+						console.log("Error occurred " + errorThrown + "; text status: " + textStatus);
+					}
+				});
+			}
+			else {
+				triggerModal('print_none_selected');
+			}
         });
 		
+		// Updated checkedPages whenever a pager link is clicked
 		$(".pager-link").on('click', function(event) {
 			var page = $(".cts-results-top-control .pager-current").text();
 			UpdateCheckedPagesList(page, $(".cts-results-container input:checked").length);
@@ -147,7 +153,6 @@ define(function(require) {
     }
 
     function UpdateCheckedTrialsList(src, isChecked) {
-
         // remove id symbol just in case
         var trial = src.replace("#", "");
 
@@ -161,15 +166,25 @@ define(function(require) {
             }
         }
         else { // Check it
-
             // Check if we've hit the limit - if so trigger warning modal
-            if(totalChecked >= LIMIT ){
-                triggerModal('limit');
-                return false;
-            }
+			if(totalChecked >= LIMIT){
+                console.log("total checked " + totalChecked + " + 1");
+				triggerModal('limit');
+				return false;
+			}
+			
             else if ($.inArray(trial, checkedTrials) == -1) {
                 checkedTrials.push(trial);
                 totalChecked++;
+				
+				if(totalChecked == LIMIT) {
+					// Display the modal if we've reached the max number of selected trials with this click
+					triggerModal('limit');
+					
+					// Analytics call for max selected reached
+					var $this = $(this);
+					NCIAnalytics.CTSResultsMaxSelectedClick($this);
+				}
             }
         }
 
@@ -211,36 +226,67 @@ define(function(require) {
         if ($(".cts-results-container input:checked").length === 10) {
             // all are checked
             $("#checkAllTop, #checkAllLower").prop("checked",true);
+			selectAllChecked = true;
+			sessionStorage.setItem('hasSelectAll', selectAllChecked);
         }  else {
             // not all are checked
             $("#checkAllTop, #checkAllLower").prop("checked",false);
+			selectAllChecked = false;
+			sessionStorage.setItem('hasSelectAll', selectAllChecked);
         }
     }
 
     function triggerModal(type){
         console.log('Modal triggered: ',type);
-        var modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have reached the '+ LIMIT +' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>').dialog({
-            dialogClass: 'cts-dialog',
-            closeText: "hide",
-            autoOpen: false,
-            modal: true,
-            resizable: false,
-            draggable: false,
-            width: '450px',
-            position: {
-                my: "center",
-                at: "center",
-                of: window
-            },
-            show: { effect: "puff",percent:50, duration: 250 },
-            hide: { effect: "puff",percent:50, duration: 250 },
-            create: function(evt, ui) {
-                var $modal = $(evt.target).parent();
-                var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
-                $modal.find('.ui-dialog-titlebar').remove();
-                $modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
-            }
-        });
+		var modal;
+		if (type == 'limit') {
+			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have reached the '+ LIMIT +' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>').dialog({
+				dialogClass: 'cts-dialog',
+				closeText: "hide",
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				draggable: false,
+				width: '450px',
+				position: {
+					my: "center",
+					at: "center",
+					of: window
+				},
+				show: { effect: "puff",percent:50, duration: 250 },
+				hide: { effect: "puff",percent:50, duration: 250 },
+				create: function(evt, ui) {
+					var $modal = $(evt.target).parent();
+					var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
+					$modal.find('.ui-dialog-titlebar').remove();
+					$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+				}
+			});
+		}
+		else if (type == 'print_none_selected') {
+			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>').dialog({
+				dialogClass: 'cts-dialog',
+				closeText: "hide",
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				draggable: false,
+				width: '450px',
+				position: {
+					my: "center",
+					at: "center",
+					of: window
+				},
+				show: { effect: "puff",percent:50, duration: 250 },
+				hide: { effect: "puff",percent:50, duration: 250 },
+				create: function(evt, ui) {
+					var $modal = $(evt.target).parent();
+					var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
+					$modal.find('.ui-dialog-titlebar').remove();
+					$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+				}
+			});
+		}
         modal.dialog('open');
     }
 

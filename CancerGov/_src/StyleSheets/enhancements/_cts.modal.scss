@@ -21,7 +21,7 @@
     z-index: 1;
 
     .ui-icon {
-      background: url($icons + 'modal-close.jpg') top left no-repeat;
+      /* background: url($icons + 'Close_icon.png') top left no-repeat; */
       width: 32px;
       height: 32px;
       margin:0;
@@ -40,7 +40,8 @@
   i.warning {
     display: block;
     text-align: center;
-    background: url($icons + 'modal-alert.jpg') top center no-repeat;
+    /* background: url($icons + 'Alert_icon.png') top center no-repeat; */
+	width: 50px;
     height: 50px;
   }
 

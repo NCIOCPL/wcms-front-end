@@ -279,6 +279,7 @@ define(function(require) {
 
 					sessionStorage.removeItem('totalChecked');
 					sessionStorage.removeItem('checkedPages');
+					sessionStorage.removeItem('hasSelectAll');
 
 					$this.data('valid', true).submit();
 				}
