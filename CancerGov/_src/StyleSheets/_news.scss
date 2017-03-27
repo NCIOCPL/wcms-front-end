@@ -45,6 +45,11 @@ a.arrow-link.news-footer {
 		top: 6px !important;
 		position: relative;
 	}
+		a.news-events:before {
+		@include sprite($x-coordinate: -16px, $y-coordinate: -673px, $width: 23px, $height: 23px);
+		top: 0px !important;
+		position: relative;
+	}
 	
 	a.icon-exit-notification {
 		vertical-align: bottom;
