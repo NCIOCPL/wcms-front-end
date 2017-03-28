@@ -37,7 +37,7 @@
 					<td>
 						<span class = "dataTableIDLabel">Primary ID</span> $trial.CTEPID<br>
 						<span class = "dataTableIDLabel">Secondary IDs</span> $trial.NCIID<br>
-						<span class = "dataTableIDLabel">Clinicaltrials.gov ID</span> $trial.NCTID<br>
+						<span class = "dataTableIDLabel">Clinicaltrials.gov ID</span> <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">$trial.NCTID</a><br>
 					</td>
 			</table>
 
@@ -137,7 +137,7 @@
 			<h3>Trial Objectives and Outlines</h3>
 			<div>$trial.DetailedDescription</div>
 			<div class="trialFooter">
-				Note: Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the NCT number on ClinicalTrials.gov
+				Note: Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">NCT number</a> on ClinicalTrials.gov
 			</div>
 		</div>
 	#end                    
@@ -224,7 +224,7 @@
 	s.prop15 = getPrintID();
     s.prop25 ='01/01/1980';
     s.prop44 ='Clinical Trials';
-	s.prop62 ='Clinical Trials: Print Selected';	
+	s.prop62 ='Clinical Trials: Print Selected';
     s.eVar2 ='english';
 	s.eVar15 = getPrintID();
 	s.eVar62 ='Clinical Trials: Print Selected';
