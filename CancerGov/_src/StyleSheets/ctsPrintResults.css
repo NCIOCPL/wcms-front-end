@@ -156,7 +156,7 @@ ul li{
 	padding: 20px;
 }
 
-.eligibilityCriteria{
+.printHeading {
 	margin: 20px 0;
 }
 
@@ -209,6 +209,7 @@ ul li{
 	font-family: Montserrat, Arial, sans-serif;
 }
 
+
 @media print{
 	#bodyHeadingLinks{
 		display: none;
@@ -217,7 +218,6 @@ ul li{
 	.CheckForUpdatesButton{
 		display: none;
 	}
-	
 	.nctIdLink{
 		color: black;
 	}
