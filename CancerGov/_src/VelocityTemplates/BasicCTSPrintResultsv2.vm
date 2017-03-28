@@ -44,7 +44,7 @@
 			<h3>Description</h3>
 			<div>$trial.BriefSummary</div>
 
-			<h3 class="eligibilityCriteria">Eligibility Criteria</h3>
+			<h3 class="printHeading">Eligibility Criteria</h3>
 
 			## Find inclusion and exclusion criteria
 			#set($inclusionCriteria =  [])
@@ -92,7 +92,12 @@
 						</div>                                
 				#end
 			#end
-			<h3>Locations & Contacts</h3>
+
+			<h3 class="printHeading">Lead Organization</h3>
+			<div>$trial.LeadOrganizationName</div>
+			<div>Principal Investigator: $trial.PrincipalInvestigator</div>
+
+			<h3 class="printHeading">Locations & Contacts</h3>
 			<div>                               
 				#if ($SearchResults.SearchTerms.ZipCode)##
 					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
@@ -161,7 +166,7 @@
 		<div id="CT-results-print-banner"><h1>National Cancer Institute</h1><h2>at the National Institutes of Health</h2></div>
         <div id="cgvBody">
             <div id="bodyHeading">
-                <h1 id="ctPrintBodyHeading">Your Clinical Trials Results</h1>            
+                <h1 id="ctPrintBodyHeading">Your Clinical Trials Search Results</h1>            
                 <div id="bodyHeadingLinks">
                     <a id="printPage" href="javascript:window.print();">Print</a> | <a id="ctl10_EmailResults" onclick="javascript: dynPopWindow('/common/popUps/PopEmail.aspx?title=Clinical+Trials+Results&amp;docurl=%2fabout-cancer%2ftreatment%2fclinical-trials%2fsearch%2fprintresults%3fcid%3d267655__amp%3bprotocolsearchid%3d15673988&amp;invokedFrom=2&amp;language=en&amp;a=15703675J48&amp;b=1o4904' , 'emailPopUp', 'height=365,width=525'); return false;" href="/common/popUps/PopEmail.aspx?title=Clinical+Trials+Results&amp;docurl=%2fabout-cancer%2ftreatment%2fclinical-trials%2fsearch%2fprintresults%3fcid%3d267655__amp%3bprotocolsearchid%3d15673988&amp;invokedFrom=2&amp;language=en&amp;a=15703675J48&amp;b=1o4904">E-Mail These Results</a> | <a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>                    
                 </div>
