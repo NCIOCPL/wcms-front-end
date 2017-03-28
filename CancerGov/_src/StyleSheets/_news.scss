@@ -46,8 +46,8 @@ a.arrow-link.news-footer {
 		position: relative;
 	}
 		a.news-events:before {
-		@include sprite($x-coordinate: -16px, $y-coordinate: -673px, $width: 23px, $height: 23px);
-		top: 0px !important;
+		@include sprite($x-coordinate: -18px, $y-coordinate: -675px, $width: 19px, $height: 19px);
+		top: 2px !important;
 		position: relative;
 	}
 	
