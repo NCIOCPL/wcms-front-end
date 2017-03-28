@@ -1,7 +1,7 @@
 define(function(require) {
     require('jquery');
 
-    var LIMIT = 20,
+    var LIMIT = 100,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
 		totalChecked = checkedTrials.length,
 		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [],
@@ -124,6 +124,31 @@ define(function(require) {
 			UpdateCheckedPagesList(pageNum, $(".cts-results-container input:checked").length);
 
             if(checkedTrials.length > 0) {
+				var modal = $('<div><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>').dialog({
+					dialogClass: 'cts-dialog',
+					closeText: "hide",
+					autoOpen: false,
+					modal: true,
+					resizable: false,
+					draggable: false,
+					width: '450px',
+					position: {
+						my: "center",
+						at: "center",
+						of: window
+					},
+					show: { effect: "puff",percent:50, duration: 250 },
+					hide: { effect: "puff",percent:50, duration: 250 },
+					create: function(evt, ui) {
+						var $modal = $(evt.target).parent();
+						var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
+						$modal.find('.ui-dialog-titlebar').remove();
+						$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+					}
+				});
+			
+				modal.dialog('open');
+				
 				console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
 				$.ajax({
 					type: "POST",
@@ -132,7 +157,7 @@ define(function(require) {
 					dataType: "json",
 					jsonp: false,
 					success: function(response) {
-						console.log("Success, return is: " + response.printID);
+						modal.dialog('close');
 						window.location="/CTS.Print/Display?printid=" + response.printID;
 					},
 					error:function(jqXHR, textStatus, errorThrown){
@@ -156,8 +181,6 @@ define(function(require) {
         // remove id symbol just in case
         var trial = src.replace("#", "");
 
-        console.log("Items parsed from storage: ", checkedTrials);
-
         if (isChecked) { // Uncheck it
             if (checkedTrials.indexOf(trial) > -1) {
                 var index = checkedTrials.indexOf(trial);
@@ -168,7 +191,6 @@ define(function(require) {
         else { // Check it
             // Check if we've hit the limit - if so trigger warning modal
 			if(totalChecked >= LIMIT){
-                console.log("total checked " + totalChecked + " + 1");
 				triggerModal('limit');
 				return false;
 			}
@@ -190,10 +212,6 @@ define(function(require) {
 
         // update the session storage
         sessionStorage.setItem('totalChecked',JSON.stringify(checkedTrials));
-
-        console.log("totalChecked: " + totalChecked);
-        console.log("Items set in storage: ",JSON.stringify({ TrialIDs: checkedTrials}));
-        console.log("--------------------------------------------");
 
         return true;
     }
@@ -217,9 +235,6 @@ define(function(require) {
 		
 		// update session storage for all pages that have checked items for analytics
 		sessionStorage.setItem('checkedPages', JSON.stringify(checkedPages));
-		
-		console.log("Pages in checkedPages after update: " + JSON.stringify(checkedPages));
-		console.log("--------------------------------------------");
 	}
 
     function areAllChecked() {
@@ -237,7 +252,6 @@ define(function(require) {
     }
 
     function triggerModal(type){
-        console.log('Modal triggered: ',type);
 		var modal;
 		if (type == 'limit') {
 			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have reached the '+ LIMIT +' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>').dialog({
