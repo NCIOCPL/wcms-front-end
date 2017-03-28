@@ -217,6 +217,10 @@ ul li{
 	.CheckForUpdatesButton{
 		display: none;
 	}
+	
+	.nctIdLink{
+		color: black;
+	}
 }
 
 
