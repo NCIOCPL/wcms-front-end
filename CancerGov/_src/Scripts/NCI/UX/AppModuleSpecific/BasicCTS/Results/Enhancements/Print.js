@@ -124,7 +124,8 @@ define(function(require) {
 			UpdateCheckedPagesList(pageNum, $(".cts-results-container input:checked").length);
 
             if(checkedTrials.length > 0) {
-				var modal = $('<div><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>').dialog({
+				var modal = triggerModal('redirect');
+				/*var modal = $('<div><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>').dialog({
 					dialogClass: 'cts-dialog',
 					closeText: "hide",
 					autoOpen: false,
@@ -147,12 +148,31 @@ define(function(require) {
 					}
 				});
 			
-				modal.dialog('open');
+				modal.dialog('open');*/
+				
+				// Set up query parameters for ajax call
+				var postUrl = "/CTS.Print/GenCache"
+				var params = {
+					t: getParameterByName('t', window.location.href),
+					z: getParameterByName('a', window.location.href),
+					a: getParameterByName('z', window.location.href)
+				}
+				// Delete empty query params
+				for(key in params) {
+					if (isEmpty(params[key])) {
+						delete params[key];
+					}
+				}
+				
+				var urlParams = $.param(params);
+				if(urlParams.length > 0) {
+					postUrl += '?' + urlParams;
+				}
 				
 				console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
 				$.ajax({
 					type: "POST",
-					url: "/CTS.Print/GenCache",
+					url: postUrl,
 					data: JSON.stringify({ TrialIDs: checkedTrials}),
 					dataType: "json",
 					jsonp: false,
@@ -166,7 +186,7 @@ define(function(require) {
 				});
 			}
 			else {
-				triggerModal('print_none_selected');
+				triggerModal('none_selected');
 			}
         });
 		
@@ -177,6 +197,10 @@ define(function(require) {
 		});
     }
 
+	function isEmpty(value) {
+		return value == null || value == '';
+	}
+	
     function UpdateCheckedTrialsList(src, isChecked) {
         // remove id symbol just in case
         var trial = src.replace("#", "");
@@ -250,6 +274,18 @@ define(function(require) {
 			sessionStorage.setItem('hasSelectAll', selectAllChecked);
         }
     }
+	
+	function getParameterByName(name, url) { 
+		if (!url) { 
+		  url = window.location.href; 
+		} 
+		name = name.replace(/[\[\]]/g, "\\$&"); 
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), 
+			results = regex.exec(url); 
+		if (!results) return ''; 
+		if (!results[2]) return ''; 
+		return decodeURIComponent(results[2].replace(/\+/g, " ")); 
+	}
 
     function triggerModal(type){
 		var modal;
@@ -277,7 +313,7 @@ define(function(require) {
 				}
 			});
 		}
-		else if (type == 'print_none_selected') {
+		else if (type == 'none_selected') {
 			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>').dialog({
 				dialogClass: 'cts-dialog',
 				closeText: "hide",
@@ -301,7 +337,34 @@ define(function(require) {
 				}
 			});
 		}
+		else if (type == 'redirect') {	
+			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>').dialog({
+				dialogClass: 'cts-dialog',
+				closeText: "hide",
+				autoOpen: false,
+				modal: true,
+				resizable: false,
+				draggable: false,
+				width: '450px',
+				position: {
+					my: "center",
+					at: "center",
+					of: window
+				},
+				show: { effect: "puff",percent:50, duration: 250 },
+				hide: { effect: "puff",percent:50, duration: 250 },
+				create: function(evt, ui) {
+					var $modal = $(evt.target).parent();
+					var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
+					$modal.find('.ui-dialog-titlebar').remove();
+					$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+				}
+			});
+		}
+		
         modal.dialog('open');
+		
+		return modal;
     }
 
     /**
