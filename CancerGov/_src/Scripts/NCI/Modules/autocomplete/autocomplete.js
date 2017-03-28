@@ -17,64 +17,58 @@ define(function(require) {
 		function _doAutocomplete(target, src, contains, queryParam, queryString, opts) {
 			var $ = require('jquery');
 
-			var appendTo = null,
-				$target = $(target);
-			if(target !== "#swKeyword") {
-				appendTo = $target.parent();
-			}
-			var queryParameter = queryParam || "term",
+			// ensure our target is a jQuery object
+			var $target = $(target);
+
+			var appendTo = $target.is("#swKeyword")?null:$target.parent(),
+				queryParameter = queryParam || "term",
 				defaultOptions = {
 					appendTo: appendTo,
 					// Set AJAX service source
-					source: (function() {
-						var xhr;
+					source: function( request, response ) {
+						var dataQuery = $.extend({}, queryString || {}),
+							term = request.term,
+							xhr;
+						dataQuery[queryParameter] = term;
 
-						return function( request, response ) {
-							var dataQuery = $.extend({}, queryString || {});
-							var term = request.term;
-							dataQuery[queryParameter] = term;
-
-							if (xhr && xhr.abort) {
-								xhr.abort();
-							}
-							if (typeof src === 'string') {
-								xhr = $.ajax({
-									url: src,
-									data: dataQuery,
-									dataType: 'json'
-								});
-							} else {
-								xhr = src.call(this, term)
-									.done(function(data) {
-										return data.result;
-									});
-							}
-
-							$.when(xhr)
+						if (xhr && xhr.abort) {
+							xhr.abort();
+						}
+						if (typeof src === 'string') {
+							xhr = $.ajax({
+								url: src,
+								data: dataQuery,
+								dataType: 'json'
+							});
+						} else {
+							xhr = src.call(this, term)
 								.done(function(data) {
-									// console.log(data);
-									if(data.result) {
-										response(data.result);
-									} else {
-										var values = [];
-                                        for(var i = 0; i < data.length; i++){
-                                        	values.push(data[i].item);
-                                        }
-
-										response(values);
-									}
-								})
-								.fail(function() {
-									response([]);
+									return data.result;
 								});
-						};
-					})(),
+						}
 
-					// Start autocomplete only after three characters are typed
-					minLength: 3
-				};
-
-			var options = $.extend({}, defaultOptions, opts || {});
+						$.when(xhr)
+							.done(function(data) {
+								if(data.result) {
+									response(data.result.map(function(el){
+										return el.term
+									}));
+								} else {
+									var values = [];
+									for(var i = 0; i < data.length; i++){
+										values.push(data[i].item);
+									}
+									response(values);
+								}
+							})
+							.fail(function() {
+								response([]);
+							});
+					},
+                    minLength: 3
+				},
+				options = $.extend({}, defaultOptions, opts || {})
+			;
 
 			$target.autocomplete(options);
 

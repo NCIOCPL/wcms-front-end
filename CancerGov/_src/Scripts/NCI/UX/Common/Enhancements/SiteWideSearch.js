@@ -18,8 +18,8 @@ define(function(require) {
             language = "Spanish";
         }
 
-        var keywordElem = "#swKeyword";
-        if ($(keywordElem).length === 0) {
+        var $keywordElem = $('#swKeyword');
+        if ($keywordElem.length === 0) {
             return;
         }
         var svcUrl = "/AutoSuggestSearch.svc/SearchJSON/" + language;
@@ -47,17 +47,17 @@ define(function(require) {
                 resizeMenu = $.ui.autocomplete.prototype._resizeMenu;
             }
 
-            $(element).autocomplete('option', 'position', position)
+            element.autocomplete('option', 'position', position)
                 .data('ui-autocomplete')._resizeMenu = resizeMenu;
         };
 
-        NCIAutocomplete.doAutocomplete(keywordElem, svcUrl, false, "term");
-        setAutocompleteOptions(keywordElem);
+        NCIAutocomplete.doAutocomplete($keywordElem, svcUrl, false, "term");
+        setAutocompleteOptions($keywordElem);
 
         $(window).on('resize.NCI.search', function() {
-            setAutocompleteOptions(keywordElem);
+            setAutocompleteOptions($keywordElem);
 
-            $(keywordElem).autocomplete('close');
+            $keywordElem.autocomplete('close');
         });
         
         initialized = true;
