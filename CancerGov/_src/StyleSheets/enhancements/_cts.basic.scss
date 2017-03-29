@@ -401,5 +401,22 @@ a.listing-chat-button:visited {
     display: inline-block;
   }
 }
+
+@include bp(medium) {
+  .cts-results-top-control {
+    .ct-listing-pager {
+	  float: left;
+	  clear: left;
+	  padding-top: 0;
+	  padding-bottom: 1em;
+	}
+	
+	.selections-area {
+	  clear: left;
+	  border-top: 1px solid #7d7d7d;
+	  padding-top: 1em;
+	}
+  }
+}
   
 /* Modal Styles */
