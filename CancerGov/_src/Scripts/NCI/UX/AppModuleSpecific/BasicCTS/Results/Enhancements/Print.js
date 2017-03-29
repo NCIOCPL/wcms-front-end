@@ -1,7 +1,7 @@
 define(function(require) {
     require('jquery');
 
-    var LIMIT = 3,
+    var LIMIT = 100,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
 		totalChecked = checkedTrials.length,
 		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [],
