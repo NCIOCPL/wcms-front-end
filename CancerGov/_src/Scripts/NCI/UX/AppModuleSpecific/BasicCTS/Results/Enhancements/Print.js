@@ -151,8 +151,12 @@ define(function(require) {
 				var postUrl = "/CTS.Print/GenCache",
                     params = {
 					t: getParameterByName('t', window.location.href),
-					z: getParameterByName('a', window.location.href),
-					a: getParameterByName('z', window.location.href)
+					z: getParameterByName('z', window.location.href),
+					a: getParameterByName('a', window.location.href),
+					q: getParameterByName('q', window.location.href),
+					ct: getParameterByName('ct', window.location.href),
+					g: getParameterByName('g', window.location.href),
+					zp: getParameterByName('zp', window.location.href)
 				};
 				// Delete empty query params
 				for(var key in params) {
@@ -166,7 +170,6 @@ define(function(require) {
 					postUrl += '?' + urlParams;
 				}
 				
-				console.log("Attempting to print trials " + JSON.stringify({ TrialIDs: checkedTrials}));
 				$.ajax({
 					type: "POST",
 					url: postUrl,
@@ -178,6 +181,7 @@ define(function(require) {
 						window.location="/CTS.Print/Display?printid=" + response.printID;
 					},
 					error:function(jqXHR, textStatus, errorThrown){
+						modal.dialog('close');
 						console.log("Error occurred " + errorThrown + "; text status: " + textStatus);
 					}
 				});
@@ -311,7 +315,9 @@ define(function(require) {
                     var $this = $(this).parent();
                     var $closeBtn = $this.find('.ui-dialog-titlebar-close').clone(true);
                     $this.find('.ui-dialog-titlebar').remove();
-                    $this.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+					if (type != 'redirect') {
+						$this.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+					}
                 }
 
             });
