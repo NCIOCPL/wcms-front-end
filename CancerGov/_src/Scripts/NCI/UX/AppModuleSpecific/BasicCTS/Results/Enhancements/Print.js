@@ -1,7 +1,7 @@
 define(function(require) {
     require('jquery');
 
-    var LIMIT = 100,
+    var LIMIT = 15,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
 		totalChecked = checkedTrials.length,
 		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [],
@@ -114,7 +114,7 @@ define(function(require) {
                 // if this checkbox is not checked and the 'select all' IS checked then...
                 if (!$this.is(':checked') && isChecked) {
                     // if we're still below the limit
-                    if(totalChecked < LIMIT ) {
+                    if(totalChecked <= LIMIT ) {
                         // check the box by triggering click - this will update the totalChecked and sessionStorage
                         $this.next().click();
                     } else {
@@ -225,9 +225,6 @@ define(function(require) {
                 totalChecked++;
 				
 				if(totalChecked >= LIMIT) {
-					// Display the modal if we've reached the max number of selected trials with this click
-					triggerModal('limit');
-					
 					// Analytics call for max selected reached
 					var $this = $(this);
 					NCIAnalytics.CTSResultsMaxSelectedClick($this);
