@@ -1,11 +1,13 @@
-//@import '../environments/prototype';
+@import '../environments/prototype';
 
 .cts-dialog {
   background: #445159;
+  //left: 50% !important;
+  //transform: translateX(-50%) !important;
 
   .ui-widget-content {
     color: white;
-    font-family: "Noto Sans";
+    @include font-noto;
     padding: 3.5em 2.2em;
     text-align: center;
   }
@@ -22,27 +24,34 @@
 
     .ui-icon {
       /* background: url($icons + 'Close_icon.png') top left no-repeat; */
-      width: 32px;
-      height: 32px;
+      //@include sprite($x-coordinate: -240px, $y-coordinate: -388px, $width: 32px, $height: 32px);
+      background: url($icons + 'nci-sprite.png') top left no-repeat;
+      background-position: -237px -386px;
+      width: 34px;
+      height:34px;
+
       margin:0;
       left:0;
       top:0;
     }
     &.btn-close-top {
-      top: 15px;
+      top: 1em;
     }
     &.btn-close-bottom {
       top: auto;
-      bottom: 15px;
+      bottom: 1em;
     }
   }
 
   i.warning {
     display: block;
     text-align: center;
-    /* background: url($icons + 'Alert_icon.png') top center no-repeat; */
-	width: 50px;
-    height: 50px;
+    background: url($icons + 'modal-alert.svg') top center no-repeat;
+    height: 72px;
   }
 
+}
+
+.ui-widget-overlay {
+  cursor: pointer;
 }

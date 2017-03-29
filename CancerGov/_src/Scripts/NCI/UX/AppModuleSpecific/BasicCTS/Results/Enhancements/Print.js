@@ -1,12 +1,32 @@
 define(function(require) {
     require('jquery');
 
-    var LIMIT = 100,
+    var LIMIT = 3,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
 		totalChecked = checkedTrials.length,
 		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [],
 		selectAllChecked = sessionStorage.getItem('hasSelectAll') || false
     ;
+
+    //extend jQuery UI dialog
+    $.widget( "ui.dialog", $.ui.dialog, {
+        options: {
+            clickOutside: true
+        },
+        open: function(){
+
+            this._super();
+
+            console.log(this.options);
+
+            if(this.options.clickOutside) {
+                $('.ui-widget-overlay').on('click', function (evt) {
+                    $('.ui-dialog-content:visible').dialog("close");
+                });
+            }
+        }
+    });
+
 
     function _initialize() {
 
@@ -47,7 +67,7 @@ define(function(require) {
                     '<input id="checkAllTop" type="checkbox" />' +
                     '<label for="checkAllTop"><strong>Select All on Page</strong></label>' +
                 '</span>' +
-                '<input class="action button printSelected" type="submit" name="printButton" value="Print Selected" alternatetext="Print Selected" />' +
+                '<input class="action button printSelected" type="submit" name="printButton" value="Print Selected" />' +
             '</div>');
 
         // put pagination and 'select all' in a wrapper for top control
@@ -99,7 +119,8 @@ define(function(require) {
                         $this.next().click();
                     } else {
                         // we're over the limit, but we send one more click anyway to propagate the modal show event
-                        $this.next().click();
+                        //$this.next().click();
+                        triggerModal('limit');
 
                         // uncheck 'select all' boxes since operation was unsuccessful
                         $("#checkAllTop, #checkAllLower").prop("checked",false);
@@ -125,40 +146,16 @@ define(function(require) {
 
             if(checkedTrials.length > 0) {
 				var modal = triggerModal('redirect');
-				/*var modal = $('<div><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>').dialog({
-					dialogClass: 'cts-dialog',
-					closeText: "hide",
-					autoOpen: false,
-					modal: true,
-					resizable: false,
-					draggable: false,
-					width: '450px',
-					position: {
-						my: "center",
-						at: "center",
-						of: window
-					},
-					show: { effect: "puff",percent:50, duration: 250 },
-					hide: { effect: "puff",percent:50, duration: 250 },
-					create: function(evt, ui) {
-						var $modal = $(evt.target).parent();
-						var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
-						$modal.find('.ui-dialog-titlebar').remove();
-						$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
-					}
-				});
-			
-				modal.dialog('open');*/
 				
 				// Set up query parameters for ajax call
-				var postUrl = "/CTS.Print/GenCache"
-				var params = {
+				var postUrl = "/CTS.Print/GenCache",
+                    params = {
 					t: getParameterByName('t', window.location.href),
 					z: getParameterByName('a', window.location.href),
 					a: getParameterByName('z', window.location.href)
-				}
+				};
 				// Delete empty query params
-				for(key in params) {
+				for(var key in params) {
 					if (isEmpty(params[key])) {
 						delete params[key];
 					}
@@ -223,7 +220,7 @@ define(function(require) {
                 checkedTrials.push(trial);
                 totalChecked++;
 				
-				if(totalChecked == LIMIT) {
+				if(totalChecked >= LIMIT) {
 					// Display the modal if we've reached the max number of selected trials with this click
 					triggerModal('limit');
 					
@@ -289,79 +286,38 @@ define(function(require) {
 
     function triggerModal(type){
 		var modal;
-		if (type == 'limit') {
-			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have reached the '+ LIMIT +' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>').dialog({
-				dialogClass: 'cts-dialog',
-				closeText: "hide",
-				autoOpen: false,
-				modal: true,
-				resizable: false,
-				draggable: false,
-				width: '450px',
-				position: {
-					my: "center",
-					at: "center",
-					of: window
-				},
-				show: { effect: "puff",percent:50, duration: 250 },
-				hide: { effect: "puff",percent:50, duration: 250 },
-				create: function(evt, ui) {
-					var $modal = $(evt.target).parent();
-					var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
-					$modal.find('.ui-dialog-titlebar').remove();
-					$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
-				}
-			});
+
+        if (type == 'limit') {
+        	modal = $("#modal-limit")[0]?$("#modal-limit"):$('<div id="modal-limit"><i class="warning" aria-hidden="true"></i><p>You have reached the ' + LIMIT + ' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>');
+        } else if (type == 'none_selected') {
+            modal = $("#modal-none")[0]?$("#modal-none"):$('<div id="modal-none"><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>');
+        } else if (type == 'redirect') {
+            modal = $("#modal-redirect")[0]?$("#modal-redirect"):$('<div id="modal-redirect"><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>');
 		}
-		else if (type == 'none_selected') {
-			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>').dialog({
-				dialogClass: 'cts-dialog',
-				closeText: "hide",
-				autoOpen: false,
-				modal: true,
-				resizable: false,
-				draggable: false,
-				width: '450px',
-				position: {
-					my: "center",
-					at: "center",
-					of: window
-				},
-				show: { effect: "puff",percent:50, duration: 250 },
-				hide: { effect: "puff",percent:50, duration: 250 },
-				create: function(evt, ui) {
-					var $modal = $(evt.target).parent();
-					var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
-					$modal.find('.ui-dialog-titlebar').remove();
-					$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
-				}
-			});
+
+        // create modal if it's not in the DOM yet
+        if(!modal.context){
+            modal.dialog({
+                dialogClass: 'cts-dialog',
+                closeText: "hide",
+                autoOpen: false,
+                modal: true,
+                resizable: false,
+                draggable: false,
+                maxWidth: '450px',
+                show: { effect: "puff",percent:50, duration: 250 },
+                hide: { effect: "puff",percent:50, duration: 250 },
+                create: function() {
+                    var $this = $(this).parent();
+                    var $closeBtn = $this.find('.ui-dialog-titlebar-close').clone(true);
+                    $this.find('.ui-dialog-titlebar').remove();
+                    $this.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
+                }
+
+            });
 		}
-		else if (type == 'redirect') {	
-			modal = $('<div><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>').dialog({
-				dialogClass: 'cts-dialog',
-				closeText: "hide",
-				autoOpen: false,
-				modal: true,
-				resizable: false,
-				draggable: false,
-				width: '450px',
-				position: {
-					my: "center",
-					at: "center",
-					of: window
-				},
-				show: { effect: "puff",percent:50, duration: 250 },
-				hide: { effect: "puff",percent:50, duration: 250 },
-				create: function(evt, ui) {
-					var $modal = $(evt.target).parent();
-					var $closeBtn = $modal.find('.ui-dialog-titlebar-close').clone(true);
-					$modal.find('.ui-dialog-titlebar').remove();
-					$modal.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
-				}
-			});
-		}
-		
+
+		// open the modal
         modal.dialog('open');
 		
 		return modal;
