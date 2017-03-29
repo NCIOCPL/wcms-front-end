@@ -133,7 +133,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
       #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
 	    <div class="cts-results-title">
 	      Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-		  | <a href="/about-cancer/treatment/clinical-trials/search">Start Over</a>
+		  | <span class="cts-start-over"><a href="/about-cancer/treatment/clinical-trials/search">Start Over</a></span>
 	    </div>
       #else
 	    ## Draw no title here

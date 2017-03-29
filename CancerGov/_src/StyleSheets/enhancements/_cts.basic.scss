@@ -2,6 +2,11 @@
   font-size: 14px;
 }
 
+/* Common Style */
+.cts-start-over {
+  white-space: nowrap
+}
+
 /* Basic Search Form */
 .clinical-trials-search-form {
   input {
@@ -70,8 +75,6 @@
   padding-top: 15px;
   display: inline;
 }  
-
-
 
 /* Search Results Page */
 .cts-results-title {
@@ -299,12 +302,6 @@ a.listing-chat-button:visited {
   text-decoration: none;
 }
 
-@include bp(large) {
-/*.selections-area {
-  display: inline-block;
-}*/
-}
-
 /* tablet and mobile */
 @include bp(medium-down) {
   #cgvBody .cts-share a.print {
@@ -396,10 +393,6 @@ a.listing-chat-button:visited {
 	  border-top: 1px solid #7d7d7d;
 	}
   }
-
-  /* .ct-results-lower-control.basic {
-    border-bottom: 1px solid #7d7d7d;
-  } */
 }
 
 @include bp(xtra-small) {
