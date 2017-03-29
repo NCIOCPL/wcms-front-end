@@ -402,4 +402,11 @@ a.listing-chat-button:visited {
   } */
 }
 
+@include bp(xtra-small) {
+  .cts-results-select-all {
+	padding-bottom: 1em;
+    display: inline-block;
+  }
+}
+  
 /* Modal Styles */
