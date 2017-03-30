@@ -60,6 +60,13 @@ define(function(require) {
                     })
                     .prependTo(this.uiDialog);
 
+                // TODO: Button will need to be updated for use with jQuery 1.12
+                // .button( {
+                //     label: $( "<a>" ).text( this.options.closeText ).html(),
+                //     icon: "ui-icon-closethick",
+                //     showLabel: false
+                // })
+
                 this._on(this.uiDialogTitlebarClose, {
                     click: function (event) {
                         event.preventDefault();
