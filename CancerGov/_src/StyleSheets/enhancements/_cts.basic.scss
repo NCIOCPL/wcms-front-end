@@ -85,29 +85,28 @@
 .cts-results-lower-control {
   padding-top: 1em;
   padding-bottom: 1em;
-
+  
   .button {
     margin:0;
   }
 
 }
 .cts-results-top-control {
-  border-bottom: 1px solid #7d7d7d;
   margin-bottom: 1.3em;
+  border-bottom: 1px solid #7d7d7d;
   
   .ct-listing-pager {
     padding-top: 1em;
   }
 }
 
+.row.cts-results-lower-control {
+    width: 100%;
+	padding: 1em 0 0 0;
+}
+
 .cts-results-lower-control {
   border-top: 1px solid #7d7d7d;
-  border-bottom: 1px solid #7d7d7d;
-  
-  .ct-listing-pager {
-    float: left;
-	padding-top: 2em;
-  }
 }
 
 .cts-results-select-all {
@@ -132,7 +131,6 @@
 input[type="checkbox"] {
   display: none;
 }
-
 
 /* Trial Description Page */
 .status {
@@ -265,6 +263,7 @@ a {
 		margin-top:20px;
 	}
 }
+
 /* Counter / pager styles above listing body*/
 .ct-listing-util-top  {
   hr {
@@ -320,8 +319,38 @@ a.listing-chat-button:visited {
     margin-left: -15px;
   }
   
+  .cts-results-lower-control, .cts-results-top-control {
+    .ct-listing-pager {
+      float: left;
+	}
+  }
   
+  .cts-results-lower-control {
+    .selections-area {
+	  padding-bottom: 1em;
+	  border-bottom: 1px solid #7d7d7d;
+	}
+	
+	.ct-listing-pager {
+	  padding-top: 1em;
+	}
+  }
+  
+  .cts-results-top-control {
+	padding-top: 0;
+    border-top: 1px solid #7d7d7d;
+	
+    .selections-area {
+	  clear: left;
+	  padding-top: 1em;
+	  border-top: 1px solid #7d7d7d;
+	}
+	.ct-listing-pager {
+	  padding: 1em 0;
+	}
+  }
 }
+
 /* Custom styles for pager breakpoint*/
 @media only screen and (max-width: 765px) {
   .ct-listing-util-top {
@@ -334,7 +363,8 @@ a.listing-chat-button:visited {
     }
   }
 }
-/* Mobile styles */
+
+/* mobile only */
 @include bp(small) {
   #cgvBody .cts-share {
     max-width: 300px;
@@ -382,41 +412,21 @@ a.listing-chat-button:visited {
     line-height: 22px;
     font-size: .875em;
   }
-  
-  .cts-results-top-control {
-    padding-top: 0;
-    
-	.pager {
-      padding: 1em 0;
-      margin-bottom: 1em;
-      border-bottom: 1px solid #7d7d7d;
-	  border-top: 1px solid #7d7d7d;
-	}
-  }
 }
 
+/* extra-small mobile only */
 @include bp(xtra-small) {
   .cts-results-select-all {
 	padding-bottom: 1em;
     display: inline-block;
   }
 }
-
-@include bp(medium) {
-  .cts-results-top-control {
-    .ct-listing-pager {
+  
+/* Desktop styles */
+@include bp(large-up) {
+  .cts-results-lower-control {
+    .selections-area {
 	  float: left;
-	  clear: left;
-	  padding-top: 0;
-	  padding-bottom: 1em;
-	}
-	
-	.selections-area {
-	  clear: left;
-	  border-top: 1px solid #7d7d7d;
-	  padding-top: 1em;
 	}
   }
 }
-  
-/* Modal Styles */

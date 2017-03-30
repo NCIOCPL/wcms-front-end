@@ -60,9 +60,9 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
         #DrawNoResultsTextV2()
     #end
   </div>
-
+  
   ## If there are results then draw the pager
-  <div class="pager ct-listing-pager">
+  ##<div class="pager ct-listing-pager">
     ## Get the current page
     ## Show up to the next 2 and previous 2 numbers from the current page
     ## First / last pages always show by default
@@ -75,9 +75,15 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
         #else
           <a class="pager-link" href="$pagerItem.PageUrl">$pagerItem.Text</a>
         #end
+	  #beforeall
+	    <div class="pager ct-listing-pager">
+	  #afterall
+	    </div>
       ## end 'each'
     #end
-  </div>
+  ##</div>
+
+  
 #end
 
 #macro(DrawSearchParamsV2 $SearchResults)

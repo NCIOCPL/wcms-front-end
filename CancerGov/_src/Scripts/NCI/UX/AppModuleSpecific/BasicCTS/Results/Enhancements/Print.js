@@ -1,5 +1,6 @@
 define(function(require) {
     require('jquery');
+	var breakpoints = require('Common/Enhancements/NCI.breakpoints');
 
     var LIMIT = 100,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
@@ -133,20 +134,26 @@ define(function(require) {
         $(".cts-results-title").after($topControl);
 
         // create the lower control
-        var $lowerControl = $('<div class="cts-results-lower-control" />');
+        var $lowerControl = $('<div class="row medium-12 columns cts-results-lower-control" />');
 
         // insert lower pager into bottom controls
         $lowerControl.prepend($topSelect.clone())
             .find("#checkAllTop").attr('id','checkAllLower') // update the checkbox id
             .next().attr('for','checkAllLower'); //update the for attribute
 		
-		// insert lower controls after results container
-        $lowerControl.insertAfter('.cts-results-container');
+		// insert lower controls after delighters
+        $lowerControl.insertAfter('.delighter-rail');
 		
 		// move pager to inside lower control
-		$lowerControl.append($('.cts-results-lower-control').next('.ct-listing-pager'));
+		$lowerControl.append($('.cts-results-container').next('.ct-listing-pager'));
 
-
+		// move lower control responsively
+		$(window).on('resize', function() {
+			moveLowerControl();
+		});
+		// move lower control according to initial browser size
+		moveLowerControl();
+		
         // check if all checkboxes are checked - if so check Select All as well
         areAllChecked();
 
@@ -389,6 +396,17 @@ define(function(require) {
 
         return modal;
     }
+	
+	function moveLowerControl() {
+		var width = window.innerWidth || $(window).width();
+		if (width < breakpoints.large) {
+			console.log("below desktop breakpoint");
+			$('.delighter-rail').before($('.cts-results-lower-control'));
+		}
+		else {
+			$('.delighter-rail').after($('.cts-results-lower-control'));
+		}
+	}
 
     /**
      * Identifies if this enhancement has been initialized or not.
