@@ -28,7 +28,8 @@ a.arrow-link.news-footer {
 	
 	a.news-facebook:before {
 		// background position has been moved (from -25px to -20px) to shift the icon to be center aligned
-		@include sprite($x-coordinate: -20px, $y-coordinate: -156px, $width: 19x, $height: 17px);
+		@include sprite($x-coordinate: -20px, $y-coordinate: -156px, $width: 19px, $height: 17px);
+		top: 4px !important;
 	}
 
 	a.news-youtube:before {
@@ -42,6 +43,11 @@ a.arrow-link.news-footer {
 	a.news-govdelivery:before {
 		@include sprite($x-coordinate: -126px, $y-coordinate: -563px, $width: 19px, $height: 18px);
 		top: 6px !important;
+		position: relative;
+	}
+		a.news-events:before {
+		@include sprite($x-coordinate: -18px, $y-coordinate: -675px, $width: 19px, $height: 19px);
+		top: 2px !important;
 		position: relative;
 	}
 	
