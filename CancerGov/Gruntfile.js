@@ -450,6 +450,7 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true,
                 src: [
+					'<%= dirs.src.styles %>**/ctsPrintResults.css',
                     '<%= dirs.tmp.styles %>**/*.css',
                     '<%= dirs.tmp.styles %>**/*.css.map'
                 ],
