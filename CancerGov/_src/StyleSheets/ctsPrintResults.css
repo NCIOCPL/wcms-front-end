@@ -77,18 +77,19 @@ p, span{
 }
 
 #bodyHeading {
-	height: 25px;
+	height: 50px;
 	margin-bottom: 50px;
 }
 
 #ctPrintBodyHeading {
 	float: left;
+	line-height: 25px;
 }
 
 #CT-results-print-banner {
     padding-top: 0;
 	border-bottom: 3px solid #000000;
-	height: 40px;
+	height: 50px;
 	margin-bottom: 30px;
 }
 #CT-results-print-banner h1 {
@@ -119,16 +120,23 @@ ul li{
 }
 
 .CheckForUpdatesButton {
-	background-color: #51A9B4;
-	display: block;
-	margin: 20px;
-	width: 200px;
-	padding: 5px;
-	color: white;
-	font-weight: bold;
-	font-family: "Noto Sans", Arial, sans-serif;
-	font-size: 20px;
-	text-decoration: none;
+    background-color: #2ba6cb;
+    display: block;
+    margin: 0 0 1.25em;
+    width: 200px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    line-height: normal;
+    border-radius: 2px;
+}
+.CheckForUpdatesButton:hover{
+	background-color: #277c95;
+	color: #fff; 
 }
 
 .trialDataTable {
@@ -153,18 +161,27 @@ ul li{
 }
 
 .trialContainer{
-	padding: 20px;
+	padding: 30px 20px;
+    border-bottom: 2px solid #888888;
 }
+.trialContainer:last-child{
+	border-bottom: none;
+}
+
+.trial-container:last-child{
+		page-break-after: unset;
+	}
 
 .printHeading {
 	margin: 20px 0;
 }
 
-.trialFooter{
-	border-top: 2px solid #888888;
-	border-bottom: 2px solid #888888;
+.locationNoteBlock{
 	margin: 30px 0;
 	padding: 10px;
+}
+.locationNoteBlock span{
+	font-weight: bold;
 }
 
 .locationCity {
@@ -183,32 +200,40 @@ ul li{
 	margin-left: 15px;
 }
 
-#searchCriteria  p{
-	padding: 0;
-	margin: 0 0 0 10px;
-}
-.searchCriteria  span{
+.searchCriterion span{
 	font-weight: bold;
 }
-
+#searchCriteria ul li{
+	margin: 0 40px;
+}
+#searchCriteria p{
+	margin: 5px;
+}
 #bodyHeadingLinks {
 	float: right;	
 }
 
 #bodyHeadingLinks a{
-	color: #97b1ce;
+	color: #2b7bba;
+	font-family: "Noto Sans", Arial, sans-serif;
+}
+.nctIdLink{
+	color: #2b7bba;
 }
 
 .printIntroText{
-	display: block;
+	display: inline-block;
 	width: 100%;
 	margin: 10px;
 }
 
 #clinical-trials-print{
-	font-family: Montserrat, Arial, sans-serif;
+	font-family: "Noto Sans", Arial, sans-serif;
 }
 
+#NCILogo{
+	height: 30px;
+}
 
 @media print{
 	#bodyHeadingLinks{
@@ -220,6 +245,12 @@ ul li{
 	}
 	.nctIdLink{
 		color: black;
+	}
+	.trialContainer { 
+		page-break-after:always;
+	}
+	.trialContainer:last-child{
+		page-break-after: unset;
 	}
 }
 
