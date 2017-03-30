@@ -98,6 +98,9 @@
 			<div>Principal Investigator: $trial.PrincipalInvestigator</div>
 
 			<h3 class="printHeading">Locations & Contacts</h3>
+			<div class="locationNoteBlock">
+				<span>Note:</span> Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">NCT number</a> on ClinicalTrials.gov
+			</div>
 			<div>                               
 				#if ($SearchResults.SearchTerms.ZipCode)##
 					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
@@ -140,10 +143,7 @@
 				#end
 			</div>
 			<h3>Trial Objectives and Outlines</h3>
-			<div>$trial.DetailedDescription</div>
-			<div class="trialFooter">
-				Note: Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">NCT number</a> on ClinicalTrials.gov
-			</div>
+			<div>$trial.DetailedDescription</div>			
 		</div>
 	#end                    
 #end
@@ -163,7 +163,7 @@
 </head>
 <body>
 	<div id="cgovContainer">
-		<div id="CT-results-print-banner"><h1>National Cancer Institute</h1><h2>at the National Institutes of Health</h2></div>
+		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg"/></div>
         <div id="cgvBody">
             <div id="bodyHeading">
                 <h1 id="ctPrintBodyHeading">Your Clinical Trials Search Results</h1>            
@@ -175,18 +175,29 @@
 
                     #set($resultSet =  $SearchResults.Results)
 
-					#if($SearchResults.SearchTerms.CancerType  || $SearchResults.SearchTerms.ZipCode  || $SearchResults.SearchTerms.AgeOfEligibility)
-                    	<div id="SearchCriteria">						
-							<p class="searchCriteria"><span>Search Criteria:</span></p>
+					#if($SearchResults.SearchTerms.CancerType  || $SearchResults.SearchTerms.ZipCode  || $SearchResults.SearchTerms.AgeOfEligibility ||  $SearchResults.SearchTerms.Gender || $SearchResults.SearchTerms.CancerTypePhrase || $SearchResults.SearchTerms.Phrase)
+                    	<div id="searchCriteria">						
+							<p class="searchCriterion"><span>Search Criteria:</span></p>
+							<ul>
 							#if($SearchResults.SearchTerms.CancerType)
-								<p class="searchCriteria"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</p>
+								<li class="searchCriterion"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</li>
+							#end
+							#if($SearchResults.SearchTerms.CancerTypePhrase)
+								<li class="searchCriterion"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerTypePhrase</li>
+							#end
+							#if($SearchResults.SearchTerms.Phrase)
+								<li class="searchCriterion"><span>Phrase: </span>$SearchResults.SearchTerms.Phrase</li>
+							#end							
+							#if($SearchResults.SearchTerms.Gender)
+								<li class="searchCriterion"><span>Gender: </span>$SearchResults.SearchTerms.Gender</li>
 							#end
 							#if($SearchResults.SearchTerms.ZipCode)
-								<p class="searchCriteria"><span>Zip Code: </span>$SearchResults.SearchTerms.ZipCode</p>
+								<li class="searchCriterion"><span>Zip Code: </span>Within $SearchResults.SearchTerms.ZipRadius miles of $SearchResults.SearchTerms.ZipCode</li>
 							#end
 							#if($SearchResults.SearchTerms.AgeOfEligibility)
-								<p class="searchCriteria"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</p>
-							#end						
+								<li class="searchCriterion"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</li>
+							#end
+							<ul>						
                     	</div>
 					#end
 
@@ -194,8 +205,9 @@
                     <p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
                     
                                        
-                
-                #DrawResultsTextV2()
+                <div>
+                	#DrawResultsTextV2()
+                </div>
             </div>
         </div>
 	</div>
