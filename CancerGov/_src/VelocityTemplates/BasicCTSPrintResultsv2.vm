@@ -150,6 +150,7 @@
 
 <html>
 <head> 
+	 <meta name="robots" content="noindex">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
      <script> 
@@ -183,7 +184,7 @@
 								<li class="searchCriterion"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</li>
 							#end
 							#if($SearchResults.SearchTerms.CancerTypePhrase)
-								<li class="searchCriterion"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerTypePhrase</li>
+								<li class="searchCriterion"><span>Cancer Type/Phrase: </span>$SearchResults.SearchTerms.CancerTypePhrase</li>
 							#end
 							#if($SearchResults.SearchTerms.Phrase)
 								<li class="searchCriterion"><span>Phrase: </span>$SearchResults.SearchTerms.Phrase</li>
