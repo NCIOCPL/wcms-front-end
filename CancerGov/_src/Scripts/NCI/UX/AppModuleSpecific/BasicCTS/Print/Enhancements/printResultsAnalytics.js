@@ -5,7 +5,7 @@ define(function(require) {
 	* Main function
 	*/
 	function _initialize() {
-		var printPageID = getPrintID;
+		var printPageID = getPrintID();
 
 		// Loop through all the "Check for Update" buttons and assign them unique IDs.
 		var counter = 1;
