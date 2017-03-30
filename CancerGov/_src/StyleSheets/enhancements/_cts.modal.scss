@@ -2,8 +2,6 @@
 
 .cts-dialog {
   background: #445159;
-  //left: 50% !important;
-  //transform: translateX(-50%) !important;
 
   .ui-widget-content {
     color: white;
@@ -12,7 +10,7 @@
     text-align: center;
   }
 
-  .ui-dialog-titlebar-close {
+  .ui-dialog-close {
     border: none;
     background: transparent;
     left: 50%;
@@ -51,7 +49,14 @@
   }
 
 }
+#modal-redirect {
+  &.ui-dialog-content {
+    padding: 1.5em 2.2em;
+  }
+}
 
-.ui-widget-overlay {
+.clickable {
   cursor: pointer;
 }
+
+@import "../spinner";

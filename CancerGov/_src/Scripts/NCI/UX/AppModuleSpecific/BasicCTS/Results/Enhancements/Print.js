@@ -1,7 +1,7 @@
 define(function(require) {
     require('jquery');
 
-    var LIMIT = 15,
+    var LIMIT = 100,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
 		totalChecked = checkedTrials.length,
 		checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [],
@@ -11,19 +11,75 @@ define(function(require) {
     //extend jQuery UI dialog
     $.widget( "ui.dialog", $.ui.dialog, {
         options: {
-            clickOutside: true
+            clickOutside: true,
+            titleBar: false,
+            closeBtn: true,
+            responsive: true
         },
         open: function(){
+            var self = this;
 
             this._super();
 
-            console.log(this.options);
-
             if(this.options.clickOutside) {
-                $('.ui-widget-overlay').on('click', function (evt) {
-                    $('.ui-dialog-content:visible').dialog("close");
+                $('.ui-widget-overlay').addClass('clickable').on('click', function (evt) {
+                    self.close();
                 });
             }
+
+            // make resizable
+            if(this.options.responsive === true) {
+                this._resize();
+                $(window).on("resize.ui-dialog orientationchange.ui-dialog", function () {
+                    self._resize();
+                });
+            }
+        },
+        close: function(){
+            if(this.options.responsive === true) {
+                $(window).off("resize.ui-dialog orientationchange.ui-dialog");
+            }
+            this._super();
+        },
+        _create: function(evt, ui){
+
+            this._super();
+            this.uiDialog.css({'max-width':this.options.maxWidth});
+
+        },
+        _createTitlebar: function(){
+            if(!this.options.titleBar) {
+                this.uiDialogTitlebarClose = $("<button type='button' class='ui-dialog-close'></button>")
+                    .button({
+                        label: this.options.closeText,
+                        icons: {
+                            primary: "ui-icon-closethick"
+                        },
+                        text: false
+                    })
+                    .prependTo(this.uiDialog);
+
+                this._on(this.uiDialogTitlebarClose, {
+                    click: function (event) {
+                        event.preventDefault();
+                        this.close(event);
+                    }
+                });
+                if(!this.options.closeBtn) {
+                    this.uiDialogTitlebarClose.hide();
+                }
+            } else {
+                this._super();
+            }
+        },
+        _resize: function () {
+            var elem = this.element,
+                oWidth = elem.parent().outerWidth(),
+                wWidth = $(window).width(),
+                setWidth = Math.min(wWidth * this.options.scaleW, oWidth);
+
+            elem.dialog("option", "width", setWidth).parent().css("max-width", setWidth);
+            elem.dialog("option", "position", { my: "center", at: "center", of: window });
         }
     });
 
@@ -114,13 +170,14 @@ define(function(require) {
                 // if this checkbox is not checked and the 'select all' IS checked then...
                 if (!$this.is(':checked') && isChecked) {
                     // if we're still below the limit
-                    if(totalChecked <= LIMIT ) {
+
+                    if(totalChecked < (LIMIT) ) {
                         // check the box by triggering click - this will update the totalChecked and sessionStorage
                         $this.next().click();
                     } else {
                         // we're over the limit, but we send one more click anyway to propagate the modal show event
-                        //$this.next().click();
-                        triggerModal('limit');
+                        $this.next().click();
+                        //triggerModal('limit');
 
                         // uncheck 'select all' boxes since operation was unsuccessful
                         $("#checkAllTop, #checkAllLower").prop("checked",false);
@@ -286,35 +343,42 @@ define(function(require) {
 	}
 
     function triggerModal(type){
-		var modal;
+		var modal,
+            hasCloseButton = true;
 
         if (type == 'limit') {
         	modal = $("#modal-limit")[0]?$("#modal-limit"):$('<div id="modal-limit"><i class="warning" aria-hidden="true"></i><p>You have reached the ' + LIMIT + ' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>');
         } else if (type == 'none_selected') {
             modal = $("#modal-none")[0]?$("#modal-none"):$('<div id="modal-none"><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>');
         } else if (type == 'redirect') {
-            modal = $("#modal-redirect")[0]?$("#modal-redirect"):$('<div id="modal-redirect"><i class="warning" aria-hidden="true"></i><p>You will automatically be directed to your print results in just a moment...</p></div>');
+            modal = $("#modal-redirect")[0]?$("#modal-redirect"):$('<div id="modal-redirect"><div class="spinner"><div class="dot1"></div><div class="dot2"></div></div><p>You will automatically be directed to your print results in just a moment...</p></div>');
+            hasCloseButton = false;
 		}
 
         // create modal if it's not in the DOM yet
         if(!modal.context){
             modal.dialog({
                 dialogClass: 'cts-dialog',
+                closeBtn: hasCloseButton,
+                clickOutside: hasCloseButton,
                 closeText: "hide",
                 autoOpen: false,
                 modal: true,
                 resizable: false,
                 draggable: false,
-                maxWidth: '450px',
+                width: '90%',
+                maxWidth: 450,
                 show: { effect: "puff",percent:50, duration: 250 },
                 hide: { effect: "puff",percent:50, duration: 250 },
-                create: function() {
-                    var $this = $(this).parent();
-                    var $closeBtn = $this.find('.ui-dialog-titlebar-close').clone(true);
-                    $this.find('.ui-dialog-titlebar').remove();
-					if (type != 'redirect') {
-						$this.prepend($closeBtn.clone(true).addClass('btn-close-top')).append($closeBtn.clone(true).addClass('btn-close-bottom'));
-					}
+                create: function(evt) {
+                    if($(this).dialog("option","closeBtn")) {
+                        var $this = $(this).parent();
+                        var $closeBtn = $this.find('.ui-dialog-close');
+                        var $bottomBtn = $closeBtn.clone(true).addClass('btn-close-bottom');
+
+                        $closeBtn.addClass('btn-close-top');
+                        $this.append($bottomBtn);
+                    }
                 }
 
             });
@@ -322,8 +386,8 @@ define(function(require) {
 
 		// open the modal
         modal.dialog('open');
-		
-		return modal;
+
+        return modal;
     }
 
     /**
