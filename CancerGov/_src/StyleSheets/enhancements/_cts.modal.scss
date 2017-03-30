@@ -60,3 +60,19 @@
 }
 
 @import "../spinner";
+
+@include bp(medium-up) {
+  .cts-dialog {
+    .ui-dialog-close {
+      &.btn-close-top {
+        position:absolute;
+        left: auto;
+        right: 1em;
+        transform: none;
+      }
+      &.btn-close-bottom {
+        display: none;
+      }
+    }
+  }
+}
