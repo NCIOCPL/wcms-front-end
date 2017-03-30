@@ -55,11 +55,49 @@
   position: absolute;
   font-size: 14px;
   bottom: 0;
-  background-color: #f3f3f3;
   width: 100%;
   margin-left: -50px;
-  padding: 15px 10px;
-}  
+  padding-bottom: 15px;
+	h3 {
+		background-color: #319ebd;
+		color: white;
+		margin: 0;
+		padding: 15px;
+		border-bottom: 10px solid #167a94;
+	}
+	.api-reference-content {
+		padding: 0 25px 0 105px;
+		background: #f3f3f3 url(/publishedcontent/Images/images/design-elements/icons/api-icon.svg) 18px 50% no-repeat; 
+		background-size: 65px 65px; // need both sizes or IE11 will not render correctly
+		
+	}
+	.api-section-image {
+		height: 85px;	
+		padding-bottom: 10px;
+	}
+}
+@media only screen and (max-width: 1025px) {
+	.api-reference-section {
+		.api-reference-content {
+		background-size: 50px 50px; // need both sizes or IE11 will not render correctly
+		padding-left: 80px;
+		}
+	}
+}
+@include bp(small) {
+	.api-reference-section {
+		.api-reference-content {
+		background-image: none; 
+			padding-left: 20px;
+		}
+	}
+}
+
+@media only screen and (min-width: 1025px) {
+	.api-reference-section {
+			padding-left: 3.125em;
+	}
+}
 
 .api-reference-section .small-2{
   text-align: center;
@@ -318,7 +356,7 @@ a.listing-chat-button:visited {
       float:none !important;
     }
   }
-  .api-reference-section .small-2 {
+	.api-reference-section .small-2 {
     display: none; 
   }
   .api-reference-section .small-10 {
