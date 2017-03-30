@@ -148,8 +148,10 @@ define(function(require) {
             .find("#checkAllTop").attr('id','checkAllLower') // update the checkbox id
             .next().attr('for','checkAllLower'); //update the for attribute
 		
-		// insert lower controls after delighters
-        $lowerControl.insertAfter('.delighter-rail');
+		if($(".clinical-trial-individual-result").length > 0) {
+			// insert lower controls after delighters
+			$lowerControl.insertAfter('.delighter-rail');
+		}
 		
 		// move pager to inside lower control
 		$lowerControl.append($('.cts-results-container').next('.ct-listing-pager'));
