@@ -9,7 +9,7 @@ define(function(require) {
     ;
 
     //extend jQuery UI dialog
-    $.widget( "ui.dialog", $.ui.dialog, {
+    $.widget( "ui.ctsDialog", $.ui.dialog, {
         options: {
             clickOutside: true,
             titleBar: false,
@@ -78,8 +78,8 @@ define(function(require) {
                 wWidth = $(window).width(),
                 setWidth = Math.min(wWidth * this.options.scaleW, oWidth);
 
-            elem.dialog("option", "width", setWidth).parent().css("max-width", setWidth);
-            elem.dialog("option", "position", { my: "center", at: "center", of: window });
+            elem.ctsDialog("option", "width", setWidth).parent().css("max-width", setWidth);
+            elem.ctsDialog("option", "position", { my: "center", at: "center", of: window });
         }
     });
 
@@ -234,11 +234,11 @@ define(function(require) {
 					dataType: "json",
 					jsonp: false,
 					success: function(response) {
-						modal.dialog('close');
+						modal.ctsDialog('close');
 						window.location="/CTS.Print/Display?printid=" + response.printID;
 					},
 					error:function(jqXHR, textStatus, errorThrown){
-						modal.dialog('close');
+						modal.ctsDialog('close');
 						console.log("Error occurred " + errorThrown + "; text status: " + textStatus);
 					}
 				});
@@ -357,7 +357,7 @@ define(function(require) {
 
         // create modal if it's not in the DOM yet
         if(!modal.context){
-            modal.dialog({
+            modal.ctsDialog({
                 dialogClass: 'cts-dialog',
                 closeBtn: hasCloseButton,
                 clickOutside: hasCloseButton,
@@ -371,7 +371,7 @@ define(function(require) {
                 show: { effect: "puff",percent:50, duration: 250 },
                 hide: { effect: "puff",percent:50, duration: 250 },
                 create: function(evt) {
-                    if($(this).dialog("option","closeBtn")) {
+                    if($(this).ctsDialog("option","closeBtn")) {
                         var $this = $(this).parent();
                         var $closeBtn = $this.find('.ui-dialog-close');
                         var $bottomBtn = $closeBtn.clone(true).addClass('btn-close-bottom');
@@ -385,7 +385,7 @@ define(function(require) {
 		}
 
 		// open the modal
-        modal.dialog('open');
+        modal.ctsDialog('open');
 
         return modal;
     }
