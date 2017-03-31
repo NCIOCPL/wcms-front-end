@@ -68,7 +68,7 @@ body {
 }
 
 p, span{
-	font-family: "Noto Sans", Arial, sans-serif !important;
+	font-family: "Noto Sans", Arial, sans-serif;
 }
 
 .hangingIndent{
@@ -114,9 +114,12 @@ ul {
 }
 
 ul li{
-	list-style-type: initial;
-    list-style-position: initial;
+	list-style-type: disc;
+    list-style-position: outside;
 	margin: 10px 40px;
+}
+li::-moz-list-bullet{
+	font-size: 12px;
 }
 
 .CheckForUpdatesButton {
@@ -127,13 +130,16 @@ ul li{
     padding: 10px;
     color: white;
     font-weight: bold;
-    font-family: "Noto Sans", Arial, sans-serif;
     font-size: 16px;
     text-decoration: none;
     text-align: center;
     line-height: normal;
     border-radius: 2px;
 }
+.CheckForUpdatesButton span{
+	font-family: "Montserrat", Arial, sans-serif;
+}
+
 .CheckForUpdatesButton:hover{
 	background-color: #277c95;
 	color: #fff; 
