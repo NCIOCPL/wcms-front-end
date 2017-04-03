@@ -77,8 +77,7 @@ p, span{
 }
 
 #bodyHeading {
-	height: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 }
 
 #ctPrintBodyHeading {
@@ -140,7 +139,7 @@ li::-moz-list-bullet{
 	font-family: "Montserrat", Arial, sans-serif;
 }
 
-.CheckForUpdatesButton:hover{
+.CheckForUpdatesButton:hover, .CheckForUpdatesButton:focus{
 	background-color: #277c95;
 	color: #fff; 
 }
@@ -155,11 +154,16 @@ li::-moz-list-bullet{
 
 .trialDataTable td{
 	min-width: 100px;
+	text-align: center;
 }
 
 .trialDataHeaderRow td{
 	font-weight: bold;
 	text-align: center;
+}
+
+.trialIDCell{
+	text-align: left !important;
 }
 
 .dataTableIDLabel{
@@ -205,7 +209,9 @@ li::-moz-list-bullet{
 .locationBlock{
 	margin-left: 15px;
 }
-
+#searchCriteria{
+	margin-bottom: 10px;
+}
 .searchCriterion span{
 	font-weight: bold;
 }
@@ -215,7 +221,12 @@ li::-moz-list-bullet{
 #searchCriteria p{
 	margin: 5px;
 }
+#bodyHeading{
+	overflow: auto;
+	width: 100%;
+}
 #bodyHeadingLinks {
+	margin-top: 10px;
 	float: right;	
 }
 
@@ -257,6 +268,15 @@ li::-moz-list-bullet{
 	}
 	.trialContainer:last-child{
 		page-break-after: unset;
+	}
+}
+
+@media (max-width: 1024px){
+	#bodyHeadingLinks{
+		float: left;		
+	}
+	#bodyHeading{
+		width: 450px;
 	}
 }
 
