@@ -408,7 +408,7 @@ define(function(require) {
 	
 	function moveLowerControl() {
 		var width = window.innerWidth || $(window).width();
-		if (width < breakpoints.large) {
+		if (width <= breakpoints.large) {
 			$('.delighter-rail').before($('.cts-results-lower-control'));
 		}
 		else {
