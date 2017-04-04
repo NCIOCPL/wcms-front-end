@@ -33,7 +33,7 @@ define(function(require) {
 			if(totalChecked > 0) {
 				var checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [];
 				var hasSelectAll = sessionStorage.getItem('hasSelectAll');
-
+				
 				var location;
 				if ($this.parents().hasClass('cts-results-top-control')) {
 					location = "top";
@@ -41,9 +41,9 @@ define(function(require) {
 				else if ($this.parents().hasClass('cts-results-top-control')) {
 					location = "lower";
 				}
-				
+
 				var selectAllText = "noselectall";
-				if (hasSelectAll == true) {
+				if (hasSelectAll == "true") {
 					selectAllText = "selectall";
 				}
 				
