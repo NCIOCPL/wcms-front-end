@@ -76,10 +76,6 @@ p, span{
 	text-indent: -23px;
 }
 
-#bodyHeading {
-	margin-bottom: 25px;
-}
-
 #ctPrintBodyHeading {
 	float: left;
 	line-height: 25px;
@@ -187,8 +183,7 @@ li::-moz-list-bullet{
 }
 
 .locationNoteBlock{
-	margin: 30px 0;
-	padding: 10px;
+	margin-bottom: 20px;
 }
 .locationNoteBlock span{
 	font-weight: bold;
@@ -226,7 +221,7 @@ li::-moz-list-bullet{
 	width: 100%;
 }
 #bodyHeadingLinks {
-	margin-top: 10px;
+	margin: 10px 0;
 	float: right;	
 }
 
@@ -275,8 +270,8 @@ li::-moz-list-bullet{
 	#bodyHeadingLinks{
 		float: left;		
 	}
-	#bodyHeading{
-		width: 450px;
+	#headingWrapper{
+		max-width: 500px;
 	}
 }
 
