@@ -383,6 +383,11 @@ a.listing-chat-button:visited {
 	  padding-top: 1em;
 	  border-top: 1px solid #7d7d7d;
 	}
+	
+	.selections-area:first-child {
+      border-top: none;
+    }
+	
 	.ct-listing-pager {
 	  padding: 1em 0;
 	}
