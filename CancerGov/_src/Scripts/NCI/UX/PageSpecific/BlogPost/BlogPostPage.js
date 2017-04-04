@@ -1,6 +1,6 @@
 define(function(require) {
 	require('Common/Enhancements/sharecomponent');
-	var NCIAccordion = require('Common/Enhancements/NCI.Accordion');
+	var NCIAccordion = require('Modules/accordion/accordion');
 	$(function() {
 		require('Common/Enhancements/analytics.After').init();
 	});

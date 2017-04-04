@@ -1,48 +1,52 @@
 {
   "name": "cancer.gov",
-  "version": "7.0.0",
+  "version": "7.5.0",
   "description": "Cancer.gov",
   "author": "National Cancer Institute",
   "engines": {
-    "node": "4.2.6"
+    "node": "6.10"
   },
   "engineStrict": "true",
   "dependencies": {
-    "express": "4.13.4",
-    "morgan": "1.7.0",
-    "cookie-parser": "1.4.1",
-    "body-parser": "1.15.0",
-    "debug": "2.2.0",
-    "express-handlebars": "3.0.0",
-    "express-http-proxy": "^0.6"
+    "body-parser": "^1.17.1",
+    "brite": "^1.1.6",
+    "cookie-parser": "^1.4.3",
+    "handlebars": "^4.0.6",
+    "headroom.js": "^0.9.3",
+    "jplayer": "^2.9.2",
+    "js-cookie": "^2.1.3",
+    "modernizr": "^3.3.1",
+    "morgan": "^1.8.0",
+    "scriptjs": "^2.5.8",
+    "spin.js": "^2.3.2",
+    "throttle-debounce": "^1.0.1"
   },
   "devDependencies": {
-    "bower": "1.7.9",
-    "grunt": "0.4.5",
-    "grunt-bake": "1.6.4",
-    "grunt-cli": "0.1.13",
+    "debug": "^2.6.2",
+    "expose-loader": "^0.7.3",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-http-proxy": "^0.11.0",
+    "grunt": "^1.0.1",
+    "grunt-bake": "^1.8.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0",
     "grunt-contrib-copy": "^1.0",
-    "grunt-contrib-requirejs": "^1.0",
-    "grunt-contrib-uglify": "^1.0",
+    "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0",
     "grunt-develop": "^0.4",
-    "grunt-modernizr": "^1.0.2",
-    "grunt-sass": "1.1.0",
+    "grunt-sass": "^2.0.0",
     "grunt-svn-fetch": "^1.0",
+    "grunt-webpack": "^2.0.1",
+    "handlebars-loader": "^1.4.0",
+    "imports-loader": "^0.7.0",
+    "json-loader": "^0.5.4",
+    "load-grunt-config": "^0.19.2",
+    "modernizr-loader": "^1.0.1",
     "phantomcss": "^1.1.4",
-    "request": "^2.72",
-    "url": "^0.11.0"
-  },
-  "repository": {
-    "type": "svn",
-    "url": "https://ncisvn.nci.nih.gov/svn/oce_wcmteam/content/",
-    "path": "^/content/",
-    "branchdir": "branches/",
-    "devbranch": "egyptianmau/",
-    "subpath": "CancerGov/"
-  },
-  "scripts": {
-    "postinstall": "bower install --allow-root"
+    "request": "^2.81.0",
+    "url": "^0.11.0",
+    "webpack": "^2.2.1",
+    "webpack-bundle-analyzer": "^2.3.1"
   }
 }

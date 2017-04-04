@@ -3,8 +3,9 @@
 ***/
 define(function(require) {
     var jQuery = require('jquery');
-    var NCIAutocomplete = require('Common/Enhancements/NCI.Autocomplete');
+    var NCIAutocomplete = require('Modules/autocomplete/autocomplete');
     var initialized = false;
+    var config = require('Modules/NCI.config');
 
     function _initialize() {
         require('jquery-ui');
@@ -17,8 +18,8 @@ define(function(require) {
             language = "Spanish";
         }
 
-        var keywordElem = "#swKeyword";
-        if ($(keywordElem).length === 0) {
+        var $keywordElem = $('#swKeyword');
+        if ($keywordElem.length === 0) {
             return;
         }
         var svcUrl = "/AutoSuggestSearch.svc/SearchJSON/" + language;
@@ -29,7 +30,7 @@ define(function(require) {
                 position,
                 resizeMenu;
 
-            if(windowWidth <= NCI.Breakpoints.large) {
+            if(windowWidth <= config.breakpoints.large) {
                 // if mobile, make the autocomplete list full-width
                 position = {
                     my: "left top",
@@ -46,17 +47,17 @@ define(function(require) {
                 resizeMenu = $.ui.autocomplete.prototype._resizeMenu;
             }
 
-            $(element).autocomplete('option', 'position', position)
+            element.autocomplete('option', 'position', position)
                 .data('ui-autocomplete')._resizeMenu = resizeMenu;
         };
 
-        NCIAutocomplete.doAutocomplete(keywordElem, svcUrl, false, "term");
-        setAutocompleteOptions(keywordElem);
+        NCIAutocomplete.doAutocomplete($keywordElem, svcUrl, false, "term");
+        setAutocompleteOptions($keywordElem);
 
         $(window).on('resize.NCI.search', function() {
-            setAutocompleteOptions(keywordElem);
+            setAutocompleteOptions($keywordElem);
 
-            $(keywordElem).autocomplete('close');
+            $keywordElem.autocomplete('close');
         });
         
         initialized = true;

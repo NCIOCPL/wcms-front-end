@@ -1,6 +1,6 @@
 define(function(require) {
 
-	var config = require('generated/configuration');
+	var config = require('Generated/configuration');
 
 	var $ = require('jquery');
 	require('Common/Plugins/Widgets/jquery.ui.autocompleteselector');
@@ -32,7 +32,7 @@ define(function(require) {
 		}
 
 		return m[b.length][a.length];
-	}
+	};
 
 
 	var messages = {

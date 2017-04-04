@@ -2,11 +2,11 @@
  * BriteJS View for displaying Feedback Form
  */
 define(function (require) {    
-    var BriteJS = require("brite");
-    require('Spinner');
+    var BriteJS = require("imports-loader?define=>false!brite");
+    require('spin.js/jquery.spin');
 
     //Require Template
-    var template = require('hbs!UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/templates/feedback_form.pending');
+    var template = require('../templates/feedback_form.pending.hbs');
 
 
     BriteJS.registerView("feedback_form.pending", {

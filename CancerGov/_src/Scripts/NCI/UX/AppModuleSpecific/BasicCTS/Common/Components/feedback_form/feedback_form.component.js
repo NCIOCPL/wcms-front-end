@@ -4,10 +4,11 @@ define(function (require) {
     var $ = require("jquery");
 
     //Include BriteJS for templating
-    var BriteJS = require("brite");
+    // brite.js AMD loader is broken. Forcing commonJS loader here by setting define to false
+    var BriteJS = require("imports-loader?define=>false!brite");
 
     //Include the view for brite.
-    var mainView = require("UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/views/feedback_form.main.view");
+    require("./views/feedback_form.main.view.js");
 
     //Track actions on the Feedback Form:
     // - User presses ESC
@@ -16,6 +17,8 @@ define(function (require) {
     // - User get server error on form submission
     // - User Clicks close button on thank you screen
     //Tracked events are passed to FeedbackFormClick() in NCIAnalyticsFunctions.js
+
+
     function _sendAnalytics(prop) {
         var analyticsProp5 = "cts_basic_feedback - ";
         analyticsProp5 += prop;
@@ -25,6 +28,8 @@ define(function (require) {
     }
 
     function _create(options){
+
+
 
             //Create Holder for App
             var $content_elem = $("<div></div>");
@@ -118,7 +123,7 @@ define(function (require) {
                         }
                     )
                 }
-            })
+            });
 
             $content_elem.dialog("open");
  

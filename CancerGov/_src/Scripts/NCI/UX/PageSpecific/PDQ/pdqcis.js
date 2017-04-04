@@ -1,7 +1,9 @@
 define(function(require) {
 	var $ = require('jquery');
+	var routie = require('Vendor/routie');
+
 	var NCI = require('Common/Enhancements/NCI');
-	var NCIAccordion = require('Common/Enhancements/NCI.Accordion');
+	var NCIAccordion = require('Modules/accordion/accordion');
 	// This file is for the PDQ Cancer Information Summary UX functionality
 	$(function() {
 		// set up outlines
