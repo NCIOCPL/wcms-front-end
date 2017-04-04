@@ -363,7 +363,7 @@ define(function(require) {
             hasCloseButton = true;
 
         if (type == 'limit') {
-        	modal = $("#modal-limit")[0]?$("#modal-limit"):$('<div id="modal-limit"><i class="warning" aria-hidden="true"></i><p>You have reached the ' + LIMIT + ' trial maximum of clinical trials that can be printed at one time.</p><p>You can print the current selection and then return to your search results to select more trials to print.</p></div>');
+        	modal = $("#modal-limit")[0]?$("#modal-limit"):$('<div id="modal-limit"><i class="warning" aria-hidden="true"></i><p>You have selected the maximum number of clinical trials (' + LIMIT + ') that can be printed at one time.</p><p>Print your current selection and then return to your search results to select more trials to print.</p></div>');
         } else if (type == 'none_selected') {
             modal = $("#modal-none")[0]?$("#modal-none"):$('<div id="modal-none"><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>');
         } else if (type == 'redirect') {
