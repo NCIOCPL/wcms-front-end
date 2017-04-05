@@ -116,7 +116,7 @@ define(function(require) {
                 }
 
             })
-            .prev().on('change',function(){
+            .on('change',function(){
                 // see if all checkboxes on the page are checked
                 areAllChecked();
             });
