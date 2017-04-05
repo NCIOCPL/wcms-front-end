@@ -169,6 +169,14 @@
 input[type="checkbox"] {
   display: none;
 }
+// Safari hack to allow keyboard focus on checkboxes
+_::-webkit-full-page-media, _:future, :root input[type="checkbox"] {
+    display: inline;
+}
+_::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label:before {
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
 
 /* Trial Description Page */
 .status {
