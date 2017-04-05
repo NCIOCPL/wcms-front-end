@@ -335,7 +335,8 @@ define(function(require) {
 	}
 
     function areAllChecked() {
-        if ($(".cts-results-container input:checked").length === 10) {
+        var resultsOnPage = $(".clinical-trial-individual-result").length;
+        if ($(".cts-results-container input:checked").length === resultsOnPage) {
             // all are checked
             $("#checkAllTop, #checkAllLower").prop("checked",true);
 			selectAllChecked = true;
