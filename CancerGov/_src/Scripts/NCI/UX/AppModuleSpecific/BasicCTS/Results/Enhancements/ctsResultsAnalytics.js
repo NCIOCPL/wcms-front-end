@@ -38,7 +38,7 @@ define(function(require) {
 				if ($this.parents().hasClass('cts-results-top-control')) {
 					location = "top";
 				}
-				else if ($this.parents().hasClass('cts-results-top-control')) {
+				else if ($this.parents().hasClass('cts-results-lower-control')) {
 					location = "lower";
 				}
 
