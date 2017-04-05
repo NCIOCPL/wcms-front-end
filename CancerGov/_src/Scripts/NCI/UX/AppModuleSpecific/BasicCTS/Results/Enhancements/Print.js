@@ -106,12 +106,14 @@ define(function(require) {
                 return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '"></label></div>'
 
             })
-            .find('label').on('click',function(e){ // checkbox click event
+            .find('input').on('click',function(e){ // checkbox click event
 
                 // UpdateCheckedTrialsList will return false if totalChecked is past the LIMIT
-                var check = UpdateCheckedTrialsList(this.attributes['for'].value, this.previousElementSibling.checked);
+                var check = UpdateCheckedTrialsList(this.id, this.checked);
 
-                if(!check) e.preventDefault(); // this will prevent the checkbox from being checked
+                if(!check) {
+                    e.preventDefault(); // this will prevent the checkbox from being checked
+                }
 
             })
             .prev().on('change',function(){
@@ -189,10 +191,10 @@ define(function(require) {
 
                     if(totalChecked < (LIMIT) ) {
                         // check the box by triggering click - this will update the totalChecked and sessionStorage
-                        $this.next().click();
+                        $this.click();
                     } else {
                         // we're over the limit, but we send one more click anyway to propagate the modal show event
-                        $this.next().click();
+                        $this.click();
                         //triggerModal('limit');
 
                         // uncheck 'select all' boxes since operation was unsuccessful
@@ -205,7 +207,7 @@ define(function(require) {
                 // else if the checkbox is checked and the 'select all' IS NOT checked
                 else if ($this.is(':checked') && !isChecked){
                     // uncheck the item by triggering click - this will update totalChecked and sessionStorage
-                    $this.next().click();
+                    $this.click();
                 }
             });
         });
@@ -279,7 +281,7 @@ define(function(require) {
         // remove id symbol just in case
         var trial = src.replace("#", "");
 
-        if (isChecked) { // Uncheck it
+        if (!isChecked) { // Uncheck it
             if (checkedTrials.indexOf(trial) > -1) {
                 var index = checkedTrials.indexOf(trial);
                 checkedTrials.splice(index, 1);
