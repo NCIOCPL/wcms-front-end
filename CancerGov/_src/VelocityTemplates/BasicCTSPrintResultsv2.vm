@@ -103,6 +103,8 @@
 						</div>                                
 				#end
 			#end
+			<h3>Trial Objectives and Outlines</h3>
+			<div id="trialObjectives">$trial.DetailedDescription</div>	
 			#if($trial.LeadOrganizationName || $trial.PrincipalInvestigator)
 				<h3 class="printHeading">Lead Organization</h3>
 				#if($trial.LeadOrganizationName)
@@ -156,9 +158,7 @@
 						<br />
 					</div>  
 				#end
-			</div>
-			<h3>Trial Objectives and Outlines</h3>
-			<div id="trialObjectives">$trial.DetailedDescription</div>			
+			</div>					
 		</div>
 	#end                    
 #end
