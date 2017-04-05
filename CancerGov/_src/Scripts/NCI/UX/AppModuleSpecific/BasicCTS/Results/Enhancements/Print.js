@@ -103,7 +103,7 @@ define(function(require) {
                 var checked = checkedTrials.indexOf(nciid) > -1?'checked':'';
 
                 // create a checkbox for this individual result
-                return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '"></label></div>'
+                return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '" tabindex="0"></label></div>'
 
             })
             .find('input').on('click',function(e){ // checkbox click event
@@ -119,7 +119,8 @@ define(function(require) {
             .on('change',function(){
                 // see if all checkboxes on the page are checked
                 areAllChecked();
-            });
+            })
+        ;
 
         // cache the checkboxes for later
         $checkboxes = $('.cts-checkbox input');
@@ -131,7 +132,7 @@ define(function(require) {
         var $topSelect = $('<div class="selections-area">' +
                 '<span class="checkbox cts-results-select-all">' +
                     '<input id="checkAllTop" type="checkbox" />' +
-                    '<label for="checkAllTop"><strong>Select All on Page</strong></label>' +
+                    '<label for="checkAllTop" tabindex="0"><strong>Select All on Page</strong></label>' +
                 '</span>' +
                 '<input class="action button printSelected" type="submit" name="printButton" value="Print Selected" />' +
             '</div>');
@@ -210,6 +211,14 @@ define(function(require) {
                     $this.click();
                 }
             });
+        });
+
+        // send keyboard events to input
+        $('.checkbox label').on('keypress',function(e){
+            if(e.which == 13 || e.which == 32){
+                e.preventDefault();
+                $(this).prev().click();
+            }
         });
 
         $(".printSelected").on('click', function(event){
