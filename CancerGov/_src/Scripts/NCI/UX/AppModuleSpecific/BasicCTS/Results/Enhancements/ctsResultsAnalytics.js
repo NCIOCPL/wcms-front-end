@@ -42,12 +42,12 @@ define(function(require) {
 					location = "lower";
 				}
 
-				/* var selectAllText = "noselectall";
+				var selectAllText = "noselectall";
 				if (hasSelectAll == "true") {
 					selectAllText = "selectall";
-				} */
+				}
 				
-				NCIAnalytics.CTSResultsPrintSelectedClick($this, location, totalChecked, checkedPages);
+				NCIAnalytics.CTSResultsPrintSelectedClick($this, location, selectAllText, totalChecked, checkedPages);
 			}
 		});
 	}
