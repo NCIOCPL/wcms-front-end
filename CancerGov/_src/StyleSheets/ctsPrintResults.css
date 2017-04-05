@@ -216,6 +216,9 @@ li::-moz-list-bullet{
 #searchCriteria p{
 	margin: 5px;
 }
+#trialObjectives p{
+	margin: 12px 0;
+}
 #bodyHeading{
 	overflow: auto;
 	width: 100%;
