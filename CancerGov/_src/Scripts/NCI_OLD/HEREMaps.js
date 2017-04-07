@@ -130,14 +130,24 @@ function initMap( dada, mapId, layers ) {
 
         var arrayLength = parsedObjects.length;
         var ccType = '';
-        // console.log(parsedObjects[1]);
 
         // Displaying all CC's based on the location provided in the
         // KML data file
         for (var i = 0; i < arrayLength; i++) {
-            var myLat  = parsedObjects[i].bb.lat;
-            var myLng  = parsedObjects[i].bb.lng;
-            var ccType = parsedObjects[i].getData().kmlNode.childNodes[3].textContent;
+            // The KML file contains Placemark elements and all of
+            // it's children.  With the getData() function we can
+            // retrieve those Placemarks and extract all other
+            // information included, i.e. style, coordinates, etc.
+            // ----------------------------------------------------
+            var orgNode = parsedObjects[i].getData().kmlNode;
+            var xyzCoordinates = $(orgNode).find("coordinates").text();
+            var xyzValues = xyzCoordinates.split(",");
+            var myLat = xyzValues[1];
+            var myLng = xyzValues[0];
+
+            var styleUrl = $(orgNode).find("styleUrl").text();
+
+            var ccType = styleUrl;
 
             // Setting the marker icon based on the styleUrl text-content
             if ( ccType === '#cancerCenter' ) {
@@ -231,6 +241,6 @@ function addMarkerToGroup(group, coordinate, icon, html) {
 // ----------------------------------------------
 $( document ).ready(function (){
     initMaps();
-    console.log('Done with Map');
+    console.log('Done with Map again');
 });
 
