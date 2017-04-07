@@ -38,7 +38,7 @@ define(function(require) {
 
 	function getPrintID(){
 		var url = window.location.href;
-		var regex = new RegExp("[?&]" + "PrintID" + "(=([^&#]*)|&|#|$)");
+		var regex = new RegExp("[?&]" + "printid" + "(=([^&#]*)|&|#|$)");
         var results = regex.exec(url);
 		if (!results) return null;
 		if (!results[2]) return '';
