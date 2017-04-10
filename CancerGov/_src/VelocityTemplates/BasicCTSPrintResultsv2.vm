@@ -246,7 +246,7 @@
     <script language="JavaScript" type="text/javascript">
     <!--
 
-    s.channel = 'NCI ctsPrintResultsPage';
+    s.channel = 'Clinical Trials Print Results Page';
     s.prop3 = '/';
     s.prop6 = 'Comprehensive Cancer Information';
     s.prop8 = 'english';
