@@ -174,7 +174,6 @@
           }); 
      </script> 
      <script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script>
-	 <script src="/PublishedContent/js/Popups.js" type="text/javascript"></script> 
     <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" /> 
     <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" /> 
 </head>
@@ -187,7 +186,7 @@
 					<h1 id="ctPrintBodyHeading">Your Clinical Trials Search Results</h1>            
 					<div id="bodyHeadingLinks">					
 						<a id="printPage" href="javascript:window.print();">Print</a> | 
-						<a id="ctl10_EmailResults" href="${generatePrintURL}" onclick="javascript: dynPopWindow('${generatePrintURL}' , 'emailPopUp', 'height=365,width=525'); return false;" target="_blank">E-Mail These Results</a> | 
+						<a id="ctl10_EmailResults" href="${generatePrintURL}" target="_blank">E-Mail These Results</a> | 
 						<a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>                    
 					</div>
 				</div>
