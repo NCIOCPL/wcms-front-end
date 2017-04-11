@@ -19,7 +19,7 @@
 			#else
 				#set($zipCode = "")
 			#end
-			#if($SearchResults.SearchTerms.ZipCode)
+			#if($SearchResults.SearchTerms.AgeOfEligibility)
 				#set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
 			#else
 				#set($age = "")
