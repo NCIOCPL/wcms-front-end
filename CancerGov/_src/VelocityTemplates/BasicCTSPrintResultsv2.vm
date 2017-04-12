@@ -1,14 +1,3 @@
-<script language="JavaScript" type="text/javascript">
-	function getPrintID(){
-			var url = window.location.href;
-			var regex = new RegExp("[?&]" + "PrintID" + "(=([^&#]*)|&|#|$)");
-			var results = regex.exec(url);
-			if (!results) return null;
-			if (!results[2]) return '';
-			return decodeURIComponent(results[2].replace(/\+/g, " "));
-		
-		}
-</script>
 #macro(DrawResultsTextV2)##                    
 	#foreach($trial in $resultSet) 
 		<div class="trialContainer">
@@ -163,6 +152,7 @@
 	#end                    
 #end
 
+<!DOCTYPE html>
 <html>
 <head> 
 	 <meta name="robots" content="noindex">
@@ -232,6 +222,18 @@
         </div>
 	</div>
 
+	<script language="JavaScript" type="text/javascript">
+		function getPrintID(){
+			var url = window.location.href;
+			var regex = new RegExp("[?&]" + "PrintID" + "(=([^&#]*)|&|#|$)");
+			var results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		
+		}
+	</script>
+	
     <!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
     <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
     <script language="JavaScript" type="text/javascript">
