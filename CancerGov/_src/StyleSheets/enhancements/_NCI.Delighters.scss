@@ -267,4 +267,12 @@
 		margin-bottom: 8px;
 	}
 }
+
+// remove spacing after delighters on pages without API reference section
+.last-SI {
+  .delighter-rail:last-child {
+    margin-bottom: 0;
+	padding-bottom: 0;
+  }
+}
 /****************** End Delighters styling ***************** */

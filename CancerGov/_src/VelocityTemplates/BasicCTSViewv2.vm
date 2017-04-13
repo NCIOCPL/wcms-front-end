@@ -55,9 +55,14 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
   #else
   <div>
     #if($SearchResults.Control.GetShowAll() > 0)
-    <span class="right location-link">
-      <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#trial-location">Show locations near me</a>
-    </span>
+	  #set ($allLocCount = $SearchResults.TrialTools.GetLocCount($allLocations.USA) + $SearchResults.TrialTools.GetLocCount($allLocations.Canada) + $SearchResults.TrialTools.GetLocCount($allLocations.Other))
+      #if($allLocCount == 1)
+	    ## do not display toggle
+      #else
+	    <span class="right location-link">
+          <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#trial-location">Show locations near me</a>
+        </span>
+	  #end
     #end
 
     #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) > 0)
@@ -111,18 +116,24 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #macro(DrawProximityLocationsV2)
 <div id="proximity-trialslist">
   #if($SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length == 0)
-  #DrawNoLocationsV2()##
+    #DrawNoLocationsV2()##
   #else
-
-  <span class="location-text">Locations within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP code "$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP"</span>
-  <span class="right location-link">
-    <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#trial-location">Show all locations</a>
-  </span>
+    #set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial)) 
+    #set ($allLocCount = $SearchResults.TrialTools.GetLocCount($allLocations.USA) + $SearchResults.TrialTools.GetLocCount($allLocations.Canada) + $SearchResults.TrialTools.GetLocCount($allLocations.Other))
+    #set ($filteredLocCount = $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length)
+	<span class="location-text">Locations within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP code "$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP"</span>
+    #if($allLocCount == $filteredLocCount)
+	  ## do not draw toggle
+	#else
+	  <span class="right location-link">
+        <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#trial-location">Show all locations</a>
+      </span>
+	#end
     #foreach($loc in $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
-    #each
-      #DrawLocationV2($loc)
+      #each
+        #DrawLocationV2($loc)
     #end
-    #end
+  #end
 </div>
 #end
 
@@ -174,7 +185,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
   <p>
-    This clinical trial matches: #DrawMatchingParamsV2($SearchResults).
+    This clinical trial matches: #DrawMatchingParamsV2($SearchResults) | <span class="cts-start-over"><a href="/about-cancer/treatment/clinical-trials/search">Start Over</a></span>
   </p>
 </span>
 #end##

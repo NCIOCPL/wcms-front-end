@@ -52,7 +52,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
         </div>
       #before
         <div class="row collapse">
-          <div class="medium-12 columns clinical-trial-individual-result">
+          <div class="medium-12 columns clinical-trial-individual-result cts-with-checkbox" data-nciid="$resultItem.NCIID">
       #after
           </div>
         </div>
@@ -60,25 +60,30 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
         #DrawNoResultsTextV2()
     #end
   </div>
+  
+  ## If there are results then draw the pager
+  ##<div class="pager ct-listing-pager">
+    ## Get the current page
+    ## Show up to the next 2 and previous 2 numbers from the current page
+    ## First / last pages always show by default
+    #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2,2,$SearchResults.Results.TotalResults))
+      #each
+        #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+          <span class="pager-current">$pagerItem.Text</span>
+        #elseif($pagerItem.IsLink == false)
+          <span class="pager-text-only">$pagerItem.Text</span>
+        #else
+          <a class="pager-link" href="$pagerItem.PageUrl">$pagerItem.Text</a>
+        #end
+	  #beforeall
+	    <div class="pager ct-listing-pager">
+	  #afterall
+	    </div>
+      ## end 'each'
+    #end
+  ##</div>
 
-  ## If there are results then...
-  <div class="ct-results-lower-control basic">
-    <div class="pagination">
-      ## Get Curr Page
-
-      ## Shows 3 before and 3 after
-      #foreach($pagerItem in $SearchResults.Control.GetPagerItems(3,3,$SearchResults.Results.TotalResults))
-        #each
-          #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
-            <span>$pagerItem.Text</span>
-          #else
-            <a href="$pagerItem.PageUrl">$pagerItem.Text</a>
-          #end
-        #after
-          &nbsp;
-      #end
-    </div>
-  </div>
+  
 #end
 
 #macro(DrawSearchParamsV2 $SearchResults)
@@ -129,29 +134,35 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 #end##
 
 <div class="row">
-  <div class="medium-9 columns collapse">
-    #if($SearchResults.Results.TotalResults > 0)
-      #if($SearchResults.Control.HasInvalidParams() == false)
+  #if($SearchResults.Results.TotalResults > 0)
+    #if($SearchResults.Control.HasInvalidParams() == false)
       #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
-        <div class="cts-results-title">
-          Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-        </div>
+	    <div class="cts-results-title">
+	      Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
+		  | <span class="cts-start-over"><a href="/about-cancer/treatment/clinical-trials/search">Start Over</a></span>
+	    </div>
       #else
-        ## Draw no title here
+	    ## Draw no title here
       #end
-        #DrawResultsV2($SearchResults)
-      #else
-        #DrawNoResultsTextV2()
-      #end
-    ## If there are no results, then we need to show a different message
+	  <div class="medium-9 columns collapse">
+	    #DrawResultsV2($SearchResults)
+	  </div>
     #else
-      <div>
-        No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
-      <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
-      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
-    </div>
+	  <div class="medium-9 columns collapse">
+	    #DrawNoResultsTextV2()
+	  </div>
     #end
-  </div>
+  ## If there are no results, then we need to show a different message
+  #else
+    <div class="medium-9 columns collapse">
+      <div>
+	    No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
+	    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+        <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
+      </div>
+	</div>
+  #end
+  
 
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">

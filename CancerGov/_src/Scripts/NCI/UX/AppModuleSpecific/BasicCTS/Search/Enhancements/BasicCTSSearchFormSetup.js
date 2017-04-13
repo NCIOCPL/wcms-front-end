@@ -275,6 +275,12 @@ define(function(require) {
 					} catch (e) {
 						window.console && console.log(e);
 					}
+					// clear sessionStorage before going to results page
+
+					sessionStorage.removeItem('totalChecked');
+					sessionStorage.removeItem('checkedPages');
+					sessionStorage.removeItem('hasSelectAll');
+
 					$this.data('valid', true).submit();
 				}
 

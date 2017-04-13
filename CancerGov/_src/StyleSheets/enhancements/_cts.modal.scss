@@ -1,0 +1,79 @@
+//@import '../environments/prototype';
+
+.cts-dialog {
+  background: #445159;
+
+  .ui-widget-content {
+    color: white;
+    @include font-noto;
+    padding: 3.5em 2.2em;
+    text-align: center;
+  }
+
+  .ui-dialog-close {
+    display: block;
+    border: none;
+    background: transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    margin:0;
+    z-index: 1;
+
+    .ui-icon {
+      /* background: url($icons + 'Close_icon.png') top left no-repeat; */
+      //@include sprite($x-coordinate: -240px, $y-coordinate: -388px, $width: 32px, $height: 32px);
+      background: url($icons + 'nci-sprite.png') top left no-repeat;
+      background-position: -237px -386px;
+      width: 34px;
+      height:34px;
+
+      margin:0;
+      left:0;
+      top:0;
+    }
+    &.btn-close-top {
+      top: 1em;
+    }
+    &.btn-close-bottom {
+      top: auto;
+      bottom: 1em;
+    }
+  }
+
+  i.warning {
+    display: block;
+    text-align: center;
+    background: url($icons + 'modal-alert.svg') top center no-repeat;
+    height: 72px;
+  }
+
+}
+#modal-redirect {
+  &.ui-dialog-content {
+    padding: 1.5em 2.2em;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+@import "../spinner";
+
+@include bp(medium-up) {
+  .cts-dialog {
+    .ui-dialog-close {
+      &.btn-close-top {
+        position:absolute;
+        left: auto;
+        right: 1em;
+        transform: none;
+      }
+      &.btn-close-bottom {
+        display: none;
+      }
+    }
+  }
+}

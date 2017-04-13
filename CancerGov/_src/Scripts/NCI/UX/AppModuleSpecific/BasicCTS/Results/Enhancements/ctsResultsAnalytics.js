@@ -1,7 +1,6 @@
 define(function(require) {
 	var $ = require('jquery');
-
-
+	
 	/***
 	* Main function
 	*/
@@ -24,7 +23,33 @@ define(function(require) {
 					rank += ('|page ' + pn);
 					NCIAnalytics.CTSResultsClick($this, rank);
 			});
-		});	
+		});
+		
+		/* Track clicks of print selected buttons */
+		$('.printSelected').on('click', function(event) {
+			var $this = $(this);
+			var checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [];
+			var totalChecked = checkedTrials.length;
+			if(totalChecked > 0) {
+				var checkedPages = JSON.parse(sessionStorage.getItem('checkedPages')) || [];
+				var hasSelectAll = sessionStorage.getItem('hasSelectAll');
+				
+				var location;
+				if ($this.parents().hasClass('cts-results-top-control')) {
+					location = "top";
+				}
+				else if ($this.parents().hasClass('cts-results-lower-control')) {
+					location = "lower";
+				}
+
+				var selectAllText = "noselectall";
+				if (hasSelectAll == "true") {
+					selectAllText = "selectall";
+				}
+				
+				NCIAnalytics.CTSResultsPrintSelectedClick($this, location, selectAllText, totalChecked, checkedPages);
+			}
+		});
 	}
 
 	/**

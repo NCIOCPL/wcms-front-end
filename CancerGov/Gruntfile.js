@@ -252,7 +252,9 @@ module.exports = function(grunt) {
                 'BasicCTSViewPage': 
                     'UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
                 'CTListingPage': 
-                    'UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage'
+                    'UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage',
+				'BasicCTSPrintPage':
+					'UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage'
             },
             mainConfigFile: '<%= dirs.src.scripts %>NCI/config.js',
             modules: [
@@ -323,6 +325,11 @@ module.exports = function(grunt) {
                 {
                     name: 'CTListingPage',
                     insertRequire: ['CTListingPage'],
+                    exclude: ['ContentPage']
+                },
+				{
+                    name: 'BasicCTSPrintPage',
+                    insertRequire: ['BasicCTSPrintPage'],
                     exclude: ['ContentPage']
                 }
 
@@ -443,6 +450,7 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true,
                 src: [
+					'<%= dirs.src.styles %>**/ctsPrintResults.css',
                     '<%= dirs.tmp.styles %>**/*.css',
                     '<%= dirs.tmp.styles %>**/*.css.map'
                 ],

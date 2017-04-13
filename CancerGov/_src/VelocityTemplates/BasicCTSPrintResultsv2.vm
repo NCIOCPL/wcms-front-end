@@ -1,0 +1,273 @@
+#macro(DrawResultsTextV2)##                    
+	#foreach($trial in $resultSet) 
+		<div class="trialContainer">
+			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
+			<!-- Check search terms and set them if they are used -->
+			#if($SearchResults.SearchTerms.ZipCode)
+				#set($zipCode = "&z=$SearchResults.SearchTerms.ZipCode")
+			#else
+				#set($zipCode = "")
+			#end
+			#if($SearchResults.SearchTerms.AgeOfEligibility)
+				#set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
+			#else
+				#set($age = "")
+			#end
+			<a class="CheckForUpdatesButton" href="/about-cancer/treatment/clinical-trials/search/v?id=$trial.NCIID$zipCode$age"><span>Check for Updates</span></a>  
+			<table class="trialDataTable">
+				<tr class="trialDataHeaderRow">
+					<td>Phase</td>
+					<td>Type</td>
+					<td>Status</td>
+					<td>Age</td>
+					<td>Trial IDs</td>
+				</tr>
+				<tr>
+					<td>Phase $trial.TrialPhase.PhaseNumber</td>
+					<td>$trial.TrialType</td>
+					<td>$trial.CurrentTrialStatus</td>
+					<td>$trial.EligibilityInfo.StructuredCriteria.MinAgeInt 
+						#if($trial.EligibilityInfo.StructuredCriteria.MaxAgeInt == 999)
+							and over
+						#else
+							to $trial.EligibilityInfo.StructuredCriteria.MaxAgeInt years
+						#end
+						
+						</td>
+					<td class="trialIDCell">
+						<span class = "dataTableIDLabel">Primary ID</span> $trial.ProtocolID<br>
+						<span class = "dataTableIDLabel">Secondary IDs</span> $SearchResults.TrialTools.GetSecondaryIDsString($trial)<br>
+						<span class = "dataTableIDLabel">Clinicaltrials.gov ID</span> <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">$trial.NCTID</a><br>
+					</td>
+			</table>
+
+			<h3>Description</h3>
+			<div>$trial.BriefSummary</div>
+
+			<h3 class="printHeading">Eligibility Criteria</h3>
+
+			## Find inclusion and exclusion criteria
+			#set($inclusionCriteria =  [])
+			#set($exclusionCriteria =  [])
+			## This seems necessary because velocity sucks
+			#set($inclusionBool = false)
+			#set($exclusionBool = false)
+			#foreach($criterion in $trial.EligibilityInfo.UnstructuredCriteria)								
+				#each
+					#if($criterion.IsInclusionCriterion == true)
+						#set($trash = $inclusionCriteria.add($criterion))
+						#if($inclusionBool == false)
+							#set($inclusionBool = true)
+						#end
+					#else
+						#set($trash = $exclusionCriteria.add($criterion))
+						#if($exclusionBool == false)
+							#set($exclusionBool = true)
+						#end
+				#end
+			#end
+			#if($inclusionBool == true)
+				<h4>Inclusion Criteria</h4>
+				#foreach($include in $inclusionCriteria)
+					#each					
+					<li>$include.Description</li>                               
+					#before
+						<div>                                    
+							<ul>                                    
+					#after
+							</ul> 
+						</div>
+				#end
+			#end
+			#if($exclusionBool == true)
+				<h4>Exclusion Criteria</h4>
+				#foreach($criterion in $exclusionCriteria)
+					#each							
+						<li>$criterion.Description</li>
+					#before
+						<div>
+							<ul>
+					#after
+							</ul>
+						</div>                                
+				#end
+			#end
+			<h3>Trial Objectives and Outlines</h3>
+			<div id="trialObjectives">$trial.DetailedDescription</div>	
+			#if($trial.LeadOrganizationName || $trial.PrincipalInvestigator)
+				<h3 class="printHeading">Lead Organization</h3>
+				#if($trial.LeadOrganizationName)
+					<div>$trial.LeadOrganizationName</div>
+				#end
+				#if($trial.PrincipalInvestigator)
+					<div>Principal Investigator: $trial.PrincipalInvestigator</div>
+				#end
+			#end
+			<h3 class="printHeading">Locations & Contacts</h3>
+			<div class="locationNoteBlock">
+				<span>Note:</span> Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">NCT number</a> on ClinicalTrials.gov
+			</div>
+			<div>                               
+				#if ($SearchResults.SearchTerms.ZipCode)##
+					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
+				#else
+					#set($locationsToPrint =  $SearchResults.TrialTools.GetAllStudySites($trial))
+				#end
+				#set($headingVal = "none")
+				#foreach($location in $locationsToPrint)
+				#each
+					<!-- if the state we're on now isn't the previous one, start a new heading-->
+					#if($headingVal != $location.StateOrProvince)
+						#if($location.StateOrProvince)
+							#set($headingVal = $location.StateOrProvince)
+							<h4 class="locationStateLabel">$location.StateOrProvince</h4>
+						#end
+					#end                                        
+					<div class="locationBlock">                                            
+						#if($location.City)
+							<span class="locationCity">$location.City</span>
+							<br>
+						#end
+						#if($location.Name)
+							<span class="locationName">$location.Name</span>
+							<br>
+						#end
+						#if($location.ContactName)
+							<span class="locationContactName">Contact: $location.ContactName</span>
+							<br>
+						#end    
+						#if($location.ContactPhone)
+							<span class="locationPhone">Phone: $location.ContactPhone</span>
+							<br>
+						#end                        
+						#if($location.ContactEmail)
+							<span class="locationEmail">Email: $location.ContactEmail</span>
+							<br>
+						#end                                            
+						<br />
+					</div>  
+				#end
+			</div>					
+		</div>
+	#end                    
+#end
+
+<!DOCTYPE html>
+<html>
+<head> 
+	 <meta name="robots" content="noindex">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
+     <script> 
+          define('jquery', [], function() { 
+               return jQuery; 
+          }); 
+     </script> 
+     <script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script>
+    <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" /> 
+    <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" /> 
+</head>
+<body>
+	<div id="cgovContainer">
+		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg"/></div>
+        <div id="cgvBody">
+            <div id="bodyHeading">
+				<div id="headingWrapper">
+					<h1 id="ctPrintBodyHeading">Your Clinical Trials Search Results</h1>            
+					<div id="bodyHeadingLinks">					
+						<a id="printPage" href="javascript:window.print();">Print</a> | 
+						<a id="ctl10_EmailResults" href="${generatePrintURL}" target="_blank">E-Mail These Results</a> | 
+						<a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>                    
+					</div>
+				</div>
+            </div>
+                <div id="clinical-trials-print">
+
+                    #set($resultSet =  $SearchResults.Results)
+
+					#if($SearchResults.SearchTerms.CancerType  || $SearchResults.SearchTerms.ZipCode  || $SearchResults.SearchTerms.AgeOfEligibility ||  $SearchResults.SearchTerms.Gender || $SearchResults.SearchTerms.CancerTypePhrase || $SearchResults.SearchTerms.Phrase)
+                    	<div id="searchCriteria">						
+							<p class="searchCriterion"><span>Search Criteria:</span></p>
+							<ul>
+							#if($SearchResults.SearchTerms.CancerType)
+								<li class="searchCriterion"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</li>
+							#end
+							#if($SearchResults.SearchTerms.CancerTypePhrase)
+								<li class="searchCriterion"><span>Cancer Type/Phrase: </span>$SearchResults.SearchTerms.CancerTypePhrase</li>
+							#end
+							#if($SearchResults.SearchTerms.Phrase)
+								<li class="searchCriterion"><span>Keyword: </span>$SearchResults.SearchTerms.Phrase</li>
+							#end							
+							#if($SearchResults.SearchTerms.Gender)
+								<li class="searchCriterion"><span>Gender: </span>$SearchResults.SearchTerms.Gender</li>
+							#end
+							#if($SearchResults.SearchTerms.ZipCode)
+								<li class="searchCriterion"><span>Zip Code: </span>Within $SearchResults.SearchTerms.ZipRadius miles of $SearchResults.SearchTerms.ZipCode</li>
+							#end
+							#if($SearchResults.SearchTerms.AgeOfEligibility)
+								<li class="searchCriterion"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</li>
+							#end
+							<ul>						
+                    	</div>
+					#end
+
+                    <p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
+                    <p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
+                    
+                                       
+                <div>
+                	#DrawResultsTextV2()
+                </div>
+            </div>
+        </div>
+	</div>
+
+	<script language="JavaScript" type="text/javascript">
+		function getPrintID(){
+			var url = window.location.href;
+			var regex = new RegExp("[?&]" + "PrintID" + "(=([^&#]*)|&|#|$)");
+			var results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		
+		}
+	</script>
+	
+    <!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
+    <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+        // Verify this account TODO
+    var s_account = AnalyticsMapping.GetSuites("nciglobal,ncienglish-all");
+    -->
+    </script>
+    <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
+    <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
+    <script language="JavaScript" type="text/javascript">
+    <!--
+
+    s.channel = 'Clinical Trials Print Results Page';
+    s.prop3 = '/';
+    s.prop6 = 'Comprehensive Cancer Information';
+    s.prop8 = 'english';
+    s.prop10 = document.title;
+	s.prop15 = getPrintID();
+    s.prop25 ='01/01/1980';
+    s.prop44 ='Clinical Trials';
+	s.prop62 ='Clinical Trials: Print Selected';
+    s.eVar2 ='english';
+	s.eVar15 = getPrintID();
+	s.eVar62 ='Clinical Trials: Print Selected';
+	s.eVar44 ='Clinical Trials';
+    s.events ='event1';
+
+    var s_code=s.t();
+    if(s_code)
+    document.write(s_code);
+    -->
+    </script>
+    <!-- ***** End NCI Web Analytics ***** -->
+
+</body>
+</html>
