@@ -56,6 +56,7 @@
 @import "pageOptions";
 @import "font_resizer";
 @import "carousel";
+@import "backToTop";
 @import "contentTemplate";
 @import "pdq";
 @import "blogs";
@@ -68,7 +69,7 @@
 @import "lists";
 @import "videos";
 @import "popups";
-@import "tooltips";
+@import "referenceToolTips";
 @import "errorPage";
 @import "topicPages";
 @import "nokia-maps";
@@ -77,7 +78,7 @@
 @import "pagination";
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
-@import "enhancements/NCI.ProactiveLiveHelp";
+@import "NCI.ProactiveLiveHelp";
 @import "enhancements/NCI.Delighters";
 @import "enhancements/cts.feedbackform";
 @import "enhancements/cts.basic";

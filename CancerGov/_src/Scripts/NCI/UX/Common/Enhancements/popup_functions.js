@@ -20,6 +20,9 @@ define(function(require) {
 	}
 	window.popWindow = popWindow;
 
+	//window.load polyfill for jQuery 3.0
+    jQuery.fn.load = function(callback){ $(window).on("load", callback) };
+
 	function dynPopWindow(url, name, windowAttributes)
 	{
 		options = '';

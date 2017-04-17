@@ -135,6 +135,16 @@ $ui-selectmenu-maxitems: 7;
 		line-height: 1;
 	}
 }
+
+.ui-menu {
+	.ui-state-active {
+		border:none;
+		background: transparent none !important;
+		color:inherit;
+		font-weight: bold;
+	}
+}
+
 .ui-selectmenu-menu {
 	.ui-menu {
 		padding-bottom: 0;

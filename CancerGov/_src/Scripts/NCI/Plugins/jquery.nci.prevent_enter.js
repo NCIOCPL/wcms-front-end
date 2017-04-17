@@ -50,7 +50,14 @@
             /* PLUGIN LOGIC GOES HERE */
             if(!base.$el.data( "NCI.prevent_enter")){
 
+                // save initialization
                 base.$el.data( "NCI.prevent_enter" , base );
+
+                base.$el.submit(function(e){
+                    if(!$( document.activeElement ).is('[data-prevent-enter="false"]')) {
+                        event.preventDefault();
+                    }
+                });
             }
         };
 

@@ -7,6 +7,7 @@ define(function(require) {
     /* Only display the delighter on the NCI Home page but not on other
      * pages regardless if they are using the home page template
      * ---------------------------------------------------------------- */
+
     if( $("body").hasClass("ncihome") ) {
 		var delighter = $('<div id="delighter-homePage"><a href="' + ctsPath + '">Find a <br/>Clinical Trial</a></div>');
 		delighter.find('a').on('click.analytics',function(e){

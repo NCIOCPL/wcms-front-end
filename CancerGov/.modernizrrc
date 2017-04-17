@@ -1,0 +1,28 @@
+{
+    "minify": true,
+    "feature-detects": [
+        "css/borderradius",
+        "css/flexbox",
+        "css/generatedcontent",
+        "css/reflections",
+        "css/textshadow",
+        "css/transforms",
+        "css/transforms3d",
+        "css/transitions",
+        "geolocation",
+        "hashchange",
+        "svg",
+        "touchevents",
+        "workers/webworkers"
+    ],
+    "options": [
+        "addTest",
+        "atRule",
+        "hasEvent",
+        "html5shiv",
+        "setClasses",
+        "testAllProps",
+        "testProp",
+        "testStyles"
+    ]
+}
