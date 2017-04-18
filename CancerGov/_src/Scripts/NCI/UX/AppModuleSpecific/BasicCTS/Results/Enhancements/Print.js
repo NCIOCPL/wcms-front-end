@@ -1,6 +1,6 @@
 define(function(require) {
     require('jquery');
-	var breakpoints = require('Common/Enhancements/NCI.breakpoints');
+	var breakpoints = require('Modules/NCI.config').breakpoints;
 
     var LIMIT = 100,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
@@ -51,12 +51,17 @@ define(function(require) {
         _createTitlebar: function(){
             if(!this.options.titleBar) {
                 this.uiDialogTitlebarClose = $("<button type='button' class='ui-dialog-close'></button>")
-                    .button({
-                        label: this.options.closeText,
-                        icons: {
-                            primary: "ui-icon-closethick"
-                        },
-                        text: false
+                    // .button({
+                    //     label: this.options.closeText,
+                    //     icons: {
+                    //         primary: "ui-icon-closethick"
+                    //     },
+                    //     text: false
+                    // })
+                    .button( {
+                        label: $( "<a>" ).text( 'Frank!' ).html(),
+                        icon: "ui-icon-closethick",
+                        showLabel: false
                     })
                     .prependTo(this.uiDialog);
 
