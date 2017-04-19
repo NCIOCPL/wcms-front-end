@@ -51,26 +51,12 @@ define(function(require) {
         _createTitlebar: function(){
             if(!this.options.titleBar) {
                 this.uiDialogTitlebarClose = $("<button type='button' class='ui-dialog-close'></button>")
-                    // .button({
-                    //     label: this.options.closeText,
-                    //     icons: {
-                    //         primary: "ui-icon-closethick"
-                    //     },
-                    //     text: false
-                    // })
                     .button( {
                         label: $( "<a>" ).text( 'Frank!' ).html(),
                         icon: "ui-icon-closethick",
                         showLabel: false
                     })
                     .prependTo(this.uiDialog);
-
-                // TODO: Button will need to be updated for use with jQuery 1.12
-                // .button( {
-                //     label: $( "<a>" ).text( this.options.closeText ).html(),
-                //     icon: "ui-icon-closethick",
-                //     showLabel: false
-                // })
 
                 this._on(this.uiDialogTitlebarClose, {
                     click: function (event) {

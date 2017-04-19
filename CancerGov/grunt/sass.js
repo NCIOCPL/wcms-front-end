@@ -13,7 +13,10 @@ module.exports = function (grunt, options) {
     },
     dev: {
       options: {
-        sourceMap: true
+        sourceMap: true,
+        includePaths: (function(){
+          return Modules.concat(['_src/StyleSheets/environments/dev']);
+        })()
       },
       files: [
         {
@@ -29,7 +32,10 @@ module.exports = function (grunt, options) {
     prod: {
       options: {
         sourceMap: false,
-        outputStyle: 'compressed'
+        outputStyle: 'compressed',
+          includePaths: (function(){
+            return Modules.concat(['_src/StyleSheets/environments/prod']);
+          })()
       },
       files: [
         {

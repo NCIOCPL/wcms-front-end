@@ -63,12 +63,13 @@ module.exports = function (grunt, options) {
             nonull: true,
             files: [{
                 expand: true,
-                flatten: true,
+                flatten: false,
+                cwd: dirs.src.images,
                 src: [
-                    dirs.src.images + '**/*.jpg',
-                    dirs.src.images + '**/*.png',
-                    dirs.src.images + '**/*.gif',
-                    dirs.src.images + '**/*.svg'
+                    '**/*.jpg',
+                    '**/*.png',
+                    '**/*.gif',
+                    '**/*.svg'
                 ],
                 dest: dirs.dist.images,
                 filter: 'isFile'

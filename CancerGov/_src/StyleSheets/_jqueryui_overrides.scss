@@ -118,9 +118,11 @@ $ui-selectmenu-padding-left: 1em;
 $ui-selectmenu-maxitems: 7;
 
 .ui-selectmenu-button {
+	padding:0;
 	color: $body-font-color;
 	background-color: #f2f2f3;
 	vertical-align: middle;
+	overflow: hidden;
 
 	span.ui-icon {
 		@include sprite($x-coordinate: -378.5px, $y-coordinate: -172px, $width: 8px, $height: 11px);
@@ -134,6 +136,12 @@ $ui-selectmenu-maxitems: 7;
 		@include ui-selectmenu-padding();
 		line-height: 1;
 	}
+	&:hover span.ui-icon,
+	&:focus span.ui-icon {
+		@include sprite($x-coordinate: -378.5px, $y-coordinate: -172px, $width: 8px, $height: 11px);
+		background-color: #2b7bba;
+	}
+
 }
 
 .ui-menu {
@@ -158,6 +166,9 @@ $ui-selectmenu-maxitems: 7;
 		color: #fff;
 		background: $lcranberry;
 	}
+	.ui-state-active {
+		font-weight: normal;
+	}
 }
 /* Stop drop downs from bleeding through megamenu*/
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open {
@@ -170,11 +181,17 @@ $ui-selectmenu-maxitems: 7;
 		background-color: $beige;
 		background-color: rgba($beige, 0.9);
 		color: $body-font-color;
+		padding: 3px 1em 3px .4em;
 
 		list-style: none;
 		&:before {
 			content: none;
 			display: none;
+		}
+
+		.ui-menu-item-wrapper {
+			padding:0;
+			margin:0;
 		}
 
 		 @include bp(medium-down) {
@@ -197,6 +214,7 @@ $ui-selectmenu-maxitems: 7;
 		z-index: 99999; // this is so that the autocomplete is never covered by another element
 		background-color: rgb(233, 234, 232);
 		background-color: rgba(230, 232, 230, 0.9);
+	 	background-image: none !important;
 		font-size: $swKeywordFontSize;
 		 width:auto !important;
 		 right:20px;
@@ -270,15 +288,15 @@ $ui-selectmenu-maxitems: 7;
 
 /* begin override of default location for jquery ui images */
 .ui-widget-content {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_flat_75_ffffff_40x100.png");
+	background-image: url($images + "jquery/ui-bg_flat_75_ffffff_40x100.png");
 }
 .ui-widget-header {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_highlight-soft_75_cccccc_1x100.png");
+	background-image: url($images + "jquery/ui-bg_highlight-soft_75_cccccc_1x100.png");
 }
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_75_e6e6e6_1x400.png");
+	background-image: url($images + "jquery/ui-bg_glass_75_e6e6e6_1x400.png");
 }
 .ui-state-hover,
 // .ui-widget-content .ui-state-hover,   // was interfering with autocomplete dropdown styling
@@ -286,51 +304,51 @@ $ui-selectmenu-maxitems: 7;
 .ui-state-focus,
 // .ui-widget-content .ui-state-focus,   // was interfering with autocomplete dropdown styling
 .ui-widget-header .ui-state-focus {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_75_dadada_1x400.png");
+	background-image: url($images + "jquery/ui-bg_glass_75_dadada_1x400.png");
 }
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_65_ffffff_1x400.png");
+	background-image: url($images + "jquery/ui-bg_glass_65_ffffff_1x400.png");
 }
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_55_fbf9ee_1x400.png");
+	background-image: url($images + "jquery/ui-bg_glass_55_fbf9ee_1x400.png");
 }
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_glass_95_fef1ec_1x400.png");
+	background-image: url($images + "jquery/ui-bg_glass_95_fef1ec_1x400.png");
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_222222_256x240.png");
+	background-image: url($images + "jquery/ui-icons_222222_256x240.png");
 }
 .ui-widget-header .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_222222_256x240.png");
+	background-image: url($images + "jquery/ui-icons_222222_256x240.png");
 }
 .ui-state-default .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_888888_256x240.png");
+	background-image: url($images + "jquery/ui-icons_888888_256x240.png");
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_454545_256x240.png");
+	background-image: url($images + "jquery/ui-icons_454545_256x240.png");
 }
 .ui-state-active .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_454545_256x240.png");
+	background-image: url($images + "jquery/ui-icons_454545_256x240.png");
 }
 .ui-state-highlight .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_2e83ff_256x240.png");
+	background-image: url($images + "jquery/ui-icons_2e83ff_256x240.png");
 }
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
-	background-image: url("/publishedcontent/images/images/jquery/ui-icons_cd0a0a_256x240.png");
+	background-image: url($images + "jquery/ui-icons_cd0a0a_256x240.png");
 }
 .ui-widget-overlay {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_flat_0_aaaaaa_40x100.png");
+	background-image: url($images + "jquery/ui-bg_flat_0_aaaaaa_40x100.png");
 }
 .ui-widget-shadow {
-	background-image: url("/publishedcontent/images/images/jquery/ui-bg_flat_0_aaaaaa_40x100.png");
+	background-image: url($images + "jquery/ui-bg_flat_0_aaaaaa_40x100.png");
 }
 /* end override of default location for jquery ui images */
