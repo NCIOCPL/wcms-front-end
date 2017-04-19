@@ -52,19 +52,17 @@ define(function(require) {
                     }
                 ]
             });
-        });
 
-        // Script for custom arrows
-        // NOTE: The slick library comes with arrows, but they are pre-styled
-        // and they go after the carousel. Front End Devs can decide if they'd
-        // rather style the old ones or edit the HTML of the new ones, but
-        // make sure to change arrow setting in .slick() declaration
-        $(function() {
+            // Script for custom arrows
+            // NOTE: The slick library comes with arrows, but they are pre-styled
+            // and they go after the carousel. Front End Devs can decide if they'd
+            // rather style the old ones or edit the HTML of the new ones, but
+            // make sure to change arrow setting in .slick() declaration
             $('.carousel-title .previous').click(function() {
-                $('.slider').slickPrev();
+                $('.slider').slick("slickPrev");
             });
             $('.carousel-title .next').click(function() {
-                $('.slider').slickNext();
+                $('.slider').slick("slickNext");
             });
         });
     });
