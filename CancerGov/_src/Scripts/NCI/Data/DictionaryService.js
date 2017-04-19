@@ -24,7 +24,11 @@ define(function(require) {
 			/** NCI Drug Dictionary */
 			drug: 'drug',
 			/** NCI Dictionary of Genetic Terms */
-			genetic: 'genetic'
+			genetic: 'genetic',
+            'cancer-terms': 'term',
+			'cancer-drug': 'drug',
+			'genetics-dictionary': 'genetic'
+
 		},
 
 		/**
@@ -65,7 +69,7 @@ define(function(require) {
 			maxResults = maxResults || 0;
 
 			return $.getJSON(that.endpoint + '/' + method, {
-				dictionary: dictionary,
+				dictionary: that.dictionaries[dictionary],
 				searchText: searchText,
 				language: language,
 				searchType: searchType,
@@ -102,7 +106,7 @@ define(function(require) {
 			searchType = searchType || 'begins';
 
 			return $.getJSON(that.endpoint + '/' + method, {
-				dictionary: dictionary,
+				dictionary: that.dictionaries[dictionary],
 				searchText: searchText,
 				language: language,
 				searchType: searchType
@@ -135,7 +139,7 @@ define(function(require) {
 			language = language || 'English';
 
 			return $.getJSON(that.endpoint + '/' + method, {
-				dictionary: dictionary,
+				dictionary: that.dictionaries[dictionary],
 				termId: termID,
 				language: language
 			});

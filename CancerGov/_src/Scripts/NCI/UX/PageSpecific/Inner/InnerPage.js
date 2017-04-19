@@ -28,11 +28,13 @@ define(function(require) {
                         return $('#ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains').prop("checked")?'contains':'begins'
                     };
 
+                    var dictionary = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+
                     // destroy the old autocomplete
                     $target.autocomplete('destroy');
 
                     // create a new autocomplete
-                    NCIAutocomplete.doAutocomplete($target,function (term) { return DictionaryService.searchSuggest('term', term, language, isContains())});
+                    NCIAutocomplete.doAutocomplete($target,function (term) { return DictionaryService.searchSuggest(dictionary, term, language, isContains())});
 
                     // remove the change event on these radio buttons that remake autocomplete on each change
                     $('#ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStarts,#ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains').removeAttr('onchange').off('change');
