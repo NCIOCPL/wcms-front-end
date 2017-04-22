@@ -15,6 +15,16 @@ define(function(require) {
         }
     });
 
+    $.widget( "ui.accordion", $.ui.accordion, {
+        destroy: function(){
+            //jquery-ui destroy method does not remove ui-state-active from headers for some reason
+            for (var i = 0; i < this.element.length; i++) {
+                $(this.element[i]).find('.ui-accordion-header').removeClass('ui-state-active');
+            }
+            return this._super()
+        }
+    });
+
     $.widget( "ui.autocomplete", $.ui.autocomplete, {
         _renderItem: function(ul,item){
             var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');

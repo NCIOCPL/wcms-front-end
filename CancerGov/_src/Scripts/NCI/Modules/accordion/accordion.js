@@ -165,14 +165,13 @@ define(function(require) {
 					}
 
 					// after all accordions have been built, add appropriate odd/even classes to the accordion headers
-					var builtAccordionHeaders = $('.ui-accordion-header');
-					for(var i = 1; i <= builtAccordionHeaders.length; i++) {
-						if(i % 2 === 0) {
-							builtAccordionHeaders.get(i-1).className += ' ' + 'even';
-						} else {
-							builtAccordionHeaders.get(i-1).className += ' ' + 'odd';
+                    $('.ui-accordion-header').each(function(i){
+                        if(i % 2 === 0) {
+                        	$(this).addClass("odd");
+                        } else {
+                            $(this).addClass("even");
 						}
-					}
+					});
 
 					/* else, the window must be large */
 				} else if(width > config.breakpoints.medium && !($( ".accordion" ).hasClass( "desktop" ))) {
