@@ -109,7 +109,7 @@
 /* selectmenu */
 // variables
 $ui-selectmenu-padding-topbottom: 0.5em;
-$ui-selectmenu-padding-right: 2em;
+$ui-selectmenu-padding-right: 1em;
 $ui-selectmenu-padding-left: 1em;
 @mixin ui-selectmenu-padding($top:$ui-selectmenu-padding-topbottom, $right:$ui-selectmenu-padding-right, $bottom:$ui-selectmenu-padding-topbottom, $left:$ui-selectmenu-padding-left) {
 	padding: $top $right $bottom $left;
@@ -133,8 +133,10 @@ $ui-selectmenu-maxitems: 7;
 		padding: 2 * $ui-selectmenu-padding-topbottom;
 	}
 	span.ui-selectmenu-text {
-		@include ui-selectmenu-padding();
+		padding: .5em;
 		line-height: 1;
+		margin-right: 32px;
+		text-align: center;
 	}
 	&:hover span.ui-icon,
 	&:focus span.ui-icon {
@@ -156,15 +158,21 @@ $ui-selectmenu-maxitems: 7;
 .ui-selectmenu-menu {
 	.ui-menu {
 		padding-bottom: 0;
-		max-height: $ui-selectmenu-maxitems * (1em + (2 * $ui-selectmenu-padding-topbottom)) + em-calc(2px);
+		max-height: $ui-selectmenu-maxitems * (1em + (2 * $ui-selectmenu-padding-topbottom)) + em-calc(4px);
+		.ui-menu-item-wrapper {
+			padding: 3px .5em;
+		}
 	}
 	.ui-menu-item {
-		@include ui-selectmenu-padding;
+		padding: .5em 0 .5em .5em;
 		line-height: 1;
 	}
 	.ui-state-focus {
 		color: #fff;
 		background: $lcranberry;
+		&:last-child {
+			margin: -2px 0 0; //prevent triggering scrollbar on last element hover
+		}
 	}
 	.ui-state-active {
 		font-weight: normal;
