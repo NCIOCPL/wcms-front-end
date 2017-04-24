@@ -846,7 +846,73 @@ var NCIAnalytics = {
         clickParams.Events = [17];
         clickParams.LogToOmniture();
     },
+    //******************************************************************************************************
+    CTSPrintResults_TopLinkClick: function(sender, linkVal, printID){
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'CTSPrintResults_TopLinkClick');
 
+        clickParams.Props = {
+            21: 'CTSPrintPage_' + linkVal,
+            62: 'Clinical Trials: Print Results Page',
+            67: s.pageName + '_' + printID
+        };            
+        
+        clickParams.Evars = {
+            62: 'Clinical Trials: Print Results Page',
+        };
+        if(linkVal == "Email" || linkVal == "Print Page"){
+            clickParams.Events = [17];
+        }
+        clickParams.LogToOmniture();
+    },
+    //******************************************************************************************************
+    CTSPrintResults_VewUpdatesLinkClick: function(sender, printID){
+        clickParams = new NCIAnalytics.ClickParams(sender,'nciglobal', 'o', ' CTSPrintResults_VewUpdatesLinkClick');
+
+        var link = sender.href;
+        clickParams.Props = {
+            21: 'CTSPrintPage_CheckUpdates_' + sender.attr('id'),
+            62: 'Clinical Trials: Print Results Page',
+            67: s.pageName + '_' + printID
+        };
+        
+        clickParams.Evars = {
+            62: 'Clinical Trials: Print Results Page'
+        };
+
+        clickParams.LogToOmniture();
+    },
+	//******************************************************************************************************
+    CTSResultsPrintSelectedClick: function(sender, location, hasSelectAll, totalChecked, checkedPages){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsPrintSelectedClick');
+        clickParams.Events = [48];
+        clickParams.Props = {
+            21: 'CTSPrintSelected_' + location + '_' + hasSelectAll + '_' + totalChecked + '_' + checkedPages,
+            67: 'D=pageName',
+            74: 'clinicaltrials_basic|print selected'
+        };
+        clickParams.LogToOmniture();
+    },
+    //******************************************************************************************************
+    CTSResultsMaxSelectedClick: function(sender) { 
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsMaxSelectedClick'); 
+        clickParams.Events = [41]; 
+        clickParams.Props = { 
+            74: 'clinicaltrials_basic|error', 
+            75: 'printselected|maxselectionreached'
+        }; 
+        clickParams.LogToOmniture(); 
+    },
+    //******************************************************************************************************
+    CTStartOverClick: function(sender) { 
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTStartOverClick'); 
+        clickParams.Events = [49]; 
+        clickParams.Props = { 
+            67: 'D=pageName',
+            74: 'clinicaltrials_basic|start over'
+        }; 
+        clickParams.LogToOmniture(); 
+    },
     //******************************************************************************************************
     SendToPrinterLink: function(sender) {
 

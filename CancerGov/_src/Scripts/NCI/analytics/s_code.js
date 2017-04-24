@@ -172,8 +172,8 @@ s.usePlugins=true
 /* Add calls to plugins here */
 function s_doPlugins(s) {
 
-    /* Set 'protoclsearchid' value */
-    s.prop15=s.eVar15=s.getQueryParam('protocolsearchid');
+    /* Set prop15 to either 'protoclsearchid' or 'PrintID' (depends on the page being loaded) */
+    s.prop15=s.eVar15= s.getQueryParam('protocolsearchid') ? s.getQueryParam('protocolsearchid') : s.getQueryParam('PrintID');
 
     /* Set the campagin value if there are any matching queries in the URL*/
     var sCampaign;
