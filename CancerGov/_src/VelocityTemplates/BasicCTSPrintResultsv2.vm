@@ -2,7 +2,7 @@
 	#foreach($trial in $resultSet) 
 		<div class="trialContainer">
 			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
-			<!-- Check search terms and set them if they are used -->
+			##<!-- Check search terms and set them if they are used -->
 			#if($SearchResults.SearchTerms.ZipCode)
 				#set($zipCode = "&z=$SearchResults.SearchTerms.ZipCode")
 			#else
@@ -116,13 +116,24 @@
 				#set($headingVal = "none")
 				#foreach($location in $locationsToPrint)
 				#each
-					<!-- if the state we're on now isn't the previous one, start a new heading-->
-					#if($headingVal != $location.StateOrProvince)
+   					##<!-- For USA locations, list locations per state header. Otherwise, use country header. -->
+   					##<!-- If the state/country we're on now isn't the previous one, start a new heading. -->
+					#if($location.Country)
 						#if($location.StateOrProvince)
-							#set($headingVal = $location.StateOrProvince)
-							<h4 class="locationStateLabel">$location.StateOrProvince</h4>
+							#if($location.Country == "United States")
+								#if($headingVal != $location.StateOrProvince)
+									#set($headingVal = $location.StateOrProvince)
+									<h4 class="locationStateLabel">$location.StateOrProvince</h4>
+								#end
+							#else
+								#if($headingVal != $location.Country)
+									#set($headingVal = $location.Country)
+									<h4 class="locationStateLabel">$location.Country</h4>
+								#end
+							#end                                        
 						#end
-					#end                                        
+					#end	
+					
 					<div class="locationBlock">                                            
 						#if($location.City)
 							<span class="locationCity">$location.City</span>
