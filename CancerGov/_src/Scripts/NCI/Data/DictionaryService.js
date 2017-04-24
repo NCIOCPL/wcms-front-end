@@ -21,12 +21,13 @@ define(function(require) {
 		dictionaries: {
 			/** NCI Dictionary of Cancer Terms */
 			term: 'term',
+            'cancer-terms': 'term',
+            diccionario: 'term',
 			/** NCI Drug Dictionary */
 			drug: 'drug',
+			'cancer-drug': 'drug',
 			/** NCI Dictionary of Genetic Terms */
 			genetic: 'genetic',
-            'cancer-terms': 'term',
-			'cancer-drug': 'drug',
 			'genetics-dictionary': 'genetic'
 
 		},

@@ -14,6 +14,7 @@ define(function(require) {
         var isAutocompleteDone = false;
 
 		// overload dictionary autocomplete once it's been created
+
         $( "#ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_AutoComplete1").on( "autocompletecreate", function( event, ui ) {
 
             var $target = $(this);
@@ -33,13 +34,16 @@ define(function(require) {
                     // destroy the old autocomplete
                     $target.autocomplete('destroy');
 
+                    isAutocompleteDone = true;
+
                     // create a new autocomplete
-                    NCIAutocomplete.doAutocomplete($target,function (term) { return DictionaryService.searchSuggest(dictionary, term, language, isContains())});
+                    NCIAutocomplete.doAutocomplete($target,function (term) {
+                        return DictionaryService.searchSuggest(dictionary, term, language, isContains())
+                    });
 
                     // remove the change event on these radio buttons that remake autocomplete on each change
                     $('#ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStarts,#ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains').removeAttr('onchange').off('change');
 
-                    isAutocompleteDone = true;
 
                 }, 100);
 
