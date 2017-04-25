@@ -118,9 +118,9 @@
 				#each
    					##<!-- For USA locations, list locations per state header. Otherwise, use country header. -->
    					##<!-- If the state/country we're on now isn't the previous one, start a new heading. -->
-					#if($location.Country)
+					#if(!$Tools.IsNullOrWhitespace($location.Country))
 						#if($location.Country == "United States")
-							#if($location.StateOrProvince)
+							#if(!$Tools.IsNullOrWhitespace($location.StateOrProvince))
 								#if($headingVal != $location.StateOrProvince)
 									#set($headingVal = $location.StateOrProvince)
 									<h4 class="locationStateLabel">$location.StateOrProvince</h4>
@@ -134,32 +134,34 @@
 						#end
 					#end
 					<div class="locationBlock">
-						#if($location.City && $location.Country == "United States")
-							<span class="locationCity">$location.City</span>
-							<br>
+						#if(!$Tools.IsNullOrWhitespace($location.Country))
+							#if(!$Tools.IsNullOrWhitespace($location.City) && $location.Country == "United States")
+								<span class="locationCity">$location.City</span>
+								<br>
+							#end
 						#end
-						#if($location.Name)
+						#if(!$Tools.IsNullOrWhitespace($location.Name))
 							<span class="locationName">$location.Name</span>
 							<br>
 						#end
-						#if($location.ContactName)
+						#if(!$Tools.IsNullOrWhitespace($location.ContactName))
 							<span class="locationContactName">Contact: $location.ContactName</span>
 							<br>
-						#end    
-						#if($location.ContactPhone)
+						#end
+						#if(!$Tools.IsNullOrWhitespace($location.ContactPhone))
 							<span class="locationPhone">Phone: $location.ContactPhone</span>
 							<br>
-						#end                        
-						#if($location.ContactEmail)
+						#end
+						#if(!$Tools.IsNullOrWhitespace($location.ContactEmail))
 							<span class="locationEmail">Email: $location.ContactEmail</span>
 							<br>
-						#end                                            
+						#end
 						<br />
-					</div>  
+					</div>
 				#end
-			</div>					
+			</div>
 		</div>
-	#end                    
+	#end
 #end
 
 <!DOCTYPE html>
