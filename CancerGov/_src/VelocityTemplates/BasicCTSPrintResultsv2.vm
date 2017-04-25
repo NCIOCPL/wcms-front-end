@@ -23,8 +23,8 @@
 					<td>Trial IDs</td>
 				</tr>
 				<tr>
-					<td>Phase $trial.TrialPhase.PhaseNumber</td>
-					<td>$trial.TrialType</td>
+					<td>$SearchResults.TrialTools.GetPhase($trial)</td>
+					<td>$SearchResults.TrialTools.GetTrialType($trial)</td>
 					<td>$trial.CurrentTrialStatus</td>
 					<td>$trial.EligibilityInfo.StructuredCriteria.MinAgeInt 
 						#if($trial.EligibilityInfo.StructuredCriteria.MaxAgeInt == 999)
