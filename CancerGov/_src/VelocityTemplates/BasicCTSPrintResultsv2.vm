@@ -134,7 +134,7 @@
 						#end
 					#end
 					<div class="locationBlock">
-						#if($location.City)
+						#if($location.City && $location.Country == "United States")
 							<span class="locationCity">$location.City</span>
 							<br>
 						#end
