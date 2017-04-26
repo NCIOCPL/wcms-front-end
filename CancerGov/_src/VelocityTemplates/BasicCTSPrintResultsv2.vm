@@ -92,8 +92,12 @@
 						</div>                                
 				#end
 			#end
-			<h3>Trial Objectives and Outlines</h3>
-			<div id="trialObjectives">$trial.DetailedDescription</div>	
+
+			#if(!$Tools.IsNullOrWhitespace($trial.DetailedDescription))
+				<h3 class="printHeading">Trial Objectives and Outlines</h3>
+				<div id="trialObjectives">$trial.DetailedDescription</div>	
+			#end
+
 			#if($trial.LeadOrganizationName || $trial.PrincipalInvestigator)
 				<h3 class="printHeading">Lead Organization</h3>
 				#if($trial.LeadOrganizationName)
