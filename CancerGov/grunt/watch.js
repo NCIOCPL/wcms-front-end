@@ -5,7 +5,7 @@ module.exports = function (grunt, options) {
     var dirs = options.dirs;
     return {
         css: {
-            files: dirs.src.styles + '**/*.scss',
+            files: [dirs.src.styles + '**/*.scss',dirs.src.scripts + '/NCI/Modules/**/*.scss'],
             tasks: ['build-styles:' + 'dev']
         },
         js: {

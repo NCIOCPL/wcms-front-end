@@ -272,6 +272,14 @@
 	line-height: $nav-max-lines + 0em;
 }
 
+.nav-menu .mobile-item {
+	/* mobile menu focused link state */
+	 a:focus {
+		color: $white !important;
+		background-color: $cranberry;
+	}
+}
+
 
 #nvcgSlMainNav.searching {
 	@include bp(small) {

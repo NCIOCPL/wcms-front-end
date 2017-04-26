@@ -98,7 +98,8 @@ define(function(require) {
 					swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
 						this.close();
 					}.bind(n),
-					threshold: 10 // default is 75 (for 75px)
+					threshold: 10, // default is 75 (for 75px)
+                    fallbackToMouseEvents: false
 				});
 
 				// set tabindex=-1 to items that should be removed from the tab order
