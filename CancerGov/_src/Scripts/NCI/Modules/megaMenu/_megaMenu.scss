@@ -275,12 +275,12 @@
 @include bp(medium-down) {
 	.nav-menu {
 		/* clicked link state */
-		 a:focus {
+		 a:active {
 			color: $white !important;
 			background-color: $cranberry;
 		}
 		.current-page > div {
-			> a, > a:focus {
+			> a, > a:active {
 				background-color: transparent !important;
 			}
 		}
