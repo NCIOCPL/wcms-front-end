@@ -272,11 +272,18 @@
 	line-height: $nav-max-lines + 0em;
 }
 
-.nav-menu .mobile-item {
-	/* mobile menu focused link state */
-	 a:focus {
-		color: $white !important;
-		background-color: $cranberry;
+@include bp(medium-down) {
+	.nav-menu {
+		/* clicked link state */
+		 a:focus {
+			color: $white !important;
+			background-color: $cranberry;
+		}
+		.current-page > div {
+			> a, > a:focus {
+				background-color: transparent !important;
+			}
+		}
 	}
 }
 
