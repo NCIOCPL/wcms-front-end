@@ -125,6 +125,9 @@
 				#each
    					##<!-- If the country we're on now isn't the previous one, start a new heading. -->
 					#if(!$Tools.IsNullOrWhitespace($location.Country))
+						#if($location.Country == "United States")
+							#set($location.Country = "U.S.A.")
+						#end
 						#if($countryHeading != $location.Country)
 							#set($countryHeading = $location.Country)
 							<h4 class="locationStateLabel">$location.Country</h4>
