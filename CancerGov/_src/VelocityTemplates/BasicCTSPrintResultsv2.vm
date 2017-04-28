@@ -1,4 +1,4 @@
-#macro(DrawResultsTextV2)##                    
+#macro(DrawResultsTextV2)##					
 	#foreach($trial in $resultSet) 
 		<div class="trialContainer">
 			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
@@ -69,11 +69,11 @@
 			#if($inclusionBool == true)
 				<h4>Inclusion Criteria</h4>
 				#foreach($include in $inclusionCriteria)
-					#each					
-					<li>$include.Description</li>                               
+					#each
+					<li>$include.Description</li>
 					#before
-						<div>                                    
-							<ul>                                    
+						<div>
+							<ul>
 					#after
 							</ul> 
 						</div>
@@ -82,14 +82,14 @@
 			#if($exclusionBool == true)
 				<h4>Exclusion Criteria</h4>
 				#foreach($criterion in $exclusionCriteria)
-					#each							
+					#each
 						<li>$criterion.Description</li>
 					#before
 						<div>
 							<ul>
 					#after
 							</ul>
-						</div>                                
+						</div>
 				#end
 			#end
 
@@ -111,35 +111,35 @@
 			<div class="locationNoteBlock">
 				<span>Note:</span> Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">NCT number</a> on ClinicalTrials.gov
 			</div>
-			<div>                               
+			<div>
 				#if ($SearchResults.SearchTerms.ZipCode)##
 					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
 				#else
 					#set($locationsToPrint =  $SearchResults.TrialTools.GetAllStudySites($trial))
 				#end
-				#set($headingVal = "none")
+				
+				#set($countryHeading = "")
+				#set($stateHeading = "")
+				#set($cityHeading = "")
 				#foreach($location in $locationsToPrint)
 				#each
-   					##<!-- For USA locations, list locations per state header. Otherwise, use country header. -->
-   					##<!-- If the state/country we're on now isn't the previous one, start a new heading. -->
+   					##<!-- If the country we're on now isn't the previous one, start a new heading. -->
 					#if(!$Tools.IsNullOrWhitespace($location.Country))
-						#if($location.Country == "United States")
-							#if(!$Tools.IsNullOrWhitespace($location.StateOrProvince))
-								#if($headingVal != $location.StateOrProvince)
-									#set($headingVal = $location.StateOrProvince)
-									<h4 class="locationStateLabel">$location.StateOrProvince</h4>
-								#end
-							#end
-						#else
-							#if($headingVal != $location.Country)
-								#set($headingVal = $location.Country)
-								<h4 class="locationStateLabel">$location.Country</h4>
-							#end
+						#if($countryHeading != $location.Country)
+							#set($countryHeading = $location.Country)
+							<h4 class="locationStateLabel">$location.Country</h4>
 						#end
 					#end
-					<div class="locationBlock">
-						#if(!$Tools.IsNullOrWhitespace($location.Country))
-							#if(!$Tools.IsNullOrWhitespace($location.City) && $location.Country == "United States")
+					<div class="locationBlock"> 
+						#if(!$Tools.IsNullOrWhitespace($location.StateOrProvince))
+							#if($stateHeading != $location.StateOrProvince)	
+								#set($stateHeading = $location.StateOrProvince)
+								<h4 class="locationStateLabel">$location.StateOrProvince</h4>
+							#end
+						#end
+						#if(!$Tools.IsNullOrWhitespace($location.City))
+							#if($cityHeading != $location.City)	
+								#set($cityHeading = $location.City)
 								<span class="locationCity">$location.City</span>
 								<br>
 							#end
@@ -172,37 +172,37 @@
 <html>
 <head> 
 	 <meta name="robots" content="noindex">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
-     <script> 
-          define('jquery', [], function() { 
-               return jQuery; 
-          }); 
-     </script> 
-     <script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script>
-    <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" /> 
-    <link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" /> 
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
+	 <script> 
+		  define('jquery', [], function() { 
+			   return jQuery; 
+		  }); 
+	 </script> 
+	 <script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script>
+	<link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" /> 
+	<link href="/PublishedContent/Styles/ctsPrintResults.css" rel="stylesheet" /> 
 </head>
 <body>
 	<div id="cgovContainer">
 		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg"/></div>
-        <div id="cgvBody">
-            <div id="bodyHeading">
+		<div id="cgvBody">
+			<div id="bodyHeading">
 				<div id="headingWrapper">
-					<h1 id="ctPrintBodyHeading">Your Clinical Trials Search Results</h1>            
+					<h1 id="ctPrintBodyHeading">Your Clinical Trials Search Results</h1>			
 					<div id="bodyHeadingLinks">					
 						<a id="printPage" href="javascript:window.print();">Print</a> | 
 						<a id="ctl10_EmailResults" href="${generatePrintURL}" target="_blank">E-Mail These Results</a> | 
-						<a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>                    
+						<a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>					
 					</div>
 				</div>
-            </div>
-                <div id="clinical-trials-print">
+			</div>
+				<div id="clinical-trials-print">
 
-                    #set($resultSet =  $SearchResults.Results)
+					#set($resultSet =  $SearchResults.Results)
 
 					#if($SearchResults.SearchTerms.CancerType  || $SearchResults.SearchTerms.ZipCode  || $SearchResults.SearchTerms.AgeOfEligibility ||  $SearchResults.SearchTerms.Gender || $SearchResults.SearchTerms.CancerTypePhrase || $SearchResults.SearchTerms.Phrase)
-                    	<div id="searchCriteria">						
+						<div id="searchCriteria">						
 							<p class="searchCriterion"><span>Search Criteria:</span></p>
 							<ul>
 							#if($SearchResults.SearchTerms.CancerType)
@@ -224,18 +224,18 @@
 								<li class="searchCriterion"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</li>
 							#end
 							<ul>						
-                    	</div>
+						</div>
 					#end
 
-                    <p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
-                    <p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
-                    
-                                       
-                <div>
-                	#DrawResultsTextV2()
-                </div>
-            </div>
-        </div>
+					<p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
+					<p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
+					
+									   
+				<div>
+					#DrawResultsTextV2()
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script language="JavaScript" type="text/javascript">
@@ -250,40 +250,40 @@
 		}
 	</script>
 	
-    <!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
-    <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
-    <script language="JavaScript" type="text/javascript">
-    <!--
-        // Verify this account TODO
-    var s_account = AnalyticsMapping.GetSuites("nciglobal,ncienglish-all");
-    -->
-    </script>
-    <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
-    <script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
-    <script language="JavaScript" type="text/javascript">
-    <!--
+	<!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
+	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
+	<script language="JavaScript" type="text/javascript">
+	<!--
+		// Verify this account TODO
+	var s_account = AnalyticsMapping.GetSuites("nciglobal,ncienglish-all");
+	-->
+	</script>
+	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
+	<script language="JavaScript" type="text/javascript">
+	<!--
 
-    s.channel = 'Clinical Trials Print Results Page';
-    s.prop3 = '/';
-    s.prop6 = 'Comprehensive Cancer Information';
-    s.prop8 = 'english';
-    s.prop10 = document.title;
+	s.channel = 'Clinical Trials Print Results Page';
+	s.prop3 = '/';
+	s.prop6 = 'Comprehensive Cancer Information';
+	s.prop8 = 'english';
+	s.prop10 = document.title;
 	s.prop15 = getPrintID();
-    s.prop25 ='01/01/1980';
-    s.prop44 ='Clinical Trials';
+	s.prop25 ='01/01/1980';
+	s.prop44 ='Clinical Trials';
 	s.prop62 ='Clinical Trials: Print Selected';
-    s.eVar2 ='english';
+	s.eVar2 ='english';
 	s.eVar15 = getPrintID();
 	s.eVar62 ='Clinical Trials: Print Selected';
 	s.eVar44 ='Clinical Trials';
-    s.events ='event1';
+	s.events ='event1';
 
-    var s_code=s.t();
-    if(s_code)
-    document.write(s_code);
-    -->
-    </script>
-    <!-- ***** End NCI Web Analytics ***** -->
+	var s_code=s.t();
+	if(s_code)
+	document.write(s_code);
+	-->
+	</script>
+	<!-- ***** End NCI Web Analytics ***** -->
 
 </body>
 </html>
