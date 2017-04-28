@@ -30,7 +30,7 @@ define(function(require){
         var duringHours = false;
         var hour = dateEastern.getHours();
 
-        if ((hour >= 8 && hour < 23))
+        if ((hour >= 9 && hour < 21))
             duringHours = true;
 
         return duringHours;

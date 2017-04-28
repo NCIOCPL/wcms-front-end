@@ -1,3 +1,7 @@
+/**
+ * This fie is deprecated.  Use NCI/Modules/proactiveLiveHelp instead.
+ */
+
 define(function(require){
 
 	var $ = require('jquery');
@@ -263,7 +267,7 @@ define(function(require){
 		var duringHours = false;
 		var hour = dateEastern.getHours();
 
-		if ((hour >= 8 && hour < 23))
+		if ((hour >= 9 && hour < 21))
 			duringHours = true;
 
 		return duringHours;
