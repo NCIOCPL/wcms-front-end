@@ -130,14 +130,16 @@
 						#end
 						#if($countryHeading != $location.Country)
 							#set($countryHeading = $location.Country)
-							<h4 class="locationStateLabel">$location.Country</h4>
+							<h4 class="locationCountryLabel">$location.Country</h4>
 						#end
 					#end
-					<div class="locationBlock"> 
-						#if(!$Tools.IsNullOrWhitespace($location.StateOrProvince))
-							#if($stateHeading != $location.StateOrProvince)	
-								#set($stateHeading = $location.StateOrProvince)
-								<h4 class="locationStateLabel">$location.StateOrProvince</h4>
+					<div class="locationBlock">
+						#if(!$Tools.IsNullOrWhitespace($location.Country) && ($location.Country == "U.S.A." || $location.Country == "Canada"))
+							#if(!$Tools.IsNullOrWhitespace($location.StateOrProvince))
+								#if($stateHeading != $location.StateOrProvince)	
+									#set($stateHeading = $location.StateOrProvince)
+									<h5 class="locationStateLabel">$location.StateOrProvince</h5>
+								#end
 							#end
 						#end
 						#if(!$Tools.IsNullOrWhitespace($location.City))
