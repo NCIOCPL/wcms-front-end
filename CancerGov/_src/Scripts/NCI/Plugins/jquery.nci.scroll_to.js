@@ -52,44 +52,39 @@
                 $anchor = $(anchor),
                 headerHeight = $(base.options.header).outerHeight(),
                 width = window.innerWidth || $(window).width(),
-                isSection = anchor.match(/^#section\//i),
+                isSection = base.options.isSection || anchor.match(/^#section\//i),
                 scrollY = window.scrollY || window.pageYOffset,
                 willFreeze = base.options.willFreeze,
                 fuzz = base.options.fuzz,
                 anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-                hasPreviousState = (base.options.event === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0)
+                hasPreviousState = (base.options.event === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0),
+                scrollTo = 0
             ;
 
-            // remove initial hash
-            // if(anchor.indexOf('#') === 0) {
-            //     anchor = anchor.substring(1, anchor.length);
-            // }
-
-            //TODO: previous state not reliable on mobile since accordions are always collapsed on load
             // if the anchor is a PDQ section and we're >=desktop
-            if(width > config.breakpoints.large && isSection) {
-                scrollY = 0;
-                willFreeze = false;
-            } else if(hasPreviousState) {
+            if(hasPreviousState) {
                 // returning true does not prevent standard anchors from working on page load
                 return;
+            } else if(width > config.breakpoints.large && anchor == '#all') {
+                scrollTo = $('#main h1:first').offset().top - headerHeight;
+                // willFreeze = false;
             } else {
-                scrollY = anchorTop - headerHeight;
+                scrollTo = anchorTop - headerHeight;
             }
 
             // freeze headroom
             if(willFreeze) {
                 $('.headroom-area').addClass('frozen');
-            }
 
-            // unfreeze headroom
-            if(willFreeze) {
+                $('[tabindex="1"]').focus();
+
                 setTimeout(function() {
-                    $('[tabindex="1"]').focus();
-                    window.scrollTo(0, scrollY);
+                    window.scrollTo(0, scrollTo);
                     setTimeout(function() {
-                        $('.headroom-area').removeClass('frozen');
+                        window.scrollTo(0, scrollTo);
+                        // unfreeze headroom
 
+                        $('.headroom-area').removeClass('frozen');
                     }, 150);
                 }, 150);
             }

@@ -37,8 +37,20 @@ define(function(require) {
                 var enlargeButton = $('<a/>', {
                     'class': 'article-image-enlarge no-resize',
                     'href': '#',
-                    'onclick': "NCIAnalytics.GlobalLinkTrack({sender: this, label:'table-enlarge'});",
                     'html': settings.enlargeTxt
+                })
+                // Create the click event on the Enlarge link
+                // -------------------------------------------
+                .on('click.enlarge',function(e){
+                    e.preventDefault();
+                    try {
+                        NCIAnalytics.GlobalLinkTrack({sender: this, label:'table-enlarge'});
+                    }
+                    catch(err) {
+                        console.log(err.message);
+                    }
+
+                    enlargeTable(fig, settings);
                 }).insertBefore(fig.data('scrollWrapper'));
 
                 //if there is no caption we need a spacer.
@@ -56,12 +68,6 @@ define(function(require) {
                 fig.data('enlargeBtn', enlargeButton);
 
             }
-
-            // Create the click event on the Enlarge link
-            // -------------------------------------------
-            fig.data('enlargeBtn').unbind().click(function () {
-                enlargeTable(fig, settings);
-            });
         }
     }
 
