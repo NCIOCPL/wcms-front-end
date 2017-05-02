@@ -3,8 +3,7 @@
  ***/
 define(function(require) {
 	var initialized = false,
-		$ = require('jquery'),
-		browserDetect = require('./browserDetect');
+		$ = require('jquery');
 
 	require('Plugins/jquery.nci.scroll_to');
 
@@ -14,25 +13,11 @@ define(function(require) {
 		$(window).on('load.deeplink hashchange.deeplink', function(event) {
 			event.preventDefault();
 
-			// IE has the issue where anchor links and previous scroll states are not scrolled to until after the load event has completed
-			// the doScroll method needs to be delayed until after the initial page scroll event so that the scrollTop position can be calculated properly within doScroll
-			// also, the initial page scroll (downward) causes headroom to collapse down to it's smallest state so we want to freeze it before the initial scroll
-			if(browserDetect.getBrowser() == "Explorer" && event.type === "load"){
-				$('.headroom-area').addClass('frozen');
-				$(window).on("scroll.pageLoad",function(e){
-					$('.headroom-area').removeClass('frozen');
-					_doScroll(e);
-					$(window).off("scroll.pageLoad");
-				});
-			} else {
-				_doScroll(event);
-			}
+			// putting scroll in document.ready event in order to move it to the bottom of the queue on load
+            $(document).ready(function() {
+                _doScroll(event);
+            });
 		});
-
-		// $(window).on("pdqinpagenav",function(e){
-		// 	$(window).trigger("hashchange.deeplink");
-		// });
-
 
 		//redundant check to see if anchor is same as current hash
 		//if it is the same then trigger doScroll since a hashchange will not be triggered

@@ -36,7 +36,8 @@ define(function(require) {
 
 		// Event handler to determine when to fire PDQINPAGENAV event.
 		//$(window).on('NCI.PDQ.hashchange', function() {
-		$(window).on('hashchange', function() {
+		$(window).on('hashchange', function(e) {
+			e.preventDefault();
 			if (navigationState === 'UNINITIALIZED') {
 				// console.log("UNINITIALIZED");
 				// This is the hashchange event after the initial load
@@ -54,7 +55,7 @@ define(function(require) {
 				// console.log("INITIALIZED");
 				// The page is initialized, so we are doing
 				// an inpage navigation
-				//$(window).trigger('pdqinpagenav');
+				$(window).trigger('pdqinpagenav');
 			}
 		});
 

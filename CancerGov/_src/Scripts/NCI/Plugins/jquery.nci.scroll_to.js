@@ -54,7 +54,6 @@
                 width = window.innerWidth || $(window).width(),
                 isSection = base.options.isSection || anchor.match(/^#section\//i),
                 scrollY = window.scrollY || window.pageYOffset,
-                willFreeze = base.options.willFreeze,
                 fuzz = base.options.fuzz,
                 anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
                 hasPreviousState = (base.options.event === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0),
@@ -63,6 +62,7 @@
 
             // if the anchor is a PDQ section and we're >=desktop
             if(hasPreviousState) {
+                console.log("restoring previous scroll state");
                 // returning true does not prevent standard anchors from working on page load
                 return;
             } else if(width > config.breakpoints.large && anchor == '#all') {
@@ -73,21 +73,25 @@
             }
 
             // freeze headroom
-            if(willFreeze) {
-                $('.headroom-area').addClass('frozen');
+            $('.headroom-area').addClass('frozen');
 
-                $('[tabindex="1"]').focus();
+            // shift focus
+            $('[tabindex="1"]').focus();
 
+            // one time scroll event, will unbind itself after scroll
+            $(window).one('scroll.scrollTo',function(){
+                //Headroom is on a 100ms delay on load, setting this timeout to more than that
                 setTimeout(function() {
+                    // scrolling again to account for .fixedtotop-spacer spacer toggle triggered by headroom
                     window.scrollTo(0, scrollTo);
-                    setTimeout(function() {
-                        window.scrollTo(0, scrollTo);
-                        // unfreeze headroom
-
-                        $('.headroom-area').removeClass('frozen');
-                    }, 150);
+                    //unfreeze headroom
+                    $('.headroom-area').removeClass('frozen');
                 }, 150);
-            }
+            });
+
+            //scrolling will trigger headroom toggle scroll event - changing the scroll position
+            window.scrollTo(0, scrollTo);
+
         };
 
         // Trigger the scroll
@@ -99,7 +103,6 @@
         anchor: null,
         event: 'click',
         header: '.fixedtotop',
-        willFreeze: true,
         fuzz: 45
     };
 
