@@ -1,4 +1,5 @@
 //@import '../environments/prototype';
+@import "../spinner";
 
 .cts-dialog {
   background: #445159;
@@ -59,8 +60,6 @@
 .clickable {
   cursor: pointer;
 }
-
-@import "../spinner";
 
 @include bp(medium-up) {
   .cts-dialog {
