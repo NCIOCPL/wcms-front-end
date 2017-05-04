@@ -41,25 +41,26 @@ define(function(require) {
             return screen;
         }
 
-        // If the screen is resized past a different breakpoint, track the variable and event
-        function trackViewPortResize() {
-            var viewPortResized = getWidthForAnalytics();
-            if (viewPortLoaded != viewPortResized) {
-                if (typeof NCIAnalytics !== 'undefined') {
-                    if (typeof NCIAnalytics.Resize === 'function') {
-                        NCIAnalytics.Resize(this, viewPortResized);
-                    }
-                }
-                viewPortLoaded = viewPortResized;
-            }
-            return viewPortResized;
-        }
 
         $(function() {
 
+            // If the screen is resized past a different breakpoint, track the variable and event
+            function trackViewPortResize() {
+                var viewPortResized = getWidthForAnalytics();
+                if (viewPortLoaded != viewPortResized) {
+                    if (typeof NCIAnalytics !== 'undefined') {
+                        if (typeof NCIAnalytics.Resize === 'function') {
+                            NCIAnalytics.Resize(this, viewPortResized);
+                        }
+                    }
+                    viewPortLoaded = viewPortResized;
+                }
+                return viewPortResized;
+            }
+
             /** Functions to track screen size changes */
             var viewPortLoaded = getWidthForAnalytics(); // Set var for browser width on page load
-            window.onresize = trackViewPortResize; // If the current browser screen is resized, call the trackViewPortResize() function
+            window.onresize = trackViewPortResize(); // If the current browser screen is resized, call the trackViewPortResize() function
 
 
 
