@@ -33,6 +33,7 @@ module.exports = {
         BasicCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
         BasicCTSViewPage:         './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
         BasicCTSPrintPage:        './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
+        CTListingPage:            './UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage',
         BlogPostPage:             './UX/PageSpecific/BlogPost/BlogPostPage',
         BlogSeriesPage:           './UX/PageSpecific/BlogSeries/BlogSeriesPage'
     },
