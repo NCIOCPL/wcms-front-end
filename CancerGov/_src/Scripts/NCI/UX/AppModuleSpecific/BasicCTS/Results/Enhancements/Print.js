@@ -214,8 +214,6 @@ define(function(require) {
             }
         });
 
-        triggerModal('redirect')
-
         $(".printSelected").on('click', function(event){
             // TODO: disable form submit until success or failure
 			
