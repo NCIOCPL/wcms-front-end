@@ -33,7 +33,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     <li>Please check if your spelling is correct.</li>
     <li>Please check if your zip code and age are valid.</li>
   <ul>
-    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
     <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
   </div>
 #end
@@ -157,7 +157,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     <div class="medium-9 columns collapse">
       <div>
 	    No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
-	    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-622-6237).</p>
+	    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
         <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
       </div>
 	</div>
