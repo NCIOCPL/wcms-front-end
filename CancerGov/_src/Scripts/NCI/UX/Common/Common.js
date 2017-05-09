@@ -5,6 +5,7 @@ define(function(require) {
     var SiteWideSearch = require('Common/Enhancements/SiteWideSearch');
     var megaMenuModule = require('Modules/megaMenu/megaMenu');
     var headroomPlugin = require('Modules/headroom/headroom');
+    var DeepLinkPatch = require('Modules/utility/deepLinkPatch');
 
     // Patch to restore ui-focus-state to menu items
     $.widget( "ui.menu", $.ui.menu, {
@@ -38,6 +39,14 @@ define(function(require) {
                 .appendTo(ul);
         }
     });
+
+    /*** BEGIN deeplinking fix
+     * This script fixes the scroll position for deeplinking.
+     ***/
+    (function() {
+        DeepLinkPatch.init();
+    })();
+    /*** END deeplinking fix ***/
 
     jQuery(document).ready(function(jQuery) {
         /*** BEGIN header component ***/

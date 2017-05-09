@@ -8,7 +8,7 @@ define(function(require) {
 	var backToTop = require('Modules/backToTop/backToTop');
 	var NCIAccordion = require('Modules/accordion/accordion');
 
-	var DeepLinkPatch = require('Modules/utility/deepLinkPatch');
+
 	//require('Modules/autocomplete/autocomplete');
 	require('Common/Plugins/Enlarge');
 	require('Plugins/jquery.nci.prevent_enter');
@@ -45,14 +45,6 @@ define(function(require) {
 			NCI.Search.init();
 		})(jQuery);
 		/*** END mobile nav ***/
-
-		/*** BEGIN deeplinking fix
-		 * This script fixes the scroll position for deeplinking.
-		 ***/
-		(function() {
-			DeepLinkPatch.init();
-		})();
-		/*** END deeplinking fix ***/
 
 		/*** BEGIN Exit Disclaimer
 		 * This script looks for URLs where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link. The image itself links to the exit disclaimer page.

@@ -4,16 +4,16 @@
 define(function(require) {
 	var initialized = false,
 		$ = require('jquery');
+    	//browserDetect = require("Modules/utility/browserDetect");
 
 	require('Plugins/jquery.nci.scroll_to');
 
 	function _initialize() {
 		// console.log("You are using: " + browserDetect.getBrowser() + " with version: " + browserDetect.getVersion());
 
+
 		$(window).on('load.deeplink hashchange.deeplink', function(event) {
 			event.preventDefault();
-            $('.headroom-area').addClass('frozen');
-
 			// putting scroll in document.ready event in order to move it to the bottom of the queue on load
             $(document).ready(function() {
                 _doScroll(event);
@@ -27,7 +27,7 @@ define(function(require) {
 			// hashchange can be triggered outside click events
 			// we don't want the hashchange event to be fired if an anchor tag is clicked
 
-			$('.headroom-area').addClass('frozen');
+			// $('.headroom-area').addClass('frozen');
 
 			var anchor = this.attributes.href.value;
 			if(anchor === location.hash){
@@ -41,6 +41,8 @@ define(function(require) {
 
 	function _doScroll(event){
 		if(location.hash !== '') {
+
+            $('.headroom-area').addClass('frozen');
 
             var isSection = location.hash.match(/^#section\//i),
                 anchor = ('#' + location.hash.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1')).replace('#\\', ''),
