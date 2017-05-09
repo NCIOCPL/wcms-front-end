@@ -20,20 +20,22 @@ define(function(require) {
             });
 		});
 
-		//redundant check to see if anchor is same as current hash
-		//if it is the same then trigger doScroll since a hashchange will not be triggered
-		$("#content").on('click.deeplink',"a[href*=\\#]",function(e) {
-            // click event triggers hash scroll, hashchange moves page to make room for fixed header, minor visual jank is visible
-			// hashchange can be triggered outside click events
-			// we don't want the hashchange event to be fired if an anchor tag is clicked
+        $(document).ready(function() {
+			//redundant check to see if anchor is same as current hash
+			//if it is the same then trigger doScroll since a hashchange will not be triggered
+			$("#content").on('click.deeplink',"a[href*=\\#]",function(e) {
+				// click event triggers hash scroll, hashchange moves page to make room for fixed header, minor visual jank is visible
+				// hashchange can be triggered outside click events
+				// we don't want the hashchange event to be fired if an anchor tag is clicked
 
-			// $('.headroom-area').addClass('frozen');
+				// $('.headroom-area').addClass('frozen');
 
-			var anchor = this.attributes.href.value;
-			if(anchor === location.hash){
-				e.preventDefault();
-				_doScroll(e);
-			}
+				var anchor = this.attributes.href.value;
+				if(anchor === location.hash){
+					e.preventDefault();
+					_doScroll(e);
+				}
+			});
 		});
 
 		initialized = true;
