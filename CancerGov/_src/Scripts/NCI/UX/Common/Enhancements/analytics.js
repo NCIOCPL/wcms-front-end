@@ -60,7 +60,7 @@ define(function(require) {
 
             /** Functions to track screen size changes */
             var viewPortLoaded = getWidthForAnalytics(); // Set var for browser width on page load
-            window.onresize = trackViewPortResize(); // If the current browser screen is resized, call the trackViewPortResize() function
+            window.onresize = trackViewPortResize; // If the current browser screen is resized, call the trackViewPortResize() function
 
 
 
