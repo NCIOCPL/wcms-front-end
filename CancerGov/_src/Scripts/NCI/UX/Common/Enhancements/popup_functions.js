@@ -1,4 +1,6 @@
 define(function(require) {
+	var $ = require('jquery');
+	
 	//creates appropriate pop-up window
 	function popWindow(type, urlargs){
 		if (type == "privacy") {
@@ -17,7 +19,7 @@ define(function(require) {
 	    } else if (type == "small") {
 			window.open(urlargs, '', 'scrollbars=no,resizable=no,menubar=no,status=no,toolbar=no,titlebar=no,width=200,height=100,left=400,screenX=400,top=300,screenY=300');
 		}
-	}
+	} 
 	window.popWindow = popWindow;
 
 	//window.load polyfill for jQuery 3.0
