@@ -14,31 +14,17 @@
 <!-- {{template_name}}  -->
 <head id="header" runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta charset="utf-8">
+	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no" />
     <title></title>
 
     <!--(bake Favicons.inc)-->
 
-    <script type="text/javascript">
-        // Answers Cloud Services Embed Script v1.02
-        // DO NOT MODIFY BELOW THIS LINE *****************************************
-        ;(function (g) {
-            var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
-                    aex = {
-                        "src": "//gateway.answerscloud.com/cancer-gov/production/gateway.min.js",
-                        "type": "text/javascript",
-                        "async": "true",
-                        "data-vendor": "acs",
-                        "data-role": "gateway"
-                    };
-            for (var attr in aex) { am.setAttribute(attr,aex[attr]); }
-            h.appendChild(am);
-            g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
-        })(window);
-        // DO NOT MODIFY ABOVE THIS LINE *****************************************
+    <script src="//gateway.answerscloud.com/cancer-gov/production/gateway.min.js" data-vendor="acs" data-role="gateway" async></script>
+    <script>
+            // Answers Cloud Services Embed Script v1.02
+            (function (g) {g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),i,k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};})(window);
     </script>
-	<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NCI"></script>
 </head>
 
 <body id="Body1" runat="server">

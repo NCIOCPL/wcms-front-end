@@ -1,6 +1,7 @@
 define(function(require) {
     require('jquery');
-	var breakpoints = require('Common/Enhancements/NCI.breakpoints');
+	var breakpoints = require('Modules/NCI.config').breakpoints;
+	var browser = require('Modules/utility/browserDetect');
 
     var LIMIT = 100,
 		checkedTrials = JSON.parse(sessionStorage.getItem('totalChecked')) || [],
@@ -51,21 +52,12 @@ define(function(require) {
         _createTitlebar: function(){
             if(!this.options.titleBar) {
                 this.uiDialogTitlebarClose = $("<button type='button' class='ui-dialog-close'></button>")
-                    .button({
-                        label: this.options.closeText,
-                        icons: {
-                            primary: "ui-icon-closethick"
-                        },
-                        text: false
+                    .button( {
+                        label: $( "<a>" ).text( 'hide' ).html(),
+                        icon: "ui-icon-closethick",
+                        showLabel: false
                     })
                     .prependTo(this.uiDialog);
-
-                // TODO: Button will need to be updated for use with jQuery 1.12
-                // .button( {
-                //     label: $( "<a>" ).text( this.options.closeText ).html(),
-                //     icon: "ui-icon-closethick",
-                //     showLabel: false
-                // })
 
                 this._on(this.uiDialogTitlebarClose, {
                     click: function (event) {
@@ -216,6 +208,7 @@ define(function(require) {
         // send keyboard events to input
         $('.checkbox label').on('keypress',function(e){
             if(e.which == 13 || e.which == 32){
+                e.preventDefault();
                 e.preventDefault();
                 $(this).prev().click();
             }
@@ -372,14 +365,15 @@ define(function(require) {
 
     function triggerModal(type){
 		var modal,
-            hasCloseButton = true;
+            hasCloseButton = true,
+            thisBrowser = browser.getBrowser();
 
         if (type == 'limit') {
         	modal = $("#modal-limit")[0]?$("#modal-limit"):$('<div id="modal-limit"><i class="warning" aria-hidden="true"></i><p>You have selected the maximum number of clinical trials (' + LIMIT + ') that can be printed at one time.</p><p>Print your current selection and then return to your search results to select more trials to print.</p></div>');
         } else if (type == 'none_selected') {
             modal = $("#modal-none")[0]?$("#modal-none"):$('<div id="modal-none"><i class="warning" aria-hidden="true"></i><p>You have not selected any trials. Please select at least one trial to print.</p></div>');
         } else if (type == 'redirect') {
-            modal = $("#modal-redirect")[0]?$("#modal-redirect"):$('<div id="modal-redirect"><div class="spinner"><div class="dot1"></div><div class="dot2"></div></div><p>You will automatically be directed to your print results in just a moment...</p></div>');
+            modal = $("#modal-redirect")[0]?$("#modal-redirect"):$('<div id="modal-redirect"><div class="spinkit spinner"><div class="dot1"></div><div class="dot2"></div></div><p>You will automatically be directed to your print results in just a moment...</p></div>');
             hasCloseButton = false;
 		}
 
@@ -399,6 +393,7 @@ define(function(require) {
                 show: { effect: "puff",percent:50, duration: 250 },
                 hide: { effect: "puff",percent:50, duration: 250 },
                 create: function(evt) {
+
                     if($(this).ctsDialog("option","closeBtn")) {
                         var $this = $(this).parent();
                         var $closeBtn = $this.find('.ui-dialog-close');
@@ -406,6 +401,25 @@ define(function(require) {
 
                         $closeBtn.addClass('btn-close-top');
                         $this.append($bottomBtn);
+                    }
+
+                    // Explorer is having trouble applying nested CSS3 animations, remove one and add it back on open
+                    if (type == 'redirect' && (thisBrowser == "MS Edge" || thisBrowser == "Explorer")) {
+                        $(this).find(".spinner").removeClass("spinner");
+                    }
+
+                },
+                open: function(evt) {
+
+                    // Explorer is having trouble applying nested CSS3 animations, remove one and add it back on open
+                    if (type == 'redirect' && (thisBrowser == "MS Edge" || thisBrowser == "Explorer")) {
+                        $(this).find(".spinkit").addClass("spinner");
+                    }
+                },
+                close: function(evt) {
+                    // Explorer is having trouble applying nested CSS3 animations, remove one and add it back on open
+                    if (type == 'redirect' && (thisBrowser == "MS Edge" || thisBrowser == "Explorer")) {
+                        $(this).find(".spinkit").removeClass("spinner");
                     }
                 }
 

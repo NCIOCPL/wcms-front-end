@@ -1,8 +1,7 @@
 define(function(require){
-    var $ = require('jquery');
-    require('jquery-ui');
-    require('Spinner');
-    var FeedbackFormComponent = require('UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/feedback_form.component');
+    require('spin.js/jquery.spin');
+    var FeedbackFormComponent = require('BasicCTSCommon/Components/feedback_form/feedback_form.component');
+
 
 
     function _openFeedbackForm($delighterControl) {

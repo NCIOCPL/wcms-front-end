@@ -3,15 +3,15 @@
  */
 define(function (require) {
 
-    var BriteJS = require("brite");
+    var BriteJS = require("imports-loader?define=>false!brite");
 
     //Require Template
-    var template = require('hbs!UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/templates/feedback_form.main');
+    var template = require('../templates/feedback_form.main.hbs');
 
     //Require Child Views
-    var formView = require("UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/views/feedback_form.form.view");
-    var pendingView = require("UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/views/feedback_form.pending.view");
-    var completedView = require("UX/AppModuleSpecific/BasicCTS/Common/Components/feedback_form/views/feedback_form.completed.view");
+    var formView = require("BasicCTSCommon/Components/feedback_form/views/feedback_form.form.view");
+    var pendingView = require("BasicCTSCommon/Components/feedback_form/views/feedback_form.pending.view");
+    var completedView = require("BasicCTSCommon/Components/feedback_form/views/feedback_form.completed.view");
  
     var submitCallback = false;
     var closeCallback = false;
@@ -34,7 +34,7 @@ define(function (require) {
                 //Show the pending view.
                 var view = this;                
                 var targetEl = view.$el.find('.contents').bEmpty();
-                brite.display('feedback_form.pending', targetEl);
+                BriteJS.display('feedback_form.pending', targetEl);
 
                 //Submit Data
                 submitCallback(args, function() {
@@ -44,7 +44,7 @@ define(function (require) {
 
                     //When it is done, show thank you
                     var targetEl2 = view.$el.find('.contents').bEmpty();
-                    var thankYouPromise = brite.display('feedback_form.completed', targetEl2);
+                    var thankYouPromise = BriteJS.display('feedback_form.completed', targetEl2);
                 });
             }, 
             "FEEDBACK_CANCELLED": function(event, args) {
@@ -59,7 +59,7 @@ define(function (require) {
             //Load the form on initial request
             var view = this;
             var target = view.$el.find('.contents').bEmpty();
-            brite.display("feedback_form.form", target);
+            BriteJS.display("feedback_form.form", target);
         }
     });
 

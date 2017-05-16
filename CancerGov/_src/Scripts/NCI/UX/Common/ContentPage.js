@@ -1,37 +1,21 @@
 define(function(require) {
-	require('routie');
-	require('Common/Enhancements/popup_functions');
-	var jQuery = require('jquery');
-	require('jquery/jplayer');
-	require('Common/Enhancements/analytics');
-	var scrollToFixedPlugin = require('Common/Enhancements/scrollToFixedModule');
+	var $script = require('scriptjs');
+    require('Common/Enhancements/popup_functions');
+	//require('scrolltofixed');
 	var NCI = require('Common/Enhancements/NCI');
+	//var search = require('Modules/search/search.js');
 	var exitDisclaimer = require('Common/Enhancements/exitDisclaimer');
-	var backToTop = require('Common/Enhancements/backToTop');
-	var NCIAccordion = require('Common/Enhancements/NCI.Accordion');
-	var SiteWideSearch = require('Common/Enhancements/SiteWideSearch');
-	var DeepLinkPatch = require('Common/Enhancements/DeepLinkPatch');
-	var NCIAutocomplete = require('Common/Enhancements/NCI.Autocomplete');
-	var siteWideSearch = require('Common/Enhancements/SiteWideSearch');
+	var backToTop = require('Modules/backToTop/backToTop');
+	var NCIAccordion = require('Modules/accordion/accordion');
+
+
+	//require('Modules/autocomplete/autocomplete');
 	require('Common/Plugins/Enlarge');
-	var megaMenuModule = require('Common/Enhancements/megaMenuModule');
-	var headroomPlugin = require('Common/Enhancements/headroomModule');
-	require('placeholders');
-	var preventEnter = require('Common/Enhancements/preventEnter');
+	require('Plugins/jquery.nci.prevent_enter');
+	//require('fork-placeholders.js');
+
 
 	jQuery(document).ready(function(jQuery) {
-		/*** BEGIN header component ***/
-		scrollToFixedPlugin.init();
-		
-		megaMenuModule.init();
-
-		headroomPlugin.init();
-		
-		/*** This initializes jQuery UI Autocomplete on the site-wide search widget.***/
-		(function() {
-			SiteWideSearch.init();
-		})();
-		/*** END header component ***/
 		
 		/*** BEGIN dictionary toggle ***/
 		(function($) {
@@ -57,17 +41,10 @@ define(function(require) {
 			}
 
 			NCI.Nav.init();
+
 			NCI.Search.init();
 		})(jQuery);
 		/*** END mobile nav ***/
-
-		/*** BEGIN deeplinking fix
-		 * This script fixes the scroll position for deeplinking.
-		 ***/
-		(function() {
-			DeepLinkPatch.init();
-		})();
-		/*** END deeplinking fix ***/
 
 		/*** BEGIN Exit Disclaimer
 		 * This script looks for URLs where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link. The image itself links to the exit disclaimer page.
@@ -201,7 +178,6 @@ define(function(require) {
 
 		/*** BEGIN form controls ***/
 		(function($) {
-			require('jquery-ui');
 
 			$.ui.selectmenu.prototype._buttonEvents.keydown = function( event ) {
 				var preventDefault = true;
@@ -350,10 +326,6 @@ define(function(require) {
 				var $this = $(this);
 
 				$this.selectmenu({
-					create: function(event, ui) {
-						// this sets the label's 'for' attribute to point to the <select> element, assigns the label a unique id, and sets the selectmenu widget's 'aria-labelledby' attribute to that unique id
-						$this.selectmenu('widget').attr('aria-labelledby', $this.data('ui-selectmenu').label.attr('for', this.id).uniqueId().attr('id'));
-					},
 					change: function(event, ui) {
 						// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
 						ui.item.element.change();
@@ -536,14 +508,74 @@ define(function(require) {
 		//END REFERENCE TOOL TIPS
 		
 		// initialize the prevent-enter enhancement
-		preventEnter.init();
+		(function ($) {
+			$('[data-prevent-enter="true"]').NCI_prevent_enter();
+		})(jQuery);
+
 
 		// Proactive Live Help for CTS
-		require("Common/Enhancements/NCI.ProactiveLiveHelpForCTS").init();
+		var ProactiveLiveHelp = require("Modules/proactiveLiveHelp/proactiveLiveHelp");
+
+		var ProactiveLiveHelpforCTS = new ProactiveLiveHelp();
+		var ProactiveLiveHelpforColorectal = new ProactiveLiveHelp();
+
+		//console.log(ProactiveLiveHelp);
+
+		ProactiveLiveHelpforCTS.initialize({
+			urls: [
+				"/about-cancer/treatment/clinical-trials/search",
+				"/about-cancer/treatment/clinical-trials/basic",
+				"/about-cancer/treatment/clinical-trials/search/r",
+				"/about-cancer/treatment/clinical-trials/search/v",
+				"/about-cancer/treatment/clinical-trials/advanced-search",
+				"/about-cancer/treatment/clinical-trials/search/results",
+				"/about-cancer/treatment/clinical-trials/search/view"
+			],
+			popupID: 'ProactiveLiveHelpForCTSPrompt',
+			popupTitle: "Questions about Clinical Trials?",
+			optOutDurationDays: 30,
+			popupDelaySeconds: 90
+		});
 		// END Clinical Trial Search Setup
-		
-		// Proactive Live Help for Colorectal Pages
-		require("Common/Enhancements/NCI.ProactiveLiveHelpForColorectal").init();
+
+		// Proactive Live Help for Colo-rectal Cancer Type Pages
+		ProactiveLiveHelpforColorectal.initialize({
+			urls: [
+				'/types/colorectal',
+				'/types/colorectal/patient/colon-treatment-pdq',
+				'/types/colorectal/patient/rectal-treatment-pdq',
+				'/types/colorectal/patient/colorectal-prevention-pdq',
+				'/types/colorectal/patient/colorectal-screening-pdq',
+				'/types/colorectal/hp',
+				'/types/colorectal/hp/colon-treatment-pdq',
+				'/types/colorectal/hp/rectal-treatment-pdq',
+				'/types/colorectal/hp/colorectal-prevention-pdq',
+				'/types/colorectal/hp/colorectal-genetics-pdq',
+				'/types/colorectal/hp/colorectal-screening-pdq',
+				'/types/colorectal/research',
+				'/types/colorectal/screening-fact-sheet',
+				'/types/colorectal/did-you-know-colorectal-cancer-screening-video',
+				'/types/colorectal/research/cetuximab-chemo-no-benefit',
+				'/types/colorectal/research/colonoscopy-reduces-deaths',
+				'/types/colorectal/research/eflornithine-sulindac',
+				'/types/colorectal/research/folfox-celecoxib',
+				'/types/colorectal/research/preop-treatment',
+				'/types/colorectal/research/screening-sigmoidoscopy',
+				'/types/colorectal/research/aspirin-reduces-risk',
+				'/types/colorectal/research/TAS-102-overall-survival',
+				'/types/colorectal/research/bevacizumab-severe-side-effects',
+				'/types/colorectal/research/virtual-colonoscopy-results-qa',
+				'/types/colorectal/research/polyp-fiber-prevention-qa',
+				'/about-cancer/treatment/drugs/colorectal'
+			],
+			popupID: 'PLH-colorectal',
+			popupTitle: 'Questions about Colorectal Cancer?',
+			optOutDurationDays: 14,
+			popupDelaySeconds: 30,
+            start:'03/01/2017',
+			endDate:'04/01/2017'
+		});
+
 		
 		// Blue Ribbon Panel - Page Specific
 		require("Common/Enhancements/NCI.Video").init();

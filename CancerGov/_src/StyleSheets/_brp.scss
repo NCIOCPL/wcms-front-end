@@ -80,7 +80,7 @@ $gray: #9e9e9e;
     .columns {
       padding: 20px 0 0;
 
-      @include bp((max-width:680px)) {
+      @include bp('(max-width:680px)') {
         text-align: center;
 
         img {
@@ -149,7 +149,7 @@ $gray: #9e9e9e;
         margin-top: 0;
       }
     }
-    @include bp((max-width:740px)) {
+    @include bp('(max-width:740px)') {
       #brp-collage {
         img {
           display: none;
