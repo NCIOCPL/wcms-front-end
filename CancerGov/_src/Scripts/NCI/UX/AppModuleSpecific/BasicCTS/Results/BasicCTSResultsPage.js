@@ -4,8 +4,8 @@ define(function(require) {
 	$(document).ready(function($){
 		require('BasicCTSCommon/Enhancements/FeedbackForm').init();
 		require('BasicCTSCommon/Enhancements/Delighters').init();
-		require('UX/AppModuleSpecific/BasicCTS/Results/Enhancements/Print').init();
-		require('UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics').init();
-		require('UX/AppModuleSpecific/BasicCTS/Results/Enhancements/ctsResultsAnalytics').init();
+		require('BasicCTS/Results/Enhancements/Print').init();
+		require('BasicCTSCommon/Enhancements/ctsCommonAnalytics').init();
+		require('BasicCTS/Results/Enhancements/ctsResultsAnalytics').init();
 	});
 });

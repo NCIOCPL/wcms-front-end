@@ -3,7 +3,7 @@
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
+        define(['jquery','Modules/NCI.config'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // Node/CommonJS
         module.exports = function( root, jQuery ) {
@@ -19,14 +19,14 @@
                     jQuery = require('jquery')(root);
                 }
             }
-            factory(jQuery);
+            factory(jQuery,require('Modules/NCI.config'));
             return jQuery;
         };
     } else {
         // Browser globals
-        factory(jQuery);
+        factory(jQuery,NCI.config);
     }
-}(function ($) {
+}(function ($,config) {
     // Add to NCI namespace
     if (!$.NCI) {
         $.NCI = {};
@@ -43,87 +43,67 @@
         base.el = el;
 
         // plugin initializer
-        base.init = function () {
+        base.scroll = function () {
             // extend options
             base.options = $.extend({},$.NCI.scroll_to.defaultOptions, options);
 
             /* PLUGIN LOGIC GOES HERE */
-            var anchor = base.options.target || base.$el.attr("href"), // scroll to target can be an option or an href attribute
+            var anchor = base.options.anchor || base.$el.attr("href"), // scroll to target can be an option or an href attribute
+                $anchor = $(anchor),
+                headerHeight = $(base.options.header).outerHeight(),
                 width = window.innerWidth || $(window).width(),
-                isSection = false,
-                fuzz = 45
+                isSection = base.options.isSection || anchor.match(/^#section\//i),
+                scrollY = window.scrollY || window.pageYOffset,
+                fuzz = base.options.fuzz,
+                anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
+                hasPreviousState = (base.options.event === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0),
+                scrollTo = 0
             ;
 
-            // remove initial hash
-            if(anchor.indexOf('#') === 0) {
-                anchor = anchor.substring(1, anchor.length);
-            }
-            isSection = anchor.match(/^section\//i);
-            anchor = '#' + anchor.replace(/^.+\//, '').replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1');
-
-            var $anchor = $(anchor),
-                $accordionPanel = (isSection) ? $anchor.children('.ui-accordion-content') : $anchor.closest('.ui-accordion-content'),
-                $accordion = $accordionPanel.closest('.ui-accordion'),
-                accordionIndex = ($accordion.length > 0) ? $accordion.data('ui-accordion').headers.index($accordionPanel.prev('.ui-accordion-header')) : undefined;
-
-            if($accordion.length > 0) {
-                $accordion.on('accordionactivate.NCI.scrollTo', function(e) { doTheScroll(); });
-                if(!$accordionPanel.hasClass('accordion-content-active')) {
-                    $accordion.accordion('option', 'active', accordionIndex);
-                } else {
-                    base.doTheScroll();
-                }
-            } else {
-                base.doTheScroll();
-            }
-        };
-
-        base.doTheScroll = function() {
-            var headerHeight = $('.fixedtotop').outerHeight(),
-                scrollY = window.scrollY || window.pageYOffset,
-                willFreeze = true,
-                anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,
-                hasPreviousState = (eventType === "load") && ((scrollY < anchorTop - headerHeight - fuzz) || (scrollY > anchorTop + fuzz/2)) && (scrollY !== 0)
-                ;
-
-            //TODO: previous state not reliable on mobile since accordions are always collapsed on load
             // if the anchor is a PDQ section and we're >=desktop
-            if(width > NCI.Breakpoints.large && isSection) {
-                scrollY = 0;
-                willFreeze = false;
-            } else if(hasPreviousState) {
+            if(hasPreviousState) {
+                console.log("restoring previous scroll state");
                 // returning true does not prevent standard anchors from working on page load
                 return;
+            } else if(width > config.breakpoints.large && anchor == '#all') {
+                scrollTo = $('#main h1:first').offset().top - headerHeight;
+                // willFreeze = false;
             } else {
-                scrollY = anchorTop - headerHeight;
+                scrollTo = anchorTop - headerHeight;
             }
 
             // freeze headroom
-            if(willFreeze) {
-                $('.headroom-area').addClass('frozen');
-            }
+            $('.headroom-area').addClass('frozen');
 
-            // unfreeze headroom
-            if(willFreeze) {
+            // shift focus
+            $('[tabindex="1"]').focus();
+
+            // one time scroll event, will unbind itself after scroll
+            $(window).one('scroll.scrollTo',function(){
+                //Headroom is on a 100ms delay on load, setting this timeout to more than that
                 setTimeout(function() {
-                    $('[tabindex="1"]').focus();
-                    window.scrollTo(0, scrollY);
-                    setTimeout(function() {
-                        $('.headroom-area').removeClass('frozen');
-
-                    }, 150);
+                    // scrolling again to account for .fixedtotop-spacer spacer toggle triggered by headroom
+                    window.scrollTo(0, scrollTo);
+                    //unfreeze headroom
+                    $('.headroom-area').removeClass('frozen');
                 }, 150);
-            }
-            $accordion.off('accordionactivate.NCI.scrollTo');
+            });
+
+            //scrolling will trigger headroom toggle scroll event - changing the scroll position
+            window.scrollTo(0, scrollTo);
+
         };
 
-        // Run initializer
-        base.init();
+        // Trigger the scroll
+        base.scroll();
     };
 
     // plugin defaults
     $.NCI.scroll_to.defaultOptions = {
-        target: null
+        anchor: null,
+        event: 'click',
+        header: '.fixedtotop',
+        fuzz: 45
     };
 
     // Add plugin to jQuery namespace

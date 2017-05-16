@@ -1,7 +1,10 @@
 define(function(require) {
 	var $ = require('jquery');
+	var routie = require('Vendor/routie');
+
 	var NCI = require('Common/Enhancements/NCI');
-	var NCIAccordion = require('Common/Enhancements/NCI.Accordion');
+	var NCIAccordion = require('Modules/accordion/accordion');
+
 	// This file is for the PDQ Cancer Information Summary UX functionality
 	$(function() {
 		// set up outlines
@@ -23,7 +26,7 @@ define(function(require) {
 		// Navigation state variable for handling in page nav events
 		var navigationState = 'UNINITIALIZED';
 
-		// Helper function to do insternal redirects (i.e. changing a has from an ID to a specific route)
+		// Helper function to do insternal redirects (i.e. changing a hash from an ID to a specific route)
 		function internalRedirect(path) {
 			if (navigationState !== 'UNINITIALIZED') {
 				navigationState = 'REDIRECT';
@@ -33,18 +36,23 @@ define(function(require) {
 
 		// Event handler to determine when to fire PDQINPAGENAV event.
 		//$(window).on('NCI.PDQ.hashchange', function() {
-		$(window).on('hashchange', function() {
+		$(window).on('hashchange', function(e) {
+			e.preventDefault();
 			if (navigationState === 'UNINITIALIZED') {
+				// console.log("UNINITIALIZED");
 				// This is the hashchange event after the initial load
 				navigationState = 'INITIALIZED';
 				$(window).trigger("hashchange");
 			} else if (navigationState === 'REDIRECT') {
+				// console.log("REDIRECT");
 				// This is a hashchange event before a redirect.
 				navigationState = 'INITIALIZED';
 			} else if (navigationState === 'IN_SECTION') {
+				// console.log("IN_SECTION");
 				// Navigating within and open page
 				navigationState = 'INITIALIZED';
 			} else {
+				// console.log("INITIALIZED");
 				// The page is initialized, so we are doing
 				// an inpage navigation
 				$(window).trigger('pdqinpagenav');
@@ -257,6 +265,7 @@ define(function(require) {
 			// We're running this trigger to ensure that all
 			// large tables receive the Enlarge button, even
 			// those that are within hidden sections.
+            //console.log("triggering pdqinpagenav in showsection function on pdqcis.js");
 			$(window).trigger('pdqinpagenav');
 		}
 
@@ -396,7 +405,8 @@ define(function(require) {
 			'section/:sid': function(sid) {
 				var $sid = $('#' + sid.replace(/([\!\"\#\$\%\&\'\(\)\*\+\,\.\/\:\;\<\=\>\?\@\[\\\]\^\`\{\|\}\~])/g, '\\$1'));
 
-				$(document).scrollTop(0);
+				//console.log("scrolling to top!");
+				//$(document).scrollTop(0);
 
 				if (sid === 'all') {
 					// show all the sections

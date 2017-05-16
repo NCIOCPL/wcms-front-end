@@ -5,6 +5,6 @@ define(function(require) {
 		require('BasicCTSCommon/Enhancements/FeedbackForm').init();	
 		require('BasicCTSSearch/Enhancements/BasicCTSSearchFormSetup').init();
 		require('BasicCTSCommon/Enhancements/Delighters').init();
-		require('UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics').init();
+		require('BasicCTSCommon/Enhancements/ctsCommonAnalytics').init();
 	});
 });

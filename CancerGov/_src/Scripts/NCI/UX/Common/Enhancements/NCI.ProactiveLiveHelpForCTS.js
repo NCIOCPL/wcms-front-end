@@ -1,3 +1,7 @@
+/**
+ * This fie is deprecated.  Use NCI/Modules/proactiveLiveHelp instead.
+ */
+
 define(function(require){
 
 	var $ = require('jquery');
