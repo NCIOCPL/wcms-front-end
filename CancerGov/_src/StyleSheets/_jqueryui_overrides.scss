@@ -169,7 +169,7 @@ $ui-selectmenu-maxitems: 7;
 	}
 	.ui-state-focus {
 		color: #fff;
-		background: $lcranberry;
+		background: $navyblue;
 		&:last-child {
 			margin: -2px 0 0; //prevent triggering scrollbar on last element hover
 		}
@@ -215,7 +215,7 @@ $ui-selectmenu-maxitems: 7;
 
 	.ui-state-focus {
 		color: #fff;
-		background: $lcranberry;
+		background: $navyblue;
 	}
 
 	 @include bp(medium-down) {
