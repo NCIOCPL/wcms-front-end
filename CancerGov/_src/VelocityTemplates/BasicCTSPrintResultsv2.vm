@@ -174,9 +174,10 @@
 #end
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head> 
 	 <meta name="robots" content="noindex">
+	 <title>Clinical Trial Search Results</title>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
 	 <script> 
@@ -190,7 +191,7 @@
 </head>
 <body>
 	<div id="cgovContainer">
-		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg"/></div>
+		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg" alt="NCI Logo"/></div>
 		<div id="cgvBody">
 			<div id="bodyHeading">
 				<div id="headingWrapper">
