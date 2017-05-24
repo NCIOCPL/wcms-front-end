@@ -95,7 +95,7 @@ define(function(require) {
                 var checked = checkedTrials.indexOf(nciid) > -1?'checked':'';
 
                 // create a checkbox for this individual result
-                return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '" tabindex="0"></label></div>'
+                return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '" tabindex="0"><span class="ui-helper-hidden-accessible">select for printing</span></label></div>'
 
             })
             .find('input').on('click',function(e){ // checkbox click event
