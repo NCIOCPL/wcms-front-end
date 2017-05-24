@@ -146,8 +146,8 @@
       text-decoration: none;
     }
   }
+	
 }
-
 /* Large Screens */
 @include bp('(min-width:1025px)') {
   #delighter-homePage, #delighter-innerpage {
@@ -260,13 +260,19 @@
     right:5px;
   }
 }
-// to fix find a clinical trial button positioning at small widths
-@include bp('(max-width: 360px)') {
-	#delighter-homePage, #delighter-innerpage {
-		top: 0;
-		margin-bottom: 8px;
+@include bp('(max-width:400px)') {
+		#PageOptionsControl1 {
+			width: 100%;
+		}
+		#delighter-homePage, #delighter-innerpage {
+			float: none;
+			margin-top: auto;
+			position: static;
+			margin-bottom: 8px;
+			margin-right: 5px;
+			text-align: right;
+		}
 	}
-}
 
 // remove spacing after delighters on pages without API reference section
 .last-SI {
