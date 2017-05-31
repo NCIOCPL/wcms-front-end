@@ -2,8 +2,8 @@ define(function(require) {
     var $script = require('scriptjs');
     require('Common/Enhancements/analytics');
 
-    var SiteWideSearch = require('Common/Enhancements/SiteWideSearch');
-    var megaMenuModule = require('Modules/megaMenu/megaMenu');
+    var SiteWideSearch = require('Common/Enhancements/sitewidesearch');
+    var megaMenuModule = require('Modules/megamenu/megamenu');
     var headroomPlugin = require('Modules/headroom/headroom');
     var DeepLinkPatch = require('Modules/utility/deepLinkPatch');
 
