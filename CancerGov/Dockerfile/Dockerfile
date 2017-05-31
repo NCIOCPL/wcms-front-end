@@ -12,6 +12,9 @@ RUN mkdir /tmp/content-build
 ADD package.json /tmp/content-build
 RUN cd /tmp/content-build && npm install
 
+# Cacheable installation for the global grunt executable.
+RUN npm install -g grunt
+
 
 # Copy in the source files.
 WORKDIR /content-build
@@ -19,9 +22,6 @@ ADD . /content-build
 
 # Copy the results of the npm install step above
 RUN cp -a /tmp/content-build/node_modules /content-build
-
-# Cacheable installation for the global grunt executable.
-RUN npm install -g grunt
 
 # Do the build
 RUN grunt build 
