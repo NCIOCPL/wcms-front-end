@@ -276,10 +276,10 @@
 	s.prop15 = getPrintID();
 	s.prop25 ='01/01/1980';
 	s.prop44 ='Clinical Trials';
-	s.prop62 ='Clinical Trials: Print Selected';
+	s.prop62 = 'Clinical Trials: Print Results Page';
 	s.eVar2 ='english';
 	s.eVar15 = getPrintID();
-	s.eVar62 ='Clinical Trials: Print Selected';
+	s.eVar62 = 'Clinical Trials: Print Results Page';
 	s.eVar44 ='Clinical Trials';
 	s.events ='event1';
 
