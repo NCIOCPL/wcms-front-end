@@ -35,7 +35,7 @@
 			display: none;
 		}
 		&.selected {
-			background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
+			background: image-url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
 			font-weight: bold;
 		}
 
@@ -46,7 +46,7 @@
 		}
 		&.viewall > a {
 			padding: 0.825em 1em 0.825em 2.5em;
-			background: url($icons + "view-entire-summary.png") no-repeat scroll 1em 50% transparent;
+			background: image-url($icons + "view-entire-summary.png") no-repeat scroll 1em 50% transparent;
 		}
 	}
 	.enlarge-link {

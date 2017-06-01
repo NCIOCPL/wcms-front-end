@@ -48,6 +48,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+        fingerprint:'06/14/2017',
         env: 'dev'
     };
 

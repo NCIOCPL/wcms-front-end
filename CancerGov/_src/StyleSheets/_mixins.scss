@@ -1,5 +1,5 @@
 @mixin sprite($x-coordinate: 0, $y-coordinate: 0, $width: 0, $height: 0) {
-	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat $x-coordinate $y-coordinate;
+	background: image-url($icons + "nci-sprite.png") no-repeat $x-coordinate $y-coordinate;
 	width: $width;
 	height: $height;
 }

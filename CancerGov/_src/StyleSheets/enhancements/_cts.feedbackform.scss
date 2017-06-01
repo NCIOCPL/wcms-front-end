@@ -28,7 +28,7 @@
             background: none;
             border: none;
             span.ui-button-icon-primary {
-                background: url($icons + "nci-sprite.png") no-repeat -438px -260px;
+                background: image-url($icons + "nci-sprite.png") no-repeat -438px -260px;
                 border: none;
             }
         }

@@ -30,7 +30,7 @@
     position: relative;
 
     &.dropdown {
-        background: url($buttons + "white-arrow-down.png") no-repeat 100% 60%;
+        background: image-url($buttons + "white-arrow-down.png") no-repeat 100% 60%;
     }
 
     &.link {

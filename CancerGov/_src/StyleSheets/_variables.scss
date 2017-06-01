@@ -1,10 +1,10 @@
 @import 'colors';
-$circle-arrow-blue-small: url($buttons + "small-blue-circle-arrow.png");
+$circle-arrow-blue-small: image-url($buttons + "small-blue-circle-arrow.png");
 
-$circle-arrow-red-small: url($buttons + "small-red-circle-arrow.png");
+$circle-arrow-red-small: image-url($buttons + "small-red-circle-arrow.png");
 
-$circle-arrow-off-cream-small: url($buttons + "small-off-cream-circle-arrow.png");
-$ncisprite: url($icons + "nci-sprite.png");
+$circle-arrow-off-cream-small: image-url($buttons + "small-off-cream-circle-arrow.png");
+$ncisprite: image-url($icons + "nci-sprite.png");
 
 
 $siteSearchFormPadding: 6.5em;
