@@ -257,15 +257,15 @@
 	</script>
 	
 	<!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
-	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	<!--
 		// Verify this account TODO
 	var s_account = AnalyticsMapping.GetSuites("nciglobal,ncienglish-all");
 	-->
 	</script>
-	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
-	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	<!--
 
@@ -277,10 +277,10 @@
 	s.prop15 = getPrintID();
 	s.prop25 ='01/01/1980';
 	s.prop44 ='Clinical Trials';
-	s.prop62 =' Clinical Trials: Print Results Page';
+	s.prop62 ='Clinical Trials: Print Selected';
 	s.eVar2 ='english';
 	s.eVar15 = getPrintID();
-	s.eVar62 =' Clinical Trials: Print Results Page';
+	s.eVar62 ='Clinical Trials: Print Selected';
 	s.eVar44 ='Clinical Trials';
 	s.events ='event1';
 
