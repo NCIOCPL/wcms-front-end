@@ -218,6 +218,8 @@ define(function(require) {
 			
 			// Attempt to add current page to checkedPages if print is selected
 			var pageNum = $(".cts-results-top-control .pager-current").text();
+            if(pageNum == "")
+				pageNum = "1";
 			UpdateCheckedPagesList(pageNum, $(".cts-results-container input:checked").length);
 
             if(checkedTrials.length > 0) {
