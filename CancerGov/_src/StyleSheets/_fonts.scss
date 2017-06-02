@@ -29,11 +29,11 @@ $style-map: (normal: "", italic: "italic");
 		font-family: '#{$family}';
 		font-weight: $weight;
 		font-style: $style;
-		src: font-url($path + '.eot');
-		src: font-url($path + '.eot?#iefix') format('embedded-opentype'), // IE6-8
-		     font-url($path + '.woff') format('woff'), // Modern Browsers
-		     font-url($path + '.ttf') format('truetype'), // Safari, Android, iOS
-		     font-url($path + '.svg#' + str-replace(#{$family}, ' ', '')) format('svg'); // Legacy iOS
+		src: url($path + '.eot');
+		src: url($path + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		     url($path + '.woff') format('woff'), // Modern Browsers
+		     url($path + '.ttf') format('truetype'), // Safari, Android, iOS
+		     url($path + '.svg#' + str-replace(#{$family}, ' ', '')) format('svg'); // Legacy iOS
 	}
 }
 
@@ -62,11 +62,11 @@ $montserrat-font-stack: '#{$montserrat}', Arial, sans-serif;
 	font-family: "Flaticon";
 	font-weight: normal;
 	font-style: normal;
-	src: font-url($fonts + "nci-flaticon.eot");
-	src: font-url($fonts + "nci-flaticon.eot#iefix") format("embedded-opentype"),
-		 font-url($fonts + "nci-flaticon.woff") format("woff"),
-		 font-url($fonts + "nci-flaticon.ttf") format("truetype"),
-		 font-url($fonts + "nci-flaticon.svg") format("svg");
+	src: url($fonts + "nci-flaticon.eot");
+	src: url($fonts + "nci-flaticon.eot#iefix") format("embedded-opentype"),
+		 url($fonts + "nci-flaticon.woff") format("woff"),
+		 url($fonts + "nci-flaticon.ttf") format("truetype"),
+		 url($fonts + "nci-flaticon.svg") format("svg");
 }
 
 /********************* END Font Declarations ******************************************/
