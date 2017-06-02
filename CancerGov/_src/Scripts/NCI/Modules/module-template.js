@@ -1,6 +1,6 @@
 define(function(require) {
 
-    /*
+    /**
     This module can be imported using a require statement
      var myModule = require('Modules/module-template');
      myModule.publicVar; => 'example'

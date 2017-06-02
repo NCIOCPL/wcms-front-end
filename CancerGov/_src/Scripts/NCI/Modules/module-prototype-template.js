@@ -1,6 +1,6 @@
 define(function(require) {
 
-    /*
+    /**
      This module can be imported using a require statement
      var myModule = require('Modules/module-prototype-template');
 
@@ -47,6 +47,10 @@ define(function(require) {
             // this function will be private
         };
 
+
+        /**
+         * Exposed functions of this module.
+         */
         return {
             init: initialize,
             publicFunc: publicFunction
