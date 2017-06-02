@@ -54,5 +54,7 @@ define(function(require) {
 
     };
 
+    return myModule;
+
 
 });
