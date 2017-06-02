@@ -21,8 +21,7 @@ define(function(require) {
 
     // Module variables
     var publicVar = 'example',
-        _privateVar = 'example',
-        _initialized = false;
+        _privateVar = 'example';
 
     // Module Constructor
     var myModule = function(settings) {
