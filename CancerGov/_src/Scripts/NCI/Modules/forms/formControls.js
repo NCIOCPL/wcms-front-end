@@ -5,9 +5,6 @@ define(function (require) {
 	var _initialized = false;
 
 	function _initialize() {
-		/*** BEGIN form controls ***/
-		(function () {
-
 			$.ui.selectmenu.prototype._buttonEvents.keydown = function (event) {
 				var preventDefault = true;
 				switch (event.keyCode) {
@@ -162,8 +159,6 @@ define(function (require) {
 					width: $this.hasClass('fullwidth') ? '100%' : null
 				}).selectmenu('menuWidget').addClass('scrollable-y');
 			});
-		})();
-		/*** END form controls ***/
 	}
 
 	/**
