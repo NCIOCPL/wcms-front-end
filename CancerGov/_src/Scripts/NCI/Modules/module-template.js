@@ -22,7 +22,7 @@ define(function(require) {
 
 
     // Intended as a public function
-    var initialize = function() {
+    var initialize = function(settings) {
         // this function will be publicly available
     };
 
@@ -32,13 +32,13 @@ define(function(require) {
     };
 
     /**
-     * Exposed functions of this module.
+     * Exposed functions and variables of this module.
      */
     return {
         publicVar: publicVar,
-        init: function () {
+        init: function (settings) {
             if (!_initialized) {
-                _initialize();
+                _initialize(settings);
             }
         }
     };

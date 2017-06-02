@@ -29,6 +29,10 @@ define(function(require) {
         this.defaultOptions = {
             setting1: 'Hello'
         };
+
+        /**
+         * Exposed variables of this module.
+         */
         this.publicVar = 'example';
     };
 
