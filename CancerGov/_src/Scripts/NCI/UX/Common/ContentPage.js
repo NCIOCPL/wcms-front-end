@@ -123,16 +123,6 @@ define(function(require) {
 		})();
 		/*** END page outlining ***/
 
-		/*** BEGIN blog comment policy ***/
-		(function() {
-			if ($('#cgvCommentsSl').length) {
-				if( $('.intense-debate-comments').length < 1) {
-					$('.blog-comment-policy').show();
-				}
-			}
-		})();
-		/*** END blog comment policy ***/
-
 		/*** BEGIN HACK for Blog Series titles
 		* TODO: remove when Blog Dynamic List Percussion template is updated
 		* with class name for <h3> ***/
