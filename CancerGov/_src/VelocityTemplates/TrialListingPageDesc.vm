@@ -88,6 +88,7 @@
 
   ## If there are results, add the lower control (draw the pager)
   <div class="ct-listing-util-bottom">
+    <hr/>
     #DrawListingPager($SearchResults)##
   </div>
 #end
@@ -102,9 +103,11 @@
             Trial 1 of <span data-basiccts-searchparam='n'>1</span>
           #elseif($SearchResults.Control.GetStartItemNum() < $SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults))
             Trials $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
+            <hr/>
             #DrawListingPager($SearchResults)##
           #else
             <span data-basiccts-searchparam='n'>&nbsp;</span>
+            <hr/>
             #DrawListingPager($SearchResults)##
           #end
         <hr/>

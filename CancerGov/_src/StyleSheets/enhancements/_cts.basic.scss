@@ -400,10 +400,27 @@ a.listing-chat-button:visited {
 	  padding: 1em 0;
 	}
   }
+
+    .ct-listing-util-top {
+    .ct-listing-pager {
+      float: left !important;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    hr {
+      margin-bottom: 5px;
+    }
+  }
+
+   .ct-listing-util-bottom {
+    .ct-listing-pager {
+      float: left !important;
+    }
+  }
 }
 
-/* Custom styles for pager breakpoint*/
-@media only screen and (max-width: 765px) {
+/* Custom styles for pager breakpoint
+@media only screen and (max-width: px) {
   .ct-listing-util-top {
     .ct-listing-pager {
       margin-top: 20px;
@@ -413,7 +430,7 @@ a.listing-chat-button:visited {
       margin-bottom: 5px;
     }
   }
-}
+}*/
 
 /* mobile only */
 @include bp(small) {
@@ -479,5 +496,11 @@ a.listing-chat-button:visited {
     .selections-area {
 	  float: left;
 	}
+  }
+
+  .ct-listing-util-top {
+    hr:first-of-type {
+      display: none;
+    }
   }
 }
