@@ -86,33 +86,38 @@
     </ul>
   </div>
 
-  ## If there are results, add the lower control (draw the pager)
-  <div class="ct-listing-util-bottom">
-    <hr/>
-    #DrawListingPager($SearchResults)##
-  </div>
+  ## If there are multiple pages of results, add the lower control (draw the pager)
+  #if($SearchResults.Results.TotalResults > $SearchResults.Control.GetItemsPerPage())
+    <div class="ct-listing-util-bottom">
+      <hr class="pager-hr" />
+      #DrawListingPager($SearchResults)##
+    </div>
+  #end##
 #end
 
 
 <div class="row">
   <div class="medium-12 columns collapse">
     #if($SearchResults.Results.TotalResults > 0)
-	  $SearchResults.Control.GetIntroText()
+	    $SearchResults.Control.GetIntroText()
       #if($SearchResults.Control.HasInvalidParams() == false)
         <div class="ct-listing-util-top">
           #if($SearchResults.Results.TotalResults == 1)
             Trial 1 of <span data-basiccts-searchparam='n'>1</span>
-			<hr/>
           #elseif($SearchResults.Control.GetStartItemNum() < $SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults))
             Trials $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span>
-            <hr/>
-            #DrawListingPager($SearchResults)##
+            #if($SearchResults.Results.TotalResults > $SearchResults.Control.GetItemsPerPage())
+              <hr class="pager-between-hr" />
+              #DrawListingPager($SearchResults)##
+            #end##
           #else
             <span data-basiccts-searchparam='n'>&nbsp;</span>
-            <hr/>
-            #DrawListingPager($SearchResults)##
+            #if($SearchResults.Results.TotalResults > $SearchResults.Control.GetItemsPerPage())
+              <hr class="pager-between-hr" />
+              #DrawListingPager($SearchResults)##
+            #end##
           #end
-        <hr/>
+        <hr class="pager-hr" />
         </div>
         #DrawListingPgTrials($SearchResults)
       #else
