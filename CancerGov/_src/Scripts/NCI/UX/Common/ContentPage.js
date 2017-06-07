@@ -214,7 +214,8 @@ define(function(require) {
 
 
 		// Blue Ribbon Panel - Page Specific
-		require("Common/Enhancements/NCI.Video").init();
+    // removed on 6.7.17 by MTN require to NCI.Video.js, pages/fuctionality no longer used
+		// require("Common/Enhancements/NCI.Video").init();
 
         // BEGIN Spanish Analytics tracking
         $('html[lang="es"]').find('a.news-govdelivery, a.blogRSS').on('click', function() {
