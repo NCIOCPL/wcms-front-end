@@ -55,16 +55,16 @@ if (typeof pageNameOverride!="undefined")
     localPageName = pageNameOverride;
 
 if (typeof linkInternalFiltersOverride!="undefined")
-	s.linkInternalFilters=linkInternalFiltersOverride;	
-	
+    s.linkInternalFilters=linkInternalFiltersOverride;  
+    
 var canonicalLink = null;
 var links = document.getElementsByTagName("link");
 for (var i = 0; i < links.length; i++) {
-	if( links[i].getAttribute("rel") == "canonical")
-	{
-		canonicalLink = links[i].href;
-		break;
-	}
+    if( links[i].getAttribute("rel") == "canonical")
+    {
+        canonicalLink = links[i].href;
+        break;
+    }
 }
 if(canonicalLink)
 {
@@ -72,15 +72,15 @@ if(canonicalLink)
 
     // Remove http
     if(canonicalLink.indexOf("http://") >= 0)
-	  canonicalLink = canonicalLink.substring(canonicalLink.indexOf("http://")+7);
+      canonicalLink = canonicalLink.substring(canonicalLink.indexOf("http://")+7);
 
-	// Remove https
-	if(canonicalLink.indexOf("https://") >= 0)
+    // Remove https
+    if(canonicalLink.indexOf("https://") >= 0)
       canonicalLink = canonicalLink.substring(canonicalLink.indexOf("https://")+8);
 
-	// Remove query parameters
-	if(canonicalLink.indexOf("?") > 0)
-	  canonicalLink = canonicalLink.substring(0, canonicalLink.indexOf("?"));
+    // Remove query parameters
+    if(canonicalLink.indexOf("?") > 0)
+      canonicalLink = canonicalLink.substring(0, canonicalLink.indexOf("?"));
 
     localPageName = canonicalLink;
 }
@@ -93,31 +93,31 @@ var addToLocalPageName = "";
 var omversion = "";
 if(localPageName.indexOf("patient") >= 0 )
 {
-	omversion = "patient";
+    omversion = "patient";
 }
 else if(localPageName.indexOf("healthprofessional") >= 0 )
 {
-	omversion = "healthprofessional";
+    omversion = "healthprofessional";
 }
 else
 {
-	if (version) 
-	{
-		if( version.toLowerCase() == "patient"  
-			|| version == "patients"
-			|| version == "0" )
-		{
-			omversion = "patient";
-			addToLocalPageName = CommaList(addToLocalPageName,"Patient");
-		}
-		else if( version.toLowerCase() == "healthprofessional" 
-			|| version.toLowerCase() == "healthprofessionals"
-			|| version == "1" )
-		{
-			omversion = "healthprofessional";
-			addToLocalPageName = CommaList(addToLocalPageName,"HealthProfessional");
-		}
-	}
+    if (version) 
+    {
+        if( version.toLowerCase() == "patient"  
+            || version == "patients"
+            || version == "0" )
+        {
+            omversion = "patient";
+            addToLocalPageName = CommaList(addToLocalPageName,"Patient");
+        }
+        else if( version.toLowerCase() == "healthprofessional" 
+            || version.toLowerCase() == "healthprofessionals"
+            || version == "1" )
+        {
+            omversion = "healthprofessional";
+            addToLocalPageName = CommaList(addToLocalPageName,"HealthProfessional");
+        }
+    }
 }
 s.prop7=s.eVar7=omversion;
 
@@ -199,6 +199,20 @@ function s_doPlugins(s) {
             }
         }
     }
+
+    // retrieve urs values
+    window.urs = NCIAnalytics.urs.get({
+        campaign: sCampaign,
+        referrer: document.referrer
+    });
+    // console.info('urs', JSON.stringify(window.urs, null, 2));    
+
+    s.eVar54 = urs.value;
+    s.prop51 = (s.eVar54) ? 'D=v54' : '';
+    s.eVar55 = urs.seoKeyword;
+    s.eVar56 = urs.ppcKeyword;
+    s.eVar57 = urs.stacked;
+
     s.eVar35 = sCampaign;
     s.campaign = s.getValOnce(sCampaign,'s_campaign',30);
 
@@ -225,36 +239,36 @@ function s_doPlugins(s) {
 //////////
 // SOCIAL
 //////////
-	s.socialPlatforms('eVar74');
+    s.socialPlatforms('eVar74');
 
-	s.maxDelay='1000';	//max time to wait for 3rd party api response in milliseconds
-	s.loadModule("Integrate")
-	s.Integrate.onLoad=function(s,m){
-		s.socialAuthors();
-		//add other integration module dependent functions here
+    s.maxDelay='1000';  //max time to wait for 3rd party api response in milliseconds
+    s.loadModule("Integrate")
+    s.Integrate.onLoad=function(s,m){
+        s.socialAuthors();
+        //add other integration module dependent functions here
     };
 
     /* Previous Page */
     s.prop61 = s.getPreviousValue(s.pageName, 'gpv_pn', "");
     //s.prop61=s.getPreviousValue(s.pageName,'gpv_pn','event1');
 
-	// Set the variables for the time parting ('n' for northern hemisphere, '-5" for EST) and set to prop29 for time parting
-	var tp = s.getTimeParting('n','-5');
-	s.prop29 = tp;
+    // Set the variables for the time parting ('n' for northern hemisphere, '-5" for EST) and set to prop29 for time parting
+    var tp = s.getTimeParting('n','-5');
+    s.prop29 = tp;
 
-	// Set prop64 for percent page viewed - if 0, then set to 'zero'
-	s.prop64=s.getPercentPageViewed();
-	s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
+    // Set prop64 for percent page viewed - if 0, then set to 'zero'
+    s.prop64=s.getPercentPageViewed();
+    s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
 
-	// Set prop65 to get the initial load time of the page (for use in the page load speed plugin)
-	var loadTime = s_getLoadTime();
-	s.prop65 = loadTime;
+    // Set prop65 to get the initial load time of the page (for use in the page load speed plugin)
+    var loadTime = s_getLoadTime();
+    s.prop65 = loadTime;
     if(s.events && s.events.length > 0){
         s.events += ",";
     }
     s.events += ["event47=" +  loadTime];
 }
-s.doPlugins=s_doPlugins	
+s.doPlugins=s_doPlugins 
 
 /* Functions */
 function CommaList(commaList, addValue)
@@ -275,45 +289,45 @@ function makeLowerCase(value)
 
 function caseInsensitiveGetQueryParm(qp)
 {
-	var fullurl = location.search.toLowerCase();
-	var cipos = fullurl.indexOf(qp + "=");
-	if (cipos == -1)
-      	return null;
-	cipos += qp.length+1;
-	if (cipos >= fullurl.length)
-      	return null;
-	var ciendPos1 = fullurl.indexOf("&", cipos);
-	var ciendPos2 = fullurl.indexOf("#", cipos);
-	if (ciendPos1 < 0 && ciendPos2 < 0)
-	{
-		return unescape(fullurl.substring(cipos));
-	}
-	var ciendPos = ciendPos1;
-	if (ciendPos < 0 || (ciendPos2 >= 0 && ciendPos2 < ciendPos1))
-		ciendPos = ciendPos2;
+    var fullurl = location.search.toLowerCase();
+    var cipos = fullurl.indexOf(qp + "=");
+    if (cipos == -1)
+        return null;
+    cipos += qp.length+1;
+    if (cipos >= fullurl.length)
+        return null;
+    var ciendPos1 = fullurl.indexOf("&", cipos);
+    var ciendPos2 = fullurl.indexOf("#", cipos);
+    if (ciendPos1 < 0 && ciendPos2 < 0)
+    {
+        return unescape(fullurl.substring(cipos));
+    }
+    var ciendPos = ciendPos1;
+    if (ciendPos < 0 || (ciendPos2 >= 0 && ciendPos2 < ciendPos1))
+        ciendPos = ciendPos2;
 
-	return unescape(fullurl.substring(cipos, ciendPos));
+    return unescape(fullurl.substring(cipos, ciendPos));
 }
 
 function semphonicGetQueryParm(qp)
 {
-	var pos = document.URL.indexOf(qp + "=");
-	if (pos == -1)
-      	return null;
-	pos += qp.length+1;
-	if (pos >= document.URL.length)
-      	return null;
-	var endPos1 = document.URL.indexOf("&", pos);
-	var endPos2 = document.URL.indexOf("#", pos);
-	if (endPos1 < 0 && endPos2 < 0)
-	{
-		return unescape(document.URL.substring(pos));
-	}
-	var endPos = endPos1;
-	if (endPos < 0 || (endPos2 >= 0 && endPos2 < endPos1))
-		endPos = endPos2;
+    var pos = document.URL.indexOf(qp + "=");
+    if (pos == -1)
+        return null;
+    pos += qp.length+1;
+    if (pos >= document.URL.length)
+        return null;
+    var endPos1 = document.URL.indexOf("&", pos);
+    var endPos2 = document.URL.indexOf("#", pos);
+    if (endPos1 < 0 && endPos2 < 0)
+    {
+        return unescape(document.URL.substring(pos));
+    }
+    var endPos = endPos1;
+    if (endPos < 0 || (endPos2 >= 0 && endPos2 < endPos1))
+        endPos = endPos2;
 
-	return unescape(document.URL.substring(pos, endPos));
+    return unescape(document.URL.substring(pos, endPos));
 }
 
 /** Custom Plugin: Dynamically Create s.hier variable*/
@@ -349,15 +363,15 @@ s.eVar5 = getViewPort();
  
 /* Set a name for the view port based on the current screen size */
 function getViewPort() {
-	var screen = '';
-	if(window.innerWidth)
-	{
-		if (window.innerWidth > 1440) { screen = "Extra wide"; }
-		else if (window.innerWidth > 1024) { screen = "Desktop"; }
-		else if (window.innerWidth > 640) { screen = "Tablet"; }
-		else { screen = "Mobile"; }
-	}
-	return screen;
+    var screen = '';
+    if(window.innerWidth)
+    {
+        if (window.innerWidth > 1440) { screen = "Extra wide"; }
+        else if (window.innerWidth > 1024) { screen = "Desktop"; }
+        else if (window.innerWidth > 640) { screen = "Tablet"; }
+        else { screen = "Mobile"; }
+    }
+    return screen;
 }
 
 /* Track initial load of basic and advanced search pages */
@@ -407,11 +421,11 @@ s.getValOnce=new Function("v","c","e",""
  */
 function s_getLoadTime()
 {
-	if(!window.s_loadT)
-	{
-		var b=new Date().getTime(),o=window.performance?performance.timing:0,a=o?o.requestStart:window.inHeadTS||0;s_loadT=a?Math.round((b-a)/100):''
-	}
-	return s_loadT
+    if(!window.s_loadT)
+    {
+        var b=new Date().getTime(),o=window.performance?performance.timing:0,a=o?o.requestStart:window.inHeadTS||0;s_loadT=a?Math.round((b-a)/100):''
+    }
+    return s_loadT
 }
 
 /*
@@ -519,10 +533,10 @@ s.visitorNamespace="nci";
 
 // Send tagging requests to correct server based on protocol
 if(document.URL.indexOf("https://") >= 0)
-	s.trackingServer="nci.122.2o7.net";
+    s.trackingServer="nci.122.2o7.net";
 else
-	s.trackingServer="metrics.cancer.gov";
-	s.dc="122";
+    s.trackingServer="metrics.cancer.gov";
+    s.dc="122";
 
 
 /*
