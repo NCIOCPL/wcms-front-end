@@ -64,6 +64,7 @@ define(function(require) {
 		 * This functions the font resizer.
 		 ***/
 		 // MOVED TO NCI.PageOptions.FontResizer.js
+     // moved to Modules > fontResizer > fontResizer.js
 		(function() {
 			NCI.PageOptions.init();
 		})();
