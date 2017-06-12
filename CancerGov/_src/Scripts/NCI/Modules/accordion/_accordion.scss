@@ -25,7 +25,7 @@
 /* begin CTHP accordion styling rules */
 @include bp(small) {
 	.cthp-content .cthp-intro-multimedia h3, .cthp-content .cthp-overview h3 {
-		background: #624dd6 url("/publishedcontent/images/images/design-elements/background-graphics/CTHP-blue-purple-circles.jpg") repeat-x !important;
+		background: #624dd6 image-url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-intro-multimedia h3 span, .cthp-content .cthp-overview h3 span {
 		background: #4c34c3 !important;
@@ -35,7 +35,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-treatment h3 {
-		background: #2ec799 url($backgrounds + "CTHP-green-waves.jpg") repeat-x !important;
+		background: #2ec799 image-url($backgrounds + "CTHP-green-waves.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-treatment h3 span {
 		background: #119f7d !important;
@@ -45,7 +45,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-research h3.ui-accordion-header {
-		background: #0886d0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x !important;
+		background: #0886d0 image-url($backgrounds + "CTHP-blue-gears.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-research h3 span {
 		background: #036eab !important;
@@ -55,7 +55,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-causes h3.ui-accordion-header {
-		background: #7f3796 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x !important;
+		background: #7f3796 image-url($backgrounds + "CTHP-purple-squares.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-causes h3 span {
 		background: #753190 !important;
@@ -65,7 +65,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-genetics h3 {
-		background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x !important;
+		background: #008eb0 image-url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-genetics h3 span {
 		background: #248f92 !important;
@@ -75,7 +75,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-screening h3 {
-		background: #aa3d65 url($backgrounds + "CTHP-pink-triangles.jpg") repeat !important;
+		background: #aa3d65 image-url($backgrounds + "CTHP-pink-triangles.jpg") repeat !important;
 	}
 	.cthp-content .cthp-screening h3 span {
 		background: #9e2f54 !important;
@@ -85,7 +85,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-survival h3 {
-		background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x !important;
+		background: #008eb0 image-url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-survival h3 span {
 		background: #b77704 !important;
@@ -95,7 +95,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-general h3 {
-		background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x !important;
+		background: #008eb0 image-url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-general h3 span {
 		background: #29768c !important;
@@ -105,7 +105,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-pink-feature h3 {
-		background: #d544bb url($backgrounds + "pink-triangles.jpg") repeat-x !important;
+		background: #d544bb image-url($backgrounds + "pink-triangles.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-pink-feature h3 span {
 		background: #b9299b !important;
@@ -115,7 +115,7 @@
 		background: #fff !important;
 	}
 	.cthp-content .cthp-yellow-feature h3 {
-		background: #e4cf34 url($backgrounds + "yellow-hexagons.jpg") repeat-x !important;
+		background: #e4cf34 image-url($backgrounds + "yellow-hexagons.jpg") repeat-x !important;
 	}
 	.cthp-content .cthp-yellow-feature h3 span {
 		background: #cbb218 !important;

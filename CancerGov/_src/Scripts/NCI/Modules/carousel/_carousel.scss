@@ -62,7 +62,7 @@
 .slick-slide .site-link {
 	display: block;
 	width: 100%;
-	background: #403e3f url($buttons + "carousel-link-arrow.png") no-repeat 95% 50%;
+	background: #403e3f image-url($buttons + "carousel-link-arrow.png") no-repeat 95% 50%;
 	padding: 12px 16px 12px 12px;
 	margin: 0;
 	position: absolute;
@@ -90,7 +90,7 @@
 /* various patterned background images for slides */
 @mixin nci-bg-pattern($pattern) {
 	.#{$pattern} {
-		background-image: url($backgrounds + $pattern + ".jpg");
+		background-image: image-url($backgrounds + $pattern + ".jpg");
 	}
 }
 
@@ -168,16 +168,16 @@
 	/*CAROUSEL STYLES*/
 	/* desktop arrows */
 	.arrows-for-other-nci-sites .next {
-		background: transparent url($buttons + "blue-arrow-right.png") no-repeat 0 0;
+		background: transparent image-url($buttons + "blue-arrow-right.png") no-repeat 0 0;
 	}
 	.arrows-for-other-nci-sites .next:hover {
-		background: transparent url($buttons + "red-arrow-right.png") no-repeat 0 0;
+		background: transparent image-url($buttons + "red-arrow-right.png") no-repeat 0 0;
 	}
 	.arrows-for-other-nci-sites .previous {
-		background: transparent url($buttons + "blue-arrow-left.png") no-repeat 0 0;
+		background: transparent image-url($buttons + "blue-arrow-left.png") no-repeat 0 0;
 	}
 	.arrows-for-other-nci-sites .previous:hover {
-		background: transparent url($buttons + "red-arrow-left.png") no-repeat 0 0;
+		background: transparent image-url($buttons + "red-arrow-left.png") no-repeat 0 0;
 	}
 	/* spacing */
 	.slick-slide .container {
