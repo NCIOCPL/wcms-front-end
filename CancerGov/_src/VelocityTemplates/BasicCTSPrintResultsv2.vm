@@ -174,9 +174,10 @@
 #end
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head> 
 	 <meta name="robots" content="noindex">
+	 <title>Clinical Trial Search Results</title>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script> 
 	 <script> 
@@ -190,7 +191,7 @@
 </head>
 <body>
 	<div id="cgovContainer">
-		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg"/></div>
+		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg" alt="NCI Logo"/></div>
 		<div id="cgvBody">
 			<div id="bodyHeading">
 				<div id="headingWrapper">
@@ -256,15 +257,15 @@
 	</script>
 	
 	<!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
-	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/WebAnalytics/WCMS/wa_wcms_pre.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	<!--
 		// Verify this account TODO
 	var s_account = AnalyticsMapping.GetSuites("nciglobal,ncienglish-all");
 	-->
 	</script>
-	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
-	<script language="JavaScript" type="text/javascript" src="//static-dev.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/WebAnalytics/WCMS/NCIAnalyticsFunctions.js"></script>
+	<script language="JavaScript" type="text/javascript" src="//static.cancer.gov/WebAnalytics/WCMS/s_code.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	<!--
 
@@ -276,10 +277,10 @@
 	s.prop15 = getPrintID();
 	s.prop25 ='01/01/1980';
 	s.prop44 ='Clinical Trials';
-	s.prop62 ='Clinical Trials: Print Selected';
+	s.prop62 = 'Clinical Trials: Print Results Page';
 	s.eVar2 ='english';
 	s.eVar15 = getPrintID();
-	s.eVar62 ='Clinical Trials: Print Selected';
+	s.eVar62 = 'Clinical Trials: Print Results Page';
 	s.eVar44 ='Clinical Trials';
 	s.events ='event1';
 

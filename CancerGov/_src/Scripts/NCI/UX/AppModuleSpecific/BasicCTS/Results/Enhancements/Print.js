@@ -95,7 +95,7 @@ define(function(require) {
                 var checked = checkedTrials.indexOf(nciid) > -1?'checked':'';
 
                 // create a checkbox for this individual result
-                return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '" tabindex="0"></label></div>'
+                return '<div class="cts-checkbox checkbox"><input id="' + nciid + '" type="checkbox" '+ checked +' /><label for="' + nciid + '" tabindex="0"><span class="ui-helper-hidden-accessible">select for printing</span></label></div>'
 
             })
             .find('input').on('click',function(e){ // checkbox click event
@@ -209,7 +209,6 @@ define(function(require) {
         $('.checkbox label').on('keypress',function(e){
             if(e.which == 13 || e.which == 32){
                 e.preventDefault();
-                e.preventDefault();
                 $(this).prev().click();
             }
         });
@@ -219,6 +218,8 @@ define(function(require) {
 			
 			// Attempt to add current page to checkedPages if print is selected
 			var pageNum = $(".cts-results-top-control .pager-current").text();
+            if(pageNum == "")
+				pageNum = "1";
 			UpdateCheckedPagesList(pageNum, $(".cts-results-container input:checked").length);
 
             if(checkedTrials.length > 0) {

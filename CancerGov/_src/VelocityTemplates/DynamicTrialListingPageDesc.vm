@@ -86,7 +86,7 @@
     </ul>
   </div>
 
-  ## If there are results, add the lower control (draw the pager)
+  ## If there are multiple pages of results, add the lower control (draw the pager)
   #if($SearchResults.Results.TotalResults > $SearchResults.Control.GetItemsPerPage())
     <div class="ct-listing-util-bottom">
       <hr class="pager-hr" />
@@ -99,6 +99,7 @@
 <div class="row">
   <div class="medium-12 columns collapse">
     #if($SearchResults.Results.TotalResults > 0)
+	    $SearchResults.Control.GetIntroText()
       #if($SearchResults.Control.HasInvalidParams() == false)
         <div class="ct-listing-util-top">
           #if($SearchResults.Results.TotalResults == 1)
