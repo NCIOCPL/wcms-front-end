@@ -520,7 +520,7 @@ define(function(require) {
 		var ProactiveLiveHelpforColorectal = new ProactiveLiveHelp();
 
 		//console.log(ProactiveLiveHelp);
-
+		
 		ProactiveLiveHelpforCTS.initialize({
 			urls: [
 				"/about-cancer/treatment/clinical-trials/search",
@@ -529,7 +529,9 @@ define(function(require) {
 				"/about-cancer/treatment/clinical-trials/search/v",
 				"/about-cancer/treatment/clinical-trials/advanced-search",
 				"/about-cancer/treatment/clinical-trials/search/results",
-				"/about-cancer/treatment/clinical-trials/search/view"
+				"/about-cancer/treatment/clinical-trials/search/view",
+				/^\/about-cancer\/treatment\/clinical-trials\/disease\/.*/,
+				/^\/about-cancer\/treatment\/clinical-trials\/intervention\/.*/
 			],
 			popupID: 'ProactiveLiveHelpForCTSPrompt',
 			popupTitle: "Questions about Clinical Trials?",
