@@ -15,7 +15,7 @@ define(function(require) {
             click: function(e) {
                 e.preventDefault();
                 window.print();
-            },
+            }
         },
 
         FontResizer: require('../../../Modules/fontResizer/fontResizer')

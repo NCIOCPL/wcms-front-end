@@ -1,5 +1,6 @@
 define(function(require) {
-    var $ = require('jquery');
+    var initialized = false,
+        $ = require('jquery');
 
     var FontResizer = {
         selector: ".po-font-resize a",
@@ -11,6 +12,7 @@ define(function(require) {
             this.originalSize = parseFloat($("body").css("font-size"), 10);
             this.$content = $(".resize-content");
             $(this.selector).click(this.click);
+            initialized = true;
         },
         click: function(e) {
             e.preventDefault(); // no event bubbling.
@@ -23,9 +25,15 @@ define(function(require) {
             // if (typeof equalHeights === typeof Function.prototype) {
             //     equalHeights();
             // }
-            return false; //technically unnecessary to return false.
         }
     };
 
-    return FontResizer;
+    /* Exposes functions from this module which are available from the outside. */
+    return {
+        init: function() {
+            if (!initialized) {
+                _initialize();
+            }
+        }
+    };
 });
