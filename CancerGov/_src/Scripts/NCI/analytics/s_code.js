@@ -252,6 +252,8 @@ function s_doPlugins(s) {
     if(s.events && s.events.length > 0){
         s.events += ",";
     }
+    if(s.events == null)
+        s.events = '';
     s.events += ["event47=" +  loadTime];
 }
 s.doPlugins=s_doPlugins	
