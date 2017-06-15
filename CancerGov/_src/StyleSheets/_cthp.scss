@@ -27,7 +27,7 @@
 	}
 }
 .cthp-content {
-	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
+	background: #008eb0 image-url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
   &.cthp-patient-content {
 		background-color: #6254A3;
 	}
@@ -113,7 +113,7 @@
 	}
 }
 .normal li {
-	background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
+	background: image-url($icons + "blue-list-dot.png") 0 7px no-repeat;
 	padding-left: 0.9375em;
 }
 .cthp-content .cardBody {
@@ -333,7 +333,7 @@
 }
 /* Format card title */
 h3.cthp-overview-title {
-	background: #4c34c3 url("/publishedcontent/images/images/design-elements/background-graphics/CTHP-blue-purple-circles.jpg") repeat-x;
+	background: #4c34c3 image-url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
 	color: #ffffff;
 	padding: 0.47em 0.6em;
 	margin: -5px -15px 0;
@@ -369,34 +369,34 @@ h3.cthp-overview-title {
 /** End CTHP Overview styling */
 /** Begin CTHP Card styling */
 .cthp-content .cthp-treatment h3 {
-	background: #008eb0 url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
 }
 .cthp-content .cthp-research h3 {
-	background: #008eb0 url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
 }
 .cthp-content .cthp-causes h3 {
-	background: #008eb0 url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
 }
 .cthp-content .cthp-genetics h3 {
-	background: #008eb0 url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
 }
 .cthp-content .cthp-screening h3 {
-	background: #008eb0 url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
+	background: #008eb0 image-url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
 }
 .cthp-content .cthp-survival h3 {
-	background: #008eb0 url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
 }
 .cthp-content .cthp-general h3 {
-	background: #008eb0 url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
 }
 .cthp-content .cthp-overview h3 {
-	background: #008eb0 url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
 }
 .cthp-content .cthp-pink-feature h3 {
-	background: #008eb0 url($backgrounds + "pink-triangles.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "pink-triangles.jpg") repeat-x;
 }
 .cthp-content .cthp-yellow-feature h3 {
-	background: #008eb0 url($backgrounds + "yellow-hexagons.jpg") repeat-x;
+	background: #008eb0 image-url($backgrounds + "yellow-hexagons.jpg") repeat-x;
 }
 
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
@@ -410,7 +410,7 @@ h3.cthp-overview-title {
 /* .cthpCard + div:hover li a.arrow-link { */
 .cthpCard + div li a.arrow-link:hover {
 	color: #bb0e3d;
-	background-image: url("/publishedcontent/images/images/design-elements/buttons/small-red-circle-arrow.png");
+	background-image: image-url($buttons + "small-red-circle-arrow.png");
 }
 .cthpCard > div > h3 + div:hover {
 	background-color: black;

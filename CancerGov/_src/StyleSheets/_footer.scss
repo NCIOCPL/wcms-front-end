@@ -11,7 +11,7 @@
 }
 
 .site-footer {
-    background: #123e57 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
+    background: #123e57 image-url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
     padding: 1em 0;
     color: white;
 
@@ -117,7 +117,7 @@
 
     li {
         display: inline-block;
-        background: url($backgrounds + "agencies-divider.gif") center right no-repeat;
+        background: image-url($backgrounds + "agencies-divider.gif") center right no-repeat;
         padding-right: 0.5em;
         margin-right: 0.25em;
     }

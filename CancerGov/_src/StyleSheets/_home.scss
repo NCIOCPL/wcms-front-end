@@ -70,7 +70,7 @@
 
 .hero-call-to-action {
 	font-size: 18px;
-	background: url($buttons + "hero-arrow.png") no-repeat center right;
+	background: image-url($buttons + "hero-arrow.png") no-repeat center right;
 	display: inline-block;
 	padding-right: 1em;
 	@include transition(padding-right 0.4s ease-in-out);
@@ -429,7 +429,7 @@
 				}
 				h3 {
 					color: white;
-					background: url($buttons + "small-arrow.png") 95% center no-repeat;
+					background: image-url($buttons + "small-arrow.png") 95% center no-repeat;
 					border-bottom: 1px solid black;
 					padding: 0.3em 0.9375em;
 					margin: 0;
@@ -448,7 +448,7 @@
 	}
 
 a.arrow-link {
-	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
+	background: image-url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
 	padding: 1px 2em 1px 0;
 	width: 100%;
 	display: block;
@@ -457,17 +457,17 @@ a.arrow-link {
 	@extend %card-link-hover;
 
 	&:hover {
-		background-image: url($buttons + "small-red-circle-arrow.png");
+		background-image: image-url($buttons + "small-red-circle-arrow.png");
 	}
 }
 a.arrow-link-white {
 	@extend a.arrow-link;
-	background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
+	background: image-url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
 	padding-right: 1em;
 }
 @include bp(small) {
 	a.arrow-link-white {
-		background: url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
+		background: image-url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
 	}
 }
 a.learn-more {
@@ -733,7 +733,7 @@ a.learn-more {
 		color: $white;
 		padding: 1em 2em 1em 1em;
 		display: block;
-		background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		background: #403f3f image-url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
 		@extend %card-link-hover;
 	}
 }

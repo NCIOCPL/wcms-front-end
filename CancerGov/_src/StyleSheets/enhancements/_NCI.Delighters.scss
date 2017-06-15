@@ -46,7 +46,7 @@
   }
 
   .cts-which {
-    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-purple-circles.jpg);
+    background: image-url($backgrounds + 'ct-purple-circles.jpg');
     border: 3px solid #2c13a3;
     color: white;
 
@@ -62,7 +62,7 @@
 
 
   .cts-what {
-    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-blue-triangles.jpg);
+    background: image-url($backgrounds + 'ct-blue-triangles.jpg');
     border: 3px solid #0bd3ca;
     color: white;
 
@@ -77,7 +77,7 @@
   }
 
   .cts-next-step {
-    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
+    background: image-url($backgrounds + 'ct-red-triangles.jpg');
     border: 3px solid #cf0549;
     color: white;
 

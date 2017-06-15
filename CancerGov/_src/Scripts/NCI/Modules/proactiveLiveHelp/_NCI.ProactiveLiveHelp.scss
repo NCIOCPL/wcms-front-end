@@ -10,7 +10,7 @@
 	transform: translateY(-50%) translateX(-50%);
 	font:normal .875em Montserrat, Arial, sans-serif;
 	color:#606060;
-	background: #fff url(/publishedcontent/images/images/design-elements/css/proactive-chat-woman.jpg) no-repeat bottom right;
+	background: #fff image-url($css + 'proactive-chat-woman.jpg') no-repeat bottom right;
 
 	input {
 		background: #086F89;
@@ -42,7 +42,7 @@
 	}
 
 	.live-help {
-		background: url(/publishedcontent/images/images/design-elements/css/livehelp-proactive-chat.png) no-repeat 0;
+		background: image-url($css + 'livehelp-proactive-chat.png') no-repeat 0;
 		content: " ";
 		min-height: 37px;
 		margin-left: 20px;

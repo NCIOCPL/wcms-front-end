@@ -111,7 +111,7 @@ p.blog-post-publishing-info {
 	}
 }
 a.comment-count {
-	background: url($icons + "comment-icon.png") no-repeat;
+	background: image-url($icons + "comment-icon.png") no-repeat;
 	padding-left: 26px;
 	height: 22px;
 }

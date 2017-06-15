@@ -4,12 +4,29 @@
 module.exports = function (grunt, options) {
   var dirs = options.dirs;
 
+    var assetFunctions = require('node-sass-asset-functions');
+        path = require('path'),
+        fs = require('fs'),
+        crypto = require('crypto');
+
   // create an array of all the folders under /NCI//Modules
   var Modules = grunt.file.expand({ filter: 'isDirectory'},dirs.src.scripts + '/NCI/Modules/*');
 
   return {
     options: {
-      includePaths: Modules
+      includePaths: Modules,
+      functions: assetFunctions({
+          images_path: '/dist/Images/',
+          http_images_path: '/',
+          asset_cache_buster: function(http_path, real_path, done){
+              var extname = path.extname(http_path),
+                  basename = path.basename(http_path, extname),
+                  digest = crypto.createHash('md5').update(options.fingerprint).digest("hex"),
+                  new_name = basename + '.__v' + digest + extname;
+
+              done({path: path.join(path.dirname(http_path), new_name), query: null});
+          }
+      })
     },
     dev: {
       options: {
