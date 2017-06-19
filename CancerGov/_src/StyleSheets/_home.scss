@@ -1,6 +1,6 @@
 /********************* BEGIN Home Page Styles ******************************************/
 // overriding default spacing for p tags for the home/landing pages
-// The top margin for the p-tag causes extra spacing above the carousel 
+// The top margin for the p-tag causes extra spacing above the carousel
 // and has been excluded from this rule (VE, WCMSFEQ-390)
 .ncilandingpage p, .ncihome p, not(.ncihome p.site-name) {
 	margin: 0.5em 0;
@@ -388,7 +388,7 @@
             margin: 0;
 
             a { @extend %card-link-hover; }
-            a, span { 
+            a, span {
                 line-height: 2.046;// line height needs to be 45px
                 font-size: 22px;   // for browsers that don't know 'rem'
                 font-size: 1.375rem; }
@@ -448,7 +448,6 @@
 	}
 
 a.arrow-link {
-	background: image-url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
 	padding: 1px 2em 1px 0;
 	width: 100%;
 	display: block;
@@ -456,15 +455,58 @@ a.arrow-link {
 	text-decoration: none;
 	@extend %card-link-hover;
 
-	&:hover {
-		background-image: image-url($buttons + "small-red-circle-arrow.png");
+	//background: image-url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
+	//padding: 1px 2em 1px 0;
+	//width: 100%;
+	//display: block;
+	//color: $body-font-color;
+	//text-decoration: none;
+	//@extend %card-link-hover;
+
+	&::before {
+		background: $ncisprite no-repeat scroll -347px -215px;
+		content: "";
+		right: 1.8em;
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		}
+
+	&:hover::before {
+		background-image: $ncisprite no-repeat scroll;
+		background-position: -379px -215px;
+  	}
+
 	}
-}
+
 a.arrow-link-white {
-	@extend a.arrow-link;
-	background: image-url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
-	padding-right: 1em;
+	//@extend a.arrow-link;
+	//background: image-url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
+	//padding-right: 1em;
+	// mtn updated bkgrnd images to pull from sprite  06-19-17
+	padding: 1px 1em 1px 0;
+	width: 100%;
+	display: block;
+	color: $body-font-color;
+	text-decoration: none;
+	@extend %card-link-hover;
+
+	&::before {
+		background: $ncisprite no-repeat scroll -317px -217px;
+		content: "";
+		right: 1.7em;
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		}
+
+	&:hover::before {
+		background-image: $ncisprite no-repeat scroll;
+		background-position: -379px -217pepx;
+  	}
 }
+
+
 @include bp(small) {
 	a.arrow-link-white {
 		background: image-url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
