@@ -7,7 +7,7 @@ header {
 /* Regular pages */
 .nci-logo-pages.columns {
 	padding-left: 0;
-	padding-right: 0; 
+	padding-right: 0;
 }
 .nci-logo-pages a {
 	display: block;
@@ -34,7 +34,7 @@ header {
 		// Fix for Firefox subpixel height rendering -- if >= .5, then move up to next pixel
 		transform: translate(0px, 0.5px);
 	}
-	
+
 	html.no-svg & img[class^="nci-logo-IE"] {
 		display: none;
 	}
@@ -100,7 +100,7 @@ header {
 		html.no-svg & img.nci-logo-IE-phon {
 			display: block;
 		}
-		
+
 		a {
 			padding-left: $logo-padding-mobile;
 			padding-right: $logo-padding-mobile;
@@ -209,23 +209,68 @@ header {
 		}
 	}
 	button.nav-header {
-		background-image: image-url($icons + "menu-icon.png");
-		margin-right: 8%;
-		background-position: 49% 14%;
+		//background-image: image-url($icons + "menu-icon.png");
+		//margin-right: 8%;
+		//background-position: 49% 14%;
+    margin: 0 4em 0 0;
+    position: relative;
+
+    &::before {
+  		background: $ncisprite no-repeat scroll -186px -291px;
+  		content: "";
+  		//right: 0;
+  		position: absolute;
+  		width: 35px;
+  		height: 40px;
+      margin-right: 8%;
+      top: -3px;
+      //top: 39%;
+  		}
+
 	}
 	a.nav-contact {
-		background-image: image-url($icons + "contact-mobile.png");
+		//background-image: image-url($icons + "contact-mobile.png");
+    &::before {
+  		background: $ncisprite no-repeat scroll -226px -291px;
+  		content: "";
+  		position: absolute;
+  		width: 35px;
+  		height: 40px;
+      margin-left: 2%;
+      top: 8px;
+  		}
+
 	}
 	a.nav-dictionary {
-		background-image: image-url($icons + "dictionary-mobile.png");
+		//background-image: image-url($icons + "dictionary-mobile.png");
+    &::before {
+  		background: $ncisprite no-repeat scroll -264px -291px;
+  		content: "";
+  		position: absolute;
+  		width: 45px;
+  		height: 35px;
+      margin-left: 2%;
+      top: 10px;
+  		}
 	}
 	a.nav-contact, a.nav-dictionary {
 		margin-left: 8%;
 		margin-right: 8%;
 	}
 	button.nav-search {
-		background-image: image-url($icons + "search-mobile.png");
+		//background-image: image-url($icons + "search-mobile.png");
 		margin-left: 8%;
+
+    &::before {
+  		background: $ncisprite no-repeat scroll -322px -292px;
+  		content: "";
+  		position: absolute;
+  		width: 30px;
+  		height: 60px;
+      margin-left: 1%;
+      top: 12px;
+  		}
+
 	}
 }
 

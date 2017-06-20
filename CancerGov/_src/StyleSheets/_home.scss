@@ -447,62 +447,44 @@
 		}
 	}
 
+// mtn updated bkgrnd images to pull from sprite  06-19-17
 a.arrow-link {
 	padding: 1px 2em 1px 0;
 	width: 100%;
 	display: block;
 	color: $body-font-color;
 	text-decoration: none;
+	position: relative;
 	@extend %card-link-hover;
-
-	//background: image-url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
-	//padding: 1px 2em 1px 0;
-	//width: 100%;
-	//display: block;
-	//color: $body-font-color;
-	//text-decoration: none;
-	//@extend %card-link-hover;
 
 	&::before {
 		background: $ncisprite no-repeat scroll -347px -215px;
 		content: "";
-		right: 1.8em;
+		right: 0;
+		margin-top: -8px;
 		position: absolute;
 		width: 25px;
 		height: 25px;
+		top: 39%;
 		}
 
 	&:hover::before {
 		background-image: $ncisprite no-repeat scroll;
 		background-position: -379px -215px;
   	}
-
 	}
 
 a.arrow-link-white {
-	//@extend a.arrow-link;
-	//background: image-url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
-	//padding-right: 1em;
-	// mtn updated bkgrnd images to pull from sprite  06-19-17
-	padding: 1px 1em 1px 0;
-	width: 100%;
-	display: block;
-	color: $body-font-color;
-	text-decoration: none;
-	@extend %card-link-hover;
+	@extend a.arrow-link;
+	padding-right: 1em;
 
 	&::before {
 		background: $ncisprite no-repeat scroll -317px -217px;
-		content: "";
-		right: 1.7em;
-		position: absolute;
-		width: 25px;
-		height: 25px;
+		right: 0;
 		}
 
 	&:hover::before {
-		background-image: $ncisprite no-repeat scroll;
-		background-position: -379px -217pepx;
+		background-position: -379px -217px;
   	}
 }
 
