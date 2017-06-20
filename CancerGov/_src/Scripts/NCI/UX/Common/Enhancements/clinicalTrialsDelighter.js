@@ -19,7 +19,7 @@ define(function(require) {
 	/* Display the delighter on all pages under the /clinical-trials path, except for the search/results/view pages
      * ---------------------------------------------------------------- */
     else if( pathName.indexOf("about-cancer/treatment/clinical-trials") > -1 ) {
-		if(pathName.indexOf(ctsPath) == -1 && pathName.indexOf('advanced-search') == -1)
+		if(pathName.indexOf(ctsPath) == -1 && pathName.indexOf('advanced-search') == -1 || /\/v$/.test(pathName))
 		{
             var delighter = $('<div id="delighter-innerpage"><a href="' + ctsPath + '">Find a <br/>Clinical Trial</a></div>');
             delighter.find('a').on('click.analytics',function(e){
