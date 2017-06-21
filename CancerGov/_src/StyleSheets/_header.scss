@@ -212,7 +212,7 @@ header {
 		//background-image: image-url($icons + "menu-icon.png");
 		//margin-right: 8%;
 		//background-position: 49% 14%;
-    margin: 0 4em 0 0;
+    margin: 0 8% 0 0;
     position: relative;
 
     &::before {
@@ -237,7 +237,7 @@ header {
   		width: 35px;
   		height: 40px;
       margin-left: 2%;
-      top: 8px;
+      top: 9px;
   		}
 
 	}
@@ -283,14 +283,29 @@ header {
 		}
 	}
 	button.nav-header {
-		margin-right: 4%;
+    margin: 0 4% 0 0;
+    //margin-right: 4%;
+    top: 0px;
 	}
+  a.nav-contact {
+    &::before {
+  		margin-left: 3%;
+  		}
+  }
+  a.nav-dictionary {
+    &::before {
+  		margin-left: 3%;
+  		}
+  }
 	a.nav-contact, a.nav-dictionary {
 		margin-left: 4%;
 		margin-right: 4%;
 	}
 	button.nav-search {
 		margin-left: 4%;
+    &::before {
+    margin-left: 1.5%;
+    }
 	}
 }
 
@@ -302,6 +317,31 @@ header {
 			font-size: 0.5em;
 			padding: 4em 0 0 0;
 		}
+    button.nav-header {
+      margin: 0 4% 0 0;
+      top: 0px;
+      &::before {
+    		background: $ncisprite no-repeat scroll -193px -291px;
+      }
+  	}
+    a.nav-contact {
+      &::before {
+        margin-left: 1%;
+        top: 4px;
+        }
+    }
+    a.nav-dictionary {
+      &::before {
+        margin-left: 1%;
+        top: 5px;
+        }
+    }
+    button.nav-search {
+      &::before {
+  		margin-left: -0.5%;
+      top:  7px;
+      }
+  	}
 	}
 }
 /* end mobile menu styles */
