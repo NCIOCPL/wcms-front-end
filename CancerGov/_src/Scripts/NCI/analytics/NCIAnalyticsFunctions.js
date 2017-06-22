@@ -1853,14 +1853,21 @@ var NCIAnalytics = {
     /* ********************************************************************** */
     BlogRelatedLinksClick: function(sender, linkText, pageName, index){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogRelatedLinkClick');
-
+        var prop66_String = "";
+        if(NCIAnalytics.blogLocation()){
+            clickParams.Events = [57];
+            prop66_String = "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_RelatedResource:" + index;
+        }
+        else{
+            clickParams.Events = [59];
+            prop66_String = s.prop44 + "_RelatedResource:" + index;
+        }
         clickParams.Props = {
-            66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_RelatedResource:" + index,
+            66: prop66_String,
             67: pageName,
             50: linkText
         };
-
-        clickParams.Events = [57];
+        
         clickParams.LogToOmniture();
     },
     /* ********************************************************************** */
