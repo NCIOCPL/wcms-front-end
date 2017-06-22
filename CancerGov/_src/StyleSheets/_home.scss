@@ -174,7 +174,7 @@
 }
 .feature-primary {
 	margin-bottom: 1em;
-
+	
 	a {
 		&, h3 {
 			color: $white;
@@ -215,9 +215,15 @@
 	}
 	@include card-clickable;
 }
+
 @include bp(medium-down) {
 	.feature-primary-title {
 		background: #14819b;
+	}
+/* fix for white space appearing on feature card row in tablet view mtn 6-22-17 */
+	.row.feature-primary {
+		max-width: 64.5em;
+		background: $dteal;
 	}
 	.feature-primary-title h3 {
 		font-size: 1.375em;
