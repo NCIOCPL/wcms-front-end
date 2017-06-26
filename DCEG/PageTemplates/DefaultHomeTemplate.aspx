@@ -58,8 +58,9 @@
 		<!-- </div> --><!-- END Site Footer Slot (#genSlotSiteFooter) -->
 	</div><!-- END Site Container (#genSiteContainer) -->
 	<!-- Javscript Configuration Content // At Bottom -->
+	<script type="text/javascript" src="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar.js" async></script>
 	<!-- END Javascript Configuration Content // At Bottom -->
-	    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
+    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
     control else Web analytics scripts will not show up in the HTML-->
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 </body>
