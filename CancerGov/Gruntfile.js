@@ -9,7 +9,8 @@ module.exports = function(grunt) {
                 velocitytemplates: "_src/VelocityTemplates/",
                 styles: "_src/StyleSheets/",
                 scripts: "_src/Scripts/",
-                images: "_src/ImageAssets/"
+                images: "_src/ImageAssets/",
+                fonts: '_src/Fonts'
             },
             tmp: {
                 base: "_tmp/",
@@ -26,7 +27,8 @@ module.exports = function(grunt) {
                 velocitytemplates: "_dist/VelocityTemplates/",
                 styles: "_dist/Styles/",
                 scripts: "_dist/js/",
-                images: "_dist/Images/"
+                images: "_dist/Images/",
+                fonts: '_dist/fonts'
             },
             bower: 'bower_components/'
         },
@@ -115,6 +117,15 @@ module.exports = function(grunt) {
         grunt.task.run(tasks);
     });
 
+    // ----------------------------------------------------------------
+    // Copying all fonts to the _dist folder
+    // ----------------------------------------------------------------
+    grunt.registerTask('copy-fonts', 'Copy fonts.', function() {
+        var tasks = ['copy:fonts'];
+        grunt.log.writeln('Copying font files');
+        grunt.task.run(tasks);
+    });
+
 
     // ----------------------------------------------------------------
     grunt.registerTask('build-templates', 'Build the CDE page, sublayout & velocity templates.', function(env) {
@@ -145,6 +156,7 @@ module.exports = function(grunt) {
             'build-templates:' + env,
             'build-xsl',
             'build-images',
+            'copy-fonts',
             'webpack:' + env
         ];
 

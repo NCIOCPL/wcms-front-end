@@ -87,6 +87,18 @@ module.exports = function (grunt, options) {
                 dest: dirs.dist.scripts,
                 filter: 'isFile'
             }]
+        },
+        fonts: {
+            nonull: true,
+            files: [{
+                expand: true,
+                flatten: false,
+                cwd: dirs.src.fonts,
+                src: [
+                    '**/*'
+                ],
+                dest: dirs.dist.fonts
+            }]
         }
     }
 };
