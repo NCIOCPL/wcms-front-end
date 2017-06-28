@@ -1,0 +1,66 @@
+.sitewide-results {
+	&.featured {
+		overflow: auto;
+		background: #dbf2f8;
+		padding: 2.5%;
+
+		h2 {
+			margin-top: 0;
+		}
+		.list-item .title {
+			font-size: 1em;
+		}
+		.list, .list-item {
+			margin-bottom: 0;
+		}
+	}
+}
+// CSS above should only be needed on local
+
+#best-bet-definition {
+	background: white;
+	padding: 16px 19px 10px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 4px 0px rgba(180,180,180,0.75);
+	
+	h2 {
+		margin-bottom: 1em;	
+	}
+	#best-bets-toggle {
+		border-top: 1px solid #C7C6C6;
+		margin-left: -19px;
+		margin-right: -19px;
+		padding: 10px 19px 0 19px;
+		
+		a {
+			text-decoration: none;
+			color: inherit
+		}
+		#definition-arrow {
+			display: inline-block;
+			background: image-url($icons + "nci-sprite.png") no-repeat -488px -186px;	
+			height: 5px;
+			width: 8px;
+			margin: 0 8px 3px 0;
+		}
+		.expanded #definition-arrow {
+			display: inline-block;
+			background: image-url($icons + "nci-sprite.png") no-repeat -460px -186px;	
+			height: 5px;
+			width: 8px;
+			margin: 0 8px 3px 0;
+		}
+	}
+}
+
+@include bp(small) {
+	#definitionEnd {
+		display: none;
+	}
+}
+
+@include bp(medium-up) {
+	#best-bets-toggle {
+		display: none;
+	}
+}

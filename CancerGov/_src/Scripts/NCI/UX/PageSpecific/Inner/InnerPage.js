@@ -3,6 +3,7 @@ define(function(require) {
 	require('Inner/Enhancements/showHideListingBodyField');
     var NCIAutocomplete = require('Modules/autocomplete/autocomplete');
     var DictionaryService = require('Data/DictionaryService');
+		var bestBets = require('Modules/bestBets/bestBets');
 
 	$(function() {
 
@@ -49,7 +50,15 @@ define(function(require) {
 
             }
         });
-
+		
+		/* remove this code when testing complete
+		$("#ui-id-2").html('<span id="ctl32_lblResultsForText">Results for:</span> <span id="ctl32_lblResultsForKeyword" class="term">ultrasound</span>')
+            .after('<div class="featured sitewide-results"><h2 id="ui-id-3"><span id="ctl32_rptBestBets_ctl00_lblBBCatName">Best Bets for Ultrasound (Imaging)</span></h2><div class="managed list"><ul><li class="general-list-item general list-item"><div class="title-and-desc title desc container"><a onclick="NCIAnalytics.SiteWideSearchResults(this,true,\'1\');" class="title" href="/dictionary?cdrid=46157">Definition of Ultrasound</a></div></li><li class="general-list-item general list-item"><div class="description"><p class="body">Learn about tests and procedures that doctors might order in order to diagnose cancer.</p></div></li><li class="general-list-item general list-item"><div class="title-and-desc title desc container"><a onclick="NCIAnalytics.SiteWideSearchResults(this,true,\'3\');" class="title" href="https://imaging.cancer.gov/imaging_basics/cancer_imaging.htm">Cancer Imaging</a><div class="description"><p class="body">Imaging techniques - methods of producing pictures of the body -  play an important role in the detection, diagnosis, and treatment of cancer. This feature explains how imaging works and its many uses.</p></div></li></ul></div></div>');
+						
+						*/
+		
+		bestBets.init();
+		DictionaryService.search('term', 'ultrasound', language);
 
 	});
 });
