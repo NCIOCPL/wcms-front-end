@@ -497,7 +497,9 @@ a.arrow-link-white {
 
 @include bp(small) {
 	a.arrow-link-white {
-		background: image-url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
+		&::before {
+			background: $ncisprite no-repeat scroll -347px -215px;
+		}
 	}
 }
 a.learn-more {
