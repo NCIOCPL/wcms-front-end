@@ -1,7 +1,7 @@
 /********************* BEGIN Header Styles ******************************************/
 // desktop (general)
 header {
-  padding-top: 1.5em;
+	padding-top: 1.5em;
 }
 
 /* Regular pages */
@@ -41,20 +41,20 @@ header {
 
 	// default; should NOT be in a media query to allow the logo to print properly in IE8
 	//@include bp(xtra-large) {
-		html.svg & img {
-			width: 60%;
-		}
+	html.svg & img {
+		width: 60%;
+	}
 
-		html.no-svg & img.nci-logo-IE-xl {
-			display: block;
-		}
+	html.no-svg & img.nci-logo-IE-xl {
+		display: block;
+	}
 
-		a {
-			padding-left: 20px;
-			padding-right: 20px;
-		}
+	a {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 	//}
-	 @include bp(large-down) {
+	@include bp(large-down) {
 		html.no-svg & img.nci-logo-IE-xl {
 			display: none;
 		}
@@ -182,10 +182,11 @@ header {
 		> a,
 		> button {
 			display: inline-block;
+			position: relative;
 			background: transparent no-repeat center 0;
 			width: 13%;
 			padding: 3em 0 0 0;
-			margin: 1em 0;
+			margin: 1em 8%;
 			@include font-montserrat;
 			line-height: 1;
 			font-weight: bold;
@@ -196,6 +197,14 @@ header {
 
 			&:hover, &:focus {
 				color: #fff;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top:0;
+				left: 50%;
+				@include transform(translateX(-50%));
 			}
 		}
 		> button {
@@ -209,62 +218,32 @@ header {
 		}
 	}
 
-  /* mtn updated bkgrnd images to pull from sprite  06-19-17 */
+	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
 	button.nav-header {
-    margin: 0 8% 0 0;
-    position: relative;
+		margin-left: 0;
 
-    &::before {
-  		background: $ncisprite no-repeat scroll -186px -291px;
-  		content: "";
-  		position: absolute;
-  		width: 35px;
-  		height: 40px;
-      margin-right: 8%;
-      top: -3px;
-  		}
+		&::before {
+			@include sprite($x-coordinate: -189px, $y-coordinate: -291px, $width: 35px, $height: 40px);
+		}
 
 	}
 	a.nav-contact {
-    &::before {
-  		background: $ncisprite no-repeat scroll -226px -291px;
-  		content: "";
-  		position: absolute;
-  		width: 35px;
-  		height: 40px;
-      margin-left: 2%;
-      top: 9px;
-  		}
+		&::before {
+			@include sprite($x-coordinate: -226px, $y-coordinate: -291px, $width: 35px, $height: 40px);
+		}
 
 	}
 	a.nav-dictionary {
-    &::before {
-  		background: $ncisprite no-repeat scroll -264px -291px;
-  		content: "";
-  		position: absolute;
-  		width: 45px;
-  		height: 35px;
-      margin-left: 2%;
-      top: 10px;
-  		}
-	}
-	a.nav-contact, a.nav-dictionary {
-		margin-left: 8%;
-		margin-right: 8%;
+		&::before {
+			@include sprite($x-coordinate: -266px, $y-coordinate: -291px, $width: 45px, $height: 35px);
+		}
 	}
 	button.nav-search {
-		margin-left: 8%;
+		margin-right: 0;
 
-    &::before {
-  		background: $ncisprite no-repeat scroll -322px -292px;
-  		content: "";
-  		position: absolute;
-  		width: 30px;
-  		height: 60px;
-      margin-left: 1%;
-      top: 12px;
-  		}
-
+		&::before {
+			@include sprite($x-coordinate: -324px, $y-coordinate: -292px, $width: 30px, $height: 60px);
+		}
 	}
 }
 
@@ -277,29 +256,14 @@ header {
 		}
 	}
 	button.nav-header {
-    margin: 0 4% 0 0;
-    //margin-right: 4%;
-    top: 0px;
+		margin-right: 4%;
 	}
-  a.nav-contact {
-    &::before {
-  		margin-left: 3%;
-  		}
-  }
-  a.nav-dictionary {
-    &::before {
-  		margin-left: 3%;
-  		}
-  }
 	a.nav-contact, a.nav-dictionary {
 		margin-left: 4%;
 		margin-right: 4%;
 	}
 	button.nav-search {
 		margin-left: 4%;
-    &::before {
-    margin-left: 1.5%;
-    }
 	}
 }
 
@@ -311,31 +275,6 @@ header {
 			font-size: 0.5em;
 			padding: 4em 0 0 0;
 		}
-    button.nav-header {
-      margin: 0 4% 0 0;
-      top: 0px;
-      &::before {
-    		background: $ncisprite no-repeat scroll -193px -291px;
-      }
-  	}
-    a.nav-contact {
-      &::before {
-        margin-left: 1%;
-        top: 4px;
-        }
-    }
-    a.nav-dictionary {
-      &::before {
-        margin-left: 1%;
-        top: 5px;
-        }
-    }
-    button.nav-search {
-      &::before {
-  		margin-left: -0.5%;
-      top:  7px;
-      }
-  	}
 	}
 }
 /* end mobile menu styles */
