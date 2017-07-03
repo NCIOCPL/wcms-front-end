@@ -1,13 +1,13 @@
 /********************* BEGIN Header Styles ******************************************/
 // desktop (general)
 header {
-  padding-top: 1.5em;
+	padding-top: 1.5em;
 }
 
 /* Regular pages */
 .nci-logo-pages.columns {
 	padding-left: 0;
-	padding-right: 0; 
+	padding-right: 0;
 }
 .nci-logo-pages a {
 	display: block;
@@ -34,27 +34,27 @@ header {
 		// Fix for Firefox subpixel height rendering -- if >= .5, then move up to next pixel
 		transform: translate(0px, 0.5px);
 	}
-	
+
 	html.no-svg & img[class^="nci-logo-IE"] {
 		display: none;
 	}
 
 	// default; should NOT be in a media query to allow the logo to print properly in IE8
 	//@include bp(xtra-large) {
-		html.svg & img {
-			width: 60%;
-		}
+	html.svg & img {
+		width: 60%;
+	}
 
-		html.no-svg & img.nci-logo-IE-xl {
-			display: block;
-		}
+	html.no-svg & img.nci-logo-IE-xl {
+		display: block;
+	}
 
-		a {
-			padding-left: 20px;
-			padding-right: 20px;
-		}
+	a {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 	//}
-	 @include bp(large-down) {
+	@include bp(large-down) {
 		html.no-svg & img.nci-logo-IE-xl {
 			display: none;
 		}
@@ -100,7 +100,7 @@ header {
 		html.no-svg & img.nci-logo-IE-phon {
 			display: block;
 		}
-		
+
 		a {
 			padding-left: $logo-padding-mobile;
 			padding-right: $logo-padding-mobile;
@@ -182,10 +182,11 @@ header {
 		> a,
 		> button {
 			display: inline-block;
+			position: relative;
 			background: transparent no-repeat center 0;
 			width: 13%;
 			padding: 3em 0 0 0;
-			margin: 1em 0;
+			margin: 1em 8%;
 			@include font-montserrat;
 			line-height: 1;
 			font-weight: bold;
@@ -196,6 +197,14 @@ header {
 
 			&:hover, &:focus {
 				color: #fff;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top:0;
+				left: 50%;
+				@include transform(translateX(-50%));
 			}
 		}
 		> button {
@@ -208,24 +217,33 @@ header {
 			}
 		}
 	}
+
+	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
 	button.nav-header {
-		background-image: image-url($icons + "menu-icon.png");
-		margin-right: 8%;
-		background-position: 49% 14%;
+		margin-left: 0;
+
+		&::before {
+			@include sprite($x-coordinate: -189px, $y-coordinate: -291px, $width: 35px, $height: 40px);
+		}
+
 	}
 	a.nav-contact {
-		background-image: image-url($icons + "contact-mobile.png");
+		&::before {
+			@include sprite($x-coordinate: -226px, $y-coordinate: -291px, $width: 35px, $height: 40px);
+		}
+
 	}
 	a.nav-dictionary {
-		background-image: image-url($icons + "dictionary-mobile.png");
-	}
-	a.nav-contact, a.nav-dictionary {
-		margin-left: 8%;
-		margin-right: 8%;
+		&::before {
+			@include sprite($x-coordinate: -266px, $y-coordinate: -291px, $width: 45px, $height: 35px);
+		}
 	}
 	button.nav-search {
-		background-image: image-url($icons + "search-mobile.png");
-		margin-left: 8%;
+		margin-right: 0;
+
+		&::before {
+			@include sprite($x-coordinate: -324px, $y-coordinate: -292px, $width: 30px, $height: 60px);
+		}
 	}
 }
 
