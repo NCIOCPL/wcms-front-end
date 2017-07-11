@@ -1,0 +1,27 @@
+/*
+    Seed job to create the various jobs needed to build the WCMS front-end.
+*/
+
+def folderName  = 'wcms-front-end'    // Jenkins folder where the jbos will be placed.
+
+def GH_REPO_NAME = 'wcms-front-end'      // The project's repository name (as used in the URL).
+def GH_ORGANIZATION_NAME = 'blairlearn'   // GitHub Organization name (as used in the URL/userid).
+
+
+
+def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
+
+job("${folderName}/_lower/devBuild") {
+    triggers {
+        pollSCM {
+            scmpoll_spec("H 7-19 * * 1-5")
+        }
+    }
+    label('docker && linux') // Require Linux and Docker
+    scm {
+        github(sourceRepository)
+    }
+    steps {
+        shell("./tools/build/build.sh")
+    }
+}
