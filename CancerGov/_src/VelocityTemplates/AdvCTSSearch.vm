@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class="row">
-            <select id="ct-select" class="no-auto-jqueryui" name="ct" style="width:100%">
+            <select id="ct-select" class="no-auto-jqueryui" name="t" style="width:100%">
                 <option value="">All</option>
             </select>
           </div>
