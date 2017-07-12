@@ -8,6 +8,6 @@ echo $PROJECT_HOME
 
 pushd CancerGov
 docker build --file Dockerfile/Dockerfile .
-if [ $? != 0 ]; then echo "Docker build failed."; exit(1); fi
+if [ $? != 0 ]; then echo "Docker build failed."; exit 1; fi
 
 pwd
