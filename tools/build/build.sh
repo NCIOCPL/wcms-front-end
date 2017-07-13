@@ -7,7 +7,8 @@ echo $SCRIPT_PATH
 echo $PROJECT_HOME
 
 pushd CancerGov
-docker build --file Dockerfile/Dockerfile .
+export IMAGE_ID=$(docker build --file Dockerfile/Dockerfile . --quiet)
 if [ $? != 0 ]; then echo "Docker build failed."; exit 1; fi
 
-pwd
+# Delete the image. The artifacts are uploaded as part of the build process.
+docker rmi $IMAGE_ID
