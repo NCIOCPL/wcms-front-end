@@ -21,7 +21,7 @@ module.exports = {
         //                             // 'jquery'
         //                           ],
         //This is the Babel polyfill module that includes all the es2015 polyfills.
-        //"Babel-Polyfill":         'babel-polyfill',
+        "Babel-Polyfill":         'babel-polyfill',
         Common:                   ['modernizr','./UX/Common/Common'],
         ContentPage:              './UX/Common/ContentPage',
         CTHPPage:                 './UX/PageSpecific/CTHP/CTHPPage',
