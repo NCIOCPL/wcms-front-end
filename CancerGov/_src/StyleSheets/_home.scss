@@ -475,7 +475,7 @@ a.arrow-link {
 		}
 
 	&:hover::before {
-		background-image: $ncisprite no-repeat scroll;
+		background: $ncisprite no-repeat scroll;
 		background-position: -379px -215px;
   	}
 	}
