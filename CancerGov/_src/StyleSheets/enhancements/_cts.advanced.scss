@@ -1,0 +1,356 @@
+#form--cts-advanced {
+  fieldset {
+    border:1px solid #bdbdc2;
+    border-radius: 4px;
+    padding: 1em;
+
+    fieldset {
+      border: none;
+      background: none;
+    }
+    //Dion here are the styles for the blue background header. the width %s are just a hack, technically the
+    //background color should be a part of the fieldset
+    //Meisha - legend elements have been removed for now and these styles are not currently being used.
+    legend {
+      font-size: 100%;
+      background-color: #2a72a5;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-top: 5px solid #2a72a5;
+      color: #606060;
+      float: left;
+      font-family: Montserrat,Arial,sans-serif;
+      font-size: 1.25em;
+      margin: -17px 0 18px -17px;
+      padding: 0 18px 8px;
+      width: 105.6%;
+      //a bit of some breakpoint tweaking...
+      @include bp(xtra-large){
+        width: 104.5%;
+      }
+      @include bp(medium){
+        width: 104.7%;
+      }
+      @include bp(small){
+        width: 106.5%;
+      }
+       + * {
+         clear: both;
+       }
+    }
+    //added the h4 for override purposes
+    h4 {
+      color: #fff;
+      margin-top: 0.5em;
+
+      .text-icon-help, .main-content .text-icon-help {
+        margin-top: -3px;
+      }
+
+    }
+    .fieldset-disabled span.ui-state-disabled {
+      background-color: #9e9e9e;
+    }
+  }
+  #legend--age, #legend--Keyword {
+    width: 112.3%;
+  }
+
+  @include bp(medium){
+    #legend--age, #legend--Keyword {
+      width: 107.8%;
+    }
+  }
+  @include bp(small){
+    #legend--age, #legend--Keyword {
+      width: 106.5%;
+    }
+  }
+
+  .module-title {
+	font-size: 1.25em;
+	padding-top: 0.25em;
+  }
+
+  legend {
+
+  }
+  select {
+    width: 100%;
+  }
+  .dashed {
+    border-style: dashed;
+  }
+
+  .two-columns {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+          padding: 10px;
+          column-gap: 40px;
+  }
+
+  #fieldset--location {
+    fieldset:not(last-child) {
+	  border-bottom: 1px dashed #bdbdc2;
+	  border-radius: 0;
+	}
+  }
+
+  #a {
+    width: 50%;
+  }
+
+  #z, #zp, #lcnty, #lst {
+	width: 100%;
+  }
+
+  #zp {
+	display: block;
+  }
+
+  .trial-phase {
+	display: inline-block;
+  }
+}
+.select2 {
+  .select2-selection--multiple,
+  .select2-selection--single
+  {
+    ul > li:before {
+      content:'';
+      display:none;
+    }
+  }
+
+//  .select2-search__field:not([placeholder = '']) {
+//    width: 100%!important;
+//  }
+//override for contentzone li styling in nvcg.sas
+}
+.contentzone li, .rawHtml li {
+  margin-bottom: 0.5em;
+  margin-left: 5px;
+  margin-top: 0;
+}
+
+// Styling for API reference box
+.api-ref-advanced {
+    position: static;
+    .row {
+        padding-left: 10px;
+    }
+}
+
+/********
+Override the select2 styles for the Primary Type dropdown.
+These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
+********/
+
+// Draw the blue dropdown arrow.
+#fieldset--type .select2-selection--single .select2-selection__arrow {
+    background: #2b7bba url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat scroll -378.5px -172px;
+    border-bottom-right-radius: 4px;
+    border-color: currentcolor currentcolor currentcolor #bdbdc2;
+    border-style: none none none solid;
+    border-top-right-radius: 4px;
+    border-width: medium medium medium 1px;
+    height: 32px;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    width: 32px;
+}
+
+
+// Fix transparency on the dropdown arrow.
+#fieldset--type b {
+    border-color: transparent transparent transparent;
+}
+
+// Override the "selected" background color for dropdowns.
+// The default is set in \vendor\select2\theme\classic\_defaults.scss: $results-choice-bg-hover-color.
+.select2-results__option--highlighted[aria-selected] {
+    background-color: $navyblue !important;
+}
+
+//added dashed border around selected items
+.drug-select-dropdown .select2-results__option, .trtmnt-select-dropdown .select2-results__option  {
+  border-bottom: 1px dashed #979797;
+}
+
+// To override dropdown styles, the "theme: 'classic'" option had to be removed from BasicCTSAdvSearchFormSetup.js (this
+// was overriding the CSS. Once the '.select2-container--classic' selectors were removed from the CSS below, the changes appeared.
+// See https://github.com/techhysahil/Select2-Flat-UI/blob/master/Overide.css
+#fieldset--type .select2-container--default .select2-selection--single {
+    background-color: #e6e6e6;
+    border: 1px solid #d3d3d3;
+    color: #2e2e2e;
+    outline: 0 none;
+}
+#fieldset--type .select2-container--default .select2-selection--single .select2-selection__rendered {
+    background: #e6e6e6 url("/publishedcontent/images/images/jquery/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
+    border-radius: 4px;
+    line-height: 32px;
+}
+#fieldset--type .select2-container .select2-selection--single {
+    height: 34px;
+}
+
+//draw select-2-selecton--single hover state?
+    //background: #dadada url("/publishedcontent/images/images/jquery/ui-bg_glass_75_dadada_1x400.png") repeat-x scroll 50% 50%;
+    //border: 1px solid #999999;
+    //color: #212121;
+    //font-weight: normal;
+
+//default input height override
+#fieldset--type .select2-container .select2-selection--multiple
+{
+  height: auto;
+  min-height: 2.4375em;
+  height: auto !important;        /* for IE as it does not support min-height */
+  height: 2.4375em;                   /* for IE as it does not support min-height */
+}
+#fieldset--type .select2-container--default .select2-selection--multiple .select2-selection__rendered
+{
+  margin-bottom: -15px;
+}
+
+//input border and bgcolor override
+#fieldset--type .select2-container--default .select2-selection--multiple
+{
+  background-color: #f2f2f2;
+  border-radius: 1px;
+}
+
+//input disabled-field override
+#fieldset--type .select2-container--default.select2-container--disabled .select2-selection--multiple
+{
+border-radius: 1px;
+background-color: #ddd;
+}
+
+//placeholder text alignment
+#fieldset--type .select2-container .select2-search--inline .select2-search__field
+{
+  margin-top: 0px;
+}
+
+//search button alignment
+.clinical-trials-search-form .submit.button {
+    display: block;
+    margin: 30px auto 10px;
+}
+
+//cts api search box alignment override
+.api-reference-section {
+  margin-left: -3px;
+}
+@media only screen and (min-width: 1025px) {
+	.api-reference-section {
+			padding-left: 0;
+	}
+}
+/********
+Set Styles for Drug Selection
+*********/
+
+.drug-item-wrap, .trtmnt-item-wrap {
+  font-size: .875em;
+  color: #606060;
+  padding: 0 20px 0 17.5px;
+
+  .select2-results__option--highlighted & {
+    color: #fff;
+  }
+
+  .drug-item, .trtmnt-item {
+    padding: 10px 0 10px 0;
+
+    .preferred-name {
+      font-weight: bold;
+    }
+  }
+}
+
+/********
+Create temporary styles for demo Delighter SVGs
+********/
+.delighter-rail-svg {
+    padding: 0px;
+
+}
+.delighter-svg {
+    margin: 20px 0px 20px 60px;
+    img {
+        width: 180px;
+    }
+
+}
+// Mobile styles
+@include bp(medium-down){
+    .delighter-rail-svg {
+        text-align: center;
+        padding: 20px;
+        img {
+           vertical-align: text-top;
+        }
+    }
+    .delighter-svg {
+        margin: 15px;
+        display: inline;
+    }
+}
+
+/********
+Create styles for fieldsets
+********/
+#form--cts-advanced {
+  fieldset {
+    background-color: white;
+    padding: 0px!important;
+    .adv-fieldset-header {
+        padding: 8px 16px;
+        background-color: #2a72a5;
+        h4 {
+            font-size: 1.25em;
+            margin: 0;
+            .text-icon-help {
+                font-size: 0.75em;
+                margin-top: 1px;
+            }
+        }
+    }
+    .adv-fieldset-body {
+        padding: 16px;
+        background-color: white;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+  }
+  // Spacing issues on Location fieldsets
+  #fieldset--location{
+    label, fieldset, #fieldset--hospital input {
+        margin-top: 6px;
+        margin-bottom: 12px;
+    }
+    .row .state-input, .row .z-input, .row .country-input {
+        padding-left: 0px;
+    }
+  }
+}
+
+// Spacing issues between Age & Keyword/Phrases fieldsets
+@include bp(medium){
+  #fieldset--age.large-6 {
+    width: 48%;
+  }
+}
+
+//cooler checkbox override
+html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before{
+  background: #ffffff url("/publishedcontent/Images/images/design-elements/icons/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
+  color: #2a72a5;
+  content:"";
+  border-color: #2a72a5;
+}
