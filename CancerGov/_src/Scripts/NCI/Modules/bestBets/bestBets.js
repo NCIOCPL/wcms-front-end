@@ -10,6 +10,8 @@ define(function (require) {
 	// var publicVar = 'example',
 	//    _privateVar = 'example',
 	var _initialized = false;
+	
+	var lang = $('html').attr('lang') || 'en'; // set the language
 
 
 	// Intended as a public function
@@ -35,7 +37,6 @@ define(function (require) {
 
 	// get the full definition from the dictionary service
 	var _getDefinition = function (term) {
-		var language = $('html').attr('lang') === 'es' ? 'Spanish' : 'English';
 		return DictionaryService.search('term', _fetchTerm(), language);
 	};
 
@@ -52,7 +53,7 @@ define(function (require) {
 			pronunciation = obj.pronunciation.key;
 		}
 		// toggle controls whether to show first sentence or full definition in mobile
-		var toggle = '<div id="best-bets-toggle"><a href="#"><span id="definition-arrow"></span><span id="definitionShowHide">Show</span> full definition</a></div>';
+		var toggle = '<div id="best-bets-toggle"><a href="#"><span id="definition-arrow"></span><span id="definitionShowHide">' + config.lang.Show[lang] + '</span> ' + config.lang.Definition_Show_Full[lang] + '</a></div>';
 	
 		var definition = obj.definition.html;
 		// break the definition into first sentence and rest for display in mobile
@@ -75,7 +76,7 @@ define(function (require) {
 		console.log("definitionEnd is:" + definitionEnd);
 		
 		// the box takes all the components and puts them together in the defintion box
-		var box = '<div id="best-bet-definition"><h2>Definition:</h2><dl>' + term + '<dd>' + audio + pronunciation + ' </dd><dd>' + definitionStart + definitionEnd + moreInfo() + '</dd></dl>'  + toggle + ' </div><div id="dictionary_jPlayer"></div>';
+		var box = '<div id="best-bet-definition"><h2>' + config.lang.Definition_Title[lang] + ':</h2><dl>' + term + '<dd>' + audio + pronunciation + ' </dd><dd>' + definitionStart + definitionEnd + moreInfo() + '</dd></dl>'  + toggle + ' </div><div id="dictionary_jPlayer"></div>';
 		
 		// html rules for within best bets
 		if ($('.featured.sitewide-results')[0]) {
@@ -96,12 +97,12 @@ define(function (require) {
 			if ($this.is('.expanded')) {
 				$('#definitionEnd').hide(250);
 				$this.removeClass('expanded');
-				$('#definitionShowHide').text('Show');
+				$('#definitionShowHide').text(config.lang.Show[lang]);
 				
 			} else {
 				$('#definitionEnd').show(250);
 				$this.addClass('expanded');
-				$('#definitionShowHide').text('Hide');
+				$('#definitionShowHide').text(config.lang.Hide[lang]);
 			}
 		});
 		
@@ -114,8 +115,6 @@ define(function (require) {
 					console.log("we are bigger than mobile");
 					$('#definitionEnd').show();
 					$("#best-bets-toggle a").removeClass('expanded');
-					areWeExpanded = "ok";
-					console.log(areWeExpanded);
 				}
 				if (windowWidth < config.breakpoints.medium) {
 					console.log("we are smaller than tablet");
@@ -123,10 +122,7 @@ define(function (require) {
 					$('#definitionEnd').hide();
 					$('#definitionShowHide').text('Show');
 					$("#best-bets-toggle a").removeClass('expanded');
-					areWeExpanded = "no";
-					console.log(areWeExpanded);
 				}
-				return areWeExpanded;
 			});
 
 
@@ -152,7 +148,12 @@ define(function (require) {
 		function moreInfo() {
 			// issue, some objects don't exist for some definitons, produces an error. I answered by checking for existance and then length
 			if ((obj.videos && obj.videos.length > 0) || (obj.images && obj.images.length > 0) || (obj.related_drug_summary && obj.related.drug_summary.length > 0) || (obj.related.external && obj.related.external.length > 0) || (obj.related.summary && obj.related.summary.length > 0) || (obj.related.term && obj.related.term.length > 0)) {
-				return '<p><a href="https://www.cancer.gov/publications/dictionaries/cancer-terms?CdrID=' + obj.id + '">More information on dictionary page</a></p>';
+				if (lang === "es") {
+					return '<p id="moreInfo"><a href="https://www.cancer.gov/espanol/publicaciones/diccionario?CdrID=' + obj.id + '">' + config.lang.Dictionary_More_Information[lang] + '</a></p>';
+				}
+				else {
+					return '<p id="moreInfo"><a href="https://www.cancer.gov/publications/dictionaries/cancer-terms?CdrID=' + obj.id + '">' + config.lang.Dictionary_More_Information[lang] + '</a></p>';
+				}
 			} else {
 				return '';
 			}
