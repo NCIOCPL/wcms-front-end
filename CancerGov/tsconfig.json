@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "outDir": "./built",
+        //Allows a mix of JS and TS
+        "allowJs": true,
+        //Module Resolution == node allows us to use the index.ts files to export select items from a folder
+        "moduleResolution": "node",
+        //This is the version of Javascript we want to target
+        "target": "es2015",
+        //These are helper Type definitions
+        "lib": [
+            "dom",
+            "es2015",
+            "es2015.promise"
+        ]
+    },
+    "awesomeTypescriptLoaderOptions": {
+        //After TSC has run, hand the resulting JS over to Babel
+        "useBabel": true
+    },
+    //Where might we find TS and JS files?
+    "include": [
+        "./_src/Scripts/NCI/**/*"
+    ]
+}
