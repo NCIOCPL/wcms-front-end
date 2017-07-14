@@ -13,8 +13,6 @@
 		<a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
 		</h4>
       </div>
-	  #### FOR DEMO PURPOSES - commenting out all of the <legend> elements for now and replacing them with header divs. Also wrapping the fieldset bodies
-    #### in their own div so that we can style the header correctly.
       <div class="adv-fieldset-body">
           <div class="row">
             <div>
@@ -23,7 +21,7 @@
           </div>
           <div class="row">
             <select id="ct-select" class="no-auto-jqueryui" name="ct" style="width:97%">
-                <option value="">All</option>
+                <option value=""><i>In development - cancer type dropdown disabled</i></option>
             </select>
           </div>
           <div class="row">
@@ -32,7 +30,7 @@
             </div>
           </div>
           <div class="row">
-            <select id="st-multiselect" name="st" multiple data-placeholder="Select a sub-type" placeholder="Select cancer type first" style="width:97%"></select>
+            <select id="st-multiselect" name="st" multiple data-placeholder="In development - subtypes disabled" placeholder="Select cancer type first" style="width:97%"></select>
           </div>
           <div class="row">
             <div>
@@ -40,7 +38,7 @@
             </div>
           </div>
           <div class="row">
-            <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+            <select id="stg-multiselect" name="stg" multiple data-placeholder="In development - stages disabled" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
           </div>
           <div class="row">
             <div>
@@ -48,7 +46,7 @@
             </div>
           </div>
           <div class="row">
-            <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+            <select id="fin-multiselect" name="fin" multiple data-placeholder="In development - findings disabled" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
           </div>
       </div>
     </fieldset>
@@ -202,7 +200,7 @@
                 <fieldset id="fieldset--hospital">
                     <div class="radio">
                         <input id="hospital" name="loc" value="hospital" type="radio"><label for="hospital">Hospitals/Institutions</label>
-                        <input id="hos" name="hos" class="search-input" aria-autocomplete="list" autocomplete="off" aria-label="Start typing the hospital or institution you are looking for" placeholder="Start typing the hospital or institution you are looking for" type="text">
+                        <input id="hos" name="hos" class="search-input" aria-autocomplete="list" autocomplete="off" aria-label="In development - institution autosuggest disabled" placeholder="Start typing the hospital or institution you are looking for" type="text">
                     </div>
                 </fieldset>
                 <fieldset id="fieldset--nih">
@@ -269,7 +267,7 @@
       	</div>
       </div>
       <div class="row">
-        <select id="dr-multiselect" name="d" multiple data-placeholder="Start typing the drug you are looking for" placeholder="Start typing the drug you are looking for"></select>
+        <select id="dr-multiselect" name="d" multiple data-placeholder="In development - drug autosuggest disabled" placeholder="Start typing the drug you are looking for"></select>
       </div>
 			<div class="row">
 	        <div>
@@ -277,7 +275,7 @@
 	        </div>
 	      </div>
 		  <div class="row">
-		    <select id="ti-multiselect" name="i" multiple data-placeholder="Start typing the treatment/intervention you are looking for" placeholder="Start typing the treatment/intervention you are looking for"></select>
+		    <select id="ti-multiselect" name="i" multiple data-placeholder="In development - institution autosuggest disabled" placeholder="Start typing the treatment/intervention you are looking for"></select>
 		  </div>
         </div>
     </fieldset>
