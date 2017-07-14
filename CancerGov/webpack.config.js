@@ -33,7 +33,6 @@ module.exports = {
         BasicCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
         BasicCTSViewPage:         './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
         BasicCTSPrintPage:        './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
-        BasicCTSAdvSearchPage:    './UX/AppModuleSpecific/BasicCTS/AdvSearch/BasicCTSAdvSearchPage',
         CTListingPage:            './UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage',
         BlogPostPage:             './UX/PageSpecific/BlogPost/BlogPostPage',
         BlogSeriesPage:           './UX/PageSpecific/BlogSeries/BlogSeriesPage'
@@ -54,7 +53,6 @@ module.exports = {
             BasicCTSSearch: 'UX/AppModuleSpecific/BasicCTS/Search',
             BasicCTSView: 'UX/AppModuleSpecific/BasicCTS/View',
             BasicCTS: 'UX/AppModuleSpecific/BasicCTS',
-            BasicCTSAdvSearch: 'UX/AppModuleSpecific/BasicCTS/AdvSearch',
             Patches: 'Patches',
             Modules: 'Modules',
 
