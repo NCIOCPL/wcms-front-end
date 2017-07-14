@@ -104,8 +104,47 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
   #if(($SearchResults.Control.Gender == "Female") || ($SearchResults.Control.Gender == "Male"))
     $plist.Add("gender")
   #end
-  #if($SearchResults.Control.GetSearchForAllTrials == true)
-    $plist.Add("all trials")
+  #if($SearchResults.Control.SearchParams.Country != "")
+    $plist.Add("country")
+  #end
+  #if($SearchResults.Control.SearchParams.City != "")
+    $plist.Add("city")
+  #end
+  #if($SearchResults.Control.SearchParams.State != "")
+    $plist.Add("state")
+  #end
+  #if($SearchResults.Control.SearchParams.HospitalOrInstitution != "")
+    $plist.Add("hospital or institution")
+  #end
+  #if($SearchResults.Control.SearchParams.AtNIH_IsSet)
+    $plist.Add("at nih")
+  #end
+  #if($SearchResults.Control.SearchParams.TrialType != "")
+    $plist.Add("trial type")
+  #end
+  #if($SearchResults.Control.SearchParams.DrugIDsString != "")
+    $plist.Add("drug id")
+  #end
+  #if($SearchResults.Control.SearchParams.DrugName != "")
+    $plist.Add("drug name")
+  #end
+  #if($SearchResults.Control.SearchParams.TreatmentInterventionCodeString != "")
+    $plist.Add("treatment intervention code")
+  #end
+  #if($SearchResults.Control.SearchParams.TreatmentInterventionTerm != "")
+    $plist.Add("treatment intervention term")
+  #end
+  #if($SearchResults.Control.SearchParams.TrialPhase != "")
+    $plist.Add("trial phase")
+  #end
+  #if($SearchResults.Control.SearchParams.NewTrialsOnly_IsSet)
+    $plist.Add("new trials only")
+  #end
+  #if($SearchResults.Control.SearchParams.PrincipalInvestigator != "")
+    $plist.Add("principal investigator")
+  #end
+  #if($SearchResults.Control.SearchParams.LeadOrganization != "")
+    $plist.Add("lead organization")
   #end
 
 #foreach($param in $plist)##
@@ -124,8 +163,34 @@ within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP: "<span data-b
 Age: "<span data-basiccts-searchparam='a'>$SearchResults.Control.SearchParams.Age</span>"##
 #elseif($param == "gender")##
 Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams.Gender</span>"##
-#elseif($param == "all trials")##
-"all trials"##
+#elseif($param == "country")##
+Country: $SearchResults.Control.SearchParams.Country##
+#elseif($param == "city")##
+City: $SearchResults.Control.SearchParams.City##
+#elseif($param == "state")##
+State: $SearchResults.Control.SearchParams.State##
+#elseif($param == "hospital or institution")##
+Hospital/Institution: $SearchResults.Control.SearchParams.HospitalOrInstitution##
+#elseif($param == "at nih")##
+At NIH: $SearchResults.Control.SearchParams.AtNIH##
+#elseif($param == "trial type")##
+Trial Type: $SearchResults.Control.SearchParams.TrialType##
+#elseif($param == "drug id")##
+Drug ID: $SearchResults.Control.SearchParams.DrugIDsString##
+#elseif($param == "drug name")##
+Drug Name: $SearchResults.Control.SearchParams.DrugName##
+#elseif($param == "treatment intervention code")##
+Treatment/Intervention Code: $SearchResults.Control.SearchParams.TreatmentInterventionCodeString##
+#elseif($param == "treatment intervention term")##
+Treatment/Intervention Term: $SearchResults.Control.SearchParams.TreatmentInterventionTerm##
+#elseif($param == "trial phase")##
+Trial Phase: $SearchResults.Control.SearchParams.TrialPhase##
+#elseif($param == "new trials only")##
+New Trials Only: $SearchResults.Control.SearchParams.NewTrialsOnly##
+#elseif($param == "principal investigator")##
+Principal Investigator: $SearchResults.Control.SearchParams.PrincipalInvestigator##
+#elseif($param == "lead organization")##
+Lead Organization: $SearchResults.Control.SearchParams.LeadOrganization##
 #else##
 ## do nothing
 #end##
@@ -167,23 +232,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
 
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
-    <div class="delighter cts-livehelp">
-    	<h4 id="ui-id-2">Have a question?</h4>
-    	<p>We're here to help</p><hr>
-    	<p class="chat-with-us">
-    		<a href="/contact">Chat with us: <img alt="LiveHelp" src="/publishedcontent/images/images/design-elements/background-graphics/live-help-logo.svg" class="live-help-button"></a>
-    	</p>
-    	<p>Call us:
-    	  <span>1-800-4-CANCER</span>
-    	</p>
-    	<p><span>(1-800-422-6237)</span></p>
-    </div>
-    <a href="/about-cancer/treatment/clinical-trials/search/trial-guide">
-      <div class="delighter cts-next-step">
-        <h4>I’ve found a trial—what’s my next step?</h4>
-        <hr/>
-        <p>Refer to our guide on how to join a treatment trial.</p>
-      </div>
-    </a>
+  	<!--(bake LiveHelpDelighter.inc)-->
+	<!--(bake NextStepDelighter.inc)-->
   </div>
 </div>
