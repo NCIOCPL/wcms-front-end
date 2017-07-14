@@ -20,6 +20,8 @@ module.exports = {
         //                             // 'jquery-ui',
         //                             // 'jquery'
         //                           ],
+        //This is the Babel polyfill module that includes all the es2015 polyfills.
+        "Babel-Polyfill":         'babel-polyfill',
         Common:                   ['modernizr','./UX/Common/Common'],
         ContentPage:              './UX/Common/ContentPage',
         CTHPPage:                 './UX/PageSpecific/CTHP/CTHPPage',
@@ -66,7 +68,8 @@ module.exports = {
             'jquery/megamenu$': 'Vendor/jquery-accessibleMegaMenu'
             //throttle: 'throttle-debounce/throttle'
 
-        }
+        },
+        extensions: [".ts", ".tsx", ".js"]
     },
     externals: {
         jquery: 'jQuery',
@@ -76,7 +79,10 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
+            //The loader below passes off any required/imported .ts files off to the the typescript loader,
+            //this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
             { test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" }
         ]
@@ -89,11 +95,6 @@ module.exports = {
         new webpack.ProvidePlugin({
             Modernizr: "modernizr"
         }),
-        //new webpack.optimize.OccurenceOrderPlugin(),
-        //new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-        // new webpack.optimize.UglifyJsPlugin({ mangle: {except: ['$super', '$', 'exports', 'require']}, sourcemap: false }),
-        //new webpack.optimize.CommonsChunkPlugin({name:'Vendor',filename:'Common.js'}),
         new webpack.optimize.CommonsChunkPlugin({name:'BasicCTSCommon',chunks: ["BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"]})
-        //new BundleAnalyzerPlugin({analyzerMode: 'static'})
     ]
 };
