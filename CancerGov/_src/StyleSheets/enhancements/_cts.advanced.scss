@@ -48,8 +48,9 @@
       }
 
     }
-    .fieldset-disabled span.ui-state-disabled {
-      background-color: #9e9e9e;
+    .fieldset-disabled span.ui-state-disabled, .fieldset-disabled span.ui-radius-disabled {
+      //background-color: #9e9e9e;
+      //opacity: 0.45;
     }
   }
   #legend--age, #legend--Keyword {
@@ -228,6 +229,7 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
 {
 border-radius: 1px;
 background-color: #ddd;
+opacity: 0.45;
 }
 
 //placeholder text alignment
@@ -359,4 +361,11 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
 //spacing issues in location fieldset
 form .row .row .column, form .row .row .columns {
   padding: 0.25em 0.9375em .5em 0;
+}
+
+.fieldset-disabled .row, #hos input[disabled] {
+  opacity: 0.45;
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+  opacity: 1;
 }

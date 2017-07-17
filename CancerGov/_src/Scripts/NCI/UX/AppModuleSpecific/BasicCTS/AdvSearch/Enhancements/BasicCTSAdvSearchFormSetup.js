@@ -18,14 +18,14 @@ define(function(require) {
 			'in_review',
 			'temporarily_closed_to_accrual'
 		];
-        
-        // Create jQuery selector vars for 
+
+        // Create jQuery selector vars for
 		var $primaryCancer = $('.adv-search #ct-select');
 		var $subtypeCancer = $('.adv-search #st-multiselect');
 		var $stageCancer = $('.adv-search #stg-multiselect');
 		var $findings = $('.adv-search #fin-multiselect');
-        
-        
+
+
         // Disable subtype/stage/findings
 		$subtypeCancer.select2({
 			disabled: true,
@@ -40,24 +40,24 @@ define(function(require) {
 			placeholder: 'In development - findings cannot be selected'
 		})
 
-        
+
 		// Disable autosuggest for Hospital/Institution module
 		var $hospital = $('.adv-search #hos');
 		hAutocomplete($hospital, 'sites.org_name', activeTrialStatuses);
-        
+
 		// Disable autosuggest for Treatment Type/Intervention module
 		var $treatmentType = $('.adv-search #ti');
 		sAutocomplete($treatmentType, '_interventions.nondrugs', 'i', activeTrialStatuses);
-        
+
 		// Disable autosuggest for Trial Investigators module
 		var $trialInvestigators = $('.adv-search #in');
 		hAutocomplete($trialInvestigators, 'principal_investigator', activeTrialStatuses);
-        
+
 		// Disable autosuggest for Lead Organization module
 		var $leadOrg = $('.adv-search #lo');
 		hAutocomplete($leadOrg, 'lead_org', activeTrialStatuses);
-        
-        // Select2 for drugs 
+
+        // Select2 for drugs
 		var $drugWrap = $('<div class="drug-select-dropdown">');
 		$drugWrap.appendTo($('body'));
 		var $drugSelect = $("#dr-multiselect");
@@ -67,7 +67,7 @@ define(function(require) {
             placeholder: 'In development - drug autosuggest turned off'
         });
 
-        // Select2 for other treatment        
+        // Select2 for other treatment
 		var $trtmntWrap = $('<div class="trtmnt-select-dropdown">');
 		$trtmntWrap.appendTo($('body'));
 		var $trtmntSelect = $("#ti-multiselect");
@@ -76,7 +76,7 @@ define(function(require) {
             theme: "classic",
             placeholder: 'In development - treatment autosuggest turned off'
         });
-        
+
         // Activate / deactivate location fields
         selectLocFieldset();
     }
@@ -115,7 +115,7 @@ define(function(require) {
 	function hAutocomplete(module, fieldName, trialStatuses){
         // Do nothing
 	}
-    
+
 	/**
 	 * Identifies if this enhancement has been initialized or not.
 	 * @type {Boolean}
