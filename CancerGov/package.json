@@ -11,6 +11,7 @@
   },
   "engineStrict": "true",
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.1",
     "brite": "^1.1.6",
@@ -22,9 +23,9 @@
     "modernizr": "^3.3.1",
     "morgan": "^1.8.0",
     "scriptjs": "^2.5.8",
+    "select2": "^4.0.3",
     "spin.js": "^2.3.2",
-    "throttle-debounce": "^1.0.1",
-    "select2": "^4.0.3"
+    "throttle-debounce": "^1.0.1"
   },
   "devDependencies": {
     "@types/chai": "^4.0.1",
@@ -66,6 +67,7 @@
     "phantomjs-prebuilt": "^2.1.14",
     "request": "^2.81.0",
     "sinon": "^2.3.6",
+    "typemoq": "^1.7.0",
     "typescript": "^2.4.1",
     "url": "^0.11.0",
     "webpack": "^3.2.0",
