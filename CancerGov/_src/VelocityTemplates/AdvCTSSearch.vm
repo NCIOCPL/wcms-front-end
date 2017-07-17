@@ -17,7 +17,7 @@
             <div class="adv-fieldset-body">
                 <div class="row">
                     <div>You must first select a cancer type. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
-                </div>          
+                </div>
                 <div class="row">
                     <div>
                     Primary Type/Condition
@@ -119,9 +119,9 @@
                                 <label for="z">U.S. ZIP Code: </label>
                                 <input type="text" id="z" name="z" maxlength="5">
                             </div>
-                            <div class="zp-input large-6 columns gutter">
+                            <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>
-                                <select id="zp" name="zp">
+                                <select id="zp" name="zp" class="fullwidth">
                                     <option value="25">25 miles</option>
                                     <option value="50">50 miles</option>
                                     <option selected="selected" value="100">100 miles</option>

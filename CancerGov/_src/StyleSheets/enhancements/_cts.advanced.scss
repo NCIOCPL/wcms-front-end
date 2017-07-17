@@ -330,17 +330,13 @@ Create styles for fieldsets
   }
   // Spacing issues on Location fieldsets
   #fieldset--location {
+
     label, fieldset, #fieldset--hospital input {
         margin-top: 6px;
         margin-bottom: 12px;
     }
     .row .state-input, .row .z-input, .row .country-input {
         padding-left: 0px;
-    }
-  }
-  #fieldset-ccs {
-     form .row .row .column, form .row .row .columns {
-       padding: .5em 0.9375em 1em 0;
     }
   }
 }
@@ -358,4 +354,9 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   color: #2a72a5;
   content:"";
   border-color: #2a72a5;
+}
+
+//spacing issues in location fieldset
+form .row .row .column, form .row .row .columns {
+  padding: 0.25em 0.9375em .5em 0;
 }
