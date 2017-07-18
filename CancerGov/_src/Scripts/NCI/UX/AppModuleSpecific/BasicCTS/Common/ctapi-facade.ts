@@ -26,7 +26,7 @@ export class CTAPIFacade {
     /**
      * Gets a list of countries for populating the Countries dropdown
      */
-    getCountries():Promise<string[]> {
+    getCountries():Promise<string[]> { 
         return this.svc.getTerms(
             "sites.org_country",
             { 
@@ -34,6 +34,22 @@ export class CTAPIFacade {
                 current_trial_status: VIEWABLE_TRIALS
             },
             100
+        ).then((res:TermResults) => {
+            return res.terms.map(term => term.termKey)
+        })
+    }
+
+    /**
+     * Gets lead orgs to populate the Lead Organization field
+     */
+    searchLeadOrg():Promise<string[]> { 
+        return this.svc.getTerms(
+            "lead_org",
+            { 
+                sort: "term",
+                current_trial_status: VIEWABLE_TRIALS
+            },
+            10
         ).then((res:TermResults) => {
             return res.terms.map(term => term.termKey)
         })

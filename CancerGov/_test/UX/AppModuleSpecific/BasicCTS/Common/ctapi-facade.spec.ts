@@ -14,6 +14,7 @@ const VIEWABLE_TRIALS:string[] = [
 ];
 
 const COUNTRY_KEY:string = "sites.org_country";
+const LEAD_ORG_KEY:string = "lead_org";
 
 /**
  * Mock Service for tests
@@ -148,4 +149,35 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
         });
 
     });
+    
+    describe('searchLeadOrgs', () => {
+
+        it('should make the correct request to the ClinicalTrialsService', () => {
+
+            let res:TermResults = new TermResults();
+            res.total = 0;
+            res.terms = [];            
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+                (termType: string, additionalParams?:any, size?:number, from?:number) => {
+                    //Callback for assetions.
+                    expect(termType).to.be.eq(LEAD_ORG_KEY);
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.be.deep.eq({
+                        sort: 'term',
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                    expect(from).to.be.undefined;
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            let countries:Promise<string[]> = facade.getCountries();
+            // Actuallly return something
+        });
+
+    });
+
 });
