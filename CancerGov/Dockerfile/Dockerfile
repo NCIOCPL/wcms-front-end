@@ -21,15 +21,14 @@ RUN npm install -g grunt
 RUN mkdir /tmp/content-build
 ADD package.json /tmp/content-build
 RUN cd /tmp/content-build \
-    && npm install
+    && npm install \
+    && mkdir /content-build \
+    && mv /tmp/content-build/node_modules /content-build
 
 
 # Copy in the source files.
 WORKDIR /content-build
 ADD . /content-build
-
-# Copy the results of the npm install step above
-RUN cp -a /tmp/content-build/node_modules /content-build
 
 # Create non-root user
 RUN useradd --no-log-init builduser \
@@ -38,3 +37,15 @@ USER builduser
 
 # Do the build
 RUN grunt build 
+
+# The existence of ARG directives impacts the ability to cache the intermediate
+# images associated with any subsequent RUN directive.  For this reason, it's best
+# to avoid declaring them until they're needed.
+ARG GH_ORGANIZATION_NAME
+ARG GH_REPO_NAME
+ARG BUILD_TAG
+ARG GITHUB_TOKEN
+
+# Clean up old version (if any exists).
+RUN github-release delete --user blairlearn --repo wcms-front-end --tag ${BUILD_TAG} || echo Nothing to delete.
+RUN github-release release --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${BUILD_TAG} --name ${BUILD_TAG}
