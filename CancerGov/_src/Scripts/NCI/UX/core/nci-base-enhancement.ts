@@ -12,7 +12,9 @@ export abstract class NCIBaseEnhancement {
     /**
      * Base constructor must be called in derrived class.
      */
-    constructor() {}
+    constructor() {
+        this.isInitialized = false;
+    }
 
     /**
      * Abstract method defining code to run for initialization

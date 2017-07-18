@@ -99,6 +99,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
 
             let countries:Promise<string[]> = facade.getCountries();
+            // Actuallly return something
         });
 
         it('should return the correct results based on response', () => {
