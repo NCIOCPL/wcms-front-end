@@ -48,5 +48,8 @@
     "url": "^0.11.0",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.3.1"
+  },
+  "scripts": {
+    "build-release" : "npm install && grunt build:prod"
   }
 }
