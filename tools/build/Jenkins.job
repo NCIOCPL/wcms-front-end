@@ -22,6 +22,10 @@ job("${folderName}/_lower/devBuild") {
         github(sourceRepository)
     }
     steps {
+        /*
+             Need to check out a specific branch before firing off the build.
+             Pass in as environment variable so it can edited in the Jenkins UI.
+        */
         shell("./tools/build/build.sh")
     }
 }
