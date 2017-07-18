@@ -28,8 +28,9 @@ export class CTAPIFacade {
      */
     getCountries():Promise<string[]> {
         return this.svc.getTerms(
-            "site.org_country",
+            "sites.org_country",
             { 
+                sort: "term",
                 current_trial_status: VIEWABLE_TRIALS
             },
             100
