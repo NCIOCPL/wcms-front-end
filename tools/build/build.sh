@@ -16,6 +16,11 @@ export SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PROJECT_HOME="$(cd $SCRIPT_PATH/../.. && pwd)"
 
 echo Starting build
+
+# Get the old image ID so we can delete it after a successful build and not
+# a bunch of old images laying around.
+export OLD_IMAGE=$(docker images --quiet wcms-front-end-builder:latest)
+
 docker build --file CancerGov/Dockerfile/Dockerfile --tag wcms-front-end-builder:latest .
 if [ $? != 0 ]; then echo "Docker build failed."; exit 1; fi
 
@@ -27,3 +32,5 @@ docker run --tty --rm \
     --env GITHUB_TOKEN="${GITHUB_TOKEN}" \
     wcms-front-end-builder:latest
 
+# Clean up the old build image
+if [ -z "$OLD_IMAGE" ]; then docker rmi $OLD_IMAGE; fi
