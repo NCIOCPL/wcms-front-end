@@ -55,7 +55,6 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
 
                     expect(params).to.be.deep.eq({
                         term_type: "term_type",
-                        sort: "term",
                         size: 10,
                         from: 0
                     });
@@ -66,7 +65,7 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             return svc.getTerms('term_type');
         });
 
-        it('should make correct request with search text', () => {
+        it('should make correct request with additional params', () => {
             
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
@@ -75,7 +74,6 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
                     expect(params).to.be.deep.eq({
                         term_type: "term_type",
                         term: "begin",
-                        sort: "term",
                         size: 10,
                         from: 0
                     });                    
@@ -83,10 +81,12 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             );
             let svc = new ClinicalTrialsServiceV1Impl(mock.object);
 
-            return svc.getTerms('term_type', 'begin');
+            return svc.getTerms('term_type', { 
+                term: 'begin'
+            });
         });
 
-        it('should make correct request with search text and sort', () => {
+        it('should make correct request with addition params and pager', () => {
             
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
@@ -95,27 +95,6 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
                     expect(params).to.be.deep.eq({
                         term_type: "term_type",
                         term: "begin",
-                        sort: "count",
-                        size: 10,
-                        from: 0
-                    });                    
-                }
-            );
-            let svc = new ClinicalTrialsServiceV1Impl(mock.object);
-
-            return svc.getTerms('term_type', 'begin', 'count');
-        });
-
-        it('should make correct request with search text, sort and paging', () => {
-            
-            let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
-                (path: string, params:any) => {
-                    expect(path).to.be.eq('/terms');
-
-                    expect(params).to.be.deep.eq({
-                        term_type: "term_type",
-                        term: "begin",
-                        sort: "count",
                         size: 20,
                         from: 40
                     });                    
@@ -123,28 +102,14 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             );
             let svc = new ClinicalTrialsServiceV1Impl(mock.object);
 
-            return svc.getTerms('term_type', 'begin', 'count', 20, 40);
-        });
-
-        it('should make correct request with search text, sort, paging and additional params', () => {
-            
-            let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
-                (path: string, params:any) => {
-                    expect(path).to.be.eq('/terms');
-
-                    expect(params).to.be.deep.eq({
-                        term_type: "term_type",
-                        term: "begin",
-                        sort: "count",
-                        size: 20,
-                        from: 40,
-                        chicken: "robot"
-                    });                    
-                }
+            return svc.getTerms(
+                'term_type', 
+                {
+                    term: 'begin'
+                },
+                20, 
+                40
             );
-            let svc = new ClinicalTrialsServiceV1Impl(mock.object);
-
-            return svc.getTerms('term_type', 'begin', 'count', 20, 40);
         });
 
         it('should handle JSON response', () => {

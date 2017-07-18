@@ -23,26 +23,18 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
      * Gets terms from the terms endpoint
      * 
      * @param termType The term type (REQUIRED)
-     * @param searchText Optional search text to narrow terms by
-     * @param sort The sort order (DEFAULT: "term")
+     * @param additionalParams Optional additional params to use in narrowing endpoint call. Add search text and sorting here. See API for additional params.
      * @param size The number of terms to return. NOTE: API allows max of 100 (DEFAULT: 10)
      * @param from The 0-based offset of where to start fetching terms from. (DEFAULT: 0)
-     * @param additionalParams Optional additional params to use in narrowing endpoint call.  See API for additional params.
      */
-    getTerms(termType: string, searchText?:string, sort = "term", size = 10, from = 0, additionalParams = {}): Promise<TermResults> {
+    getTerms(termType: string, additionalParams = {}, size = 10, from = 0): Promise<TermResults> {
 
         //Setup the request
         let params = {
             term_type: termType,
-            sort: sort,
             size: size,
             from: from
         };
-
-        //If there was search text, then add the param.
-        if (searchText) {
-            params["term"] = searchText;
-        }
 
         //Merge in any additional params.
 
