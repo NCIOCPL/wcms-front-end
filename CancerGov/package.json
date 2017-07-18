@@ -50,6 +50,6 @@
     "webpack-bundle-analyzer": "^2.3.1"
   },
   "scripts": {
-    "build-release" : "npm install && grunt build:prod"
+    "build-release" : "./build-release.sh"
   }
 }
