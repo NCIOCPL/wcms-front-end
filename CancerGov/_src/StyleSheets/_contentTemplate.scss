@@ -7,7 +7,7 @@
     color: $color-link;
     margin: 1.25em 0 0 2.4em;
     padding-left: 1.875em;
-    background: url($buttons + "share_plus.png") no-repeat center left;
+    background: image-url($buttons + "share_plus.png") no-repeat center left;
     cursor: pointer;
 }
 @include bp(medium-down){
@@ -19,10 +19,10 @@
     color: $color-link;
     margin: 1.25em 0 0 2.4em;
     padding-left: 1.875em;
-    background: url($buttons + "share_minus.png") no-repeat center left;
+    background: image-url($buttons + "share_minus.png") no-repeat center left;
 }
 .shareWindow {
-    background: url($backgrounds + "share_bg.png") no-repeat;
+    background: image-url($backgrounds + "share_bg.png") no-repeat;
     padding: 1.2em 0 1.2em 1.2em;
     z-index: 14;
     position: absolute;

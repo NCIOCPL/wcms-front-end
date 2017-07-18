@@ -15,10 +15,10 @@ define(function(require) {
             click: function(e) {
                 e.preventDefault();
                 window.print();
-            },
+            }
         },
 
-        FontResizer: require('Common/Enhancements/NCI.PageOptions.FontResizer')
+        FontResizer: require('../../../Modules/fontResizer/fontResizer')
     };
 
     return PageOptions;

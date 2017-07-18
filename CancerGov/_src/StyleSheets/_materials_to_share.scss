@@ -21,12 +21,12 @@
 }
 
 .materials-to-share .addthis_32x32_style .at300bs {
-    line-height: 32px !important;   
-	width: 32px !important;   
-	display: block;   
-	height: 32px !important;   
-	overflow: hidden;   
-	background: url(/PublishedContent/images/images/design-elements/buttons/addthis_buttons_32.png) no-repeat left 50%;
+    line-height: 32px !important;
+	width: 32px !important;
+	display: block;
+	height: 32px !important;
+	overflow: hidden;
+	background: image-url($buttons + 'addthis_buttons_32.png') no-repeat left 50%;
 	margin-right: 5px;
 }
 
@@ -38,12 +38,21 @@
     background-position: 0px -1152px;
 }
 
+.materials-to-share .addthis_32x32_style .at300bs .at_a11y {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 .materials-to-share .download-image {
   padding-top: 15px;
 }
 
 .materials-to-share .download-image p{
-  margin-top: 0px; 
+  margin-top: 0px;
   padding-top: 1px;
 }
 
@@ -51,7 +60,7 @@
   width: 32px;
   height: 32px;
   margin: 0 7px 0 2px;
-  background-image: url(/PublishedContent/images/images/design-elements/buttons/download-button.png);
+  background-image: image-url($buttons + 'download-button.png');
   display: block;
   float: left;
 }

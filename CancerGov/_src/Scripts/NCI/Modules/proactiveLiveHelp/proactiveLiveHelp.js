@@ -194,10 +194,18 @@ define(function(require){
         // so we don't have to worry about casing.
         url = location.pathname.toLowerCase();
         for (var i = 0; i < itemCount; ++i) {
-            if (url === urls[i].toLowerCase()) {
-                matchFound = true;
-                break;
-            }
+			if(typeof urls[i] === "string") {
+				if (url === urls[i].toLowerCase()) {
+					matchFound = true;
+					break;
+				}
+			}
+			else {
+				if(urls[i].test(url)) {
+					matchFound = true;
+					break;
+				}
+			}
         }
 
         return matchFound;

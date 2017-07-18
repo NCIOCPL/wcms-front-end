@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     return {
         options: webpackConfig,
         dev: {
-            devtool: "sourcemap"
+            devtool: "source-map"
         },
         prod: {
             plugins: webpackConfig.plugins.concat(

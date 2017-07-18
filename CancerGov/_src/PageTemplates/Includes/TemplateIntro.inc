@@ -19,12 +19,6 @@
     <title></title>
 
     <!--(bake Favicons.inc)-->
-
-    <script src="//gateway.answerscloud.com/cancer-gov/production/gateway.min.js" data-vendor="acs" data-role="gateway" async></script>
-    <script>
-            // Answers Cloud Services Embed Script v1.02
-            (function (g) {g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),i,k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};})(window);
-    </script>
 </head>
 
 <body id="Body1" runat="server">

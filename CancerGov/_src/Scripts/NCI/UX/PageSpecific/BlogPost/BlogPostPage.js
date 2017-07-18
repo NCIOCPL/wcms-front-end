@@ -68,6 +68,16 @@ define(function(require) {
 		});
         NCIAccordion.doAccordion($('#blog-archive-accordion-year'), {header: "h4"});
 
+		/*** BEGIN blog comment policy ***/
+		(function() {
+			if ($('#cgvCommentsSl').length) {
+				if( $('.intense-debate-comments').length < 1) {
+					$('.blog-comment-policy').show();
+				}
+			}
+		})();
+		/*** END blog comment policy ***/
+
 		// This little blurb is searching for the parent accordion elements of the currently selected archive link and expanding the 
 		// accordion to that element. This keeps the accordion collapsed on the elements not currently being viewed.
 		var selectedArchiveLink = $('#blog-archive-accordion').find("a[href='" + location.pathname + location.search +"']").parent();

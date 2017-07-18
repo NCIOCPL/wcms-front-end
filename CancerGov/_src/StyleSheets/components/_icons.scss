@@ -47,7 +47,7 @@ $icon-exit-notification-height: 11px;
 	width: 35.173439px;
 	height: 30px;
 	display: inline-block;
-	background: url($icons + "exit-disclaimer-purple.svg") bottom right no-repeat; 
+	background: image-url($icons + "exit-disclaimer-purple.svg") bottom right no-repeat;
 }
 @include bp(small) {
 		.feature-card .image-hover a.icon-exit-notification {

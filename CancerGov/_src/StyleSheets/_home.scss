@@ -1,6 +1,6 @@
 /********************* BEGIN Home Page Styles ******************************************/
 // overriding default spacing for p tags for the home/landing pages
-// The top margin for the p-tag causes extra spacing above the carousel 
+// The top margin for the p-tag causes extra spacing above the carousel
 // and has been excluded from this rule (VE, WCMSFEQ-390)
 .ncilandingpage p, .ncihome p, not(.ncihome p.site-name) {
 	margin: 0.5em 0;
@@ -70,7 +70,7 @@
 
 .hero-call-to-action {
 	font-size: 18px;
-	background: url($buttons + "hero-arrow.png") no-repeat center right;
+	background: image-url($buttons + "hero-arrow.png") no-repeat center right;
 	display: inline-block;
 	padding-right: 1em;
 	@include transition(padding-right 0.4s ease-in-out);
@@ -174,7 +174,7 @@
 }
 .feature-primary {
 	margin-bottom: 1em;
-
+	
 	a {
 		&, h3 {
 			color: $white;
@@ -215,9 +215,15 @@
 	}
 	@include card-clickable;
 }
+
 @include bp(medium-down) {
 	.feature-primary-title {
 		background: #14819b;
+	}
+/* fix for white space appearing on feature card row in tablet view mtn 6-22-17 */
+	.row.feature-primary {
+		max-width: 64.5em;
+		background: $dteal;
 	}
 	.feature-primary-title h3 {
 		font-size: 1.375em;
@@ -388,7 +394,7 @@
             margin: 0;
 
             a { @extend %card-link-hover; }
-            a, span { 
+            a, span {
                 line-height: 2.046;// line height needs to be 45px
                 font-size: 22px;   // for browsers that don't know 'rem'
                 font-size: 1.375rem; }
@@ -429,7 +435,7 @@
 				}
 				h3 {
 					color: white;
-					background: url($buttons + "small-arrow.png") 95% center no-repeat;
+					background: image-url($buttons + "small-arrow.png") 95% center no-repeat;
 					border-bottom: 1px solid black;
 					padding: 0.3em 0.9375em;
 					margin: 0;
@@ -447,27 +453,53 @@
 		}
 	}
 
+// mtn updated bkgrnd images to pull from sprite  06-19-17
 a.arrow-link {
-	background: url($buttons + "small-blue-circle-arrow.png") 100% 50% no-repeat;
 	padding: 1px 2em 1px 0;
 	width: 100%;
 	display: block;
 	color: $body-font-color;
 	text-decoration: none;
+	position: relative;
 	@extend %card-link-hover;
 
-	&:hover {
-		background-image: url($buttons + "small-red-circle-arrow.png");
+	&::before {
+		background: $ncisprite no-repeat scroll -347px -215px;
+		content: "";
+		right: 0;
+		margin-top: -8px;
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		top: 39%;
+		}
+
+	&:hover::before {
+		background: $ncisprite no-repeat scroll;
+		background-position: -379px -215px;
+  	}
 	}
-}
+
 a.arrow-link-white {
 	@extend a.arrow-link;
-	background: url($buttons + "small-off-cream-circle-arrow.png") top right no-repeat;
 	padding-right: 1em;
+
+	&::before {
+		background: $ncisprite no-repeat scroll -317px -217px;
+		right: 0;
+		}
+
+	&:hover::before {
+		background-position: -379px -217px;
+  	}
 }
+
+
 @include bp(small) {
 	a.arrow-link-white {
-		background: url($buttons + "small-blue-circle-arrow.png") top right no-repeat;
+		&::before {
+			background: $ncisprite no-repeat scroll -347px -215px;
+		}
 	}
 }
 a.learn-more {
@@ -733,7 +765,7 @@ a.learn-more {
 		color: $white;
 		padding: 1em 2em 1em 1em;
 		display: block;
-		background: #403f3f url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		background: #403f3f image-url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
 		@extend %card-link-hover;
 	}
 }
