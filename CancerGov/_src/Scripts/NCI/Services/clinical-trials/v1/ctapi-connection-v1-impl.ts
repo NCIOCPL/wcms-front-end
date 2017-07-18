@@ -1,5 +1,6 @@
 import { CTAPIConnection } from '../';
 import axios from 'axios';
+import { AxiosResponse } from 'axios';
 
 
 /**
@@ -19,14 +20,17 @@ export class CTAPIConnectionV1Impl implements CTAPIConnection {
 
     getRequest(path:string, params: any): Promise<any> {
         let port:string = this.port ? `:${this.port}` : '';
-        let reqURL: string = `${this.protocol}://${this.hostname}${port}/v1/${path}`;
+        let reqURL: string = `${this.protocol}://${this.hostname}${port}/v1${path}`;
         
         return axios.get(
             reqURL, 
             {
                 params: params
             }
-        );
+        ).then((res:AxiosResponse) => {
+            // TODO: check http response code 
+            return res.data;
+        });
     }
 
 }

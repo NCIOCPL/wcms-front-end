@@ -31,7 +31,7 @@ export class CTAPIFacade {
             "sites.org_country",
             { 
                 sort: "term",
-                current_trial_status: VIEWABLE_TRIALS
+                current_trial_statuses: VIEWABLE_TRIALS
             },
             100
         ).then((res:TermResults) => {
@@ -42,12 +42,13 @@ export class CTAPIFacade {
     /**
      * Gets lead orgs to populate the Lead Organization field
      */
-    searchLeadOrg():Promise<string[]> { 
+    searchLeadOrg(searchText:string):Promise<string[]> { 
         return this.svc.getTerms(
             "lead_org",
             { 
+                term: searchText,
                 sort: "term",
-                current_trial_status: VIEWABLE_TRIALS
+                current_trial_statuses: VIEWABLE_TRIALS
             },
             10
         ).then((res:TermResults) => {

@@ -4,7 +4,8 @@ import * as FeedbackForm from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements
 import { BasicCTSAdvSearchFormSetup } from 'UX/AppModuleSpecific/BasicCTS/AdvSearch/Enhancements/BasicCTSAdvSearchFormSetup';
 
 $(document).ready(function(){
-	new BasicCTSAdvSearchFormSetup().init();
+	// TODO: fix imports, create config instead of hardcoding API address here
+	new BasicCTSAdvSearchFormSetup("clinicaltrialsapi.cancer.gov").init();
 	(<any>(CTSCommonAnalytics)).init();
 	(<any>(FeedbackForm)).init();
     // var $ = require('jquery');

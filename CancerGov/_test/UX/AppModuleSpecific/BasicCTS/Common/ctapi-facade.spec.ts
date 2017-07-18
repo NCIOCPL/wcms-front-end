@@ -90,7 +90,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                     expect(size).to.be.eq(100);
                     expect(additionalParams).to.be.deep.eq({
                         sort: 'term',
-                        current_trial_status: VIEWABLE_TRIALS
+                        current_trial_statuses: VIEWABLE_TRIALS
                     });
                     expect(from).to.be.undefined;
                 },
@@ -99,8 +99,8 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
 
             let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
 
+            // TODO: change 'let' to return   
             let countries:Promise<string[]> = facade.getCountries();
-            // Actuallly return something
         });
 
         it('should return the correct results based on response', () => {
@@ -131,7 +131,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                     expect(size).to.be.eq(100);
                     expect(additionalParams).to.eql({
                         sort: "term",
-                        current_trial_status: VIEWABLE_TRIALS
+                        current_trial_statuses: VIEWABLE_TRIALS
                     });
                     expect(from).to.be.undefined;
                 },
@@ -164,8 +164,9 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                     expect(termType).to.be.eq(LEAD_ORG_KEY);
                     expect(size).to.be.eq(10);
                     expect(additionalParams).to.be.deep.eq({
+                        term: 'mayo',
                         sort: 'term',
-                        current_trial_status: VIEWABLE_TRIALS
+                        current_trial_statuses: VIEWABLE_TRIALS
                     });
                     expect(from).to.be.undefined;
                 },
@@ -174,8 +175,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
 
             let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
 
-            let countries:Promise<string[]> = facade.getCountries();
-            // Actuallly return something
+            return facade.searchLeadOrg('mayo'); 
         });
 
     });

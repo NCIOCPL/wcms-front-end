@@ -4,25 +4,37 @@ import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import "select2/dist/js/select2";
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import { NCIBaseEnhancement } from 'UX/core';
+import { ClinicalTrialsServiceFactory } from 'Services/clinical-trials';
+import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 
 export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
  
-	constructor() { 
+	private facade:CTAPIFacade;
+
+	/**
+	 * Execute the constructor function on the base enhancement class &
+	 * create an instance of the CT API service.
+	 */
+	constructor(apiHost: string) { 
 		super();
+		this.facade = new CTAPIFacade(
+			ClinicalTrialsServiceFactory.create(apiHost)
+		);
 	}
+
 	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
 	 * @return {[type]} Initialize Object
 	 */
 	protected initialize(): void {
-		// Create array of active trial statuses for autosuggest results
-		var activeTrialStatuses = [
-			'active',
-			'approved',
-			'enrolling_by_invitation',
-			'in_review',
-			'temporarily_closed_to_accrual'
-		];
+		this.facade.getCountries()
+				.then((countriesList:string[]) => {
+					//TODO - hook up the form and remove the console.log messages
+					console.log(countriesList)
+				})
+				.catch((err:any) => {
+					console.log(err)
+				})
 
         // Create jQuery selector vars for
 		var $primaryCancer = $('.adv-search #ct-select');
