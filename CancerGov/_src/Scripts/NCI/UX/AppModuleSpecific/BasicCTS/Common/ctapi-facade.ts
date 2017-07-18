@@ -26,14 +26,16 @@ export class CTAPIFacade {
     /**
      * Gets a list of countries for populating the Countries dropdown
      */
-    getCountries():Promise<TermResults> {
+    getCountries():Promise<string[]> {
         return this.svc.getTerms(
             "site.org_country",
             { 
                 current_trial_status: VIEWABLE_TRIALS
             },
             100
-        );
+        ).then((res:TermResults) => {
+            return res.terms.map(term => term.termKey)
+        })
     }
 
     //TODO: add other getField methods.
