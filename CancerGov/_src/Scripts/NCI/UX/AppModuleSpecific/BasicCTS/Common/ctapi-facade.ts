@@ -35,7 +35,7 @@ export class CTAPIFacade {
             },
             100
         ).then((res:TermResults) => {
-            return res.terms.map(term => term.termKey)
+            return res.terms.map(term => term.term)
         })
     }
 

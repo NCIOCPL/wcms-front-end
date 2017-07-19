@@ -27,14 +27,21 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	 * @return {[type]} Initialize Object
 	 */
 	protected initialize(): void {
+
 		this.facade.getCountries()
 				.then((countriesList:string[]) => {
-					//TODO - hook up the form and remove the console.log messages
-					console.log(countriesList)
+					for(let country of countriesList) { 
+						$('#lcnty').append($('<option></option')
+							.attr('value',country)
+							.text(country)
+						)
+					}
 				})
+				//TODO: remove log message on error - keeping now for debugging purposes
 				.catch((err:any) => {
 					console.log(err)
 				})
+
 
         // Create jQuery selector vars for
 		var $primaryCancer = $('.adv-search #ct-select');
