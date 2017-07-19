@@ -1,7 +1,7 @@
 import "Plugins/jquery.nci.equal_heights";
 import "UX/Common/Plugins/Widgets/jquery.ui.autocompleteselector"; 
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
-import "select2/dist/js/select2";
+import "select2";
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import { NCIBaseEnhancement } from 'UX/core';
 import { ClinicalTrialsServiceFactory } from 'Services/clinical-trials';
@@ -81,27 +81,26 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		// })
 
 
-        // // Select2 for drugs
-		// var $drugWrap = $('<div class="drug-select-dropdown">');
-		// $drugWrap.appendTo($('body'));
-		// var $drugSelect = $("#dr-multiselect");
-		// $drugSelect.select2({
-		// 	dropdownParent: $drugWrap,
-        //     theme: "classic",
-        //     placeholder: 'In development - drug autosuggest turned off'
-        // }); 
+        // Select2 for drugs
+		var $drugWrap = $('<div class="drug-select-dropdown">');
+		$drugWrap.appendTo($('body'));
+		var $drugSelect = $("#dr-multiselect");
+		$drugSelect.select2({
+			dropdownParent: $drugWrap,
+            theme: "classic",
+            placeholder: 'In development - drug autosuggest turned off'
+        }); 
 
-        // // Select2 for other treatment
-		// var $trtmntWrap = $('<div class="trtmnt-select-dropdown">');
-		// $trtmntWrap.appendTo($('body'));
-		// var $trtmntSelect = $("#ti-multiselect");
-		// $trtmntSelect.select2({
-		// 	dropdownParent: $trtmntWrap,
-        //     theme: "classic",
-        //     placeholder: 'In development - treatment autosuggest turned off'
-        // });
+        // Select2 for other treatment
+		var $trtmntWrap = $('<div class="trtmnt-select-dropdown">');
+		$trtmntWrap.appendTo($('body'));
+		var $trtmntSelect = $("#ti-multiselect");
+		$trtmntSelect.select2({
+			dropdownParent: $trtmntWrap,
+            theme: "classic",
+            placeholder: 'In development - treatment autosuggest turned off'
+        });
 
-        // Activate / deactivate location fields
 
     }
 
