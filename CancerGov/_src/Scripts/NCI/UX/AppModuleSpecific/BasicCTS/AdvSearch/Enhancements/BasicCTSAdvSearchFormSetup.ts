@@ -28,6 +28,16 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	 */
 	protected initialize(): void {
 
+		// Create jQuery selector vars
+		let $primaryCancer = $('.adv-search #ct-select');
+		let $subtypeCancer = $('.adv-search #st-multiselect');
+		let $stageCancer = $('.adv-search #stg-multiselect');
+		let $findings = $('.adv-search #fin-multiselect');
+		let $hospital = $('.adv-search #hos');
+		let $treatmentType = $('.adv-search #ti');
+		let $trialInvestigators = $('.adv-search #in');
+		let $leadOrg = $('.adv-search #lo');
+
 		/*
 		* Populate the location Country dropdown field
 		*/
@@ -44,7 +54,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				.catch((err:any) => {
 					console.log(err)
 				})
-				
+
 		/*
 		* Populate the LeadOrg select2 field
 		* Preliminary call to ctapi-facade
@@ -58,13 +68,6 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 					console.log(err)
 				})
 					
-
-        // Create jQuery selector vars for
-		var $primaryCancer = $('.adv-search #ct-select');
-		var $subtypeCancer = $('.adv-search #st-multiselect');
-		var $stageCancer = $('.adv-search #stg-multiselect');
-		var $findings = $('.adv-search #fin-multiselect');
-
 
         // Disable subtype/stage/findings
 		// $subtypeCancer.select2({
