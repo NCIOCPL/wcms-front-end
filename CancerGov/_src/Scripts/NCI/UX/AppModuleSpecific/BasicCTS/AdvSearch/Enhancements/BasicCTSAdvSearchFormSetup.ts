@@ -28,6 +28,9 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	 */
 	protected initialize(): void {
 
+		/*
+		* Populate the location Country dropdown field
+		*/
 		this.facade.getCountries()
 				.then((countriesList:string[]) => {
 					for(let country of countriesList) { 
@@ -41,7 +44,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				.catch((err:any) => {
 					console.log(err)
 				})
-
+				
+		/*
+		* Populate the LeadOrg select2 field
+		* Preliminary call to ctapi-facade
+		*/
+		this.facade.searchLeadOrg('johns')
+				.then((orgs:string[]) => {
+					//TODO - hook up the form and remove the console.log messages
+					console.log(orgs)
+				})
+				.catch((err:any) => {
+					console.log(err)
+				})
+					
 
         // Create jQuery selector vars for
 		var $primaryCancer = $('.adv-search #ct-select');
