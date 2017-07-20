@@ -37,6 +37,7 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
         };
 
         //Merge in any additional params.
+        $.extend(params, additionalParams);
 
         //Setup additional params for Viewable.
 
