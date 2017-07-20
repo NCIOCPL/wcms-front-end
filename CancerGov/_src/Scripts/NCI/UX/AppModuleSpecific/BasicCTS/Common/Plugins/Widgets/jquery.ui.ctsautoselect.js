@@ -14,19 +14,18 @@
         factory( jQuery );
     }
 }(function( $ ) {
-
-    console.log($);
-    console.log($.ui.highlighterautocomplete);
-    return $.widget("nci.ctsautoselect", $.ui.highlighterautocomplete, {
+    return $.widget("nci.ctsautoselect", $.nci.highlighterautocomplete, {
 
         options: {
-            //source: false, //String or Promise
+            source: false, //String or Promise
             //queryParam: false,
             //buttonText: 'Clear Selection'
         },
 
        source: function(request,response) {
-           console.log(request);
+           if (this.options.source) {
+               this.options.source(request, response);
+           }            
        }
     });
 

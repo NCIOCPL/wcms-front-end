@@ -1,5 +1,5 @@
 
-import { ClinicalTrialsService, TermResults } from 'Services/clinical-trials';
+import { ClinicalTrialsService, TermResults, TermResult } from 'Services/clinical-trials';
 
 //Statuses of what Cancer.gov trials should be shown
 const VIEWABLE_TRIALS:string[] = [
@@ -42,7 +42,7 @@ export class CTAPIFacade {
     /**
      * Gets lead orgs to populate the Lead Organization field
      */
-    searchLeadOrg(searchText:string):Promise<string[]> { 
+    searchLeadOrg(searchText:string):Promise<TermResult[]> { 
         return this.svc.getTerms(
             "lead_org",
             { 
@@ -52,7 +52,7 @@ export class CTAPIFacade {
             },
             10
         ).then((res:TermResults) => {
-            return res.terms.map(term => term.termKey)
+            return res.terms
         })
     }
 

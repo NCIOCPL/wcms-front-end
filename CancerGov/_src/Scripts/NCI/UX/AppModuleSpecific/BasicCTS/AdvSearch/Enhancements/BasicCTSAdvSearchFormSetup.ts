@@ -44,7 +44,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		
 		// Populate Lead Organization dropdown autusuggest
 		(<any>$leadOrg).ctsautoselect({
-			source:(request,response) => {
+			source: (request,response) => {
 					this.facade.searchLeadOrg(request.term)
 					.then((res)=> {
 						response(res)
@@ -118,15 +118,15 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	* Populate the LeadOrg select2 field
 	* Preliminary call to ctapi-facade
 	*/	
-	private searchLeadOrg(leadOrg) {
-			this.facade.searchLeadOrg(leadOrg.val())
-			.then((orgs:string[]) => {
-				//TODO - hook up the form and remove the console.log messages
-				console.log(orgs)
-			})
-			.catch((err:any) => {
-				console.log(err)
-			})
+	// private searchLeadOrg(leadOrg) {
+	// 		this.facade.searchLeadOrg(leadOrg.val())
+	// 		.then((orgs:TermResult[]) => {
+	// 			//TODO - hook up the form and remove the console.log messages
+	// 			console.log(orgs)
+	// 		})
+	// 		.catch((err:any) => {
+	// 			console.log(err)
+	// 		})
 
 			// .highlighterautocomplete({
 			//     fetchSrc: function(term) {
@@ -154,7 +154,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			// (<any>$leadOrg).autocompleteselector(
 			// );
 
-	}
+	//}
 
 	private sAutocomplete(module, fieldName, input, trialStatuses) {
         // Do nothing
