@@ -1,5 +1,5 @@
 import "Plugins/jquery.nci.equal_heights";
-import "UX/Common/Plugins/Widgets/jquery.ui.autocompleteselector"; 
+import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
 import "select2";
 import * as NCI from "UX/Common/Enhancements/NCI"; 
@@ -43,9 +43,17 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		$this.getCountries();
 		
 		// Populate Lead Organization dropdown autusuggest
-		$leadOrg.keyup(function(event) {
-			if($leadOrg.val().toString().length > 1)
-				$this.searchLeadOrg($leadOrg);
+		(<any>$leadOrg).ctsautoselect({
+			source:(request,response) => {
+					this.facade.searchLeadOrg(request.term)
+					.then((res)=> {
+						response(res)
+					})
+					.catch(err => {
+						console.log(err)
+						response([])
+					});
+			}
 		});
 
         // Disable subtype/stage/findings
