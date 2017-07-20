@@ -37,37 +37,16 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		let $treatmentType = $('.adv-search #ti');
 		let $trialInvestigators = $('.adv-search #in');
 		let $leadOrg = $('.adv-search #lo');
+		let $this = this; // create $this variable for use within selector
 
-		/*
-		* Populate the location Country dropdown field
-		*/
-		this.facade.getCountries()
-				.then((countriesList:string[]) => {
-					for(let country of countriesList) { 
-						$('#lcnty').append($('<option></option')
-							.attr('value',country)
-							.text(country)
-						)
-					}
-				})
-				//TODO: remove log message on error - keeping now for debugging purposes
-				.catch((err:any) => {
-					console.log(err)
-				})
-
-		/*
-		* Populate the LeadOrg select2 field
-		* Preliminary call to ctapi-facade
-		*/
-		this.facade.searchLeadOrg('johns')
-				.then((orgs:string[]) => {
-					//TODO - hook up the form and remove the console.log messages
-					console.log(orgs)
-				})
-				.catch((err:any) => {
-					console.log(err)
-				})
-					
+		// Get countries on page load
+		$this.getCountries();
+		
+		// Populate Lead Organization dropdown autusuggest
+		$leadOrg.keyup(function(event) {
+			if($leadOrg.val().toString().length > 1)
+				$this.searchLeadOrg($leadOrg.val());
+		});
 
         // Disable subtype/stage/findings
 		// $subtypeCancer.select2({
@@ -105,7 +84,42 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
         });
 
 
-    }
+	}
+	
+	/*
+	* Populate the location Country dropdown field
+	*/
+	private getCountries() {
+		this.facade.getCountries()
+				.then((countriesList:string[]) => {
+					for(let country of countriesList) { 
+						$('#lcnty').append($('<option></option')
+							.attr('value',country)
+							.text(country)
+						)
+					}
+				})
+				//TODO: remove log message on error - keeping now for debugging purposes
+				.catch((err:any) => {
+					console.log(err)
+				})
+
+	}
+
+	/*
+	* Populate the LeadOrg select2 field
+	* Preliminary call to ctapi-facade
+	*/	
+	private searchLeadOrg(orgName) {
+			this.facade.searchLeadOrg(orgName)
+			.then((orgs:string[]) => {
+				//TODO - hook up the form and remove the console.log messages
+				console.log(orgs)
+			})
+			.catch((err:any) => {
+				console.log(err)
+			})
+	}
 
 	private sAutocomplete(module, fieldName, input, trialStatuses) {
         // Do nothing
