@@ -45,7 +45,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		// Populate Lead Organization dropdown autusuggest
 		$leadOrg.keyup(function(event) {
 			if($leadOrg.val().toString().length > 1)
-				$this.searchLeadOrg($leadOrg.val());
+				$this.searchLeadOrg($leadOrg);
 		});
 
         // Disable subtype/stage/findings
@@ -110,8 +110,8 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	* Populate the LeadOrg select2 field
 	* Preliminary call to ctapi-facade
 	*/	
-	private searchLeadOrg(orgName) {
-			this.facade.searchLeadOrg(orgName)
+	private searchLeadOrg(leadOrg) {
+			this.facade.searchLeadOrg(leadOrg.val())
 			.then((orgs:string[]) => {
 				//TODO - hook up the form and remove the console.log messages
 				console.log(orgs)
@@ -119,6 +119,33 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			.catch((err:any) => {
 				console.log(err)
 			})
+
+			// .highlighterautocomplete({
+			//     fetchSrc: function(term) {
+			// 		dataQuery = {
+			// 			'agg_field': fieldName,
+			// 			'agg_term': term,
+			// 			'size': 10,
+			// 			'current_trial_status': trialStatuses
+			// 		};
+			// 		return $.ajax({
+			// 			url: 'https://m-pink-dev.cancer.gov/trial-aggregates',
+			// 			data: dataQuery,
+			// 			dataType: 'json'
+			// 		}).pipe(function(res){
+			// 			var rtn = res.terms.map(function(item){
+			// 				return {'term': item.key};
+			// 			});
+			// 			return {
+			// 				result: rtn
+			// 			}
+			// 		});
+			// 	}
+			// });			
+
+			// (<any>$leadOrg).autocompleteselector(
+			// );
+
 	}
 
 	private sAutocomplete(module, fieldName, input, trialStatuses) {
