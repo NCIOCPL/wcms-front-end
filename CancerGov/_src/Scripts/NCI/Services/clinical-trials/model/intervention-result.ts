@@ -29,6 +29,7 @@ export class InterventionResult {
      */
     type: string;
 
+    /// TBD: bucket[] - will include agent, agentCategory, or other
 
     constructor() {
         this.key = undefined;
