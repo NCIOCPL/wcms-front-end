@@ -40,6 +40,23 @@ export class CTAPIFacade {
     }
 
     /**
+     * Gets hospital/institution to populate the Hospital/Institution field
+     */
+    searchHospital(searchText:string):Promise<TermResult[]> { 
+        return this.svc.getTerms(
+            "sites.org_name",
+            { 
+                term: searchText,
+                sort: "term",
+                current_trial_statuses: VIEWABLE_TRIALS
+            },
+            10
+        ).then((res:TermResults) => {
+            return res.terms
+        })
+    }
+
+    /**
      * Gets trial investigators to populate the Trial Investigators field
      */
     searchTrialInvestigators(searchText:string):Promise<TermResult[]> { 

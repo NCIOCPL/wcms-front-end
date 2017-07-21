@@ -14,8 +14,9 @@ const VIEWABLE_TRIALS:string[] = [
 ];
 
 const COUNTRY_KEY:string = "sites.org_country";
-const LEAD_ORG_KEY:string = "lead_org";
+const HOSPITAL_KEY:string = "sites.org_name";
 const TRIAL_INVESTIGATORS_KEY:string = "principal_investigator";
+const LEAD_ORG_KEY:string = "lead_org";
 
 /**
  * Mock Service for tests
@@ -150,6 +151,73 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
         });
 
     });
+
+    describe('searchHospital', () => {
+
+        it('should make the correct request to the ClinicalTrialsService', () => {
+
+            let res:TermResults = new TermResults();
+            res.total = 0;
+            res.terms = [];            
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+                (termType: string, additionalParams?:any, size?:number, from?:number) => {
+                    //Callback for assetions.
+                    expect(termType).to.be.eq(HOSPITAL_KEY);
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.be.deep.eq({
+                        term: 'mayo',
+                        sort: 'term',
+                        current_trial_statuses: VIEWABLE_TRIALS
+                    });
+                    expect(from).to.be.undefined;
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            return facade.searchHospital('mayo'); 
+        });
+
+        it('should return the correct results based on response', () => {
+
+            let res:TermResults = new TermResults();
+            res.total = 1;
+            
+            res.terms.push(getTermResult(
+                "mayo clinic in arizona",
+                HOSPITAL_KEY,
+                "Mayo Clinic in Arizona",
+                240,
+                undefined
+            ));
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+                (termType: string, additionalParams?:any, size?:number, from?:number) => {
+                    //Callback for assetions.
+                    expect(termType).to.be.eq("sites.org_name");
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.eql({
+                        sort: "term",
+                        term: "mayo clinic in arizona",
+                        current_trial_statuses: VIEWABLE_TRIALS
+                    });
+                    expect(from).to.be.undefined;
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            //Mocha will handle promises when they are returned.  So you can
+            //run the assertions in a then.
+            return facade.searchHospital('mayo clinic in arizona')
+                    .then((actual:TermResult[]) => {
+                        expect(actual).to.eql(res.terms);
+                    });
+        });
+    });
     
     describe('searchTrialInvestigators', () => {
 
@@ -177,6 +245,52 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
 
             return facade.searchTrialInvestigators('david'); 
+        });
+
+        it('should return the correct results based on response', () => {
+
+            let res:TermResults = new TermResults();
+            res.total = 1;
+            
+            res.terms.push(getTermResult(
+                "david",
+                TRIAL_INVESTIGATORS_KEY,
+                "David Hui",
+                8,
+                undefined
+            ));
+
+            res.terms.push(getTermResult(
+                "david",
+                TRIAL_INVESTIGATORS_KEY,
+                "David Eric Gerber",
+                4,
+                undefined
+            ));
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+                (termType: string, additionalParams?:any, size?:number, from?:number) => {
+                    //Callback for assetions.
+                    expect(termType).to.be.eq("principal_investigator");
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.eql({
+                        sort: "term",
+                        term: "david",
+                        current_trial_statuses: VIEWABLE_TRIALS
+                    });
+                    expect(from).to.be.undefined;
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            //Mocha will handle promises when they are returned.  So you can
+            //run the assertions in a then.
+            return facade.searchTrialInvestigators('david')
+                    .then((actual:TermResult[]) => {
+                        expect(actual).to.eql(res.terms);
+                    });
         });
 
     });
