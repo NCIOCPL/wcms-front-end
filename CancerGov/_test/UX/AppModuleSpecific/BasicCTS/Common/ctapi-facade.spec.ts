@@ -15,6 +15,7 @@ const VIEWABLE_TRIALS:string[] = [
 
 const COUNTRY_KEY:string = "sites.org_country";
 const LEAD_ORG_KEY:string = "lead_org";
+const TRIAL_INVESTIGATORS_KEY:string = "principal_investigator";
 
 /**
  * Mock Service for tests
@@ -144,12 +145,42 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.getCountries()
                     .then((actual:string[]) => {
-                        expect(actual).to.eql(["argentina", "australia"]);
+                        expect(actual).to.eql(["Argentina", "Australia"]);
                     });
         });
 
     });
     
+    describe('searchTrialInvestigators', () => {
+
+        it('should make the correct request to the ClinicalTrialsService', () => {
+
+            let res:TermResults = new TermResults();
+            res.total = 0;
+            res.terms = [];            
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+                (termType: string, additionalParams?:any, size?:number, from?:number) => {
+                    //Callback for assetions.
+                    expect(termType).to.be.eq(TRIAL_INVESTIGATORS_KEY);
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.be.deep.eq({
+                        term: 'david',
+                        sort: 'term',
+                        current_trial_statuses: VIEWABLE_TRIALS
+                    });
+                    expect(from).to.be.undefined;
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            return facade.searchTrialInvestigators('david'); 
+        });
+
+    });
+
     describe('searchLeadOrgs', () => {
 
         it('should make the correct request to the ClinicalTrialsService', () => {

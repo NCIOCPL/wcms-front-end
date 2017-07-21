@@ -42,6 +42,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		// Get countries on page load
 		$this.getCountries();
 		
+		// Populate Trial Investigators dropdown autusuggest
+		(<any>$trialInvestigators).ctsautoselect({
+			source: (request,response) => {
+					this.facade.searchTrialInvestigators(request.term)
+					.then((res)=> {
+						response(res)
+					})
+					.catch(err => {
+						console.log(err)
+						response([])
+					});
+			}
+		});
+
 		// Populate Lead Organization dropdown autusuggest
 		(<any>$leadOrg).ctsautoselect({
 			source: (request,response) => {

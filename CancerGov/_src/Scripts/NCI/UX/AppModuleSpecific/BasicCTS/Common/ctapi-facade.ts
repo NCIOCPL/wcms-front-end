@@ -40,6 +40,23 @@ export class CTAPIFacade {
     }
 
     /**
+     * Gets trial investigators to populate the Trial Investigators field
+     */
+    searchTrialInvestigators(searchText:string):Promise<TermResult[]> { 
+        return this.svc.getTerms(
+            "principal_investigator",
+            { 
+                term: searchText,
+                sort: "term",
+                current_trial_statuses: VIEWABLE_TRIALS
+            },
+            10
+        ).then((res:TermResults) => {
+            return res.terms
+        })
+    }
+
+    /**
      * Gets lead orgs to populate the Lead Organization field
      */
     searchLeadOrg(searchText:string):Promise<TermResult[]> { 
