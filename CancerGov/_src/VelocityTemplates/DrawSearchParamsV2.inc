@@ -11,6 +11,18 @@
         $plist.Add("phrase")
     #end
 
+    #if($SearchResults.Control.SearchParams.CancerSubtype != "")
+        $plist.Add("subtype")
+    #end
+
+    #if($SearchResults.Control.SearchParams.CancerStage != "")
+        $plist.Add("stage")
+    #end
+
+    #if($SearchResults.Control.SearchParams.CancerFindings != "")
+        $plist.Add("findings")
+    #end
+        
     #if($SearchResults.Control.HasZip())
         $plist.Add("zip")
     #end
@@ -90,6 +102,15 @@
                 #else##
                     Keyword: "<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
                 #end##
+
+            #elseif($param == "subtype")##
+                Subtype: "<span data-basiccts-searchparam='st'>$SearchResults.Control.SearchParams.CancerSubtype</span>"##
+
+            #elseif($param == "stage")##
+                Stage: "<span data-basiccts-searchparam='stg'>$SearchResults.Control.SearchParams.CancerStage</span>"##
+                
+            #elseif($param == "findings")##
+                Findings: "<span data-basiccts-searchparam='fin'>$SearchResults.Control.SearchParams.CancerFindings</span>"##
  
             #elseif($param == "zip")##
                 within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP: "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
@@ -147,7 +168,7 @@
             #end##
         ## end 'each'
         #between
-            , ##
+           , ##
         ## end 'between'
     #end##
 #end##
