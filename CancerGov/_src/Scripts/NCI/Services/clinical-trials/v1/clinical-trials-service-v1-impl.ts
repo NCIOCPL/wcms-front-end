@@ -1,4 +1,4 @@
-import { CTAPIConnection, ClinicalTrialsService, TermResults } from '../';
+import { CTAPIConnection, ClinicalTrialsService, TermResults, InterventionResults } from '../';
 
 /**
  * This class represents the methods to accessing a CTAPI service
@@ -51,5 +51,40 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
             })
     }
 
+    /**
+     * Gets interventions from the interventions endpoint
+     * 
+     * @param category The high-level type of the term (agent, agent_category, other) (OPTIONAL)
+     * @param intervention Type ahead support to search for the interventions (OPTIONAL)
+     * @param interventionType The specific intervention type (OPTIONAL)
+     * //Will probably get sort, size, from?
+     */
+    getInterventions(category?: string|string[], intervention?: string, interventionType?: string|string[]): Promise<InterventionResults> {
+
+        //Setup the request
+        let params = {};
+
+        if (category) {
+            params["category"] = category;
+        }
+
+        if (intervention) {
+            params["intervention"] = intervention;
+        }
+
+        if (interventionType) {
+            params["type"] = interventionType;
+        }
+
+        //Setup additional params for Viewable.
+
+        return this.connection.getRequest(
+                '/interventions',
+                params
+            )
+            .then((resJSON: any) => {
+                return InterventionResults.fromJSON(resJSON);
+            })
+    }
 }
 

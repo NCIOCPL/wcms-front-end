@@ -116,5 +116,11 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
 
             expect(true).to.be.false;            
         })
-    })
+    });
+
+    describe('getInterventions', () => {
+        it('should have unit tests', () => {
+           expect(true).to.be.false;
+        });
+    });
 });
