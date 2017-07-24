@@ -1,0 +1,33 @@
+/*
+    This is the main set up job for the wcms-front-end project.
+    Definitions for general purpose jobs (e.g. jobs which aren't tied to a specific branch)
+    belong in this file.
+*/
+
+def FOLDER_NAME  = 'wcms-front-end'    // Jenkins folder where the jbos will be placed.
+
+def GH_REPO_NAME = 'wcms-front-end'      // The project's repository name (as used in the URL).
+def GH_ORGANIZATION_NAME = 'blairlearn'   // GitHub Organization name (as used in the URL/userid).
+def GH_USER_TOKEN_KEY = 'NCIOCPL-GitHub-Token'  // Jenkins ID of the credential string containing the GitHub access token for creating releases.
+
+def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
+
+job("${FOLDER_NAME}/Create New Branch") {
+  description("Creates the jobs that build individual branches.\n\nTo modify this job, see the contents of setup.job and create-branch-skeleton.job.")
+
+  parameters {
+    stringParam('BRANCH', '', 'New Branch\'s Name')
+  }
+  
+  label('linux')  // Require Linux
+  
+  scm {
+    github(sourceRepository)
+  }
+
+  steps {
+    dsl {
+      external("tools/build/create-branch-skeleton.job")
+    }
+  }
+}

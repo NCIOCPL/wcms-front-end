@@ -1,5 +1,6 @@
 /*
-    Seed job to create other jobs for WCMS
+    This job definition is used for creating the jobs that build
+    individual branches.  It is installed by the setup job.
 */
 
 def folderName  = 'wcms-front-end'    // Jenkins folder where the jbos will be placed.
