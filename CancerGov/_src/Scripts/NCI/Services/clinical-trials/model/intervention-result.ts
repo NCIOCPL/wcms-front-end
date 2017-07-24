@@ -5,9 +5,9 @@
 export class InterventionResult {
 
     /**
-     * The key of this intervention.
+     * The name of this intervention.
      */
-    key: string;
+    name: string;
 
     /**
      * The number of occurrences of the intervention.
@@ -25,18 +25,17 @@ export class InterventionResult {
     synonyms: string[]
 
     /**
-     * The type of intervention this is.
+     * The type of intervention this is --
+     * can be "agent", "agent_category", or "other".
      */
-    type: string;
-
-    /// TBD: bucket[] - will include agent, agentCategory, or other
+    category: string;
 
     constructor() {
-        this.key = undefined;
+        this.name = undefined;
         this.count = 0;
         this.codes = [];
         this.synonyms = [];
-        this.type = undefined;
+        this.category = undefined;
     }
 
     static fromJSON(json: any) : InterventionResult {
@@ -49,11 +48,11 @@ export class InterventionResult {
             //Loop over source
             Object.keys(json).forEach((key: string) => {
                 switch(key) {
-                    case "key" : rtnIntervention.key = json[key]; break;
+                    case "name" : rtnIntervention.name = json[key]; break;
                     case "count" : rtnIntervention.count = json[key]; break;
                     case "codes" : rtnIntervention.codes = json[key]; break;
                     case "synonyms" : rtnIntervention.synonyms = json[key]; break;
-                    case "type" : rtnIntervention.type = json[key]; break;
+                    case "category" : rtnIntervention.category = json[key]; break;
                 }
             })
 
