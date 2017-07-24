@@ -26,7 +26,7 @@ describe('Services.ClinicalTrials.Model.DiseaseResults', () => {
             let expectedTerm: DiseaseResult = new DiseaseResult();
 
             expectedTerm.name = 'Breast Cancer';
-            expectedTerm.parentDiseaseID = null;
+            expectedTerm.parentDiseaseID = undefined;
             expectedTerm.codes = [ "C12345" ];
             expectedTerm.menu = "disease";
 
@@ -34,7 +34,6 @@ describe('Services.ClinicalTrials.Model.DiseaseResults', () => {
             expected.terms = <Array<DiseaseResult>>[expectedTerm];
 
             let actual: DiseaseResults = DiseaseResults.fromJSON(s);
-
             //Deep Equal because they are class instances
             expect(actual).to.deep.eq(expected);
         });
@@ -61,7 +60,7 @@ describe('Services.ClinicalTrials.Model.DiseaseResults', () => {
             let expectedTerm: DiseaseResult = new DiseaseResult();
 
             expectedTerm.name = 'Breast Cancer';
-            expectedTerm.parentDiseaseID = null;
+            expectedTerm.parentDiseaseID = undefined;
             expectedTerm.codes = [ "C12345" ];
             expectedTerm.menu = "disease";
 
