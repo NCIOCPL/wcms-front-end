@@ -10,11 +10,6 @@ export class InterventionResult {
     name: string;
 
     /**
-     * The number of occurrences of the intervention.
-     */
-    count: number;
-
-    /**
      * The NCI Thesaurus codes associated with this intervention.
      */
     codes: string[]
@@ -25,14 +20,21 @@ export class InterventionResult {
     synonyms: string[]
 
     /**
-     * The type of intervention this is --
+     * The category of intervention this is --
      * can be "agent", "agent_category", or "other".
      */
     category: string;
 
+    /**
+     * The type of intervention this is --
+     * can be "Drug", "Dietary Supplement", "Surgery / Procedure", etc..
+     * This is lower level than category
+     */
+    type: string;    
+
     constructor() {
         this.name = undefined;
-        this.count = 0;
+        this.type = undefined;
         this.codes = [];
         this.synonyms = [];
         this.category = undefined;
@@ -49,7 +51,7 @@ export class InterventionResult {
             Object.keys(json).forEach((key: string) => {
                 switch(key) {
                     case "name" : rtnIntervention.name = json[key]; break;
-                    case "count" : rtnIntervention.count = json[key]; break;
+                    case "type" : rtnIntervention.type = json[key]; break;
                     case "codes" : rtnIntervention.codes = json[key]; break;
                     case "synonyms" : rtnIntervention.synonyms = json[key]; break;
                     case "category" : rtnIntervention.category = json[key]; break;
