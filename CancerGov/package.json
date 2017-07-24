@@ -7,7 +7,8 @@
     "node": "6.11.1"
   },
   "scripts": {
-    "test": "karma start karma.unit.js"
+    "test": "karma start karma.unit.js",
+    "coverage": "karma start karma.coverage.js"
   },
   "engineStrict": "true",
   "dependencies": {
@@ -54,9 +55,11 @@
     "grunt-webpack": "^3.0.2",
     "handlebars-loader": "^1.4.0",
     "imports-loader": "^0.7.0",
+    "istanbul-instrumenter-loader": "^2.0.0",
     "json-loader": "^0.5.4",
     "karma": "^1.7.0",
     "karma-chai": "^0.1.0",
+    "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
