@@ -1,4 +1,3 @@
-import "Plugins/jquery.nci.equal_heights";
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
 import "select2";
