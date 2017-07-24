@@ -1,81 +1,151 @@
-<script src="/PublishedContent/js/BasicCTSCommon.js" type="text/javascript"></script>
-<script src="/PublishedContent/js/BasicCTSSearchPage.js" type="text/javascript"></script>
-
+<!-- 
+Reusing HTML from AdvCTSSearch.vm
+TODO: Verify Javascript
+--> 
 <div class="medium-9 columns">
-
 #if ($SearchResults.Control.Redirected)
-	<div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
-		<p style="margin: 10px 22px; vertical-align: middle;">We recently updated our clinical trials information. To get the most accurate results, you should rerun your search.</i></p>
-		<p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
-	</div>
-#end
-
-  <form class="clinical-trials-search-form basic-search basic-cts-v2" action="$SearchResults.ResultsPagePrettyUrl" method="get">
-
-    <fieldset id="fieldset-type" aria-labelledby="legend-type">
-      <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-type"><label class="bold" for="q">Cancer Type/Keyword</label></div>
-        <div class="large-8 columns">
-          <div class="row">
-            <input placeholder="Start typing to select a cancer type" type="text" id="q" maxlength="100" name="q" autocomplete="off">
-          </div>
-          <div class="row"></div>
-        </div>
-      </div>
-    </fieldset>
-
-    <fieldset id="fieldset-keyword" aria-labelledby="legend-keyword" style="display: none;">
-      <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-keyword"><label class="bold" for="">Keyword</label></div>
-        <div class="large-8 columns">
-          <div class="row">
-            <input type="text" id="" maxlength="100" name="" placeholder="Examples: PSA, HER-2, &quot;Paget disease&quot;" autocomplete="off">
-          </div>
-          <div class="row">
-            <a class="basiccts-cancertype-toggle" href="#">Search by cancer type</a> instead.
-          </div>
-        </div>
-      </div>
-    </fieldset>
-
-    <fieldset aria-labelledby="legend-zip">
-      <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-zip"><label class="bold" for="z">U.S. ZIP Code</label></div>
-        <div class="large-8 columns">
-          <div class="row">
-            <input id="z" type="text" maxlength="5" name="z" autocomplete="off">
-          </div>
-          <div class="row">Show trials near this U.S. ZIP code.</div>
-        </div>
-      </div>
-    </fieldset>
-
-    <fieldset aria-labelledby="legend-age">
-      <div class="row">
-        <div class="large-4 small-11 columns legend" id="legend-age"><label class="bold" for="a">Age</label></div>
-        <div class="large-8 columns">
-          <div class="row">
-            <input class="small-3" type="text" id="a" maxlength="3" name="a" autocomplete="off">
-          </div>
-          <div class="row">Your age helps determine which trials are right for you.</div>
-        </div>
-      </div>
-    </fieldset>
-
-    <div class="row">
-      <div class="large-8 columns right">
-        <input type="submit" class="submit button" value="Search">
-        </div>
+    <div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
+        <p style="margin: 10px 22px; vertical-align: middle;">We recently updated our clinical trials information. To get the most accurate results, you should rerun your search.</i></p>
+        <p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
     </div>
-  </form>
+#end
+    <form id="form--cts-advanced" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
+        <!-- BEGIN select2 (cancer type) module -->
+        <fieldset id="fieldset--type">
+            <div class="adv-fieldset-header">
+                <h4>CANCER TYPE
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
+                </h4>
+            </div>
+            <div class="adv-fieldset-body">
+                <div class="row">
+                    <div>You must first select a cancer type. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
+                </div>
+                <div class="row">
+                    <div>
+                    Primary Type/Condition
+                    </div>
+                </div>
+                <div class="row">
+                    <select id="ct-select" class="no-auto-jqueryui" name="ct" style="width:97%">
+                        <option value=""><i>In development - cancer type dropdown disabled</i></option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div>
+                    Sub-type
+                    </div>
+                </div>
+                <div class="row">
+                    <select id="st-multiselect" name="st" multiple data-placeholder="In development - subtypes disabled" placeholder="Select cancer type first" style="width:97%"></select>
+                </div>
+                <div class="row">
+                    <div>
+                    Stage
+                    </div>
+                </div>
+                <div class="row">
+                    <select id="stg-multiselect" name="stg" multiple data-placeholder="In development - stages disabled" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+                </div>
+                <div class="row">
+                    <div>
+                    Side Effects / Biomarkers / Participant Attributes
+                    </div>
+                </div>
+                <div class="row">
+                    <select id="fin-multiselect" name="fin" multiple data-placeholder="In development - findings disabled" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+                </div>
+            </div>
+        </fieldset>
+        <!-- END select2 (cancer type) module -->
+        <!-- BEGIN keyword fieldset -->
+        <fieldset id="fieldset--keyword">
+            <div class="adv-fieldset-header">
+                <h4>KEYWORD/PHRASES
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
+                </h4>
+            </div>
+            <div class="adv-fieldset-body">
+                <div class="row">
+                    <div>Search by word or phrase (use quotation marks with phrases)</div>
+                </div>
+                <div class="row">
+                    <div>
+                        <input id="q" name="q" aria-labelledby="legend--keyword" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- END keyword fieldset -->
+        <!-- BEGIN age fieldset -->
+        <fieldset id="fieldset--age">
+            <div class="adv-fieldset-header">
+                <h4>AGE
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
+                </h4>
+            </div>
+            <div class="adv-fieldset-body">
+                <div class="row">
+                    <div>Enter the age of the patient</div>
+                </div>
+                <div class="row">
+                    <div>
+                        <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- END age fieldset -->
+        <!-- BEGIN location fieldsets -->
+        <fieldset id="fieldset--location">
+            <div class="adv-fieldset-header">
+                <h4>LOCATION
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
+                </h4>
+            </div>
+            <div class="adv-fieldset-body">
+                <div class="row">
+                    <label>Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in al available locations.</label>
+                </div>
+                <div class="row">
+                    <fieldset id="fieldset--your-location">
+                        <div class="radio">
+                            <input id="your-location" name="loc" value="your" type="radio"><label for="your-location">ZIP Code</label>
+                        </div>
+                        <div class="row">
+                            <div class="z-input large-6 columns gutter">
+                                <label for="z">U.S. ZIP Code: </label>
+                                <input type="text" id="z" name="z" maxlength="5">
+                            </div>
+                            <div class="zp-input large-6 columns">
+                                <label for="zp">Radius: </label>
+                                <select id="zp" name="zp" class="fullwidth">
+                                    <option value="25">25 miles</option>
+                                    <option value="50">50 miles</option>
+                                    <option selected="selected" value="100">100 miles</option>
+                                    <option value="150">150 miles</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </fieldset>
+        <!-- END location fieldsets -->
+        <div class="row">
+            <div class="large-12">
+                <input type="submit" class="submit button" value="Search">
+            </div>
+        </div>
+    </form>
 </div>
 ## Begin "Delighter" section ##
 <div class="delighter-rail medium-3 columns">
-	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake WhichTrialsDelighter.inc)-->
-	<!--(bake WhatAreTrialsDelighter.inc)-->
+    <!--(bake LiveHelpDelighter.inc)-->
+    <!--(bake WhichTrialsDelighter.inc)-->
+    <!--(bake WhatAreTrialsDelighter.inc)-->
 </div>
 ## Begin section for referencing API instructions page ##
-<div class="api-reference-section">
-	<!--(bake APIReferenceSection.inc)-->
+<div class="api-reference-section api-ref-advanced">
+    <!--(bake APIReferenceSection.inc)-->
 </div>
