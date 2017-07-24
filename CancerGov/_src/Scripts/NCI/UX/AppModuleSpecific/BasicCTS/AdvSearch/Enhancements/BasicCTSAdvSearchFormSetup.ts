@@ -1,10 +1,10 @@
-import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
-import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
-import "select2";
-import * as NCI from "UX/Common/Enhancements/NCI"; 
-import { NCIBaseEnhancement } from 'UX/core';
 import { ClinicalTrialsServiceFactory } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
+import { NCIBaseEnhancement } from 'UX/core';
+import * as NCI from "UX/Common/Enhancements/NCI"; 
+import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
+import "select2";
+import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
 
 export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
  
@@ -118,7 +118,8 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
             placeholder: 'In development - treatment autosuggest turned off'
         });
 
-
+        // Gray out unselected location fields 		
+        this.selectLocFieldset();
 	}
 	
 	/*
@@ -142,46 +143,42 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	}
 
 	/*
-	* Populate the LeadOrg select2 field
-	* Preliminary call to ctapi-facade
+    * Enable or disable selection features based on the selected 'Location' radio button.
+	*/
+    private selectLocFieldset() {
+
+        // Gray out unchecked fieldsets on load
+		var $checked = $('input[name="loc"]:checked');
+		var $fieldsetItems  = this;
+        $fieldsetItems.disableLocFieldset($checked.closest('fieldset').siblings());
+
+        // Gray out unchecked fieldsets when a selection is made
+        $("input[name='loc']").on("click",function(e){
+        	var $this = $(this);
+			var $parent = $this.closest('fieldset');
+            $fieldsetItems.enableLocFieldset($parent);
+            $fieldsetItems.disableLocFieldset($parent.siblings());
+        });
+	}
+
+	/*
+    * Activate a selected location fieldset
 	*/	
-	// private searchLeadOrg(leadOrg) {
-	// 		this.facade.searchLeadOrg(leadOrg.val())
-	// 		.then((orgs:TermResult[]) => {
-	// 			//TODO - hook up the form and remove the console.log messages
-	// 			console.log(orgs)
-	// 		})
-	// 		.catch((err:any) => {
-	// 			console.log(err)
-	// 		})
+    private enableLocFieldset($elem) {
+        $elem.attr('class','fieldset-enabled');
+        $('.fieldset-enabled').find('input[type=text], input[type=checkbox]').removeAttr('disabled');
+        $('.fieldset-enabled').find('span[role=combobox]').removeClass('ui-state-disabled');
+    }
 
-			// .highlighterautocomplete({
-			//     fetchSrc: function(term) {
-			// 		dataQuery = {
-			// 			'agg_field': fieldName,
-			// 			'agg_term': term,
-			// 			'size': 10,
-			// 			'current_trial_status': trialStatuses
-			// 		};
-			// 		return $.ajax({
-			// 			url: 'https://m-pink-dev.cancer.gov/trial-aggregates',
-			// 			data: dataQuery,
-			// 			dataType: 'json'
-			// 		}).pipe(function(res){
-			// 			var rtn = res.terms.map(function(item){
-			// 				return {'term': item.key};
-			// 			});
-			// 			return {
-			// 				result: rtn
-			// 			}
-			// 		});
-			// 	}
-			// });			
+	/*
+    * Gray out a disabled location fieldsets
+	*/	
+    private disableLocFieldset($elem) {
+        $elem.attr('class','fieldset-disabled');
+        $('.fieldset-disabled').find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
+        $('.fieldset-disabled').find('span[role=combobox]').addClass('ui-state-disabled');
+    }
 
-			// (<any>$leadOrg).autocompleteselector(
-			// );
-
-	//}
 
 	private sAutocomplete(module, fieldName, input, trialStatuses) {
         // Do nothing
