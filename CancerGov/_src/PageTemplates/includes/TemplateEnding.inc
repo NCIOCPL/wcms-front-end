@@ -16,6 +16,7 @@
         <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
         control else Web analytics scripts will not show up in the HTML-->
         <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
+        <script type="text/javascript">_satellite.pageBottom();</script>
     </body>
 
 </html>

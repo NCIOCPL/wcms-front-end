@@ -65,7 +65,7 @@
 </div>
 ## Begin "Delighter" section ##
 <div class="delighter-rail medium-3 columns">
-	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake WhichTrialsDelighter.inc)-->
-	<!--(bake WhatAreTrialsDelighter.inc)-->
+	<!--(bake livehelpdelighter.inc)-->
+	<!--(bake whichtrialsdelighter.inc)-->
+	<!--(bake whataretrialsdelighter.inc)-->
 </div>
