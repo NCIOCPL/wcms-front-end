@@ -1,5 +1,5 @@
 
-<!--(bake Macros.inc)-->
+<!--(bake macros.inc)-->
 
 #DrawLanguageStrings($CDEContext)
 
