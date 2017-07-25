@@ -27,7 +27,7 @@ job("${FOLDER_NAME}/Create New Branch") {
 
   steps {
     dsl {
-      external("tools/build/create-branch-skeleton.job")
+      external("tools/build/create_branch_skeleton.job")
     }
   }
 }
