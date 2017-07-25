@@ -26,4 +26,4 @@ zip -r wcms-front-end.zip *
 # Clean up old version (if any exists) and create new release.
 github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag ${BRANCH_NAME} || echo Nothing to delete.
 github-release release --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${BRANCH_NAME} --name ${BRANCH_NAME}
-github-release upload --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${BRANCH_NAME} --name wcms-front-end.zip --file wcms-front-end.zip
+github-release upload --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${BRANCH_NAME} --name built-files.zip --file wcms-front-end.zip
