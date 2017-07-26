@@ -32,7 +32,7 @@ class MockCTService implements ClinicalTrialsService {
         return Promise.resolve(res);
     }
 
-    getInterventions(category?: string|string[], intervention?: string, interventionType?: string|string[]): Promise<InterventionResults> {
+    getInterventions(category?: string|string[], intervention?: string, size?:number, additionalParams?:any, sort?:string, order?:string): Promise<InterventionResults> {
         let res:InterventionResults = new InterventionResults();
         res.total = 0;
         res.terms = [];

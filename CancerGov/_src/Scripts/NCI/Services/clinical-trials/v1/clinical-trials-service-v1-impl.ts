@@ -37,14 +37,16 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
         };
 
         //Merge in any additional params.
-        $.extend(params, additionalParams);
+        //NOTE: The order matters here as we want to ensure that our params are not overwritten.
+        let requestParams = Object.assign({}, additionalParams, params);
+        
         //Write a unit test for the request URL
 
         //Setup additional params for Viewable.
 
         return this.connection.getRequest(
                 '/terms',
-                params
+                requestParams
             )
             .then((resJSON: any) => {
                 return TermResults.fromJSON(resJSON);
@@ -56,13 +58,19 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
      * 
      * @param category The high-level type of the term (agent, agent_category, other) (OPTIONAL)
      * @param intervention Type ahead support to search for the interventions (OPTIONAL)
-     * @param interventionType The specific intervention type (OPTIONAL)
-     * //Will probably get sort, size, from?
-     */
-    getInterventions(category?: string|string[], intervention?: string, interventionType?: string|string[]): Promise<InterventionResults> {
+     * @param size The number of interventions to return (OPTIONAL)
+     * @param additionalParams Additional Parameters like interventionType (OPTIONAL)
+     * @param sort The sort order of the results (OPTIONAL)
+     * @param order The direction to sort the results (OPTIONAL)
+     */    
+    getInterventions(category?: string|string[], intervention?: string, size = 10 , additionalParams?:any, sort = "term", order = "asc"): Promise<InterventionResults> {
 
         //Setup the request
-        let params = {};
+        let params = {
+            size: size,
+            sort: sort,
+            order: order
+        };
 
         if (category) {
             params["category"] = category;
@@ -72,15 +80,13 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
             params["intervention"] = intervention;
         }
 
-        if (interventionType) {
-            params["type"] = interventionType;
-        }
+        let requestParams = Object.assign({}, additionalParams, params);
 
         //Setup additional params for Viewable.
 
         return this.connection.getRequest(
                 '/interventions',
-                params
+                requestParams
             )
             .then((resJSON: any) => {
                 return InterventionResults.fromJSON(resJSON);
