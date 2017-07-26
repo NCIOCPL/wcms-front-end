@@ -149,7 +149,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
     
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
-    <!--(bake livehelpdelighter.inc)-->
-    <!--(bake nextstepdelighter.inc)-->
+    <!--(bake LiveHelpDelighter.inc)-->
+    <!--(bake NextStepDelighter.inc)-->
   </div>
 </div>

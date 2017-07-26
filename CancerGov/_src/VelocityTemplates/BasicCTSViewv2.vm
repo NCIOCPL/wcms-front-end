@@ -318,8 +318,8 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
   </div>
 
   <div class="delighter-rail medium-3 columns">
-    <!--(bake livehelpdelighter.inc)-->
-    <!--(bake nextstepdelighter.inc)-->
+    <!--(bake LiveHelpDelighter.inc)-->
+    <!--(bake NextStepDelighter.inc)-->
     <div class="no-resize cts-share">
       <div class="share-text">Share this clinical trial with your doctor:</div>
       <a class="print" title="Print" href="#">

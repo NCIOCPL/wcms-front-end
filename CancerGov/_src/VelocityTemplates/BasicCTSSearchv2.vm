@@ -143,11 +143,11 @@ TODO: Verify Javascript
 </div>
 ## Begin "Delighter" section ##
 <div class="delighter-rail medium-3 columns">
-	<!--(bake livehelpdelighter.inc)-->
-	<!--(bake whichtrialsdelighter.inc)-->
-	<!--(bake whataretrialsdelighter.inc)-->
+	<!--(bake LiveHelpDelighter.inc)-->
+	<!--(bake WhichTrialsDelighter.inc)-->
+	<!--(bake WhatAreTrialsDelighter.inc)-->
 </div>
 ## Begin section for referencing API instructions page ##
 <div class="api-reference-section api-ref-advanced">
-	<!--(bake apireferencesection.inc)-->
+	<!--(bake APIReferenceSection.inc)-->
 </div>
