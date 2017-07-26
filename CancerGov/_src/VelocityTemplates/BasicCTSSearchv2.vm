@@ -27,7 +27,7 @@ TODO: Verify Javascript
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ct-select" class="no-auto-jqueryui" name="ct" style="width:97%">
+                    <select id="ct-select" class="no-auto-jqueryui" name="t" style="width:97%">
                         <option value=""><i>In development - cancer type dropdown disabled</i></option>
                     </select>
                 </div>
