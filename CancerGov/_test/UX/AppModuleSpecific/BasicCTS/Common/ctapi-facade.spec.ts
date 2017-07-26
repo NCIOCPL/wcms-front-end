@@ -225,6 +225,18 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                     });
         });
     });
+
+    describe('searchDrugs', () => {
+        // Placeholder unit tests until endpoint is working
+        it('should make the correct request to the ClinicalTrialsService', () => {
+                expect('istanbul').to.be.eq('constantinople');
+        });
+
+        it('should return the correct results based on response', () => {
+                expect('new york').to.be.eq('new amsterdam');
+        });
+
+    });
     
     describe('searchTrialInvestigators', () => {
 

@@ -93,7 +93,7 @@ export class CTAPIFacade {
     /**
      * Gets drugs intervention items for search field
      */
-    searchDrug(searchText:string):Promise<InterventionResult[]> {
+    searchDrugs(searchText:string):Promise<InterventionResult[]> {
         let res:InterventionResult[] = [];
         //https://m-pink-dev.cancer.gov/trial-aggregates?agg_field=_interventions.drugs&agg_term=her&size=20&current_trial_status%5B%5D=active&current_trial_status%5B%5D=approved&current_trial_status%5B%5D=enrolling_by_invitation&current_trial_status%5B%5D=in_review&current_trial_status%5B%5D=temporarily_closed_to_accrual
 

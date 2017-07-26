@@ -87,28 +87,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 
 		// Start populating the dropdown
 		var $drugSelect = $("#dr-multiselect");
-		this.facade.searchDrug("")
+		this.facade.searchDrugs("")
 				.then((drugList) => {
 					for(let drug of drugList) {
-						$drugSelect.append('<option value="' + drug.codes[0] +  '">' + drug.name + '</option>')
-						console.log(drug.name + ', ' + drug.codes[0])
+						$drugSelect.append('<option value="' + drug.codes.join() +  '">' + drug.name + '</option>')
+						console.log(drug.name + ', ' + drug.codes.join())
 					}
+					this.buildDrugSelect($drugSelect)
 				})
 				//TODO: remove log message on error - keeping now for debugging purposes
 				.catch((err:any) => {
 					console.log(err)
 				})
 
-        // Select2 for drugs
-		var $drugWrap = $('<div class="drug-select-dropdown">');
-		$drugWrap.appendTo($('body'));
-		$drugSelect.select2({
-			dropdownParent: $drugWrap,
-            theme: "classic",
-			placeholder: 'Type the drug you are looking for below',
-			minimumInputLength: 3,
-			escapeMarkup: function (markup) { return markup; }
-		}); 
+
 
 
 
@@ -125,7 +117,29 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
         // Gray out unselected location fields 		
         this.selectLocFieldset();
 	}
-	
+
+	// Select2 for drugs
+	private buildDrugSelect($selector) {
+		var $drugWrap = $('<div class="drug-select-dropdown">');
+		$drugWrap.appendTo($('body'));
+		$selector.select2({
+			dropdownParent: $drugWrap,
+            theme: "classic",
+			placeholder: 'Type the drug you are looking for below',
+			minimumInputLength: 3,
+			escapeMarkup: function (markup) { return markup; },
+			templateResult: function(item) {
+				if (item.loading) return item.text;
+				var markup = '<div class="drug-item-wrap"><div class="drug-item">';
+					markup += '<div class="preferred-name">' + item.text;
+					markup += "</div>";
+					markup += '</div></div>'
+				return markup;
+			}
+
+		}); 
+	}
+
 	/*
 	* Populate the location Country dropdown field
 	*/
