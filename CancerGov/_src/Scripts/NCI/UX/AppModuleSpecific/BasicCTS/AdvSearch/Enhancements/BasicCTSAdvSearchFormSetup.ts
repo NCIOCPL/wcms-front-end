@@ -3,7 +3,7 @@ import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 import { NCIBaseEnhancement } from 'UX/core';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
-import "select2";
+import "../../../../../../../../node_modules/select2";
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
 
 export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
