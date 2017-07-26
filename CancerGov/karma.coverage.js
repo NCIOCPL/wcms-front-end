@@ -1,3 +1,4 @@
+/** Configuration for Code Coverage checking with Istanbul */
 var webpackConfig = require('./webpack.config');
 
 webpackConfig.module.rules = [{
@@ -7,7 +8,7 @@ webpackConfig.module.rules = [{
     query: {
         compilerOptions: {
             inlineSourceMap: true,
-            sourceMap: false
+            sourceMap: false 
         }
     }
 },
