@@ -139,6 +139,24 @@ export class CTAPIFacade {
             res.push(drug5);
         }
 
+        let family1:InterventionResult = new InterventionResult();
+            family1.name = "Recombinant Interleukin";
+            family1.codes = [ "c593" ];
+            family1.synonyms = [ "Interleukin" ];
+            family1.category = "Agent Category";
+        if(family1.name.indexOf(searchText) !== -1) {
+            res.push(family1);
+        }
+
+        let family2:InterventionResult = new InterventionResult();
+            family2.name = "Cytokine";
+            family2.codes = [ "c1283", "c20464" ];
+            family1.synonyms = [ "Recombinant Cytokine" ];
+            family2.category = "Agent Category";
+        if(family2.name.indexOf(searchText) !== -1) {
+            res.push(family2);
+        }
+        
         return Promise.resolve(res)
 
     }

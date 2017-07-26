@@ -83,28 +83,34 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			}
 		});
 
-		
-		this.facade.searchDrug("Tra")
-				.then((res) => {
-					console.log(res)
+
+
+		// Start populating the dropdown
+		var $drugSelect = $("#dr-multiselect");
+		this.facade.searchDrug("")
+				.then((drugList) => {
+					for(let drug of drugList) {
+						$drugSelect.append('<option value="' + drug.codes[0] +  '">' + drug.name + '</option>')
+						console.log(drug.name + ', ' + drug.codes[0])
+					}
 				})
 				//TODO: remove log message on error - keeping now for debugging purposes
 				.catch((err:any) => {
 					console.log(err)
 				})
 
-
-
-
         // Select2 for drugs
 		var $drugWrap = $('<div class="drug-select-dropdown">');
 		$drugWrap.appendTo($('body'));
-		var $drugSelect = $("#dr-multiselect");
 		$drugSelect.select2({
 			dropdownParent: $drugWrap,
             theme: "classic",
-            placeholder: 'In development - drug autosuggest turned off'
-        }); 
+			placeholder: 'Type the drug you are looking for below',
+			minimumInputLength: 3,
+			escapeMarkup: function (markup) { return markup; }
+		}); 
+
+
 
         // Select2 for other treatment
 		var $trtmntWrap = $('<div class="trtmnt-select-dropdown">');
