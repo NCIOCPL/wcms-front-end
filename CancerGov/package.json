@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "karma start karma.unit.js",
-    "coverage": "karma start karma.coverage.js"
+    "coverage": "karma start karma.coverage.js",
+	"build-release" : "./build-release.sh"
   },
   "engineStrict": "true",
   "dependencies": {
