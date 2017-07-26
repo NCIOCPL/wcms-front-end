@@ -83,19 +83,17 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			}
 		});
 
-        // Disable subtype/stage/findings
-		// $subtypeCancer.select2({
-		// 	disabled: true,
-		// 	placeholder: 'In development - subtypes cannot be selected'
-		// })
-		// $stageCancer.select2({
-		// 	disabled: true,
-		// 	placeholder: 'In development - stages cannot be selected'
-		// })
-		// $findings.select2({
-		// 	disabled: true,
-		// 	placeholder: 'In development - findings cannot be selected'
-		// })
+		
+		this.facade.searchDrug("Tra")
+				.then((res) => {
+					console.log(res)
+				})
+				//TODO: remove log message on error - keeping now for debugging purposes
+				.catch((err:any) => {
+					console.log(err)
+				})
+
+
 
 
         // Select2 for drugs
