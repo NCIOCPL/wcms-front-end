@@ -397,6 +397,8 @@
             </div>
         </fieldset>
         <!-- END lead organization fieldset -->
+        <!-- Hidden input for passing originating search form -->
+		<input name="rl" value="2" type="hidden" id="rl">
         <div class="row">
             <div class="large-12">
                 <input type="submit" class="submit button" value="Search">

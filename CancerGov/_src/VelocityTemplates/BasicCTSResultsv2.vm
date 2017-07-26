@@ -96,7 +96,7 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
       #if($SearchResults.Control.OutOfBounds($SearchResults.Results.TotalResults) == false)
 	    <div class="cts-results-title">
 	      Results $SearchResults.Control.GetStartItemNum()-$SearchResults.Control.GetEndItemNum($SearchResults.Results.TotalResults) of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-		  | <span class="cts-start-over"><a href="/about-cancer/treatment/clinical-trials/search">Start Over</a></span>
+		  | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
 	    </div>
       #else
 	    ## Draw no title here
