@@ -92,11 +92,20 @@ export class CTAPIFacade {
 
     /**
      * Gets drugs intervention items for search field
+     * Dummy data - remove when endpoint is in place
      */
     searchDrugs(searchText:string):Promise<InterventionResult[]> {
         let res:InterventionResult[] = [];
         //https://m-pink-dev.cancer.gov/trial-aggregates?agg_field=_interventions.drugs&agg_term=her&size=20&current_trial_status%5B%5D=active&current_trial_status%5B%5D=approved&current_trial_status%5B%5D=enrolling_by_invitation&current_trial_status%5B%5D=in_review&current_trial_status%5B%5D=temporarily_closed_to_accrual
 
+        let drug0:InterventionResult = new InterventionResult();
+            drug0.name = "Autologous TGFbeta-Resistant HER2/EBV-Specific Cytotoxic T Lymphocytes";
+            drug0.codes = [ "c85459" ];
+            drug0.category = "Agent";
+        if(drug0.name.indexOf(searchText) !== -1) {
+            res.push(drug0);
+        }
+        
         let drug1:InterventionResult = new InterventionResult();
             drug1.name = "Trastuzumab";
             drug1.codes = [ "c1647" ];
@@ -131,14 +140,15 @@ export class CTAPIFacade {
             res.push(drug4);
         }
 
-        let drug5:InterventionResult = new InterventionResult();
-            drug5.name = "Autologous TGFbeta-Resistant HER2/EBV-Specific Cytotoxic T Lymphocytes";
-            drug5.codes = [ "c85459" ];
-            drug5.category = "Agent";
-        if(drug5.name.indexOf(searchText) !== -1) {
-            res.push(drug5);
+        let family0:InterventionResult = new InterventionResult();
+            family0.name = "Cytokine";
+            family0.codes = [ "c1283", "c20464" ];
+            family1.synonyms = [ "Recombinant Cytokine" ];
+            family0.category = "Agent Category";
+        if(family0.name.indexOf(searchText) !== -1) {
+            res.push(family0);
         }
-
+        
         let family1:InterventionResult = new InterventionResult();
             family1.name = "Recombinant Interleukin";
             family1.codes = [ "c593" ];
@@ -147,14 +157,60 @@ export class CTAPIFacade {
         if(family1.name.indexOf(searchText) !== -1) {
             res.push(family1);
         }
+        
+        return Promise.resolve(res)
 
-        let family2:InterventionResult = new InterventionResult();
-            family2.name = "Cytokine";
-            family2.codes = [ "c1283", "c20464" ];
-            family1.synonyms = [ "Recombinant Cytokine" ];
-            family2.category = "Agent Category";
-        if(family2.name.indexOf(searchText) !== -1) {
-            res.push(family2);
+    }
+
+    /**
+     * Gets other intervention items for search field
+     * Dummy data - remove when endpoint is in place
+     */
+    searchOtherInterventions(searchText:string):Promise<InterventionResult[]> {
+        let res:InterventionResult[] = [];
+        //https://m-pink-dev.cancer.gov/trial-aggregates?agg_field=_interventions.drugs&agg_term=her&size=20&current_trial_status%5B%5D=active&current_trial_status%5B%5D=approved&current_trial_status%5B%5D=enrolling_by_invitation&current_trial_status%5B%5D=in_review&current_trial_status%5B%5D=temporarily_closed_to_accrual
+
+        let iv0:InterventionResult = new InterventionResult();
+            iv0.name = "Frequency-Domain Photon Migration";
+            iv0.codes = [ "c70940" ];
+            iv0.synonyms = [ "Herceptin" ];
+            iv0.category = "Other";
+        if(iv0.name.indexOf(searchText) !== -1) {
+            res.push(iv0);
+        }
+
+        let iv1:InterventionResult = new InterventionResult();
+            iv1.name = "Intensity-Modulated Radiation Therapy";
+            iv1.codes = [ "c16135" ];
+            iv1.synonyms = [];
+            iv1.category = "Other";
+        if(iv1.name.indexOf(searchText) !== -1) {
+            res.push(iv1);
+        }
+
+        let iv2:InterventionResult = new InterventionResult();
+            iv2.name = "Behavioral Dietary Intervention";
+            iv2.codes = [ "c67021" ];
+            iv2.synonyms = [];
+            iv2.category = "Other";
+        if(iv2.name.indexOf(searchText) !== -1) {
+            res.push(iv2);
+        }        
+        
+        let iv3:InterventionResult = new InterventionResult();
+            iv3.name = "Magnetic Resonance Imaging";
+            iv3.codes = [ "c16809" ];
+            iv3.category = "Other";
+        if(iv3.name.indexOf(searchText) !== -1) {
+            res.push(iv3);
+        }
+
+        let iv4:InterventionResult = new InterventionResult();
+            iv4.name = "Evaluation of Cancer Risk Factors";
+            iv4.codes = [ "c15455" ];
+            iv4.category = "Other";
+        if(iv4.name.indexOf(searchText) !== -1) {
+            res.push(iv4);
         }
         
         return Promise.resolve(res)
