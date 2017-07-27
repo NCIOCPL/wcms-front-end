@@ -92,8 +92,18 @@ module.exports = function(grunt) {
         grunt.config('env', env);
 
         var tasks = ['sass:' + env,
-            'copy:styles',
-            'clean:tmp'];
+            'copy:styles'];
+        grunt.task.run(tasks);
+    });
+
+    // ----------------------------------------------------------------
+    grunt.registerTask('build-sprites', 'Building Sprites.', function(env) {
+        env = (env === 'prod' ? 'prod' : 'dev');
+        grunt.config('env', env);
+
+        var tasks = [
+            'svg_sprite',
+            'svgmin'];
         grunt.task.run(tasks);
     });
 

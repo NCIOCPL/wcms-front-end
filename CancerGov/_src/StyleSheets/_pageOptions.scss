@@ -143,7 +143,7 @@
 }
 
 /* DESKTOP page options */
-@include bp(large-up) {
+//@include bp(large-up) {
 	// apply homepage- and landing page-only styles
 	.columns.page-options {
 		top: 0;
@@ -177,7 +177,7 @@
 
 		li {
 			margin: 0 0 0 0.875em;
-			@include sprite($width: 25px, $height: 25px);
+			//@include sprite($width: 25px, $height: 25px);
 		}
 
 		.po-view-entire-document {
@@ -187,22 +187,22 @@
 			@include sprite($x-coordinate: -17px, $y-coordinate: -16px, $width: 22px, $height: 25px);
 		}
 		.po-print {
-			@include sprite($x-coordinate: -16px, $y-coordinate: -62px, $width: 23px, $height: 25px);
+			@include svg-sprite(printer);
 		}
 		.po-email {
-			@include sprite($x-coordinate: -16px, $y-coordinate: -105px, $width: 23px, $height: 25px);
+			@include svg-sprite(mail-envelope-closed);
 		}
 		.po-facebook {
-			@include sprite($x-coordinate: -25px, $y-coordinate: -151px, $width: 8px, $height: 25px);
+			@include svg-sprite(facebook);
 		}
 		.po-twitter {
-			@include sprite($x-coordinate: -16px, $y-coordinate: -195px, $width: 19px, $height: 25px);
+			@include svg-sprite(twitter);
 		}
 		.po-googleplus {
-			@include sprite($x-coordinate: -16px, $y-coordinate: -241px, $width: 19px, $height: 25px);
+			@include svg-sprite(google-plus-old);
 		}
 		.po-pinterest {
-			@include sprite($x-coordinate: -20px, $y-coordinate: -287px, $width: 15px, $height: 25px);
+			@include svg-sprite(pinterest);
 		}
 	}
 
@@ -215,5 +215,5 @@
 		top: 3.8em;
 	}
 
-}
+//}
 /****** END PAGE OPTIONS *************************************/

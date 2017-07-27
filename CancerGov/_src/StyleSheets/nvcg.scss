@@ -29,6 +29,9 @@
 /***  END JQUERY UI OVERRIDE STYLES ***/
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
+/****************** NCI UTILITIES ********************/
+@import "sprites/svg-sprite";
+
 /****************** NCI COMPONENTS SECTION ********************/
 // these styles override and extend Foundation SASS partials
 @import "components/global";
@@ -66,7 +69,7 @@
 @import "institutions";
 @import "ebookButtons";
 @import "materials_to_share";
-@import "searchresults";
+@import "searchResults";
 @import "lists";
 @import "videos";
 @import "popups";
@@ -77,6 +80,7 @@
 @import "contact";
 @import "nav";
 @import "pagination";
+
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
 @import "NCI.ProactiveLiveHelp";
@@ -94,7 +98,7 @@
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
-@import "megamenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
+@import "MegaMenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
 
 /* PRINT STYLES --------------------------------- */
 @import "print";

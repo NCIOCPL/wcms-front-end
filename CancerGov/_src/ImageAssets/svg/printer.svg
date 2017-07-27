@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="printer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 23 19" style="enable-background:new 0 0 23 19;" xml:space="preserve">
+<g>
+	<path style="fill:#086F89;" d="M19.02,14.25h3.96v-9.5h-3.96v-4.75H3.98v4.75H0.01v9.5h3.96v4.75h15.05V14.25z M18.23,0.79v3.96
+		H4.77V0.79 M4.77,8.84h13.47v9.37H4.77V8.84z M5.56,13.46v0.79h11.88v-0.79H5.56z M5.56,15.84v0.79h11.88v-0.79H5.56z"/>
+	<rect x="5.56" y="11.08" style="fill:#086F89;" width="11.88" height="0.79"/>
+</g>
+</svg>
