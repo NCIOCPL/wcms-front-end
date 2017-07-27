@@ -92,19 +92,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			
 		// Populate the other interventions field
 		var $ivSelect = $("#ti-multiselect");
-		this.facade.searchOtherInterventions("")
-			.then((ivList) => {
-				for(let iv of ivList) {
-					$ivSelect.append('<option value="' + iv.codes.join() +  '">' + iv.name + '</option>')
-					console.log(iv.name + ', ' + iv.codes.join())
-				}
-				this.buildInterventionSelect($ivSelect)
-			})
-			//TODO: remove log message on error - keeping now for debugging purposes
-			.catch((err:any) => {
-				console.log(err)
-			})
-
+		this.buildInterventionSelect($ivSelect);
 
         // Gray out unselected location fields 		
         this.selectLocFieldset();
@@ -116,7 +104,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	private buildDrugSelect($selector) {
 		var $drugWrap = $('<div class="drug-select-dropdown">');
 		$drugWrap.appendTo($('body'));
-		
+
 		(<any>Select2InterventionsInitializer).default($selector, {
 			dropdownParent: $drugWrap,
             theme: "classic",
@@ -175,21 +163,52 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	private buildInterventionSelect($selector) {
 		var $ivWrap = $('<div class="trtmnt-select-dropdown">');
 		$ivWrap.appendTo($('body'));
-		$selector.select2({
+		(<any>Select2InterventionsInitializer).default($selector, {
 			dropdownParent: $ivWrap,
             theme: "classic",
 			placeholder: 'Start typing the treatment/intervention you are looking for',
 			minimumInputLength: 3,
 			escapeMarkup: function (markup) { return markup; },
 			templateResult: function(item) {
+				console.log(item);
 				if (item.loading) return item.text;
 				var markup = '<div class="trtmnt-item-wrap"><div class="trtmnt-item">';
-					markup += '<div class="preferred-name">' + item.text;
-					markup += "</div>";
-					markup += '</div></div>'
-				return markup;
-			}
 
+				//Draw name line
+				markup += '<div class="preferred-name">' + item.name;
+				markup += "</div>";
+				//End name line
+
+				//Draw synonyms
+				if (item.synonyms.length > 0) {
+					//This is a bit hacky to get at the words a user is filtering.
+					var filter_text = $selector.data('select2').$container.find("input").val();
+					if (filter_text) {
+						var matchedSyn = [];
+						var regexBold = new RegExp('(^' + filter_text + '|\\s+' + filter_text + ')', 'i');
+						item.synonyms.forEach(function(syn) {
+							if (syn.match(regexBold)) {
+								matchedSyn.push(syn.replace(regexBold, "<strong>$&</strong>"));
+							}
+						});
+						if (matchedSyn.length >0) {
+							markup += ' <span class="synonyms">Other Names: ' +
+							matchedSyn.join(", ");
+							markup += '</span>';
+						}
+					}
+					// highlight autocomplete item if it appears at the beginning
+                	//
+
+            		//var word = (item.item || item.term).replace(regexBold, "<strong>$&</strong>");
+				}
+				//End synonyms
+				markup += '</div></div>'
+				return markup;
+			},
+			promise: {
+				dataFunction: this.facade.searchOtherInterventions
+			}			
 		});
 	}
 
