@@ -35,9 +35,10 @@ job("${folderName}/_lower/Build for $BRANCH") {
     }
     label('docker && linux') // Require Linux and Docker
     scm {
-        github(sourceRepository, "*/$BRANCH")
+        github(sourceRepository)
     }
     steps {
+        shell("git checkout $BRANCH")
         shell("./tools/build/build.sh")
     }
 }

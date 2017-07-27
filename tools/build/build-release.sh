@@ -23,10 +23,7 @@ if [ $? != 0 ]; then echo "Build failed."; exit 1; fi
 cd _dist
 zip -r wcms-front-end.zip *
 
-# Need the tag name to incorporate, but not be identical to, the branch name.
-export TAG_NAME=${BRANCH_NAME}-latest
-
 # Clean up old version (if any exists) and create new release.
-github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag ${TAG_NAME} || echo Nothing to delete.
-github-release release --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${TAG_NAME} --name ${BRANCH_NAME}
-github-release upload --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${TAG_NAME} --name built-files.zip --file wcms-front-end.zip
+github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag ${BRANCH_NAME} || echo Nothing to delete.
+github-release release --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${BRANCH_NAME} --name ${BRANCH_NAME}
+github-release upload --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${BRANCH_NAME} --name built-files.zip --file wcms-front-end.zip
