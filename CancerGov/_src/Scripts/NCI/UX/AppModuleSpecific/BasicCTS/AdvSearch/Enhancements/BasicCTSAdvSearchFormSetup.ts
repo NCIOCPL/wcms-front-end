@@ -84,41 +84,45 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		});
 
 
-
-		// Start populating the dropdown
+		// Populate the drug field 
 		var $drugSelect = $("#dr-multiselect");
 		this.facade.searchDrugs("")
-				.then((drugList) => {
-					for(let drug of drugList) {
-						$drugSelect.append('<option value="' + drug.codes.join() +  '">' + drug.name + '</option>')
-						console.log(drug.name + ', ' + drug.codes.join())
-					}
-					this.buildDrugSelect($drugSelect)
-				})
-				//TODO: remove log message on error - keeping now for debugging purposes
-				.catch((err:any) => {
-					console.log(err)
-				})
+			.then((drugList) => {
+				for(let drug of drugList) {
+					$drugSelect.append('<option value="' + drug.codes.join() +  '">' + drug.name + '</option>')
+					console.log(drug.name + ', ' + drug.codes.join())
+				}
+				this.buildDrugSelect($drugSelect)
+			})
+			//TODO: remove log message on error - keeping now for debugging purposes
+			.catch((err:any) => {
+				console.log(err)
+			})
 
+			
+		// Populate the other interventions field
+		var $ivSelect = $("#ti-multiselect");
+		this.facade.searchOtherInterventions("")
+			.then((ivList) => {
+				for(let iv of ivList) {
+					$ivSelect.append('<option value="' + iv.codes.join() +  '">' + iv.name + '</option>')
+					console.log(iv.name + ', ' + iv.codes.join())
+				}
+				this.buildInterventionSelect($ivSelect)
+			})
+			//TODO: remove log message on error - keeping now for debugging purposes
+			.catch((err:any) => {
+				console.log(err)
+			})
 
-
-
-
-        // Select2 for other treatment
-		var $trtmntWrap = $('<div class="trtmnt-select-dropdown">');
-		$trtmntWrap.appendTo($('body'));
-		var $trtmntSelect = $("#ti-multiselect");
-		$trtmntSelect.select2({
-			dropdownParent: $trtmntWrap,
-            theme: "classic",
-            placeholder: 'In development - treatment autosuggest turned off'
-        });
 
         // Gray out unselected location fields 		
         this.selectLocFieldset();
 	}
 
-	// Select2 for drugs
+	/*
+	* Build the Select2 for drugs
+	*/
 	private buildDrugSelect($selector) {
 		var $drugWrap = $('<div class="drug-select-dropdown">');
 		$drugWrap.appendTo($('body'));
@@ -137,7 +141,31 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				return markup;
 			}
 
-		}); 
+		});
+	}
+
+	/*
+	* Build the Select2 for other interventions
+	*/
+	private buildInterventionSelect($selector) {
+		var $ivWrap = $('<div class="trtmnt-select-dropdown">');
+		$ivWrap.appendTo($('body'));
+		$selector.select2({
+			dropdownParent: $ivWrap,
+            theme: "classic",
+			placeholder: 'Start typing the treatment/intervention you are looking for',
+			minimumInputLength: 3,
+			escapeMarkup: function (markup) { return markup; },
+			templateResult: function(item) {
+				if (item.loading) return item.text;
+				var markup = '<div class="trtmnt-item-wrap"><div class="trtmnt-item">';
+					markup += '<div class="preferred-name">' + item.text;
+					markup += "</div>";
+					markup += '</div></div>'
+				return markup;
+			}
+
+		});
 	}
 
 	/*
