@@ -5,6 +5,8 @@ import * as NCI from "UX/Common/Enhancements/NCI";
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
 import "../../../../../../../../node_modules/select2";
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
+import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-adapter';
+
 
 export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
  
@@ -86,19 +88,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 
 		// Populate the drug field 
 		var $drugSelect = $("#dr-multiselect");
-		this.facade.searchDrugs("")
-			.then((drugList) => {
-				for(let drug of drugList) {
-					$drugSelect.append('<option value="' + drug.codes.join() +  '">' + drug.name + '</option>')
-					console.log(drug.name + ', ' + drug.codes.join())
-				}
-				this.buildDrugSelect($drugSelect)
-			})
-			//TODO: remove log message on error - keeping now for debugging purposes
-			.catch((err:any) => {
-				console.log(err)
-			})
-
+		this.buildDrugSelect($drugSelect);
 			
 		// Populate the other interventions field
 		var $ivSelect = $("#ti-multiselect");
@@ -126,21 +116,56 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	private buildDrugSelect($selector) {
 		var $drugWrap = $('<div class="drug-select-dropdown">');
 		$drugWrap.appendTo($('body'));
-		$selector.select2({
+		
+		(<any>Select2InterventionsInitializer).default($selector, {
 			dropdownParent: $drugWrap,
             theme: "classic",
 			placeholder: 'Type the drug you are looking for below',
 			minimumInputLength: 3,
 			escapeMarkup: function (markup) { return markup; },
 			templateResult: function(item) {
+				console.log(item);
 				if (item.loading) return item.text;
 				var markup = '<div class="drug-item-wrap"><div class="drug-item">';
-					markup += '<div class="preferred-name">' + item.text;
-					markup += "</div>";
-					markup += '</div></div>'
-				return markup;
-			}
 
+				//Draw name line
+				markup += '<div class="preferred-name">' + item.name;
+				if ( item.type == 'agent_category') {
+					markup += ' <span class="type">(DRUG FAMILY)</span> '
+				}
+				markup += "</div>";
+				//End name line
+
+				//Draw synonyms
+				if (item.synonyms.length > 0) {
+					//This is a bit hacky to get at the words a user is filtering.
+					var filter_text = $selector.data('select2').$container.find("input").val();
+					if (filter_text) {
+						var matchedSyn = [];
+						var regexBold = new RegExp('(^' + filter_text + '|\\s+' + filter_text + ')', 'i');
+						item.synonyms.forEach(function(syn) {
+							if (syn.match(regexBold)) {
+								matchedSyn.push(syn.replace(regexBold, "<strong>$&</strong>"));
+							}
+						});
+						if (matchedSyn.length >0) {
+							markup += ' <span class="synonyms">Other Names: ' +
+							matchedSyn.join(", ");
+							markup += '</span>';
+						}
+					}
+					// highlight autocomplete item if it appears at the beginning
+                	//
+
+            		//var word = (item.item || item.term).replace(regexBold, "<strong>$&</strong>");
+				}
+				//End synonyms
+				markup += '</div></div>'
+				return markup;
+			},
+			promise: {
+				dataFunction: this.facade.searchDrugs
+			}			
 		});
 	}
 
