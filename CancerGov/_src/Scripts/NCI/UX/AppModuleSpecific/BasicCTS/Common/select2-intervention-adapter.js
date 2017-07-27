@@ -41,7 +41,7 @@ define(function(require) {
             var term = params.term;
 
             if (!term) {
-                return;
+                callback(self.processResults({results: []}));
             }
 
             this.adapterOptions.dataFunction(term)
