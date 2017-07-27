@@ -143,7 +143,7 @@ export class CTAPIFacade {
         let family0:InterventionResult = new InterventionResult();
             family0.name = "Cytokine";
             family0.codes = [ "c1283", "c20464" ];
-            family1.synonyms = [ "Recombinant Cytokine" ];
+            family0.synonyms = [ "Recombinant Cytokine" ];
             family0.category = "Agent Category";
         if(family0.name.indexOf(searchText) !== -1) {
             res.push(family0);
