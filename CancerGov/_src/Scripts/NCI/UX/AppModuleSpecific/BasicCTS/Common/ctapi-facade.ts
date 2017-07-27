@@ -94,6 +94,7 @@ export class CTAPIFacade {
      * Gets drugs intervention items for search field
      */
     searchDrugs(searchText:string):Promise<InterventionResult[]> {
+
         let res:InterventionResult[] = [];
         //https://m-pink-dev.cancer.gov/trial-aggregates?agg_field=_interventions.drugs&agg_term=her&size=20&current_trial_status%5B%5D=active&current_trial_status%5B%5D=approved&current_trial_status%5B%5D=enrolling_by_invitation&current_trial_status%5B%5D=in_review&current_trial_status%5B%5D=temporarily_closed_to_accrual
 
@@ -102,61 +103,54 @@ export class CTAPIFacade {
             drug1.codes = [ "c1647" ];
             drug1.synonyms = [ "Herceptin" ];
             drug1.category = "Agent";
-        if(drug1.name.indexOf(searchText) !== -1) {
-            res.push(drug1);
-        }
+        
+        res.push(drug1);
 
         let drug2:InterventionResult = new InterventionResult();
             drug2.name = "Chinese Herbal Formulation PHY906";
             drug2.codes = [ "c91704" ];
             drug2.synonyms = [];
             drug2.category = "Agent";
-        if(drug2.name.indexOf(searchText) !== -1) {
-            res.push(drug2);
-        }
             
+        res.push(drug2);
+
         let drug3:InterventionResult = new InterventionResult();
             drug3.name = "HER2-pulsed Autologous Type-1 Polarized Dendritic Cell Vaccine";
             drug3.codes = [ "c114293" ];
             drug3.category = "Agent";
-        if(drug3.name.indexOf(searchText) !== -1) {
-            res.push(drug3);
-        }
+
+        res.push(drug3);
 
         let drug4:InterventionResult = new InterventionResult();
             drug4.name = "Adenovirus HER2-Transduced Autologous Dendritic Cell Vaccine";
             drug4.codes = [ "c61098" ];
             drug4.category = "Agent";
-        if(drug4.name.indexOf(searchText) !== -1) {
-            res.push(drug4);
-        }
+
+        res.push(drug4);
 
         let drug5:InterventionResult = new InterventionResult();
             drug5.name = "Autologous TGFbeta-Resistant HER2/EBV-Specific Cytotoxic T Lymphocytes";
             drug5.codes = [ "c85459" ];
             drug5.category = "Agent";
-        if(drug5.name.indexOf(searchText) !== -1) {
-            res.push(drug5);
-        }
+
+        res.push(drug5);    
 
         let family1:InterventionResult = new InterventionResult();
             family1.name = "Recombinant Interleukin";
             family1.codes = [ "c593" ];
             family1.synonyms = [ "Interleukin" ];
             family1.category = "Agent Category";
-        if(family1.name.indexOf(searchText) !== -1) {
-            res.push(family1);
-        }
+
+        res.push(family1);
 
         let family2:InterventionResult = new InterventionResult();
             family2.name = "Cytokine";
             family2.codes = [ "c1283", "c20464" ];
-            family1.synonyms = [ "Recombinant Cytokine" ];
+            family2.synonyms = [ "Recombinant Cytokine" ];
             family2.category = "Agent Category";
-        if(family2.name.indexOf(searchText) !== -1) {
-            res.push(family2);
-        }
         
+        res.push(family2);
+
         return Promise.resolve(res)
 
     }
