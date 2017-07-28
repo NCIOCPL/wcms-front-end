@@ -95,7 +95,6 @@ export class CTAPIFacade {
      * Dummy data - remove when endpoint is in place
      */
     searchDrugs(searchText:string):Promise<InterventionResult[]> {
-        console.log(this);
         return this.svc.getInterventions(
             ["Agent", "Agent Category"],
             searchText,

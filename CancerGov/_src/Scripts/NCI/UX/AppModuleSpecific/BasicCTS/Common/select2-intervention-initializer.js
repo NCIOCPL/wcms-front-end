@@ -83,29 +83,119 @@ define(function(require) {
         return Utils.Decorate(Select2InterventionAdapter, MinimumInputLength);
     }
 
+    /**
+     * Function for select2 to escape any markup
+     * @param {*} markup 
+     */
+    function escapeMarkup(markup) { return markup; }
+
+    /**
+     * Function for Select2 to draw an item in the dropdown
+     * @param {*} item 
+     */
+    function templateResult(item) {
+        
+        //Please wait loading message.
+        if (item.loading) return item.text;
+        
+        var markup = '<div class="trtmnt-item-wrap"><div class="trtmnt-item">';
+
+        //Draw name line
+        markup += '<div class="preferred-name">' + item.text;
+        if ( item.category == 'agent category') {
+            markup += ' <span class="type">(DRUG FAMILY)</span> '
+        }
+        markup += "</div>";
+        //End name line
+
+        //Draw synonyms
+        if (item.synonyms.length > 0) {
+            //This is a bit hacky to get at the words a user is filtering.
+            var filter_text = this.data('select2').$container.find("input").val();
+            if (filter_text) {
+                var matchedSyn = [];
+                var regexBold = new RegExp('(^' + filter_text + '|\\s+' + filter_text + ')', 'i');
+                item.synonyms.forEach(function(syn) {
+                    if (syn.match(regexBold)) {
+                        matchedSyn.push(syn.replace(regexBold, "<strong>$&</strong>"));
+                    }
+                });
+                if (matchedSyn.length >0) {
+                    markup += ' <span class="synonyms">Other Names: ' +
+                    matchedSyn.join(", ");
+                    markup += '</span>';
+                }
+            }
+        }
+        //End synonyms
+        markup += '</div></div>'
+        return markup;
+    }
+
+    /**
+     * Maps response from dataFunction to format Select2 can use
+     * @param {*} results 
+     */
+    function processResults(results) {
+        return {
+            results: results.map(function (res) {
+                return {
+                    id: res.codes.join("|"),
+                    text: res.name,
+                    synonyms: res.synonyms,
+                    category: res.category,
+                    type: res.type
+                }
+            })
+        };
+    }
 
     /**
      * Initializes select2 on a element, adding a PromiseAdapter 
      * @param {*} $selector The jQuery extended element to attach select2 on.  
-     * @param {*} initOptions The select2 options
+     * @param {*} placeholder The placeholder text  
+     * @param {*} dataFunction The dataFunction that will return a Promise<InterventionResult[]> matching the type ahead.
      */
-    var initSelect2Fn = function($selector, initOptions) {
+    var initSelect2Fn = function($selector, placeholder, dataFunction) {
 
         $.fn.select2.amd.require( ['select2/data/array', 'select2/data/minimumInputLength', 'select2/utils'], function (ArrayData, MinimumInputLength, Utils) {
 
             //Get the adapter definition
             var Select2InterventionAdapter = getAdapterDefinition(ArrayData, MinimumInputLength, Utils);
 
-            //Set the adapter
-            var mergedOpts = $.extend(
-                {}, 
-                initOptions, 
-                {
-                    dataAdapter: Select2InterventionAdapter
-                }
-            );
 
-            console.log($selector.select2(mergedOpts));
+
+            //We are going to initialze 
+
+            //Get or initialize the wrapper for the select2 display.
+            var $selectWrap = $('#trtmnt-select-dropdown');
+            if ($selectWrap.length == 0) {
+                $selectWrap = $('<div id="trtmnt-select-dropdown" class="trtmnt-select-dropdown">');
+                $selectWrap.appendTo($('body'));    
+            }
+
+
+            //Set the options for select2.
+            var options = 
+                {
+                    dropdownParent: $selectWrap,
+                    theme: "classic",
+                    placeholder: placeholder,
+                    minimumInputLength: 3,                    
+                    escapeMarkup: escapeMarkup,
+                    templateResult: templateResult.bind($selector),
+                    //Settings for our data adapter
+                    dataAdapter: Select2InterventionAdapter,
+                    promise: {
+                        dataFunction: dataFunction,
+                        processResults: processResults
+                    }                    
+                    
+                }
+            ;
+
+
+            $selector.select2(options);
         });
 
     }
