@@ -1,4 +1,4 @@
-import { ClinicalTrialsServiceFactory } from 'Services/clinical-trials';
+import { ClinicalTrialsServiceFactory, InterventionResult } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 import { NCIBaseEnhancement } from 'UX/core';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
@@ -117,8 +117,8 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				var markup = '<div class="drug-item-wrap"><div class="drug-item">';
 
 				//Draw name line
-				markup += '<div class="preferred-name">' + item.name;
-				if ( item.type == 'agent_category') {
+				markup += '<div class="preferred-name">' + item.text;
+				if ( item.category == 'agent category') {
 					markup += ' <span class="type">(DRUG FAMILY)</span> '
 				}
 				markup += "</div>";
@@ -152,7 +152,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				return markup;
 			},
 			promise: {
-				dataFunction: this.facade.searchDrugs.bind(this.facade)
+				dataFunction: this.facade.searchDrugs.bind(this.facade),
+				processResults: (results:InterventionResult[]) => {
+					return {
+						results: results.map((res:InterventionResult) => {
+							return {
+								id: res.codes.join(","),
+								text: res.name,
+								synonyms: res.synonyms,
+								category: res.category,
+								type: res.type
+							}
+						})
+					}
+				}				
 			}			
 		});
 	}
@@ -175,7 +188,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				var markup = '<div class="trtmnt-item-wrap"><div class="trtmnt-item">';
 
 				//Draw name line
-				markup += '<div class="preferred-name">' + item.name;
+				markup += '<div class="preferred-name">' + item.text;
 				markup += "</div>";
 				//End name line
 
@@ -207,7 +220,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				return markup;
 			},
 			promise: {
-				dataFunction: this.facade.searchOtherInterventions.bind(this.facade)
+				dataFunction: this.facade.searchOtherInterventions.bind(this.facade),
+				processResults: (results:InterventionResult[]) => {
+					return {
+						results: results.map((res:InterventionResult) => {
+							return {
+								id: res.codes.join(","),
+								text: res.name,
+								synonyms: res.synonyms,
+								category: res.category,
+								type: res.type
+							}
+						})
+					}
+				}
 			}			
 		});
 	}

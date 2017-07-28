@@ -65,12 +65,12 @@ define(function(require) {
             var term = params.term;
 
             if (!term) {
-                callback(self.processResults({results: []}));
+                callback(self.processResults([]));
             }
 
             this.adapterOptions.dataFunction(term)
                 .then(function (res) {                                    
-                    callback(self.processResults({results: res}));
+                    callback(self.processResults(res));
                 })
                 .catch(function (err) {
                     console.log(err);
