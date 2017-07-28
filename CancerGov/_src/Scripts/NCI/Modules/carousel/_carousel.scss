@@ -175,24 +175,27 @@
 	/*END: CAROUSEL STYLES*/
 }
 
-@include bp(large-up){
+
 	/*CAROUSEL STYLES*/
 	/* desktop arrows */
 	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
-	.arrows-for-other-nci-sites .next {
-		background: $ncisprite no-repeat scroll -308px -9px;
-	}
-	.arrows-for-other-nci-sites .next:hover {
-		background: $ncisprite no-repeat scroll -386px -9px;
-	}
-	.arrows-for-other-nci-sites .previous {
-		background: $ncisprite no-repeat scroll -308px -9px;
-		transform: rotate(180deg);
-	}
-	.arrows-for-other-nci-sites .previous:hover {
-		background: $ncisprite no-repeat scroll -386px -9px;
-		transform: rotate(180deg);
-	}
+.arrows-for-other-nci-sites .next,
+.arrows-for-other-nci-sites .previous {
+	font-size: 2.57em;
+}
+.arrows-for-other-nci-sites .next {
+	@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+}
+.arrows-for-other-nci-sites .next:hover {
+	@include svg-sprite(chevron-circle-red,$rotate:right);
+}
+.arrows-for-other-nci-sites .previous {
+	@include svg-sprite(chevron-circle-dk-blue,$rotate:left);
+}
+.arrows-for-other-nci-sites .previous:hover {
+	@include svg-sprite(chevron-circle-red,$rotate:left);
+}
+@include bp(large-up){
 	/* spacing */
 	.slick-slide .container {
 		margin: 0 11px;

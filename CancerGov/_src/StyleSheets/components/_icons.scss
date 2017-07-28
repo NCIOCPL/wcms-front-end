@@ -87,16 +87,17 @@ $icon-sitewide-search-submit-width: 16px;
 $icon-sitewide-search-submit-height: 20px;
 #sitesearch {
 	// reset general <button> styling
-	background: none;
+	//background: none;
 	border: none;
 	@include box-shadow(none);
 	@include transition(none);
 	padding: 0;
 	margin: 0;
 
-	@include sprite($x-coordinate: -199px, $y-coordinate: -261px, $width: 16px, $height: 20px);
+	@include svg-sprite(search);
+	background-color: transparent;
 	min-height: $icon-sitewide-search-submit-height;
-	display: block;
+	//display: block;
 	position: absolute;
 	top: 50%;
 	margin-top: -($icon-sitewide-search-submit-height / 2);

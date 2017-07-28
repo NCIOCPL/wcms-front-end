@@ -1,6 +1,11 @@
 $svg-icons: (
   sprite: (width: {{spriteWidth}}px, height: {{spriteHeight}}px, svgPath: '/PublishedContent/Images/sprites/svg-sprite.svg'),
   {{#shapes}}
-    {{base}}: (width: {{width.inner}}px, height: {{height.inner}}px, backgroundX: {{position.absolute.x}}px, backgroundY: {{position.absolute.y}}px),
+    {{base}}: (
+      width: {{width.inner}}px - 1px,
+      height: {{height.inner}}px - 1px,
+      backgroundX: {{position.absolute.x}}px,
+      backgroundY: {{position.absolute.y}}px
+    ),
   {{/shapes}}
 );

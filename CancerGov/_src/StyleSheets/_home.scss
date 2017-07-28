@@ -464,44 +464,26 @@ a.arrow-link {
 	@extend %card-link-hover;
 
 	&::before {
-		background: $ncisprite no-repeat scroll -347px -215px;
+		@include svg-sprite(chevron-circle-lt-blue, $rotate:right);
 		content: "";
 		right: 0;
-		margin-top: -8px;
 		position: absolute;
-		width: 25px;
-		height: 25px;
-		top: 39%;
-		}
+	}
 
 	&:hover::before {
-		background: $ncisprite no-repeat scroll;
-		background-position: -379px -215px;
+		@include svg-sprite(chevron-circle-red, $rotate:right);
   	}
-	}
+}
 
 a.arrow-link-white {
 	@extend a.arrow-link;
 	padding-right: 1em;
 
 	&::before {
-		background: $ncisprite no-repeat scroll -317px -217px;
-		right: 0;
-		}
-
-	&:hover::before {
-		background-position: -379px -217px;
-  	}
-}
-
-
-@include bp(small) {
-	a.arrow-link-white {
-		&::before {
-			background: $ncisprite no-repeat scroll -347px -215px;
-		}
+		@include svg-sprite(chevron-circle-white, $rotate:right);
 	}
 }
+
 a.learn-more {
 	margin-top: 1em;
 	/* adding padding per #OCECREATIV-783 --sjc */

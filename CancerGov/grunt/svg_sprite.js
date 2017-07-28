@@ -11,14 +11,11 @@ module.exports = function (grunt, options) {
                 dimension: {		// Dimension related options
                     maxWidth: 32,	// Max. shape width
                     maxHeight: 32,	// Max. shape height
-                    precision: 2    // Floating point precision
+                    precision: 3    // Floating point precision
                 },
                 spacing: {
-                    padding: 5      // Padding around all shapes
+                    padding: 5      // Padding around all shapes - must remain 5 due to calculation bug in svg-sprite
                 }
-            },
-            svg: {
-                dimensionAttributes: false
             },
             mode: {
                 css: {       // Activate the «css» mode

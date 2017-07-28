@@ -81,6 +81,15 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
  @include spriteBG;
 }
 
+// generic transform
+@mixin transform($transforms) {
+  transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
 
 /// Add an SVG sprite icon using em positioning
 /// @param {string} $icon - The name of the icon
@@ -112,7 +121,10 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 /// .class:hover {
 /// 	background-position: -2.25em -2.25em;
 /// }
-@mixin svg-sprite($icon, $type: all) {
+@mixin svg-sprite($icon, $type: all, $rotate: null) {
+
+  $rotation: null;
+
   @if $type == all {
     // Shares the backgrounds
     @extend %sprite;
@@ -129,5 +141,20 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
   // Outputs background position in em
   @if $type == all or $type == bg {
     background-position: mq-px2em(map-get($iconMap, x) - 5) mq-px2em(map-get($iconMap, y) - 5);
+  }
+
+  @if type_of($rotate) == string {
+    $rotation: map-get((
+            right: 90,
+            bottom: 180,
+            left: -90
+    ), $rotate);
+  }
+  @if type_of($rotate) == number {
+    $rotation: $rotate;
+  }
+
+  @if $rotation != null {
+    @include rotate($rotation);
   }
 }

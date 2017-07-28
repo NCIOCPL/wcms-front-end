@@ -159,6 +159,7 @@ module.exports = function(grunt) {
 
         var tasks = [
             'generate-config:' + env,
+            'build-sprites:' + env,
             'build-styles:' + env,
             'uglify:' + env,
             'copy:scripts',
