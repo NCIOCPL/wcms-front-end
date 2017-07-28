@@ -4,7 +4,7 @@ import * as FeedbackForm from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements
 import "../../../../Plugins/jquery.nci.equal_heights";
 
 $(document).ready(function(){
-	new BasicCTSAdvSearchFormSetup("clinicaltrialsapi.cancer.gov").init();
+	new BasicCTSAdvSearchFormSetup("clinicaltrialsapi-stage.cancer.gov").init();
 	(<any>(CTSCommonAnalytics)).init();
 	(<any>(FeedbackForm)).init();
 	(<any>jQuery('[data-match-height]')).NCI_equal_heights();

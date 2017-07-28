@@ -20,12 +20,12 @@ export interface ClinicalTrialsService {
      * Gets interventions from the interventions endpoint
      * 
      * @param category The high-level type of the term (agent, agent_category, other) (OPTIONAL)
-     * @param intervention Type ahead support to search for the interventions (OPTIONAL)
+     * @param name Type ahead support to search for the interventions (OPTIONAL)
      * @param size The number of interventions to return (OPTIONAL)
      * @param additionalParams Additional Parameters like interventionType (OPTIONAL)
      * @param sort The sort order of the results (OPTIONAL)
      * @param order The direction to sort the results (OPTIONAL)
      */
-    getInterventions(category?: string|string[], intervention?: string, size?:number, additionalParams?:any, sort?:string, order?:string ): Promise<InterventionResults>;
+    getInterventions(category?: string|string[], name?: string, size?:number, additionalParams?:any, sort?:string, order?:string ): Promise<InterventionResults>;
 }
 

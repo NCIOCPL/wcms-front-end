@@ -57,13 +57,13 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
      * Gets interventions from the interventions endpoint
      * 
      * @param category The high-level type of the term (agent, agent_category, other) (OPTIONAL)
-     * @param intervention Type ahead support to search for the interventions (OPTIONAL)
-     * @param size The number of interventions to return (OPTIONAL)
+     * @param name Type ahead support to search for the interventions (OPTIONAL)
+     * @param size The number of interventions to return (DEFAULT: 10)
      * @param additionalParams Additional Parameters like interventionType (OPTIONAL)
-     * @param sort The sort order of the results (OPTIONAL)
-     * @param order The direction to sort the results (OPTIONAL)
+     * @param sort The sort order of the results (DEFAULT: Name)
+     * @param order The direction to sort the results (DEFAULT: asc)
      */    
-    getInterventions(category?: string|string[], intervention?: string, size = 10 , additionalParams?:any, sort = "term", order = "asc"): Promise<InterventionResults> {
+    getInterventions(category?: string|string[], name?: string, size = 10 , additionalParams?:any, sort = "name", order = "asc"): Promise<InterventionResults> {
 
         //Setup the request
         let params = {
@@ -76,8 +76,8 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
             params["category"] = category;
         }
 
-        if (intervention) {
-            params["intervention"] = intervention;
+        if (name) {
+            params["name"] = name;
         }
 
         let requestParams = Object.assign({}, additionalParams, params);

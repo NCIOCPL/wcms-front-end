@@ -152,7 +152,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				return markup;
 			},
 			promise: {
-				dataFunction: this.facade.searchDrugs
+				dataFunction: this.facade.searchDrugs.bind(this.facade)
 			}			
 		});
 	}
@@ -207,7 +207,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 				return markup;
 			},
 			promise: {
-				dataFunction: this.facade.searchOtherInterventions
+				dataFunction: this.facade.searchOtherInterventions.bind(this.facade)
 			}			
 		});
 	}
