@@ -96,8 +96,8 @@ export class CTAPIFacade {
      */
     searchDiseases(searchText:string):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
-            "diseases", 
-            "C4872"
+            "disease", 
+            searchText
         ).then((res:DiseaseResults) => {
             return res.terms
         })

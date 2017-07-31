@@ -104,9 +104,12 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 
 		// Populate main 'diseases' list
 		// TODO: hook up real endpoint when in place		
-		this.facade.searchDiseases("C4872")
+		this.facade.searchDiseases(null)
 			.then((res) => {
 				console.log(res)
+			})
+			.catch((err) => {
+				console.log(err)
 			})
 
         // Gray out unselected location fields 		
