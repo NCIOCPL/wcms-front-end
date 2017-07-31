@@ -102,6 +102,10 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			this.facade.searchOtherInterventions.bind(this.facade)
 		);
 
+		// 1. initialize select2 on selector
+		// 2. fetch & populate primary data
+		// run background processes before drawing things on form
+
 		// Populate main 'diseases' list
 		// TODO: hook up real endpoint when in place		
 		this.facade.searchDiseases(null)
@@ -111,6 +115,9 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			.catch((err) => {
 				console.log(err)
 			})
+
+		//when we get to subtypes etc...
+		//this.facade.getSubtypes.bind(this.facade, primaryTypeID)
 
         // Gray out unselected location fields 		
         this.selectLocFieldset();
