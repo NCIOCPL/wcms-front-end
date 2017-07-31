@@ -249,7 +249,19 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
         });
 
     });
-    
+
+    describe('searchDiseases', () => {
+        // Placeholder unit tests until endpoint is working
+        it('should make the correct request to the ClinicalTrialsService', () => {
+                expect(5).to.be.eq(6);
+        });
+
+        it('should return the correct results based on response', () => {
+                expect(7).to.be.eq(8);
+        });
+
+    });    
+
     describe('searchTrialInvestigators', () => {
 
         it('should make the correct request to the ClinicalTrialsService', () => {

@@ -1,4 +1,4 @@
-import { CTAPIConnection, ClinicalTrialsService, TermResults, InterventionResults } from '../';
+import { CTAPIConnection, ClinicalTrialsService, TermResults, InterventionResults, DiseaseResults } from '../';
 
 /**
  * This class represents the methods to accessing a CTAPI service
@@ -92,5 +92,41 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
                 return InterventionResults.fromJSON(resJSON);
             })
     }
+
+    /**
+     * Gets diseases from the diseases endpoint
+     * 
+     * @param {string} menuType The menu type (can be "disease", "stage", or "finding") (REQUIRED)
+     * @param {string} [diseaseParentID] The parent disease ID for a given disease (OPTIONAL)
+     * @param {*} [additionalParams] Additional parameters (OPTIONAL)
+     * @returns {Promise<DiseaseResults>} 
+     * @memberof ClinicalTrialsService
+     */
+    getDiseases(menuType:string, diseaseParentID?:string|string[], additionalParams?:any): Promise<DiseaseResults> {
+        
+        //Setup the request
+        let params = {
+            menuType: menuType
+        };
+
+        if (diseaseParentID) {
+            params["disease_parent_id"] = diseaseParentID;
+        }
+
+        if (name) {
+            params["name"] = name;
+        }
+
+        let requestParams = Object.assign({}, additionalParams, params);
+
+        return this.connection.getRequest(
+            '/diseases',
+            requestParams
+        )
+        .then((resJSON: any) => {
+            return DiseaseResults.fromJSON(resJSON);
+        })
+    }
+
 }
 

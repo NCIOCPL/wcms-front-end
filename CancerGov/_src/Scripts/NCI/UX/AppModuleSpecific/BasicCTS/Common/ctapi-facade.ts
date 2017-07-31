@@ -1,5 +1,5 @@
 
-import { ClinicalTrialsService, TermResults, TermResult, InterventionResults, InterventionResult} from 'Services/clinical-trials';
+import { ClinicalTrialsService, TermResults, TermResult, InterventionResults, InterventionResult, DiseaseResults, DiseaseResult} from 'Services/clinical-trials';
 
 //Statuses of what Cancer.gov trials should be shown
 const VIEWABLE_TRIALS:string[] = [
@@ -89,6 +89,20 @@ export class CTAPIFacade {
             return res.terms
         })
     }
+
+    /**
+     * Gets drugs intervention items for search field
+     * Dummy data - remove when endpoint is in place
+     */
+    searchDiseases(searchText:string):Promise<DiseaseResult[]> {
+        return this.svc.getDiseases(
+            "diseases", 
+            "C4872"
+        ).then((res:DiseaseResults) => {
+            return res.terms
+        })
+    }
+
 
     /**
      * Gets drugs intervention items for search field

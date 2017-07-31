@@ -1,4 +1,4 @@
-import { CTAPIConnection, TermResults, InterventionResults } from './';
+import { CTAPIConnection, TermResults, InterventionResults, DiseaseResults } from './';
 
 /**
  * This class represents the methods to accessing a CTAPI service
@@ -27,5 +27,17 @@ export interface ClinicalTrialsService {
      * @param order The direction to sort the results (OPTIONAL)
      */
     getInterventions(category?: string|string[], name?: string, size?:number, additionalParams?:any, sort?:string, order?:string ): Promise<InterventionResults>;
+
+    /**
+     * Gets diseases from the diseases endpoint
+     * 
+     * @param {string} menuType The menu type (can be "disease", "stage", or "finding") (REQUIRED)
+     * @param {string} [diseaseParentID] The parent disease ID for a given disease (OPTIONAL)
+     * @param {*} [additionalParams] Additional parameters (OPTIONAL)
+     * @returns {Promise<DiseaseResults>} 
+     * @memberof ClinicalTrialsService
+     */
+    getDiseases(menuType:string, diseaseParentID?:string | string[], additionalParams?:any): Promise<DiseaseResults>;
+
 }
 

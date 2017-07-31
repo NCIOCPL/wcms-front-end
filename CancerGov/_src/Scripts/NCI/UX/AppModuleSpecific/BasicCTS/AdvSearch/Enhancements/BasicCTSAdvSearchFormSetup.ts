@@ -101,7 +101,13 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			'Start typing the treatment/intervention you are looking for',
 			this.facade.searchOtherInterventions.bind(this.facade)
 		);
-		
+
+		// Populate main 'diseases' list
+		// TODO: hook up real endpoint when in place		
+		this.facade.searchDiseases("C4872")
+			.then((res) => {
+				console.log(res)
+			})
 
         // Gray out unselected location fields 		
         this.selectLocFieldset();
