@@ -137,7 +137,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			// .fail(function() {
 			// 	console.log('Error getting primary cancers list');
 			// });
-
+ 
 
 		//when we get to subtypes etc...
 		//this.facade.getSubtypes.bind(this.facade, primaryTypeID)
