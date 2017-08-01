@@ -110,7 +110,7 @@ TODO: Verify Javascript
                 <div class="row">
                     <fieldset id="fieldset--your-location">
                         <div class="radio">
-                            <input id="your-location" name="loc" value="your" type="radio"><label for="your-location">ZIP Code</label>
+                            <input id="your-location" name="loc" value="1" type="radio"><label for="your-location">ZIP Code</label>
                         </div>
                         <div class="row">
                             <div class="z-input large-6 columns gutter">

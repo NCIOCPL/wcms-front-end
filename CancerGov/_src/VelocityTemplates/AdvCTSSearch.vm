@@ -106,12 +106,12 @@
                 <div class="row">
                     <fieldset id="fieldset--all-locations">
                         <div class="radio">
-                            <input id="all-locations" name="loc" value="all" checked="checked" type="radio"><label for="all-locations">Search all Locations</label>
+                            <input id="all-locations" name="loc" value="0" checked="checked" type="radio"><label for="all-locations">Search all Locations</label>
                         </div>
                     </fieldset>
                     <fieldset id="fieldset--your-location">
                         <div class="radio">
-                            <input id="your-location" name="loc" value="your" type="radio"><label for="your-location">ZIP Code</label>
+                            <input id="your-location" name="loc" value="1" type="radio"><label for="your-location">ZIP Code</label>
                         </div>
                         <div class="row">
                             <div class="z-input large-6 columns gutter">
@@ -131,7 +131,7 @@
                     </fieldset>
                     <fieldset id="fieldset--ccs">
                         <div class="radio">
-                            <input id="country-city-state" name="loc" value="" type="radio">
+                            <input id="country-city-state" name="loc" value="2" type="radio">
                             <label for="country-city-state">Country, City, State</label>
                         </div>
                         <div class="row">
@@ -210,13 +210,13 @@
                     </fieldset>
                     <fieldset id="fieldset--hospital">
                         <div class="radio">
-                            <input id="hospital" name="loc" value="hospital" type="radio"><label for="hospital">Hospitals/Institutions</label>
+                            <input id="hospital" name="loc" value="3" type="radio"><label for="hospital">Hospitals/Institutions</label>
                             <input id="hos" name="hos" class="search-input" aria-autocomplete="list" autocomplete="off" aria-label="Start typing the hospital or institution you are looking for" placeholder="Start typing the hospital or institution you are looking for" type="text">
                         </div>
                     </fieldset>
                     <fieldset id="fieldset--nih">
                         <div class="radio">
-                            <input id="nih" name="loc" value="nih" type="radio"><label for="nih">At NIH (only show trials at the NIH clinical center in Bethesda, MD)</label>
+                            <input id="nih" name="loc" value="4" type="radio"><label for="nih">At NIH (only show trials at the NIH clinical center in Bethesda, MD)</label>
                         </div>
                     </fieldset>
                 </div>
