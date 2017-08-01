@@ -134,7 +134,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	private getDiseases($ctSel) {
 		this.facade.getDiseases(null)
 			.then((resList) => {
-				$ctSel.empty();
+				//$ctSel.empty();
 				$ctSel.select2({
 					data: <any>resList.map(function(val) {
 						return {
