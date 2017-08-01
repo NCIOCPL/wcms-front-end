@@ -94,7 +94,7 @@ export class CTAPIFacade {
      * Gets drugs intervention items for search field
      * Dummy data - remove when endpoint is in place
      */
-    searchDiseases(searchText:string):Promise<DiseaseResult[]> {
+    getDiseases(searchText:string):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
             "disease", 
             searchText

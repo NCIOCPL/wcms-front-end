@@ -107,14 +107,37 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		// run background processes before drawing things on form
 
 		// Populate main 'diseases' list
-		// TODO: hook up real endpoint when in place		
-		this.facade.searchDiseases(null)
-			.then((res) => {
-				console.log(res)
-			})
-			.catch((err) => {
-				console.log(err)
-			})
+		// TODO: hook up real endpoint when in place
+		//let diseaseArr = new Array();
+
+		(<any>this.buildDiseaseList());
+			// .then(function(primaryCancers) {
+			// 	$primaryCancer.select2({ 
+			// 		//theme: "classic",
+			// 		//maximumSelectionLength: 1,
+			// 		//placeholder: 'Select your cancer type',
+			// 		data: primaryCancers
+			// 	}).on("select2:select", function(e) {
+			// 		// so something
+			// 	}).on("select2:unselect", function(e) {
+			// 		$subtypeCancer.select2().val(null).trigger("change");
+			// 		$subtypeCancer.prop("disabled", true);
+			// 		$stageCancer.select2().val(null).trigger("change");
+			// 		$stageCancer.prop("disabled", true);
+			// 	});
+			// 	//Populate #ct-select
+			// 	//countries.forEach(function(item) {
+			// 	//	$('#lcnty')
+			// 	//		.append($('<option></option>')
+			// 	//			.attr('value', item)
+			// 	//			.text(item)
+			// 	//		);
+			// 	//});
+			// })
+			// .fail(function() {
+			// 	console.log('Error getting primary cancers list');
+			// });
+
 
 		//when we get to subtypes etc...
 		//this.facade.getSubtypes.bind(this.facade, primaryTypeID)
@@ -123,6 +146,31 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
         this.selectLocFieldset();
 	}
 
+
+	
+		// Populate main 'diseases' list
+		// TODO: hook up real endpoint when in place
+	private buildDiseaseList() 
+	{
+		let arr = new Array();
+
+		//console.log('== DEBUG buildDiseaseList() ==');		
+		this.facade.getDiseases(null)
+			.then((resList) => {
+				for(let res of resList)
+				{
+					arr.push(res)
+					console.log(res.name + ', ' + res.codes.join())					
+				} 
+				// return arr.map(function(item ) {
+				// 	return (id:item.codes,text:item.key)
+				// })
+
+			})
+			.catch((err) => {
+				console.log(err)
+			})	
+	}		
 
 
 	/*
