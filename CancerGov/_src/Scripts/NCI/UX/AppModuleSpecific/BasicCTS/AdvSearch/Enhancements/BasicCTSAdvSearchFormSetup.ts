@@ -47,12 +47,16 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		//    parent type(s) or if the endpoint can't be reached
 		// 3) Fetch & populate data
 
-
 		// Populate main 'diseases' list
 		$this.getDiseases($primaryCancer);
 
 		// When we get to subtypes etc...:
 		// this.facade.getSubtypes.bind(this.facade, primaryTypeID)
+
+		// Build select2 for Subtypes, Stages, Findings
+		$this.getSubtypeFields($subtypeCancer);
+		$this.getStageFields($stageCancer);
+		$this.getFindingFields($findings);
 
 		// Get countries on page load
 		$this.getCountries();
@@ -118,9 +122,9 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
         // Gray out unselected location fields 		
         this.selectLocFieldset();
 	}
-
 	
 
+	
 	/*
 	* Populate main 'diseases' list
 	* TODO: Hook up real endpoint when in place
@@ -143,6 +147,41 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			.catch((err) => {
 				console.log(err)
 			})	
+	}
+
+	/*
+	* Populate Subtypes
+	* TODO: Using empty select2 for now; hook up with actual data
+	*/
+	private getSubtypeFields($stSel) {
+		$stSel.empty();
+		$stSel.select2({
+			// do all the things
+			placeholder: 'Please select a Cancer Type First'			
+		})
+	}
+
+	/*
+	* Populate Stages
+	* TODO: Using empty select2 for now; hook up with actual data
+	*/
+	private getStageFields($stSel) {
+		$stSel.empty();
+		$stSel.select2({
+			placeholder: 'Please select a Cancer Type or Sub Type First'
+		})
+	}
+	
+	/*
+	* Populate Findings
+	* TODO: Using empty select2 for now; hook up with actual data
+	*/
+	private getFindingFields($fSel) {
+		$fSel.empty();
+		$fSel.select2({
+			minimumInputLength: 1, 
+			placeholder: 'Please select a Cancer Type or Sub Type First'
+		})
 	}
 
 	/*

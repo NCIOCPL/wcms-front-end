@@ -28,7 +28,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <select id="ct-select" class="no-auto-jqueryui" name="t" style="width:97%">
-                        <option value=""><i>In development - cancer type dropdown disabled</i></option>
+                        <option value="">All</option>
                     </select>
                 </div>
                 <div class="row">
@@ -37,7 +37,7 @@ TODO: Verify Javascript
                     </div>
                 </div>
                 <div class="row">
-                    <select id="st-multiselect" name="st" multiple data-placeholder="In development - subtypes disabled" placeholder="Select cancer type first" style="width:97%"></select>
+                    <select id="st-multiselect" name="st" multiple data-placeholder="Select a sub-type" placeholder="Select cancer type first" style="width:97%"></select>
                 </div>
                 <div class="row">
                     <div>
@@ -45,7 +45,7 @@ TODO: Verify Javascript
                     </div>
                 </div>
                 <div class="row">
-                    <select id="stg-multiselect" name="stg" multiple data-placeholder="In development - stages disabled" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+                    <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
                 </div>
                 <div class="row">
                     <div>
@@ -53,7 +53,7 @@ TODO: Verify Javascript
                     </div>
                 </div>
                 <div class="row">
-                    <select id="fin-multiselect" name="fin" multiple data-placeholder="In development - findings disabled" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+                    <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
                 </div>
             </div>
         </fieldset>
