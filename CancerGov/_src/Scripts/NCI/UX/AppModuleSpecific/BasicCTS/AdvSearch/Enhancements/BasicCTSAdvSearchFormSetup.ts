@@ -40,6 +40,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		let $leadOrg = $('.adv-search #lo');
 		let $this = this; // create $this variable for use within selector
 
+		// TODO: Verify run background processes before drawing things on form;  
+		// our select2 elements should proceed in this order:
+		// 1) Initialize, empty, reset data for each field's selctor before drawing
+		// 2) Draw selection box text - this will be done dynamically depending on the 
+		//    parent type(s) or if the endpoint can't be reached
+		// 3) Fetch & populate data
+
+
+		// Populate main 'diseases' list
+		$this.getDiseases($primaryCancer);
+
+		// When we get to subtypes etc...:
+		// this.facade.getSubtypes.bind(this.facade, primaryTypeID)
+
 		// Get countries on page load
 		$this.getCountries();
 		
@@ -85,7 +99,6 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			}
 		});
 
-
 		// Build up Select2 control for drug selection
 		var $drugSelect = $("#dr-multiselect");
 		(<any>Select2InterventionsInitializer).default(
@@ -102,76 +115,35 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 			this.facade.searchOtherInterventions.bind(this.facade)
 		);
 
-		// 1. initialize select2 on selector
-		// 2. fetch & populate primary data
-		// run background processes before drawing things on form
-
-		// Populate main 'diseases' list
-		// TODO: hook up real endpoint when in place
-		//let diseaseArr = new Array();
-
-		(<any>this.buildDiseaseList());
-			// .then(function(primaryCancers) {
-			// 	$primaryCancer.select2({ 
-			// 		//theme: "classic",
-			// 		//maximumSelectionLength: 1,
-			// 		//placeholder: 'Select your cancer type',
-			// 		data: primaryCancers
-			// 	}).on("select2:select", function(e) {
-			// 		// so something
-			// 	}).on("select2:unselect", function(e) {
-			// 		$subtypeCancer.select2().val(null).trigger("change");
-			// 		$subtypeCancer.prop("disabled", true);
-			// 		$stageCancer.select2().val(null).trigger("change");
-			// 		$stageCancer.prop("disabled", true);
-			// 	});
-			// 	//Populate #ct-select
-			// 	//countries.forEach(function(item) {
-			// 	//	$('#lcnty')
-			// 	//		.append($('<option></option>')
-			// 	//			.attr('value', item)
-			// 	//			.text(item)
-			// 	//		);
-			// 	//});
-			// })
-			// .fail(function() {
-			// 	console.log('Error getting primary cancers list');
-			// });
- 
-
-		//when we get to subtypes etc...
-		//this.facade.getSubtypes.bind(this.facade, primaryTypeID)
-
         // Gray out unselected location fields 		
         this.selectLocFieldset();
 	}
 
-
 	
-		// Populate main 'diseases' list
-		// TODO: hook up real endpoint when in place
-	private buildDiseaseList() 
-	{
-		let arr = new Array();
 
-		//console.log('== DEBUG buildDiseaseList() ==');		
+	/*
+	* Populate main 'diseases' list
+	* TODO: Hook up real endpoint when in place
+	*       Add 'all' as a primary, have 'all' populate dropdown on error
+	*       Remove the second Primary Type dropdown	
+	*/
+	private getDiseases($ctSel) {
 		this.facade.getDiseases(null)
 			.then((resList) => {
-				for(let res of resList)
-				{
-					arr.push(res)
-					console.log(res.name + ', ' + res.codes.join())					
-				} 
-				// return arr.map(function(item ) {
-				// 	return (id:item.codes,text:item.key)
-				// })
-
+				$ctSel.empty();
+				$ctSel.select2({
+					data: <any>resList.map(function(val) {
+						return {
+							id: val.codes.join('|'),
+							text: val.name
+						}
+					})
+				})
 			})
 			.catch((err) => {
 				console.log(err)
 			})	
-	}		
-
+	}
 
 	/*
 	* Populate the location Country dropdown field
