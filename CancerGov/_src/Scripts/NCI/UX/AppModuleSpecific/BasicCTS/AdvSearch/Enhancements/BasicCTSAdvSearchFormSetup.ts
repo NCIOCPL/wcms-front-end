@@ -48,7 +48,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		// 3) Fetch & populate data
 
 		// Populate main 'diseases' list
-		$this.getDiseases($primaryCancer);
+		$this.getMainType($primaryCancer);
 
 		// When we get to subtypes etc...:
 		// this.facade.getSubtypes.bind(this.facade, primaryTypeID)
@@ -131,7 +131,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	*       Add 'all' as a primary, have 'all' populate dropdown on error
 	*       Remove the second Primary Type dropdown	
 	*/
-	private getDiseases($ctSel) {
+	private getMainType($ctSel) {
 		this.facade.getMainType()
 			.then((resList) => {
 				//$ctSel.empty();
