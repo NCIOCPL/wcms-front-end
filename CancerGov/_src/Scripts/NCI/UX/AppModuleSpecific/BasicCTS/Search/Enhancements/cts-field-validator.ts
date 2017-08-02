@@ -1,16 +1,16 @@
 import { NCIBaseEnhancement } from 'UX/core';
-import * as NCI from "UX/Common/Enhancements/NCI"; 
-import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
+import * as NCI from "UX/Common/Enhancements/NCI";
+import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
 import "../../Search/Plugins/jquery.basicctsformtrack";
 import "../../../../../Patches/AdobeAnalytics";
 
 /**
- * Represents a field validation object  
+ * Represents a field validation object
  * @export
  * @class CTSFieldValidator
  * @extends {NCIBaseEnhancement}
- * 
- * TODO: 
+ *
+ * TODO:
  * Move error messages onto HTML elements to be validated
  * Add null location field validation
  */
@@ -19,7 +19,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	/**
 	 * Execute the constructor function on the base enhancement class
 	 */
-	constructor() { 
+	constructor() {
 		super();
 	}
 
@@ -75,12 +75,12 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		(<any>$(".clinical-trials-search-form")).basicctsformtrack({
 			formName: 'clinicaltrials_advanced'
 		}).submit(function(e) {
-			
+
 			var $this = $(this);
 
 			if(!$this.data('valid')){
 
-				// 
+				//
 				function analyticsAndSubmit() {
 					try {
 						(<any>$this).basicctsformtrack("completed");
@@ -110,7 +110,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 				if (fieldsAreValid)
 				{
-					analyticsAndSubmit(); 
+					analyticsAndSubmit();
 				} else {
 					//Log an Analytics message that someone tried to submit the form
 					//with active error messages showing.
@@ -126,13 +126,13 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 			}
 
-		});		
+		});
 
 	}
-	
+
 	/**
 	 * Verify format of zip code input
-     * @param {any} val 
+     * @param {any} val
 	 */
 	private validateZip(val){
 		// This expression matches three different formats of postal codes: 5 digit US ZIP code, 5 digit US ZIP
@@ -149,7 +149,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 	/**
 	 * Validate age input
-	 * @param {any} val 
+	 * @param {any} val
 	 */
 	private validateAge(val){
 		// match 1-9 or 10-99 or 100-119
@@ -160,7 +160,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 	/**
 	 * Verify that an input is not null
-	 * @param {any} val 
+	 * @param {any} val
 	 */
 	private validateNotNull(val){
 		return val.length !== 0;
@@ -168,22 +168,22 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 	/**
 	 * Draw or clear an error message for a form element
-	 * @param {any} valid 
-	 * @param {any} el 
-	 * @param {any} skipTrue 
+	 * @param {any} valid
+	 * @param {any} el
+	 * @param {any} skipTrue
 	 */
 	private toggleError(valid,el,skipTrue){
 
 		if(valid && !skipTrue){
 			el.removeClass("error");
-			el.prev('.error-msg').css('visibility','hidden');
+			el.next('.error-msg').css('visibility','hidden');
 		}
 		if(!valid){
 			el.addClass("error");
-			if(el.prev('.error-msg')[0]){
-				el.prev('.error-msg').css('visibility','visible');
+			if(el.next('.error-msg')[0]){
+				el.next('.error-msg').css('visibility','visible');
 			} else {
-				el.before('<div class="error-msg">' + el.data("error-message") + '</div>');
+				el.after('<div class="error-msg">' + el.data("error-message") + '</div>');
 
 				//Log Error Message Here.  It would be nice to have an instance of
 				//this...
@@ -193,6 +193,6 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				}]);
 			}
 		}
-	} 
+	}
 
 }
