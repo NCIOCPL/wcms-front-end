@@ -206,6 +206,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 
 	/*
     * Enable or disable selection features based on the selected 'Location' radio button.
+    * TODO: disable state for non-US countries 
 	*/
     private selectLocFieldset() {
 
@@ -214,14 +215,20 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		var $fieldsetItems  = this;
         $fieldsetItems.disableLocFieldset($checked.closest('fieldset').siblings());
 
-		// TODO: gray out unchecked, errored fields when a differet location type selection is made
-
         // Gray out unchecked fieldsets when a selection is made
         $("input[name='loc']").on("click",function(e){
         	var $this = $(this);
 			var $parent = $this.closest('fieldset');
             $fieldsetItems.enableLocFieldset($parent);
-            $fieldsetItems.disableLocFieldset($parent.siblings());
+			$fieldsetItems.disableLocFieldset($parent.siblings());
+			
+			// Do not preserve fields with errors (i.e. Zip code) if we select a different location type
+			let $err = $('#fieldset--location input.error');
+			if($err){ 
+				$err.removeClass("error");
+				$err.prev('.error-msg').css('visibility','hidden');
+				$err.val('');
+			}
         });
 	}
 

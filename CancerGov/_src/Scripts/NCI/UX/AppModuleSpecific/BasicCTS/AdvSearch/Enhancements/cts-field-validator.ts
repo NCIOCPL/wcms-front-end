@@ -11,7 +11,8 @@ import "../../../../../Patches/AdobeAnalytics";
  * @extends {NCIBaseEnhancement}
  * 
  * TODO: 
- * Move error messages onto HTML elements to be validated* 
+ * Move error messages onto HTML elements to be validated
+ * Add null location field validation
  */
 export class CTSFieldValidator extends NCIBaseEnhancement{
 
@@ -129,7 +130,10 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 	}
 	
-
+	/**
+	 * Verify format of zip code input
+     * @param {any} val 
+	 */
 	private validateZip(val){
 		// This expression matches three different formats of postal codes: 5 digit US ZIP code, 5 digit US ZIP
 		// code + 4, and 6 digit alphanumeric Canadian Postal Code. The first one must be 5 numeric digits. The
@@ -143,6 +147,10 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		return val.match(pattern)?true:false;
 	}
 
+	/**
+	 * Validate age input
+	 * @param {any} val 
+	 */
 	private validateAge(val){
 		// match 1-9 or 10-99 or 100-119
 		// numbers only, no dashes or dots allowed
@@ -150,17 +158,20 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		return val.match(pattern);
 	}
 
+	/**
+	 * Verify that an input is not null
+	 * @param {any} val 
+	 */
 	private validateNotNull(val){
 		return val.length !== 0;
 	}
 
-	private validateLocked(el){
-		if(!el.prop('disabled')) {
-			//el.val("");
-		}
-		return el.prop('disabled');
-	}
-
+	/**
+	 * Draw or clear an error message for a form element
+	 * @param {any} valid 
+	 * @param {any} el 
+	 * @param {any} skipTrue 
+	 */
 	private toggleError(valid,el,skipTrue){
 
 		if(valid && !skipTrue){
