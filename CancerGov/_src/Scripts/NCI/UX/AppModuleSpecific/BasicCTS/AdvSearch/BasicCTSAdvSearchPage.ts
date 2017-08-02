@@ -6,7 +6,7 @@ import "../../../../Plugins/jquery.nci.equal_heights";
 
 $(document).ready(function(){
 	new BasicCTSAdvSearchFormSetup("clinicaltrialsapi-stage.cancer.gov").init();
-	(<any>(CTSFieldValidation)).init();
+	//(<any>(CTSFieldValidation)).init();
 	(<any>(CTSCommonAnalytics)).init();
 	(<any>(FeedbackForm)).init();
 	(<any>jQuery('[data-match-height]')).NCI_equal_heights();
