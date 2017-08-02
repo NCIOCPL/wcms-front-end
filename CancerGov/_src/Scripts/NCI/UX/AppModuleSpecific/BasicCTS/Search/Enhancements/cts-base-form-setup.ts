@@ -9,7 +9,16 @@ import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/
 
 
 export class CTSBaseFormSetup extends NCIBaseEnhancement{
- 
+
+
+	// TODO 8/3:
+	//  Make this an abstract class
+	//   'seal' the initizlize function
+	//     make the initlalize selectors member variables
+	//      Test analytics
+	//       Refactor error messages 
+
+	// make this protected 
 	private facade:CTAPIFacade;
 
 	/**
