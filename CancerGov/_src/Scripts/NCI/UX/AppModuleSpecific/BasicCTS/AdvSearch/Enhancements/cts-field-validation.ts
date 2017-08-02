@@ -12,14 +12,21 @@ import "../../../../../Patches/AdobeAnalytics";
 export class CTSFieldValidation extends NCIBaseEnhancement{
 
 	/**
+	 * Execute the constructor function on the base enhancement class
+	 */
+	constructor() { 
+		super();
+	}
+
+	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
 	 * @return {[type]} Initialize Object
 	 */
 	protected initialize():void {
 
 		let messages = {
-			zipError:'DION, Please enter a valid 5 digit ZIP code.',
-			ageError:'DION, Please enter a number between 1 and 120.',
+			zipError:'Please enter a valid 5 digit ZIP code.',
+			ageError:'Please enter a number between 1 and 120.',
 			hospitalError:'"Please select a Hospital/Institution.'
 		};
 		let $init = this;
