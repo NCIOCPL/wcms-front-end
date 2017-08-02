@@ -214,6 +214,8 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 		var $fieldsetItems  = this;
         $fieldsetItems.disableLocFieldset($checked.closest('fieldset').siblings());
 
+		// TODO: gray out unchecked, errored fields when a differet location type selection is made
+
         // Gray out unchecked fieldsets when a selection is made
         $("input[name='loc']").on("click",function(e){
         	var $this = $(this);
