@@ -28,14 +28,19 @@ export class CTAPIConnectionV1Impl implements CTAPIConnection {
      */
     getDiseasesMocks(params) : Promise<any> {
 
+        console.log(" == debug params == ");
         console.log(params);
 
         // TODO: fix this - not everything should be going to cancer_root        
         let filePath = "../../../../publishedcontent/Files/Configuration/cts_menu/";
-        if(params.menuType == 'disease' && params.disease_parent_id == null)
+        if(params.menuType == 'disease' && params.disease_parent_id == null) // main type
             filePath += 'cancer_root.json';
-        else
-            filePath += ('cancer_' + params.disease_parent_id + '.json');
+        else if (params.menuType == 'disease')
+            filePath += ('cancer_' + params.disease_parent_id + '.json'); // subtype
+        else if (params.menuType == 'stage')
+            filePath += ('stage_' + params.disease_parent_id + '.json'); // stage
+        else if (params.menuType == 'finding')
+            filePath += ('findings_' + params.disease_parent_id + '.json'); // findings
             
 
         return axios.get(

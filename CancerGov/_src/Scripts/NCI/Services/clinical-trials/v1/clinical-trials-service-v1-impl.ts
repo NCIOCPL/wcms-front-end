@@ -113,10 +113,6 @@ export class ClinicalTrialsServiceV1Impl implements ClinicalTrialsService {
             params["disease_parent_id"] = diseaseParentID;
         }
 
-        if (name) {
-            params["name"] = name;
-        }
-
         let requestParams = Object.assign({}, additionalParams, params);
 
         return this.connection.getRequest(

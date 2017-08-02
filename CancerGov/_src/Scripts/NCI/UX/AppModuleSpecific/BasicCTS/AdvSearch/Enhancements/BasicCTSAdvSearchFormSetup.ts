@@ -132,7 +132,7 @@ export class BasicCTSAdvSearchFormSetup extends NCIBaseEnhancement{
 	*       Remove the second Primary Type dropdown	
 	*/
 	private getDiseases($ctSel) {
-		this.facade.getDiseases(null)
+		this.facade.getMainType()
 			.then((resList) => {
 				//$ctSel.empty();
 				$ctSel.select2({

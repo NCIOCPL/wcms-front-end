@@ -24,6 +24,62 @@ export class CTAPIFacade {
     }
 
     /**
+     * Gets all primary cancer types
+     */
+    getMainType():Promise<DiseaseResult[]> {
+        return this.svc.getDiseases(
+            "disease"
+        ).then((res:DiseaseResults) => {
+            return res.terms
+        })
+    }
+
+    /**
+     * Gets cancer subtypes for a given parent ID
+     * @param {string} searchText 
+     * @returns {Promise<DiseaseResult[]>} 
+     * @memberof CTAPIFacade
+     */
+    getSubtypes(searchText:string):Promise<DiseaseResult[]> {
+        return this.svc.getDiseases(
+            "disease", 
+            searchText
+        ).then((res:DiseaseResults) => {
+            return res.terms
+        })
+    }
+    
+    /**
+     * Gets cancer stages for a given parent ID
+     * @param {string} searchText 
+     * @returns {Promise<DiseaseResult[]>} 
+     * @memberof CTAPIFacade
+     */
+    getStages(searchText:string):Promise<DiseaseResult[]> {
+        return this.svc.getDiseases(
+            "stage", 
+            searchText
+        ).then((res:DiseaseResults) => {
+            return res.terms
+        })
+    }
+
+    /**
+     * Gets cancer findings based on parent ID
+     * @param {string} searchText 
+     * @returns {Promise<DiseaseResult[]>} 
+     * @memberof CTAPIFacade
+     */
+    getFindings(searchText:string):Promise<DiseaseResult[]> {
+        return this.svc.getDiseases(
+            "finding", 
+            searchText
+        ).then((res:DiseaseResults) => {
+            return res.terms
+        })
+    }    
+
+    /**
      * Gets a list of countries for populating the Countries dropdown
      */
     getCountries():Promise<string[]> { 
@@ -92,21 +148,6 @@ export class CTAPIFacade {
 
     /**
      * Gets drugs intervention items for search field
-     * Dummy data - remove when endpoint is in place
-     */
-    getDiseases(searchText:string):Promise<DiseaseResult[]> {
-        return this.svc.getDiseases(
-            "disease", 
-            searchText
-        ).then((res:DiseaseResults) => {
-            return res.terms
-        })
-    }
-
-
-    /**
-     * Gets drugs intervention items for search field
-     * Dummy data - remove when endpoint is in place
      */
     searchDrugs(searchText:string):Promise<InterventionResult[]> {
         return this.svc.getInterventions(
@@ -123,7 +164,6 @@ export class CTAPIFacade {
 
     /**
      * Gets other intervention items for search field
-     * Dummy data - remove when endpoint is in place
      */
     searchOtherInterventions(searchText:string):Promise<InterventionResult[]> {
         return this.svc.getInterventions(
