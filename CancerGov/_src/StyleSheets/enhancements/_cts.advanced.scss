@@ -180,7 +180,7 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
   border-bottom: 1px dashed #979797;
 }
 
-// To override dropdown styles, the "theme: 'classic'" option had to be removed from BasicCTSAdvSearchFormSetup.js (this
+// To override dropdown styles, the "theme: 'classic'" option had to be removed from cts-base-form-setup.ts (this
 // was overriding the CSS. Once the '.select2-container--classic' selectors were removed from the CSS below, the changes appeared.
 // See https://github.com/techhysahil/Select2-Flat-UI/blob/master/Overide.css
 #fieldset--type .select2-container--default .select2-selection--single {

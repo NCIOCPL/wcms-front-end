@@ -31,11 +31,11 @@ module.exports = {
         PDQPage:                  './UX/PageSpecific/PDQ/PDQPage',
         TopicPage:                './UX/PageSpecific/Topic/TopicPage',
         Popups:                   './UX/PageSpecific/Popups/Popups',
-        BasicCTSResultsPage:      './UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
+        AdvancedCTSSearchPage:    './UX/AppModuleSpecific/BasicCTS/Search/AdvancedCTSSearchPage',
         BasicCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
+        BasicCTSResultsPage:      './UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
         BasicCTSViewPage:         './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
         BasicCTSPrintPage:        './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
-        BasicCTSAdvSearchPage:    './UX/AppModuleSpecific/BasicCTS/AdvSearch/BasicCTSAdvSearchPage',
         CTListingPage:            './UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage',
         BlogPostPage:             './UX/PageSpecific/BlogPost/BlogPostPage',
         BlogSeriesPage:           './UX/PageSpecific/BlogSeries/BlogSeriesPage'
@@ -56,7 +56,6 @@ module.exports = {
             BasicCTSSearch: 'UX/AppModuleSpecific/BasicCTS/Search',
             BasicCTSView: 'UX/AppModuleSpecific/BasicCTS/View',
             BasicCTS: 'UX/AppModuleSpecific/BasicCTS',
-            BasicCTSAdvSearch: 'UX/AppModuleSpecific/BasicCTS/AdvSearch',
             Patches: 'Patches',
             Modules: 'Modules',
 
