@@ -28,11 +28,6 @@ export class CTAPIConnectionV1Impl implements CTAPIConnection {
      */
     getDiseasesMocks(params) : Promise<any> {
 
-        console.log(" == debug params == ");
-        console.log(params);
-        console.log(" == end debug params == ");
-
-        // TODO: fix this - not everything should be going to cancer_root        
         let filePath = "../../../../publishedcontent/Files/Configuration/cts_menu/";
         if(params.menuType == 'disease' && params.disease_parent_id == null) // main type
             filePath += 'cancer_root.json';
