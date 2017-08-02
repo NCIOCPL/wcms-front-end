@@ -1,15 +1,19 @@
-/*
-* TODO:
-* Move error messages onto HTML elements to be validated* 
-*/
-
 import { NCIBaseEnhancement } from 'UX/core';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
 import "../../Search/Plugins/jquery.basicctsformtrack";
 import "../../../../../Patches/AdobeAnalytics";
 
-export class CTSFieldValidation extends NCIBaseEnhancement{
+/**
+ * Represents a field validation object  
+ * @export
+ * @class CTSFieldValidator
+ * @extends {NCIBaseEnhancement}
+ * 
+ * TODO: 
+ * Move error messages onto HTML elements to be validated* 
+ */
+export class CTSFieldValidator extends NCIBaseEnhancement{
 
 	/**
 	 * Execute the constructor function on the base enhancement class
@@ -41,10 +45,10 @@ export class CTSFieldValidation extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if ($init._validateNotNull($this.val()) && !$init._validateZip($this.val())) {
-					$init._toggleError(false,$this,null);
+				if ($init.validateNotNull($this.val()) && !$init.validateZip($this.val())) {
+					$init.toggleError(false,$this,null);
 				} else {
-					$init._toggleError(true,$this,null);
+					$init.toggleError(true,$this,null);
 				}
 			})
 		;
@@ -58,10 +62,10 @@ export class CTSFieldValidation extends NCIBaseEnhancement{
 				//show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if ($init._validateNotNull($this.val()) && !$init._validateAge($this.val())) {
-					$init._toggleError(false,$this,null);
+				if ($init.validateNotNull($this.val()) && !$init.validateAge($this.val())) {
+					$init.toggleError(false,$this,null);
 				} else {
-					$init._toggleError(true,$this,null);
+					$init.toggleError(true,$this,null);
 				}
 			})
 		;
@@ -126,7 +130,7 @@ export class CTSFieldValidation extends NCIBaseEnhancement{
 	}
 	
 
-	private _validateZip(val){
+	private validateZip(val){
 		// This expression matches three different formats of postal codes: 5 digit US ZIP code, 5 digit US ZIP
 		// code + 4, and 6 digit alphanumeric Canadian Postal Code. The first one must be 5 numeric digits. The
 		// ZIP+4 must be 5 numeric digits, a hyphen, and then 4 numeric digits. The Canadian postal code must be
@@ -139,25 +143,25 @@ export class CTSFieldValidation extends NCIBaseEnhancement{
 		return val.match(pattern)?true:false;
 	}
 
-	private _validateAge(val){
+	private validateAge(val){
 		// match 1-9 or 10-99 or 100-119
 		// numbers only, no dashes or dots allowed
 		var pattern = /^[1-9]$|^[1-9][0-9]$|^1[0-1][0-9]|^120$/;
 		return val.match(pattern);
 	}
 
-	private _validateNotNull(val){
+	private validateNotNull(val){
 		return val.length !== 0;
 	}
 
-	private _validateLocked(el){
+	private validateLocked(el){
 		if(!el.prop('disabled')) {
 			//el.val("");
 		}
 		return el.prop('disabled');
 	}
 
-	private _toggleError(valid,el,skipTrue){
+	private toggleError(valid,el,skipTrue){
 
 		if(valid && !skipTrue){
 			el.removeClass("error");
