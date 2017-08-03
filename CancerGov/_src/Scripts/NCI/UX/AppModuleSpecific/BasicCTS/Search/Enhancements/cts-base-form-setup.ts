@@ -13,8 +13,6 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 
 	// TODO 8/3:
 	//  Make this an abstract class
-	//   'seal' the initizlize function
-	//     make the initlalize selectors member variables
 	//      Test analytics
 
 	// make this protected 
@@ -42,11 +40,14 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 		let $subtypeCancer = $('.adv-search #st-multiselect');
 		let $stageCancer = $('.adv-search #stg-multiselect');
 		let $findings = $('.adv-search #fin-multiselect');
+		let $country = $('#lcnty');
 		let $hospital = $('.adv-search #hos');
 		let $treatmentType = $('.adv-search #ti');
+		let $drugSelect = $("#dr-multiselect");
+		let $ivSelect = $("#ti-multiselect");		
 		let $trialInvestigators = $('.adv-search #in');
 		let $leadOrg = $('.adv-search #lo');
-		let $this = this; // create $this variable for use within selector
+		let $this = this; // create $this variable for use within initialize() scope
 
 		// TODO: Verify run background processes before drawing things on form;  
 		// our select2 elements should proceed in this order:
@@ -67,7 +68,7 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 		$this.getFindingFields($findings);
 
 		// Get countries on page load
-		$this.getCountries();
+		$this.getCountries($country);
 		
 		// Populate Hospital/Institution dropdown autusuggest
 		(<any>$hospital).ctsautoselect({
@@ -112,7 +113,6 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 		});
 
 		// Build up Select2 control for drug selection
-		var $drugSelect = $("#dr-multiselect");
 		(<any>Select2InterventionsInitializer).default(
 			$drugSelect,
 			'Type the drug you are looking for below',
@@ -120,7 +120,6 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 		);
 			
 		// Build up Select2 control for other treatments
-		var $ivSelect = $("#ti-multiselect");
 		(<any>Select2InterventionsInitializer).default(
 			$ivSelect,
 			'Start typing the treatment/intervention you are looking for',
@@ -173,9 +172,9 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 	* Populate Stages
 	* TODO: Using empty select2 for now; hook up with actual data
 	*/
-	private getStageFields($stSel) {
-		$stSel.empty();
-		$stSel.select2({
+	private getStageFields($stgSel) {
+		$stgSel.empty();
+		$stgSel.select2({
 			placeholder: 'Please select a Cancer Type or Sub Type First'
 		})
 	}
@@ -195,15 +194,15 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 	/*
 	* Populate the location Country dropdown field
 	*/
-	private getCountries() {
+	private getCountries($cSel) {
 		this.facade.getCountries()
 				.then((countriesList:string[]) => {
-					for(let country of countriesList) { 
-						$('#lcnty').append($('<option></option')
+					countriesList.forEach(country => {
+						$cSel.append($('<option></option')
 							.attr('value',country)
 							.text(country)
 						)
-					}
+					})
 				})
 				//TODO: remove log message on error - keeping now for debugging purposes
 				.catch((err:any) => {
@@ -256,14 +255,7 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
         $elem.attr('class','fieldset-disabled');
         $('.fieldset-disabled').find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
         $('.fieldset-disabled').find('span[role=combobox]').addClass('ui-state-disabled');
-    }
-
-
-	private sAutocomplete(module, fieldName, input, trialStatuses) {
-        // Do nothing
 	}
-	private hAutocomplete(module, fieldName, trialStatuses){
-        // Do nothing
-	}
+	
 	
 }
