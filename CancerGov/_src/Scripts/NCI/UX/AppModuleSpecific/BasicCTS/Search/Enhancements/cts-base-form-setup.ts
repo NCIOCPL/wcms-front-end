@@ -235,7 +235,7 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 			let $err = $('#fieldset--location input.error');
 			if($err){ 
 				$err.removeClass("error");
-				$err.prev('.error-msg').css('visibility','hidden');
+				$err.next('.error-msg').css('visibility','hidden');
 				$err.val('');
 			}
         });

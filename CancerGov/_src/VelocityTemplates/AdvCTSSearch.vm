@@ -68,7 +68,7 @@
                     </div>
                     <div class="row">
                         <div>
-                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text">
+                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="==Please enter a number between 1 and 120.">
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                         <div class="row">
                             <div class="z-input large-6 columns gutter">
                                 <label for="z">U.S. ZIP Code: </label>
-                                <input type="text" id="z" name="z" maxlength="5">
+                                <input type="text" id="z" name="z" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
                             </div>
                             <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>
@@ -211,7 +211,7 @@
                     <fieldset id="fieldset--hospital">
                         <div class="radio">
                             <input id="hospital" name="loc" value="3" type="radio"><label for="hospital">Hospitals/Institutions</label>
-                            <input id="hos" name="hos" class="search-input" aria-autocomplete="list" autocomplete="off" aria-label="Start typing the hospital or institution you are looking for" placeholder="Start typing the hospital or institution you are looking for" type="text">
+                            <input id="hos" name="hos" class="search-input" aria-autocomplete="list" autocomplete="off" aria-label="Start typing the hospital or institution you are looking for" placeholder="Start typing the hospital or institution you are looking for" type="text" error-msg="Please select a Hospital/Institution.">
                         </div>
                     </fieldset>
                     <fieldset id="fieldset--nih">

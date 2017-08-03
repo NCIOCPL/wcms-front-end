@@ -11,7 +11,6 @@ import "../../../../../Patches/AdobeAnalytics";
  * @extends {NCIBaseEnhancement}
  *
  * TODO:
- * Move error messages onto HTML elements to be validated
  * Add null location field validation
  */
 export class CTSFieldValidator extends NCIBaseEnhancement{
@@ -23,21 +22,23 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		super();
 	}
 
+	// Member variables for error-able selectors
+	protected $zipSelector = $('input#z');
+	protected $ageSelector = $('input#a');
+	protected $nonEmptySelector = $('input#hos');	
+
 	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
 	 * @return {[type]} Initialize Object
 	 */
 	protected initialize():void {
 
-		let messages = {
-			zipError:'Please enter a valid 5 digit ZIP code.',
-			ageError:'Please enter a number between 1 and 120.',
-			hospitalError:'"Please select a Hospital/Institution.'
-		};
+		// Create $init variable to use 'this' within jQuery on events
 		let $init = this;
 
-		$('input#z')
-			.data('error-message',messages.zipError)
+		// Draw or remove error message for zip fields
+		this.$zipSelector
+			.data('error-message',this.$zipSelector.attr('error-msg'))
 			.on('blur.error',function(){
 				var $this = $(this);
 
@@ -54,8 +55,9 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			})
 		;
 
-		$('input#a')
-			.data('error-message',messages.ageError)
+		// Draw or remove error message for age fields	
+		this.$ageSelector
+			.data('error-message',this.$ageSelector.attr('error-msg'))
 			.on('blur.error',function(){
 				var $this = $(this);
 
@@ -71,16 +73,27 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			})
 		;
 
+		// Draw or remove error message for fields that should not be empty 
+		//if selected, e.g. hospital 
+		this.$nonEmptySelector
+			.data('error-message',this.$ageSelector.attr('error-msg'))
+			.on('blur.error',function(){
+				var $this = $(this);
+				// todo: validation logic here
+			})
+		;
+
+
 		// Wire up analytics & prevent submission if we have any active error fields
 		(<any>$(".clinical-trials-search-form")).basicctsformtrack({
-			formName: 'clinicaltrials_advanced'
+			formName: 'clinicaltrials_basic'
 		}).submit(function(e) {
 
 			var $this = $(this);
 
 			if(!$this.data('valid')){
 
-				//
+				//Fire off analytics for completd event and submit form
 				function analyticsAndSubmit() {
 					try {
 						(<any>$this).basicctsformtrack("completed");
