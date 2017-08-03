@@ -1,4 +1,4 @@
-
+## Draws a single set of criteria
 #macro(DrawOneSearchParam $label $field)
     #if($SearchResults.Parameters.IsFieldSet($field) == true)
         #set($value = $SearchResults.Parameters.GetFieldAsString($field))
@@ -9,15 +9,9 @@
     #end
 #end
 
-##macro(DrawSearchParamInner $SearchResults)
-
-###end
-
 ## Gigantic macro used to draw "you searched for" labels on results page
 ## TODO: clean up, separate into baked .inc file, reuse on view page?
 #macro(DrawSearchParamsV2 $SearchResults)
-
-    ## Test for empty search
 
     ## If there is at least one parameter, we need to draw the table
     #if($SearchResults.Parameters.IsEmpty() != true)
@@ -33,6 +27,8 @@
             #DrawOneSearchParam("Side Effects / Biomarkers / Participant Attributes" "Findings")
             #DrawOneSearchParam("Age" "Age")
             #DrawOneSearchParam("Keywords/Phrases" "Phrase")
+            ##We need to add IsFieldSet checks that delve into the location parameters
+            ##in order to handle these.
             <tr><td>Location</td><td>Is Weird</td></tr>
             #DrawOneSearchParam("Trial Type" "TrialTypes")
             #DrawOneSearchParam("Drug" "Drugs")
