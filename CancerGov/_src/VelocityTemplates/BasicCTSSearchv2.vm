@@ -1,7 +1,7 @@
-<!-- 
+<!--
 Reusing HTML from AdvCTSSearch.vm
 TODO: Verify Javascript
---> 
+-->
 <div class="medium-9 columns">
 #if ($SearchResults.Control.Redirected)
     <div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
@@ -90,7 +90,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <div>
-                        <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="==Please enter a number between 1 and 120.">                    
+                        <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
                     </div>
                 </div>
             </div>
