@@ -69,9 +69,9 @@ $SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
     ## Get the current page
     ## Show up to the next 2 and previous 2 numbers from the current page
     ## First / last pages always show by default
-    #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2,2,$SearchResults.Results.TotalResults))
+    #foreach($pagerItem in $SearchResults.Control.GetPagerItems(2,2,$SearchResults.PageInfo.MaxPage,$SearchResults.Results.TotalResults))
       #each
-        #if($pagerItem.Text == $SearchResults.Control.SearchParams.Page.ToString())
+        #if($pagerItem.Text == $SearchResults.PageInfo.CurrentPage.ToString())
           <span class="pager-current">$pagerItem.Text</span>
         #elseif($pagerItem.IsLink == false)
           <span class="pager-text-only">$pagerItem.Text</span>
