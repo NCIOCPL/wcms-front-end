@@ -9,7 +9,7 @@ TODO: Verify Javascript
         <p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
     </div>
 #end
-    <form id="form--cts-advanced" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
+    <form id="form--cts-basic" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
         <!-- BEGIN select2 (cancer type) module -->
         <fieldset id="fieldset--type">
             <div class="adv-fieldset-header">
