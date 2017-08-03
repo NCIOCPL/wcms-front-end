@@ -8,15 +8,10 @@ import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 
 
-export class CTSBaseFormSetup extends NCIBaseEnhancement{
-
-
-	// TODO 8/3:
-	//  Make this an abstract class
-	//      Test analytics
+export abstract class CTSBaseFormSetup extends NCIBaseEnhancement{
 
 	// make this protected 
-	private facade:CTAPIFacade;
+	protected facade:CTAPIFacade;
 
 	/**
 	 * Execute the constructor function on the base enhancement class &
@@ -28,6 +23,12 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 			ClinicalTrialsServiceFactory.create(apiHost)
 		);
 	}
+
+	/**
+	 * This is an abstract initialize method that must be implemented by subclasses
+	 * @abstract
+	 */
+	protected abstract initializeLocalFields(): void;
 
 	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
@@ -127,7 +128,10 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 		);
 
         // Gray out unselected location fields 		
-        this.selectLocFieldset();
+		this.selectLocFieldset();
+		
+		// Initialize any fields that are drawn by the subclass.
+        this.initializeLocalFields();
 	}
 	
 
