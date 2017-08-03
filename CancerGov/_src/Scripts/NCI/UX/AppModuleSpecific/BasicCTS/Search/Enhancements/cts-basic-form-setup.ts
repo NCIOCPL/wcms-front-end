@@ -25,10 +25,13 @@ export class CTSBasicFormSetup extends CTSBaseFormSetup{
 
 	/**
 	 * Initialize field creation for this subclass. 
+	 * @protected
+	 * @memberof CTSBasicFormSetup
 	 */
 	protected initializeLocalFields(): void {
-		console.log("== debug basic form setup ==");
-		
+		// We don't need to do anything in here right now, since everything 
+		// we care about for this form lives in cts-base-form-setup. However, we 
+		// need to have this method in place to run the main initialize function. 
 	}
 	
 }
