@@ -1,3 +1,7 @@
+/**
+ * Legacy Javascript file that was used for Basic CTS Search Page until 8/2017
+ * This is no longer being used to build the BasicCTSSearchPage JS file.
+ */
 define(function(require) {
 
 	var config = require('Generated/configuration');

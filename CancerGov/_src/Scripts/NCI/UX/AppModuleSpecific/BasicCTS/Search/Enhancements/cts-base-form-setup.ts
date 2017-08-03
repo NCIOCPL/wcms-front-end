@@ -16,7 +16,6 @@ export class CTSBaseFormSetup extends NCIBaseEnhancement{
 	//   'seal' the initizlize function
 	//     make the initlalize selectors member variables
 	//      Test analytics
-	//       Refactor error messages 
 
 	// make this protected 
 	private facade:CTAPIFacade;
