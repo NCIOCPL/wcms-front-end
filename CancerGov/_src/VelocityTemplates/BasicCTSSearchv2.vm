@@ -90,7 +90,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <div>
-                        <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text">
+                        <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="==Please enter a number between 1 and 120.">                    
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@ TODO: Verify Javascript
                         <div class="row">
                             <div class="z-input large-6 columns gutter">
                                 <label for="z">U.S. ZIP Code: </label>
-                                <input type="text" id="z" name="z" maxlength="5">
+                                <input id="z" name="z" maxlength="5" type="text" error-msg="Please enter a valid 5 digit ZIP code.">
                             </div>
                             <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>
