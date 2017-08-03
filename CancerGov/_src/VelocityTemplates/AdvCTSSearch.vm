@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    Primary Type/Condition
+                    <label>Primary Type/Condition</label>
                     </div>
                 </div>
                 <div class="row">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    Sub-type
+                    <label>Sub-type</label>
                     </div>
                 </div>
                 <div class="row">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    Stage
+                    <label>Stage</label>
                     </div>
                 </div>
                 <div class="row">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    Side Effects / Biomarkers / Participant Attributes
+                    <label>Side Effects / Biomarkers / Participant Attributes</label>
                     </div>
                 </div>
                 <div class="row">
@@ -101,7 +101,7 @@
             </div>
             <div class="adv-fieldset-body">
                 <div class="row">
-                    <label>Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in al available locations.</label>
+                    Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in al available locations.
                 </div>
                 <div class="row">
                     <fieldset id="fieldset--all-locations">
@@ -281,7 +281,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    Drug/Drug Family
+                    <label>Drug/Drug Family</label>
                     </div>
                 </div>
                 <div class="row">
@@ -289,7 +289,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    Other Treatments
+                    <label>Other Treatments</label>
                     </div>
                 </div>
                 <div class="row">
