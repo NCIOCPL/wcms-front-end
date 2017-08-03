@@ -1,6 +1,3 @@
-import { ClinicalTrialsServiceFactory, InterventionResult } from 'Services/clinical-trials';
-import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
-import { NCIBaseEnhancement } from 'UX/core';
 import { CTSBaseFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-base-form-setup';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
@@ -9,7 +6,7 @@ import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 
 /**
- * Concrete implementation of form setup class for advanced search
+ * Concrete (advanced search) implementation of form setup class.
  * @extends {CTSBaseFormSetup}
  */
 export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
@@ -24,7 +21,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 	}
 
 	/**
-	 * Initialize field creation for this subclass. 
+	 * Initialize field creation for this subclass.
 	 * @protected
 	 * @memberof CTSAdvancedFormSetup
 	 */
@@ -114,7 +111,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 				countriesList.forEach(country => {
 					$cSel.append($('<option></option')
 						.attr('value',country)
-						.text('muh countreh ' + country)
+						.text(country)
 					)
 				})
 			})

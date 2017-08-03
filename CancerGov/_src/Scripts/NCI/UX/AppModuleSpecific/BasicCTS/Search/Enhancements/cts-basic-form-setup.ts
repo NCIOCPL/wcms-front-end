@@ -1,15 +1,8 @@
-import { ClinicalTrialsServiceFactory, InterventionResult } from 'Services/clinical-trials';
-import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
-import { NCIBaseEnhancement } from 'UX/core';
 import { CTSBaseFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-base-form-setup';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
-import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
-import "../../../../../../../../node_modules/select2";
-import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
-import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 
 /**
- * Concrete implementation of form setup class for basic search
+ * Concrete (basic search) implementation of form setup class.
  * @extends {CTSBaseFormSetup}
  */
 export class CTSBasicFormSetup extends CTSBaseFormSetup{
@@ -29,9 +22,16 @@ export class CTSBasicFormSetup extends CTSBaseFormSetup{
 	 * @memberof CTSBasicFormSetup
 	 */
 	protected initializeLocalFields(): void {
-		// We don't need to do anything in here right now, since everything 
-		// we care about for this form lives in cts-base-form-setup. However, we 
-		// need to have this method in place to run the main initialize function. 
+		// Empty method for now - any Basic Search-specific fields should be 
+		// added here. This method is required in order to implement CTSBaseFormSetup. 
+
+		// I said this looks like a job for me
+		// So everybody, just follow me!
+		// ‘Cause we need a little controversy
+		// ‘Cause it feels so empty without me
+		// Hum dei dei la la Hum dei dei la la la la la
+		// Hum dei dei la la Hum dei dei la la la la la
+
 	}
 	
 }
