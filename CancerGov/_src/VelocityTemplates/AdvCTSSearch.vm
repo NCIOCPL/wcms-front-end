@@ -68,7 +68,7 @@
                     </div>
                     <div class="row">
                         <div>
-                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="==Please enter a number between 1 and 120.">
+                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
                         </div>
                     </div>
                 </div>
