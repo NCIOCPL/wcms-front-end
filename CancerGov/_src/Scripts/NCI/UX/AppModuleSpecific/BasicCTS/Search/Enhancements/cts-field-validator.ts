@@ -80,11 +80,11 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			.on('blur.error',function(){
 				var $this = $(this);
 
-				if (!$init.isNotNull($this.val()) && $init.isParentChecked($this)) {
-					$init.toggleError(false,$this,null); 
-				} else {
-					$init.toggleError(true,$this,null);
-				}
+				// if (!$init.isNotNull($this.val()) && $init.isParentChecked($this)) {
+				// 	$init.toggleError(false,$this,null); 
+				// } else {
+				// 	$init.toggleError(true,$this,null);
+				// }
 			})
 		;
 
