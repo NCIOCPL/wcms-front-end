@@ -101,7 +101,7 @@
             </div>
             <div class="adv-fieldset-body">
                 <div class="row">
-                    Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in al available locations.
+                    Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in all available locations.
                 </div>
                 <div class="row">
                     <fieldset id="fieldset--all-locations">
