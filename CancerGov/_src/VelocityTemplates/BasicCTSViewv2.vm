@@ -29,6 +29,7 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
 </div>
 #end
 
+## NEED TO UPDATE BASED ON HAS ANY LOCATION
 #macro(DrawLocationsV2)
 #if($SearchResults.Control.GetShowAll() > 0)
 #DrawFilterableLocationsV2()
@@ -61,7 +62,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 	    ## do not display toggle
       #else
 	    <span class="right location-link">
-          <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowNearbyUrl")#trial-location">Show locations near me</a>
+          <a href="$SearchResults.Control.GetShowNearbyUrl()#trial-location">Show locations near me</a>
         </span>
 	  #end
     #end
@@ -127,7 +128,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 	  ## do not draw toggle
 	#else
 	  <span class="right location-link">
-        <a href="$SearchResults.Control.PageInstruction.GetUrl("ShowAllUrl")#trial-location">Show all locations</a>
+        <a href="$SearchResults.Control.GetShowAllUrl()#trial-location">Show all locations</a>
       </span>
 	#end
     #foreach($loc in $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
@@ -138,55 +139,16 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 </div>
 #end
 
-#macro(DrawMatchingParamsV2 $SearchResults)
-  #set($plist = $Tools.CreateEmptyStringList())
-  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetCancerType()))
-    $plist.Add("type")
-  #end
-  #if(!$Tools.IsNullOrWhitespace($SearchResults.Control.GetPhrase()))
-    $plist.Add("phrase")
-  #end
-  #if($SearchResults.Control.HasZip())
-    $plist.Add("zip")
-  #end
-  #if($SearchResults.Control.SearchParams.Age > 0)
-    $plist.Add("age")
-  #end
-  #if(($SearchResults.Control.Gender == "Female") || ($SearchResults.Control.Gender == "Male"))
-    $plist.Add("gender")
-  #end
-  #if($SearchResults.Control.GetSearchForAllTrials == true)
-    $plist.Add("all trials")
-  #end
+##Begin DrawSearchParamsV2
+<!--(bake DrawSearchParamsV2.inc)-->
+##End DrawSearchParamsV2
 
-#foreach($param in $plist)##
-#each
-#if($param == "type")##
-"<span data-basiccts-searchparam='t'>$SearchResults.Control.GetCancerType()</span>"##
-#elseif($param == "phrase")##
-"<span data-basiccts-searchparam='q'>$Tools.Replace($SearchResults.Control.GetPhrase(), '"', '')</span>"##
-#elseif($param == "zip")##
-within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP code "<span data-basiccts-searchparam='z'>$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP</span>"##
-#elseif($param == "age")##
-taking patients age <span data-basiccts-searchparam='a'>$SearchResults.Control.SearchParams.Age</span>##
-#elseif($param == "gender")##
-Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams.Gender</span>"##
-#elseif($param == "all trials")##
-"all trials"##
-#else##
-## do nothing
-#end##
-#between
-; ##
-#end##
-#end##
-
-#set($resultsUrl = $SearchResults.Control.PageInstruction.GetUrl("ResultsUrl"))##
-#if($SearchResults.Control.IsSearchResult())##
+#set($resultsUrl = $SearchResults.Control.GetBackToResultsUrl())##
+#if(!$Tools.IsNull($SearchResults.Parameters))##
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
   <p>
-    This clinical trial matches: #DrawMatchingParamsV2($SearchResults) | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
+    This clinical trial matches: #DrawSearchParamsV2($SearchResults) | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
   </p>
 </span>
 #end##
@@ -326,6 +288,7 @@ Gender: "<span data-basiccts-searchparam='g'>$SearchResults.Control.SearchParams
         <span class="icon icon-print"></span>
         <span class="text">Print</span>
       </a>
+      ## This is the only place where GetUrl should be used.  All other places are specific only to this template.
       #set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
       <a class="email" title="Email" href="$emailUrl">
         <span class="icon icon-email"></span>
