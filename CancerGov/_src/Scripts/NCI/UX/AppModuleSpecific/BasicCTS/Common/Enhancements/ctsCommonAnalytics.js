@@ -14,6 +14,11 @@ define(function(require) {
         }
 
 		var identifier = '';
+		$('a .delighter.cts-livehelp').on('click.analytics', function (e) {
+			var $this = $(this);
+			identifier = 'rrail_have a question';
+			NCIAnalytics.SimpleCTSLink($this, identifier, pageName);
+		});
 		$('a .delighter.cts-which').on('click.analytics', function (e) {
 			var $this = $(this);
 			identifier = 'rrail_which trials are right for you';

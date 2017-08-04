@@ -1,4 +1,4 @@
-#form--cts-advanced {
+#form--cts-advanced, #form--cts-basic {
   fieldset {
     border:1px solid #bdbdc2;
     border-radius: 4px;
@@ -299,7 +299,7 @@ Create temporary styles for demo Delighter SVGs
 /********
 Create styles for fieldsets
 ********/
-#form--cts-advanced {
+#form--cts-advanced, #form--cts-basic {
   fieldset {
     background-color: white;
     padding: 0px!important;
@@ -368,9 +368,12 @@ form .row .row .column, form .row .row .columns {
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
   border: 1px solid #bdbddc;
 }
-#form--cts-advanced #z, #form--cts-advanced #lcty, #form--cts-advanced #hos {
+#form--cts-basic, #form--cts-advanced {
+  #z, #lcty, #hos {
     background-color: #f2f2f3;
+  }
 }
+
 
 //Increase Opacity for Disabled Location fieldsets
 .fieldset-disabled .row, #form--cts-advanced #fieldset--location #fieldset--hospital input[disabled] {

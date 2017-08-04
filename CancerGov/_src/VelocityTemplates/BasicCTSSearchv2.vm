@@ -1,7 +1,7 @@
-<!-- 
+<!--
 Reusing HTML from AdvCTSSearch.vm
 TODO: Verify Javascript
---> 
+-->
 <div class="medium-9 columns">
 #if ($SearchResults.Control.Redirected)
     <div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
@@ -9,7 +9,7 @@ TODO: Verify Javascript
         <p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
     </div>
 #end
-    <form id="form--cts-advanced" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
+    <form id="form--cts-basic" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
         <!-- BEGIN select2 (cancer type) module -->
         <fieldset id="fieldset--type">
             <div class="adv-fieldset-header">
@@ -23,7 +23,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <div>
-                    Primary Type/Condition
+                    <label>Primary Type/Condition<label>
                     </div>
                 </div>
                 <div class="row">
@@ -33,7 +33,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <div>
-                    Sub-type
+                    <label>Sub-type</label>
                     </div>
                 </div>
                 <div class="row">
@@ -41,7 +41,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <div>
-                    Stage
+                    <label>Stage</label>
                     </div>
                 </div>
                 <div class="row">
@@ -49,7 +49,7 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <div>
-                    Side Effects / Biomarkers / Participant Attributes
+                    <label>Side Effects / Biomarkers / Participant Attributes</label>
                     </div>
                 </div>
                 <div class="row">
@@ -58,44 +58,46 @@ TODO: Verify Javascript
             </div>
         </fieldset>
         <!-- END select2 (cancer type) module -->
-        <!-- BEGIN keyword fieldset -->
-        <fieldset id="fieldset--keyword">
-            <div class="adv-fieldset-header">
-                <h4>KEYWORD/PHRASES
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>Search by word or phrase (use quotation marks with phrases)</div>
+
+        <!-- BEGIN age/keyword divs -->
+        <div class="row" data-match-height>
+            <fieldset id="fieldset--age" class="large-6 columns gutter equalheight">
+                <div class="adv-fieldset-header">
+                    <h4>AGE
+                        <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
+                    </h4>
                 </div>
-                <div class="row">
-                    <div>
-                        <input id="q" name="q" aria-labelledby="legend--keyword" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
+                <div class="adv-fieldset-body">
+                    <div class="row">
+                        <div>Enter the age of the patient</div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </fieldset>
-        <!-- END keyword fieldset -->
-        <!-- BEGIN age fieldset -->
-        <fieldset id="fieldset--age">
-            <div class="adv-fieldset-header">
-                <h4>AGE
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>Enter the age of the patient</div>
+            </fieldset>
+            <fieldset id="fieldset--keyword" class="large-6 columns gutter equalheight">
+                <div class="adv-fieldset-header">
+                    <h4>KEYWORDS/PHRASES
+                        <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
+                    </h4>
                 </div>
-                <div class="row">
-                    <div>
-                        <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="==Please enter a number between 1 and 120.">                    
+                <div class="adv-fieldset-body">
+                    <div class="row">
+                        <div>Search by word or phrase (use quotation marks with phrases)</div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <input id="q" name="q" aria-labelledby="legend--keyword" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </fieldset>
-        <!-- END age fieldset -->
+            </fieldset>
+        </div>
+        <!-- END age/keyword divs -->
+
         <!-- BEGIN location fieldsets -->
         <fieldset id="fieldset--location">
             <div class="adv-fieldset-header">
@@ -105,7 +107,7 @@ TODO: Verify Javascript
             </div>
             <div class="adv-fieldset-body">
                 <div class="row">
-                    <label>Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in al available locations.</label>
+                    Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in al available locations.
                 </div>
                 <div class="row">
                     <fieldset id="fieldset--your-location">
