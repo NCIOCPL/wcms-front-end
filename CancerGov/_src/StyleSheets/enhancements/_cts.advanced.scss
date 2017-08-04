@@ -134,6 +134,17 @@
   margin-left: 5px;
   margin-top: 0;
 }
+// fix smooshed social icons
+.page-options li {
+  margin: 0 0 0 0.875em;
+}
+@include bp(medium-down) {
+		.page-options {
+			li {
+				margin: 0 0.875em 0 0;
+      }
+    }
+  }
 
 // Styling for API reference box
 .api-ref-advanced {
