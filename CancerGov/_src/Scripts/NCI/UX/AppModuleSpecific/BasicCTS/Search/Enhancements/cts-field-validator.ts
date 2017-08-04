@@ -25,7 +25,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	// Member variables for error-able selectors
 	protected $zipSelector = $('input#z');
 	protected $ageSelector = $('input#a');
-	protected $nonEmptySelector = $('input#hos');	
+	protected $nonEmptySelector = $('input.non-empty');
 
 	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
@@ -47,7 +47,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if ($init.validateNotNull($this.val()) && !$init.validateZip($this.val())) {
+				if ($init.isNotNull($this.val()) && !$init.validateZip($this.val())) {
 					$init.toggleError(false,$this,null);
 				} else {
 					$init.toggleError(true,$this,null);
@@ -65,7 +65,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if ($init.validateNotNull($this.val()) && !$init.validateAge($this.val())) {
+				if ($init.isNotNull($this.val()) && !$init.validateAge($this.val())) {
 					$init.toggleError(false,$this,null);
 				} else {
 					$init.toggleError(true,$this,null);
@@ -74,12 +74,17 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		;
 
 		// Draw or remove error message for fields that should not be empty 
-		//if selected, e.g. hospital 
+		// if the parent radio button selected, e.g. hospital or zip code.
 		this.$nonEmptySelector
-			.data('error-message',this.$ageSelector.attr('error-msg'))
+			.data('error-message',this.$nonEmptySelector.attr('error-msg'))
 			.on('blur.error',function(){
 				var $this = $(this);
-				// todo: validation logic here
+
+				if (!$init.isNotNull($this.val()) && $init.isParentChecked($this)) {
+					$init.toggleError(false,$this,null); 
+				} else {
+					$init.toggleError(true,$this,null);
+				}
 			})
 		;
 
@@ -175,8 +180,17 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	 * Verify that an input is not null
 	 * @param {any} val
 	 */
-	private validateNotNull(val){
+	private isNotNull(val){
 		return val.length !== 0;
+	}
+
+	/**
+	 * Check if the field is within a checked radio input
+	 * @param val 
+	 */
+	private isParentChecked($val) {
+		var $checked = $('fieldset.fieldset-enabled'); 
+		return $val.closest($checked).length > 0;
 	}
 
 	/**
