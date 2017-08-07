@@ -1,9 +1,10 @@
 import { CTSBaseFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-base-form-setup';
-import * as NCI from "UX/Common/Enhancements/NCI"; 
-import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
+import * as NCI from "UX/Common/Enhancements/NCI";
+import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
 import "../../../../../../../../node_modules/select2";
-import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
+import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
+import "../../Common/Enhancements/trialCheck";
 
 /**
  * Concrete (advanced search) implementation of form setup class.
@@ -13,10 +14,10 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 
 	/**
 	 * Creates an instance of CTSAdvancedFormSetup.
-	 * Execute the constructor function on the base form setup class. 
-	 * @param {string} apiHost 
+	 * Execute the constructor function on the base form setup class.
+	 * @param {string} apiHost
 	 */
-	constructor(apiHost: string) { 
+	constructor(apiHost: string) {
 		super(apiHost);
 	}
 
@@ -27,19 +28,19 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 	 */
 	protected initializeLocalFields(): void {
 
-		// Create jQuery selector vars		
+		// Create jQuery selector vars
 		let $country = $('#lcnty');
 		let $hospital = $('.adv-search #hos');
 		let $treatmentType = $('.adv-search #ti');
 		let $drugSelect = $("#dr-multiselect");
-		let $ivSelect = $("#ti-multiselect");		
+		let $ivSelect = $("#ti-multiselect");
 		let $trialInvestigators = $('.adv-search #in');
 		let $leadOrg = $('.adv-search #lo');
 		let $this = this; // create $this variable for use within initialize() scope
 
 		// Get countries on page load
 		$this.getCountries($country);
-		
+
 		// Populate Hospital/Institution dropdown autusuggest
 		(<any>$hospital).ctsautoselect({
 			source: (request,response) => {
@@ -88,7 +89,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 			'Type the drug you are looking for below',
 			this.facade.searchDrugs.bind(this.facade)
 		);
-			
+
 		// Build up Select2 control for other treatments
 		(<any>Select2InterventionsInitializer).default(
 			$ivSelect,
@@ -96,7 +97,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 			this.facade.searchOtherInterventions.bind(this.facade)
 		);
 
-        // Gray out unselected location fields 		
+        // Gray out unselected location fields
 		this.selectLocFieldset();
 
 	}
@@ -123,7 +124,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 
 	/*
     * Enable or disable selection features based on the selected 'Location' radio button.
-    * TODO: disable state for non-US countries 
+    * TODO: disable state for non-US countries
 	*/
     private selectLocFieldset() {
 
@@ -138,10 +139,10 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 			var $parent = $this.closest('fieldset');
             $fieldsetItems.enableLocFieldset($parent);
 			$fieldsetItems.disableLocFieldset($parent.siblings());
-			
+
 			// Do not preserve fields with errors (i.e. Zip code) if we select a different location type
 			let $err = $('#fieldset--location input.error');
-			if($err){ 
+			if($err){
 				$err.removeClass("error");
 				$err.next('.error-msg').css('visibility','hidden');
 				$err.val('');
@@ -151,7 +152,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 
 	/*
     * Activate a selected location fieldset
-	*/	
+	*/
     private enableLocFieldset($elem) {
         $elem.attr('class','fieldset-enabled');
         $('.fieldset-enabled').find('input[type=text], input[type=checkbox]').removeAttr('disabled');
@@ -160,12 +161,12 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 
 	/*
     * Gray out a disabled location fieldsets
-	*/	
+	*/
     private disableLocFieldset($elem) {
         $elem.attr('class','fieldset-disabled');
         $('.fieldset-disabled').find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
         $('.fieldset-disabled').find('span[role=combobox]').addClass('ui-state-disabled');
 	}
 
-	
+
 }
