@@ -1,45 +1,27 @@
 <script src="/PublishedContent/js/BasicCTSCommon.js" type="text/javascript"></script>
 <script src="/PublishedContent/js/BasicCTSViewPage.js" type="text/javascript"></script>
 
-## Draws a Single Location Item
+##Begin DrawSearchParamsV2
+<!--(bake DrawSearchParamsV2.inc)-->
+##End DrawSearchParamsV2
 
-#macro(DrawLocationV2 $loc)
-<div itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-  <strong itemprop="name">$loc.Name</strong>
-  <br>Status: $SearchResults.TrialTools.GetFormattedString($loc.RecruitmentStatus)##
-  <br>
-  <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-    <meta itemprop="addressCountry" content="$loc.Country" />
-    <span itemprop="addressLocality">$loc.City</span>##
-#if (!$Tools.IsNullOrWhitespace($loc.StateOrProvince))##
-, <span itemprop="addressRegion">$loc.StateOrProvince</span>
-#end
-#if (!$Tools.IsNullOrWhitespace($loc.ContactName))##
-<br>Contact: $loc.ContactName
-#else
-<br>Name Not Available
-#end
-#if (!$Tools.IsNullOrWhitespace($loc.ContactPhone))##
-<br>Phone: $loc.ContactPhone
-#end
-#if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
-Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
-#end
-  </span>
-</div>
-#end
+##Begin Common Location Drawing
+<!--(bake CTSDrawLocations.inc)-->
+##End Common Location Drawing
 
-## NEED TO UPDATE BASED ON HAS ANY LOCATION
+## Main Location Drawing Function
 #macro(DrawLocationsV2)
-#if($SearchResults.Control.GetShowAll() > 0)
-#DrawFilterableLocationsV2()
-#elseif($SearchResults.Control.HasZip())
+#if($filteredLocations.Length == 0)
+#DrawNoLocationsV2()
+#elseif($SearchResults.Control.ShowingAll != true && ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))
 #DrawProximityLocationsV2()
 #else
 #DrawFilterableLocationsV2()
 #end
 #end
 
+
+## Used when no study sites
 #macro(DrawNoLocationsV2)
 #if($SearchResults.Trial.CurrentTrialStatus.toLower == "not yet active" || $SearchResults.Trial.CurrentTrialStatus.toLower == "in review" || $SearchResults.Trial.CurrentTrialStatus.toLower == "approved")
 Location information is not yet available.
@@ -48,100 +30,42 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #end
 #end
 
-## This is used to draw all study sites with filters.
+## This is used to draw all study sites with dropdown filters.
 #macro(DrawFilterableLocationsV2)
 <div id="filterable-trialslist">
-  #set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial)) 
-  #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 0 && $SearchResults.TrialTools.GetLocCount($allLocations.Canada) == 0 && $SearchResults.TrialTools.GetLocCount($allLocations.Other) == 0)
-  #DrawNoLocationsV2()##
-  #else
   <div>
-    #if($SearchResults.Control.GetShowAll() > 0)
-	  #set ($allLocCount = $SearchResults.TrialTools.GetLocCount($allLocations.USA) + $SearchResults.TrialTools.GetLocCount($allLocations.Canada) + $SearchResults.TrialTools.GetLocCount($allLocations.Other))
-      #if($allLocCount == 1)
-	    ## do not display toggle
-      #else
-	    <span class="right location-link">
-          <a href="$SearchResults.Control.GetShowNearbyUrl()#trial-location">Show locations near me</a>
-        </span>
-	  #end
+    ## Show locations near me if filterable.
+    #if($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH")
+      <span class="right location-link">
+        <a href="$SearchResults.Control.GetShowNearbyUrl()#trial-location">Show locations near me</a>
+      </span>
     #end
-
-    #if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) > 0)
-    <div data-basiccts-countrygroup="U.S.A.">
-      #foreach($state in $allLocations.USA)
-      #each
-      <div data-basiccts-psunitgroup="$state.key">
-        <h3>$state.key</h3>
-        #foreach($loc in $state.Value)
-        #each
-        #DrawLocationV2($loc)
-        #end
-      </div>
-      #end
-    </div>
-    #end
-    #if ($SearchResults.TrialTools.GetLocCount($allLocations.Canada) > 0)
-    <div data-basiccts-countrygroup="Canada">
-      #foreach($state in $allLocations.Canada)
-      #each
-      <div data-basiccts-psunitgroup="$state.key">
-        <h3>$state.key</h3>
-        #foreach($loc in $state.Value)
-        #each
-        #DrawLocationV2($loc)
-        #end
-      </div>
-      #end
-    </div>
-    #end
-    #if ($SearchResults.TrialTools.GetLocCount($allLocations.Other) > 0)
-    <div data-basiccts-countrygroup="Other">
-      #foreach($country in $allLocations.Other)
-      #each
-      <div data-basiccts-psunitgroup="$country.key">
-        <h3>$country.key</h3>
-        #foreach($loc in $country.value)
-        #each
-        #DrawLocationV2($loc)
-        #end
-      </div>
-      #end
-    </div>
-  </div>
-  #end
-  #end
+    ## Draw Results.
+    #set($sites = $SearchResults.Trial.Sites)
+    #DrawSitesForUXFilter($sites)
 </div>
 #end
 
 ## This is used to draw the closest sites when viewing by proximity
 #macro(DrawProximityLocationsV2)
 <div id="proximity-trialslist">
-  #if($SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length == 0)
+  #set($filteredLocations = $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Parameters))
+  #if($filteredLocations.Length == 0)
     #DrawNoLocationsV2()##
   #else
-    #set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($SearchResults.Trial)) 
-    #set ($allLocCount = $SearchResults.TrialTools.GetLocCount($allLocations.USA) + $SearchResults.TrialTools.GetLocCount($allLocations.Canada) + $SearchResults.TrialTools.GetLocCount($allLocations.Other))
-    #set ($filteredLocCount = $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius).Length)
-	<span class="location-text">Locations within $SearchResults.Control.SearchParams.ZipRadius miles of ZIP code "$SearchResults.Control.SearchParams.ZipLookup.PostalCode_ZIP"</span>
-    #if($allLocCount == $filteredLocCount)
-	  ## do not draw toggle
-	#else
-	  <span class="right location-link">
+	<span class="location-text">Locations matching your search criteria</span>
+    ## do not draw toggle if the number of filtered sites is the same as all site.
+    #if($SearchResults.Trial.Sites.Count != $filteredLocations.Length)
+	    <span class="right location-link">
         <a href="$SearchResults.Control.GetShowAllUrl()#trial-location">Show all locations</a>
       </span>
-	#end
-    #foreach($loc in $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Control.SearchParams.ZipLookup.GeoCode,$SearchResults.Control.SearchParams.ZipRadius))
-      #each
-        #DrawLocationV2($loc)
-    #end
+	  #end
+    ##Now actually draw the filtered sites.  This may be different between Zip and Other Locations
+    #DrawSitesForNormal($filteredLocations)
   #end
 </div>
 #end
 
-##Begin DrawSearchParamsV2
-<!--(bake DrawSearchParamsV2.inc)-->
-##End DrawSearchParamsV2
 
 #set($resultsUrl = $SearchResults.Control.GetBackToResultsUrl())##
 #if(!$Tools.IsNull($SearchResults.Parameters))##
