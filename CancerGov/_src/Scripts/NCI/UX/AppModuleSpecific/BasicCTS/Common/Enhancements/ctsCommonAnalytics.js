@@ -35,10 +35,29 @@ define(function(require) {
 			NCIAnalytics.SimpleCTSLink($this, identifier, pageName);
 		});
 		
-		/* Track clicks of print selected buttons */
+		/* Track clicks of start over buttons */
 		$('.cts-start-over a').on('click', function(event) {
 			var $this = $(this);
-			NCIAnalytics.CTStartOverClick($this);
+
+			// Gets the results link flag from the URL - if it doesn't exist, set it equal to 1 (basic)
+			var url = window.location.href;
+			var rl = 1;
+			if(url.indexOf('rl=') > -1) {
+				var rlq = url.match(/rl=[0,1,2]/g) // get the "rl=x" query value - can only be 0, 1, or 2
+				rl = rlq[0].replace('rl=',''); // strip out the rl= to get the flag
+				if(rl.length < 1) {
+					rl = 1;
+				}
+			}
+
+			// Sets the search form name for analytics
+			var searchForm = "clinicaltrials_basic";
+			if(rl == 2)
+			{
+				searchForm = "clinicaltrials_advanced";
+			}
+
+			NCIAnalytics.CTStartOverClick($this, searchForm);
 		});
 	}
 

@@ -161,7 +161,6 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 
         // Gray out unchecked fieldsets when a selection is made
         $("input[name='loc']").on("click",function(e){
-			console.log("Location radio clicked");
         	var $this = $(this);
 			var $parent = $this.closest('fieldset');
             $fieldsetItems.enableLocFieldset($parent);
@@ -206,7 +205,6 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 		$elem.find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
 		$elem.find('.loc-select-menu').each((index, element) => {
 			let $element:any = $(element);
-			console.log($element);
 			if($element.selectmenu("instance")) {
 				$element.selectmenu("disable");
 			}

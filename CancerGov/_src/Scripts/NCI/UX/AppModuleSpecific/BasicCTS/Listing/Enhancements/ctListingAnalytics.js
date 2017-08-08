@@ -23,7 +23,9 @@ define(function(require) {
 				var $this = $(this);
 					rank = $this.index('.ct-list-item a') + 1;
 					rank += ('|page ' + pn);
-					NCIAnalytics.CTSResultsClick($this, rank, true);
+					
+					var formName = "clinicaltrials_custom";
+					NCIAnalytics.CTSResultsClick($this, rank, formName);
 			});
 		});
 	

@@ -304,8 +304,16 @@ define(function(require) {
 				
 				if(totalChecked >= LIMIT) {
 					// Analytics call for max selected reached
-					var $this = $(this);
-					NCIAnalytics.CTSResultsMaxSelectedClick($this);
+                    var $this = $(this);
+
+                    // Determines originating search form for analytics
+                    var rl = getParameterByName('rl', window.location.href);
+                    var searchForm = "clinicaltrials_basic";
+                    if(rl == 2){
+                        searchForm = "clinicaltrials_advanced";
+                    }
+
+					NCIAnalytics.CTSResultsMaxSelectedClick($this, searchForm);
 				}
             }
         }
