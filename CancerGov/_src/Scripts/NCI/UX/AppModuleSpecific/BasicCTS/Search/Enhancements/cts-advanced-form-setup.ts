@@ -39,7 +39,23 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 		let $this = this; // create $this variable for use within initialize() scope
 
 		// Get countries on page load
-		$this.getCountries($country);
+		$this.getCountries($country)
+			.then(() => {
+				$country.each(function () {
+					let $this:any = $(this);
+
+					$this.selectmenu({
+						change: function (event, ui) {
+							// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
+							ui.item.element.change();
+						},
+						width: $this.hasClass('fullwidth') ? '100%' : null
+					}).selectmenu('menuWidget').addClass('scrollable-y');
+				});
+			});
+
+
+		$('#lst-multiselect').select2();
 
 		// Populate Hospital/Institution dropdown autusuggest
 		(<any>$hospital).ctsautoselect({
@@ -107,19 +123,29 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 	* Populate the location Country dropdown field
 	*/
 	private getCountries($cSel) {
-		this.facade.getCountries()
+		return this.facade.getCountries()
 			.then((countriesList:string[]) => {
 				countriesList.forEach(country => {
-					$cSel.append($('<option></option')
-						.attr('value',country)
-						.text(country)
-					)
+					if(country == "United States") {
+						$cSel.append($('<option></option')
+							.attr('value',country)
+							.attr('selected', 'selected')
+							.text(country)
+						)
+					}
+					else {
+						$cSel.append($('<option></option')
+							.attr('value',country)
+							.text(country)
+						)
+					}
 				})
 			})
 			//TODO: remove log message on error - keeping now for debugging purposes
 			.catch((err:any) => {
 				console.log(err)
 			})
+		
 	}
 
 	/*
@@ -135,6 +161,7 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 
         // Gray out unchecked fieldsets when a selection is made
         $("input[name='loc']").on("click",function(e){
+			console.log("Location radio clicked");
         	var $this = $(this);
 			var $parent = $this.closest('fieldset');
             $fieldsetItems.enableLocFieldset($parent);
@@ -153,19 +180,45 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 	/*
     * Activate a selected location fieldset
 	*/
-    private enableLocFieldset($elem) {
+    private enableLocFieldset($elem:any) {
         $elem.attr('class','fieldset-enabled');
-        $('.fieldset-enabled').find('input[type=text], input[type=checkbox]').removeAttr('disabled');
-        $('.fieldset-enabled').find('span[role=combobox]').removeClass('ui-state-disabled');
+		$elem.find('input[type=text], input[type=checkbox]').removeAttr('disabled');
+		$elem.find('.loc-select-menu').each((index, element) => {
+			let $element:any = $(element);
+			if($element.selectmenu("instance")) {
+				$element.selectmenu("enable");
+			}
+			else {
+				$element.removeAttr('disabled');
+			}
+		});
+		$elem.find('.loc-select2-menu').each((index, element) => {
+			let $element:any = $(element);
+			$element.removeAttr('disabled');
+		});
     }
 
 	/*
     * Gray out a disabled location fieldsets
 	*/
-    private disableLocFieldset($elem) {
+    private disableLocFieldset($elem:any) {
         $elem.attr('class','fieldset-disabled');
-        $('.fieldset-disabled').find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
-        $('.fieldset-disabled').find('span[role=combobox]').addClass('ui-state-disabled');
+		$elem.find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
+		$elem.find('.loc-select-menu').each((index, element) => {
+			let $element:any = $(element);
+			console.log($element);
+			if($element.selectmenu("instance")) {
+				$element.selectmenu("disable");
+			}
+			else {
+				$element.attr('disabled', 'disabled');
+			}
+		});
+
+		$elem.find('.loc-select2-menu').each((index, element) => {
+			let $element:any = $(element);
+			$element.attr('disabled', 'disabled');
+		});
 	}
 
 

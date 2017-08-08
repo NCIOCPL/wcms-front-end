@@ -396,3 +396,26 @@ border-radius: 1px;
 background-color: #ddd;
 opacity: 0.45;
 }
+
+//styling for search results table
+.clinicaltrials-results-criteria-display table {
+	border: 0 none;
+  width: 100%;
+  display: block;
+}
+.clinicaltrials-results-criteria-display table thead {
+  display: inline-block;
+  width: 100%;
+    //height: 20px;
+}
+.clinicaltrials-results-criteria-display table tbody {
+  height: 100px;
+  display: inline-block;
+  width: 100%;
+  overflow: auto;
+}
+.clinicaltrials-results-criteria-display table th.hdrlft,
+ .clinicaltrials-results-criteria-display table td.hdrlft {
+  text-align: right;
+  width: 60%;
+}
