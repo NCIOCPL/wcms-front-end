@@ -120,7 +120,7 @@
                             </div>
                             <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>
-                                <select id="zp" name="zp" class="fullwidth">
+                                <select id="zp" name="zp" class="fullwidth loc-select-menu">
                                     <option value="25">25 miles</option>
                                     <option value="50">50 miles</option>
                                     <option selected="selected" value="100">100 miles</option>
@@ -138,16 +138,13 @@
                             <div class="row">
                                 <div class="country-input column">
                                     <label for="lcnty">Country: </label>
-                                    <select id="lcnty" name="lcnty" class="fullwidth">
-                                        <option selected="selected" value="">All</option>
-                                    </select>
+                                    <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu"></select>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="city-input large-6 columns gutter">
+                                <div class="state-input large-6 columns gutter">
                                     <label for="lst">State: </label>
-                                    <select id="lst" name="lst" class="fullwidth">
-                                        <option selected="selected" value="">All</option>
+                                    <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
                                         <option value="AL">Alabama</option>
                                         <option value="AK">Alaska</option>
                                         <option value="AZ">Arizona</option>
@@ -201,7 +198,7 @@
                                         <option value="WY">Wyoming</option>
                                     </select>
                                 </div>
-                                <div class="state-input large-6 columns">
+                                <div class="city-input large-6 columns">
                                     <label for="lcty">City: </label>
                                     <input type="text" id="lcty" name="lcty" maxlength="40">
                                 </div>
@@ -237,7 +234,7 @@
                 <div class="row">
                     <div id="tt" class="two-columns">
                         <div class="checkbox">
-                            <input id="tt_all" name="tt" checked="checked" value="all" type="checkbox"><label for="tt_all">All</label>
+                            <input id="tt_all" name="tt" checked="checked" value="" type="checkbox"><label for="tt_all">All</label>
                         </div>
                         <div class="checkbox">
                             <input id="tt_treatment" name="tt" value="treatment" type="checkbox"><label for="tt_treatment">Treatment</label>
@@ -314,7 +311,7 @@
                 <div class="row">
                     <div id="tp" class="">
                         <div class="checkbox large-3 columns">
-                            <input id="tp_all" name="tp" checked="checked" value="all" type="checkbox"><label for="tp_all">All</label>
+                            <input id="tp_all" name="tp" checked="checked" value="" type="checkbox"><label for="tp_all">All</label>
                         </div>
                         <div class="checkbox large-3 columns">
                             <input id="tp_1" name="tp" value="I" type="checkbox"><label for="tp_1">Phase I</label>
