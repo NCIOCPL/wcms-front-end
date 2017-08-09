@@ -51,6 +51,7 @@
 
     ## If there is at least one parameter, we need to draw the table
     #if($SearchResults.Parameters.IsEmpty() != true)
+      <div class="clinicaltrials-results-criteria-display">
         <table class="complex-table">
             <thead>
                 <tr>
@@ -80,6 +81,7 @@
                 #DrawOneSearchParam("Lead Organization" "LeadOrg")
             </tbody>
         </table>
+      </div>
     #end
 
 #end##
