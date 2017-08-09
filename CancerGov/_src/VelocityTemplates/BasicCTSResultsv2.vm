@@ -1,30 +1,26 @@
-<!-- SOMEONE WILL REMOVE THESE!!!
-<script src="/PublishedContent/js/BasicCTSCommon.js" type="text/javascript"></script>
-<script src="/PublishedContent/js/BasicCTSResultsPage.js" type="text/javascript"></script>
--->
 
 #macro(DrawLocationInformationV2 $trial)##
-#set ($allLocations = $SearchResults.TrialTools.GetAllSortedLocations($trial)) 
+#set ($usSites = $SearchResults.TrialTools.GetUSASites($trial)) 
 <strong>Location: </strong>##
 
-#if ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 1)##
-#foreach($state in $allLocations.USA)
-#each
-#foreach($loc in $state.Value)
+#if ($usSites.length == 1)##
+#foreach($loc in $usSites)
 #each
 $loc.Name, $loc.City, $loc.StateOrProvince##
 #end
-#end
-#elseif ($SearchResults.TrialTools.GetLocCount($allLocations.USA) == 0)##
+#elseif ($usSites.length == 0)##
 #if($resultItem.CurrentTrialStatus.toLower == "not yet active" || $resultItem.CurrentTrialStatus.toLower == "in review" || $resultItem.CurrentTrialStatus.toLower == "approved")##
 Location information is not yet available.##
 #else##
 See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">Clinical Trials.gov</a>##
 #end##
 #else##
-$SearchResults.TrialTools.GetLocCount($allLocations.USA) locations##
-#if ($SearchResults.Control.HasZip())##
-, including $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.Control.SearchParams.ZipLookup.GeoCode, $SearchResults.Control.SearchParams.ZipRadius).length near you##
+$usSites.length locations##
+#if (($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))##
+#set($filteredUSSites = $SearchResults.TrialTools.GetFilteredLocations($usSites, $SearchResults.Parameters))##
+#if($filteredUSSites.length > 0)##
+, including $filteredUSSites.length near you##
+#end##
 #end##
 #end##
 #end##
