@@ -239,6 +239,7 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
 #fieldset--type .select2-container .select2-search--inline .select2-search__field
 {
   margin-top: 0px;
+
 }
 
 //search button alignment
@@ -419,3 +420,13 @@ opacity: 0.45;
   text-align: right;
   width: 60%;
 }
+
+//select2 responsiveness
+//.select2-container--default .select2-search--inline .select2-search__field,
+//.select2-container .select2-selection--multiple .select2-selection__rendered {
+//  width: auto !important;
+//}
+//.select2-container--classic .select2-selection--multiple
+//{
+//  width: auto !important;
+//}
