@@ -1,3 +1,6 @@
+##Begin DrawSearchParamsV2
+<!--(bake DrawSearchParamsV2.inc)-->
+##End DrawSearchParamsV2
 
 #macro(DrawLocationInformationV2 $trial)##
 #set ($usSites = $SearchResults.TrialTools.GetUSASites($trial)) 
@@ -25,15 +28,30 @@ $usSites.length locations##
 #end##
 #end##
 
-#macro(DrawNoResultsTextV2)
-  <div>
-    No results were found matching your criteria.
-  <ul>
-    <li>Please check if your spelling is correct.</li>
-    <li>Please check if your zip code and age are valid.</li>
-  <ul>
-    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-    <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
+#macro(DrawNoResultsMessage)
+  <div class="medium-9 columns collapse">
+    <div>
+      No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
+      <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
+      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
+    </div>
+  </div>
+#end
+
+#macro(DrawErrorMessage)
+  <div class="medium-9 columns collapse">
+    <div>
+      Sorry, you seem to have entered invalid criteria.  Please check the following, and try your search again:
+      ## List invalid fields
+      <ul>
+      #foreach($errorField in $SearchResults.Parameters.ParseErrors)      
+      #each
+        <li>$errorField.Param</li>        
+      #end
+      </ul>
+      <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
+      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
+    </div>
   </div>
 #end
 
@@ -55,8 +73,6 @@ $usSites.length locations##
       #after
           </div>
         </div>
-      #nodata
-        #DrawNoResultsTextV2()
     #end
   </div>
   
@@ -84,38 +100,22 @@ $usSites.length locations##
 
 #end##DrawResultsV2
 
-##Begin DrawSearchParamsV2
-<!--(bake DrawSearchParamsV2.inc)-->
-##End DrawSearchParamsV2
-
 <div class="row">
-  #if($SearchResults.Results.TotalResults > 0)
-    #if($SearchResults.Parameters.HasInvalidParams() == false)
-      #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
-	    <div class="cts-results-title">
-	      Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-		  | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
-	    </div>
-      #else
-	    ## Draw no title here
-      #end
-	  <div class="medium-9 columns collapse">
-	    #DrawResultsV2($SearchResults)
-	  </div>
-    #else
-	  <div class="medium-9 columns collapse">        
-	    #DrawNoResultsTextV2()
-	  </div>
-    #end
-  ## If there are no results, then we need to show a different message
-  #else
+  #if($SearchResults.Parameters.HasInvalidParams() == true)
+    #DrawErrorMessage()
+  #elseif(($SearchResults.Results.TotalResults <= 0) || ($SearchResults.Results.Trials.length == 0))
+    ##Either our search did not have results, OR, they paged too far and the Trials array is empty.
+    #DrawNoResultsMessage()
+  #else      
+    #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
+      <div class="cts-results-title">
+        Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
+        | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
+      </div>      
+    #end ## ELSE Draw no title here
     <div class="medium-9 columns collapse">
-      <div>
-	    No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
-	    <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-        <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
-      </div>
-	</div>
+      #DrawResultsV2($SearchResults)
+    </div>    
   #end
   
 
