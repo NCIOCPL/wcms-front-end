@@ -51,7 +51,11 @@
 
     ## If there is at least one parameter, we need to draw the table
     #if($SearchResults.Parameters.IsEmpty() != true)
-      <div class="clinicaltrials-results-criteria-display">
+    <div class="search-criteria-box">
+      <label for="ctscl">Hide/Show Search Criteria</label>
+		  <input name="one" id="ctscl" type="checkbox">
+
+      <div class="clinicaltrials-results-criteria-display cts-hide">
         <table class="complex-table">
             <thead>
                 <tr>
@@ -62,7 +66,7 @@
                     <th class="">Your Selection:</th>
                 </tr>
             </thead>
-            <tbody>            
+            <tbody>
                 #DrawOneSearchParam("Primary Type/Condition" "MainType")
                 #DrawOneSearchParam("Subtype" "SubTypes")
                 #DrawOneSearchParam("Stage" "Stages")
@@ -82,6 +86,7 @@
             </tbody>
         </table>
       </div>
+    </div>
     #end
 
 #end##

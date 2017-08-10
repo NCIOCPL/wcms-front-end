@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ct-select" class="no-auto-jqueryui" name="t" style="">
+                    <select id="ct-select" class="no-auto-jqueryui" name="t" style="width:97%">
                         <option value="">All</option>
                     </select>
                 </div>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="st-multiselect" name="st" multiple data-placeholder="Select a sub-type" placeholder="Select cancer type first" style=""></select>
+                    <select id="st-multiselect" name="st" multiple data-placeholder="Select a sub-type" placeholder="Select cancer type first" style="width:97%"></select>
                 </div>
                 <div class="row">
                     <div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or sub-type first" style=""></select>
+                    <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
                 </div>
                 <div class="row">
                     <div>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or sub-type first" style=""></select>
+                    <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
                 </div>
             </div>
         </fieldset>
@@ -290,7 +290,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ti-multiselect" name="i" multiple data-placeholder="Start typing the treatment/intervention you are looking for" placeholder="Start typing the treatment/intervention you are looking for></select>
+                    <select id="ti-multiselect" name="i" multiple data-placeholder="Start typing the treatment/intervention you are looking for" placeholder="Start typing the treatment/intervention you are looking for"></select>
                 </div>
             </div>
         </fieldset>
