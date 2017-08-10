@@ -223,13 +223,20 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
   height: auto !important;        /* for IE as it does not support min-height */
   height: 2.4375em;                   /* for IE as it does not support min-height */
 }
+#1st-multiselect .select2-container .select2-selection--multiple, #lst-multiselect .select2 .select2-container .select2-container--default, #fieldset--ccs .select2-container--default .select2-search--inline .select2-search__field, #fieldset--ccs .select2-container .select2-selection--multiple .select2-selection__rendered
+{
+  height: auto;
+  min-height: 2.4375em;
+  height: auto !important;        /* for IE as it does not support min-height */
+  height: 2.4375em;                   /* for IE as it does not support min-height */
+}
 #fieldset--type .select2-container--default .select2-selection--multiple .select2-selection__rendered
 {
   margin-bottom: -15px;
 }
 
 //input border and bgcolor override
-#fieldset--type .select2-container--default .select2-selection--multiple
+#fieldset--type .select2-container--default .select2-selection--multiple, #fieldset--ccs .select2-container--default .select2-selection--multiple
 {
   background-color: #f2f2f2;
   border-radius: 1px;
@@ -398,7 +405,7 @@ background-color: #ddd;
 opacity: 0.45;
 }
 
-//styling for search results table
+//styling for search criteria table
 .clinicaltrials-results-criteria-display table {
 	border: 0 none;
   width: 100%;
@@ -420,13 +427,34 @@ opacity: 0.45;
   text-align: right;
   width: 60%;
 }
+.cts-results-title .search-criteria-box {
+  display: inline-table;
+}
+
+.search-criteria-box .cts-hide {
+	max-height: 99em;
+	opacity: 1;
+	height: auto;
+	overflow: hidden;
+	transition: opacity 0.5s linear, max-height 0.5s linear;
+}
+.search-criteria-box input[type=checkbox]:checked + div {
+	opacity:0;
+	max-height:0;
+	border:none;
+}
+#ctscl input {
+	position:absolute;
+	left:-999em
+}
 
 //select2 responsiveness
-//.select2-container--default .select2-search--inline .select2-search__field,
-//.select2-container .select2-selection--multiple .select2-selection__rendered {
-//  width: auto !important;
-//}
-//.select2-container--classic .select2-selection--multiple
-//{
-//  width: auto !important;
-//}
+.select2-container--default .select2-search--inline .select2-search__field,
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+  width: auto !important;
+}
+.select2-container--classic .select2-selection--multiple
+{
+  width: auto !important;
+}
+//input.select2-selection.select2-selection--multiple { width: 80% !important; }
