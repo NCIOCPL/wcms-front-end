@@ -26,6 +26,8 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	protected $zipSelector = $('input#z');
 	protected $ageSelector = $('input#a');
 	protected $nonEmptySelector = $('input.non-empty');
+	protected $searchForm = $('input#rl');
+	protected $searchFormName = 'clinicaltrials_basic';
 
 	/**
 	 * Initialize this enhancement; Assume it is called from dom ready.
@@ -88,10 +90,15 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			})
 		;
 
+		if(this.$searchForm.val() == 2)
+		{
+			this.$searchFormName = 'clinicaltrials_advanced';
+		}
+
 
 		// Wire up analytics & prevent submission if we have any active error fields
 		(<any>$(".clinical-trials-search-form")).basicctsformtrack({
-			formName: 'clinicaltrials_basic'
+			formName: this.$searchFormName
 		}).submit(function(e) {
 
 			var $this = $(this);

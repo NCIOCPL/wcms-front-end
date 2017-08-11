@@ -5,7 +5,7 @@ import * as FeedbackForm from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements
 import "../../../../Plugins/jquery.nci.equal_heights";
 
 $(document).ready(function(){
-	new CTSAdvancedFormSetup("clinicaltrialsapi-stage.cancer.gov").init();
+	new CTSAdvancedFormSetup("clinicaltrialsapi-int.cancer.gov").init();
 	new CTSFieldValidator().init();
 	(<any>(CTSCommonAnalytics)).init();
 	(<any>(FeedbackForm)).init();
