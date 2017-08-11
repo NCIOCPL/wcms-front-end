@@ -31,13 +31,13 @@ export interface ClinicalTrialsService {
     /**
      * Gets diseases from the diseases endpoint
      * 
-     * @param {string} menuType The menu type (can be "disease", "stage", or "finding") (REQUIRED)
-     * @param {string} [diseaseParentID] The parent disease ID for a given disease (OPTIONAL)
+     * @param {string} menuType The menu type (can be "maintype", "subtype", "stage", or "finding") (REQUIRED)
+     * @param {string} [diseaseAncestorIDs] One or more ancestor disease IDs for a given disease (OPTIONAL)
      * @param {*} [additionalParams] Additional parameters (OPTIONAL)
      * @returns {Promise<DiseaseResults>} 
      * @memberof ClinicalTrialsService
      */
-    getDiseases(menuType:string, diseaseParentID?:string | string[], additionalParams?:any): Promise<DiseaseResults>;
+    getDiseases(menuType:string|string[], diseaseAncestorIDs?:string | string[], additionalParams?:any): Promise<DiseaseResults>;
 
 }
 

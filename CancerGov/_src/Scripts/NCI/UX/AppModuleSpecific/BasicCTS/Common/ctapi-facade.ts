@@ -28,7 +28,9 @@ export class CTAPIFacade {
      */
     getMainType():Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
-            "disease"
+            "maintype",
+            undefined,
+            { size: 0 }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
@@ -36,14 +38,15 @@ export class CTAPIFacade {
 
     /**
      * Gets cancer subtypes for a given parent ID
-     * @param {string} searchText 
+     * @param {string} ancestorID 
      * @returns {Promise<DiseaseResult[]>} 
      * @memberof CTAPIFacade
      */
-    getSubtypes(searchText:string):Promise<DiseaseResult[]> {
+    getSubtypes(ancestorID:string|string[]):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
-            "disease", 
-            searchText
+            ["subtype","grade"], 
+            ancestorID,
+            { size: 0 }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
@@ -51,14 +54,15 @@ export class CTAPIFacade {
     
     /**
      * Gets cancer stages for a given parent ID
-     * @param {string} searchText 
+     * @param {string} ancestorID 
      * @returns {Promise<DiseaseResult[]>} 
      * @memberof CTAPIFacade
      */
-    getStages(searchText:string):Promise<DiseaseResult[]> {
+    getStages(ancestorID:string|string[]):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
             "stage", 
-            searchText
+            ancestorID,
+            { size: 0 }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
@@ -70,10 +74,11 @@ export class CTAPIFacade {
      * @returns {Promise<DiseaseResult[]>} 
      * @memberof CTAPIFacade
      */
-    getFindings(searchText:string):Promise<DiseaseResult[]> {
+    getFindings(ancestorID:string|string[]):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
             "finding", 
-            searchText
+            ancestorID,
+            { size: 0 }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
