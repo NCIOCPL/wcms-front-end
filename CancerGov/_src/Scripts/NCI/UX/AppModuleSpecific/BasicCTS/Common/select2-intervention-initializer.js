@@ -179,7 +179,7 @@ define(function(require) {
             var options =
                 {
                     dropdownParent: $selectWrap,
-                    //theme: "classic",
+                    theme: "classic",
                     width: '97%',
                     placeholder: placeholder,
                     minimumInputLength: 3,

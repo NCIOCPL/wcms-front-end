@@ -467,8 +467,10 @@ opacity: 0.45;
 .select2-container .select2-selection--multiple .select2-selection__rendered {
   width: auto !important;
 }
-.select2-container--classic .select2-selection--multiple
-{
-  width: auto !important;
+#fieldset--trialtreatment .select2-container--default .select2-search--inline .select2-search__field input[placeholder],
+#fieldset--trialtreatment .select2-container .select2-selection--multiple .select2-selection__rendered input[placeholder] {
+  //background-color: #9cf;
+  //width: 100% !important;
 }
+
 //input.select2-selection.select2-selection--multiple { width: 80% !important; }
