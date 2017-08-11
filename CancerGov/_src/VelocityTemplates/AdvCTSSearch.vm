@@ -282,7 +282,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="dr-multiselect" name="d" multiple data-placeholder="Start typing the drug you are looking for" placeholder="Start typing the drug you are looking for"></select>
+                    <select id="dr-multiselect" name="d" multiple data-placeholder="Start typing the drug you are looking for" placeholder="Start typing the drug you are looking for" ></select>
                 </div>
                 <div class="row">
                     <div>
@@ -290,7 +290,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ti-multiselect" name="i" multiple data-placeholder="Start typing the treatment/intervention you are looking for" placeholder="Start typing the treatment/intervention you are looking for"></select>
+                    <select id="ti-multiselect" name="i" multiple data-placeholder="Start typing the treatment/intervention you are looking for" placeholder="Start typing the treatment/intervention you are looking for" ></select>
                 </div>
             </div>
         </fieldset>
