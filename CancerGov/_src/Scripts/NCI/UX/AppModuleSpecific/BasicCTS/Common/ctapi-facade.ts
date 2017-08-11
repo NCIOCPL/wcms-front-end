@@ -44,7 +44,8 @@ export class CTAPIFacade {
      */
     getSubtypes(ancestorID:string|string[]):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
-            ["subtype","grade"], 
+            //["subtype","grade"], //Current bug in API does not allow for OR between types
+            "subtype",
             ancestorID,
             { size: 0 }
         ).then((res:DiseaseResults) => {
