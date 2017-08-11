@@ -33,7 +33,7 @@ $usSites.length locations##
     <div>
       No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-      <p><a href="$SearchResults.Control.GetSearchFormUrl()">Try a new search</a><p>
+      <p><a href="$SearchResults.Control.SearchFormUrl">Try a new search</a><p>
     </div>
   </div>
 #end
@@ -50,7 +50,7 @@ $usSites.length locations##
       #end
       </ul>
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-      <p><a href="$SearchResults.Control.GetSearchFormUrl()">Try a new search</a></p>
+      <p><a href="$SearchResults.Control.SearchFormUrl">Try a new search</a></p>
     </div>
   </div>
 #end
@@ -110,7 +110,7 @@ $usSites.length locations##
     #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
       <div class="cts-results-title">
         Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-        | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
+        | <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
       </div>      
     #end ## ELSE Draw no title here
     <div class="medium-9 columns collapse">

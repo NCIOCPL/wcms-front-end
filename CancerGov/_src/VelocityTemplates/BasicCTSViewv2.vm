@@ -70,7 +70,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
   <p>
-    This clinical trial matches: #DrawSearchParamsV2($SearchResults) | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
+    This clinical trial matches: #DrawSearchParamsV2($SearchResults) | <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
   </p>
 </span>
 #end##

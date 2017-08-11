@@ -157,7 +157,7 @@
 					<div id="bodyHeadingLinks">					
 						<a id="printPage" href="javascript:window.print();">Print</a> | 
 						<a id="ctl10_EmailResults" href="${generatePrintURL}" target="_blank">E-Mail These Results</a> | 
-						<a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>					
+						<a id="newSearch" href="$SearchResults.Control.SearchFormUrl">New Search</a>					
 					</div>
 				</div>
 			</div>
