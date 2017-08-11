@@ -1,29 +1,29 @@
-// What is the purpose of this file???  
+// What is the purpose of this file???
 // -----------------------------------
-// We have implemented our own fetch methods to get results back from the CTAPI.  Therefore, we cannot use the default ajax method.  
+// We have implemented our own fetch methods to get results back from the CTAPI.  Therefore, we cannot use the default ajax method.
 // Luckily, Select2 has a system for implementing data adapters that allow use to create our own ways of fetching data.  You can
 // find the base class at https://github.com/select2/select2/blob/master/src/js/select2/data/base.js.
 //
 // So we followed the model of the Ajax adapter located at the same location in order to build the Select2InterventionAdapter.
-// 
+//
 // Cool, so why is this file not just a Typescript class?
 // ------------------------------------------------------
 // Yeah, so about that.  There was no way to reference the adapters, nor are there typings.  In fact to get to the Adapter "classes"
-// you must call a require method that hangs off the $.fn.select2.amd object in order to get a class definition for us to extend.  
+// you must call a require method that hangs off the $.fn.select2.amd object in order to get a class definition for us to extend.
 // Furthermore, as that method is asychronous, we wait for it to finish in order to get the definitions.  So that means we cannot define
-// our classes at transpile time.  In fact, we cannot define our classes outside of the require callback. :(  Which means we cannot 
+// our classes at transpile time.  In fact, we cannot define our classes outside of the require callback. :(  Which means we cannot
 // attach a dataAdapter to our select2 instance unless we are inside of the $.fn.select2.amd.require callback.
 //
-// So this file allows us to both define the Adapter class and initialize an instance of the select2 onto an element that uses our 
+// So this file allows us to both define the Adapter class and initialize an instance of the select2 onto an element that uses our
 // adapter.  (If you can find a cleaner way, feel free)
-//  
+//
 
 define(function(require) {
     var $ = require('jquery');
     require('../../../../../../../node_modules/select2');
 
     //In order to get the autocomplete to only fire once "minimumInputLength" characters have been passed in we must...
-    //add in minimumInputLength decorator based on comments in https://stackoverflow.com/questions/30631024/add-decorator-to-data-adapter-in-select2-version-4-x 
+    //add in minimumInputLength decorator based on comments in https://stackoverflow.com/questions/30631024/add-decorator-to-data-adapter-in-select2-version-4-x
     //AND issue https://github.com/select2/select2/issues/3249
 
     /**
@@ -55,7 +55,7 @@ define(function(require) {
 
             return $.extend({}, defaults, options, true);
         }
-        
+
         Select2InterventionAdapter.prototype.processResults = function (results) {
             return results;
         }
@@ -69,7 +69,7 @@ define(function(require) {
             }
 
             this.adapterOptions.dataFunction(term)
-                .then(function (res) {                                    
+                .then(function (res) {
                     callback(self.processResults(res));
                 })
                 .catch(function (err) {
@@ -85,19 +85,19 @@ define(function(require) {
 
     /**
      * Function for select2 to escape any markup
-     * @param {*} markup 
+     * @param {*} markup
      */
     function escapeMarkup(markup) { return markup; }
 
     /**
      * Function for Select2 to draw an item in the dropdown
-     * @param {*} item 
+     * @param {*} item
      */
     function templateResult(item) {
-        
+
         //Please wait loading message.
         if (item.loading) return item.text;
-        
+
         var markup = '<div class="trtmnt-item-wrap"><div class="trtmnt-item">';
 
         //Draw name line
@@ -134,7 +134,7 @@ define(function(require) {
 
     /**
      * Maps response from dataFunction to format Select2 can use
-     * @param {*} results 
+     * @param {*} results
      */
     function processResults(results) {
         return {
@@ -151,9 +151,9 @@ define(function(require) {
     }
 
     /**
-     * Initializes select2 on a element, adding a PromiseAdapter 
-     * @param {*} $selector The jQuery extended element to attach select2 on.  
-     * @param {*} placeholder The placeholder text  
+     * Initializes select2 on a element, adding a PromiseAdapter
+     * @param {*} $selector The jQuery extended element to attach select2 on.
+     * @param {*} placeholder The placeholder text
      * @param {*} dataFunction The dataFunction that will return a Promise<InterventionResult[]> matching the type ahead.
      */
     var initSelect2Fn = function($selector, placeholder, dataFunction) {
@@ -165,23 +165,24 @@ define(function(require) {
 
 
 
-            //We are going to initialze 
+            //We are going to initialze
 
             //Get or initialize the wrapper for the select2 display.
             var $selectWrap = $('#trtmnt-select-dropdown');
             if ($selectWrap.length == 0) {
                 $selectWrap = $('<div id="trtmnt-select-dropdown" class="trtmnt-select-dropdown">');
-                $selectWrap.appendTo($('body'));    
+                $selectWrap.appendTo($('body'));
             }
 
 
             //Set the options for select2.
-            var options = 
+            var options =
                 {
                     dropdownParent: $selectWrap,
-                    theme: "classic",
+                    //theme: "classic",
+                    width: '97%',
                     placeholder: placeholder,
-                    minimumInputLength: 3,                    
+                    minimumInputLength: 3,
                     escapeMarkup: escapeMarkup,
                     templateResult: templateResult.bind($selector),
                     //Settings for our data adapter
@@ -189,8 +190,8 @@ define(function(require) {
                     promise: {
                         dataFunction: dataFunction,
                         processResults: processResults
-                    }                    
-                    
+                    }
+
                 }
             ;
 

@@ -61,12 +61,12 @@
                 <tr>
                     <th colspan="2" class="">Your Search Criteria</th>
                 </tr>
-                <tr>
-                    <th class="hdrlft">Category:</th>
-                    <th class="">Your Selection:</th>
-                </tr>
             </thead>
             <tbody>
+              <tr>
+                  <td class="hdrlft"><strong>Category:</strong></th>
+                  <td class=""><strong>Your Selection:</strong></th>
+              </tr>
                 #DrawOneSearchParam("Primary Type/Condition" "MainType")
                 #DrawOneSearchParam("Subtype" "SubTypes")
                 #DrawOneSearchParam("Stage" "Stages")
@@ -86,6 +86,7 @@
             </tbody>
         </table>
       </div>
+
     </div>
     #end
 
