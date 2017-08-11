@@ -46,9 +46,11 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
           <h3>$subgroup.key</h3>
             #foreach($citygroup in $subgroup.value)
             #each
+              <h5 class="locationCity">$citygroup.key</h5>
+
               #foreach($loc in $citygroup.value)
               #each
-                #DrawLocationV2($loc true true)
+                #DrawLocationV2($loc true false)
               #end                
             #end            
         </div>
