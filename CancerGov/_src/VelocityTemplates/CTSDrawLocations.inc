@@ -61,7 +61,7 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
 
 #############
 ## Macro to draw study sites for use by "Locations Near You" and The Print version
-#macro(DrawSitesForNormal $sites)
+#macro(DrawSitesForNormal $sites $showStatus)
   #set ($sortedLocations = $SearchResults.TrialTools.GetSortedSites($sites))
   #set ($allLocations = $SearchResults.TrialTools.GetGroupedSites($sortedLocations)) 
 
@@ -78,7 +78,7 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
             #foreach($loc in $citygroup.value)
             #each
               <div class="locationBlock">
-                #DrawLocationV2($loc true false)
+                #DrawLocationV2($loc $showStatus false)
               </div>
             #end          
         #end                  

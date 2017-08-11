@@ -125,7 +125,7 @@
 				#else
 					#set($locationsToPrint =  $trial.Sites)
 				#end
-				#DrawSitesForNormal($locationsToPrint)
+				#DrawSitesForNormal($locationsToPrint false)
 			</div>
 		</div>
 	#end

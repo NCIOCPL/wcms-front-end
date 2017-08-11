@@ -59,7 +59,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       </span>
 	  #end
     ##Now actually draw the filtered sites.  This may be different between Zip and Other Locations
-    #DrawSitesForNormal($filteredLocations)
+    #DrawSitesForNormal($filteredLocations true)
   #end
 </div>
 #end
