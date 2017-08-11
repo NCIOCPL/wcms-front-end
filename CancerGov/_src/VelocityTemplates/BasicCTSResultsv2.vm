@@ -33,7 +33,7 @@ $usSites.length locations##
     <div>
       No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a><p>
+      <p><a href="$SearchResults.Control.GetSearchFormUrl()">Try a new search</a><p>
     </div>
   </div>
 #end
@@ -50,7 +50,7 @@ $usSites.length locations##
       #end
       </ul>
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-      <p><a href="/about-cancer/treatment/clinical-trials/search">Try a new search</a></p>
+      <p><a href="$SearchResults.Control.GetSearchFormUrl()">Try a new search</a></p>
     </div>
   </div>
 #end
