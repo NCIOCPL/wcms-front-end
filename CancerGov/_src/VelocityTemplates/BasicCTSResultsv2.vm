@@ -56,7 +56,7 @@ $usSites.length locations##
 #end
 
 #macro(DrawResultsV2 $SearchResults)
-  <div class="cts-results-container">
+  <div class="cts-results-container" data-cts-printparams="$SearchResults.Control.GetSearchParamsForPrint()">
     #foreach($resultItem in $SearchResults.Results.Trials)
       #each
         ## Attach Onclick for Analytics elsewhere
