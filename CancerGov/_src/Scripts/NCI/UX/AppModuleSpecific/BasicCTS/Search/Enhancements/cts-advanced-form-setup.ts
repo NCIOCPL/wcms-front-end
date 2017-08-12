@@ -1,4 +1,4 @@
-import { CTSBaseFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-base-form-setup';
+import { CTSBaseDiseaseFormSetup } from './cts-base-disease-form-setup';
 import * as NCI from "UX/Common/Enhancements/NCI";
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
 import "../../../../../../../../node_modules/select2";
@@ -10,7 +10,7 @@ import "../../Common/Enhancements/trialCheck";
  * Concrete (advanced search) implementation of form setup class.
  * @extends {CTSBaseFormSetup}
  */
-export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
+export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 
 	/**
 	 * Creates an instance of CTSAdvancedFormSetup.
@@ -27,6 +27,10 @@ export class CTSAdvancedFormSetup extends CTSBaseFormSetup{
 	 * @memberof CTSAdvancedFormSetup
 	 */
 	protected initializeLocalFields(): void {
+
+		//Call the base class' initialize Local fields to get disease menus.		
+		super.initializeLocalFields();
+
 
 		// Create jQuery selector vars
 		let $country = $('#lcnty');
