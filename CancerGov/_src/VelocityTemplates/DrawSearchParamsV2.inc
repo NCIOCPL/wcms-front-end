@@ -51,12 +51,11 @@
 
     ## If there is at least one parameter, we need to draw the table
     #if($SearchResults.Parameters.IsEmpty() != true)
+    <label class="ctscb">Show Search Criteria</label>
     <div class="search-criteria-box">
-      <label for="ctscl">Hide/Show Search Criteria</label>
-		  <input name="one" id="ctscl" type="checkbox">
 
-      <div class="clinicaltrials-results-criteria-display cts-hide">
-        <table class="complex-table">
+      <div class="clinicaltrials-results-criteria-display">
+        <table class="">
             <thead>
                 <tr>
                     <th colspan="2" class="">Your Search Criteria</th>

@@ -3,7 +3,7 @@
 ##End DrawSearchParamsV2
 
 #macro(DrawLocationInformationV2 $trial)##
-#set ($usSites = $SearchResults.TrialTools.GetUSASites($trial)) 
+#set ($usSites = $SearchResults.TrialTools.GetUSASites($trial))
 <strong>Location: </strong>##
 
 #if ($usSites.length == 1)##
@@ -44,9 +44,9 @@ $usSites.length locations##
       Sorry, you seem to have entered invalid criteria.  Please check the following, and try your search again:
       ## List invalid fields
       <ul>
-      #foreach($errorField in $SearchResults.Parameters.ParseErrors)      
+      #foreach($errorField in $SearchResults.Parameters.ParseErrors)
       #each
-        <li>$errorField.Param</li>        
+        <li>$errorField.Param</li>
       #end
       </ul>
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
@@ -75,7 +75,7 @@ $usSites.length locations##
         </div>
     #end
   </div>
-  
+
   ## If there are results then draw the pager
   ##<div class="pager ct-listing-pager">
     ## Get the current page
@@ -100,24 +100,38 @@ $usSites.length locations##
 
 #end##DrawResultsV2
 
-<div class="row">
   #if($SearchResults.Parameters.HasInvalidParams() == true)
     #DrawErrorMessage()
   #elseif(($SearchResults.Results.TotalResults <= 0) || ($SearchResults.Results.Trials.length == 0))
     ##Either our search did not have results, OR, they paged too far and the Trials array is empty.
     #DrawNoResultsMessage()
-  #else      
+  #else
     #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
-      <div class="cts-results-title">
-        Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-        | <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
-      </div>      
+      <div class="row medium-12 cts-results-title">
+
+      <div class="medium-4 columns collapse">
+        <div class="cts-results-label">
+        <label>
+        Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search
+        </label>
+        </div>
+      </div>
+      <div class="medium-5 columns collapse">
+        #DrawSearchParamsV2($SearchResults)
+      </div>
+      <div class="medium-3 columns">
+        <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
+      </div>
+
+      </div>
+
+  <div class="row">
     #end ## ELSE Draw no title here
     <div class="medium-9 columns collapse">
       #DrawResultsV2($SearchResults)
-    </div>    
+    </div>
   #end
-  
+
 
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
