@@ -33,7 +33,7 @@ $usSites.length locations##
     <div>
       No clinical trials matched your search for #DrawSearchParamsV2($SearchResults).
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-      <p><a href="$SearchResults.Control.GetSearchFormUrl()">Try a new search</a><p>
+      <p><a href="$SearchResults.Control.SearchFormUrl">Try a new search</a><p>
     </div>
   </div>
 #end
@@ -50,13 +50,13 @@ $usSites.length locations##
       #end
       </ul>
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
-      <p><a href="$SearchResults.Control.GetSearchFormUrl()">Try a new search</a></p>
+      <p><a href="$SearchResults.Control.SearchFormUrl">Try a new search</a></p>
     </div>
   </div>
 #end
 
 #macro(DrawResultsV2 $SearchResults)
-  <div class="cts-results-container">
+  <div class="cts-results-container" data-cts-printparams="$SearchResults.Control.GetSearchParamsForPrint()">
     #foreach($resultItem in $SearchResults.Results.Trials)
       #each
         ## Attach Onclick for Analytics elsewhere
@@ -107,6 +107,7 @@ $usSites.length locations##
     #DrawNoResultsMessage()
   #else
     #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
+<<<<<<< HEAD
       <div class="row medium-12 cts-results-title">
 
       <div class="medium-4 columns collapse">
@@ -126,6 +127,12 @@ $usSites.length locations##
       </div>
 
   <div class="row">
+=======
+      <div class="cts-results-title">
+        Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
+        | <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
+      </div>      
+>>>>>>> 60d5722d0f6c103d85ee1e7f9e8fbd15a3145f1e
     #end ## ELSE Draw no title here
     <div class="medium-9 columns collapse">
       #DrawResultsV2($SearchResults)

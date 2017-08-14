@@ -1,11 +1,11 @@
-import { CTSBaseFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-base-form-setup';
+import { CTSBaseDiseaseFormSetup } from './cts-base-disease-form-setup';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 
 /**
  * Concrete (basic search) implementation of form setup class.
  * @extends {CTSBaseFormSetup}
  */
-export class CTSBasicFormSetup extends CTSBaseFormSetup{
+export class CTSBasicFormSetup extends CTSBaseDiseaseFormSetup{
 
 	/**
 	 * Creates an instance of CTSBasicFormSetup.
@@ -22,6 +22,9 @@ export class CTSBasicFormSetup extends CTSBaseFormSetup{
 	 * @memberof CTSBasicFormSetup
 	 */
 	protected initializeLocalFields(): void {
+		//Call the base class' initialize Local fields to get disease menus.		
+		super.initializeLocalFields();
+
 		// Empty method for now - any Basic Search-specific fields should be 
 		// added here. This method is required in order to implement CTSBaseFormSetup. 
 
