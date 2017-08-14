@@ -380,20 +380,6 @@ function getViewPort() {
     return screen;
 }
 
-/* Track initial load of basic and advanced search pages */
-var path = location.pathname;
-function endsWith(str, suffix) {
-  return str.indexOf(suffix, str.length - suffix.length) !== -1;
-}
-if(endsWith(path,'/')) {
-  path = path.substring(0, path.length-1);
-}
-if(endsWith(path,'clinical-trials/search')) {
-  s.prop62 = s.eVar62 = 'Clinical Trials: Basic';
-}
-else if(endsWith(path,'clinical-trials/advanced-search')) {
-  s.prop62 = s.eVar62 = 'Clinical Trials: Advanced';
-}
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
