@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+    var target = grunt.option('target') || '_dist';
+
     var config = {
         dirs: {
             src: {
@@ -21,14 +23,14 @@ module.exports = function(grunt) {
                 scripts: "_tmp/js/"
             },
             dist: {
-                base: "_dist/",
-                templates: "_dist/PageTemplates/",
-                sublayouttemplates: "_dist/SublayoutTemplates/",
-                velocitytemplates: "_dist/VelocityTemplates/",
-                styles: "_dist/Styles/",
-                scripts: "_dist/js/",
-                images: "_dist/Images/",
-                fonts: '_dist/fonts'
+                base: target + "/",
+                templates: target + "/PageTemplates/",
+                sublayouttemplates: target + "/SublayoutTemplates/",
+                velocitytemplates: target + "/VelocityTemplates/",
+                styles: target + "/Styles/",
+                scripts: target + "/js/",
+                images: target + "/Images/",
+                fonts: target + "/fonts"
             },
             bower: 'bower_components/'
         },
@@ -178,39 +180,41 @@ module.exports = function(grunt) {
     grunt.registerTask('build-local', 'Build all files for local CDE and watch for changes.', function(path) {
 
         //Assumes path is a PublishedContent folder.
-        if (path == null || path == '') {
-            grunt.log.error('path for build-local cannot be null or empty');
-            return false;
-        }
+        // if (path == null || path == '') {
+        //     grunt.log.error('path for build-local cannot be null or empty');
+        //     return false;
+        // }
 
         //HACK: Figure out how to override the dist.
-        grunt.config('dirs', {
-            src: {
-                base: "_src/",
-                templates: "_src/PageTemplates/",
-                sublayouttemplates: "_src/SublayoutTemplates/",
-                velocitytemplates: "_src/VelocityTemplates/",
-                styles: "_src/StyleSheets/",
-                scripts: "_src/Scripts/"
-            },
-            tmp: {
-                base: "_tmp/",
-                templates: "_tmp/Templates/",
-                sublayouttemplates: "_tmp/SublayoutTemplates/",
-                velocitytemplates: "_tmp/VelocityTemplates/",
-                styles: "_tmp/Styles/",
-                scripts: "_tmp/js/"
-            },
-            dist: {
-                base: path + "/",
-                templates: path + "/PageTemplates/",
-                sublayouttemplates: path + "/SublayoutTemplates/",
-                velocitytemplates: path + "/VelocityTemplates/",
-                styles: path + "/Styles/",
-                scripts: path + "/js/"
-            },
-            bower: 'bower_components/'
-        });
+        // run with grunt option - grunt build-local --target=PublishedContent
+
+        // grunt.config.set('dirs', {
+        //     src: {
+        //         base: "_src/",
+        //         templates: "_src/PageTemplates/",
+        //         sublayouttemplates: "_src/SublayoutTemplates/",
+        //         velocitytemplates: "_src/VelocityTemplates/",
+        //         styles: "_src/StyleSheets/",
+        //         scripts: "_src/Scripts/"
+        //     },
+        //     tmp: {
+        //         base: "_tmp/",
+        //         templates: "_tmp/Templates/",
+        //         sublayouttemplates: "_tmp/SublayoutTemplates/",
+        //         velocitytemplates: "_tmp/VelocityTemplates/",
+        //         styles: "_tmp/Styles/",
+        //         scripts: "_tmp/js/"
+        //     },
+        //     dist: {
+        //         base: path + "/",
+        //         templates: path + "/PageTemplates/",
+        //         sublayouttemplates: path + "/SublayoutTemplates/",
+        //         velocitytemplates: path + "/VelocityTemplates/",
+        //         styles: path + "/Styles/",
+        //         scripts: path + "/js/"
+        //     },
+        //     bower: 'bower_components/'
+        // });
 
         //Watch cannot work yet because it would need to push in the new paths.
         //removing it for now so we don't have to hit CTRL-C everytime we do

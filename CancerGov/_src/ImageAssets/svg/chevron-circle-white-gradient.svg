@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="chevron-circle-white-gradient"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20"
 	 style="enable-background:new 0 0 20 20;" xml:space="preserve">
@@ -7,8 +6,7 @@
 	.st0{fill:url(#SVGID_1_);}
 </style>
 <g>
-	
-		<radialGradient id="SVGID_1_" cx="17" cy="4" r="18" fx="17" fy="12" gradientTransform="matrix(0.5882 0 0 0.5882 0 8.2353)" gradientUnits="userSpaceOnUse">
+	<radialGradient id="SVGID_1_" cx="17" cy="4" r="18" fx="17" fy="12" gradientTransform="matrix(0.5882 0 0 0.5882 0 8.2353)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
 		<stop  offset="0.6669" style="stop-color:#FFFFFF"/>
 		<stop  offset="0.7767" style="stop-color:#FFFFFF"/>

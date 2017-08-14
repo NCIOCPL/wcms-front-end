@@ -1,465 +1,171 @@
 $svg-icons: (
-  sprite: (width: 335px, height: 291px, svgPath: '/PublishedContent/Images/sprites/svg-sprite.svg'),
-    amazon: (
+  sprite: (width: 42px, height: 782px, svgPath: '/PublishedContent/Images/sprites/svg-sprite.svg'),
+    book: (
       width: 32px - 1px,
-      height: 32px - 1px,
+      height: 23.52941px - 1px,
       backgroundX: 0px,
-      backgroundY: -20.61px
-    ),
-    calendar: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -168px,
       backgroundY: 0px
     ),
-    cancel-circle-black: (
-      width: 32px - 1px,
-      height: 32px - 1px,
+    chevron-black: (
+      width: 18px - 1px,
+      height: 11px - 1px,
       backgroundX: 0px,
-      backgroundY: -104.61px
-    ),
-    chat: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -242px,
-      backgroundY: -170px
+      backgroundY: -34px
     ),
     chevron-circle-dk-blue: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -120px
+      width: 21px - 1px,
+      height: 21px - 1px,
+      backgroundX: 0px,
+      backgroundY: -55px
     ),
     chevron-circle-lt-blue: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -180px
+      width: 21px - 1px,
+      height: 21px - 1px,
+      backgroundX: 0px,
+      backgroundY: -86px
     ),
     chevron-circle-red: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -210px
+      width: 21px - 1px,
+      height: 21px - 1px,
+      backgroundX: 0px,
+      backgroundY: -117px
     ),
     chevron-circle-white: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: 0px
+      width: 21px - 1px,
+      height: 21px - 1px,
+      backgroundX: 0px,
+      backgroundY: -148px
     ),
     chevron-circle-white-gradient: (
       width: 20px - 1px,
       height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -30px
-    ),
-    chevron-down: (
-      width: 24px - 1px,
-      height: 24px - 1px,
       backgroundX: 0px,
-      backgroundY: -226.61px
+      backgroundY: -179px
     ),
-    chevron-down2: (
+    chevron-white: (
+      width: 18px - 1px,
+      height: 11px - 1px,
+      backgroundX: 0px,
+      backgroundY: -209px
+    ),
+    disc-blue: (
       width: 20px - 1px,
       height: 20px - 1px,
       backgroundX: 0px,
-      backgroundY: -260.61px
+      backgroundY: -230px
     ),
-    chevron-left2: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -68px,
-      backgroundY: -226.61px
-    ),
-    chevron-left3: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -150px
-    ),
-    chevron-right2: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -242px,
-      backgroundY: -34px
-    ),
-    chevron-right3: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -210px,
-      backgroundY: -68px
-    ),
-    chevron-small-down: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -210px,
-      backgroundY: -38px
-    ),
-    chevron-small-left: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -60px,
-      backgroundY: -260.61px
-    ),
-    chevron-small-right: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -30px,
-      backgroundY: -260.61px
-    ),
-    chevron-small-up: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -90px
-    ),
-    chevron-thin-down: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -276px,
-      backgroundY: -60px
-    ),
-    chevron-thin-left: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -210px,
-      backgroundY: -158px
-    ),
-    chevron-thin-right: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -210px,
-      backgroundY: -98px
-    ),
-    chevron-thin-up: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -90px,
-      backgroundY: -260.61px
-    ),
-    chevron-up: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -34px,
-      backgroundY: -226.61px
-    ),
-    chevron-up2: (
-      width: 20px - 1px,
-      height: 20px - 1px,
-      backgroundX: -210px,
-      backgroundY: -128px
-    ),
-    code: (
-      width: 30px - 1px,
-      height: 28px - 1px,
-      backgroundX: -84px,
-      backgroundY: -22.8px
-    ),
-    comment: (
-      width: 28px - 1px,
-      height: 28px - 1px,
-      backgroundX: -108px,
-      backgroundY: -188.61px
-    ),
-    comment-o: (
-      width: 28px - 1px,
-      height: 28px - 1px,
-      backgroundX: -36px,
-      backgroundY: -188.61px
-    ),
-    document-download: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -42px,
-      backgroundY: -146.61px
-    ),
-    excel: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: 0px,
-      backgroundY: -146.61px
-    ),
-    external-link: (
-      width: 28px - 1px,
-      height: 28px - 1px,
-      backgroundX: -154px,
-      backgroundY: -146.61px
-    ),
-    facebook: (
+    facebook-blue: (
       width: 8px - 1px,
       height: 17px - 1px,
-      backgroundX: -306px,
-      backgroundY: -54.519px
+      backgroundX: 0px,
+      backgroundY: -260px
     ),
-    facebook-block: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -168px,
-      backgroundY: -84px
+    facebook-white: (
+      width: 8px - 1px,
+      height: 17px - 1px,
+      backgroundX: 0px,
+      backgroundY: -287px
     ),
-    file-pdf-o: (
-      width: 24px - 1px,
-      height: 28px - 1px,
-      backgroundX: -84px,
-      backgroundY: -146.61px
+    google-plus-old-blue: (
+      width: 19px - 1px,
+      height: 18px - 1px,
+      backgroundX: 0px,
+      backgroundY: -314px
     ),
-    google-plus: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -168px,
-      backgroundY: -42px
-    ),
-    google-plus-circle: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -227px,
-      backgroundY: -260.61px
-    ),
-    google-plus-old: (
-      width: 18.899px - 1px,
-      height: 18.519px - 1px,
-      backgroundX: -306px,
-      backgroundY: 0px
+    google-plus-old-white: (
+      width: 19px - 1px,
+      height: 18px - 1px,
+      backgroundX: 0px,
+      backgroundY: -342px
     ),
     info: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -175px,
-      backgroundY: -260.61px
-    ),
-    info2: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -180px,
-      backgroundY: -188.61px
-    ),
-    instagram: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -126px,
-      backgroundY: -104.61px
-    ),
-    linkedin: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -237.519px
-    ),
-    linkedin-boxed: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -84px,
-      backgroundY: -104.61px
-    ),
-    list: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -42px,
-      backgroundY: -104.61px
+      width: 25px - 1px,
+      height: 25px - 1px,
+      backgroundX: 0px,
+      backgroundY: -370px
     ),
     live-help-logo: (
       width: 32px - 1px,
-      height: 10.61px - 1px,
+      height: 10.6101px - 1px,
       backgroundX: 0px,
-      backgroundY: 0px
+      backgroundY: -405px
     ),
-    mail-envelope-closed: (
+    mail-envelope-closed-blue: (
       width: 23px - 1px,
       height: 14px - 1px,
-      backgroundX: -169px,
-      backgroundY: -226.61px
+      backgroundX: 0px,
+      backgroundY: -426px
+    ),
+    mail-envelope-closed-white: (
+      width: 23px - 1px,
+      height: 14px - 1px,
+      backgroundX: 0px,
+      backgroundY: -450px
     ),
     menu: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -242px,
-      backgroundY: -102px
-    ),
-    minus: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -211.519px
-    ),
-    minus-alt: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -159.519px
-    ),
-    minus-circle: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -242px,
-      backgroundY: -136px
-    ),
-    minus2: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -146px,
-      backgroundY: -188.61px
-    ),
-    mobile: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -107.519px
-    ),
-    phone: (
-      width: 22px - 1px,
-      height: 28px - 1px,
-      backgroundX: -210px,
-      backgroundY: 0px
+      width: 25px - 1px,
+      height: 18px - 1px,
+      backgroundX: 0px,
+      backgroundY: -474px
     ),
     pinterest: (
       width: 15px - 1px,
       height: 20px - 1px,
-      backgroundX: -214px,
-      backgroundY: -188.61px
+      backgroundX: 0px,
+      backgroundY: -502px
     ),
-    pinterest-circle: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -201px,
-      backgroundY: -260.61px
+    pinterest-blue: (
+      width: 15px - 1px,
+      height: 20px - 1px,
+      backgroundX: 0px,
+      backgroundY: -532px
     ),
-    pinterest-circle-black: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -149px,
-      backgroundY: -260.61px
+    pinterest-white: (
+      width: 14px - 1px,
+      height: 18px - 1px,
+      backgroundX: 0px,
+      backgroundY: -562px
     ),
-    pinterest-circle-red: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -126px,
-      backgroundY: -42px
-    ),
-    plus: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -242px,
-      backgroundY: -68px
-    ),
-    plus-bold: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -263.519px
-    ),
-    plus-circle: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -102px,
-      backgroundY: -226.61px
-    ),
-    plus-circle-black: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -185.519px
-    ),
-    powerpoint: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -126px,
-      backgroundY: 0px
-    ),
-    printer: (
+    printer-blue: (
       width: 23px - 1px,
       height: 19px - 1px,
-      backgroundX: -136px,
-      backgroundY: -226.61px
+      backgroundX: 0px,
+      backgroundY: -590px
     ),
-    radio-checked: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -253px,
-      backgroundY: -260.61px
+    printer-white: (
+      width: 23px - 1px,
+      height: 19px - 1px,
+      backgroundX: 0px,
+      backgroundY: -619px
     ),
-    radio-unchecked: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -81.519px
-    ),
-    rss: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -84px,
-      backgroundY: -62.61px
+    ring-blue: (
+      width: 20px - 1px,
+      height: 20px - 1px,
+      backgroundX: 0px,
+      backgroundY: -648px
     ),
     search: (
       width: 16px - 1px,
       height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -133.519px
-    ),
-    search-bold: (
-      width: 26px - 1px,
-      height: 28px - 1px,
-      backgroundX: -118px,
-      backgroundY: -146.61px
-    ),
-    share: (
-      width: 16px - 1px,
-      height: 16px - 1px,
-      backgroundX: -279px,
-      backgroundY: -260.61px
-    ),
-    smartphone: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -42px,
-      backgroundY: -62.61px
-    ),
-    th-menu: (
-      width: 24px - 1px,
-      height: 24px - 1px,
-      backgroundX: -242px,
-      backgroundY: 0px
+      backgroundX: 0px,
+      backgroundY: -678px
     ),
     twitter: (
       width: 19px - 1px,
       height: 16px - 1px,
-      backgroundX: -120px,
-      backgroundY: -260.61px
+      backgroundX: 0px,
+      backgroundY: -704px
     ),
-    volume-high: (
-      width: 17px - 1px,
+    twitter-blue: (
+      width: 19px - 1px,
       height: 16px - 1px,
-      backgroundX: -306px,
-      backgroundY: -28.519px
-    ),
-    volume-up: (
-      width: 26px - 1px,
-      height: 28px - 1px,
       backgroundX: 0px,
-      backgroundY: -188.61px
+      backgroundY: -730px
     ),
-    word: (
-      width: 32px - 1px,
-      height: 32px - 1px,
+    twitter-white: (
+      width: 19px - 1px,
+      height: 16px - 1px,
       backgroundX: 0px,
-      backgroundY: -62.61px
-    ),
-    youtube-horiz: (
-      width: 32px - 1px,
-      height: 12.8px - 1px,
-      backgroundX: -84px,
-      backgroundY: 0px
-    ),
-    youtube-simple: (
-      width: 32px - 1px,
-      height: 32px - 1px,
-      backgroundX: -42px,
-      backgroundY: 0px
-    ),
-    youtube-vert: (
-      width: 24px - 1px,
-      height: 28px - 1px,
-      backgroundX: -74px,
-      backgroundY: -188.61px
+      backgroundY: -756px
     ),
 );

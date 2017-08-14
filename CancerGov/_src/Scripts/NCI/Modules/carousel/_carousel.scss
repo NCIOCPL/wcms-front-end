@@ -70,14 +70,12 @@
 	color: #fff;
 // mtn updated bkgrnd images to pull from sprite  06-19-17
 	&::before {
-		background: $ncisprite no-repeat scroll -343px -175px;
+		@include svg-sprite(chevron-white,$rotate:right);
 		content: "";
-		right: 0.3em;
 		position: absolute;
-		width: 25px;
-		height: 25px;
-		transform: scale(1.15,1.15);
-		}
+		right: .6em;
+		top: 1.1em;
+	}
 }
 
 
@@ -181,7 +179,7 @@
 	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
 .arrows-for-other-nci-sites .next,
 .arrows-for-other-nci-sites .previous {
-	font-size: 2.57em;
+	font-size: 46px;
 }
 .arrows-for-other-nci-sites .next {
 	@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
@@ -195,6 +193,7 @@
 .arrows-for-other-nci-sites .previous:hover {
 	@include svg-sprite(chevron-circle-red,$rotate:left);
 }
+
 @include bp(large-up){
 	/* spacing */
 	.slick-slide .container {

@@ -1,5 +1,5 @@
 /* Public Archive banner/Colo banner */
-.public-archive-banner, .notification-banner div div  {
+.public-archive-banner, .notification-banner > div > div  {
 	background: $lcranberry;
 	@include font-montserrat;
 	font-size: 1.125em;
