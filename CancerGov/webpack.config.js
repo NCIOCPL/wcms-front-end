@@ -76,7 +76,8 @@ module.exports = {
         jquery: 'jQuery',
         'jquery-ui': 'jQuery.ui',
         headroom: 'Headroom',
-        'jquery-touchswipe':'jQuery.fn.swipe'
+        'jquery-touchswipe':'jQuery.fn.swipe',
+        CDEConfig: 'CDEConfig'
     },
 
     module: {
