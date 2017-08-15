@@ -10,7 +10,7 @@ module.exports = function (grunt,options) {
     var dirs = options.dirs;
     var dist_scripts = dirs.dist.scripts;
     if (!dist_scripts.startsWith("/")) {
-        dist_scripts = __dirname + "/../" + dist_scripts
+        dist_scripts = path.join(__dirname, "../" + dist.scripts);
     }
 
     return {
