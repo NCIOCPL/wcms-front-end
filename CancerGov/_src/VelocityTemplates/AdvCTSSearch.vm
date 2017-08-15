@@ -78,10 +78,11 @@
                             <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>
                                 <select id="zp" name="zp" class="fullwidth loc-select-menu">
-                                    <option value="25">25 miles</option>
+                                    <option value="20">20 miles</option>
                                     <option value="50">50 miles</option>
                                     <option selected="selected" value="100">100 miles</option>
-                                    <option value="150">150 miles</option>
+                                    <option value="200">200 miles</option>
+                                    <option value="500">500 miles</option>
                                 </select>
                             </div>
                         </div>
