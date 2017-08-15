@@ -59,7 +59,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
       </span>
 	  #end
     ##Now actually draw the filtered sites.  This may be different between Zip and Other Locations
-    #DrawSitesForNormal($filteredLocations true)
+    #DrawSitesForUXFilter($filteredLocations)
   #end
 </div>
 #end
@@ -73,7 +73,28 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
     This clinical trial matches: #DrawSearchParamsV2($SearchResults) | <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
   </p>
 </span>
+
+<div class="row medium-12 cts-results-title">
+
+<div class="medium-4 columns collapse">
+  <div class="cts-results-label">
+  <strong>
+  This clinical trial matches:
+  </strong>
+  </div>
+</div>
+
+<div class="medium-5 columns collapse">
+  #DrawSearchParamsV2($SearchResults)
+</div>
+
+<div class="medium-3 columns">
+  <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
+</div>
+
+</div>
 #end##
+
 <div class="row">
   <div class="medium-9 columns">
     #if ($SearchResults.Trial.CurrentTrialStatus.toLower == "active")
@@ -203,7 +224,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 
   <div class="delighter-rail medium-3 columns">
     <!--(bake LiveHelpDelighter.inc)-->
-    <!--(bake NextStepDelighter.inc)-->
+    <!--(bake WhichTrialsDelighter.inc)-->
     <div class="no-resize cts-share">
       <div class="share-text">Share this clinical trial with your doctor:</div>
       <a class="print" title="Print" href="#">

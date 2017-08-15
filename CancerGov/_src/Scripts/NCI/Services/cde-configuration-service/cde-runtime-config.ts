@@ -10,30 +10,28 @@ export class CDERuntimeConfig implements CDEConfigurationService {
         this.defaultConfiguration = new CDEDefaultConfiguration();
     }
 
+    /**
+     * Gets the runtime configuration options for the current runtime environment.
+     * (eg. A service URL specific to the lower tiers.)
+     */
     getConfiguration() : CDEConfiguration {
 
         // Get the default configuration.  Maintained in the CDEDefaultConfiguration model.
         let configuration:CDEConfiguration = this.defaultConfiguration;
-        console.log('defaults:');
-        console.log(configuration);
 
         // If any overrides are available for the current runtime environment, load them on top of
         // the existing defaults.
         if (typeof CDEConfig !== 'undefined') {
-            console.log('Found configuration overrides.');
-            console.log(CDEConfig);
 
+            // Find environment-specific overrides.
             let hostname:string = window.location.hostname;
             if( hostname in CDEConfig.environmentConfig ) {
                 console.log( 'Loading overrides for \'' + hostname + '\'');
-                let overrides = CDEConfig.environmentConfig[hostname];
-                console.log(overrides);
-                configuration = jquery.extend({}, this.defaultConfiguration, <CDEConfiguration>overrides);
+                let overrides:CDEConfiguration = <CDEConfiguration>CDEConfig.environmentConfig[hostname];
+                configuration = jquery.extend({}, this.defaultConfiguration, overrides);
             }
 
         }
-
-        console.log(configuration);
 
         return configuration;
     }

@@ -107,42 +107,34 @@ $usSites.length locations##
     #DrawNoResultsMessage()
   #else
     #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
-<<<<<<< HEAD
       <div class="row medium-12 cts-results-title">
 
       <div class="medium-4 columns collapse">
         <div class="cts-results-label">
-        <label>
+        <strong>
         Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search
-        </label>
+        </strong>
         </div>
       </div>
       <div class="medium-5 columns collapse">
         #DrawSearchParamsV2($SearchResults)
       </div>
       <div class="medium-3 columns">
-        <span class="cts-start-over"><a href="$SearchResults.Control.GetSearchFormUrl()">Start Over</a></span>
+        <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
       </div>
 
       </div>
 
   <div class="row">
-=======
-      <div class="cts-results-title">
-        Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for: #DrawSearchParamsV2($SearchResults)
-        | <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-      </div>      
->>>>>>> 60d5722d0f6c103d85ee1e7f9e8fbd15a3145f1e
     #end ## ELSE Draw no title here
     <div class="medium-9 columns collapse">
       #DrawResultsV2($SearchResults)
     </div>
   #end
 
-
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
-  	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake NextStepDelighter.inc)-->
+	  <!--(bake LiveHelpDelighter.inc)-->
+	  <!--(bake WhichTrialsDelighter.inc)-->
   </div>
 </div>
