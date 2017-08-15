@@ -418,16 +418,27 @@ opacity: 0.45;
     //height: 20px;
 }
 .clinicaltrials-results-criteria-display table tbody {
-  height: 8em;
-  display: inline-block;
+  height: 12em;
+  display: table;
   width: 100%;
   overflow: auto;
 }
 .clinicaltrials-results-criteria-display table th.hdrlft,
  .clinicaltrials-results-criteria-display table td.hdrlft {
   text-align: right;
-  width: 60%;
+  width: 55%;
 }
+.clinicaltrials-results-criteria-display {
+  background-color: #fff;
+  box-shadow: 5px -5px 3px -5px rgba(0, 0, 0, 0.5), -7px 4px 5px -5px rgba(0, 0, 0, 0.5);
+  //10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5);
+  left: -20em;
+  position: relative;
+  top: 5px;
+  width: 41em;
+  z-index: 1000;
+}
+
 .cts-results-title {
   padding-bottom: 0;
 }
@@ -436,36 +447,17 @@ opacity: 0.45;
 }
 
 .search-criteria-box {
+  //background-color: #9cf;
   border: none;
-}
-.search-criteria-box {
-    display: inline-block;
-    margin: 0;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-}
-//remove, unused
-.search-criteria-box .cts-hide {
-  opacity:0;
-	max-height:0;
-	border:none;
-}
-//remove, unused
-.search-criteria-box input[type=checkbox]:checked + div {
-  border: 1px solid #bdbdbd;
-  max-height: 99em;
-	opacity: 1;
-	height: auto;
-	overflow: hidden;
-	transition: opacity 0.5s linear, max-height 0.5s linear;
-  -webkit-transition: opacity 0.5s linear, max-height 0.5s linear;
-}
-//remove, unused
-#ctscl input {
-	position:absolute;
-	left:-999em
+  margin: 0;
+  padding: 10px 20px;
+  //float: right;
+  position: relative;
+  top: -11px;
 }
 
+
+//incorporate styles into cstcb, then remove
 .search-criteria-box label {
   background: #fff url("/publishedcontent/images/images/design-elements/icons/cts-plus.png") no-repeat scroll right center;
   border: 1px solid #bdbdbd;
