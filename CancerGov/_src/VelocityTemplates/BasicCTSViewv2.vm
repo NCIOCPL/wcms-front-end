@@ -69,17 +69,23 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #if(!$Tools.IsNull($SearchResults.Parameters))##
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
-  <p>
-    This clinical trial matches: #DrawSearchParamsV2($SearchResults) | <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-  </p>
 </span>
 
 <div class="row medium-12 cts-results-title">
-
+#if($SearchResults.Parameters.IsEmpty() == true)
+  <div class="medium-12 columns collapse">
+    <div class="cts-results-label">
+    <strong>
+    This clinical trial matches: "all trials" | 
+    </strong>
+    <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
+    </div>
+  </div>
+#else
 <div class="medium-4 columns collapse">
   <div class="cts-results-label">
   <strong>
-  This clinical trial matches:
+  This clinical trial matches: 
   </strong>
   </div>
 </div>
@@ -91,7 +97,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 <div class="medium-3 columns">
   <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
 </div>
-
+#end##
 </div>
 #end##
 

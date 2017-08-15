@@ -165,7 +165,9 @@
 
 					#set($resultSet =  $SearchResults.Results)
 
+					#if($SearchResults.Parameters.IsEmpty() == false)
 					#DrawSearchParamsV2($SearchResults)
+					#end##
 
 					<p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
 					<p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>
