@@ -1,7 +1,5 @@
 import { CDEConfigurationService, CDEConfiguration, CDEDefaultConfiguration } from './';
 import * as jquery from 'jquery';
-import * as CDEConfig from 'CDEConfig';
-
 
 export class CDERuntimeConfig implements CDEConfigurationService {
 
