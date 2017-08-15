@@ -161,6 +161,7 @@ define(function(require) {
 				urls: [
 					"/about-cancer/treatment/clinical-trials/search",
 					"/about-cancer/treatment/clinical-trials/basic",
+					"/about-cancer/treatment/clinical-trials/search/a",
 					"/about-cancer/treatment/clinical-trials/search/r",
 					"/about-cancer/treatment/clinical-trials/search/v",
 					"/about-cancer/treatment/clinical-trials/advanced-search",
