@@ -132,10 +132,9 @@ $usSites.length locations##
     </div>
   #end
 
-
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
-  	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake NextStepDelighter.inc)-->
+	  <!--(bake LiveHelpDelighter.inc)-->
+	  <!--(bake WhichTrialsDelighter.inc)-->
   </div>
 </div>
