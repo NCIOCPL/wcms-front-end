@@ -1,7 +1,7 @@
 import { expect, assert } from 'chai';
 import * as TypeMoq from 'typemoq';
 
-import { ClinicalTrialsService, TermResults, TermResult, InterventionResults, InterventionResult } from '../../../../../_src/Scripts/NCI/Services/clinical-trials';
+import { ClinicalTrialsService, TermResults, DiseaseResults, TermResult, InterventionResults, InterventionResult } from '../../../../../_src/Scripts/NCI/Services/clinical-trials';
 import { CTAPIFacade } from '../../../../../_src/Scripts/NCI/UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 
 const VIEWABLE_TRIALS:string[] = [
@@ -37,7 +37,14 @@ class MockCTService implements ClinicalTrialsService {
         res.total = 0;
         res.terms = [];
         return Promise.resolve(res);
-    }    
+    }
+    getDiseases(menuType:string|string[], diseaseAncestorIDs?:string | string[], additionalParams?:any): Promise<DiseaseResults> {
+        let res:DiseaseResults = new DiseaseResults();
+        res.total = 0;
+        res.terms = [];
+        return Promise.resolve(res);
+    }
+
 }
 
 /**

@@ -14,6 +14,15 @@ define(function(require) {
         });
 
     });
+    $('.ctscb').toggleClass(function() {
+    $(this).css('background-image', 'url(/publishedcontent/images/images/design-elements/icons/cts-minus.png)');
+    //$(".ctscb").toggleClass(
+    //function() {
+    //    $(this).css('background-image', 'url(/publishedcontent/images/images/design-elements/icons/cts-minus.png)');
+    //},
+    //function() {
+    //    $(this).css('background-image', 'url(/publishedcontent/images/images/design-elements/icons/cts-plus.png)');
+    });
 
 /**
  * Identifies if this enhancement has been initialized or not.

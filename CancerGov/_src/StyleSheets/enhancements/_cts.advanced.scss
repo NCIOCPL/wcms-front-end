@@ -491,6 +491,9 @@ opacity: 0.45;
  background-size: 10%;
  width: 350px;
 }
+.ctscb::after {
+  background-size: 10%;
+}
 
 .cts-results-label {
  line-height: 2.5em;
@@ -517,3 +520,11 @@ opacity: 0.45;
 }
 
 //input.select2-selection.select2-selection--multiple { width: 80% !important; }
+
+// Styles for search results page
+.locationCity {
+	margin-left: 20px;
+}
+.locationBlock {
+	margin-left: 40px;
+}

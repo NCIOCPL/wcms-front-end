@@ -78,15 +78,17 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		// Draw or remove error message for fields that should not be empty 
 		// if the parent radio button selected, e.g. hospital or zip code.
 		this.$nonEmptySelector
-			.data('error-message',this.$nonEmptySelector.attr('error-msg'))
+			//.data('error-message',this.$nonEmptySelector.attr('error-msg'))
 			.on('blur.error',function(){
 				var $this = $(this);
 
-				// if (!$init.isNotNull($this.val()) && $init.isParentChecked($this)) {
-				// 	$init.toggleError(false,$this,null); 
-				// } else {
-				// 	$init.toggleError(true,$this,null);
-				// }
+				$this.data('error-message',$this.attr('error-msg'));
+
+				if (!$init.isNotNull($this.val()) && $init.isParentChecked($this)) {
+					$init.toggleError(false,$this,null);
+				} else {
+					$init.toggleError(true,$this,null);
+				}
 			})
 		;
 

@@ -25,6 +25,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	
 	protected $findings: any;
 
+	protected $otherDiseaseWrap: any;
+
 	/**
 	 * Execute the constructor function on the base enhancement class &
 	 * create an instance of the CT API service.
@@ -43,6 +45,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		this.$subtypeCancer = $('.adv-search #st-multiselect');
 		this.$stageCancer = $('.adv-search #stg-multiselect');
 		this.$findings = $('.adv-search #fin-multiselect');
+		this.$otherDiseaseWrap = $('#other-diseases');
 
 		// TODO: Verify run background processes before drawing things on form;  
 		// our select2 elements should proceed in this order:
@@ -51,9 +54,15 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		//    parent type(s) or if the endpoint can't be reached
 		// 3) Fetch & populate data
 
+		//disable select fields from the start.
+		this.$otherDiseaseWrap.attr('class','fieldset-disabled');
+		this.$subtypeCancer.prop("disabled", true);
+		this.$stageCancer.prop("disabled", true);
+		this.$findings.prop("disabled", true);
+
     //Initialize Select2 controls.
 		//These initializations do no load data but only add select2 to the controls,
-		//as well as attach event handlers.
+		//as well as attach event handlers.		
 		this.$subtypeCancer.select2(
 			{
 				// do all the things
@@ -100,7 +109,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			if(this.isNotEmpty(this.$findings)) {			
 				this.clearFindingField();
 			}
+			this.$otherDiseaseWrap.attr('class','fieldset-disabled');
 			//Set disabled class around the 3 field's & labels when all is selected.
+
 		} else {
 			//A type was selected.  So go fetch the other menus.
 
@@ -112,7 +123,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			this.populateStageField(codes)
 			if(this.isNotEmpty(this.$findings)) {
 				this.populateFindingField(codes)
-			}	
+			}
+
+			this.$otherDiseaseWrap.attr('class','fieldset-enabled');	
 		}
 	}
 

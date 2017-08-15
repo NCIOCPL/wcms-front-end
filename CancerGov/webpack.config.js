@@ -74,6 +74,7 @@ module.exports = {
     },
     externals: {
         jquery: 'jQuery',
+        jQuery: 'jQuery',
         'jquery-ui': 'jQuery.ui',
         headroom: 'Headroom',
         'jquery-touchswipe':'jQuery.fn.swipe',
