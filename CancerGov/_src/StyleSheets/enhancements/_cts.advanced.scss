@@ -492,6 +492,10 @@ opacity: 0.45;
  width: 350px;
 }
 
+.ctscb::after {
+  background-size: 10%;
+}
+
 .cts-results-label {
  line-height: 2.5em;
  margin: auto 0;
