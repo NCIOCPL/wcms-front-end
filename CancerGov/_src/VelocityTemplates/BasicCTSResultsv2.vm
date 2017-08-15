@@ -111,9 +111,9 @@ $usSites.length locations##
 
       <div class="medium-4 columns collapse">
         <div class="cts-results-label">
-        <label>
+        <strong>
         Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search
-        </label>
+        </strong>
         </div>
       </div>
       <div class="medium-5 columns collapse">
@@ -132,10 +132,9 @@ $usSites.length locations##
     </div>
   #end
 
-
   ## Begin "Delighter" section ##
   <div class="delighter-rail medium-3 columns">
-  	<!--(bake LiveHelpDelighter.inc)-->
-	<!--(bake NextStepDelighter.inc)-->
+	  <!--(bake LiveHelpDelighter.inc)-->
+	  <!--(bake WhichTrialsDelighter.inc)-->
   </div>
 </div>

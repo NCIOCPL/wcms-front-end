@@ -433,6 +433,9 @@ opacity: 0.45;
   width: 100%;
   overflow: auto;
 }
+.clinicaltrials-results-criteria-display table tr, .clinicaltrials-results-criteria-display table tbody tr {
+  height: 1.5em;
+}
 .clinicaltrials-results-criteria-display table th.hdrlft,
  .clinicaltrials-results-criteria-display table td.hdrlft {
   text-align: right;

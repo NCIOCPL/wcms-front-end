@@ -203,7 +203,7 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 
   <div class="delighter-rail medium-3 columns">
     <!--(bake LiveHelpDelighter.inc)-->
-    <!--(bake NextStepDelighter.inc)-->
+    <!--(bake WhichTrialsDelighter.inc)-->
     <div class="no-resize cts-share">
       <div class="share-text">Share this clinical trial with your doctor:</div>
       <a class="print" title="Print" href="#">
