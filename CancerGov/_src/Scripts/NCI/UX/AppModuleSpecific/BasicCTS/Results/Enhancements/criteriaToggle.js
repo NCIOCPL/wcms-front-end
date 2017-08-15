@@ -14,6 +14,9 @@ define(function(require) {
         });
 
     });
+    $('.ctscb').click(function() {
+    $(this).css('background-image', 'url(/publishedcontent/images/images/design-elements/icons/cts-minus.png)');
+});
 
 /**
  * Identifies if this enhancement has been initialized or not.
