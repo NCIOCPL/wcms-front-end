@@ -10,7 +10,6 @@ define(function (require) {
 	// var publicVar = 'example',
 	//    _privateVar = 'example',
 	var _initialized = false;
-	
 	var lang = $('html').attr('lang') || 'en'; // set the language
 
 
