@@ -135,14 +135,14 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 			.then((countriesList:string[]) => {
 				countriesList.forEach(country => {
 					if(country == "United States") {
-						$cSel.append($('<option></option')
+						$cSel.append($('<option></option>')
 							.attr('value',country)
 							.attr('selected', 'selected')
 							.text(country)
 						)
 					}
 					else {
-						$cSel.append($('<option></option')
+						$cSel.append($('<option></option>')
 							.attr('value',country)
 							.text(country)
 						)
