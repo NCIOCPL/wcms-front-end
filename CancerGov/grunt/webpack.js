@@ -3,16 +3,26 @@
  * Compile the JavaScript modules into packages.
  ****************************************/
 
-module.exports = function (grunt) {
+module.exports = function (grunt,options) {
     var webpackConfig = require("../webpack.config.js");
     var webpack = require("webpack");
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+    var dirs = options.dirs;
+    console.log(path.join(__dirname, "../" + dirs.dist.scripts));
     return {
         options: webpackConfig,
         dev: {
-            devtool: "source-map"
+            devtool: "source-map",
+            output: {
+                filename: '[name].js',
+                path: path.join(__dirname, "../" + dirs.dist.scripts)
+            }
         },
         prod: {
+        output: {
+            filename: '[name].js',
+            path: path.join(__dirname, "../" + dirs.dist.scripts)
+        },
             plugins: webpackConfig.plugins.concat(
                 new webpack.DefinePlugin({
                     "process.env": {

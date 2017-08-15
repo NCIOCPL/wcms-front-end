@@ -51,6 +51,15 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 					$this.selectmenu({
 						change: function (event, ui) {
 							// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
+							console.log("changing!");
+							if(ui.item.value == "United States"){
+								$(".state-input").removeClass("disabled");
+								$("#lst-multiselect").prop('disabled',false);
+							} else {
+								$(".state-input").addClass("disabled");
+								$("#lst-multiselect").prop('disabled',true);
+							}
+
 							ui.item.element.change();
 						},
 						width: $this.hasClass('fullwidth') ? '100%' : null
@@ -58,7 +67,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 				});
 			});
 
-      $('select2-container').select2({
+        $('select2-container').select2({
                 dropdownAutoWidth : true,
                 width: 'auto'
             });
@@ -68,42 +77,42 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		// Populate Hospital/Institution dropdown autusuggest
 		(<any>$hospital).ctsautoselect({
 			source: (request,response) => {
-					this.facade.searchHospital(request.term)
-					.then((res)=> {
-						response(res)
-					})
-					.catch(err => {
-						console.log(err)
-						response([])
-					});
+				this.facade.searchHospital(request.term)
+				.then((res)=> {
+					response(res)
+				})
+				.catch(err => {
+					console.log(err);
+					response([])
+				});
 			}
 		});
 
 		// Populate Trial Investigators dropdown autusuggest
 		(<any>$trialInvestigators).ctsautoselect({
 			source: (request,response) => {
-					this.facade.searchTrialInvestigators(request.term)
-					.then((res)=> {
-						response(res)
-					})
-					.catch(err => {
-						console.log(err)
-						response([])
-					});
+				this.facade.searchTrialInvestigators(request.term)
+				.then((res)=> {
+					response(res)
+				})
+				.catch(err => {
+					console.log(err);
+					response([])
+				});
 			}
 		});
 
 		// Populate Lead Organization dropdown autusuggest
 		(<any>$leadOrg).ctsautoselect({
 			source: (request,response) => {
-					this.facade.searchLeadOrg(request.term)
-					.then((res)=> {
-						response(res)
-					})
-					.catch(err => {
-						console.log(err)
-						response([])
-					});
+				this.facade.searchLeadOrg(request.term)
+				.then((res)=> {
+					response(res)
+				})
+				.catch(err => {
+					console.log(err);
+					response([])
+				});
 			}
 		});
 
@@ -139,13 +148,13 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 							.attr('value',country)
 							.attr('selected', 'selected')
 							.text(country)
-						)
+						);
 					}
 					else {
 						$cSel.append($('<option></option>')
 							.attr('value',country)
 							.text(country)
-						)
+						);
 					}
 				})
 			})
@@ -192,6 +201,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
         $elem.attr('class','fieldset-enabled');
 		$elem.find('input[type=text], input[type=checkbox]').removeAttr('disabled');
 		$elem.find('.loc-select-menu').each((index, element) => {
+			console.log("element",element);
 			let $element:any = $(element);
 			if($element.selectmenu("instance")) {
 				$element.selectmenu("enable");
@@ -201,8 +211,11 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 			}
 		});
 		$elem.find('.loc-select2-menu').each((index, element) => {
+			console.log("element .loc-select2-menu",element);
 			let $element:any = $(element);
-			$element.removeAttr('disabled');
+			if(!$element.parent().is('.disabled')){
+				$element.removeAttr('disabled');
+			}
 		});
     }
 
