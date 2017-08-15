@@ -4,10 +4,12 @@ import * as CTSCommonAnalytics from "UX/AppModuleSpecific/BasicCTS/Common/Enhanc
 import * as FeedbackForm from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements/FeedbackForm";
 import "../../../../Plugins/jquery.nci.equal_heights";
 
-$(document).ready(function(){
-	new CTSAdvancedFormSetup("clinicaltrialsapi-int.cancer.gov").init();
-	new CTSFieldValidator().init();
-	(<any>(CTSCommonAnalytics)).init();
-	(<any>(FeedbackForm)).init();
-	(<any>jQuery('[data-match-height]')).NCI_equal_heights();
-});
+(function() { //encapsulation
+	$(function() { //document.ready shorthand
+		new CTSAdvancedFormSetup("clinicaltrialsapi-int.cancer.gov").init();
+		new CTSFieldValidator().init();
+		(<any>(CTSCommonAnalytics)).init();
+		(<any>(FeedbackForm)).init();
+		(<any>jQuery('[data-match-height]')).NCI_equal_heights();
+	});
+})();

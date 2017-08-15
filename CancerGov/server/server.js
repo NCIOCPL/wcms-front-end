@@ -67,7 +67,7 @@ if(useHttps)
 
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
 app.use('*', proxy(scheme + proxyEnv + '.cancer.gov', {
-    forwardPath: function(req, res) {
+    proxyReqPathResolver: function(req, res) {
         return require('url').parse(req.originalUrl).path;
     }
 }));
