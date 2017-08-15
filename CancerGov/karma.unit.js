@@ -15,6 +15,8 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['mocha', 'chai', 'sinon'],
         files: [
+            'https://www-blue-dev.cancer.gov/PublishedContent/js/CDEConfig.js',
+            'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js',
             'node_modules/babel-polyfill/dist/polyfill.js',
             '_test/**/*.ts'
         ],
@@ -23,10 +25,7 @@ module.exports = function (config) {
         preprocessors: {
             '_test/**/*.ts': ['webpack']
         },
-        webpack: {
-            module: webpackConfig.module,
-            resolve: webpackConfig.resolve
-        },
+        webpack: webpackConfig,
         reporters: ['mocha'],
         port: 9876,
         colors: true,
@@ -36,4 +35,4 @@ module.exports = function (config) {
         singleRun: true,
         concurrency: Infinity
     })
-}
+};
