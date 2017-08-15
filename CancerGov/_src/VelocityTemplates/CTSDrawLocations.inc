@@ -1,7 +1,7 @@
 ###############################
 ## Draws a Single Location Item
 #macro(DrawLocationV2 $loc $showStatus $showCityState)
-<div itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+<div itemprop="location" itemscope="" itemtype="http://schema.org/Place" class="locationBlock">
   <strong itemprop="name">$loc.Name</strong>
   #if($showStatus)
   <br>Status: $SearchResults.TrialTools.GetFormattedString($loc.RecruitmentStatus)##
@@ -47,7 +47,6 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
             #foreach($citygroup in $subgroup.value)
             #each
               <h5 class="locationCity">$citygroup.key</h5>
-
               #foreach($loc in $citygroup.value)
               #each
                 #DrawLocationV2($loc true false)
@@ -77,9 +76,7 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
           <h5 class="locationCity">$citygroup.key</h5>
             #foreach($loc in $citygroup.value)
             #each
-              <div class="locationBlock">
                 #DrawLocationV2($loc $showStatus false)
-              </div>
             #end          
         #end                  
     #end
