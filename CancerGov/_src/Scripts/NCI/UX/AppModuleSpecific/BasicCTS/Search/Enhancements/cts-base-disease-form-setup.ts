@@ -67,10 +67,13 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			placeholder: 'Please select a Cancer Type or Sub Type First'
 		})
 
-		this.$findings.select2({
-			minimumInputLength: 1, 
-			placeholder: 'Please select a Cancer Type or Sub Type First'
-		})
+		// Add findings select2 control only if the selector exists
+		if(this.isNotEmpty(this.$findings)) {
+			this.$findings.select2({
+				minimumInputLength: 1, 
+				placeholder: 'Please select a Cancer Type or Sub Type First'
+			})
+		}
 
 		//Initialize maintype selector
 		this.$primaryCancer.select2({})
@@ -79,7 +82,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 		// Populate main 'diseases' list
 		this.populateMainType();
-	}	
+	}
 
 	/**
 	 * Event handler for subtype menu changes
@@ -94,7 +97,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			//All was selected - clear everything out.
 			this.clearSubtypeField();
 			this.clearStageField();
-			this.clearFindingField();
+			if(this.isNotEmpty(this.$findings)) {			
+				this.clearFindingField();
+			}
 			//Set disabled class around the 3 field's & labels when all is selected.
 		} else {
 			//A type was selected.  So go fetch the other menus.
@@ -105,7 +110,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 			this.populateSubtypeField(codes)
 			this.populateStageField(codes)
-			this.populateFindingField(codes)
+			if(this.isNotEmpty(this.$findings)) {
+				this.populateFindingField(codes)
+			}	
 		}
 	}
 
@@ -137,10 +144,14 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 		if (allCodes.length > 0) {
 			this.populateStageField(allCodes);
-			this.populateFindingField(allCodes);
+			if(this.isNotEmpty(this.$findings)) {
+				this.populateFindingField(allCodes);
+			}	
 		} else {
 			this.clearStageField();
-			this.clearFindingField();
+			if(this.isNotEmpty(this.$findings)) {			
+				this.clearFindingField();
+			}
 		}
 	}
 	
@@ -252,6 +263,14 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		this.$findings.empty();
 		this.$findings.select2().val(null).trigger("change");
 		this.$findings.prop("disabled", true);
+	}
+
+	/**
+	 * Utility method to check if a selector has a value.
+	 * @param sel 
+	 */
+	private isNotEmpty(sel) {
+		return sel.length > 0;
 	}
 	
 }

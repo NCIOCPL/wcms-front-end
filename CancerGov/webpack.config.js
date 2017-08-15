@@ -97,6 +97,10 @@ module.exports = {
         new webpack.ProvidePlugin({
             Modernizr: "modernizr"
         }),
-        new webpack.optimize.CommonsChunkPlugin({name:'BasicCTSCommon',chunks: ["AdvancedCTSSearchPage", "BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"]})
+        new webpack.optimize.CommonsChunkPlugin({
+            name:'BasicCTSCommon',
+            chunks: ["AdvancedCTSSearchPage", "BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"],
+            minChunks: Infinity
+        })
     ]
 };
