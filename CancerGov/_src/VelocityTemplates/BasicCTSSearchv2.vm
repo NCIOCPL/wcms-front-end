@@ -47,14 +47,6 @@ TODO: Verify Javascript
                 <div class="row">
                     <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
                 </div>
-                <div class="row hide">
-                    <div>
-                    <label>Side Effects / Biomarkers / Participant Attributes</label>
-                    </div>
-                </div>
-                <div class="row hide">
-                    <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
-                </div>
             </div>
         </fieldset>
         <!-- END select2 (cancer type) module -->
@@ -111,7 +103,6 @@ TODO: Verify Javascript
                 </div>
                 <div class="row">
                     <fieldset id="fieldset--your-location">
-                        <input id="your-location" name="loc" value="1" type="hidden">
                         <div class="row">
                             <div class="z-input large-6 columns gutter">
                                 <label for="z">U.S. ZIP Code: </label>
