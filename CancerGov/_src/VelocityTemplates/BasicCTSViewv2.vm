@@ -201,10 +201,10 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
     </div>
   </div>
 
-  <div class="delighter-rail medium-3 columns">
+  <div class="delighter-rail view-delighter-rail medium-3 columns">
     <!--(bake LiveHelpDelighter.inc)-->
     <!--(bake WhichTrialsDelighter.inc)-->
-    <div class="no-resize cts-share">
+    <div class="no-resize cts-share view-delighter-share">
       <div class="share-text">Share this clinical trial with your doctor:</div>
       <a class="print" title="Print" href="#">
         <span class="icon icon-print"></span>
