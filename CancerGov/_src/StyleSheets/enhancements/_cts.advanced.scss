@@ -491,8 +491,11 @@ opacity: 0.45;
  background-size: 10%;
  width: 350px;
 }
-.ctscb::after {
-  background-size: 10%;
+
+.ctscb.show
+{
+ background: #ededed url("/publishedcontent/images/images/design-elements/icons/cts-minus.png") no-repeat scroll right center;
+ background-size: 10%;
 }
 
 .cts-results-label {
