@@ -32,6 +32,7 @@ module.exports = {
         TopicPage:                './UX/PageSpecific/Topic/TopicPage',
         Popups:                   './UX/PageSpecific/Popups/Popups',
         AdvancedCTSSearchPage:    './UX/AppModuleSpecific/BasicCTS/Search/AdvancedCTSSearchPage',
+        SimpleCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/SimpleCTSSearchPage',
         BasicCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
         BasicCTSResultsPage:      './UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
         BasicCTSViewPage:         './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
@@ -100,7 +101,7 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name:'BasicCTSCommon',
-            chunks: ["AdvancedCTSSearchPage", "BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"],
+            chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"],
             minChunks: Infinity
         })
     ]

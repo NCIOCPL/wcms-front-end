@@ -23,6 +23,22 @@ export class CTAPIFacade {
         this.svc = svc;
     }
 
+    getDiseasesForSimpleTypeAhead(name: string):Promise<DiseaseResult[]> {
+        return this.svc.getDiseases(
+            ["maintype", "subtype", "stage", "grade"],
+            undefined,
+            { 
+                name: name,
+                size: 0 
+            }
+        ).then((res:DiseaseResults) => {
+            return res.terms
+        }).then((diseases:DiseaseResult[]) => {
+            //Do cool sorting.
+            return diseases;
+        });
+    }
+
     /**
      * Gets all primary cancer types
      */
