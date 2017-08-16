@@ -29,7 +29,7 @@ export class CTAPIFacade {
             undefined,
             { 
                 name: name,
-                size: 0 
+                size: 10 
             }
         ).then((res:DiseaseResults) => {
             return res.terms

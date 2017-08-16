@@ -24,7 +24,8 @@ TODO: Verify Javascript
             </div>
         </fieldset>
 
-        <fieldset id="fieldset-zip" aria-labelledby="legend-zip">
+    <div class="row" data-match-height>
+        <fieldset id="fieldset-zip" aria-labelledby="legend-zip" class="large-6 columns gutter equalheight">
             <div class="adv-fieldset-header">
                 <h4>U.S. ZIP Code 
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -38,7 +39,7 @@ TODO: Verify Javascript
             </div>
         </fieldset>
 
-        <fieldset id="fieldset-age" aria-labelledby="legend-age">
+        <fieldset id="fieldset-age" aria-labelledby="legend-age" class="large-6 columns gutter equalheight">
             <div class="adv-fieldset-header">
                 <h4>Age 
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -51,7 +52,7 @@ TODO: Verify Javascript
             <div class="row">Your age helps determine which trials are right for you.</div>
             </div>
         </fieldset>
-        
+    </div>
 		<input name="rl" value="1" type="hidden" id="rl">
         <div class="row">
             <div class="large-12">
