@@ -164,7 +164,7 @@
                     <fieldset id="fieldset--hospital">
                         <div class="radio">
                             <input id="hospital" name="loc" value="3" type="radio"><label for="hospital">Hospitals/Institutions</label>
-                            <input id="hos" name="hos" class="search-input non-empty" aria-autocomplete="list" autocomplete="off" aria-label="Start typing the hospital or institution you are looking for" placeholder="Start typing the hospital or institution you are looking for" type="text" error-msg="Please select a Hospital/Institution.">
+                            <input id="hos" name="hos" class="search-input non-empty" aria-autocomplete="list" autocomplete="off" aria-label="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" type="text" error-msg="Please select a Hospital/Institution.">
                         </div>
                     </fieldset>
                     <fieldset id="fieldset--nih">
@@ -238,7 +238,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="dr-multiselect" name="d" multiple data-placeholder="Start typing the drug you are looking for" placeholder="Start typing the drug you are looking for" ></select>
+                    <select id="dr-multiselect" name="d" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" ></select>
                 </div>
                 <div class="row">
                     <div>
@@ -246,7 +246,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ti-multiselect" name="i" multiple data-placeholder="Start typing the treatment/intervention you are looking for" placeholder="Start typing the treatment/intervention you are looking for" ></select>
+                    <select id="ti-multiselect" name="i" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" ></select>
                 </div>
             </div>
         </fieldset>
@@ -323,7 +323,7 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="in" name="in" autocomplete="off" aria-labelledby="legend--investigator" placeholder="" type="text">
+                        <input id="in" name="in" autocomplete="off" aria-labelledby="legend--investigator" placeholder="Please enter 3 or more characters" type="text">
                     </div>
                 </div>
             </div>
@@ -344,7 +344,7 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="lo" name="lo" autocomplete="off" aria-labelledby="legend--organization" placeholder="" type="text">
+                        <input id="lo" name="lo" autocomplete="off" aria-labelledby="legend--organization" placeholder="Please enter 3 or more characters" type="text">
                     </div>
                 </div>
             </div>

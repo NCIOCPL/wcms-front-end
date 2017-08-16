@@ -55,7 +55,7 @@
     <div class="search-criteria-box">
 
       <div class="clinicaltrials-results-criteria-display">
-        <table class="table">
+        <table class="table no-auto-enlarge">
             <thead>
                 <tr>
                     <th colspan="2" class="">Your Search Criteria</th>
