@@ -9,7 +9,7 @@ import "../../../../Plugins/jquery.nci.equal_heights";
 
 (function() { //encapsulation
 	$(function() { //document.ready shorthand
-		new CTSAdvancedFormSetup("clinicaltrialsapi-int.cancer.gov").init();
+		new CTSAdvancedFormSetup("clinicaltrialsapi-stage.cancer.gov").init();
 		new CTSFieldValidator().init();
 		(<any>(CTSCommonAnalytics)).init();
 		(<any>(FeedbackForm)).init();

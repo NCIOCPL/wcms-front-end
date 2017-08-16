@@ -9,7 +9,7 @@ import * as FeedbackForm from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements
 
 (function() { //encapsulation
 	$(function() { //document.ready shorthand
-		new CTSSimpleFormSetup("clinicaltrialsapi-int.cancer.gov").init();
+		new CTSSimpleFormSetup("clinicaltrialsapi-stage.cancer.gov").init();
 		new CTSFieldValidator().init();
 //		(<any>(CTSCommonAnalytics)).init();
 		(<any>(FeedbackForm)).init();
