@@ -413,6 +413,12 @@ background-color: #ddd;
 opacity: 0.45;
 }
 
+//#dr-multiselect .select2-selection__placeholder {
+//  width: 100%;
+//  background-color: #9cf;
+//}
+
+
 //styling for search criteria table
 .clinicaltrials-results-criteria-display table {
 	border: 0 none;
@@ -432,7 +438,7 @@ opacity: 0.45;
   overflow: auto;
 }
 .clinicaltrials-results-criteria-display table tr, .clinicaltrials-results-criteria-display table tbody tr {
-  height: 1.5em;
+  height: 2.5em;
 }
 .clinicaltrials-results-criteria-display table th.hdrlft,
  .clinicaltrials-results-criteria-display table td.hdrlft {
