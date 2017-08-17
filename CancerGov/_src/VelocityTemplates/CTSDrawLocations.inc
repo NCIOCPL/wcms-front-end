@@ -43,7 +43,7 @@ Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
       #foreach($subgroup in $group.value)
       #each
         <div data-basiccts-psunitgroup="$subgroup.key">
-          <h3>$subgroup.key</h3>
+          <h4>$subgroup.key</h4>
             #foreach($citygroup in $subgroup.value)
             #each
               <h5 class="locationCity">$citygroup.key</h5>
