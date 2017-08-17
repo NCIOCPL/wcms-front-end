@@ -3,7 +3,11 @@
 ##End DrawSearchParamsV2
 
 #macro(DrawLocationInformationV2 $trial)##
-#set ($usSites = $SearchResults.TrialTools.GetUSASites($trial))
+#if(($SearchResults.Parameters.Location == "CountryCityState") && ($SearchResults.Parameters.LocationParams.Country != "United States"))
+  #set ($usSites = $trial.Sites.ToArray())
+#else
+  #set ($usSites = $SearchResults.TrialTools.GetUSASites($trial))
+#end
 <strong>Location: </strong>##
 
 #if ($usSites.length == 1)##
