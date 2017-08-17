@@ -103,7 +103,7 @@
 
 			#if(!$Tools.IsNullOrWhitespace($trial.DetailedDescription))
 				<h3 class="printHeading">Trial Objectives and Outlines</h3>
-				<div id="trialObjectives">$trial.DetailedDescription</div>	
+				<div id="trialObjectives">$SearchResults.TrialTools.GetPrettyDescription($trial)</div>	
 			#end
 
 			#if($trial.LeadOrganizationName || $trial.PrincipalInvestigator)

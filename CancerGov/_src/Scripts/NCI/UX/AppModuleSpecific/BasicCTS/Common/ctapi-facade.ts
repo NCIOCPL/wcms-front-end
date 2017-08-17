@@ -29,7 +29,8 @@ export class CTAPIFacade {
             undefined,
             { 
                 name: name,
-                size: 10 
+                size: 10,
+                current_trial_status: VIEWABLE_TRIALS
             }
         ).then((res:DiseaseResults) => {
             return res.terms
@@ -46,7 +47,10 @@ export class CTAPIFacade {
         return this.svc.getDiseases(
             "maintype",
             undefined,
-            { size: 0 }
+            { 
+                size: 0,
+                current_trial_status: VIEWABLE_TRIALS
+            }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
@@ -62,7 +66,10 @@ export class CTAPIFacade {
         return this.svc.getDiseases(
             ["subtype","grade"],
             ancestorID,
-            { size: 0 }
+            { 
+                size: 0,
+                current_trial_status: VIEWABLE_TRIALS
+            }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
@@ -78,7 +85,10 @@ export class CTAPIFacade {
         return this.svc.getDiseases(
             "stage", 
             ancestorID,
-            { size: 0 }
+            { 
+                size: 0,
+                current_trial_status: VIEWABLE_TRIALS
+            }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
@@ -94,7 +104,10 @@ export class CTAPIFacade {
         return this.svc.getDiseases(
             "finding", 
             ancestorID,
-            { size: 0 }
+            { 
+                size: 0,
+                current_trial_status: VIEWABLE_TRIALS
+            }
         ).then((res:DiseaseResults) => {
             return res.terms
         })
