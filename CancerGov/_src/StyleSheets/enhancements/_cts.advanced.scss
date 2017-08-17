@@ -443,7 +443,7 @@ opacity: 0.45;
 .clinicaltrials-results-criteria-display table th.hdrlft,
  .clinicaltrials-results-criteria-display table td.hdrlft {
   text-align: right;
-  width: 55%;
+  width: 40%;
 }
 .cts-schdr h3, .hdrlft h3, .hdrrt h3 {
   margin: 0 auto auto;
@@ -528,6 +528,11 @@ opacity: 0.45;
  line-height: 2.5em;
  margin: auto;
  white-space: nowrap;
+
+  @include bp(medium-down){
+   padding-left: 0;
+   margin: 0 0 0 -0.75em;
+ }
 }
 
 //select2 responsiveness
