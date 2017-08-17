@@ -10,7 +10,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label>Primary Type/Condition</label>
+                    <label>Cancer Type/Condition</label>
                     </div>
                 </div>
                 <div class="row">
