@@ -445,6 +445,9 @@ opacity: 0.45;
   text-align: right;
   width: 55%;
 }
+.cts-schdr h3, .hdrlft h3, .hdrrt h3 {
+  margin-top: 0;
+}
 .clinicaltrials-results-criteria-display {
   background-color: #fff;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
@@ -453,6 +456,7 @@ opacity: 0.45;
   top: 5px;
   width: 41em;
   z-index: 100;
+  padding: 10px 20px;
 }
 
 .cts-results-title {

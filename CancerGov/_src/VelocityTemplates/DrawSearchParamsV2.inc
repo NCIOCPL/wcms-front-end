@@ -62,7 +62,7 @@
               </tr>
               <tr>
                   <td class="hdrlft"><h3>Category:</h3></td>
-                  <td class=""><h3>Your Selection:</h3></td>
+                  <td class="hdrrt"><h3>Your Selection:</h3></td>
               </tr>
                 #DrawOneSearchParam("Primary Type/Condition" "MainType")
                 #DrawOneSearchParam("Sub-type" "SubTypes")
