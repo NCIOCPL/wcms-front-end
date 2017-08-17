@@ -21,11 +21,11 @@
                 <div id="other-diseases">
                     <div class="row">
                         <div>
-                        <label>Sub-type</label>
+                        <label>Subtype</label>
                         </div>
                     </div>
                     <div class="row">
-                        <select id="st-multiselect" name="st" multiple data-placeholder="Select a sub-type" placeholder="Select cancer type first" style="width:97%"></select>
+                        <select id="st-multiselect" name="st" multiple data-placeholder="Select a subtype" placeholder="Select cancer type first" style="width:97%"></select>
                     </div>
                     <div class="row">
                         <div>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+                        <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or subtype first" style="width:97%"></select>
                     </div>
 <!--(bake-start _if="findings")-->
                     <div class="row">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or sub-type first" style="width:97%"></select>
+                        <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" style="width:97%"></select>
                     </div>
 <!--(bake-end)-->                    
                 </div>
