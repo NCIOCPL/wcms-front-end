@@ -41,13 +41,72 @@ $usSites.length locations##
 #macro(DrawErrorMessage)
   <div class="medium-9 columns collapse">
     <div>
-      Sorry, you seem to have entered invalid criteria.  Please check the following, and try your search again:
+      <p>Sorry, you seem to have entered invalid criteria.  Please check the following, and try your search again:
       ## List invalid fields
       <ul>
-      #foreach($errorField in $SearchResults.Parameters.ParseErrors)
-      #each
-        <li>$errorField.Param</li>
+      #if($SearchResults.Parameters.IsFieldInvalid("MainType") == true)
+        <li>Cancer Type</li>
       #end
+      #if($SearchResults.Parameters.IsFieldInvalid("SubTypes") == true)
+        <li>Sub-types</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Stages") == true)
+        <li>Stages</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Findings") == true)
+        <li>Findings</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Age") == true)
+        <li>Age</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Gender") == true)
+        <li>Gender</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Phrase") == true)
+        <li>Phrases/Keywords</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Location") == true)
+        <li>Location</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("ZipCode") == true)
+        <li>Zip Code</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("ZipRadius") == true)
+        <li>Zip Radius</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Country") == true)
+        <li>Country</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("State") == true)
+        <li>State</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("City") == true)
+        <li>City</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Hospital") == true)
+        <li>Hospital</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("TrialTypes") == true)
+        <li>Trial Types</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Drugs") == true)
+        <li>Drugs</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("OtherTreatments") == true)
+        <li>Other Treatments</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("TrialPhases") == true)
+        <li>Trial Phases</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("TrialIDs") == true)
+        <li>Trial IDs</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("Investigator") == true)
+        <li>Trial Investigator</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("LeadOrg") == true)
+        <li>Lead Organization</li>
+      #end##
       </ul>
       <p>For assistance, please contact our Cancer Information Service. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
       <p><a href="$SearchResults.Control.SearchFormUrl">Try a new search</a></p>

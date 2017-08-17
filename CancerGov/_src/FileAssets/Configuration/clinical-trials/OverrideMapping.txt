@@ -1,0 +1,30 @@
+C9325,C9327|Adrenocortical Carcinoma
+C5131,C7710|Adult Central Nervous System Tumors
+C114759,C114760,C9042|Childhood Brain Stem Glioma
+C5132,C7703|Childhood Central Nervous System Tumors
+C3422,C4699|Gestational Trophoblastic Disease 
+C7251,C9063|Testicular Cancer
+C4033,C9385|Kidney (Renal Cell) Cancer
+C3224,C3510|Melanoma
+C4914|Nonmelanoma Skin Cancer
+C7515,C7716|Transitional Cell Cancer of the Renal Pelvis and Ureter
+C61574,C7558|Endometrial Cancer
+C2918|Breast Cancer
+C7712,C8562|Intraocular Melanoma
+C9242|Colon Cancer
+C3330,C4348,C8388|Pituitary Tumors
+C7510|Thyroid Cancer
+C27031|Pancreatic Islet Cell Tumors
+C27291,C4817,C9341|Ewing Sarcoma
+C3812|Carcinoma of Unknown Primary
+C7709|Gastrointestinal Carcinoid Tumors
+C4906|Parathyroid Cancer
+C6339,C8973|Uterine Sarcoma
+treatment|Treatment
+other|Other
+supportive_care|Supportive Care
+diagnostic|Diagnostic
+prevention|Prevention
+basic_science|Basic Science
+health_services_research|Health Services Research
+screening|Screening
