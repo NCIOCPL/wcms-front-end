@@ -446,7 +446,7 @@ opacity: 0.45;
   width: 55%;
 }
 .cts-schdr h3, .hdrlft h3, .hdrrt h3 {
-  margin-top: 0;
+  margin: 0 auto auto;
 }
 .clinicaltrials-results-criteria-display {
   background-color: #fff;
@@ -457,6 +457,16 @@ opacity: 0.45;
   width: 41em;
   z-index: 100;
   padding: 10px 20px;
+  //@include bp(xtra-large){
+  //  width:;
+  //}
+  @include bp(medium){
+    left: -1em;
+  }
+  @include bp(small){
+    left: -1em;
+    width: 100%;
+  }
 }
 
 .cts-results-title {
@@ -538,4 +548,11 @@ opacity: 0.45;
 }
 .locationBlock {
 	margin-left: 40px;
+}
+//for print results page
+#clinical-trials-print .ctscb {
+  display: none;
+}
+#clinical-trials-print .clinicaltrials-results-criteria-display {
+  left: -1em;
 }
