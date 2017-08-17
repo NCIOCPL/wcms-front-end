@@ -44,7 +44,7 @@
     #set($sites = $SearchResults.Trial.Sites)
     #DrawSitesForUXFilter($sites)
 </div>
-#end
+#end 
 
 ## This is used to draw the closest sites when viewing by proximity
 #macro(DrawProximityLocationsV2 $filteredLocations)
@@ -64,7 +64,6 @@
   #end
 </div>
 #end
-
 
 #set($resultsUrl = $SearchResults.Control.GetBackToResultsUrl())##
 #if(!$Tools.IsNull($SearchResults.Parameters))##
