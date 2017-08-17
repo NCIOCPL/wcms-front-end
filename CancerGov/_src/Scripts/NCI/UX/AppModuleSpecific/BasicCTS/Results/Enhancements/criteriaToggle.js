@@ -14,7 +14,6 @@ define(function(require) {
             });
 
         });
-
         $(function() {
           $('.ctscb').click(function() {
             $(this).toggleClass('show');

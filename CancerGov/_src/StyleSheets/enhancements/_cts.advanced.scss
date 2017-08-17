@@ -413,6 +413,12 @@ background-color: #ddd;
 opacity: 0.45;
 }
 
+//#dr-multiselect .select2-selection__placeholder {
+//  width: 100%;
+//  background-color: #9cf;
+//}
+
+
 //styling for search criteria table
 .clinicaltrials-results-criteria-display table {
 	border: 0 none;
@@ -432,12 +438,15 @@ opacity: 0.45;
   overflow: auto;
 }
 .clinicaltrials-results-criteria-display table tr, .clinicaltrials-results-criteria-display table tbody tr {
-  height: 1.5em;
+  height: 2.5em;
 }
 .clinicaltrials-results-criteria-display table th.hdrlft,
  .clinicaltrials-results-criteria-display table td.hdrlft {
   text-align: right;
   width: 55%;
+}
+.cts-schdr h3, .hdrlft h3, .hdrrt h3 {
+  margin: 0 auto auto;
 }
 .clinicaltrials-results-criteria-display {
   background-color: #fff;
@@ -447,6 +456,17 @@ opacity: 0.45;
   top: 5px;
   width: 41em;
   z-index: 100;
+  padding: 10px 20px;
+  //@include bp(xtra-large){
+  //  width:;
+  //}
+  @include bp(medium){
+    left: -1em;
+  }
+  @include bp(small){
+    left: -1em;
+    width: 100%;
+  }
 }
 
 .cts-results-title {
@@ -528,4 +548,11 @@ opacity: 0.45;
 }
 .locationBlock {
 	margin-left: 40px;
+}
+//for print results page
+#clinical-trials-print .ctscb {
+  display: none;
+}
+#clinical-trials-print .clinicaltrials-results-criteria-display {
+  left: -1em;
 }

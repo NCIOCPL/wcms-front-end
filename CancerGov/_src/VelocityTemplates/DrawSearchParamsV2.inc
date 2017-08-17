@@ -55,19 +55,17 @@
     <div class="search-criteria-box">
 
       <div class="clinicaltrials-results-criteria-display">
-        <table class="table no-auto-enlarge">
-            <thead>
-                <tr>
-                    <th colspan="2" class="">Your Search Criteria</th>
-                </tr>
-            </thead>
+        <table class="table no-auto-enlarge" style="width: 100%;">
             <tbody>
               <tr>
-                  <td class="hdrlft"><strong>Category:</strong></th>
-                  <td class=""><strong>Your Selection:</strong></th>
+                  <td colspan="2" class="cts-schdr"><h3>Your Search Criteria</h3></td>
+              </tr>
+              <tr>
+                  <td class="hdrlft"><h3>Category:</h3></td>
+                  <td class="hdrrt"><h3>Your Selection:</h3></td>
               </tr>
                 #DrawOneSearchParam("Primary Type/Condition" "MainType")
-                #DrawOneSearchParam("Subtype" "SubTypes")
+                #DrawOneSearchParam("Sub-type" "SubTypes")
                 #DrawOneSearchParam("Stage" "Stages")
                 #DrawOneSearchParam("Side Effects / Biomarkers / Participant Attributes" "Findings")
                 #DrawOneSearchParam("Age" "Age")
@@ -76,7 +74,7 @@
                 ##in order to handle these.
                 #DrawLocationSearchParam()
                 #DrawOneSearchParam("Trial Type" "TrialTypes")
-                #DrawOneSearchParam("Drug" "Drugs")
+                #DrawOneSearchParam("Drug/Drug Family" "Drugs")
                 #DrawOneSearchParam("Other Treatements" "OtherTreatments")
                 #DrawOneSearchParam("Trial Phase" "TrialPhases")
                 #DrawOneSearchParam("Trial ID" "TrialIDs")
