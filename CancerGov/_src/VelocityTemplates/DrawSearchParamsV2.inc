@@ -23,17 +23,17 @@
             #DrawOneSearchParamRow("At Hospital/Institution" $value)
         #end
     #elseif($SearchResults.Parameters.Location == "CountryCityState")
-        #if($locParam.IsFieldSet("City") == true)
-            #set($value = $locParam.GetFieldAsString("City"))
-            #DrawOneSearchParamRow("City" $value)
+        #if($locParam.IsFieldSet("Country") == true)
+            #set($value = $locParam.GetFieldAsString("Country"))
+            #DrawOneSearchParamRow("Country" $value)
         #end
         #if($locParam.IsFieldSet("State") == true)
             #set($value = $locParam.GetFieldAsString("State"))
             #DrawOneSearchParamRow("State" $value)
         #end
-        #if($locParam.IsFieldSet("Country") == true)
-            #set($value = $locParam.GetFieldAsString("Country"))
-            #DrawOneSearchParamRow("Country" $value)
+        #if($locParam.IsFieldSet("City") == true)
+            #set($value = $locParam.GetFieldAsString("City"))
+            #DrawOneSearchParamRow("City" $value)
         #end
     #elseif($SearchResults.Parameters.Location == "Zip")
         #set($zip = $locParam.GetFieldAsString("ZipCode"))
@@ -75,7 +75,7 @@
                 #DrawLocationSearchParam()
                 #DrawOneSearchParam("Trial Type" "TrialTypes")
                 #DrawOneSearchParam("Drug/Drug Family" "Drugs")
-                #DrawOneSearchParam("Other Treatements" "OtherTreatments")
+                #DrawOneSearchParam("Other Treatments" "OtherTreatments")
                 #DrawOneSearchParam("Trial Phase" "TrialPhases")
                 #DrawOneSearchParam("Trial ID" "TrialIDs")
                 #DrawOneSearchParam("Trial Investigators" "Investigator")
