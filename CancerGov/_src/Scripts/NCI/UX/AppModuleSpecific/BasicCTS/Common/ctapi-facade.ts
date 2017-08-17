@@ -186,11 +186,12 @@ export class CTAPIFacade {
     searchDrugs(searchText:string):Promise<InterventionResult[]> {
         return this.svc.getInterventions(
             ["Agent", "Agent Category"],
-            searchText,
+            searchText,            
             10,
             {
                 current_trial_status: VIEWABLE_TRIALS
-            }
+            },
+            "cancergov"
         ).then((res:InterventionResults) => {
             return res.terms
         })
@@ -206,7 +207,8 @@ export class CTAPIFacade {
             10,
             {
                 current_trial_status: VIEWABLE_TRIALS
-            }
+            },
+            "cancergov"
         ).then((res:InterventionResults) => {
             return res.terms
         })
