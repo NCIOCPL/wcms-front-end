@@ -509,6 +509,10 @@ opacity: 0.45;
  padding: 0 0 0 5px;
  background-size: 10%;
  width: 350px;
+ @include bp(small){
+   width: 300px;
+   background-size: 12%;
+ }
 }
 
 .ctscb.show
@@ -551,7 +555,7 @@ opacity: 0.45;
 // Styles for search results page
 #proximity-trialslist h4 {
 	margin-top: 30px !important;
-	font-size: 20px; 
+	font-size: 20px;
 }
 .locationCity {
 	margin-left: 20px;
