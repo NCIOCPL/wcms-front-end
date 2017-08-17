@@ -9,23 +9,25 @@
 
 ## Main Location Drawing Function
 #macro(DrawLocationsV2)
-#if($filteredLocations.Length == 0)
-#DrawNoLocationsV2()
-#elseif($SearchResults.Control.ShowingAll != true && ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))
-#DrawProximityLocationsV2()
-#else
-#DrawFilterableLocationsV2()
+  #set($filteredLocations = $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Parameters))
+  #if($filteredLocations.Length == 0)
+    #DrawNoLocationsV2()
+  #elseif($SearchResults.Control.ShowingAll != true && ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))
+    #DrawProximityLocationsV2($filteredLocations)
+  #else
+    #DrawFilterableLocationsV2()
+  #end
 #end
-#end
-
 
 ## Used when no study sites
 #macro(DrawNoLocationsV2)
-#if($SearchResults.Trial.CurrentTrialStatus.toLower == "not yet active" || $SearchResults.Trial.CurrentTrialStatus.toLower == "in review" || $SearchResults.Trial.CurrentTrialStatus.toLower == "approved")
-Location information is not yet available.
-#else
-See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchResults.Trial.NCTID" target="_blank">ClinicalTrials.gov</a> for a list of participating sites.
-#end
+<div id="filterable-trialslist">
+  #if($SearchResults.Trial.CurrentTrialStatus.toLower == "not yet active" || $SearchResults.Trial.CurrentTrialStatus.toLower == "in review" || $SearchResults.Trial.CurrentTrialStatus.toLower == "approved")
+    Location information is not yet available.
+  #else
+    See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchResults.Trial.NCTID" target="_blank">ClinicalTrials.gov</a> for a list of participating sites.
+  #end
+</div>
 #end
 
 ## This is used to draw all study sites with dropdown filters.
@@ -45,9 +47,8 @@ See trial information on <a href="https://www.clinicaltrials.gov/show/$SearchRes
 #end
 
 ## This is used to draw the closest sites when viewing by proximity
-#macro(DrawProximityLocationsV2)
+#macro(DrawProximityLocationsV2 $filteredLocations)
 <div id="proximity-trialslist">
-  #set($filteredLocations = $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Parameters))
   #if($filteredLocations.Length == 0)
     #DrawNoLocationsV2()##
   #else
