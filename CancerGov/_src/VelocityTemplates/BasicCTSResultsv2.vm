@@ -48,7 +48,7 @@ $usSites.length locations##
         <li>Cancer Type</li>
       #end
       #if($SearchResults.Parameters.IsFieldInvalid("SubTypes") == true)
-        <li>Sub-types</li>
+        <li>Subtypes</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Stages") == true)
         <li>Stages</li>
