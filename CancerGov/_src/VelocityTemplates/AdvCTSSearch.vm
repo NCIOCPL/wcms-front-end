@@ -362,8 +362,8 @@
 ## Begin "Delighter" section ##
 <div class="delighter-rail medium-3 columns">
     <!--(bake LiveHelpDelighter.inc)-->
-    <!--(bake WhichTrialsDelighter.inc)-->
     <!--(bake WhatAreTrialsDelighter.inc)-->
+    <!--(bake WhichTrialsDelighter.inc)-->    
 </div>
 ## Begin section for referencing API instructions page ##
 <div class="api-reference-section api-ref-advanced">

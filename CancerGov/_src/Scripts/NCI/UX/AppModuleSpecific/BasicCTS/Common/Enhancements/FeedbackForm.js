@@ -22,7 +22,7 @@ define(function(require){
                 _openFeedbackForm($feedbackDelighter);                
 				_openFeedbackFormFormAnalytics();
                 return false;
-            }).prependTo($delighterContainer)
+            }).appendTo($delighterContainer)
             .append(
                 $('<div></div>', {
                     class: "delighter cts-feedback"
@@ -30,7 +30,9 @@ define(function(require){
                     '<h4>Send us your feedback</h4>' +
                     '<p>Help us improve our clinical trials search.</p>'
                 )
-            ); 
+            );
+
+            $delighterContainer.find(".view-delighter-share").remove().appendTo($delighterContainer);
         }
     }
     
