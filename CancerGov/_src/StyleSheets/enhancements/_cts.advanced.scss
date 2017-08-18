@@ -458,9 +458,10 @@ opacity: 0.45;
   width: 702px;
   z-index: 100;
   padding: 10px 20px;
+
   @include bp(xtra-large){
-    left: -40em;
-    top: 65px;
+    left: -15px;
+    top: -1px;
   }
   @include bp(medium){
     left: -1em;
@@ -513,6 +514,7 @@ opacity: 0.45;
  @include bp(small){
    width: 300px;
    background-size: 12%;
+   margin: 0 0.25em 0 0;
  }
 }
 
@@ -534,9 +536,15 @@ opacity: 0.45;
  margin: auto;
  white-space: nowrap;
 
+  @include bp(xtra-large){
+    margin: 0 0 0 -11em;
+}
+@include bp(large){
+  margin: 0 0 0 -2em;
+}
   @include bp(medium-down){
    padding-left: 0;
-   margin: 0 0 0 -0.75em;
+   margin: 0 0 0 -0.8em;
  }
 }
 
