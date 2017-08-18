@@ -64,7 +64,7 @@
                   <td class="hdrlft"><h3>Category:</h3></td>
                   <td class="hdrrt"><h3>Your Selection:</h3></td>
               </tr>
-                #DrawOneSearchParam("Cancer Type/Condition" "MainType")
+                #DrawOneSearchParam("Primary Cancer Type/Condition" "MainType")
                 #DrawOneSearchParam("Subtype" "SubTypes")
                 #DrawOneSearchParam("Stage" "Stages")
                 #DrawOneSearchParam("Side Effects / Biomarkers / Participant Attributes" "Findings")
