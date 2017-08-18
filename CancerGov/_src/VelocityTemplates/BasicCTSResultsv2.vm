@@ -187,13 +187,14 @@ $usSites.length locations##
         #else
           <div class="medium-9 columns collapse">
 
-          <div class="cts-results-label">
+          <span class="cts-results-label">
           <strong>
           Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search
           </strong>
-          </div>
+          </span>
 
           #DrawSearchParamsV2($SearchResults)
+          </div>
           
           <div class="medium-3 columns">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
