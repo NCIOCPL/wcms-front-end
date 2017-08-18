@@ -49,7 +49,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if ($init.isNotNull($this.val()) && !$init.validateZip($this.val())) {
+				if (!$init.isNull($this.val()) && !$init.validateZip($this.val())) {
 					$init.toggleError(false,$this,null);
 				} else {
 					$init.toggleError(true,$this,null);
@@ -67,7 +67,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if ($init.isNotNull($this.val()) && !$init.validateAge($this.val())) {
+				if (!$init.isNull($this.val()) && !$init.validateAge($this.val())) {
 					$init.toggleError(false,$this,null);
 				} else {
 					$init.toggleError(true,$this,null);
@@ -84,7 +84,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 				$this.data('error-message',$this.attr('error-msg'));
 
-				if (!$init.isNotNull($this.val()) && $init.isParentChecked($this)) {
+				if ($init.isNull($this.val()) && $init.isParentChecked($this)) {
 					$init.toggleError(false,$this,null);
 				} else {
 					$init.toggleError(true,$this,null);
@@ -189,8 +189,8 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	 * Verify that an input is not null
 	 * @param {any} val
 	 */
-	private isNotNull(val){
-		return val.length !== 0;
+	private isNull(val){
+		return val.length === 0;
 	}
 
 	/**
