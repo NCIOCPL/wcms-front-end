@@ -86,7 +86,7 @@
   </div>
 #else
 
-<div class="medium-9 columns collapse">
+<div class="medium-12 columns collapse">
 
   <span class="cts-results-label">
   <strong>
@@ -95,11 +95,8 @@
   </span>
 
   #DrawSearchParamsV2($SearchResults)
-</div>
 
-<div class="medium-3 columns">
-  <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-</div>
+  <span class="cts-start-over cts-view"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
 #end##
 </div>
 #end##
