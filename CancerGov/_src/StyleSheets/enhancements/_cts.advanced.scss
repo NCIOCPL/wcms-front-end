@@ -538,14 +538,18 @@ opacity: 0.45;
 
   @include bp(xtra-large){
     margin: 0 0 0 -11em;
-}
-@include bp(large){
+  }
+  @include bp(large){
   margin: 0 0 0 -2em;
-}
+  }
   @include bp(medium-down){
    padding-left: 0;
    margin: 0 0 0 -0.8em;
- }
+  }
+}
+.cts-view {
+    margin: 0 0 0 2em;
+    background-color: #9cf;
 }
 
 //select2 responsiveness

@@ -179,7 +179,7 @@ $usSites.length locations##
           <strong>
           Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search for: "all trials" |
           </strong>
-          <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
+          <span class="cts-start-over cts-all-trials"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
           </span>
 
           </div>
@@ -195,7 +195,7 @@ $usSites.length locations##
 
           #DrawSearchParamsV2($SearchResults)
           </div>
-          
+
           <div class="medium-3 columns">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
           </div>
