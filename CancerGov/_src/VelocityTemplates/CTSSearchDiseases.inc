@@ -1,6 +1,6 @@
         <fieldset id="fieldset--type">
             <div class="adv-fieldset-header">
-                <h4>CANCER TYPE
+                <h4>CANCER TYPE/CONDITION
                     <a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -10,7 +10,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label>Cancer Type/Condition</label>
+                    <label>Primary Cancer Type/Condition</label>
                     </div>
                 </div>
                 <div class="row">
