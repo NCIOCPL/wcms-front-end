@@ -549,8 +549,16 @@ opacity: 0.45;
   }
 }
 .cts-view {
-    margin: 0 0 0 2em;
-    background-color: #9cf;
+    margin: 0 0 0 -4em;
+    @include bp(xtra-large){
+    margin: 0 0 0 -14em;
+    }
+    @include bp(medium-down){
+    margin: 0 0 0 -1em;
+    }
+}
+.cts-all-trials {
+    margin: 0;
 }
 
 //select2 responsiveness
