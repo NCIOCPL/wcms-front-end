@@ -72,7 +72,12 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
                 width: 'auto'
             });
 
-		$('#lst-multiselect').select2();
+		// Add select2 wrapper to state selector, with options
+		$("#lst-multiselect").select2({
+			matcher: function(params, data) {
+				return $this.matchBeginning(params, data);
+			},
+		});
 
 		// Populate Hospital/Institution dropdown autusuggest
 		(<any>$hospital).ctsautoselect({
@@ -134,7 +139,6 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		this.selectLocFieldset();
 
 	}
-
 
 	/*
 	* Populate the location Country dropdown field
@@ -242,5 +246,17 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		});
 	}
 
+	/**
+	 * Custom matcher function - returns only items that begin with the search string
+	 * @param params 
+	 * @param data 
+	 */
+	public matchBeginning(params, data) {
+		params.term = params.term || '';
+		if (data.text.toUpperCase().indexOf(params.term.toUpperCase()) == 0) {
+			return data;
+		}
+		return false;
+	}
 
 }
