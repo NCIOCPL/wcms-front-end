@@ -61,8 +61,8 @@
                   <td colspan="2" class="cts-schdr"><h3>Your Search Criteria</h3></td>
               </tr>
               <tr>
-                  <td class="hdrlft"><h3>Category:</h3></td>
-                  <td class="hdrrt"><h3>Your Selection:</h3></td>
+                  <td class="hdrlft"><h3>Category</h3></td>
+                  <td class="hdrrt"><h3>Your Selection</h3></td>
               </tr>
                 #DrawOneSearchParam("Primary Cancer Type/Condition" "MainType")
                 #DrawOneSearchParam("Subtype" "SubTypes")

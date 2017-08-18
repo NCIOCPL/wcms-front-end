@@ -172,28 +172,24 @@ $usSites.length locations##
     #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
       <div class="row medium-12 cts-results-title">
         #if($SearchResults.Parameters.IsEmpty() == true)
-          <div class="medium-12 columns collapse">
-          <div class="cts-results-label">
+          <span class="cts-results-label">
           <strong>
-          Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search for: "all trials" | 
+          Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search for: "all trials" |
           </strong>
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-          </div>
-          </div>
+          </span>
+          
         #else
-          <div class="medium-4 columns collapse">
-          <div class="cts-results-label">
+          <span class="cts-results-label">
           <strong>
           Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search
           </strong>
-          </div>
-          </div>
-          <div class="medium-5 columns collapse">
+          </span>
+
           #DrawSearchParamsV2($SearchResults)
-          </div>
-          <div class="medium-3 columns">
+
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-          </div>
+
         #end##
       </div>
       <div class="row">
