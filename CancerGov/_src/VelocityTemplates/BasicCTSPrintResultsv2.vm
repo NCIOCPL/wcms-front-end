@@ -11,17 +11,8 @@
 		<div class="trialContainer">
 			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
 			##<!-- Check search terms and set them if they are used -->
-			#if($SearchResults.SearchTerms.ZipCode)
-				#set($zipCode = "&z=$SearchResults.SearchTerms.ZipCode")
-			#else
-				#set($zipCode = "")
-			#end
-			#if($SearchResults.SearchTerms.AgeOfEligibility)
-				#set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
-			#else
-				#set($age = "")
-			#end
-			<a class="CheckForUpdatesButton" href="/about-cancer/treatment/clinical-trials/search/v?id=$trial.NCIID$zipCode$age"><span>Check for Updates</span></a>  
+			#set($checkURL = $SearchResults.PrintHelper.GetCheckForUpdatesURL($trial.NCIID, $SearchResults.Parameters))
+			<a class="CheckForUpdatesButton" href="$checkURL"><span>Check for Updates</span></a>			
 			<table class="trialDataTable">
 				<tr class="trialDataHeaderRow">
 					<td>Phase</td>
