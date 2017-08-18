@@ -66,7 +66,7 @@
 #end
 
 #set($resultsUrl = $SearchResults.Control.GetBackToResultsUrl())##
-#if(!$Tools.IsNull($SearchResults.Parameters))##
+#if($SearchResults.Control.ShowCriteria)##
 <span class="cts-results-info">
   <a href="$resultsUrl">&lt; Back to search results</a>
 </span>
