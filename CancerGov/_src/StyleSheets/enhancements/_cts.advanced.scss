@@ -451,16 +451,17 @@ opacity: 0.45;
 }
 .clinicaltrials-results-criteria-display {
   background-color: #fff;
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
-  left: -20em;
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
+  left: -1em;
   position: relative;
-  top: 5px;
-  width: 41em;
+  top: -1px;
+  width: 702px;
   z-index: 100;
   padding: 10px 20px;
-  //@include bp(xtra-large){
-  //  width:;
-  //}
+  @include bp(xtra-large){
+    left: -40em;
+    top: 65px;
+  }
   @include bp(medium){
     left: -1em;
   }
@@ -481,7 +482,7 @@ opacity: 0.45;
   //background-color: #9cf;
   border: none;
   margin: 0;
-  padding: 10px 20px;
+  padding: 10px 5px;
   //float: right;
   position: relative;
   top: -11px;
@@ -508,7 +509,7 @@ opacity: 0.45;
  line-height:2em;
  padding: 0 0 0 5px;
  background-size: 10%;
- width: 350px;
+ width: 380px;
  @include bp(small){
    width: 300px;
    background-size: 12%;
@@ -523,7 +524,7 @@ opacity: 0.45;
 
 .cts-results-label {
  line-height: 2.5em;
- margin: auto 0;
+ margin: auto 10px auto 0;
 }
 
 .cts-start-over {
