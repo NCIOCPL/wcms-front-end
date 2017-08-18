@@ -49,7 +49,7 @@ $usSites.length locations##
       ## List invalid fields
       <ul>
       #if($SearchResults.Parameters.IsFieldInvalid("MainType") == true)
-        <li>Primary Cancer Type/Condition</li>
+        <li>Cancer Type</li>
       #end
       #if($SearchResults.Parameters.IsFieldInvalid("SubTypes") == true)
         <li>Subtypes</li>
@@ -172,23 +172,32 @@ $usSites.length locations##
     #if($SearchResults.PageInfo.CurrentPage <= $SearchResults.PageInfo.MaxPage) ## Check if out of bounds.
       <div class="row medium-12 cts-results-title">
         #if($SearchResults.Parameters.IsEmpty() == true)
+
+          <div class="medium-12 columns collapse">
+
           <span class="cts-results-label">
           <strong>
           Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search for: "all trials" |
           </strong>
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
           </span>
-          
+
+          </div>
+
         #else
-          <span class="cts-results-label">
+          <div class="medium-9 columns collapse">
+
+          <div class="cts-results-label">
           <strong>
           Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search
           </strong>
-          </span>
+          </div>
 
           #DrawSearchParamsV2($SearchResults)
-
+          
+          <div class="medium-3 columns">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
+          </div>
 
         #end##
       </div>
