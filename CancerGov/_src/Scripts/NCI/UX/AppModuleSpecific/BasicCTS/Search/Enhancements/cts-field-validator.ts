@@ -25,6 +25,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	// Member variables for error-able selectors
 	protected $zipSelector = $('input#z');
 	protected $ageSelector = $('input#a');
+	protected $hosSelector = $('input#hos');
 	protected $nonEmptySelector = $('input.non-empty');
 	protected $searchForm = $('input#rl');
 	protected $searchFormName = 'clinicaltrials_basic';
@@ -49,7 +50,11 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if (!$init.isNull($this.val()) && !$init.validateZip($this.val())) {
+				if (
+					!$init.isNull($this.val()) && !$init.validateZip($this.val()) ||
+ 				    $init.isNull($this.val()) && $init.isParentChecked($this)
+				   )
+				{
 					$init.toggleError(false,$this,null);
 				} else {
 					$init.toggleError(true,$this,null);
@@ -75,10 +80,8 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			})
 		;
 
-		// Draw or remove error message for fields that should not be empty 
-		// if the parent radio button selected, e.g. hospital or zip code.
-		this.$nonEmptySelector
-			//.data('error-message',this.$nonEmptySelector.attr('error-msg'))
+		// Draw or remove error message for the hospital field
+		this.$hosSelector
 			.on('blur.error',function(){
 				var $this = $(this);
 
@@ -91,6 +94,25 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				}
 			})
 		;
+
+		/// Commenting this out for now and just doing per-field validation. We can revisit 
+		/// the shared nonEmpty attribute later
+		// Draw or remove error message for fields that should not be empty 
+		// if the parent radio button selected, e.g. hospital or zip code.
+		// this.$nonEmptySelector
+		// 	//.data('error-message',this.$nonEmptySelector.attr('error-msg'))
+		// 	.on('blur.error',function(){
+		// 		var $this = $(this);
+
+		// 		$this.data('error-message',$this.attr('error-msg'));
+
+		// 		if ($init.isNull($this.val()) && $init.isParentChecked($this)) {
+		// 			$init.toggleError(false,$this,null);
+		// 		} else {
+		// 			$init.toggleError(true,$this,null);
+		// 		}
+		// 	})
+		// ;
 
 		if(this.$searchForm.val() == 2)
 		{
