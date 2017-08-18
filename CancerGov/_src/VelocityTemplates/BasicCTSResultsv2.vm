@@ -49,7 +49,7 @@ $usSites.length locations##
       ## List invalid fields
       <ul>
       #if($SearchResults.Parameters.IsFieldInvalid("MainType") == true)
-        <li>Cancer Type</li>
+        <li>Primary Cancer Type/Condition</li>
       #end
       #if($SearchResults.Parameters.IsFieldInvalid("SubTypes") == true)
         <li>Subtypes</li>
