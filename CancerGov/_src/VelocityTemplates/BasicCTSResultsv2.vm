@@ -49,16 +49,16 @@ $usSites.length locations##
       ## List invalid fields
       <ul>
       #if($SearchResults.Parameters.IsFieldInvalid("MainType") == true)
-        <li>Primary Type / Condition</li>
+        <li>Cancer Type</li>
       #end
       #if($SearchResults.Parameters.IsFieldInvalid("SubTypes") == true)
-        <li>Subtype</li>
+        <li>Subtypes</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Stages") == true)
-        <li>Stage</li>
+        <li>Stages</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Findings") == true)
-        <li>Side Effects / Biomarkers / Participant Attributes</li>
+        <li>Findings</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Age") == true)
         <li>Age</li>
@@ -67,7 +67,7 @@ $usSites.length locations##
         <li>Gender</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Phrase") == true)
-        <li>Keywords / Phrases</li>
+        <li>Phrases/Keywords</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Location") == true)
         <li>Location</li>
@@ -76,7 +76,7 @@ $usSites.length locations##
         <li>Zip Code</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("ZipRadius") == true)
-        <li>Zip Code Radius</li>
+        <li>Zip Radius</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Country") == true)
         <li>Country</li>
@@ -88,25 +88,22 @@ $usSites.length locations##
         <li>City</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Hospital") == true)
-        <li>Hospital / Institutions</li>
-      #end##
-      #if($SearchResults.Parameters.IsFieldInvalid("AtNIH") == true)
-        <li>At NIH</li>
+        <li>Hospital</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialTypes") == true)
-        <li>Trial Type</li>
+        <li>Trial Types</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Drugs") == true)
-        <li>Drug / Drug Family</li>
+        <li>Drugs</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("OtherTreatments") == true)
         <li>Other Treatments</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialPhases") == true)
-        <li>Trial Phase</li>
+        <li>Trial Phases</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialIDs") == true)
-        <li>Trial ID</li>
+        <li>Trial IDs</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Investigator") == true)
         <li>Trial Investigator</li>
@@ -178,17 +175,13 @@ $usSites.length locations##
 
           <div class="medium-12 columns collapse">
 
-          <div class="medium-9 columns collapse">
           <span class="cts-results-label">
           <strong>
           Results ${SearchResults.PageInfo.StartItemNumber}-${SearchResults.PageInfo.LastItemNumber} of <span data-basiccts-searchparam='n'>$SearchResults.Results.TotalResults</span> for your search for: "all trials" |
           </strong>
-          </span>
-          </div>
-
-          <div class="medium-3 columns">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-          </div>
+          </span>
+
           </div>
 
         #else
@@ -202,7 +195,7 @@ $usSites.length locations##
 
           #DrawSearchParamsV2($SearchResults)
           </div>
-
+          
           <div class="medium-3 columns">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
           </div>

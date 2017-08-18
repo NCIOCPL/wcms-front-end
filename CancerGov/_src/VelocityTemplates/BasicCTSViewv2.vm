@@ -44,7 +44,7 @@
     #set($sites = $SearchResults.Trial.Sites)
     #DrawSitesForUXFilter($sites)
 </div>
-#end 
+#end
 
 ## This is used to draw the closest sites when viewing by proximity
 #macro(DrawProximityLocationsV2 $filteredLocations)
@@ -73,24 +73,27 @@
 
 <div class="row medium-12 cts-results-title">
 #if($SearchResults.Parameters.IsEmpty() == true)
+
   <div class="medium-12 columns collapse">
-    <div class="cts-results-label">
+
+    <span class="cts-results-label">
     <strong>
-    This clinical trial matches: "all trials" | 
+    This clinical trial matches: "all trials" |
     </strong>
     <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
-    </div>
+    </span>
+
   </div>
 #else
-<div class="medium-4 columns collapse">
-  <div class="cts-results-label">
-  <strong>
-  This clinical trial matches: 
-  </strong>
-  </div>
-</div>
 
-<div class="medium-5 columns collapse">
+<div class="medium-9 columns collapse">
+
+  <span class="cts-results-label">
+  <strong>
+  This clinical trial matches:
+  </strong>
+  </span>
+
   #DrawSearchParamsV2($SearchResults)
 </div>
 
