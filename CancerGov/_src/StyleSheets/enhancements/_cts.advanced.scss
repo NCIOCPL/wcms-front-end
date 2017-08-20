@@ -474,10 +474,18 @@ opacity: 0.45;
 }
 
 .cts-results-title {
-  padding-bottom: 0;
+  padding-bottom: 0.5em;
+  padding-top: 1em;
 }
+
 .cts-results-title .search-criteria-box {
   display: inline-table;
+}
+.row .row .medium-9 .status {
+  margin-top: 2em;
+}
+.accordion-controls {
+  margin-top: 3em;
 }
 
 .search-criteria-box {
@@ -538,10 +546,10 @@ opacity: 0.45;
  white-space: nowrap;
 
   @include bp(xtra-large){
-    margin: 0 0 0 -11em;
+    margin: 0 0 0 -9.5em;
   }
   @include bp(large){
-  margin: 0 0 0 -2em;
+  margin: 0 0 0 0;
   }
   @include bp(medium-down){
    padding-left: 0;
