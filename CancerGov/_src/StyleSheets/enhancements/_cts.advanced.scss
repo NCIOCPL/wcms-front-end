@@ -239,7 +239,7 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
 {
   background-color: #f2f2f2;
   border-radius: 1px;
-	min-height: 36px;
+	height: 36px;
 }
 
 //select2 placeholder text alignment
@@ -336,7 +336,7 @@ Create styles for fieldsets
           margin: 0;
           word-wrap: break-word;
             @include bp(medium-down){
-              margin: 0 1em 0 0;
+              margin: 0 0.5em 0 0;
             }
           .text-icon-help {
               font-size: 0.75em;
@@ -523,7 +523,7 @@ opacity: 0.45;
  line-height:2em;
  padding: 0 0 0 5px;
  background-size: 10%;
- width: 380px;
+ width: 375px;
  @include bp(small){
    width: 300px;
    background-size: 12%;
@@ -539,7 +539,7 @@ opacity: 0.45;
 
 .cts-results-label {
  line-height: 2.5em;
- margin: auto 10px auto 0;
+ margin: auto 6px auto 0;
 }
 
 .cts-start-over {
