@@ -79,7 +79,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		// Add findings select2 control only if the selector exists
 		if(this.isNotEmpty(this.$findings)) {
 			this.$findings.select2({
-				minimumInputLength: 1, 
+				minimumInputLength: 3, 
 				placeholder: 'Please select a Cancer Type or Sub Type First'
 			})
 		}
@@ -267,7 +267,10 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$findings.select2({data: findings});
+				this.$findings.select2({
+					data: findings,
+					minimumInputLength: 3
+				});
 				this.$findings.prop("disabled", false);
 			})		
 	}
