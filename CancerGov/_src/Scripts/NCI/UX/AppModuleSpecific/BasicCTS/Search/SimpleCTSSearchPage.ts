@@ -27,7 +27,7 @@ class SimpleCTSSearchPage extends BaseCTSSearchPage {
 	onReady():void {
 		new CTSSimpleFormSetup(this.Config.ClinicalTrialsAPIServer).init();
 		new CTSFieldValidator().init();
-//		(<any>(CTSCommonAnalytics)).init();
+		(<any>(CTSCommonAnalytics)).init();
 		(<any>(FeedbackForm)).init();
 		(<any>jQuery('[data-match-height]')).NCI_equal_heights();
 	}
