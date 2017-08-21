@@ -5,8 +5,11 @@
  * in CDEDefaultConfiguration.
  */
 export interface CDEConfiguration {
-    // These setting names are placeholders
-    setting1 : string;
-    setting2 : string;
-    setting3 : number;
+    /**
+     * Identifies the hostname of the clinicaltrials API server
+     * 
+     * @type {string}
+     * @memberof CDEConfiguration
+     */
+    ClinicalTrialsAPIServer : string;
 }
