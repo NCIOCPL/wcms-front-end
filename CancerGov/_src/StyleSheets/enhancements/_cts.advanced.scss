@@ -334,6 +334,10 @@ Create styles for fieldsets
       h4 {
           font-size: 1.25em;
           margin: 0;
+          word-wrap: break-word;
+            @include bp(medium-down){
+              margin: 0 1em 0 0;
+            }
           .text-icon-help {
               font-size: 0.75em;
               margin-top: 1px;
@@ -397,7 +401,7 @@ form .row .row .column, form .row .row .columns {
   border: 1px solid #bdbddc;
 }
 #form--cts-basic, #form--cts-advanced {
-  #z, #lcty, #hos {
+  #a, #z, #lcty, #hos {
     background-color: #f2f2f2;
   }
 }
