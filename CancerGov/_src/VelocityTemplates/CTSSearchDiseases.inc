@@ -1,6 +1,6 @@
         <fieldset id="fieldset--type">
             <div class="adv-fieldset-header">
-                <h4>CANCER TYPE/CONDITION
+                <h4>CANCER TYPE / CONDITION
                     <a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -44,7 +44,7 @@
                     <div class="row">
                         <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" style="width:97%"></select>
                     </div>
-<!--(bake-end)-->                    
+<!--(bake-end)-->
                 </div>
             </div>
         </fieldset>
