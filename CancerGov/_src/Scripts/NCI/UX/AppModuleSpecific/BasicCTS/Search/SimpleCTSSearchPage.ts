@@ -11,7 +11,7 @@ import "../../../../Plugins/jquery.nci.equal_heights";
 	$(function() { //document.ready shorthand
 		new CTSSimpleFormSetup("clinicaltrialsapi-stage.cancer.gov").init();
 		new CTSFieldValidator().init();
-//		(<any>(CTSCommonAnalytics)).init();
+		(<any>(CTSCommonAnalytics)).init();
 		(<any>(FeedbackForm)).init();
 		(<any>jQuery('[data-match-height]')).NCI_equal_heights();
 	});
