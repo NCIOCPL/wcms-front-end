@@ -30,6 +30,7 @@ export class CTAPIFacade {
             { 
                 name: name,
                 size: 10,
+                sort: "cancergov",
                 current_trial_status: VIEWABLE_TRIALS
             }
         ).then((res:DiseaseResults) => {
