@@ -883,33 +883,33 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 	//******************************************************************************************************
-    CTSResultsPrintSelectedClick: function(sender, location, hasSelectAll, totalChecked, checkedPages){
+    CTSResultsPrintSelectedClick: function(sender, location, hasSelectAll, totalChecked, checkedPages, formName){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsPrintSelectedClick');
         clickParams.Events = [48];
         clickParams.Props = {
             21: 'CTSPrintSelected_' + location + '_' + hasSelectAll + '_' + totalChecked + '_' + checkedPages,
             67: 'D=pageName',
-            74: 'clinicaltrials_basic|print selected'
+            74: formName + '|print selected'
         };
         clickParams.LogToOmniture();
     },
     //******************************************************************************************************
-    CTSResultsMaxSelectedClick: function(sender) { 
+    CTSResultsMaxSelectedClick: function(sender, formName) { 
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsMaxSelectedClick'); 
         clickParams.Events = [41]; 
         clickParams.Props = { 
-            74: 'clinicaltrials_basic|error', 
+            74: formName + '|error', 
             75: 'printselected|maxselectionreached'
         }; 
         clickParams.LogToOmniture(); 
     },
     //******************************************************************************************************
-    CTStartOverClick: function(sender) { 
+    CTStartOverClick: function(sender, formName) { 
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTStartOverClick'); 
         clickParams.Events = [49]; 
         clickParams.Props = { 
             67: 'D=pageName',
-            74: 'clinicaltrials_basic|start over'
+            74: formName + '|start over'
         }; 
         clickParams.LogToOmniture(); 
     },
@@ -1695,20 +1695,15 @@ var NCIAnalytics = {
 	* sender - the element responsible for this event
 	* rank - the position of the selected item on a given page
 	*/
-	CTSResultsClick: function(sender, rank, custom) {
-        var type = 'clinicaltrials_basic';
-        if(custom) {
-            type = 'clinicaltrials_custom';
-        }
-        
+	CTSResultsClick: function(sender, rank, formName) {
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
 		clickParams.Events = [42];
 		clickParams.Props = {
-			12: type,
+			12: formName,
 			13: rank
 		};
 		clickParams.Evars = {
-			12: type
+			12: formName
 		};
 		clickParams.LogToOmniture();
 	},
