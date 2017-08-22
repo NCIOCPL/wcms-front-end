@@ -73,7 +73,7 @@
                         <div class="row">
                             <div class="z-input large-6 columns gutter">
                                 <label for="z">U.S. ZIP Code: </label>
-                                <input type="text" id="z" name="z" class="non-empty" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
+                                <input type="text" id="z" name="z" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
                             </div>
                             <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>

@@ -50,15 +50,11 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-				if (
-					!$init.isNull($this.val()) && !$init.validateZip($this.val()) ||
- 				    $init.isNull($this.val()) && $init.isParentChecked($this)
-				   )
-				{
-					$init.toggleError(false,$this,null);
-				} else {
-					$init.toggleError(true,$this,null);
-				}
+                if ($init.isNotNull($this.val()) && $init.validateZip($this.val())) {
+                    $init.toggleError(true,$this,null);
+                } else {
+                    $init.toggleError(false,$this,null);
+                }
 			})
 		;
 
@@ -149,7 +145,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				e.preventDefault();
 
 				//trigger input blur event
-				$(this).find('input[type=text]:visible').trigger('blur');
+                $(this).find('fieldset:not(.fieldset-disabled) input[type=text]:visible:enabled').trigger('blur');
 
 				//check for inputs that have errors
 				var fieldsAreValid = $(this).find('input.error').length === 0;
@@ -238,13 +234,12 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		}
 		if(!valid){
 			el.addClass("error");
-			if(el.next('.error-msg')[0]){
-				el.next('.error-msg').css('visibility','visible');
-			} else {
+            if(el.next().is('.error-msg')){
+                el.next().css('visibility','visible');
+            } else {
 				el.after('<div class="error-msg">' + el.data("error-message") + '</div>');
 
-				//Log Error Message Here.  It would be nice to have an instance of
-				//this...
+				//Log Error Message Here.  It would be nice to have an instance of this...
 				(<any>$(".clinical-trials-search-form")).basicctsformtrack("errors", [{
 					field: el.attr('id'),
 					message: el.data("error-message")
