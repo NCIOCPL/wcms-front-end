@@ -103,12 +103,16 @@
 	}
 }
 
+/*!
 @each $bg-pattern in (
 	"blue-circles",
 	"blue-dots",
 	"blue-triangles",
+	"emerald-xes",
+	"fuchsia-waves",
 	"green-arrows",
 	"green-plaid",
+	"navy-squares",
 	"orange-plaid",
 	"orange-waves",
 	"pink-triangles",
@@ -116,15 +120,16 @@
 	"purple-triangles",
 	"red-squares",
 	"red-triangles",
+	"slate-grid",
 	"yellow-circles",
-	"yellow-hexagons",
-	"fuchsia-waves",
-	"emerald-xes",
-	"navy-squares",
-	"slate-grid"
+	"yellow-hexagons"
 ) {
 	@include nci-bg-pattern($bg-pattern);
 }
+*/
+@import "../../../../StyleSheets/sprites/img-sprites";
+@import "carousel-sprites-bgs";
+@include img-sprites-same-size($spritesheet-sprites);
 /* End background patterns */
 
 

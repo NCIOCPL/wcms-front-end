@@ -11,7 +11,9 @@ module.exports = function(grunt) {
                 velocitytemplates: "_src/VelocityTemplates/",
                 styles: "_src/StyleSheets/",
                 scripts: "_src/Scripts/",
+                modules: "_src/Scripts/NCI/Modules",
                 images: "_src/ImageAssets/",
+                sprites: "_src/ImageAssets/sprites",
                 fonts: '_src/Fonts'
             },
             tmp: {
@@ -30,6 +32,7 @@ module.exports = function(grunt) {
                 styles: target + "/Styles/",
                 scripts: target + "/js/",
                 images: target + "/Images/",
+                sprites: target + "/Images/sprites",
                 fonts: target + "/fonts"
             },
             bower: 'bower_components/'
@@ -104,6 +107,7 @@ module.exports = function(grunt) {
         grunt.config('env', env);
 
         var tasks = [
+            'sprite',
             'svg_sprite',
             'svgmin'];
         grunt.task.run(tasks);

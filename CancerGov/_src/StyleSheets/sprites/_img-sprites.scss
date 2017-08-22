@@ -1,0 +1,79 @@
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin img-sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin img-sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin img-sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin img-sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin img-sprite($sprite) {
+  @include img-sprite-image($sprite);
+  @include img-sprite-position($sprite);
+  @include img-sprite-width($sprite);
+  @include img-sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin img-sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include img-sprite($sprite);
+    }
+  }
+}
+
+// all sprites are the same width and height. Will format css to minimize repetition
+@mixin img-sprites-same-size($sprites) {
+  %group-styles {
+    @include img-sprite-image(nth($sprites,1));
+    @include img-sprite-width(nth($sprites,1));
+    @include img-sprite-height(nth($sprites,1));
+  }
+
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @extend %group-styles;
+      @include img-sprite-position($sprite);
+    }
+  }
+}

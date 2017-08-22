@@ -3,7 +3,6 @@
  ****************************************/
 module.exports = function (grunt, options) {
     var dirs = options.dirs;
-    console.log(dirs.dist);
     return {
         templates: {
             nonull: true,
