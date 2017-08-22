@@ -49,16 +49,16 @@ $usSites.length locations##
       ## List invalid fields
       <ul>
       #if($SearchResults.Parameters.IsFieldInvalid("MainType") == true)
-        <li>Cancer Type</li>
+        <li>Primary Type / Condition</li>
       #end
       #if($SearchResults.Parameters.IsFieldInvalid("SubTypes") == true)
-        <li>Subtypes</li>
+        <li>Subtype</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Stages") == true)
-        <li>Stages</li>
+        <li>Stage</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Findings") == true)
-        <li>Findings</li>
+        <li>Side Effects / Biomarkers / Participant Attributes</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Age") == true)
         <li>Age</li>
@@ -67,7 +67,7 @@ $usSites.length locations##
         <li>Gender</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Phrase") == true)
-        <li>Phrases/Keywords</li>
+        <li>Keywords / Phrases</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Location") == true)
         <li>Location</li>
@@ -76,7 +76,7 @@ $usSites.length locations##
         <li>Zip Code</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("ZipRadius") == true)
-        <li>Zip Radius</li>
+        <li>Zip Code Radius</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Country") == true)
         <li>Country</li>
@@ -88,22 +88,25 @@ $usSites.length locations##
         <li>City</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Hospital") == true)
-        <li>Hospital</li>
+        <li>Hospital / Institutions</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("AtNIH") == true)
+        <li>At NIH</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialTypes") == true)
-        <li>Trial Types</li>
+        <li>Trial Type</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Drugs") == true)
-        <li>Drugs</li>
+        <li>Drug / Drug Family</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("OtherTreatments") == true)
         <li>Other Treatments</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialPhases") == true)
-        <li>Trial Phases</li>
+        <li>Trial Phase</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialIDs") == true)
-        <li>Trial IDs</li>
+        <li>Trial ID</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Investigator") == true)
         <li>Trial Investigator</li>
