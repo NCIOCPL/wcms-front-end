@@ -429,9 +429,11 @@ background-color: #ddd;
 opacity: 0.45;
 }
 
-//drug/other treatment placeholder text
+//cancer type (side effects/biomarker/etc.., drug/other treatment placeholder text
 #form--cts-advanced #fieldset--trialtreatment input[type="text"],
-#form--cts-advanced #fieldset--trialtreatment input[type="search"] {
+#form--cts-advanced #fieldset--trialtreatment input[type="search"],
+#form--cts-advanced #fieldset--type input[type="text"],
+#form--cts-advanced #fieldset--type input[type="search"] {
   //background-color: #306;
   width: 100% !important;
   margin-right: 5em;
