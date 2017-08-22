@@ -487,9 +487,11 @@ opacity: 0.45;
   }
   @include bp(medium){
     left: -1em;
+    width: 625px;
   }
   @include bp(small){
     left: -1em;
+    top: 4px;
     width: 100%;
   }
 }
@@ -551,7 +553,7 @@ opacity: 0.45;
 .ctscb.show
 {
  background: #ededed url("/publishedcontent/images/images/design-elements/icons/cts-minus.png") no-repeat scroll right center;
- background-size: 10%;
+ background-size: 11%;
 }
 
 .cts-results-label {
