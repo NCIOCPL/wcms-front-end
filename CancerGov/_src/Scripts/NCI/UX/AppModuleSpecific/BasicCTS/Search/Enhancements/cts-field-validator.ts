@@ -50,7 +50,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-                if ($init.isNotNull($this.val()) && $init.validateZip($this.val())) {
+                if (!$init.isNull($this.val()) && $init.validateZip($this.val())) {
                     $init.toggleError(true,$this,null);
                 } else {
                     $init.toggleError(false,$this,null);
