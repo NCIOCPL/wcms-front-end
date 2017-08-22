@@ -210,7 +210,12 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$subtypeCancer.select2({data: subtypes});
+				this.$subtypeCancer.select2({
+					data: subtypes,
+					language: {
+						noResults: ( params => "No available options based on your previous selection." )
+					}
+				});
 				this.$subtypeCancer.prop("disabled", false);
 			})
 	}
@@ -231,7 +236,6 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	private populateStageField(codes:string|string[]) {
 		
 		let selectedItems = this.$stageCancer.val();
-		console.log(selectedItems);
 
 		this.$stageCancer.empty();
 		this.facade.getStages(codes)
@@ -250,7 +254,13 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$stageCancer.select2({data: stages});
+				this.$stageCancer.select2({
+					data: stages,
+					language: {
+						noResults: ( params => "No available options based on your previous selection." )
+					}
+
+				});
 
 				if (selectedInSet.length > 0) {
 					this.$stageCancer.val(selectedInSet).trigger("change");
@@ -297,7 +307,10 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 				this.$findings.select2({
 					data: findings,
-					minimumInputLength: 3
+					minimumInputLength: 3,
+					language: {
+						noResults: ( params => "No available options based on your previous selection." )
+					}
 				});
 
 				if (selectedInSet.length > 0) {
@@ -305,7 +318,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				}
 
 				this.$findings.prop("disabled", false);
-			})		
+			})
 	}
 	
 	private clearFindingField() {

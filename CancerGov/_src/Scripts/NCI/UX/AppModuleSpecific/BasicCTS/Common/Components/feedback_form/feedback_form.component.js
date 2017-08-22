@@ -18,8 +18,8 @@ define(function (require) {
     // - User Clicks close button on thank you screen
     //Tracked events are passed to FeedbackFormClick() in NCIAnalyticsFunctions.js
 
-    function _sendAnalytics(prop,searchType) {
-        var analyticsProp5 = 'cts_' + searchType + '_feedback - ';
+    function _sendAnalytics(prop) {
+        var analyticsProp5 = 'cts_feedback - ';
         analyticsProp5 += prop;
         if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
             NCIAnalytics.FeedbackFormClick(this, analyticsProp5);
@@ -27,18 +27,6 @@ define(function (require) {
     }
 
     function _create(options){
-
-            // Create selectors that will determine prop value strings
-            var searchType = '';
-            var $basicSelector = $('#form--cts-basic');
-            var $advSelector = $('#form--cts-advanced');
-
-            // Look for the ID on the form element and set the prop5 value accordingly            
-            if($basicSelector.length > 0) {
-                searchType = 'basic';
-            } else if($advSelector.length > 0) {
-                searchType = 'advanced';
-            }
             
             //Create Holder for App
             var $content_elem = $("<div></div>");
@@ -63,11 +51,11 @@ define(function (require) {
                         contentType: 'application/json; charset=utf-8',
                         encode: true
                     }).done(function(data) {
-                        _sendAnalytics("submit",searchType);
+                        _sendAnalytics("submit");
                         callback(false);
                     }).error(function(err) {
                         //TODO: ANALYTICS
-                        _sendAnalytics("server_error",searchType);
+                        _sendAnalytics("server_error");
                         callback(err);
                     })
                 }, 
@@ -104,11 +92,11 @@ define(function (require) {
                 close: function(evt, ui) {
                     //TODO: RAISE ANALYTICS EVENT
 
-                    var analyticsProp5 = 'cts_' + searchType + '_feedback - ';
+                    var analyticsProp5 = 'cts_feedback - ';
                     if (!closure_reason) {
-                        _sendAnalytics("esc_close",searchType);
+                        _sendAnalytics("esc_close");
                     } else {
-                        _sendAnalytics(closure_reason,searchType);
+                        _sendAnalytics(closure_reason);
                     }
 
                     $content_elem.dialog("destroy");

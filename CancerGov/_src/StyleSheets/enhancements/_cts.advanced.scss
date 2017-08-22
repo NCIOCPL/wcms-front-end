@@ -42,9 +42,16 @@
     h4 {
       color: #fff;
       margin-top: 0.5em;
+      @include bp(small){
+        margin: 0 0.8em 0.2em -0.5em;
+      }
 
-      .text-icon-help, .main-content .text-icon-help {
+      .text-icon-help, .main-content .text-icon-help
+      {
         margin-top: -3px;
+          @include bp(small){
+            margin: 0 -1.6em 0 0;
+          }
       }
 
     }
@@ -239,7 +246,8 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
 {
   background-color: #f2f2f2;
   border-radius: 1px;
-	height: 36px;
+	min-height: 36px;
+	padding-bottom: 5px;
 }
 
 //select2 placeholder text alignment
@@ -336,11 +344,14 @@ Create styles for fieldsets
           margin: 0;
           word-wrap: break-word;
             @include bp(medium-down){
-              margin: 0 0.5em 0 0;
+              margin: 0 0.5em 0 -0.6em;
             }
           .text-icon-help {
               font-size: 0.75em;
               margin-top: 1px;
+              @include bp(small){
+                margin: 1px -1.5em 1px 1px;
+              }
           }
       }
     }
@@ -418,11 +429,20 @@ background-color: #ddd;
 opacity: 0.45;
 }
 
-//#dr-multiselect .select2-selection__placeholder {
-//  width: 100%;
-//  background-color: #9cf;
-//}
+//cancer type (side effects/biomarker/etc.., drug/other treatment placeholder text
+#form--cts-advanced #fieldset--trialtreatment input[type="text"],
+#form--cts-advanced #fieldset--trialtreatment input[type="search"],
+#form--cts-advanced #fieldset--type input[type="text"],
+#form--cts-advanced #fieldset--type input[type="search"] {
+  //background-color: #306;
+  width: 100% !important;
+  margin-right: 5em;
+}
 
+//drug/other treatment label spacing
+#form--cts-advanced #fieldset--trialtreatment .adv-fieldset-body label {
+  margin-bottom: 0.4em;
+}
 
 //styling for search criteria table
 .clinicaltrials-results-criteria-display table {
@@ -470,9 +490,11 @@ opacity: 0.45;
   }
   @include bp(medium){
     left: -1em;
+    width: 625px;
   }
   @include bp(small){
     left: -1em;
+    top: 4px;
     width: 100%;
   }
 }
@@ -534,7 +556,7 @@ opacity: 0.45;
 .ctscb.show
 {
  background: #ededed url("/publishedcontent/images/images/design-elements/icons/cts-minus.png") no-repeat scroll right center;
- background-size: 10%;
+ background-size: 11%;
 }
 
 .cts-results-label {

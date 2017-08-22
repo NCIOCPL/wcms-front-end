@@ -124,14 +124,12 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		// Build up Select2 control for drug selection
 		(<any>Select2InterventionsInitializer).default(
 			$drugSelect,
-			'Type the drug you are looking for below',
 			this.facade.searchDrugs.bind(this.facade)
 		);
 
 		// Build up Select2 control for other treatments
 		(<any>Select2InterventionsInitializer).default(
 			$ivSelect,
-			'Start typing the treatment/intervention you are looking for',
 			this.facade.searchOtherInterventions.bind(this.facade)
 		);
 

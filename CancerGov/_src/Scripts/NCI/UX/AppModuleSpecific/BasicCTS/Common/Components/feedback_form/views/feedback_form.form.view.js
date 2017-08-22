@@ -61,18 +61,6 @@ define(function (require) {
 
   	function _toggleError(valid,el,skipTrue){
 
-        // Create selectors that will determine prop value strings
-        var searchType = '';
-        var $basicSelector = $('#form--cts-basic');
-        var $advSelector = $('#form--cts-advanced');
-
-        // Look for the ID on the form element and set the prop5 value accordingly            
-        if($basicSelector.length > 0) {
-            searchType = 'basic';
-        } else if($advSelector.length > 0) {
-            searchType = 'advanced';
-        }
-
 		if(valid && !skipTrue){
 			el.removeClass("error");
 			el.prev('.error-msg').css('visibility','hidden');
@@ -83,7 +71,7 @@ define(function (require) {
 				el.prev('.error-msg').css('visibility','visible');
 			} else {
 				el.before('<div class="error-msg">' + el.data("error-message") + '</div>');
-                _sendErrorAnalytics(searchType);
+                _sendErrorAnalytics();
 				//TODO: Log Error Message Here.  It would be nice to have an instance of
 				//this...
 			}
@@ -91,8 +79,8 @@ define(function (require) {
 	}
 
 	// Track error event on the Feedback Form
-    function _sendErrorAnalytics(searchType) {
-        var analyticsProp5 = 'cts_' + searchType + '_feedback - error';
+    function _sendErrorAnalytics() {
+        var analyticsProp5 = 'cts_feedback - error';
         if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
             NCIAnalytics.FeedbackFormClick(this, analyticsProp5);
         }

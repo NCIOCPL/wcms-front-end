@@ -6,7 +6,7 @@
  <DetailedViewPageTemplatePath>~/PublishedContent/VelocityTemplates/BasicCTSViewv2.vm</DetailedViewPageTemplatePath>
  <PrintPageTemplatePath>~/PublishedContent/VelocityTemplates/BasicCTSPrintResultsv2.vm</PrintPageTemplatePath>
  <BasicSearchPagePrettyUrl>/about-cancer/treatment/clinical-trials/search</BasicSearchPagePrettyUrl>
- <AdvSearchPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/a</AdvSearchPagePrettyUrl>
+ <AdvSearchPagePrettyUrl>/about-cancer/treatment/clinical-trials/advanced-search</AdvSearchPagePrettyUrl>
  <ResultsPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/r</ResultsPagePrettyUrl>
  <DetailedViewPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/v</DetailedViewPagePrettyUrl>
  <RedirectPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/options</RedirectPagePrettyUrl>
