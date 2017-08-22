@@ -1,3 +1,4 @@
+import 'core-js/fn/array/includes';
 import { CTSBaseFormSetup } from './cts-base-form-setup';
 import { DiseaseResult } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
@@ -153,7 +154,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				let codes:string[] = subtype.split("|");
 				codes.forEach(c => allCodes.push(c));
 			})
-		}
+		}		
 
 		if (allCodes.length > 0) {
 			this.populateStageField(allCodes);
@@ -228,17 +229,33 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 * @memberof CTSBaseFormSetup
 	 */
 	private populateStageField(codes:string|string[]) {
-		this.$stageCancer.empty();		
+		
+		let selectedItems = this.$stageCancer.val();
+		console.log(selectedItems);
+
+		this.$stageCancer.empty();
 		this.facade.getStages(codes)
 			.then((resList:DiseaseResult[]) => {
+				let selectedInSet = [];
 				let stages = resList.map( val => {
+							let id = val.codes.join('|');
+
+							if (selectedItems.includes(id)) {
+								selectedInSet.push(id);
+							}
+
 							return {
-								id: val.codes.join('|'),
+								id: id,
 								text: val.name
 							}
 						});
 
 				this.$stageCancer.select2({data: stages});
+
+				if (selectedInSet.length > 0) {
+					this.$stageCancer.val(selectedInSet).trigger("change");
+				}
+				
 				this.$stageCancer.prop("disabled", false);
 			})		
 	}
@@ -257,12 +274,23 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 * @memberof CTSBaseFormSetup
 	 */
 	private populateFindingField(codes:string|string[]) {
+		let selectedItems: string[] = this.$findings.val();
+
 		this.$findings.empty();
+
 		this.facade.getFindings(codes)
 			.then((resList:DiseaseResult[]) => {
+				let selectedInSet = [];
+
 				let findings = resList.map( val => {
+							let id = val.codes.join('|');
+
+							if (selectedItems.includes(id)) {
+								selectedInSet.push(id);
+							}
+
 							return {
-								id: val.codes.join('|'),
+								id: id,
 								text: val.name
 							}
 						});
@@ -271,6 +299,11 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					data: findings,
 					minimumInputLength: 3
 				});
+
+				if (selectedInSet.length > 0) {
+					this.$findings.val(selectedInSet).trigger("change");
+				}
+
 				this.$findings.prop("disabled", false);
 			})		
 	}

@@ -14,8 +14,7 @@
         //These are helper Type definitions
         "lib": [
             "dom",
-            "es2015",
-            "es2015.promise"
+            "es2017"
         ],
         "paths": {
             "*": [
