@@ -25,7 +25,7 @@ export class CTAPIFacade {
 
     getDiseasesForSimpleTypeAhead(name: string):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
-            ["maintype", "subtype", "stage", "grade"],
+            ["maintype", "subtype", "stage"],
             undefined,
             { 
                 name: name,
@@ -65,7 +65,7 @@ export class CTAPIFacade {
      */
     getSubtypes(ancestorID:string|string[]):Promise<DiseaseResult[]> {
         return this.svc.getDiseases(
-            ["subtype","grade"],
+            "subtype",
             ancestorID,
             { 
                 size: 0,
