@@ -42,9 +42,16 @@
     h4 {
       color: #fff;
       margin-top: 0.5em;
+      @include bp(small){
+        margin: 0 0.8em 0.2em -0.5em;
+      }
 
-      .text-icon-help, .main-content .text-icon-help {
+      .text-icon-help, .main-content .text-icon-help
+      {
         margin-top: -3px;
+          @include bp(small){
+            margin: 0 -1.6em 0 0;
+          }
       }
 
     }
@@ -336,11 +343,14 @@ Create styles for fieldsets
           margin: 0;
           word-wrap: break-word;
             @include bp(medium-down){
-              margin: 0 0.5em 0 0;
+              margin: 0 0.5em 0 -0.6em;
             }
           .text-icon-help {
               font-size: 0.75em;
               margin-top: 1px;
+              @include bp(small){
+                margin: 1px -1.5em 1px 1px;
+              }
           }
       }
     }
@@ -418,11 +428,18 @@ background-color: #ddd;
 opacity: 0.45;
 }
 
-//#dr-multiselect .select2-selection__placeholder {
-//  width: 100%;
-//  background-color: #9cf;
-//}
+//drug/other treatment placeholder text
+#form--cts-advanced #fieldset--trialtreatment input[type="text"],
+#form--cts-advanced #fieldset--trialtreatment input[type="search"] {
+  //background-color: #306;
+  width: 100% !important;
+  margin-right: 5em;
+}
 
+//drug/other treatment label spacing
+#form--cts-advanced #fieldset--trialtreatment .adv-fieldset-body label {
+  margin-bottom: 0.4em;
+}
 
 //styling for search criteria table
 .clinicaltrials-results-criteria-display table {

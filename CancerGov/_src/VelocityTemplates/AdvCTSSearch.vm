@@ -247,7 +247,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ti-multiselect" name="i" multiple placeholder="Please enter 3 or more characters"></select>
+                    <select id="ti-multiselect" name="i" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters"></select>
                 </div>
             </div>
         </fieldset>
