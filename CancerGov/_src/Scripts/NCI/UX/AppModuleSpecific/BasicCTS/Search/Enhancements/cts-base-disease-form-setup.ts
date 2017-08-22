@@ -209,7 +209,14 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$subtypeCancer.select2({data: subtypes});
+				this.$subtypeCancer.select2({
+					data: subtypes,
+					language: {
+						noResults: function (params) {
+						return "No available options based on your previous selection.";
+						}
+					}
+				});
 				this.$subtypeCancer.prop("disabled", false);
 			})
 	}
@@ -238,7 +245,14 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$stageCancer.select2({data: stages});
+				this.$stageCancer.select2({
+					data: stages,
+					language: {
+						noResults: function (params) {
+						return "No available options based on your previous selection.";
+						}
+					}				
+				});
 				this.$stageCancer.prop("disabled", false);
 			})		
 	}
@@ -269,10 +283,15 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 				this.$findings.select2({
 					data: findings,
-					minimumInputLength: 3
+					minimumInputLength: 3,
+					language: {
+						noResults: function (params) {
+						return "No available options based on your previous selection.";
+						}
+					}					
 				});
 				this.$findings.prop("disabled", false);
-			})		
+			})
 	}
 	
 	private clearFindingField() {
