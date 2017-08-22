@@ -205,7 +205,7 @@ function s_doPlugins(s) {
 
     // retrieve urs values
     if(typeof NCIAnalytics !== 'undefined') {
-    	if(typeof NCIAnalytics.urs === 'function') {
+    	if(typeof NCIAnalytics.urs !== 'undefined') {
 			window.urs = NCIAnalytics.urs.get({
 				campaign: sCampaign,
 				referrer: document.referrer
