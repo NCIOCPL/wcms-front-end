@@ -3,6 +3,7 @@ import * as NCI from "UX/Common/Enhancements/NCI";
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
 import "../../Search/Plugins/jquery.basicctsformtrack";
 import "../../../../../Patches/AdobeAnalytics";
+import "../../../../../Plugins/jquery.nci.scroll_to";
 
 /**
  * Represents a field validation object
@@ -164,7 +165,11 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 						message: 'attempted form submit with errors'
 					}]);
 
-					$(this).find('input.error:first').focus();
+					//$(this).find('input.error:first').focus();
+
+					(<any>$(window)).NCI_scroll_to({
+                        anchor: $(this).find('input.error:first').closest('fieldset'),
+                    });
 
 					return false;
 				}
