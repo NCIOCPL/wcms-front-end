@@ -6,7 +6,7 @@
             </div>
             <div class="adv-fieldset-body">
                 <div class="row">
-                    <div>You must first select a cancer type. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
+                    <div>You must first select a cancer type or condition. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
                 </div>
                 <div class="row">
                     <div>
