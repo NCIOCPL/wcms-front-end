@@ -904,12 +904,12 @@ var NCIAnalytics = {
         clickParams.LogToOmniture(); 
     },
     //******************************************************************************************************
-    CTStartOverClick: function(sender, formName) { 
+    CTStartOverClick: function(sender, formName, linkText) { 
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTStartOverClick'); 
         clickParams.Events = [49]; 
         clickParams.Props = { 
             67: 'D=pageName',
-            74: formName + '|start over'
+            74: formName + '|' + linkText
         }; 
         clickParams.LogToOmniture(); 
     },
