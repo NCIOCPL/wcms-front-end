@@ -10,6 +10,12 @@
   @import "multiple";
 }
 
+//@include bp("(max-width:680px)") {
+fieldset .select2-container {
+  width: 100% !important;
+}
+//}
+
 @import "dropdown";
 
 .select2-close-mask {

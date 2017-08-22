@@ -12,6 +12,7 @@ module.exports = function(grunt) {
                 styles: "_src/StyleSheets/",
                 scripts: "_src/Scripts/",
                 images: "_src/ImageAssets/",
+                files: "_src/FileAssets/",
                 fonts: '_src/Fonts'
             },
             tmp: {
@@ -30,6 +31,7 @@ module.exports = function(grunt) {
                 styles: target + "/Styles/",
                 scripts: target + "/js/",
                 images: target + "/Images/",
+                files: target + "/Files/",
                 fonts: target + '/fonts'
             },
             bower: 'bower_components/'
@@ -120,6 +122,15 @@ module.exports = function(grunt) {
     });
 
     // ----------------------------------------------------------------
+    // Copying all file assets to the _dist folder
+    // ----------------------------------------------------------------
+    grunt.registerTask('build-files', 'Copy file assets.', function() {
+        var tasks = ['copy:files'];
+        grunt.log.writeln('Copying file assets');
+        grunt.task.run(tasks);
+    });
+
+    // ----------------------------------------------------------------
     // Copying all fonts to the _dist folder
     // ----------------------------------------------------------------
     grunt.registerTask('copy-fonts', 'Copy fonts.', function() {
@@ -158,6 +169,7 @@ module.exports = function(grunt) {
             'build-templates:' + env,
             'build-xsl',
             'build-images',
+            'build-files',
             'copy-fonts',
             'webpack:' + env
         ];

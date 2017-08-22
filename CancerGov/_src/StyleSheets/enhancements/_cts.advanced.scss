@@ -242,12 +242,14 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
 }
 
 //input border and bgcolor override
-#fieldset--type .select2-container--default .select2-selection--multiple, #fieldset--ccs .select2-container--default .select2-selection--multiple, #fieldset--trialtreatment .select2-container--default .select2-selection--multiple
+#fieldset--type .select2-container--default .select2-selection--multiple,
+#fieldset--ccs .select2-container--default .select2-selection--multiple,
+#fieldset--trialtreatment .select2-container--default .select2-selection--multiple
 {
   background-color: #f2f2f2;
   border-radius: 1px;
-	min-height: 36px;
-	padding-bottom: 5px;
+  min-height: 36px;
+  padding-bottom: 3px;
 }
 
 //select2 placeholder text alignment

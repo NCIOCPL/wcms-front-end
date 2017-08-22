@@ -75,6 +75,20 @@ module.exports = function (grunt, options) {
                 filter: 'isFile'
             }]
         },
+        files: {
+            nonull: true,
+            files: [{
+                expand: true,
+                flatten: false,
+                cwd: dirs.src.files,
+                src: [
+                    '**/**/*.txt',
+                    '**/**/*.xml'
+                ],
+                dest: dirs.dist.files,
+                filter: 'isFile'
+            }]
+        },
         scripts: {
             nonull: true,
             files: [{

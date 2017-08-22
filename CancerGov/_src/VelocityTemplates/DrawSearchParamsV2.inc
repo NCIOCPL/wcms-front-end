@@ -41,7 +41,7 @@
         #set($value = "within $zipProx miles of $zip")
         #DrawOneSearchParamRow("Near ZIP Code" $value)
     #elseif($SearchResults.Parameters.Location == "AtNIH")
-        #DrawOneSearchParamRow("At NIH" 'Only show trials at the NIH Clinical Center (Bethesda, Md.)')
+        #DrawOneSearchParamRow("At NIH" 'Only show trials at the NIH Clinical Center (Bethesda, MD)')
     #end
 #end
 
