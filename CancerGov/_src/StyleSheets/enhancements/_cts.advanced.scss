@@ -96,6 +96,11 @@
     column-count: 2;
           padding: 10px;
           column-gap: 40px;
+          @include bp(small) {
+            -webkit-column-count: 1; /* Chrome, Safari, Opera */
+            -moz-column-count: 1; /* Firefox */
+            column-count: 1;
+          }  
   }
 
   #fieldset--location {
@@ -580,7 +585,7 @@ opacity: 0.45;
     margin: 0 0 0 -9.5em;
   }
   @include bp(large){
-  margin: 0 0 0 0;
+  margin: 0 0 0 -2em;
   }
   @include bp(medium-down){
    padding-left: 0;
