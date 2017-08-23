@@ -188,7 +188,9 @@ define(function(require) {
 				});
 			}
 			else {
-				triggerModal('none_selected');
+                triggerModal('none_selected');
+                var $this = $(this);
+                doResultsErrorAnalytics($this, window.location.href, 'noneselected');
 			}
         });
 		
@@ -226,18 +228,8 @@ define(function(require) {
                 totalChecked++;
 				
 				if(totalChecked >= LIMIT) {
-					// Analytics call for max selected reached
                     var $this = $(this);
-
-                    //TODO: Add as data.
-                    // Determines originating search form for analytics
-                    var rl = getParameterByName('rl', window.location.href);
-                    var searchForm = "clinicaltrials_basic";
-                    if(rl == 2){
-                        searchForm = "clinicaltrials_advanced";
-                    }
-
-					NCIAnalytics.CTSResultsMaxSelectedClick($this, searchForm);
+                    doResultsErrorAnalytics($this, window.location.href, 'maxselectionreached');
 				}
             }
         }
@@ -247,7 +239,7 @@ define(function(require) {
 
         return true;
     }
-	
+
 	function UpdateCheckedPagesList(page, numTrialsChecked) {
 		if (numTrialsChecked > 0) {
 			// Page has trials checked
@@ -373,7 +365,25 @@ define(function(require) {
 		else {
 			$('.delighter-rail').after($('.cts-results-lower-control'));
 		}
-	}
+    }
+    
+    /**
+     * Do analytics calls for print results
+     * @param {any} sender 
+     * @param {any} url 
+     * @param {any} text 
+     */
+    function doResultsErrorAnalytics(sender, url, text) {
+        // TODO: Add as data.
+        // Determine originating search form for analytics
+        var rl = getParameterByName('rl', url);
+        var searchForm = "clinicaltrials_basic";
+        if(rl == 2){
+            searchForm = "clinicaltrials_advanced";
+        }
+
+        NCIAnalytics.CTSResultsSelectedErrorClick(sender, searchForm, text);
+    }    
 
     /**
      * Identifies if this enhancement has been initialized or not.
