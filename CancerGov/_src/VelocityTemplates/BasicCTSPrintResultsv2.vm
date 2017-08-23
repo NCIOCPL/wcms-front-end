@@ -12,7 +12,7 @@
 			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
 			##<!-- Check search terms and set them if they are used -->
 			#set($checkURL = $SearchResults.PrintHelper.GetCheckForUpdatesURL($trial.NCIID, $SearchResults.Parameters))
-			<a class="CheckForUpdatesButton" href="$checkURL"><span>Check for Updates</span></a>			
+			<a class="hangingIndent print-check-for-updates" href="$checkURL"><span>Check for Updates</span></a>			
 			<table class="trialDataTable">
 				<tr class="trialDataHeaderRow">
 					<td>Phase</td>
