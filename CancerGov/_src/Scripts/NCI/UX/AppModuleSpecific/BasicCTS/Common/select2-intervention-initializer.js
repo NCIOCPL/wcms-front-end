@@ -153,17 +153,14 @@ define(function(require) {
     /**
      * Initializes select2 on a element, adding a PromiseAdapter
      * @param {*} $selector The jQuery extended element to attach select2 on.
-     * @param {*} placeholder The placeholder text
      * @param {*} dataFunction The dataFunction that will return a Promise<InterventionResult[]> matching the type ahead.
      */
-    var initSelect2Fn = function($selector, placeholder, dataFunction) {
+    var initSelect2Fn = function($selector, dataFunction) {
 
         $.fn.select2.amd.require( ['select2/data/array', 'select2/data/minimumInputLength', 'select2/utils'], function (ArrayData, MinimumInputLength, Utils) {
 
             //Get the adapter definition
             var Select2InterventionAdapter = getAdapterDefinition(ArrayData, MinimumInputLength, Utils);
-
-
 
             //We are going to initialze
 
@@ -181,7 +178,6 @@ define(function(require) {
                     dropdownParent: $selectWrap,
                     //theme: "classic",
                     width: '97%',
-                    placeholder: placeholder,
                     minimumInputLength: 3,
                     escapeMarkup: escapeMarkup,
                     templateResult: templateResult.bind($selector),
