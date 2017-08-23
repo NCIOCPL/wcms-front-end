@@ -76,9 +76,12 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		this.$stageCancer.select2({
 			placeholder: 'Please select a Cancer Type or Sub Type First'
 		})
+		.on("select2:select", this.onStageChange.bind(this))
+		.on("select2:unselect", this.onStageChange.bind(this));
+		//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.			
 
 		// Add findings select2 control only if the selector exists
-		if(this.isNotEmpty(this.$findings)) {
+		if(!this.isEmpty(this.$findings)) {
 			this.$findings.select2({
 				minimumInputLength: 3, 
 				placeholder: 'Please select a Cancer Type or Sub Type First'
@@ -107,9 +110,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			//All was selected - clear everything out.
 			this.clearSubtypeField();
 			this.clearStageField();
-			if(this.isNotEmpty(this.$findings)) {			
-				this.clearFindingField();
-			}
+			this.clearFindingField();
+
 			this.$otherDiseaseWrap.attr('class','fieldset-disabled');
 			//Set disabled class around the 3 field's & labels when all is selected.
 
@@ -120,14 +122,68 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			let codesStr:string = e.target.value;
 			let codes:string[] = codesStr.split("|");
 
-			this.populateSubtypeField(codes)
-			this.populateStageField(codes)
-			if(this.isNotEmpty(this.$findings)) {
-				this.populateFindingField(codes)
-			}
+
+			//Once these two promises resolve, then we must
+			//populate findings, but only once we know what
+			//selections should populate the findings.
+			Promise.all([
+				this.populateSubtypeField(codes),
+				this.populateStageField(codes)
+			]).then(() => {
+				this.changeFindings();
+			})
 
 			this.$otherDiseaseWrap.attr('class','fieldset-enabled');	
 		}
+	}
+
+	/**
+	 * This method is used to determine which disease fields to pull codes from
+	 * in order to populate the findings.  
+	 * 
+	 * NOTE: this must be called *only* after the other fields have been populated.
+	 * (So use the promises!!!!)
+	 * 
+	 * @private
+	 * @returns {void} 
+	 * @memberof CTSBaseDiseaseFormSetup
+	 */
+	private changeFindings(): void {
+
+		//Only draw findings if there are some.
+		if (this.isEmpty(this.$findings)) {
+			return;
+		}
+
+		//Start with stages
+		let codesForFindings:string[] = this.$stageCancer.select2("val");
+		//Fallback to selected subtypes
+		if (codesForFindings.length == 0) {
+			codesForFindings = this.$subtypeCancer.select2("val");
+		}
+		//Fallback to primary
+		if (codesForFindings.length == 0) {
+			let primaryCode = this.$primaryCancer.select2("val");
+			if (primaryCode != undefined && primaryCode == "") {
+				codesForFindings = [ primaryCode ];
+			}			
+		}
+
+		if (codesForFindings.length > 0) {
+			let allCodes:string[] = [];
+
+			//Break out pipe delimited codes from the disease fields
+			//into an array that the API can handle.
+			codesForFindings.forEach(joinedCode => {
+				let codes:string[] = joinedCode.split("|");
+				codes.forEach(c => allCodes.push(c));
+			})
+
+			this.populateFindingField(allCodes);
+		} else {
+			this.clearFindingField();
+		}
+
 	}
 
 	/**
@@ -139,36 +195,51 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 */
 	private onSubtypeChange(e) {
 		//Do not clear, but repopulate if others selected.
-		let allCodes:string[] = [];
+		let codesForStaging:string[] = [];
 
 		let primarySelected = this.$primaryCancer.select2("val"); //Single
-		let subTypeSelected = this.$subtypeCancer.select2("val"); //Array
+		let subTypeSelected = this.$subtypeCancer.select2("val"); //Array		
 
 		if (primarySelected) {
 			let codes:string[] = primarySelected.split("|");
-			codes.forEach(c => allCodes.push(c));
+			codes.forEach(c => {
+				codesForStaging.push(c);
+			});
 		}
 
 		if (subTypeSelected.length > 0) {
 			subTypeSelected.forEach(subtype => {
 				let codes:string[] = subtype.split("|");
-				codes.forEach(c => allCodes.push(c));
+				codes.forEach(c => { 
+					codesForStaging.push(c);
+				});
 			})
-		}		
+		}
 
-		if (allCodes.length > 0) {
-			this.populateStageField(allCodes);
-			if(this.isNotEmpty(this.$findings)) {
-				this.populateFindingField(allCodes);
-			}	
+		//Populate Staging if there are subtypes after the change
+		if (codesForStaging.length > 0) {
+			//Wait for stagings to populate before calling changeFindings.
+			this.populateStageField(codesForStaging).then(() => {
+				this.changeFindings();				
+			});
 		} else {
 			this.clearStageField();
-			if(this.isNotEmpty(this.$findings)) {			
-				this.clearFindingField();
-			}
+			this.changeFindings();
 		}
 	}
-	
+
+	/**
+	 * Event handler for stage menu changes
+	 * 
+	 * @private
+	 * @param {any} e The event.
+	 * @memberof CTSBaseFormSetup
+	 */
+	private onStageChange(e) {
+		this.changeFindings();
+	}
+
+
 	/**
 	 * Method that populates the MainType dropdown.
 	 * 
@@ -199,9 +270,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 * @param {(string|string[])} codes One or more NCI Thesaurus concept ids.
 	 * @memberof CTSBaseFormSetup
 	 */
-	private populateSubtypeField(codes:string|string[]) {
+	private populateSubtypeField(codes:string|string[]): Promise<any> {
 		this.$subtypeCancer.empty();
-		this.facade.getSubtypes(codes)
+		return this.facade.getSubtypes(codes)
 			.then((resList:DiseaseResult[]) => {
 				let subtypes = resList.map( val => {
 							return {
@@ -233,12 +304,12 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 * @param {(string|string[])} codes One or more NCI Thesaurus concept ids.
 	 * @memberof CTSBaseFormSetup
 	 */
-	private populateStageField(codes:string|string[]) {
+	private populateStageField(codes:string|string[]): Promise<any> {
 		
 		let selectedItems = this.$stageCancer.val();
 
 		this.$stageCancer.empty();
-		this.facade.getStages(codes)
+		return this.facade.getStages(codes)
 			.then((resList:DiseaseResult[]) => {
 				let selectedInSet = [];
 				let stages = resList.map( val => {
@@ -283,12 +354,12 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 * @param {(string|string[])} codes One or more NCI Thesaurus concept ids.
 	 * @memberof CTSBaseFormSetup
 	 */
-	private populateFindingField(codes:string|string[]) {
+	private populateFindingField(codes:string|string[]): Promise<any> {
 		let selectedItems: string[] = this.$findings.val();
 
 		this.$findings.empty();
 
-		this.facade.getFindings(codes)
+		return this.facade.getFindings(codes)
 			.then((resList:DiseaseResult[]) => {
 				let selectedInSet = [];
 
@@ -322,6 +393,10 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	}
 	
 	private clearFindingField() {
+		if (this.isEmpty(this.$findings)) {
+			return;
+		}
+
 		this.$findings.empty();
 		this.$findings.select2().val(null).trigger("change");
 		this.$findings.prop("disabled", true);
@@ -331,8 +406,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 	 * Utility method to check if a selector has a value.
 	 * @param sel 
 	 */
-	private isNotEmpty(sel) {
-		return sel.length > 0;
+	private isEmpty(sel) {
+		return sel.length == 0;
 	}
 	
 }
