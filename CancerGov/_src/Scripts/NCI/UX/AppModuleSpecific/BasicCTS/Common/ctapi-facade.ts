@@ -14,8 +14,9 @@ const VIEWABLE_TRIALS:string[] = [
 //These are the two catch all buckets that we must add to the bottom of the list.
 //ORDER will matter here.
 const OTHER_MAIN_TYPES = [ 
-    'C2916', //Carcinoma not in main type 
-    'C3262' //Neoplasm not in main type
+    'C2916', //Carcinoma not in main type (Other Carcinoma)
+    'C3262', //Neoplasm not in main type (Other Neoplasm)
+    'C2991' //Disease or Disorder (Other Disease)
 ];
 
 /**
