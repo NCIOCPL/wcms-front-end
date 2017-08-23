@@ -894,12 +894,13 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
     //******************************************************************************************************
-    CTSResultsMaxSelectedClick: function(sender, formName) { 
-        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsMaxSelectedClick'); 
+    // Replacing CTSResultsMaxSelectedClick 
+    CTSResultsSelectedErrorClick: function(sender, formName, errorText) { 
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsSelectedErrorClick'); 
         clickParams.Events = [41]; 
         clickParams.Props = { 
             74: formName + '|error', 
-            75: 'printselected|maxselectionreached'
+            75: 'printselected|' + errorText
         }; 
         clickParams.LogToOmniture(); 
     },
