@@ -100,7 +100,7 @@
             -webkit-column-count: 1; /* Chrome, Safari, Opera */
             -moz-column-count: 1; /* Firefox */
             column-count: 1;
-          }  
+          }
   }
 
   #fieldset--location {
@@ -126,7 +126,7 @@
 	display: inline-block;
   }
 	#tp {
-		padding-top: 10px;	
+		padding-top: 10px;
 	}
 }
 .select2 {
@@ -256,7 +256,7 @@ These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
 {
   background-color: #f2f2f2;
   border-radius: 1px;
-  min-height: 36px;
+  //min-height: 36px;
   padding-bottom: 3px;
 }
 
@@ -354,7 +354,7 @@ Create styles for fieldsets
           margin: 0;
           word-wrap: break-word;
             @include bp(medium-down){
-              margin: 0 0.5em 0 -0.6em;
+              margin: 0 0.4em 0 -0.7em;
             }
           .text-icon-help {
               font-size: 0.75em;
@@ -444,7 +444,7 @@ opacity: 0.45;
 #form--cts-advanced #fieldset--trialtreatment input[type="search"],
 #form--cts-advanced #fieldset--type input[type="text"],
 #form--cts-advanced #fieldset--type input[type="search"] {
-  //background-color: #306;
+  //background-color: #9cf;
   width: 100% !important;
   margin-right: 5em;
 }
