@@ -1,4 +1,4 @@
-
+import 'core-js/fn/array/includes';
 import { ClinicalTrialsService, TermResults, TermResult, InterventionResults, InterventionResult, DiseaseResults, DiseaseResult} from 'Services/clinical-trials';
 
 //Statuses of what Cancer.gov trials should be shown
@@ -9,6 +9,13 @@ const VIEWABLE_TRIALS:string[] = [
     "In Review",
     "Temporarily Closed to Accrual",
     "Temporarily Closed to Accrual and Intervention"
+];
+
+//These are the two catch all buckets that we must add to the bottom of the list.
+//ORDER will matter here.
+const OTHER_MAIN_TYPES = [ 
+    'C2916', //Carcinoma not in main type 
+    'C3262' //Neoplasm not in main type
 ];
 
 /**
@@ -53,7 +60,18 @@ export class CTAPIFacade {
                 current_trial_status: VIEWABLE_TRIALS
             }
         ).then((res:DiseaseResults) => {
-            return res.terms
+            let types:DiseaseResult[] = [];
+            let otherTypes:DiseaseResult[] = [];
+
+            res.terms.forEach((disease:DiseaseResult) => {
+                if (OTHER_MAIN_TYPES.includes(disease.codes.join("|"))) {
+                    otherTypes.push(disease);
+                } else {
+                    types.push(disease);
+                }
+            });            
+
+            return types.concat(otherTypes);
         })
     }
 
