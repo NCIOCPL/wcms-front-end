@@ -284,7 +284,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				this.$subtypeCancer.select2({
 					data: subtypes,
 					language: {
-						noResults: ( params => "No available options based on your previous selection." )
+						noResults: ( params => "No available options based on your previous selections." )
 					}
 				});
 				this.$subtypeCancer.prop("disabled", false);
@@ -328,7 +328,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				this.$stageCancer.select2({
 					data: stages,
 					language: {
-						noResults: ( params => "No available options based on your previous selection." )
+						noResults: ( params => "No available options based on your previous selections." )
 					}
 
 				});
@@ -380,7 +380,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					data: findings,
 					minimumInputLength: 3,
 					language: {
-						noResults: ( params => "No available options based on your previous selection." )
+						noResults: ( params => "No available options based on your previous selections." )
 					}
 				});
 
