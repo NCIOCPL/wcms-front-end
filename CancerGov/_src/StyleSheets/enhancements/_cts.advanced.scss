@@ -142,13 +142,32 @@
 //  .select2-search__field:not([placeholder = '']) {
 //    width: 100%!important;
 //  }
-//override for contentzone li styling in nvcg.sas
 }
-.contentzone li, .rawHtml li {
-  margin-bottom: 0.5em;
-  margin-left: 5px;
-  margin-top: 0;
+ 
+.clinical-trials-search-form.adv-search {
+	//override for contentzone li styling in nvcg.sas
+	li, .rawHtml li {
+		margin-bottom: 0.5em;
+		margin-left: 5px;
+		margin-top: 0;
+	}
+	
+	//Jquery UI overrides for disabled state
+		.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+		opacity: 1;
+	}
+		.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+		border: 1px solid #bdbddc;
+	}
+	
+	//spacing issues in location fieldset
+	form .row .row .column, form .row .row .columns {
+  	padding: 0.25em 0.9375em .5em 0;
+	}
 }
+
+
+
 // fix smooshed social icons
 .page-options li {
   margin: 0 0 0 0.875em;
@@ -409,18 +428,6 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   border-color: #2a72a5;
 }
 
-//spacing issues in location fieldset
-form .row .row .column, form .row .row .columns {
-  padding: 0.25em 0.9375em .5em 0;
-}
-
-//Jquery UI overrides for disabled state
-.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
-  opacity: 1;
-}
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-  border: 1px solid #bdbddc;
-}
 #form--cts-basic, #form--cts-advanced {
   #a, #z, #lcty, #hos {
     background-color: #f2f2f2;
