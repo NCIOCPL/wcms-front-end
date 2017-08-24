@@ -176,6 +176,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
         // Gray out unchecked fieldsets on load
 		var $checked = $('input[name="loc"]:checked');
 		var $fieldsetItems  = this;
+        $fieldsetItems.enableLocFieldset($checked.closest('fieldset'));
         $fieldsetItems.disableLocFieldset($checked.closest('fieldset').siblings());
 
         // Gray out unchecked fieldsets when a selection is made

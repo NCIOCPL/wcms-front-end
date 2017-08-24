@@ -50,10 +50,15 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				//If there is a string and it is a zip code, show the error.
 				//We must ensure that we only toggle the error if there IS
 				//an error for analytics purposes.
-                if (!$init.isNull($this.val()) && $init.validateZip($this.val())) {
-                    $init.toggleError(true,$this,null);
-                } else {
+
+                if ((!$init.isNull($this.val()) && !$init.validateZip($this.val())) ||
+                    ($init.isNull($this.val()) && $init.isParentChecked($this))
+				) {
+                	// console.log("failed, trigger error");
                     $init.toggleError(false,$this,null);
+                } else {
+                	// console.log("passed, clear error");
+                    $init.toggleError(true,$this,null);
                 }
 			})
 		;
@@ -220,8 +225,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	 * @param val 
 	 */
 	private isParentChecked($val) {
-		var $checked = $('fieldset.fieldset-enabled'); 
-		return $val.closest($checked).length > 0;
+		return $val.closest('fieldset.fieldset-enabled').length > 0;
 	}
 
 	/**
