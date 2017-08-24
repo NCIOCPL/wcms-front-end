@@ -13,7 +13,7 @@
         <!-- END select2 (cancer type) module -->
         <!-- BEGIN age/keyword divs -->
         <div class="row" data-match-height>
-            <fieldset id="fieldset--age" class="large-6 columns gutter equalheight">
+            <fieldset id="fieldset--age" aria-labelledby="fieldset--age" class="large-6 columns gutter equalheight">
                 <div class="adv-fieldset-header">
                     <h4>AGE
                         <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -25,12 +25,12 @@
                     </div>
                     <div class="row">
                         <div>
-                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
+                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
                         </div>
                     </div>
                 </div>
             </fieldset>
-            <fieldset id="fieldset--keyword" class="large-6 columns gutter equalheight">
+            <fieldset id="fieldset--keyword" aria-labelledby="fieldset--keyword" class="large-6 columns gutter equalheight">
                 <div class="adv-fieldset-header">
                     <h4>KEYWORDS / PHRASES
                         <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="row">
                         <div>
-                            <input id="q" name="q" aria-labelledby="legend--keyword" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
+                            <input id="q" name="q" aria-label="Keywords/Phrases" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
         </div>
         <!-- END age/keyword divs -->
         <!-- BEGIN location fieldsets -->
-        <fieldset id="fieldset--location">
+        <fieldset id="fieldset--location" aria-labelledby="fieldset--location" >
             <div class="adv-fieldset-header">
                 <h4>LOCATION
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -61,12 +61,12 @@
                     Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in all available locations.
                 </div>
                 <div class="row">
-                    <fieldset id="fieldset--all-locations">
+                    <fieldset id="fieldset--all-locations" aria-labelledby="fieldset--all-locations">
                         <div class="radio">
                             <input id="all-locations" name="loc" value="0" checked="checked" type="radio"><label for="all-locations">Search all Locations</label>
                         </div>
                     </fieldset>
-                    <fieldset id="fieldset--your-location">
+                    <fieldset id="fieldset--your-location" aria-labelledby="fieldset--your-location">
                         <div class="radio">
                             <input id="your-location" name="loc" value="1" type="radio"><label for="your-location">ZIP Code</label>
                         </div>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="zp-input large-6 columns">
                                 <label for="zp">Radius: </label>
-                                <select id="zp" name="zp" class="fullwidth loc-select-menu">
+                                <select id="zp" name="zp" aria-label="Zip Radius" class="fullwidth loc-select-menu">
                                     <option value="20">20 miles</option>
                                     <option value="50">50 miles</option>
                                     <option selected="selected" value="100">100 miles</option>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset id="fieldset--ccs">
+                    <fieldset id="fieldset--ccs" aria-labelledby="fieldset--ccs">
                         <div class="radio">
                             <input id="country-city-state" name="loc" value="2" type="radio">
                             <label for="country-city-state">Country, City, State</label>
@@ -95,12 +95,12 @@
                         <div class="row">
                             <div class="country-input column">
                                 <label for="lcnty">Country: </label>
-                                <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu"></select>
+                                <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu" aria-label="Country"></select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="state-input large-6 columns gutter">
-                                <label for="lst">State: </label>
+                                <label for="lst-multiselect">State: </label>
                                 <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -162,13 +162,13 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset id="fieldset--hospital">
+                    <fieldset id="fieldset--hospital" aria-labelledby="fieldset--hospital">
                         <div class="radio">
                             <input id="hospital" name="loc" value="3" type="radio"><label for="hospital">Hospitals/Institutions</label>
                             <input id="hos" name="hos" class="search-input non-empty" aria-autocomplete="list" autocomplete="off" aria-label="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" type="text" error-msg="Please select a Hospital/Institution.">
                         </div>
                     </fieldset>
-                    <fieldset id="fieldset--nih">
+                    <fieldset id="fieldset--nih" aria-labelledby="fieldset--nih">
                         <div class="radio">
                             <input id="nih" name="loc" value="4" type="radio"><label for="nih">At NIH (only show trials at the NIH clinical center in Bethesda, MD)</label>
                         </div>
@@ -178,7 +178,7 @@
         </fieldset>
         <!-- END location fieldsets -->
         <!-- BEGIN trial type fieldset -->
-        <fieldset id="fieldset--trialtype">
+        <fieldset id="fieldset--trialtype" aria-labelledby="fieldset--trialtype">
             <div class="adv-fieldset-header">
                 <h4>TRIAL TYPE
                     <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -223,7 +223,7 @@
         </fieldset>
         <!-- END trial type fieldset -->
         <!-- BEGIN trial/treatment select2 module -->
-        <fieldset id="fieldset--trialtreatment">
+        <fieldset id="fieldset--trialtreatment" aria-labelledby="fieldset--trialtreatment">
             <div class="adv-fieldset-header">
                 <h4>DRUG / TREATMENT
                     <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -235,7 +235,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label>Drug/Drug Family</label>
+                    <label for="dr-multiselect">Drug/Drug Family</label>
                     </div>
                 </div>
                 <div class="row">
@@ -243,17 +243,17 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label>Other Treatments</label>
+                    <label for="ti-multiselect">Other Treatments</label>
                     </div>
                 </div>
                 <div class="row">
-                    <select id="ti-multiselect" name="i" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters"></select>
+                    <select id="ti-multiselect" name="i" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" aria-label="ti-multiselect"></select>
                 </div>
             </div>
         </fieldset>
         <!-- END trial/treatment select2 module -->
         <!-- BEGIN phase/trial status fieldset -->
-        <fieldset id="fieldset--trialstatus">
+        <fieldset id="fieldset--trialstatus" aria-labelledby="fieldset--trialstatus">
             <div class="adv-fieldset-header">
                 <h4>TRIAL PHASE
                     <a href="/about-cancer/treatment/clinical-trials/search/help#5" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -289,7 +289,7 @@
         </fieldset>
         <!-- END phase/trial status fieldset -->
         <!-- BEGIN trial ID fieldset -->
-        <fieldset id="fieldset--trialid">
+        <fieldset id="fieldset--trialid" aria-labelledby="fieldset--trialid">
             <div class="adv-fieldset-header">
                 <h4>TRIAL ID
                     <a href="/about-cancer/treatment/clinical-trials/search/help#7" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -303,14 +303,14 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="tid" name="tid" autocomplete="off" aria-labelledby="legend--trialid" placeholder="" type="text">
+                        <input id="tid" name="tid" autocomplete="off" aria-label="Trial ID" placeholder="" type="text">
                     </div>
                 </div>
             </div>
         </fieldset>
         <!-- END trial ID fieldset -->
         <!-- BEGIN trial investigators fieldset -->
-        <fieldset id="fieldset--investigator">
+        <fieldset id="fieldset--investigator" aria-labelledby="fieldset--investigator">
             <div class="adv-fieldset-header">
                 <h4>TRIAL INVESTIGATORS
                     <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -324,14 +324,14 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="in" name="in" autocomplete="off" aria-labelledby="legend--investigator" placeholder="Please enter 3 or more characters" type="text">
+                        <input id="in" name="in" autocomplete="off" aria-label="Trial Investigator" placeholder="Please enter 3 or more characters" type="text">
                     </div>
                 </div>
             </div>
         </fieldset>
         <!-- END trial investigators fieldset -->
         <!-- BEGIN lead organization fieldset -->
-        <fieldset id="fieldset--organization">
+        <fieldset id="fieldset--organization" aria-labelledby="fieldset--organization">
             <div class="adv-fieldset-header">
                 <h4>LEAD ORGANIZATION
                     <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -345,7 +345,7 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="lo" name="lo" autocomplete="off" aria-labelledby="legend--organization" placeholder="Please enter 3 or more characters" type="text">
+                        <input id="lo" name="lo" autocomplete="off" aria-label="Lead Organization" placeholder="Please enter 3 or more characters" type="text">
                     </div>
                 </div>
             </div>
