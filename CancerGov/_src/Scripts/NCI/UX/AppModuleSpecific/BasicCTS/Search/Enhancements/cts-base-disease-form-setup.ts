@@ -164,9 +164,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		//Fallback to primary
 		if (codesForFindings.length == 0) {
 			let primaryCode = this.$primaryCancer.select2("val");
-			if (primaryCode != undefined && primaryCode == "") {
+			if (primaryCode != undefined && primaryCode != "") {
 				codesForFindings = [ primaryCode ];
-			}			
+			}
 		}
 
 		if (codesForFindings.length > 0) {
