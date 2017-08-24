@@ -187,7 +187,7 @@
 /* Tablet/Mobile styles */
 @include bp(medium-down) {
   .delighter-rail {
-    margin-right: -15px;
+    margin-right: 0;
     width: calc(25% + 10px);
     padding-right:0;
   }
