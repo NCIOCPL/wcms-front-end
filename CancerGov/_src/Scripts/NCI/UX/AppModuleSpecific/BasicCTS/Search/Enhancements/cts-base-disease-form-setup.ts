@@ -4,7 +4,7 @@ import { DiseaseResult } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
-import "../../../../../../../../node_modules/select2";
+import "select2";
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 
@@ -63,36 +63,37 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
     //Initialize Select2 controls.
 		//These initializations do no load data but only add select2 to the controls,
-		//as well as attach event handlers.		
-		this.$subtypeCancer.select2(
-			{
-				// do all the things
-				placeholder: 'Please select a Cancer Type First'			
-			})
-			.on("select2:select", this.onSubtypeChange.bind(this))
-			.on("select2:unselect", this.onSubtypeChange.bind(this));
-			//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
-			this.$subtypeCancer.data('select2').$container.find("input").attr('aria-labelledby', 'st-label');
-		
-		this.$stageCancer.select2({
-			placeholder: 'Please select a Cancer Type or Sub Type First'
-		})
-		.on("select2:select", this.onStageChange.bind(this))
-		.on("select2:unselect", this.onStageChange.bind(this));
-		//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
-		this.$stageCancer.data('select2').$container.find("input").attr('aria-labelledby', 'stg-label');
+        //as well as attach event handlers.
+        this.$subtypeCancer.select2({
+        		placeholder: 'Please select a Cancer Type First',
+            	theme:"nci"
+        	})
+        	.on("select2:select", this.onSubtypeChange.bind(this))
+        	.on("select2:unselect", this.onSubtypeChange.bind(this));
+        	//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
+        	this.$subtypeCancer.data('select2').$container.find("input").attr('aria-labelledby', 'st-label');
 
-		// Add findings select2 control only if the selector exists
-		if(!this.isEmpty(this.$findings)) {
-			this.$findings.select2({
-				minimumInputLength: 3, 
-				placeholder: 'Please select a Cancer Type or Sub Type First'
-			});
-			this.$findings.data('select2').$container.find("input").attr('aria-labelledby', 'fin-label');
-		}
+        this.$stageCancer.select2({
+        	placeholder: 'Please select a Cancer Type or Sub Type First',
+            theme:"nci"
+        })
+        .on("select2:select", this.onStageChange.bind(this))
+        .on("select2:unselect", this.onStageChange.bind(this));
+        //NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
+        this.$stageCancer.data('select2').$container.find("input").attr('aria-labelledby', 'stg-label');
+
+        // Add findings select2 control only if the selector exists
+        if(!this.isEmpty(this.$findings)) {
+        	this.$findings.select2({
+        		minimumInputLength: 3,
+        		placeholder: 'Please select a Cancer Type or Sub Type First',
+                theme:"nci"
+        	});
+        	this.$findings.data('select2').$container.find("input").attr('aria-labelledby', 'fin-label');
+        }
 
 		//Initialize maintype selector
-		this.$primaryCancer.select2({})
+		this.$primaryCancer.select2({theme:"nci"})
 			.on("select2:select", this.onMaintypeChange.bind(this));
 			//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
 
@@ -259,7 +260,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$primaryCancer.select2({	data: primaryTypes });
+				this.$primaryCancer.select2({data: primaryTypes,theme:"nci"});
 			})
 			.catch((err) => {
 				console.log(err)
@@ -288,7 +289,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					data: subtypes,
 					language: {
 						noResults: ( params => "No available options based on your previous selections." )
-					}
+					},
+                    theme:"nci"
 				});
 				this.$subtypeCancer.prop("disabled", false);
 			})
@@ -296,7 +298,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 	private clearSubtypeField() {
 		this.$subtypeCancer.empty();
-		this.$subtypeCancer.select2().val(null).trigger("change");
+		this.$subtypeCancer.select2({theme:"nci"}).val(null).trigger("change");
 		this.$subtypeCancer.prop("disabled", true);
 	}
 
@@ -332,8 +334,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					data: stages,
 					language: {
 						noResults: ( params => "No available options based on your previous selections." )
-					}
-
+					},
+					theme:"nci"
 				});
 
 				if (selectedInSet.length > 0) {
@@ -346,7 +348,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 	private clearStageField() {
 		this.$stageCancer.empty();
-		this.$stageCancer.select2().val(null).trigger("change");
+		this.$stageCancer.select2({theme:"nci"}).val(null).trigger("change");
 		this.$stageCancer.prop("disabled", true);		
 	}
 	
@@ -384,7 +386,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					minimumInputLength: 3,
 					language: {
 						noResults: ( params => "No available options based on your previous selections." )
-					}
+					},
+                    theme:"nci"
 				});
 
 				if (selectedInSet.length > 0) {
@@ -401,7 +404,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		}
 
 		this.$findings.empty();
-		this.$findings.select2().val(null).trigger("change");
+		this.$findings.select2({theme:"nci"}).val(null).trigger("change");
 		this.$findings.prop("disabled", true);
 	}
 

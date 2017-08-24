@@ -20,7 +20,7 @@
 
 define(function(require) {
     var $ = require('jquery');
-    require('../../../../../../../node_modules/select2');
+    require('select2');
 
     //In order to get the autocomplete to only fire once "minimumInputLength" characters have been passed in we must...
     //add in minimumInputLength decorator based on comments in https://stackoverflow.com/questions/30631024/add-decorator-to-data-adapter-in-select2-version-4-x
@@ -176,8 +176,7 @@ define(function(require) {
             var options =
                 {
                     dropdownParent: $selectWrap,
-                    //theme: "classic",
-                    width: '97%',
+                    theme: "nci",
                     minimumInputLength: 3,
                     escapeMarkup: escapeMarkup,
                     templateResult: templateResult.bind($selector),
