@@ -101,8 +101,7 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name:'BasicCTSCommon',
-            chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"],
-            minChunks: Infinity
+            chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"]
         })
     ]
 };
