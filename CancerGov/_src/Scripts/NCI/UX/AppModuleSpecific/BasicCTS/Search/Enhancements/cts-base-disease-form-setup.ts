@@ -71,21 +71,24 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			})
 			.on("select2:select", this.onSubtypeChange.bind(this))
 			.on("select2:unselect", this.onSubtypeChange.bind(this));
-			//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.			
-
+			//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
+			this.$subtypeCancer.data('select2').$container.find("input").attr('aria-labelledby', 'st-label');
+		
 		this.$stageCancer.select2({
 			placeholder: 'Please select a Cancer Type or Sub Type First'
 		})
 		.on("select2:select", this.onStageChange.bind(this))
 		.on("select2:unselect", this.onStageChange.bind(this));
-		//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.			
+		//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
+		this.$stageCancer.data('select2').$container.find("input").attr('aria-labelledby', 'stg-label');
 
 		// Add findings select2 control only if the selector exists
 		if(!this.isEmpty(this.$findings)) {
 			this.$findings.select2({
 				minimumInputLength: 3, 
 				placeholder: 'Please select a Cancer Type or Sub Type First'
-			})
+			});
+			this.$findings.data('select2').$container.find("input").attr('aria-labelledby', 'fin-label');
 		}
 
 		//Initialize maintype selector

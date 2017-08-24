@@ -136,6 +136,8 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
         // Gray out unselected location fields
 		this.selectLocFieldset();
 
+		// Add form label to state select2 input
+		$('#lst-multiselect').data('select2').$container.find("input").attr('aria-labelledby', 'lst-label');
 	}
 
 	/*

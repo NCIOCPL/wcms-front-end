@@ -21,7 +21,7 @@
                 <div id="other-diseases">
                     <div class="row">
                         <div>
-                        <label for="st-multiselect">Subtype</label>
+                        <label for="st-multiselect" id="st-label">Subtype</label>
                         </div>
                     </div>
                     <div class="row">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="row">
                         <div>
-                        <label for="stg-multiselect">Stage</label>
+                        <label for="stg-multiselect" id="stg-label">Stage</label>
                         </div>
                     </div>
                     <div class="row">
@@ -38,7 +38,7 @@
 <!--(bake-start _if="findings")-->
                     <div class="row">
                         <div>
-                        <label for="fin-multiselect">Side Effects / Biomarkers / Participant Attributes</label>
+                        <label for="fin-multiselect" id="fin-label">Side Effects / Biomarkers / Participant Attributes</label>
                         </div>
                     </div>
                     <div class="row">

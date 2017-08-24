@@ -100,7 +100,7 @@
                         </div>
                         <div class="row">
                             <div class="state-input large-6 columns gutter">
-                                <label for="lst-multiselect">State: </label>
+                                <label for="lst-multiselect" id="lst-label">State: </label>
                                 <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -235,7 +235,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label for="dr-multiselect">Drug/Drug Family</label>
+                    <label for="dr-multiselect" id="dr-label">Drug/Drug Family</label>
                     </div>
                 </div>
                 <div class="row">
@@ -243,7 +243,7 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label for="ti-multiselect">Other Treatments</label>
+                    <label for="ti-multiselect" id="ti-label">Other Treatments</label>
                     </div>
                 </div>
                 <div class="row">
