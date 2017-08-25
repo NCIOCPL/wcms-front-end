@@ -39,7 +39,7 @@ define(function(require) {
 				var $this = $(this);
 					rank = $this.index('.clinical-trial-individual-result a') + 1;
 					rank += ('|page ' + pn);
-					NCIAnalytics.CTSResultsClick($this, rank, searchForm);
+					NCIAnalytics.CTSResultsWithFormClick($this, rank, searchForm);
 			});
 		});
 		
@@ -65,7 +65,7 @@ define(function(require) {
 					selectAllText = "selectall";
 				}
 				
-				NCIAnalytics.CTSResultsPrintSelectedClick($this, location, selectAllText, totalChecked, checkedPages, searchForm);
+				NCIAnalytics.CTSResultsPrintSelectedWithFormClick($this, location, selectAllText, totalChecked, checkedPages, searchForm);
 			}
 		});
 	}

@@ -51,7 +51,7 @@ define(function(require) {
 
 			// Set link text value to passed into analytics tracking function			
 			var linkText = 'start over';
-			NCIAnalytics.CTStartOverClick($this, searchForm, linkText);
+			NCIAnalytics.CTStartOverWithFormClick($this, searchForm, linkText);
 		});
 
 		/**
@@ -72,8 +72,8 @@ define(function(require) {
 			}
 
 			// Set link text value to passed into analytics tracking function
-			var linkText = 'try a new search';		
-			NCIAnalytics.CTStartOverClick($this, searchForm, linkText);
+			var linkText = 'try a new search';
+			NCIAnalytics.CTStartOverWithFormClick($this, searchForm, linkText);
 		});		
 	}
 
