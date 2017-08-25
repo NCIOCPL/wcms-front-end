@@ -292,6 +292,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
     describe('searchDrugs', () => {
         // Placeholder unit tests until endpoint is working
         it('should make the correct request to the ClinicalTrialsService', () => {
+            
                 expect('istanbul').to.be.eq('constantinople');
         });
 
