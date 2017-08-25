@@ -883,7 +883,12 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 	//******************************************************************************************************
-    CTSResultsPrintSelectedClick: function(sender, location, hasSelectAll, totalChecked, checkedPages, formName){
+	// Original method for old basic form - kept to not break Analytics
+    CTSResultsPrintSelectedClick: function(sender, location, hasSelectAll, totalChecked, checkedPages){
+        NCIAnalytics.CTSResultsPrintSelectedWithFormClick(sender, location, hasSelectAll, totalChecked, checkedPages, "clinicaltrials_basic");
+    },
+	//******************************************************************************************************
+    CTSResultsPrintSelectedWithFormClick: function(sender, location, hasSelectAll, totalChecked, checkedPages, formName){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSResultsPrintSelectedClick');
         clickParams.Events = [48];
         clickParams.Props = {
@@ -892,6 +897,11 @@ var NCIAnalytics = {
             74: formName + '|print selected'
         };
         clickParams.LogToOmniture();
+    },
+	//******************************************************************************************************
+	// Original method for old basic form - kept to not break Analytics
+    CTSResultsMaxSelectedClick: function(sender) { 
+        NCIAnalytics.CTSResultsSelectedErrorClick(sender, "clinicaltrials_basic", "maxselectionreached"); 
     },
     //******************************************************************************************************
     // Replacing CTSResultsMaxSelectedClick 
@@ -904,8 +914,13 @@ var NCIAnalytics = {
         }; 
         clickParams.LogToOmniture(); 
     },
+	//******************************************************************************************************
+	// Original method for old basic form - kept to not break Analytics
+	CTStartOverClick: function(sender) { 
+        NCIAnalytics.CTStartOverWithFormClick(sender, "clinicaltrials_basic", "start over"); 
+    },
     //******************************************************************************************************
-    CTStartOverClick: function(sender, formName, linkText) { 
+    CTStartOverWithFormClick: function(sender, formName, linkText) { 
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTStartOverClick'); 
         clickParams.Events = [49]; 
         clickParams.Props = { 
@@ -1691,12 +1706,22 @@ var NCIAnalytics = {
 		clickParams.LogToOmniture();
 	},
 
+	/******************************************************************************************************
+	* Original method for old basic form - kept to not break Analytics
+	*/
+	CTSResultsClick: function(sender, rank, custom) {
+		var type = 'clinicaltrials_basic';
+        if(custom) {
+            type = 'clinicaltrials_custom';
+        }
+		NCIAnalytics.CTSResultsWithFormClick(sender, rank, type);
+	},
     /******************************************************************************************************
 	* Track search result click on CTS Results page
 	* sender - the element responsible for this event
 	* rank - the position of the selected item on a given page
 	*/
-	CTSResultsClick: function(sender, rank, formName) {
+	CTSResultsWithFormClick: function(sender, rank, formName) {
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'CTSLink');
 		clickParams.Events = [42];
 		clickParams.Props = {
