@@ -1,4 +1,4 @@
-        <fieldset id="fieldset--type">
+        <fieldset id="fieldset--type" aria-labelledby="fieldset--type">
             <div class="adv-fieldset-header">
                 <h4>CANCER TYPE / CONDITION
                     <a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -10,9 +10,9 @@
                 </div>
                 <div class="row">
                     <div>
-                    <label>Primary Cancer Type/Condition</label>
+                    <label for="ct-select">Primary Cancer Type/Condition</label>
                     </div>
-                </div>
+                 </div>
                 <div class="row">
                     <select id="ct-select" class="no-auto-jqueryui" name="t" style="width:97%">
                         <option value="">All</option>
@@ -21,7 +21,7 @@
                 <div id="other-diseases">
                     <div class="row">
                         <div>
-                        <label>Subtype</label>
+                        <label for="st-multiselect" id="st-label">Subtype</label>
                         </div>
                     </div>
                     <div class="row">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="row">
                         <div>
-                        <label>Stage</label>
+                        <label for="stg-multiselect" id="stg-label">Stage</label>
                         </div>
                     </div>
                     <div class="row">
@@ -38,7 +38,7 @@
 <!--(bake-start _if="findings")-->
                     <div class="row">
                         <div>
-                        <label>Side Effects / Biomarkers / Participant Attributes</label>
+                        <label for="fin-multiselect" id="fin-label">Side Effects / Biomarkers / Participant Attributes</label>
                         </div>
                     </div>
                     <div class="row">

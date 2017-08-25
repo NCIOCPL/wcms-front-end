@@ -11,7 +11,7 @@ TODO: Verify Javascript
     </div>
 #end
     <form id="form--cts-basic" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
-        <fieldset id="fieldset--type" aria-labelledby="legend-type">
+        <fieldset id="fieldset--type" aria-labelledby="fieldset--type">
             <div class="adv-fieldset-header">
                 <h4>Cancer Type/Keyword 
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -19,13 +19,13 @@ TODO: Verify Javascript
             </div>
             <div class="adv-fieldset-body">
             <div class="row">
-                <input placeholder="Start typing to select a cancer type" type="text" id="q" maxlength="100" name="q" autocomplete="off">
+                <input placeholder="Start typing to select a cancer type" type="text" id="q" aria-label="Cancer Type/Keyword" maxlength="100" name="q" autocomplete="off">
             </div>
             </div>
         </fieldset>
 
     <div class="row" data-match-height>
-        <fieldset id="fieldset--age" aria-labelledby="legend-age" class="large-6 columns gutter equalheight">
+        <fieldset id="fieldset--age" aria-labelledby="fieldset--age" class="large-6 columns gutter equalheight">
             <div class="adv-fieldset-header">
                 <h4>Age 
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -33,13 +33,13 @@ TODO: Verify Javascript
             </div>
             <div class="adv-fieldset-body">
             <div class="row">
-                <input id="a" name="a" maxlength="3" autocomplete="off" aria-labelledby="legend--age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
+                <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
             </div>
             <div class="row">Your age helps determine which trials are right for you.</div>
             </div>
         </fieldset>
     
-        <fieldset id="fieldset--zip" aria-labelledby="legend-zip" class="large-6 columns gutter equalheight">
+        <fieldset id="fieldset--zip" aria-labelledby="fieldset--zip" class="large-6 columns gutter equalheight">
             <div class="adv-fieldset-header">
                 <h4>U.S. ZIP Code 
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
@@ -47,7 +47,7 @@ TODO: Verify Javascript
             </div>
             <div class="adv-fieldset-body">
             <div class="row">
-                <input type="text" id="z" name="z" class="non-empty" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
+                <input type="text" id="z" name="z" aria-label="Zip Code" class="non-empty" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
             </div>
             <div class="row">Show trials near this U.S. ZIP code.</div>
             </div>
