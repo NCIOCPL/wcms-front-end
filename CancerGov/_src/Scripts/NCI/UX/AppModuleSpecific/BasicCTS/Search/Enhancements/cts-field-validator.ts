@@ -15,12 +15,14 @@ import "../../../../../Plugins/jquery.nci.scroll_to";
  * Add null location field validation
  */
 export class CTSFieldValidator extends NCIBaseEnhancement{
+	private postValidationStep : Function;
 
 	/**
 	 * Execute the constructor function on the base enhancement class
 	 */
-	constructor() {
+	constructor(postValidationStep?:Function) {
 		super();
+		this.postValidationStep = postValidationStep;
 	}
 
 	// Member variables for error-able selectors
@@ -120,6 +122,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			this.$searchFormName = 'clinicaltrials_advanced';
 		}
 
+		let fieldValidatorThis = this;
 
 		// Wire up analytics & prevent submission if we have any active error fields
 		(<any>$(".clinical-trials-search-form")).basicctsformtrack({
@@ -160,7 +163,14 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 				if (fieldsAreValid)
 				{
-					analyticsAndSubmit();
+					if(fieldValidatorThis.postValidationStep != null)
+					{
+						fieldValidatorThis.postValidationStep(analyticsAndSubmit);
+					}
+					else
+					{
+						analyticsAndSubmit();
+					}
 				} else {
 					//Log an Analytics message that someone tried to submit the form
 					//with active error messages showing.

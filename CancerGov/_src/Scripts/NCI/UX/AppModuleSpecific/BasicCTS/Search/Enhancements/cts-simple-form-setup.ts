@@ -58,18 +58,17 @@ export class CTSSimpleFormSetup extends CTSBaseFormSetup{
 	 * @private
 	 * @memberof CTSSimpleFormSetup
 	 */
-	private postValidationStep() {
+	public postValidationStep(analyticsAndSubmit:Function) {
 		var hasKeywordMatch = false;
 
 		//If our fancy input exists and it does not have a set value.
 		if (
 			this.$termSelect && 
-			this.$termSelect.ctssimpletermbox("getSelection") !== false &&
+			this.$termSelect.ctssimpletermbox("getSelection") === false &&
 			(this.$termSelect.val() != undefined && this.$termSelect.val() != "") 
 		){
 
 			let searchText = this.$termSelect.val();
-			
 			//Now we must go to the facade and fetch the first item.
 			this.facade.getDiseasesForSimpleTypeAhead(searchText)
 				.then((res:DiseaseResult[])=> {
@@ -80,15 +79,19 @@ export class CTSSimpleFormSetup extends CTSBaseFormSetup{
 							this.$termSelect.ctssimpletermbox("setSelection", res[0].codes.join("|"));
 							//Set $hasKeywordMatch flag to true in order to track term instead of keyword
 							hasKeywordMatch = true;
-							
-							//NOW do stuff.
 						}
 					}
-				})					
+
+					analyticsAndSubmit();
+				})				
 				.catch(err => {
 					console.log(err);					
 				});
 
+		}
+		else
+		{	
+			analyticsAndSubmit();
 		}
 
 	}
