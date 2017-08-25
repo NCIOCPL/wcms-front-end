@@ -35,5 +35,5 @@ class SimpleCTSSearchPage extends BaseCTSSearchPage {
 
 (function() { //encapsulation
 	let searchPage:SimpleCTSSearchPage = new SimpleCTSSearchPage();
-	$(searchPage.onReady.bind(searchPage))
+	searchPage.init();
 })();
