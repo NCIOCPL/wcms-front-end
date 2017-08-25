@@ -153,9 +153,10 @@ define(function(require) {
     /**
      * Initializes select2 on a element, adding a PromiseAdapter
      * @param {*} $selector The jQuery extended element to attach select2 on.
+     * @param {*} labelID The labelID used to label the text box created by select2.
      * @param {*} dataFunction The dataFunction that will return a Promise<InterventionResult[]> matching the type ahead.
      */
-    var initSelect2Fn = function($selector, dataFunction) {
+    var initSelect2Fn = function($selector, labelID, dataFunction) {
 
         $.fn.select2.amd.require( ['select2/data/array', 'select2/data/minimumInputLength', 'select2/utils'], function (ArrayData, MinimumInputLength, Utils) {
 
@@ -193,6 +194,9 @@ define(function(require) {
 
 
             $selector.select2(options);
+
+            $selector.data('select2').$container.find("input").attr('aria-labelledby', labelID);
+	
         });
 
     }
