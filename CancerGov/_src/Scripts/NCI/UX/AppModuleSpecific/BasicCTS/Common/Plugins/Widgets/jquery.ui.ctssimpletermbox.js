@@ -20,7 +20,23 @@
             source: false, //String or Promise
             buttonText: 'Clear Selection'
         },
+        getText: function() {
+            var $el = $(this.element);
+            var thisautosuggest = this;
 
+            return $el.val();
+        },
+        getSelection: function() {
+            var $el = $(this.element);
+            var thisautosuggest = this;
+
+            var val = thisautosuggest.$hiddenInput.val();
+            if (val == '') {
+                return false;
+            } else {
+                return val;
+            }
+        },
         setSelection: function(id) {
 
             var $el = $(this.element);
@@ -52,6 +68,7 @@
 
             thisautosuggest.$hiddenInput = $('<input type="hidden" id="t" name="t" />');
             $el.after(thisautosuggest.$hiddenInput);
+            thisautosuggest.$hiddenInput.val(''); //Initialize the hidden input to an empty string
 
             $el.ctsautoselect({
                 source: thisautosuggest.options.source,
