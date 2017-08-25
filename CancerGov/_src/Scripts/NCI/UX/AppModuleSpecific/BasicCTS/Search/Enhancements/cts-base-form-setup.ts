@@ -21,7 +21,8 @@ export abstract class CTSBaseFormSetup extends NCIBaseEnhancement{
 	constructor(apiHost: string) { 
 		super();
 		this.facade = new CTAPIFacade(
-			ClinicalTrialsServiceFactory.create(apiHost)
+			ClinicalTrialsServiceFactory.create(apiHost),
+			this.isDebug()
 		);
 	}
 

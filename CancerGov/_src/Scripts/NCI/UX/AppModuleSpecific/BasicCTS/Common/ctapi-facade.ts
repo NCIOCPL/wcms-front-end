@@ -26,9 +26,11 @@ const OTHER_MAIN_TYPES = [
 export class CTAPIFacade {
 
     private svc:ClinicalTrialsService;
+    private isDebug:boolean = false;
 
-    constructor(svc: ClinicalTrialsService) {
+    constructor(svc: ClinicalTrialsService, isDebug = false) {
         this.svc = svc;
+        this.isDebug = isDebug;
     }
 
     getDiseasesForSimpleTypeAhead(name: string):Promise<DiseaseResult[]> {
@@ -45,6 +47,9 @@ export class CTAPIFacade {
             return res.terms
         }).then((diseases:DiseaseResult[]) => {
             //Do cool sorting.
+            if (this.isDebug) {
+                diseases.forEach(disease => disease.name += " (" + disease.codes.join("|") + ")")
+            }
             return diseases;
         });
     }
@@ -72,7 +77,13 @@ export class CTAPIFacade {
                 }
             });            
 
-            return types.concat(otherTypes);
+            let diseases = types.concat(otherTypes);
+
+            if (this.isDebug) {
+                diseases.forEach(disease => disease.name += " (" + disease.codes.join("|") + ")")
+            }
+
+            return diseases;
         })
     }
 
@@ -91,7 +102,13 @@ export class CTAPIFacade {
                 current_trial_status: VIEWABLE_TRIALS
             }
         ).then((res:DiseaseResults) => {
-            return res.terms
+            let diseases = res.terms;
+
+            if (this.isDebug) {
+                diseases.forEach(disease => disease.name += " (" + disease.codes.join("|") + ")")
+            }
+
+            return diseases;
         })
     }
     
@@ -110,7 +127,13 @@ export class CTAPIFacade {
                 current_trial_status: VIEWABLE_TRIALS
             }
         ).then((res:DiseaseResults) => {
-            return res.terms
+            let diseases = res.terms;
+
+            if (this.isDebug) {
+                diseases.forEach(disease => disease.name += " (" + disease.codes.join("|") + ")")
+            }
+
+            return diseases;
         })
     }
 
@@ -129,7 +152,13 @@ export class CTAPIFacade {
                 current_trial_status: VIEWABLE_TRIALS
             }
         ).then((res:DiseaseResults) => {
-            return res.terms
+            let diseases = res.terms;
+
+            if (this.isDebug) {
+                diseases.forEach(disease => disease.name += " (" + disease.codes.join("|") + ")")
+            }
+
+            return diseases;
         })
     }    
 
