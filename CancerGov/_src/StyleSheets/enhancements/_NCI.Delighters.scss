@@ -222,16 +222,23 @@
 @include bp(medium) {
 	.delighter-rail {
 		width: 100%;
+		padding-left: 15px;
+		padding-right: 15px;
 		margin-top: 30px;
+		display: flex;
+		justify-content: space-evenly;
 
+
+		> a[href^="#"]  {
+			display: none;
+		}
+		
 		a {
 			margin: 0;
 		}
 
 		.delighter {
-			float: left;
-			width: 31%;
-			margin-right: 2%;
+			width: 180px;
 			// height: 172px;
 
 			@include bp('(max-width: 1024px) and (min-width: 850px)') {
