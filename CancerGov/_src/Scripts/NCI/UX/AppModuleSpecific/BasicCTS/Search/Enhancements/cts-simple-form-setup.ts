@@ -82,7 +82,7 @@ export class CTSSimpleFormSetup extends CTSBaseFormSetup{
 						}
 					}
 
-					analyticsAndSubmit();
+					analyticsAndSubmit(hasKeywordMatch);
 				})				
 				.catch(err => {
 					console.log(err);					
@@ -91,7 +91,7 @@ export class CTSSimpleFormSetup extends CTSBaseFormSetup{
 		}
 		else
 		{	
-			analyticsAndSubmit();
+			analyticsAndSubmit(hasKeywordMatch);
 		}
 
 	}
