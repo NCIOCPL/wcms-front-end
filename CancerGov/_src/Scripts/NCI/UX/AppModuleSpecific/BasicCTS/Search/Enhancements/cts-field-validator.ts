@@ -134,7 +134,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 			if(!$this.data('valid')){
 
 				//Fire off analytics for completd event and submit form
-				function analyticsAndSubmit() {
+				function analyticsAndSubmit(hasKeywordMatch:boolean = false) {
 					try {
 						(<any>$this).basicctsformtrack("completed");
 					} catch (e) {
