@@ -15,8 +15,14 @@ RUN apt-get -y update \
 RUN npm install -g grunt
 
 
-# Copy in the source files.
+# Create working directory for building.
 WORKDIR /content-build
+
+# Copy configuration files.
+ADD tools/config/ssh/config /home/builduser/.ssh
+ADD tools/config/git/.gitconfig /home/builduser
+
+# Copy in the source files.
 ADD CancerGov /content-build
 ADD tools/build/build-release.sh /content-build
 
@@ -25,7 +31,6 @@ RUN useradd --no-log-init --create-home builduser \
     && chown --recursive builduser:builduser /content-build \
     && chmod u+x build-release.sh
 USER builduser
-
 
 # Run the build as the default action.
 CMD npm run-script build-release

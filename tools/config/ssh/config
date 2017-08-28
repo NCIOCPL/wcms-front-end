@@ -1,0 +1,6 @@
+# Webcommauto account
+Host github.com-webcommauto
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-webcommauto
+
