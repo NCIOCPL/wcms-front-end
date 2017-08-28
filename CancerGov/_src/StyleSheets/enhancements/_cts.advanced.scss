@@ -57,7 +57,7 @@
     }
     //match input height to select dropdown height
     input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
-      height: 2.25em;
+      height: 2.45em;
     }
   }
   #legend--age, #legend--Keyword {
@@ -94,8 +94,9 @@
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
-          padding: 10px;
-          column-gap: 40px;
+    margin-bottom: 0em;
+    padding: 10px 10px 0;
+    column-gap: 40px;
           @include bp(small) {
             -webkit-column-count: 1; /* Chrome, Safari, Opera */
             -moz-column-count: 1; /* Firefox */
@@ -143,7 +144,7 @@
 //    width: 100%!important;
 //  }
 }
- 
+
 .clinical-trials-search-form.adv-search {
 	//override for contentzone li styling in nvcg.sas
 	li, .rawHtml li {
@@ -151,7 +152,7 @@
 		margin-left: 5px;
 		margin-top: 0;
 	}
-	
+
 	//Jquery UI overrides for disabled state
 		.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
 		opacity: 1;
@@ -159,7 +160,7 @@
 		.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
 		border: 1px solid #bdbddc;
 	}
-	
+
 	//spacing issues in location fieldset
 	form .row .row .column, form .row .row .columns {
   	padding: 0.25em 0.9375em .5em 0;
