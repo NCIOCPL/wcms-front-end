@@ -167,8 +167,6 @@
 	}
 }
 
-
-
 // fix smooshed social icons
 /*
 .page-options li {
@@ -497,7 +495,6 @@ opacity: 0.45;
 .clinicaltrials-results-criteria-display {
   background-color: #fff;
   box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
-  left: -0.25em;
   position: relative;
   top: -1px;
   width: 702px;
@@ -505,15 +502,12 @@ opacity: 0.45;
   padding: 10px 20px;
 
   @include bp(xtra-large){
-    //left: -15px;
     top: -1px;
   }
   @include bp(medium){
-    //left: -1em;
     width: 625px;
   }
   @include bp(small){
-    //left: -1em;
     top: 4px;
     width: 100%;
   }
@@ -538,8 +532,7 @@ opacity: 0.45;
   //background-color: #9cf;
   border: none;
   margin: 0;
-  padding: 10px 5px;
-  //float: right;
+  padding: 10px 5px 0px 0px;
   position: relative;
   top: -11px;
 }
@@ -589,8 +582,6 @@ opacity: 0.45;
 
 .cts-start-over {
  font-weight: bold;
- //padding-left: 0.5em;
- line-height: 2.5em;
  margin: auto;
  white-space: nowrap;
 
@@ -598,20 +589,20 @@ opacity: 0.45;
     margin: 0;
   }
   @include bp(large){
-  margin: 0 0 0 -2em;
+  margin: 0;
   }
   @include bp(medium-down){
    padding-left: 0;
-   margin: 0 0 0 -0.8em;
+   margin: 0;
   }
 }
 .cts-view {
-    margin: 0 0 0 -4em;
+    margin: 0;
     @include bp(xtra-large){
-    margin: 0 0 0 -14em;
+    margin: 0;
     }
     @include bp(medium-down){
-    margin: 0 0 0 -1em;
+    margin: 0;
     }
 }
 .cts-all-trials {
