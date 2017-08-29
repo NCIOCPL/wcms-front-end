@@ -16,6 +16,7 @@ if [ -z "$BRANCH_NAME" ]; then echo BRANCH_NAME not set; exit 1; fi
 if [ -z "$GITHUB_TOKEN" ]; then echo GITHUB_TOKEN not set; exit 1; fi
 if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
 
+# Move to the CancerGov base directory.
 npm install
 if [ $? != 0 ]; then echo "npm install failed."; exit 1; fi
 
@@ -27,6 +28,9 @@ zip -r wcms-front-end.zip *
 
 # Need the tag name to incorporate, but not be identical to, the branch name.
 export TAG_NAME=${BRANCH_NAME}-${RELEASE_LABEL}
+
+# Tag the code
+git tag ${TAG_NAME}
 
 # Clean up old version (if any exists) and create new release.
 github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag ${TAG_NAME} || echo Nothing to delete.

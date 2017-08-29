@@ -24,9 +24,8 @@ ADD tools/config/git/.gitconfig /home/builduser
 # Create working directory for building.
 WORKDIR /content-build
 
-# Copy in the source files.
-ADD CancerGov /content-build
-ADD tools/build/build-release.sh /content-build
+# Copy the source file tree.
+ADD . /content-build
 
 # Make build files accessible to the build user.
 RUN chown --recursive builduser:builduser /content-build \
@@ -37,4 +36,5 @@ RUN chown --recursive builduser:builduser /content-build \
 USER builduser
 
 # Run the build as the default action.
+WORKDIR /content-build/CancerGov
 CMD npm run-script build-release
