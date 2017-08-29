@@ -497,7 +497,7 @@ opacity: 0.45;
 .clinicaltrials-results-criteria-display {
   background-color: #fff;
   box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
-  left: -1em;
+  left: -0.25em;
   position: relative;
   top: -1px;
   width: 702px;
@@ -505,15 +505,15 @@ opacity: 0.45;
   padding: 10px 20px;
 
   @include bp(xtra-large){
-    left: -15px;
+    //left: -15px;
     top: -1px;
   }
   @include bp(medium){
-    left: -1em;
+    //left: -1em;
     width: 625px;
   }
   @include bp(small){
-    left: -1em;
+    //left: -1em;
     top: 4px;
     width: 100%;
   }
@@ -525,7 +525,7 @@ opacity: 0.45;
 }
 
 .cts-results-title .search-criteria-box {
-  display: inline-table;
+  display: grid;
 }
 .row .row .medium-9 .status {
   margin-top: 2em;
@@ -550,7 +550,7 @@ opacity: 0.45;
   background: #fff url("/publishedcontent/images/images/design-elements/icons/cts-plus.png") no-repeat scroll right center;
   border: 1px solid #bdbdbd;
   padding: 10px 150px 10px 10px;
-  background-size: 10%;
+  background-size: 12%;
 }
 
 .ctscb
@@ -559,7 +559,7 @@ opacity: 0.45;
  display: inline-block;
  white-space: nowrap;
  border: 1px solid #777;
- margin: 0.25em;
+ margin: 0.25em auto;
  text-decoration: none;
  color: #333;
  line-height:2em;
@@ -576,7 +576,10 @@ opacity: 0.45;
 .ctscb.show
 {
  background: #ededed url("/publishedcontent/images/images/design-elements/icons/cts-minus.png") no-repeat scroll right center;
- background-size: 11%;
+ background-size: 10%;
+ @include bp(small){
+   background-size: 12%;
+ }
 }
 
 .cts-results-label {
@@ -586,13 +589,13 @@ opacity: 0.45;
 
 .cts-start-over {
  font-weight: bold;
- padding-left: 0.5em;
+ //padding-left: 0.5em;
  line-height: 2.5em;
  margin: auto;
  white-space: nowrap;
 
   @include bp(xtra-large){
-    margin: 0 0 0 -9.5em;
+    margin: 0;
   }
   @include bp(large){
   margin: 0 0 0 -2em;

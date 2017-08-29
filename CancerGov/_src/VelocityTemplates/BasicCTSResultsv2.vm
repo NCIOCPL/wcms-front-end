@@ -188,7 +188,7 @@ $usSites.length locations##
           </div>
 
         #else
-          <div class="medium-9 columns collapse">
+          <div class="row">
 
           <span class="cts-results-label">
           <strong>
@@ -196,10 +196,13 @@ $usSites.length locations##
           </strong>
           </span>
 
+          </div>
+
+          <div class="row">
           #DrawSearchParamsV2($SearchResults)
           </div>
 
-          <div class="medium-3 columns">
+          <div class="row">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
           </div>
 
