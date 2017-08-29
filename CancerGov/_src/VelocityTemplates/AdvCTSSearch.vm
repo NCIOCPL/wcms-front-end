@@ -362,6 +362,7 @@
 </div>
 ## Begin "Delighter" section ##
 <div class="delighter-rail medium-3 columns">
+
     <!--(bake LiveHelpDelighter.inc)-->
     <!--(bake WhatAreTrialsDelighter.inc)-->
     <!--(bake WhichTrialsDelighter.inc)-->

@@ -229,20 +229,22 @@
   </div>
 
   <div class="delighter-rail view-delighter-rail medium-3 columns">
-    <!--(bake LiveHelpDelighter.inc)-->
-    <!--(bake WhichTrialsDelighter.inc)-->
-    <div class="no-resize cts-share view-delighter-share">
-      <div class="share-text">Share this clinical trial with your doctor:</div>
-      <a class="print" title="Print" href="#">
-        <span class="icon icon-print"></span>
-        <span class="text">Print</span>
-      </a>
-      ## This is the only place where GetUrl should be used.  All other places are specific only to this template.
-      #set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
-      <a class="email" title="Email" href="$emailUrl">
-        <span class="icon icon-email"></span>
-        <span class="text">Email</span>
-      </a>
+    <div class="cts-delighter-container">
+			<!--(bake LiveHelpDelighter.inc)-->
+			<!--(bake WhichTrialsDelighter.inc)-->
     </div>
+		<div class="no-resize cts-share view-delighter-share">
+			<div class="share-text">Share this clinical trial with your doctor:</div>
+			<a class="print" title="Print" href="#">
+				<span class="icon icon-print"></span>
+				<span class="text">Print</span>
+			</a>
+			## This is the only place where GetUrl should be used.  All other places are specific only to this template.
+			#set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
+			<a class="email" title="Email" href="$emailUrl">
+				<span class="icon icon-email"></span>
+				<span class="text">Email</span>
+			</a>
+		</div>
   </div>
 </div>
