@@ -12,7 +12,7 @@ if [ -z "$GH_ORGANIZATION_NAME" ]; then echo GH_ORGANIZATION_NAME not set; exit 
 if [ -z "$GH_REPO_NAME" ]; then echo GH_REPO_NAME not set; exit 1; fi
 if [ -z "$BRANCH_NAME" ]; then echo BRANCH_NAME not set; exit 1; fi
 if [ -z "$GITHUB_TOKEN" ]; then echo GITHUB_TOKEN not set; exit 1; fi
-if [ -z "$RELEASE_LABEL"]; then echo RELEASE_LABEL not set; exit 1; fi
+if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
 
 export SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export PROJECT_HOME="$(cd $SCRIPT_PATH/../.. && pwd)"
