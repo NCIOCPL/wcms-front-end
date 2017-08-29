@@ -14,7 +14,7 @@ if [ -z "$GH_ORGANIZATION_NAME" ]; then echo GH_ORGANIZATION_NAME not set; exit 
 if [ -z "$GH_REPO_NAME" ]; then echo GH_REPO_NAME not set; exit 1; fi
 if [ -z "$BRANCH_NAME" ]; then echo BRANCH_NAME not set; exit 1; fi
 if [ -z "$GITHUB_TOKEN" ]; then echo GITHUB_TOKEN not set; exit 1; fi
-if [ -z "$RELEASE_LABEL"]; then echo RELEASE_LABEL not set; exit 1; fi
+if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
 
 npm install
 if [ $? != 0 ]; then echo "npm install failed."; exit 1; fi
