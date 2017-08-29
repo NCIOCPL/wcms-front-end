@@ -65,9 +65,11 @@ TODO: Verify Javascript
 </div>
 ## Begin "Delighter" section ##
 <div class="delighter-rail medium-3 columns">
+	<div class="cts-delighter-container">
     <!--(bake LiveHelpDelighter.inc)-->
     <!--(bake WhatAreTrialsDelighter.inc)-->
     <!--(bake WhichTrialsDelighter.inc)-->
+	</div>	
 </div>
 ## Begin section for referencing API instructions page ##
 <div class="api-reference-section api-ref-advanced">
