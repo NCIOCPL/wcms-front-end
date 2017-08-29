@@ -11,9 +11,9 @@ TODO: Verify Javascript
     </div>
 #end
     <form id="form--cts-basic" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
-        <fieldset id="fieldset--type" aria-labelledby="fieldset--type">
+        <fieldset id="fieldset--type">
             <div class="adv-fieldset-header">
-                <h4>Cancer Type/Keyword 
+                <h4 class="clearfix"><legend>Cancer Type/Keyword</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -25,9 +25,9 @@ TODO: Verify Javascript
         </fieldset>
 
     <div class="row" data-match-height>
-        <fieldset id="fieldset--age" aria-labelledby="fieldset--age" class="large-6 columns gutter equalheight">
+        <fieldset id="fieldset--age" class="large-6 columns gutter equalheight">
             <div class="adv-fieldset-header">
-                <h4>Age 
+                <h4 class="clearfix"><legend>Age</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -39,9 +39,9 @@ TODO: Verify Javascript
             </div>
         </fieldset>
     
-        <fieldset id="fieldset--zip" aria-labelledby="fieldset--zip" class="large-6 columns gutter equalheight">
+        <fieldset id="fieldset--zip" class="large-6 columns gutter equalheight">
             <div class="adv-fieldset-header">
-                <h4>U.S. ZIP Code 
+                <h4 class="clearfix"><legend>U.S. ZIP Code</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>

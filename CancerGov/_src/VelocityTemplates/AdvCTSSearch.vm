@@ -13,9 +13,9 @@
         <!-- END select2 (cancer type) module -->
         <!-- BEGIN age/keyword divs -->
         <div class="row" data-match-height>
-            <fieldset id="fieldset--age" aria-labelledby="fieldset--age" class="large-6 columns gutter equalheight">
+            <fieldset id="fieldset--age" class="large-6 columns gutter equalheight">
                 <div class="adv-fieldset-header">
-                    <h4>AGE
+                    <h4 class="clearfix"><legend>AGE</legend>
                         <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                     </h4>
                 </div>
@@ -30,9 +30,9 @@
                     </div>
                 </div>
             </fieldset>
-            <fieldset id="fieldset--keyword" aria-labelledby="fieldset--keyword" class="large-6 columns gutter equalheight">
+            <fieldset id="fieldset--keyword" class="large-6 columns gutter equalheight">
                 <div class="adv-fieldset-header">
-                    <h4>KEYWORDS / PHRASES
+                    <h4 class="clearfix"><legend>KEYWORDS / PHRASES</legend>
                         <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                     </h4>
                 </div>
@@ -50,9 +50,9 @@
         </div>
         <!-- END age/keyword divs -->
         <!-- BEGIN location fieldsets -->
-        <fieldset id="fieldset--location" aria-labelledby="fieldset--location" >
+        <fieldset id="fieldset--location">
             <div class="adv-fieldset-header">
-                <h4>LOCATION
+                <h4 class="clearfix"><legend>LOCATION</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -178,9 +178,9 @@
         </fieldset>
         <!-- END location fieldsets -->
         <!-- BEGIN trial type fieldset -->
-        <fieldset id="fieldset--trialtype" aria-labelledby="fieldset--trialtype">
+        <fieldset id="fieldset--trialtype">
             <div class="adv-fieldset-header">
-                <h4>TRIAL TYPE
+                <h4 class="clearfix"><legend>TRIAL TYPE</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -223,9 +223,9 @@
         </fieldset>
         <!-- END trial type fieldset -->
         <!-- BEGIN trial/treatment select2 module -->
-        <fieldset id="fieldset--trialtreatment" aria-labelledby="fieldset--trialtreatment">
+        <fieldset id="fieldset--trialtreatment">
             <div class="adv-fieldset-header">
-                <h4>DRUG / TREATMENT
+                <h4 class="clearfix"><legend>DRUG / TREATMENT</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -253,9 +253,9 @@
         </fieldset>
         <!-- END trial/treatment select2 module -->
         <!-- BEGIN phase/trial status fieldset -->
-        <fieldset id="fieldset--trialstatus" aria-labelledby="fieldset--trialstatus">
+        <fieldset id="fieldset--trialstatus">
             <div class="adv-fieldset-header">
-                <h4>TRIAL PHASE
+                <h4 class="clearfix"><legend>TRIAL PHASE</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#5" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -289,9 +289,9 @@
         </fieldset>
         <!-- END phase/trial status fieldset -->
         <!-- BEGIN trial ID fieldset -->
-        <fieldset id="fieldset--trialid" aria-labelledby="fieldset--trialid">
+        <fieldset id="fieldset--trialid">
             <div class="adv-fieldset-header">
-                <h4>TRIAL ID
+                <h4 class="clearfix"><legend>TRIAL ID</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#7" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -310,9 +310,9 @@
         </fieldset>
         <!-- END trial ID fieldset -->
         <!-- BEGIN trial investigators fieldset -->
-        <fieldset id="fieldset--investigator" aria-labelledby="fieldset--investigator">
+        <fieldset id="fieldset--investigator">
             <div class="adv-fieldset-header">
-                <h4>TRIAL INVESTIGATORS
+                <h4 class="clearfix"><legend>TRIAL INVESTIGATORS</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
@@ -331,9 +331,9 @@
         </fieldset>
         <!-- END trial investigators fieldset -->
         <!-- BEGIN lead organization fieldset -->
-        <fieldset id="fieldset--organization" aria-labelledby="fieldset--organization">
+        <fieldset id="fieldset--organization">
             <div class="adv-fieldset-header">
-                <h4>LEAD ORGANIZATION
+                <h4 class="clearfix"><legend>LEAD ORGANIZATION</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>
