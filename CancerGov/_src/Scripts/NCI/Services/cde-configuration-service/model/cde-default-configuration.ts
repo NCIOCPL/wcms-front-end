@@ -13,5 +13,5 @@ export class CDEDefaultConfiguration implements CDEConfiguration {
      * @type {string}
      * @memberof CDEDefaultConfiguration
      */
-    ClinicalTrialsAPIServer : string = 'clinicaltrialsapi-stage.cancer.gov';
+    ClinicalTrialsAPIServer : string = 'clinicaltrialsapi.cancer.gov';
 }

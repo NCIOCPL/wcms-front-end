@@ -19,7 +19,7 @@ if [ -z "$BRANCH_NAME" ]; then echo BRANCH_NAME not set; exit 1; fi
 if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
 
 # Move to the CancerGov base directory.
-npm install
+npm install --color=false --loglevel=warn --progress=false
 if [ $? != 0 ]; then echo "npm install failed."; exit 1; fi
 
 grunt build:prod
