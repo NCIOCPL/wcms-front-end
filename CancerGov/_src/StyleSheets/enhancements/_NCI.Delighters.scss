@@ -201,7 +201,18 @@
   #delighter-innerpage {
     margin-top: -65px;
   }
-
+	// centering the share this clinical trial text
+	.cts-share.view-delighter-share {
+		text-align: center;
+			
+		.share-text {
+			display: inline;	
+		}
+		
+		a.email {
+			margin: 0;
+		}
+	}
   .delighter.cts-feedback {
     display: none;
   }
@@ -218,6 +229,7 @@
     //border-right: 3px solid #cf0549 !important;
   }
 }
+
 /* Tablet styles */
 @include bp(medium) {
 	.delighter-rail {
@@ -230,15 +242,7 @@
 			display: flex;
 			justify-content: space-evenly;
 		}
-		
-		.cts-share.view-delighter-share {
-			text-align: center;
-			
-			.share-text {
-				display: inline;	
-			}
-		}
-		
+				
 		> a[href^="#"]  {
 			display: none;
 		}
