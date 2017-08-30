@@ -1,6 +1,6 @@
-        <fieldset id="fieldset--type" aria-labelledby="fieldset--type">
+        <fieldset id="fieldset--type">
             <div class="adv-fieldset-header">
-                <h4>CANCER TYPE / CONDITION
+                <h4 class="clearfix"><legend>CANCER TYPE / CONDITION</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
                 </h4>
             </div>

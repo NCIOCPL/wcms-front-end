@@ -1,5 +1,5 @@
 import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-service';
-
+import { NCIBasePage } from 'UX/core';
 /**
  * Base class for all CTS Search Form Pages.
  * 
@@ -7,7 +7,7 @@ import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-s
  * @abstract
  * @class BaseCTSSearchPage
  */
-export abstract class BaseCTSSearchPage {
+export abstract class BaseCTSSearchPage extends NCIBasePage {
 
   /**
    * Gets the running CDEConfiguration for this environment.
@@ -23,16 +23,10 @@ export abstract class BaseCTSSearchPage {
 	 * @param {string} apiHost 
 	 */
 	constructor() { 
+    super();
+
     let configSvc:CDERuntimeConfig = new CDERuntimeConfig();
     this.Config = configSvc.getConfiguration();
 	}
-
-  /**
-   * Wires up the required enhancements onReady
-   * 
-   * @abstract
-   * @memberof BaseCTSSearchPage
-   */
-  public abstract onReady(): void;
 
 }

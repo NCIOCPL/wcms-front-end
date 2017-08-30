@@ -28,12 +28,18 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 	protected $otherDiseaseWrap: any;
 
+	protected findingsMinCount: number = 3;
+
 	/**
 	 * Execute the constructor function on the base enhancement class &
 	 * create an instance of the CT API service.
 	 */
 	constructor(apiHost: string) { 
 		super(apiHost);
+
+		if (this.isDebug()) {
+			this.findingsMinCount	= 0;
+		}
 	}
 
 	/**
@@ -65,7 +71,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		//These initializations do no load data but only add select2 to the controls,
         //as well as attach event handlers.
         this.$subtypeCancer.select2({
-        		placeholder: 'Please select a Cancer Type First',
+        		placeholder: 'Please Select a Cancer Type First',
             	theme:"nci"
         	})
         	.on("select2:select", this.onSubtypeChange.bind(this))
@@ -85,7 +91,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
         // Add findings select2 control only if the selector exists
         if(!this.isEmpty(this.$findings)) {
         	this.$findings.select2({
-        		minimumInputLength: 3,
+        		minimumInputLength: this.findingsMinCount,
         		placeholder: 'Please select a Cancer Type or Sub Type First',
                 theme:"nci"
         	});
@@ -392,7 +398,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 				this.$findings.select2({
 					data: findings,
-					minimumInputLength: 3,
+					minimumInputLength: this.findingsMinCount,
 					language: {
 						noResults: ( params => "No available options based on your previous selections." )
 					},

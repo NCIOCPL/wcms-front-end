@@ -34,9 +34,20 @@ $usSites.length locations##
 
 #macro(DrawNoResultsMessage)
   <div class="medium-9 columns collapse">
-    <div>
-      No clinical trials matched your search for #DrawSearchParamsV2($SearchResults)
-      <p>For assistance, please contact the NCI Contact Center. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</p>
+
+    <div class="row">
+    <span class="cts-results-label">
+    <strong>
+      No clinical trials matched your search.
+    </strong>
+    </span>
+    </div>
+
+    <div class="row">#DrawSearchParamsV2($SearchResults)
+    </div>
+
+    <div class="row">
+      <span>For assistance, please contact the NCI Contact Center. You can <a href="/contact" class="live-help-link">chat online</a> or call 1-800-4-CANCER (1-800-422-6237).</span>
       <p class="cts-new-search"><a href="$SearchResults.Control.SearchFormUrl">Try a new search</a><p>
     </div>
   </div>
@@ -188,7 +199,7 @@ $usSites.length locations##
           </div>
 
         #else
-          <div class="medium-9 columns collapse">
+          <div class="row">
 
           <span class="cts-results-label">
           <strong>
@@ -196,10 +207,13 @@ $usSites.length locations##
           </strong>
           </span>
 
+          </div>
+
+          <div class="row">
           #DrawSearchParamsV2($SearchResults)
           </div>
 
-          <div class="medium-3 columns">
+          <div class="row">
           <span class="cts-start-over"><a href="$SearchResults.Control.SearchFormUrl">Start Over</a></span>
           </div>
 
@@ -214,7 +228,9 @@ $usSites.length locations##
 
   ## Begin "Delighter" section ##
   <div class="delighter-rail results-delighter-rail medium-3 columns">
-	  <!--(bake LiveHelpDelighter.inc)-->
-	  <!--(bake WhichTrialsDelighter.inc)-->
+		<div class="cts-delighter-container">
+	  	<!--(bake LiveHelpDelighter.inc)-->
+	  	<!--(bake WhichTrialsDelighter.inc)-->
+		</div>
   </div>
 </div>

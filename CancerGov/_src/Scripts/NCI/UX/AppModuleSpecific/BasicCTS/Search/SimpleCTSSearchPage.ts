@@ -25,8 +25,9 @@ class SimpleCTSSearchPage extends BaseCTSSearchPage {
 	 * @memberof SimpleCTSSearchPage
 	 */
 	onReady():void {
-		new CTSSimpleFormSetup(this.Config.ClinicalTrialsAPIServer).init();
-		new CTSFieldValidator().init();
+		let ctsSimpleFormSetup = new CTSSimpleFormSetup(this.Config.ClinicalTrialsAPIServer);
+		ctsSimpleFormSetup.init();
+		new CTSFieldValidator(ctsSimpleFormSetup.postValidationStep.bind(ctsSimpleFormSetup)).init();
 		(<any>(CTSCommonAnalytics)).init();
 		(<any>(FeedbackForm)).init();
 		(<any>jQuery('[data-match-height]')).NCI_equal_heights();
@@ -35,5 +36,5 @@ class SimpleCTSSearchPage extends BaseCTSSearchPage {
 
 (function() { //encapsulation
 	let searchPage:SimpleCTSSearchPage = new SimpleCTSSearchPage();
-	$(searchPage.onReady.bind(searchPage))
+	searchPage.init();
 })();

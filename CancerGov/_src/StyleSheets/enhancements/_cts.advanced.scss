@@ -44,6 +44,11 @@
   .checkbox {
     width: 25%;
   }
+  @include bp('(max-width:450px)') {
+    .checkbox {
+      width: 33.333333%;
+    }
+  }
 }
 
 #tp, #tt {
@@ -76,9 +81,10 @@ Set Styles for Drug Selection
 
 //styling for search criteria table
 .search-criteria-box {
+  display: block;
   border: none;
   margin: 0;
-  padding: 10px 5px 0px 0px;
+  padding: 10px 5px 0 0;
   position: relative;
   top: -11px;
 }
@@ -90,14 +96,17 @@ Set Styles for Drug Selection
   padding: 0;
 
   h3 {
-    margin-top: .5em;
+    margin: 0;
+    padding: .5em 0;
     color: #2e2e2e;
+  }
+  > h3 {
+    padding-left: .5em;
   }
 
   table {
     border: none;
     width: 100%;
-    display: block;
     margin-bottom: 0;
   }
   tbody {
@@ -127,9 +136,6 @@ Set Styles for Drug Selection
   padding-top: 1em;
 }
 
-.cts-results-title .search-criteria-box {
-  display: inline-table;
-}
 .row .row .medium-9 .status {
   margin-top: 2em;
 }

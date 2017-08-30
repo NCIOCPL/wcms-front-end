@@ -12,20 +12,33 @@ RUN apt-get -y update \
     && rm /tmp/github-release.tar.bz2
 
 # Install the global grunt executable.
-RUN npm install -g grunt
-
-
-# Copy in the source files.
-WORKDIR /content-build
-ADD CancerGov /content-build
-ADD tools/build/build-release.sh /content-build
+RUN npm config list \
+    && npm set progress=false \
+    && npm set color=false \
+    && npm config list \
+    && npm install -g grunt
 
 # Create non-root user
-RUN useradd --no-log-init --create-home builduser \
-    && chown --recursive builduser:builduser /content-build \
-    && chmod u+x build-release.sh
+RUN useradd --no-log-init --create-home builduser
+
+# Copy configuration files.
+ADD tools/config/ssh/config /home/builduser/.ssh
+ADD tools/config/git/.gitconfig /home/builduser
+
+# Create working directory for building.
+WORKDIR /content-build
+
+# Copy the source file tree.
+ADD . /content-build
+
+# Make build files accessible to the build user.
+RUN chown --recursive builduser:builduser /content-build \
+    && chown --recursive builduser:builduser /home/builduser/.ssh \
+    && chown builduser:builduser /home/builduser/.gitconfig
+
+# Switch to builduser
 USER builduser
 
-
 # Run the build as the default action.
+WORKDIR /content-build/CancerGov
 CMD npm run-script build-release

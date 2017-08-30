@@ -22,6 +22,11 @@ C4906|Parathyroid Cancer
 C6339,C8973|Uterine Sarcoma
 C3411,C7569|Thymoma and Thymic Carcinoma
 C114833,C114836,C6208,C5961|Childhood Embryonal Tumors
+C6954,C9372,C9375,C9094,C9370,C9374,C7710,C5967,C9091,C5797,C9373,C9376,C9371,C5116,C5115|Adult Brain Tumors
+C5816,C8550,C3813|Adult Metastatic Brain Tumors
+C7884|Recurrent Adult Brain Tumors
+C68702,C9094,C9375,C9370,C27183|Adult Glioblastoma
+C124275,C115195,C7535,C7531,C115957,C6286,C6215,C114967,C4347|Childhood Astrocytoma
 treatment|Treatment
 other|Other
 supportive_care|Supportive Care

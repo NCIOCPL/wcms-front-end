@@ -25,7 +25,7 @@ define(function(require) {
 					rank += ('|page ' + pn);
 					
 					var formName = "clinicaltrials_custom";
-					NCIAnalytics.CTSResultsClick($this, rank, formName);
+					NCIAnalytics.CTSResultsWithFormClick($this, rank, formName);
 			});
 		});
 	

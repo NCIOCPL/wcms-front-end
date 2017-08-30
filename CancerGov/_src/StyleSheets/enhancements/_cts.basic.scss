@@ -84,6 +84,12 @@
   .btn-group {
     margin: 40px 0;
     text-align: center;
+    @include bp(medium-down) {
+      margin-bottom: 0;
+    }
+    input:last-child {
+      margin-right: 0;
+    }
   }
 
   input {
@@ -112,6 +118,9 @@
     span.ui-selectmenu-text {
       line-height: normal;
     }
+  }
+  .ui-button {
+    border-color: #bdbdc2;
   }
   button.remove-suggestion {
     margin:20px 0 0;
@@ -397,7 +406,7 @@ a.listing-chat-button {
     }
   }
   .api-reference-section{
-    margin-left: -15px;
+    margin-top: 50px;
   }
 
   .cts-results-lower-control, .cts-results-top-control {

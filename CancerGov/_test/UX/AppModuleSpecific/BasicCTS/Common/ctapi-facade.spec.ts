@@ -52,7 +52,7 @@ class MockCTService implements ClinicalTrialsService {
  * @param checkParamCallback A callback to inspect the parameters
  * @param results A TermResults object to return
  */
-function getParameterTestMock(
+function getTermsParameterTestMock(
     checkParamCallback: (termType: string, additionalParams?:any, size?:number, from?:number) => void,
     results:TermResults
 ) : TypeMoq.IMock<ClinicalTrialsService> {
@@ -73,6 +73,62 @@ function getParameterTestMock(
 
     return mock;
 }
+
+/**
+ * Gets a Mock for testing /disease parameters - Could also be used for other testing.
+ * @param checkParamCallback A callback to inspect the parameters
+ * @param results A DiseaseResults object to return
+ */
+function getDiseaseParameterTestMock(
+    checkParamCallback: (menuType: string | string[], diseaseAncestorIDs: string | string[], additionalParams?:any) => void,
+    results:DiseaseResults
+) : TypeMoq.IMock<ClinicalTrialsService> {
+    //Create the fake interface implementation.
+    let mock: TypeMoq.IMock<ClinicalTrialsService> = TypeMoq.Mock.ofType(MockCTService);
+
+    //Setup the getTerms method to say if any string, etc is passed in then... 
+    mock.setup(m => m.getDiseases(
+        TypeMoq.It.isAny(), //String or array of strings.
+        TypeMoq.It.isAny(), //Undefined is not a string, so must allow any; undefined, string or array of strings.
+        TypeMoq.It.isAny() //Object for additional Parameters.
+    ))
+    //... then run this callback intercepting the request...
+    .callback(checkParamCallback)
+    // ...finally returning a promise just like a real implementation of a CTAPIConnection would.
+    .returns(() => Promise.resolve(results));
+
+    return mock;
+}
+
+/**
+ * Gets a Mock for testing /interventions parameters - Could also be used for other testing.
+ * @param checkParamCallback A callback to inspect the parameters
+ * @param results A DiseaseResults object to return
+ */
+function getInterventionsParameterTestMock(
+    checkParamCallback: (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => void,
+    results:InterventionResults
+) : TypeMoq.IMock<ClinicalTrialsService> {
+    //Create the fake interface implementation.
+    let mock: TypeMoq.IMock<ClinicalTrialsService> = TypeMoq.Mock.ofType(MockCTService);
+
+    //Setup the getTerms method to say if any string, etc is passed in then... 
+    mock.setup(m => m.getInterventions(
+        TypeMoq.It.isAny(), //String or array of strings.
+        TypeMoq.It.isAny(), //undefined or string 
+        TypeMoq.It.isAny(), //undefined or number
+        TypeMoq.It.isAny(), //Object for additional parameters
+        TypeMoq.It.isAny(), //undefined or string
+        TypeMoq.It.isAny() //undefined or string
+    ))
+    //... then run this callback intercepting the request...
+    .callback(checkParamCallback)
+    // ...finally returning a promise just like a real implementation of a CTAPIConnection would.
+    .returns(() => Promise.resolve(results));
+
+    return mock;
+}
+
 
 /**
  * Gets a Term Result with properties filled in.
@@ -99,7 +155,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             res.total = 0;
             res.terms = [];            
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq(COUNTRY_KEY);
@@ -140,7 +196,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                 undefined
             ));
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq("sites.org_country");
@@ -174,7 +230,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             res.total = 0;
             res.terms = [];            
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq(HOSPITAL_KEY);
@@ -207,7 +263,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                 undefined
             ));
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq("sites.org_name");
@@ -236,6 +292,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
     describe('searchDrugs', () => {
         // Placeholder unit tests until endpoint is working
         it('should make the correct request to the ClinicalTrialsService', () => {
+            
                 expect('istanbul').to.be.eq('constantinople');
         });
 
@@ -277,7 +334,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             res.total = 0;
             res.terms = [];            
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq(TRIAL_INVESTIGATORS_KEY);
@@ -318,7 +375,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
                 undefined
             ));
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq("principal_investigator");
@@ -353,7 +410,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             res.total = 0;
             res.terms = [];            
 
-            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getParameterTestMock(
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
                     expect(termType).to.be.eq(LEAD_ORG_KEY);
