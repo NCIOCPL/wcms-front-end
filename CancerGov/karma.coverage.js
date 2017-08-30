@@ -16,6 +16,9 @@ webpackConfig.module.rules = [{
         test: /\.ts$/,
         enforce: "post",
         loader: 'istanbul-instrumenter-loader',
+        options: {
+            esModules: true
+        },
         exclude: [
             'node_modules',
             /\.spec\.ts$/
@@ -40,7 +43,9 @@ module.exports = function (config) {
             module: webpackConfig.module,
             resolve: webpackConfig.resolve
         },
-        webpackServer: {
+        //This keeps webpack quiet
+        webpackMiddleware: {
+            stats: 'errors-only',
             noInfo: true
         },
         coverageReporter: {
