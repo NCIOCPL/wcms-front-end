@@ -14,7 +14,7 @@
                     </div>
                  </div>
                 <div class="row">
-                    <select id="ct-select" class="no-auto-jqueryui" name="t" style="width:97%">
+                    <select id="ct-select" class="no-auto-jqueryui" name="t">
                         <option value="">All</option>
                     </select>
                 </div>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <select id="st-multiselect" name="st" multiple data-placeholder="Select a subtype" placeholder="Select cancer type first" style="width:97%"></select>
+                        <select id="st-multiselect" name="st" multiple data-placeholder="Select a subtype" placeholder="Select cancer type first"></select>
                     </div>
                     <div class="row">
                         <div>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or subtype first" style="width:97%"></select>
+                        <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or subtype first"></select>
                     </div>
 <!--(bake-start _if="findings")-->
                     <div class="row">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" style="width:97%"></select>
+                        <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first"></select>
                     </div>
 <!--(bake-end)-->
                 </div>

@@ -1,108 +1,101 @@
 /****************** BEGIN Delighters styling ***************** */
 .delighter-rail {
-  margin-right: -65px;
+  margin-right: -20px;
   //margin-bottom: 160px;
-  padding-bottom: 50px;
-  width: calc(25% + 45px);
+  //padding-bottom: 50px;
+  //width: calc(25% + 45px);
   float: right;
+
+  span {
+    display: block;
+  }
 
   a, a:hover, a:active {
     text-decoration: none;
   }
 
-  > a {
+  a {
     display: block;
     margin-bottom: 20px;
-
-    &:hover .delighter:before {
-      content: " ";
-      display: block;
-      position: absolute;
-      top:0;
-      left:0;
-      height: 100%;
-      width: 100%;
-      //background-color: rgba(3,3,3,0.2);
-    }
   }
 
   p {
     line-height: 1.166667 !important;
   }
 
-    .cts-feedback, .cts-livehelp, .cts-which, .cts-what {
-        padding: 132px 20px 0px;
-        h4 {
-          border-radius: 8px;
-          color: white;
-          font-size: 14px;
-          margin: auto;
-          padding: 9px;
-          text-transform: uppercase;
-          width: 180px;
-        }
-        p, li, a {
-          color: #706f6f;
-          font-size: 12px;
-          letter-spacing: 0.05em;
-          margin: auto;
-          padding-top: 8px;
-					padding-bottom: 8px;
-          width: 180px;
-        }
-			
-			@include bp(medium) {
-				padding: 132px 0 0;	
-			}
+  .cts-feedback, .cts-livehelp, .cts-which, .cts-what {
+    padding: 132px 20px 0;
+    h4 {
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      margin: auto;
+      padding: 9px;
+      text-transform: uppercase;
+      width: 180px;
+    }
+    p, li, a {
+      color: #706f6f;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      margin: auto;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      max-width: 185px;
     }
 
-    .cts-feedback {
-        background: transparent url("/publishedcontent/images/images/design-elements/icons/send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
-        h4 {
-            background-color: #b74900;
-        }
-        a:hover, a:active {
-            background: #306 url("/publishedcontent/images/images/design-elements/icons/send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
-            -webkit-transform: all 0.5s ease 0s;
-            -moz-transform: all 0.5s ease 0s;
-            -ms-transform: all 0.5s ease 0s;
-            -o-transform: all 0.5s ease 0s;
-            transform: all 0.5s ease 0s;
-            text-decoration: none;
-            //background-color: #306;
-        }
+    @include bp(medium) {
+      padding: 132px 0 0;
     }
-    .cts-livehelp {
-        background: transparent url("/publishedcontent/images/images/design-elements/icons/live-help-person-icon.svg") no-repeat scroll center 10px / 110px 110px;
-        h4 {
-            background-color: #35778f;
-        }
-    } 
-    .cts-which {
-        background: transparent url("/publishedcontent/images/images/design-elements/icons/checklist-icon.svg") no-repeat scroll center 10px / 110px 110px;
-        h4 {
-            background-color: #4a437a;
-        }
-    } 
-    .cts-what {
-        background: transparent url("/publishedcontent/images/images/design-elements/icons/what-are-clinical-trials-icon.svg") no-repeat scroll center 10px / 110px 110px;
-        h4 {
-            background-color: $navyblue;
-        }
+  }
+
+  .cts-feedback {
+    background: transparent url("/publishedcontent/images/images/design-elements/icons/send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: #b74900;
     }
-    // This will need to be updated 
-    .cts-next-step {
-        background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
-        border: 3px solid #cf0549;
-        color: white;
-        h4, p, li, a {
-            color: white;
-            font-size: 12px;
-        }
-        h4 {
-            font-size: 15px;
-        }
+    a:hover, a:active {
+      background: #306 url("/publishedcontent/images/images/design-elements/icons/send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+      -webkit-transform: all 0.5s ease 0s;
+      -moz-transform: all 0.5s ease 0s;
+      -ms-transform: all 0.5s ease 0s;
+      -o-transform: all 0.5s ease 0s;
+      transform: all 0.5s ease 0s;
+      text-decoration: none;
+      //background-color: #306;
     }
+  }
+  .cts-livehelp {
+    background: transparent url("/publishedcontent/images/images/design-elements/icons/live-help-person-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: #35778f;
+    }
+  }
+  .cts-which {
+    background: transparent url("/publishedcontent/images/images/design-elements/icons/checklist-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: #4a437a;
+    }
+  }
+  .cts-what {
+    background: transparent url("/publishedcontent/images/images/design-elements/icons/what-are-clinical-trials-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: $navyblue;
+    }
+  }
+  // This will need to be updated
+  .cts-next-step {
+    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
+    border: 3px solid #cf0549;
+    color: white;
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+    h4 {
+      font-size: 15px;
+    }
+  }
 
 
 }
@@ -116,10 +109,10 @@
   text-align: center;
 
   h4 {
-		font-weight: normal;	
-	}
-	
-	h4, p, hr {
+    font-weight: normal;
+  }
+
+  h4, p, hr {
     position: relative;
     margin: 0;
   }
@@ -158,7 +151,7 @@
     max-width: 115px;
     text-align: center;
 
-		&:hover {
+    &:hover {
       background-color: #3f0557;
       text-decoration: none;
     }
@@ -173,15 +166,15 @@
     width: 100%;
     text-align: right;
     margin:0 auto;
-		display: inline;
-		right: 1%;
-		width: 110px;
+    display: inline;
+    right: 1%;
+    width: 110px;
   }
 }
 /* Extra Large Screens */
 @include bp('(min-width:1770px)') {
   #delighter-homePage, #delighter-innerpage {
-		right: 10%;
+    right: 10%;
   }
 }
 /* Tablet/Mobile styles */
@@ -201,18 +194,18 @@
   #delighter-innerpage {
     margin-top: -65px;
   }
-	// centering the share this clinical trial text
-	.cts-share.view-delighter-share {
-		text-align: center;
-			
-		.share-text {
-			display: inline;	
-		}
-		
-		a.email {
-			margin: 0;
-		}
-	}
+  // centering the share this clinical trial text
+  .cts-share.view-delighter-share {
+    text-align: center;
+
+    .share-text {
+      display: inline;
+    }
+
+    a.email {
+      margin: 0;
+    }
+  }
   .delighter.cts-feedback {
     display: none;
   }
@@ -232,46 +225,46 @@
 
 /* Tablet styles */
 @include bp(medium) {
-	.delighter-rail {
-		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
-		margin-top: 30px;
+  .delighter-rail {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
 
-		// as soon as support is there we'd want to change to space-evently. as of 8/2017, doesn't work in IE11, Safari
-		.cts-delighter-container {
-			display: flex;
-			justify-content: space-around;
-		
-		}
-				
-		> a[href^="#"]  {
-			display: none;
-		}
-		
-		a {
-			margin: 0;
-		}
+    // as soon as support is there we'd want to change to space-evently. as of 8/2017, doesn't work in IE11, Safari
+    .cts-delighter-container {
+      display: flex;
+      justify-content: space-around;
 
-		.delighter {
-			width: 180px;
-			// height: 172px;
+    }
 
-			@include bp('(max-width: 1024px) and (min-width: 850px)') {
-				// height: 160px;
+    > a[href^="#"]  {
+      display: none;
+    }
 
-				&.cts-which, &.cts-what {
-				//	padding-left: 50px;
-				//	padding-right: 50px;
-				}
-			}
-		}
+    a {
+      margin: 0;
+    }
 
-		.share-text {
-			clear: both;
-		}
+    .delighter {
+      width: 180px;
+      // height: 172px;
+
+      @include bp('(max-width: 1024px) and (min-width: 850px)') {
+        // height: 160px;
+
+        &.cts-which, &.cts-what {
+          //	padding-left: 50px;
+          //	padding-right: 50px;
+        }
+      }
+    }
+
+    .share-text {
+      clear: both;
+    }
   }
-  
+
   /**
    * Hack styles for delighter spacing 
    */
@@ -320,31 +313,31 @@
 }
 // to fix find a clinical trial button positioning at small widths
 @include bp('(max-width: 360px)') {
-	#delighter-homePage, #delighter-innerpage {
-		top: 0;
-		margin-bottom: 8px;
-	}
+  #delighter-homePage, #delighter-innerpage {
+    top: 0;
+    margin-bottom: 8px;
+  }
 }
 
 // remove spacing after delighters on pages without API reference section
 .last-SI {
   .delighter-rail:last-child {
     margin-bottom: 0;
-	padding-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
 
 // the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
 @media only screen and (max-width: 400px) {
-	#delighter-homePage, #delighter-innerpage {
-			float: none;
-			margin-top: 10px;
-			position: static;
-			margin-bottom: 8px;
-			margin-right: 5px;
-			text-align: right;
-	}
+  #delighter-homePage, #delighter-innerpage {
+    float: none;
+    margin-top: 10px;
+    position: static;
+    margin-bottom: 8px;
+    margin-right: 5px;
+    text-align: right;
+  }
 }
 
 /****************** End Delighters styling ***************** */

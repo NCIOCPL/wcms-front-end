@@ -9,6 +9,29 @@
 	background: -ms-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* IE10 */
 	background: -o-linear-gradient(top, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* Opera 11.10+ */
 	background: linear-gradient(to bottom, rgba(54, 54, 54, 1) 0%, rgba(74, 74, 74, 1) 100%); /* W3C */
+
+}
+@include bp(medium-down) {
+	.sitewide-search-menu {
+		z-index: 99999; // this is so that the autocomplete is never covered by another element
+		background-color: rgb(233, 234, 232);
+		background-color: rgba(230, 232, 230, 0.9);
+		background-image: none !important;
+		font-size: $swKeywordFontSize;
+		width:auto !important;
+		right:20px;
+
+		.ui-menu-item {
+			background-color: transparent;
+			border-bottom: 1px solid $body-font-color;
+			padding: 0.2em 1em;
+		}
+		.ui-state-focus {
+			color: #fff;
+			background: $navyblue;
+		}
+	}
+
 }
 /* off canvas navigation
  * Source: http://codepen.io/scottb/details/javhr/

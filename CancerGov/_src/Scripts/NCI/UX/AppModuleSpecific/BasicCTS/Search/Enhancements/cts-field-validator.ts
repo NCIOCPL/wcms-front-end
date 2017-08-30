@@ -125,7 +125,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 		let fieldValidatorThis = this;
 
 		// Wire up analytics & prevent submission if we have any active error fields
-		(<any>$(".clinical-trials-search-form")).basicctsformtrack({
+		(<any>$(".cts-form")).basicctsformtrack({
 			formName: this.$searchFormName
 		}).submit(function(e) {
 
@@ -153,10 +153,10 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				e.preventDefault();
 
 				//trigger input blur event
-                $(this).find('fieldset:not(.fieldset-disabled) input[type=text]:visible:enabled').trigger('blur');
+                $this.find('fieldset :not(.disabled) input[type=text]:visible:enabled').trigger('blur');
 
 				//check for inputs that have errors
-				var fieldsAreValid = $(this).find('input.error').length === 0;
+				var fieldsAreValid = $this.find('input.error').length === 0;
 
 				//fields are not required
 				//var fieldsAreValid = true;
@@ -174,7 +174,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				} else {
 					//Log an Analytics message that someone tried to submit the form
 					//with active error messages showing.
-					(<any>$(this)).basicctsformtrack("errors", [{
+					(<any>$this).basicctsformtrack("errors", [{
 						field: 'submit',
 						message: 'attempted form submit with errors'
 					}]);
@@ -182,7 +182,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 					//$(this).find('input.error:first').focus();
 
 					(<any>$(window)).NCI_scroll_to({
-                        anchor: $(this).find('input.error:first').closest('fieldset'),
+                        anchor: $this.find('input.error:first').closest('fieldset'),
                     });
 
 					return false;
@@ -235,7 +235,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 	 * @param val 
 	 */
 	private isParentChecked($val) {
-		return $val.closest('fieldset.fieldset-enabled').length > 0;
+		return $val.closest('section.enabled').length > 0;
 	}
 
 	/**
@@ -258,7 +258,7 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 				el.after('<div class="error-msg">' + el.data("error-message") + '</div>');
 
 				//Log Error Message Here.  It would be nice to have an instance of this...
-				(<any>$(".clinical-trials-search-form")).basicctsformtrack("errors", [{
+				(<any>$(".cts-form")).basicctsformtrack("errors", [{
 					field: el.attr('id'),
 					message: el.data("error-message")
 				}]);

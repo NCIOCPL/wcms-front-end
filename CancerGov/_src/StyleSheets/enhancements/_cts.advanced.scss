@@ -1,293 +1,74 @@
-#form--cts-advanced, #form--cts-basic {
-  fieldset {
-    border:1px solid #bdbdc2;
-    border-radius: 4px;
-    padding: 1em;
+#fieldset--location {
+  section {
+    margin: 12px 0 18px;
 
-    fieldset {
-      border: none;
-      background: none;
+    &:last-child {
+      margin-bottom: 0;
     }
-    legend {
-      color: #fff;
-      background: none;
-      font-size: 1em;
-    }
-    //added the h4 for override purposes
-    h4 {
-      color: #fff;
-      margin-top: 0.5em;
-      @include bp(small){
-        margin: 0 0.8em 0.2em -0.5em;
+    &.disabled {
+      > div:not(.radio) {
+        opacity: .45;
       }
-
-      .text-icon-help, .main-content .text-icon-help
-      {
-        margin-top: -3px;
-          @include bp(small){
-            margin: 0 -1.6em 0 0;
-          }
+      div.disabled {
+        opacity: 1;
       }
-
     }
-    //match input height to select dropdown height
-    input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
-      height: 2.45em;
+    div.disabled {
+      opacity: .45;
     }
   }
-  #legend--age, #legend--Keyword {
-    width: 112.3%;
-  }
+  .field-group {
+    margin:0 0 12px 24px;
 
-  @include bp(medium){
-    #legend--age, #legend--Keyword {
-      width: 107.8%;
+    &:last-child {
+      margin-bottom: 0;
     }
-  }
-  @include bp(small){
-    #legend--age, #legend--Keyword {
-      width: 106.5%;
+    > input:first-child {
+      margin-top: 12px;
     }
-  }
-
-  .module-title {
-	font-size: 1.25em;
-	padding-top: 0.25em;
-  }
-
-  legend {
-
-  }
-  select {
-    width: 100%;
-  }
-  .dashed {
-    border-style: dashed;
-  }
-
-  .two-columns {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-    margin-bottom: 0em;
-    padding: 10px 10px 0;
-    column-gap: 40px;
-          @include bp(small) {
-            -webkit-column-count: 1; /* Chrome, Safari, Opera */
-            -moz-column-count: 1; /* Firefox */
-            column-count: 1;
-          }
-  }
-
-  #fieldset--location {
-    fieldset:not(last-child) {
-	  border-bottom: 1px dashed #bdbdc2;
-	  border-radius: 0;
-	}
-  }
-
-  #a {
-    width: 50%;
-  }
-
-  #z, #zp, #lcnty, #lst {
-	width: 100%;
-  }
-
-  #zp {
-	display: block;
-  }
-
-  .trial-phase {
-	display: inline-block;
-  }
-	#tp {
-		padding-top: 10px;
-	}
-}
-.select2 {
-  .select2-selection--multiple,
-  .select2-selection--single
-  {
-    ul > li:before {
-      content:'';
-      display:none;
-    }
-  }
-
-//  .select2-search__field:not([placeholder = '']) {
-//    width: 100%!important;
-//  }
-}
-
-.clinical-trials-search-form.adv-search {
-	//override for contentzone li styling in nvcg.sas
-	li, .rawHtml li {
-		margin-bottom: 0.5em;
-		margin-left: 5px;
-		margin-top: 0;
-	}
-
-	//Jquery UI overrides for disabled state
-		.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
-		opacity: 1;
-	}
-		.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-		border: 1px solid #bdbddc;
-	}
-
-	//spacing issues in location fieldset
-	form .row .row .column, form .row .row .columns {
-  	padding: 0.25em 0.9375em .5em 0;
-	}
-}
-
-// fix smooshed social icons
-/*
-.page-options li {
-  margin: 0 0 0 0.875em;
-}
-@include bp(medium-down) {
-		.page-options {
-			li {
-				margin: 0 0.875em 0 0;
+    @include bp(small){
+      > div {
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }
-*/
+}
 
-// Styling for API reference box
-.api-ref-advanced {
-    position: static;
-    .row {
-        padding-left: 10px;
+#tp {
+  display: flex;
+  flex-wrap: wrap;
+
+  .checkbox {
+    width: 25%;
+  }
+  @include bp('(max-width:450px)') {
+    .checkbox {
+      width: 33.333333%;
     }
+  }
 }
 
-/********
-Override the select2 styles for the Primary Type dropdown.
-These are styling hacks for SDS demo (2017-07-05). See OCECTS-468 for tickets.
-********/
-
-// Draw the blue dropdown arrow.
-#fieldset--type .select2-selection--single .select2-selection__arrow {
-    background: #2b7bba url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat scroll -378.5px -172px;
-    border-bottom-right-radius: 4px;
-    border-color: currentcolor currentcolor currentcolor #bdbdc2;
-    border-style: none none none solid;
-    border-top-right-radius: 4px;
-    border-width: medium medium medium 1px;
-    height: 32px;
-    position: absolute;
-    right: 1px;
-    top: 1px;
-    width: 32px;
+#tp, #tt {
+  margin-bottom: -6px;
 }
 
-
-// Fix transparency on the dropdown arrow.
-#fieldset--type b {
-    border-color: transparent transparent transparent;
-}
-
-// Override the "selected" background color for dropdowns.
-// The default is set in \vendor\select2\theme\classic\_defaults.scss: $results-choice-bg-hover-color.
-.select2-results__option--highlighted[aria-selected] {
-    background-color: $navyblue !important;
-}
-
-//added dashed border around selected items
-.drug-select-dropdown .select2-results__option, .trtmnt-select-dropdown .select2-results__option  {
-  border-bottom: 1px dashed #979797;
-}
-
-// To override dropdown styles, the "theme: 'classic'" option had to be removed from cts-base-form-setup.ts (this
-// was overriding the CSS. Once the '.select2-container--classic' selectors were removed from the CSS below, the changes appeared.
-// See https://github.com/techhysahil/Select2-Flat-UI/blob/master/Overide.css
-#fieldset--type .select2-container--default .select2-selection--single {
-    background-color: #e6e6e6;
-    border: 1px solid #d3d3d3;
-    color: #2e2e2e;
-    outline: 0 none;
-}
-#fieldset--type .select2-container--default .select2-selection--single .select2-selection__rendered {
-    background: #e6e6e6 url("/publishedcontent/images/images/jquery/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
-    border-radius: 4px;
-    line-height: 32px;
-}
-#fieldset--type .select2-container .select2-selection--single {
-    height: 34px;
-}
-
-//draw select-2-selecton--single hover state?
-    //background: #dadada url("/publishedcontent/images/images/jquery/ui-bg_glass_75_dadada_1x400.png") repeat-x scroll 50% 50%;
-    //border: 1px solid #999999;
-    //color: #212121;
-    //font-weight: normal;
-
-//default input height override
-#fieldset--type .select2-container .select2-selection--multiple
-{
-  height: auto;
-  min-height: 2.4375em;
-  height: auto !important;        /* for IE as it does not support min-height */
-  height: 2.4375em;                   /* for IE as it does not support min-height */
-}
-
-#fieldset--type .select2-container--default .select2-selection--multiple .select2-selection__rendered
-{
-  margin-bottom: -15px;
-}
-
-//pesky state multiselect sizing!
-#fieldset--ccs .select2-container--default .select2-selection--multiple .select2-selection__rendered {
-  margin: 0 0 -1.1em;
-}
-
-//input border and bgcolor override
-#fieldset--type .select2-container--default .select2-selection--multiple,
-#fieldset--ccs .select2-container--default .select2-selection--multiple,
-#fieldset--trialtreatment .select2-container--default .select2-selection--multiple
-{
-  background-color: #f2f2f2;
-  border-radius: 1px;
-  //min-height: 36px;
-  padding-bottom: 3px;
-}
-
-//select2 placeholder text alignment
-.select2-container .select2-search--inline .select2-search__field
-{
-  margin-top: 0px;
-}
-
-//search button alignment
-.clinical-trials-search-form .submit.button {
-    display: block;
-    margin: 30px auto 10px;
-}
-
-//cts api search box alignment override
-.api-reference-section {
-  margin-left: -3px;
-}
-@media only screen and (min-width: 1025px) {
-	.api-reference-section {
-			padding-left: 0;
-	}
-}
 /********
 Set Styles for Drug Selection
 *********/
+.trtmnt-select-dropdown .select2-results__option {
+  border-bottom: 1px dashed #bdbdc2;
+  color: #606060;
 
+  &:last-child {
+    border-bottom: none;
+  }
+}
 .drug-item-wrap, .trtmnt-item-wrap {
   font-size: .875em;
-  color: #606060;
   padding: 0 20px 0 17.5px;
-
-  .select2-results__option--highlighted & {
-    color: #fff;
-  }
 
   .drug-item, .trtmnt-item {
     padding: 10px 0 10px 0;
@@ -298,204 +79,63 @@ Set Styles for Drug Selection
   }
 }
 
-/********
-Create temporary styles for demo Delighter SVGs
-********/
-.delighter-rail-svg {
-    padding: 0px;
-
-}
-.delighter-svg {
-    margin: 20px 0px 20px 60px;
-    img {
-        width: 180px;
-    }
-
-}
-// Mobile styles
-@include bp(medium-down){
-    .delighter-rail-svg {
-        text-align: center;
-        padding: 20px;
-        img {
-           vertical-align: text-top;
-        }
-    }
-    .delighter-svg {
-        margin: 15px;
-        display: inline;
-    }
-}
-
-/********
-Create styles for fieldsets
-********/
-#form--cts-advanced, #form--cts-basic {
-  fieldset {
-    background-color: white;
-    padding: 0 !important;
-    .adv-fieldset-header {
-      padding: 8px 16px;
-      background-color: #2a72a5;
-      border-left: 2px solid #2a72a5;
-      border-right: 2px solid #2a72a5;
-      border-top: 2px solid #2a72a5;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      margin: 0 -1px;
-
-      h4 {
-          font-size: 1.25em;
-          margin: 0;
-          word-wrap: break-word;
-            @include bp(medium-down){
-              margin: 0 0.4em 0 -0.7em;
-            }
-          .text-icon-help {
-              font-size: 0.75em;
-              margin-top: 1px;
-              @include bp(small){
-                margin: 1px -1.5em 1px 1px;
-              }
-          }
-      }
-    }
-    .adv-fieldset-body {
-        padding: 16px;
-        background-color: white;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-
-        label {
-          margin-top: 6px;
-          margin-bottom: 12px;
-        }
-    }
-    fieldset {
-      border-bottom: none !important;
-      margin-bottom: 0 !important;
-    }
-  }
-  // Spacing issues on Location fieldsets
-  #fieldset--location {
-
-    fieldset, #fieldset--hospital input {
-        margin-top: 6px;
-        margin-bottom: 12px;
-    }
-    .row .state-input, .row .z-input, .row .country-input {
-        padding-left: 0px;
-    }
-  }
-}
-
-// Spacing issues between Age & Keyword/Phrases fieldsets
-@include bp(medium){
-  #fieldset--age.large-6 {
-    width: 48%;
-  }
-}
-
-//cooler checkbox override
-html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before{
-  background: #ffffff url("/publishedcontent/Images/images/design-elements/icons/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
-  color: #2a72a5;
-  content:"";
-  border-color: #2a72a5;
-}
-
-#form--cts-basic, #form--cts-advanced {
-  #a, #z, #lcty, #hos {
-    background-color: #f2f2f2;
-  }
-}
-
-
-//Decrease Opacity for Disabled Location fieldsets
-.fieldset-disabled .row, #form--cts-advanced #fieldset--location #fieldset--hospital input[disabled], .columns.disabled {
-  opacity: 0.45;
-}
-//Select2 input (cancer type) disabled-field opacity increase
-#fieldset--type .select2-container--default.select2-container--disabled .select2-selection--multiple {
-border-radius: 1px;
-background-color: #ddd;
-opacity: 0.45;
-}
-
-//cancer type (side effects/biomarker/etc.., drug/other treatment placeholder text
-#form--cts-advanced #fieldset--trialtreatment input[type="text"],
-#form--cts-advanced #fieldset--trialtreatment input[type="search"],
-#form--cts-advanced #fieldset--type input[type="text"],
-#form--cts-advanced #fieldset--type input[type="search"] {
-  //background-color: #9cf;
-  width: 100% !important;
-  margin-right: 5em;
-}
-
-//drug/other treatment label spacing
-#form--cts-advanced #fieldset--trialtreatment .adv-fieldset-body label {
-  margin-bottom: 0.4em;
-}
-
 //styling for search criteria table
-.clinicaltrials-results-criteria-display table {
-	border: 0 none;
-  width: 100%;
+.search-criteria-box {
   display: block;
-  margin-bottom: 0.15em;
-}
-.clinicaltrials-results-criteria-display table thead {
-  display: grid;
-  width: 100%;
-    //height: 20px;
-}
-.clinicaltrials-results-criteria-display table tbody {
-  height: 12em;
-  display: table;
-  width: 100%;
-  overflow: auto;
-}
-.clinicaltrials-results-criteria-display table tr, .clinicaltrials-results-criteria-display table tbody tr {
-  height: 2.5em;
-}
-.clinicaltrials-results-criteria-display table th.hdrlft,
- .clinicaltrials-results-criteria-display table td.hdrlft {
-  text-align: right;
-  width: 40%;
-}
-.cts-schdr h3, .hdrlft h3, .hdrrt h3 {
-  margin: 0 auto auto;
-  color: #2e2e2e;
+  border: none;
+  margin: 0;
+  padding: 10px 5px 0 0;
+  position: relative;
+  top: -11px;
 }
 .clinicaltrials-results-criteria-display {
-  background-color: #fff;
   box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
   position: relative;
   top: -1px;
-  width: 702px;
-  z-index: 100;
-  padding: 10px 20px;
+  width: 75%;
+  padding: 0;
 
-  @include bp(xtra-large){
-    top: -1px;
+  h3 {
+    margin: 0;
+    padding: .5em 0;
+    color: #2e2e2e;
   }
-  @include bp(medium){
-    width: 625px;
+  > h3 {
+    padding-left: .5em;
   }
+
+  table {
+    border: none;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  tbody {
+    height: 12em;
+    overflow: auto;
+  }
+  tr {
+    height: 2.5em;
+
+    th:first-child, td:first-child {
+      text-align: right;
+      width: 40%;
+    }
+    td.cts-schdr {
+      text-align: left;
+    }
+  }
+
   @include bp(small){
-    top: 4px;
     width: 100%;
   }
 }
+
 
 .cts-results-title {
   padding-bottom: 0.5em;
   padding-top: 1em;
 }
 
-.cts-results-title .search-criteria-box {
-  display: grid;
-}
 .row .row .medium-9 .status {
   margin-top: 2em;
 }
@@ -503,118 +143,49 @@ opacity: 0.45;
   margin-top: 3em;
 }
 
-.search-criteria-box {
-  //background-color: #9cf;
-  border: none;
-  margin: 0;
-  padding: 10px 5px 0px 0px;
-  position: relative;
-  top: -11px;
-}
+.ctscb {
+  background-image: image-url($icons + "cts-plus.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px solid #777;
+  color: #333;
+  line-height:2em;
+  padding: 0 0 0 5px;
+  background-size: 10%;
+  width: 375px;
 
+  &.show {
+    background-image: image-url($icons + "cts-minus.png");
+  }
 
-//incorporate styles into cstcb, then remove
-.search-criteria-box label {
-  background: #fff url("/publishedcontent/images/images/design-elements/icons/cts-plus.png") no-repeat scroll right center;
-  border: 1px solid #bdbdbd;
-  padding: 10px 150px 10px 10px;
-  background-size: 12%;
-}
-
-.ctscb
-{
- background: #ededed url("/publishedcontent/images/images/design-elements/icons/cts-plus.png") no-repeat scroll right center;
- display: inline-block;
- white-space: nowrap;
- border: 1px solid #777;
- margin: 1em auto 0.5em 0px;
- text-decoration: none;
- color: #333;
- line-height:2em;
- padding: 0 0 0 5px;
- background-size: 10%;
- width: 375px;
- @include bp(small){
-   width: 300px;
-   background-size: 12%;
-   margin: 1em 0.25em 0 0;
- }
- @include bp(xtra-small){
-   width: 260px;
-   background-size: 13%;
-   margin: 1em 0.25em 0 0;
- }
-}
-
-.ctscb.show
-{
- background: #ededed url("/publishedcontent/images/images/design-elements/icons/cts-minus.png") no-repeat scroll right center;
- background-size: 10%;
- @include bp(small){
-   background-size: 12%;
- }
- @include bp(xtra-small){
-   background-size: 13%;
- }
-}
-
-.cts-results-label {
- //line-height: 2.5em;
- margin: auto 6px auto 0;
+  @include bp(small){
+    width: 300px;
+    background-size: 12%;
+  }
 }
 
 .cts-start-over {
- font-weight: bold;
- margin: auto;
- white-space: nowrap;
-
-  @include bp(xtra-large){
-    margin: 0;
-  }
-  @include bp(large){
-  margin: 0;
-  }
-  @include bp(medium-down){
-   padding-left: 0;
-   margin: 0;
-  }
-}
-.cts-view {
-    margin: 0;
-    @include bp(xtra-large){
-    margin: 0;
-    }
-    @include bp(medium-down){
-    margin: 0;
-    }
-}
-.cts-all-trials {
-    margin: 0;
+  font-weight: bold;
+  line-height: 2.5em;
 }
 
-//select2 responsiveness
-.select2-container--default .select2-search--inline .select2-search__field,
-.select2-container .select2-selection--multiple .select2-selection__rendered {
-  width: auto !important;
+.cts-results-label {
+  line-height: 2.5em;
+  margin: auto 6px auto 0;
 }
-#fieldset--trialtreatment .select2-container--default .select2-search--inline .select2-search__field input[placeholder],
-#fieldset--trialtreatment .select2-container .select2-selection--multiple .select2-selection__rendered input[placeholder] {
-  //background-color: #9cf;
-  //width: 100% !important;
-}
-
-//input.select2-selection.select2-selection--multiple { width: 80% !important; }
 
 // Styles for search results page
 #proximity-trialslist h4 {
-	margin-top: 20px !important;
-	font-size: 20px;
+  margin-top: 20px !important;
+  font-size: 20px;
 }
 .locationCity {
-	margin-left: 20px;
+  margin-left: 20px;
 }
 .locationBlock {
-	margin-left: 40px;
+  margin-left: 40px;
 }
 //for print results page
 #clinical-trials-print .ctscb {
