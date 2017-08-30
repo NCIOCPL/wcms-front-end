@@ -24,7 +24,7 @@ grunt build:prod
 if [ $? != 0 ]; then echo "Build failed."; exit 1; fi
 
 cd _dist
-zip -r wcms-front-end.zip *
+zip -rq wcms-front-end.zip *
 
 # Need the tag name to incorporate, but not be identical to, the branch name.
 export TAG_NAME=${BRANCH_NAME}-${RELEASE_LABEL}
