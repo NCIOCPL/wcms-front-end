@@ -12,7 +12,8 @@ RUN apt-get -y update \
     && rm /tmp/github-release.tar.bz2
 
 # Install the global grunt executable.
-RUN npm install -g grunt
+RUN npm set progress=false \
+    && npm install -g grunt
 
 # Create non-root user
 RUN useradd --no-log-init --create-home builduser
