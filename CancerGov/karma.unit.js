@@ -26,6 +26,9 @@ module.exports = function (config) {
             '_test/**/*.ts': ['webpack']
         },
         webpack: webpackConfig,
+        webpackMiddleware: {
+            stats: 'errors-only'
+        },
         reporters: ['mocha'],
         port: 9876,
         colors: true,
