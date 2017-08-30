@@ -1,16 +1,117 @@
-.large-8 .row:nth-child(2) {
-  font-size: 14px;
-}
-
 /* Common Style */
 .cts-start-over {
   white-space: nowrap
 }
 
-/* Basic Search Form */
-.clinical-trials-search-form {
+.cts-search-page {
+  > .columns {
+    padding: 0;
+    &:last-child {
+      float:left;
+    }
+  }
+}
+
+.cts-form {
+
+  fieldset {
+    position:relative;
+    padding:16px;
+    border: 1px solid #bdbdc2;
+    border-radius: 4px;
+
+    legend {
+      position: relative;
+      float: none;
+      width: calc(100% + 34px);
+      top: 0;
+      left: -17px;
+      padding: 8px 17px;
+      border-radius: 4px 4px 0 0;
+      background-color: #2a72a5;
+      font-size: 1em;
+      color: $white;
+      word-wrap: break-word;
+    }
+    .text-icon-help {
+      position: absolute;
+      top:5px;
+      right:16px;
+    }
+
+  }
+
+  div.disabled {
+    opacity: .45;
+  }
+
+  .field-cols {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    fieldset, > div {
+      width: calc(50% - 10px);
+    }
+    @include bp(small) {
+      flex-direction: column;
+      fieldset, > div {
+        width: 100%;
+      }
+    }
+  }
+  .two-columns {
+    columns: 2;
+    margin-bottom: 0;
+  }
+
+  label, .hint-text {
+    margin: 12px 0 6px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .field-group {
+    margin: 12px 0;
+
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+
+  .btn-group {
+    margin: 40px 0;
+    text-align: center;
+  }
+
   input {
     margin-bottom:0;
+    height: auto;
+
+    &[disabled] {
+      background-color: #f2f2f3;
+      border-color: #d3d3d3;
+      //opacity: .35;
+    }
+
+    &.error {
+      background-color: #f2f2f3;
+    }
+  }
+  .ui-state-disabled {
+    opacity: 1; //bringing up opacity so the fieldset can be made transparent together
+  }
+  .ui-selectmenu-button {
+    span.ui-icon {
+      width: 38px;
+      height: 38px;
+      background-position: -374.5px -168px;
+    }
+    span.ui-selectmenu-text {
+      line-height: normal;
+    }
   }
   button.remove-suggestion {
     margin:20px 0 0;
@@ -20,98 +121,40 @@
     color:#c60f13;
     font-size: 12px;
   }
-  .row {
-    padding-bottom: 10px;
-  }
 
-  // zip code
-  #z {
-    width: 25%;
-  }
   // age
   #a {
-    width: 15%;
-  }
-	@include bp(small) {
-		#z {
-    	width: 30%;
-  	}
-    #a {
-    	width: 22%;
-  	}
-	}
-  .submit.button {
-    margin-top: 30px;
-  }
-  &.basic-search {
-    label {
-      font-size: 16px;
-      font-weight: normal;
-      margin-top: 15px;
-    }
-    // targeting the descripters below the form fields on the basic search page
-    .large-8 .row:nth-child(2) {
-      font-size: 14px;
-    }
+    width: 50%;
   }
 }
 
 .api-reference-section {
-  position: absolute;
   font-size: 14px;
-  bottom: 0;
-  width: 100%;
-  margin-left: -50px;
-  padding-bottom: 15px;
-	h3 {
-		background-color: #319ebd;
-		color: white;
-		margin: 0;
-		padding: 15px;
-		border-bottom: 10px solid #167a94;
-	}
-	.api-reference-content {
-		padding: 0 25px 0 105px;
-		background: #f3f3f3 image-url($icons + 'api-icon.svg') 18px 50% no-repeat;
-		background-size: 65px 65px; // need both sizes or IE11 will not render correctly
 
-	}
-	.api-section-image {
-		height: 85px;
-		padding-bottom: 10px;
-	}
-}
-@media only screen and (max-width: 1025px) {
-	.api-reference-section {
-		.api-reference-content {
-		background-size: 50px 50px; // need both sizes or IE11 will not render correctly
-		padding-left: 80px;
-		}
-	}
-}
-@include bp(small) {
-	.api-reference-section {
-		.api-reference-content {
-		background-image: none;
-			padding-left: 20px;
-		}
-	}
-}
+  h3 {
+    background-color: #319ebd;
+    color: white;
+    margin: 0;
+    padding: 15px;
+    border-bottom: 10px solid #167a94;
+  }
+  .api-reference-content {
+    padding: 25px 25px 25px 105px;
+    background: #f3f3f3 image-url($icons + 'api-icon.svg') 18px 50% no-repeat;
+    background-size: 65px 65px; // need both sizes or IE11 will not render correctly
+    p:first-of-type {
+      margin:0;
+    }
+    @media only screen and (max-width: 1025px) {
+      background-size: 50px 50px; // need both sizes or IE11 will not render correctly
+      padding-left: 80px;
+    }
+    @include bp(small) {
+      background-image: none;
+      padding-left: 20px;
+    }
 
-@media only screen and (min-width: 1025px) {
-	.api-reference-section {
-			padding-left: 3.125em;
-	}
-}
-
-.api-reference-section .small-2{
-  text-align: center;
-}
-
-.api-reference-section img{
-  width: 85px;
-  padding-top: 15px;
-  display: inline;
+  }
 }
 
 /* Search Results Page */
@@ -139,8 +182,8 @@
 }
 
 .row.cts-results-lower-control {
-    width: 100%;
-	padding: 1em 0 0 0;
+  width: 100%;
+  padding: 1em 0 0 0;
 }
 
 .cts-results-lower-control {
@@ -171,7 +214,7 @@ input[type="checkbox"] {
 }
 // Safari hack to allow keyboard focus on checkboxes
 _::-webkit-full-page-media, _:future, :root input[type="checkbox"] {
-    display: inline;
+  display: inline;
 }
 _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label:before {
   outline: 5px auto -webkit-focus-ring-color;
@@ -220,55 +263,55 @@ $icon-expand-width: 20px;
 
 $icon-po-width: 23px;
 .cts-share {
-margin-top: 30px;
-margin-left: 10px;
+  margin-top: 30px;
+  margin-left: 10px;
 
-vertical-align: top;
+  vertical-align: top;
 
 
-.share-text {
-  font-family: $noto-font-stack;
-  font-size: 16px;
-  line-height: 18px;
-  margin-right: 15px;
-}
+  .share-text {
+    font-family: $noto-font-stack;
+    font-size: 16px;
+    line-height: 18px;
+    margin-right: 15px;
+  }
 
-a {
-  display:inline-block;
-  width:7em;
-  height:auto;
-  padding:5px 0;
-  border-radius: 3px;
-  color:#fff;
-  font: normal 14px Montserrat, Arial, sans-serif;
-  text-align: center;
-  margin: 10px 10px 0 0;
-  &[title="Print"]{
-	background-color: #24B2A1;
+  a {
+    display:inline-block;
+    width:7em;
+    height:auto;
+    padding:5px 0;
+    border-radius: 3px;
+    color:#fff;
+    font: normal 14px Montserrat, Arial, sans-serif;
+    text-align: center;
+    margin: 10px 10px 0 0;
+    &[title="Print"]{
+      background-color: #24B2A1;
+    }
+    &[title="Email"]{
+      background-color: #14819b;
+    }
+    .text {
+      position: relative;
+      top:-3px;
+      padding-left:6px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
   }
-  &[title="Email"]{
-	background-color: #14819b;
+  .icon-print,.icon-email {
+    display:inline-block;
+    width:$icon-po-width;
+    height:$icon-po-width;
   }
-  .text {
-	position: relative;
-	top:-3px;
-	padding-left:6px;
+  .icon-print {
+    @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
   }
-  &:hover {
-	text-decoration: none;
+  .icon-email {
+    @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
   }
-}
-.icon-print,.icon-email {
-  display:inline-block;
-  width:$icon-po-width;
-  height:$icon-po-width;
-}
-.icon-print {
-  @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
-}
-.icon-email {
-  @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
-}
 }
 
 .accordion-controls {
@@ -296,18 +339,18 @@ a {
     margin-bottom:10px;
   }
 
-	/* add spacing below each location item */
+  /* add spacing below each location item */
   #proximity-trialslist, #filterable-trialslist {
-		div[itemprop=location] {
-			margin-bottom: 20px;
-		}
-	}
+    div[itemprop=location] {
+      margin-bottom: 20px;
+    }
+  }
 
-	/* add spacing above the first location item in proximity lists */
-	#proximity-trialslist > div[itemprop=location]:first-of-type {
-		clear:both;
-		margin-top:20px;
-	}
+  /* add spacing above the first location item in proximity lists */
+  #proximity-trialslist > div[itemprop=location]:first-of-type {
+    clear:both;
+    margin-top:20px;
+  }
 }
 
 /* Counter / pager styles above listing body*/
@@ -319,32 +362,24 @@ a {
 }
 
 a.listing-chat-button {
+  display: block;
+  float: left;
   position: relative;
   z-index: 2;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  background-color: #62539d;
-  border-radius: 3px;
-  box-shadow: 3px 3px 5px #888888;
   padding: 3px 10px;
-  text-decoration: none;
-  float: left;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  display: block;
+  border-radius: 4px;
+  box-shadow: 3px 3px 5px #888888;
+  margin: -8% 15px 15px 32%;
+  background-color: #62539d;
   color: #fff;
+  text-decoration: none;
   line-height: 24px;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1.125em;
-  margin-left: 32%;
-  margin-top: -8%;
-}
 
-a.listing-chat-button:active,
-a.listing-chat-button:hover,
-a.listing-chat-button:link,
-a.listing-chat-button:visited {
-  text-decoration: none;
+  &:hover, &:active {
+    text-decoration: none;
+  }
 }
 
 /* tablet and mobile */
@@ -368,40 +403,40 @@ a.listing-chat-button:visited {
   .cts-results-lower-control, .cts-results-top-control {
     .ct-listing-pager {
       float: left;
-	}
+    }
   }
 
   .cts-results-lower-control {
     .selections-area {
-	  padding-bottom: 1em;
-	  border-bottom: 1px solid #7d7d7d;
-	}
+      padding-bottom: 1em;
+      border-bottom: 1px solid #7d7d7d;
+    }
 
-	.ct-listing-pager {
-	  padding-top: 1em;
-	}
+    .ct-listing-pager {
+      padding-top: 1em;
+    }
   }
 
   .cts-results-top-control {
-	padding-top: 0;
+    padding-top: 0;
     border-top: 1px solid #7d7d7d;
 
     .selections-area {
-	  clear: left;
-	  padding-top: 1em;
-	  border-top: 1px solid #7d7d7d;
-	}
+      clear: left;
+      padding-top: 1em;
+      border-top: 1px solid #7d7d7d;
+    }
 
-	.selections-area:first-child {
+    .selections-area:first-child {
       border-top: none;
     }
 
-	.ct-listing-pager {
-	  padding: 1em 0;
-	}
+    .ct-listing-pager {
+      padding: 1em 0;
+    }
   }
 
-    .ct-listing-util-top {
+  .ct-listing-util-top {
     .ct-listing-pager {
       float: left !important;
       margin-top: 20px;
@@ -412,7 +447,7 @@ a.listing-chat-button:visited {
     }
   }
 
-   .ct-listing-util-bottom {
+  .ct-listing-util-bottom {
     .ct-listing-pager {
       float: left !important;
     }
@@ -470,7 +505,7 @@ a.listing-chat-button:visited {
       float:none !important;
     }
   }
-	.api-reference-section .small-2 {
+  .api-reference-section .small-2 {
     display: none;
   }
   .api-reference-section .small-10 {
@@ -485,7 +520,7 @@ a.listing-chat-button:visited {
 /* extra-small mobile only */
 @include bp(xtra-small) {
   .cts-results-select-all {
-	padding-bottom: 1em;
+    padding-bottom: 1em;
     display: inline-block;
   }
 }
@@ -494,8 +529,8 @@ a.listing-chat-button:visited {
 @include bp(large-up) {
   .cts-results-lower-control {
     .selections-area {
-	  float: left;
-	}
+      float: left;
+    }
   }
 
   .ct-listing-util-top {

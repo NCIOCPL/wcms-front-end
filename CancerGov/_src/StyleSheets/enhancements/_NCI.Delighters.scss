@@ -1,29 +1,22 @@
 /****************** BEGIN Delighters styling ***************** */
 .delighter-rail {
-  margin-right: -65px;
+  margin-right: -20px;
   //margin-bottom: 160px;
-  padding-bottom: 50px;
-  width: calc(25% + 45px);
+  //padding-bottom: 50px;
+  //width: calc(25% + 45px);
   float: right;
+
+  span {
+    display: block;
+  }
 
   a, a:hover, a:active {
     text-decoration: none;
   }
 
-  > a {
+  a {
     display: block;
     margin-bottom: 20px;
-
-    &:hover .delighter:before {
-      content: " ";
-      display: block;
-      position: absolute;
-      top:0;
-      left:0;
-      height: 100%;
-      width: 100%;
-      //background-color: rgba(3,3,3,0.2);
-    }
   }
 
   p {
@@ -48,7 +41,7 @@
           margin: auto;
           padding-top: 8px;
 					padding-bottom: 8px;
-          width: 180px;
+          max-width: 185px;
         }
 			
 			@include bp(medium) {
