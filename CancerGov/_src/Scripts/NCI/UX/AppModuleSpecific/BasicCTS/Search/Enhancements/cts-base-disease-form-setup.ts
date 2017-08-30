@@ -5,7 +5,7 @@ import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
 import "select2";
-import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete"; 
+import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 
 /**
@@ -56,10 +56,10 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		// 3) Fetch & populate data
 
 		//disable select fields from the start.
-		this.$otherDiseaseWrap.attr('class','fieldset-disabled');
-		this.$subtypeCancer.prop("disabled", true);
-		this.$stageCancer.prop("disabled", true);
-		this.$findings.prop("disabled", true);
+		// this.$otherDiseaseWrap.addClass('fieldset-disabled');
+		// this.$subtypeCancer.prop("disabled", true);
+		// this.$stageCancer.prop("disabled", true);
+		// this.$findings.prop("disabled", true);
 
     //Initialize Select2 controls.
 		//These initializations do no load data but only add select2 to the controls,
@@ -93,9 +93,11 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
         }
 
 		//Initialize maintype selector
-		this.$primaryCancer.select2({theme:"nci"})
-			.on("select2:select", this.onMaintypeChange.bind(this));
-			//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
+		this.$primaryCancer.select2({
+			theme:"nci"
+		})
+		.on("select2:select", this.onMaintypeChange.bind(this));
+		//NOTE: bind(this) will ensure that when onSubtypeChange is called "this" will be the instance of our class.
 
 		// Populate main 'diseases' list
 		this.populateMainType();
@@ -116,7 +118,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			this.clearStageField();
 			this.clearFindingField();
 
-			this.$otherDiseaseWrap.attr('class','fieldset-disabled');
+			this.$otherDiseaseWrap.attr('class','disabled');
 			//Set disabled class around the 3 field's & labels when all is selected.
 
 		} else {
@@ -135,9 +137,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				this.populateStageField(codes)
 			]).then(() => {
 				this.changeFindings();
-			})
+			});
 
-			this.$otherDiseaseWrap.attr('class','fieldset-enabled');	
+			this.$otherDiseaseWrap.attr('class','enabled');
 		}
 	}
 
@@ -181,7 +183,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 			codesForFindings.forEach(joinedCode => {
 				let codes:string[] = joinedCode.split("|");
 				codes.forEach(c => allCodes.push(c));
-			})
+			});
 
 			this.populateFindingField(allCodes);
 		} else {
@@ -260,7 +262,10 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 							}
 						});
 
-				this.$primaryCancer.select2({data: primaryTypes,theme:"nci"});
+				this.$primaryCancer.select2({
+					data: primaryTypes,
+					theme:"nci"
+				});
 			})
 			.catch((err) => {
 				console.log(err)
@@ -298,7 +303,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 	private clearSubtypeField() {
 		this.$subtypeCancer.empty();
-		this.$subtypeCancer.select2({theme:"nci"}).val(null).trigger("change");
+		this.$subtypeCancer.select2({
+			theme:"nci"
+		}).val(null).trigger("change");
 		this.$subtypeCancer.prop("disabled", true);
 	}
 
@@ -348,7 +355,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 
 	private clearStageField() {
 		this.$stageCancer.empty();
-		this.$stageCancer.select2({theme:"nci"}).val(null).trigger("change");
+		this.$stageCancer.select2({
+			theme:"nci"
+		}).val(null).trigger("change");
 		this.$stageCancer.prop("disabled", true);		
 	}
 	
@@ -404,7 +413,9 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 		}
 
 		this.$findings.empty();
-		this.$findings.select2({theme:"nci"}).val(null).trigger("change");
+		this.$findings.select2({
+			theme:"nci"
+		}).val(null).trigger("change");
 		this.$findings.prop("disabled", true);
 	}
 
