@@ -15,7 +15,6 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['mocha', 'chai', 'sinon'],
         files: [
-            'https://www-blue-dev.cancer.gov/PublishedContent/js/CDEConfig.js',
             'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js',
             'node_modules/babel-polyfill/dist/polyfill.js',
             '_test/**/*.ts'
