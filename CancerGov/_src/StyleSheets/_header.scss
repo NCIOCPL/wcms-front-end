@@ -185,7 +185,7 @@ header {
 			position: relative;
 			background: transparent no-repeat center 0;
 			width: 13%;
-			padding: 3em 0 0 0;
+			padding: 3em 0 1px 0;
 			margin: 1em 8%;
 			@include font-montserrat;
 			line-height: 1;
@@ -242,7 +242,7 @@ header {
 		margin-right: 0;
 
 		&::before {
-			@include sprite($x-coordinate: -324px, $y-coordinate: -292px, $width: 30px, $height: 60px);
+			@include sprite($x-coordinate: -324px, $y-coordinate: -292px, $width: 30px, $height: 30px);
 		}
 	}
 }
