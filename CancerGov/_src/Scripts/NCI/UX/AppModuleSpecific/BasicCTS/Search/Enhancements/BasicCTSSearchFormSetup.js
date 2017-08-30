@@ -109,7 +109,7 @@ define(function(require) {
 
 				//Log Error Message Here.  It would be nice to have an instance of
 				//this...
-				$(".clinical-trials-search-form").basicctsformtrack("errors", [{
+				$(".cts-form").basicctsformtrack("errors", [{
 					field: el.attr('id'),
 					message: el.data("error-message")
 				}]);
@@ -261,7 +261,7 @@ define(function(require) {
 		;
 
 		//Wire Up Web Analytics
-		$(".clinical-trials-search-form").basicctsformtrack({
+		$(".cts-form").basicctsformtrack({
 			formName: 'clinicaltrials_basic'
 		}).submit(function(e) {
 

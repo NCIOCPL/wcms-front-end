@@ -51,13 +51,13 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 					$this.selectmenu({
 						change: function (event, ui) {
 							// This calls the parent change event, e.g. so that .NET dropdowns can autopostback
-							console.log("changing!");
+							// console.log("changing!");
 							if(ui.item.value == "United States"){
-								$(".state-input").removeClass("disabled");
-								$("#lst-multiselect").prop('disabled',false);
+								// $(".state-input").removeClass("disabled");
+								$("#lst-multiselect").prop('disabled',false).parent().removeClass('disabled');
 							} else {
-								$(".state-input").addClass("disabled");
-								$("#lst-multiselect").prop('disabled',true);
+								// $(".state-input").addClass("disabled");
+								$("#lst-multiselect").prop('disabled',true).parent().addClass('disabled');
 							}
 
 							ui.item.element.change();
@@ -179,16 +179,16 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
         // Gray out unchecked fieldsets on load
 		var $checked = $('input[name="loc"]:checked');
 		var $fieldsetItems  = this;
-        $fieldsetItems.enableLocFieldset($checked.closest('fieldset'));
-        $fieldsetItems.disableLocFieldset($checked.closest('fieldset').siblings());
+        $fieldsetItems.enableLocFieldset($checked.closest('section'));
+        $fieldsetItems.disableLocFieldset($checked.closest('section').siblings("section"));
 
         // Gray out unchecked fieldsets when a selection is made
         $("input[name='loc']").on("click",function(e){
 			//console.log("Location radio clicked");
         	var $this = $(this);
-			var $parent = $this.closest('fieldset');
+			var $parent = $this.closest('section');
             $fieldsetItems.enableLocFieldset($parent);
-			$fieldsetItems.disableLocFieldset($parent.siblings());
+			$fieldsetItems.disableLocFieldset($parent.siblings("section"));
 
 			// Do not preserve fields with errors (i.e. Zip code) if we select a different location type
 			let $err = $('#fieldset--location input.error');
@@ -204,7 +204,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
     * Activate a selected location fieldset
 	*/
     private enableLocFieldset($elem:any) {
-        $elem.attr('class','fieldset-enabled');
+        $elem.addClass('enabled').removeClass('disabled');
 		$elem.find('input[type=text], input[type=checkbox]').removeAttr('disabled');
 		$elem.find('.loc-select-menu').each((index, element) => {
 			//console.log("element",element);
@@ -229,11 +229,11 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
     * Gray out a disabled location fieldsets
 	*/
     private disableLocFieldset($elem:any) {
-        $elem.attr('class','fieldset-disabled');
+        $elem.addClass('disabled').removeClass('enabled');
 		$elem.find('input[type=text], input[type=checkbox]').attr('disabled','disabled');
 		$elem.find('.loc-select-menu').each((index, element) => {
 			let $element:any = $(element);
-			console.log($element);
+			// console.log($element);
 			if($element.selectmenu("instance")) {
 				$element.selectmenu("disable");
 			}
