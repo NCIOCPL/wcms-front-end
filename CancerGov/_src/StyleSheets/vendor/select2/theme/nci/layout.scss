@@ -11,7 +11,7 @@
   }
 
   .select2-search {
-    margin:5px;
+    margin:.5em;
   }
 
   .select2-search--dropdown {
@@ -31,7 +31,7 @@
       margin: 0;
       padding-left: 5px;
       background: transparent;
-      line-height: 24px;
+      //line-height: 24px;
     }
   }
 
@@ -51,6 +51,16 @@
   .select2-results > .select2-results__options {
     max-height: $results-max-height;
     overflow-y: auto;
+  }
+
+  &.select2-container--disabled {
+    .select2-selection {
+      //opacity: .35;
+      border: 1px solid $unselectable-border;
+    }
+    .select2-selection__rendered {
+      background-color: $unselectable-bg;
+    }
   }
 
   .select2-results__option {
