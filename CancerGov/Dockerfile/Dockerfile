@@ -12,7 +12,10 @@ RUN apt-get -y update \
     && rm /tmp/github-release.tar.bz2
 
 # Install the global grunt executable.
-RUN npm set progress=false \
+RUN npm config list \
+    && npm set progress=false \
+    && npm set color=false \
+    && npm config list \
     && npm install -g grunt
 
 # Create non-root user
