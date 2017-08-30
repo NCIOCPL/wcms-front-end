@@ -238,9 +238,11 @@
 		padding-right: 15px;
 		margin-top: 30px;
 
+		// as soon as support is there we'd want to change to space-evently. as of 8/2017, doesn't work in IE11, Safari
 		.cts-delighter-container {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: space-around;
+		
 		}
 				
 		> a[href^="#"]  {
