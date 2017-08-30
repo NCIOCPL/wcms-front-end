@@ -17,11 +17,7 @@ if [ -z "$GITHUB_TOKEN" ]; then echo GITHUB_TOKEN not set; exit 1; fi
 if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
 
 # Move to the CancerGov base directory.
-npm config list
-npm set progress=false
-npm set color=false
-npm config list
-npm install
+npm install --color=false --loglevel=warn --progress=false
 if [ $? != 0 ]; then echo "npm install failed."; exit 1; fi
 
 grunt build:prod
