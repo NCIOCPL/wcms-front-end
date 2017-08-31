@@ -12,7 +12,7 @@
             <!-- BEGIN select2 (cancer type) module -->
             <fieldset id="fieldset--type">
                 <legend>CANCER TYPE / CONDITION</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#1" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#cancertype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div>You must first select a cancer type or condition. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
                 <div class="field-group">
@@ -40,14 +40,14 @@
             <div class="field-cols">
                 <fieldset id="fieldset--age">
                     <legend>AGE</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#age" class="text-icon-help" target="_blank" aria-label="Help">?</a>
                     <div class="hint-text">Enter the age of the participant</div>
                     <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
                 </fieldset>
 
                 <fieldset id="fieldset--keyword">
                     <legend>KEYWORDS / PHRASES</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#keywords" class="text-icon-help" target="_blank" aria-label="Help">?</a>
                     <div class="hint-text">Search by word or phrase (use quotation marks with phrases)</div>
                     <input id="q" name="q" aria-label="Keywords/Phrases" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
                 </fieldset>
@@ -57,7 +57,7 @@
             <!-- BEGIN location fieldsets -->
             <fieldset id="fieldset--location">
                 <legend>LOCATION</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#location" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in all available locations.
 
@@ -183,7 +183,7 @@
             <!-- BEGIN trial type fieldset -->
             <fieldset id="fieldset--trialtype">
                 <legend>TRIAL TYPE</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialtype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
                 <div>Select the type of trial for your search. You may check more than one box or select "All."</div>
                 <div id="tt" class="two-columns field-group">
                     <div class="checkbox">
@@ -220,7 +220,7 @@
             <!-- BEGIN trial/treatment select2 module -->
             <fieldset id="fieldset--trialtreatment">
                 <legend>DRUG / TREATMENT</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#drugtreatment" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div>Search for a specific drug or intervention. You can use the drug's generic or brand name.</div>
                 <div class="field-group">
@@ -237,7 +237,7 @@
             <!-- BEGIN phase/trial status fieldset -->
             <fieldset id="fieldset--trialstatus">
                 <legend>TRIAL PHASE</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#5" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialphase" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div>Search by one or more trial phases</div>
                 <div id="tp">
@@ -263,7 +263,7 @@
             <!-- BEGIN trial ID fieldset -->
             <fieldset id="fieldset--trialid">
                 <legend>TRIAL ID</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#7" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialid" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div class="hint-text">Separate multiple IDs with commas or semicolons</div>
                 <input id="tid" name="tid" autocomplete="off" aria-label="Trial ID" placeholder="" type="text">
@@ -273,7 +273,7 @@
             <!-- BEGIN trial investigators fieldset -->
             <fieldset id="fieldset--investigator">
                 <legend>TRIAL INVESTIGATORS</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialinvestigators" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div class="hint-text">Search by Trial Investigators</div>
                 <input id="in" name="in" autocomplete="off" aria-label="Trial Investigator" type="text">
@@ -283,7 +283,7 @@
             <!-- BEGIN lead organization fieldset -->
             <fieldset id="fieldset--organization">
                 <legend>LEAD ORGANIZATION</legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#leadorganization" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div class="hint-text">Search by Lead Organization</div>
                 <input id="lo" name="lo" autocomplete="off" aria-label="Lead Organization" type="text">
