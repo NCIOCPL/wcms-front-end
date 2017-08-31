@@ -33,11 +33,15 @@ zip -rq wcms-front-end.zip *
 # Need the tag name to incorporate, but not be identical to, the branch name.
 export TAG_NAME=${BRANCH_NAME}-${RELEASE_LABEL}
 
-# Tag the code, replace the tag if it already exists.
-git tag --force ${TAG_NAME}
-
 # Clean up old version (if it exists)
 github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag ${TAG_NAME} || echo Nothing to delete.
+
+# Remove the tag if it exists, Tag the code, replace the tag if it already exists.
+if git rev-parse ${TAG_NAME} > /dev/null 2>&1; then
+  git tag -d ${TAG_NAME}
+  git push "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_NAME/$GH_REPO_NAME" :refs/tags/${TAG_NAME}
+fi
+git tag ${TAG_NAME}
 
 # Push the tag to GitHub
 git push --tags "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
