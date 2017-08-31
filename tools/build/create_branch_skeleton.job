@@ -8,8 +8,7 @@ def folderName  = 'wcms-front-end'    // Jenkins folder where the jbos will be p
 def GH_REPO_NAME = 'wcms-front-end'      // The project's repository name (as used in the URL).
 def GH_ORGANIZATION_NAME = 'blairlearn'   // GitHub Organization name (as used in the URL/userid).
 def GH_USER_TOKEN_KEY = 'NCIOCPL-GitHub-Token'  // Jenkins ID of the credential string containing the GitHub access token for creating releases.
-def GH_SSH_KEY = 'NCIOCPL-GitHub-SSH-Key'       // Jenkins ID of the secret file containing the build user's private SSH key.
-def GH_SSH_USER = 'NCIOCPL-GitHub-SSH-User'     // Jenkins ID of the secret text containing the build user's GitHub user id.
+def GH_CREDENTIALS = 'NCIOCPL-GitHub-Login'       // Jenkins ID of the credentials for the build user.
 
 def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
 
@@ -22,8 +21,7 @@ job("${folderName}/_lower/Build for $BRANCH") {
   wrappers {
     credentialsBinding {
       string('GITHUB_TOKEN', GH_USER_TOKEN_KEY)
-      string('SSH_USER', GH_SSH_USER)
-      file('SSH_KEY_FILE', GH_SSH_KEY)
+      usernamePassword('GH_USER', 'GH_PASSWORD', GH_CREDENTIALS)
     }
 
     environmentVariables {
@@ -48,7 +46,7 @@ job("${folderName}/_lower/Build for $BRANCH") {
   label('docker && linux') // Require Linux and Docker
 
   scm {
-    github(sourceRepository, "*/$BRANCH")
+    github(sourceRepository, "*/$BRANCH", 'ssh')
   }
 
   steps {

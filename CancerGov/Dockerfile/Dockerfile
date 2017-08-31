@@ -18,7 +18,6 @@ RUN npm install -g grunt --color=false --loglevel=warn --progress=false
 RUN useradd --no-log-init --create-home builduser
 
 # Copy configuration files.
-ADD tools/config/ssh/config /home/builduser/.ssh
 ADD tools/config/git/.gitconfig /home/builduser
 
 # Create working directory for building.
@@ -29,7 +28,6 @@ ADD . /content-build
 
 # Make build files accessible to the build user.
 RUN chown --recursive builduser:builduser /content-build \
-    && chown --recursive builduser:builduser /home/builduser/.ssh \
     && chown builduser:builduser /home/builduser/.gitconfig
 
 # Switch to builduser
