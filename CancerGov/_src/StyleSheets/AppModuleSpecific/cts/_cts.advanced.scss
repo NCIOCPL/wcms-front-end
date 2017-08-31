@@ -143,6 +143,16 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
     width: 100%;
   }
 }
+#other-diseases, #fieldset--location section {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+#cts-advanced {
+  .disabled {
+    opacity: .45;
+  }
+}
 
 
 .cts-results-title {
