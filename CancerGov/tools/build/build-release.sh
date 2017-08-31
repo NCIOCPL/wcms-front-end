@@ -14,6 +14,7 @@
 if [ -z "$GH_ORGANIZATION_NAME" ]; then echo GH_ORGANIZATION_NAME not set; exit 1; fi
 if [ -z "$GH_REPO_NAME" ]; then echo GH_REPO_NAME not set; exit 1; fi
 if [ -z "$GITHUB_TOKEN" ]; then echo GITHUB_TOKEN not set; exit 1; fi
+if [ -z "$SSH_USER" ]; then echo SSH_USER not set; exit 1; fi
 if [ -z "$SSH_KEY" ]; then echo SSH_KEY not set; exit 1; fi
 if [ -z "$BRANCH_NAME" ]; then echo BRANCH_NAME not set; exit 1; fi
 if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
@@ -31,8 +32,8 @@ zip -rq wcms-front-end.zip *
 # Need the tag name to incorporate, but not be identical to, the branch name.
 export TAG_NAME=${BRANCH_NAME}-${RELEASE_LABEL}
 
-# Tag the code
-git tag ${TAG_NAME}
+# Tag the code, replace the tag if it already exists.
+git tag --force ${TAG_NAME}
 
 # Clean up old version (if any exists) and create new release.
 github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag ${TAG_NAME} || echo Nothing to delete.

@@ -12,6 +12,7 @@
 if [ -z "$GH_ORGANIZATION_NAME" ]; then echo GH_ORGANIZATION_NAME not set; exit 1; fi
 if [ -z "$GH_REPO_NAME" ]; then echo GH_REPO_NAME not set; exit 1; fi
 if [ -z "$GITHUB_TOKEN" ]; then echo GITHUB_TOKEN not set; exit 1; fi
+if [ -z "$SSH_USER" ]; then echo SSH_USER not set; exit 1; fi
 if [ -z "$SSH_KEY_FILE" ]; then echo SSH_KEY_FILE not set; exit 1; fi
 if [ -z "$BRANCH_NAME" ]; then echo BRANCH_NAME not set; exit 1; fi
 if [ -z "$RELEASE_LABEL" ]; then echo RELEASE_LABEL not set; exit 1; fi
@@ -37,6 +38,7 @@ docker run --tty --rm \
     --env BRANCH_NAME="${BRANCH_NAME}" \
     --env GITHUB_TOKEN="${GITHUB_TOKEN}" \
     --env RELEASE_LABEL="${RELEASE_LABEL}" \
+    --env SSH_USER="${SSH_USER}" \
     --env SSH_KEY="${SSH_KEY}" \
     wcms-front-end-builder:$BRANCH_NAME
 if [ $? != 0 ]; then echo "Failed to build ${BRANCH_NAME}."; exit 1; fi
