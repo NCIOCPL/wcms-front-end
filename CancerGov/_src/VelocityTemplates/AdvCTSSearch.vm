@@ -1,374 +1,315 @@
-<div class="medium-9 columns">
-#if ($SearchResults.Control.Redirected)
-    <div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
-        <p style="margin: 10px 22px; vertical-align: middle;">We recently updated our clinical trials information. To get the most accurate results, you should rerun your search.</i></p>
-        <p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
-    </div>
-#end
-    <form id="form--cts-advanced" class="clinical-trials-search-form basic-search adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
-        <!-- BEGIN select2 (cancer type) module -->
-
-<!--(bake CTSSearchDiseases.inc findings="true")-->
-
-        <!-- END select2 (cancer type) module -->
-        <!-- BEGIN age/keyword divs -->
-        <div class="row" data-match-height>
-            <fieldset id="fieldset--age" class="large-6 columns gutter equalheight">
-                <div class="adv-fieldset-header">
-                    <h4 class="clearfix"><legend>AGE</legend>
-                        <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                    </h4>
-                </div>
-                <div class="adv-fieldset-body">
-                    <div class="row">
-                        <div>Enter the age of the participant</div>
-                    </div>
-                    <div class="row">
-                        <div>
-                            <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-            <fieldset id="fieldset--keyword" class="large-6 columns gutter equalheight">
-                <div class="adv-fieldset-header">
-                    <h4 class="clearfix"><legend>KEYWORDS / PHRASES</legend>
-                        <a href="/about-cancer/treatment/clinical-trials/search/help#4" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                    </h4>
-                </div>
-                <div class="adv-fieldset-body">
-                    <div class="row">
-                        <div>Search by word or phrase (use quotation marks with phrases)</div>
-                    </div>
-                    <div class="row">
-                        <div>
-                            <input id="q" name="q" aria-label="Keywords/Phrases" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
+<div class="cts-search-page">
+    <div id="cts-advanced" class="medium-9 small-12 columns">
+        #if ($SearchResults.Control.Redirected)
+        <div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
+            <p style="margin: 10px 22px; vertical-align: middle;">We recently updated our clinical trials information. To get the most accurate results, you should rerun your search.</i></p>
+            <p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
         </div>
-        <!-- END age/keyword divs -->
-        <!-- BEGIN location fieldsets -->
-        <fieldset id="fieldset--location">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>LOCATION</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in all available locations.
+        #end
+
+        <form id="form--cts-advanced" class="cts-form adv-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
+
+            <!-- BEGIN select2 (cancer type) module -->
+            <fieldset id="fieldset--type">
+                <legend>CANCER TYPE / CONDITION</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#cancertype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <div>You must first select a cancer type or condition. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
+                <div class="field-group">
+                    <label for="ct-select">Primary Cancer Type/Condition</label>
+                    <select id="ct-select" class="no-auto-jqueryui" name="t"><option value="">All</option></select>
                 </div>
-                <div class="row">
-                    <fieldset id="fieldset--all-locations" aria-labelledby="fieldset--all-locations">
-                        <div class="radio">
-                            <input id="all-locations" name="loc" value="0" checked="checked" type="radio"><label for="all-locations">Search all Locations</label>
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset--your-location" aria-labelledby="fieldset--your-location">
-                        <div class="radio">
-                            <input id="your-location" name="loc" value="1" type="radio"><label for="your-location">ZIP Code</label>
-                        </div>
-                        <div class="row">
-                            <div class="z-input large-6 columns gutter">
-                                <label for="z">U.S. ZIP Code: </label>
-                                <input type="text" id="z" name="z" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
-                            </div>
-                            <div class="zp-input large-6 columns">
-                                <label for="zp">Radius: </label>
-                                <select id="zp" name="zp" aria-label="Zip Radius" class="fullwidth loc-select-menu">
-                                    <option value="20">20 miles</option>
-                                    <option value="50">50 miles</option>
-                                    <option selected="selected" value="100">100 miles</option>
-                                    <option value="200">200 miles</option>
-                                    <option value="500">500 miles</option>
-                                </select>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset--ccs" aria-labelledby="fieldset--ccs">
-                        <div class="radio">
-                            <input id="country-city-state" name="loc" value="2" type="radio">
-                            <label for="country-city-state">Country, City, State</label>
-                        </div>
-                        <div class="row">
-                            <div class="country-input column">
-                                <label for="lcnty">Country: </label>
-                                <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu" aria-label="Country"></select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="state-input large-6 columns gutter">
-                                <label for="lst-multiselect" id="lst-label">State: </label>
-                                <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
-                                    <option value="AL">Alabama</option>
-                                    <option value="AK">Alaska</option>
-                                    <option value="AZ">Arizona</option>
-                                    <option value="AR">Arkansas</option>
-                                    <option value="CA">California</option>
-                                    <option value="CO">Colorado</option>
-                                    <option value="CT">Connecticut</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="DC">District Of Columbia</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="GA">Georgia</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="ID">Idaho</option>
-                                    <option value="IL">Illinois</option>
-                                    <option value="IN">Indiana</option>
-                                    <option value="IA">Iowa</option>
-                                    <option value="KS">Kansas</option>
-                                    <option value="KY">Kentucky</option>
-                                    <option value="LA">Louisiana</option>
-                                    <option value="ME">Maine</option>
-                                    <option value="MD">Maryland</option>
-                                    <option value="MA">Massachusetts</option>
-                                    <option value="MI">Michigan</option>
-                                    <option value="MN">Minnesota</option>
-                                    <option value="MS">Mississippi</option>
-                                    <option value="MO">Missouri</option>
-                                    <option value="MT">Montana</option>
-                                    <option value="NE">Nebraska</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="NH">New Hampshire</option>
-                                    <option value="NJ">New Jersey</option>
-                                    <option value="NM">New Mexico</option>
-                                    <option value="NY">New York</option>
-                                    <option value="NC">North Carolina</option>
-                                    <option value="ND">North Dakota</option>
-                                    <option value="OH">Ohio</option>
-                                    <option value="OK">Oklahoma</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="PA">Pennsylvania</option>
-                                    <option value="PR">Puerto Rico</option>
-                                    <option value="RI">Rhode Island</option>
-                                    <option value="SC">South Carolina</option>
-                                    <option value="SD">South Dakota</option>
-                                    <option value="TN">Tennessee</option>
-                                    <option value="TX">Texas</option>
-                                    <option value="UT">Utah</option>
-                                    <option value="VT">Vermont</option>
-                                    <option value="VA">Virginia</option>
-                                    <option value="WA">Washington</option>
-                                    <option value="WV">West Virginia</option>
-                                    <option value="WI">Wisconsin</option>
-                                    <option value="WY">Wyoming</option>
-                                </select>
-                            </div>
-                            <div class="city-input large-6 columns">
-                                <label for="lcty">City: </label>
-                                <input type="text" id="lcty" name="lcty" maxlength="40">
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset--hospital" aria-labelledby="fieldset--hospital">
-                        <div class="radio">
-                            <input id="hospital" name="loc" value="3" type="radio"><label for="hospital">Hospitals/Institutions</label>
-                            <input id="hos" name="hos" class="search-input non-empty" aria-autocomplete="list" autocomplete="off" aria-label="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" type="text" error-msg="Please select a Hospital/Institution.">
-                        </div>
-                    </fieldset>
-                    <fieldset id="fieldset--nih" aria-labelledby="fieldset--nih">
-                        <div class="radio">
-                            <input id="nih" name="loc" value="4" type="radio"><label for="nih">At NIH (only show trials at the NIH clinical center in Bethesda, MD)</label>
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
-        </fieldset>
-        <!-- END location fieldsets -->
-        <!-- BEGIN trial type fieldset -->
-        <fieldset id="fieldset--trialtype">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>TRIAL TYPE</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>Select the type of trial for your search. You may check more than one box or select "All."</div>
-                </div>
-                <div class="row">
-                    <div id="tt" class="two-columns">
-                        <div class="checkbox">
-                            <input id="tt_all" name="tt" checked="checked" value="" type="checkbox"><label for="tt_all">All</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_treatment" name="tt" value="treatment" type="checkbox"><label for="tt_treatment">Treatment</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_supportive_care" name="tt" value="supportive_care" type="checkbox"><label for="tt_supportive_care">Supportive Care</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_diagnostic" name="tt" value="diagnostic" type="checkbox"><label for="tt_diagnostic">Diagnostic</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_basic_science" name="tt" value="basic_science" type="checkbox"><label for="tt_basic_science">Basic Science</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_prevention" name="tt" value="prevention" type="checkbox"><label for="tt_prevention">Prevention</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_health_services_research" name="tt" value="health_services_research" type="checkbox"><label for="tt_health_services_research">Health Services Research</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_screening" name="tt" value="screening" type="checkbox"><label for="tt_screening">Screening</label>
-                        </div>
-                        <div class="checkbox">
-                            <input id="tt_other" name="tt" value="other" type="checkbox"><label for="tt_other">Other</label>
-                        </div>
+                <div id="other-diseases" class="disabled">
+                    <div class="field-group">
+                        <label for="st-multiselect">Subtype</label>
+                        <select id="st-multiselect" name="st" multiple data-placeholder="Select a subtype" placeholder="Select cancer type first" disabled></select>
+                    </div>
+                    <div class="field-group">
+                        <label for="stg-multiselect">Stage</label>
+                        <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or subtype first" disabled></select>
+                    </div>
+                    <div class="field-group">
+                        <label for="fin-multiselect">Side Effects / Biomarkers / Participant Attributes</label>
+                        <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" disabled></select>
                     </div>
                 </div>
+            </fieldset>
+            <!-- END select2 (cancer type) module -->
+
+            <!-- BEGIN age/keyword divs -->
+            <div class="field-cols">
+                <fieldset id="fieldset--age">
+                    <legend>AGE</legend>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#age" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                    <div class="hint-text">Enter the age of the participant</div>
+                    <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
+                </fieldset>
+
+                <fieldset id="fieldset--keyword">
+                    <legend>KEYWORDS / PHRASES</legend>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#keywords" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                    <div class="hint-text">Search by word or phrase (use quotation marks with phrases)</div>
+                    <input id="q" name="q" aria-label="Keywords/Phrases" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
+                </fieldset>
             </div>
-        </fieldset>
-        <!-- END trial type fieldset -->
-        <!-- BEGIN trial/treatment select2 module -->
-        <fieldset id="fieldset--trialtreatment">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>DRUG / TREATMENT</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#3" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>Search for a specific drug or intervention. You can use the drug's generic or brand name.</div>
+            <!-- END age/keyword divs -->
+
+            <!-- BEGIN location fieldsets -->
+            <fieldset id="fieldset--location">
+                <legend>LOCATION</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#location" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in all available locations.
+
+                <section id="section--all-locations">
+                    <div class="radio">
+                        <input id="all-locations" name="loc" value="0" checked="checked" type="radio"><label for="all-locations">Search all Locations</label>
+                    </div>
+                </section>
+
+                <section id="section--zip-code">
+                    <div class="radio">
+                        <input id="zip-code" name="loc" value="1" type="radio"><label for="zip-code">ZIP Code</label>
+                    </div>
+                    <div class="field-cols field-group">
+                        <div>
+                            <label for="z">U.S. ZIP Code: </label>
+                            <input type="text" id="z" name="z" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
+                        </div>
+                        <div>
+                            <label for="zp">Radius: </label>
+                            <select id="zp" name="zp" aria-label="Zip Radius" class="fullwidth loc-select-menu">
+                                <option value="20">20 miles</option>
+                                <option value="50">50 miles</option>
+                                <option selected="selected" value="100">100 miles</option>
+                                <option value="200">200 miles</option>
+                                <option value="500">500 miles</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section--ccs">
+                    <div class="radio">
+                        <input id="country-city-state" name="loc" value="2" type="radio">
+                        <label for="country-city-state">Country, City, State</label>
+                    </div>
+                    <div class="field-group">
+                        <label for="lcnty">Country: </label>
+                        <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu" aria-label="Country"></select>
+                    </div>
+                    <div class="field-cols field-group">
+                        <div>
+                            <label for="lst-multiselect" id="lst-label">State: </label>
+                            <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="lcty">City: </label>
+                            <input type="text" id="lcty" name="lcty" maxlength="40">
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section--hospital">
+                    <div class="radio">
+                        <input id="hospital" name="loc" value="3" type="radio"><label for="hospital">Hospitals/Institutions</label>
+                    </div>
+                    <div class="field-group">
+                        <input id="hos" name="hos" class="search-input non-empty" aria-autocomplete="list" autocomplete="off" aria-label="Please enter 3 or more characters" type="text" error-msg="Please select a Hospital/Institution.">
+                    </div>
+                </section>
+
+                <section id="fieldset--nih">
+                    <div class="radio">
+                        <input id="nih" name="loc" value="4" type="radio"><label for="nih">At NIH (only show trials at the NIH clinical center in Bethesda, MD)</label>
+                    </div>
+                </section>
+            </fieldset>
+            <!-- END location fieldsets -->
+
+            <!-- BEGIN trial type fieldset -->
+            <fieldset id="fieldset--trialtype">
+                <legend>TRIAL TYPE</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialtype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <div>Select the type of trial for your search. You may check more than one box or select "All."</div>
+                <div id="tt" class="two-columns field-group">
+                    <div class="checkbox">
+                        <input id="tt_all" name="tt" checked="checked" value="" type="checkbox"><label for="tt_all">All</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_treatment" name="tt" value="treatment" type="checkbox"><label for="tt_treatment">Treatment</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_supportive_care" name="tt" value="supportive_care" type="checkbox"><label for="tt_supportive_care">Supportive Care</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_diagnostic" name="tt" value="diagnostic" type="checkbox"><label for="tt_diagnostic">Diagnostic</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_basic_science" name="tt" value="basic_science" type="checkbox"><label for="tt_basic_science">Basic Science</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_prevention" name="tt" value="prevention" type="checkbox"><label for="tt_prevention">Prevention</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_health_services_research" name="tt" value="health_services_research" type="checkbox"><label for="tt_health_services_research">Health Services Research</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_screening" name="tt" value="screening" type="checkbox"><label for="tt_screening">Screening</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tt_other" name="tt" value="other" type="checkbox"><label for="tt_other">Other</label>
+                    </div>
                 </div>
-                <div class="row">
-                    <div>
+            </fieldset>
+            <!-- END trial type fieldset -->
+
+            <!-- BEGIN trial/treatment select2 module -->
+            <fieldset id="fieldset--trialtreatment">
+                <legend>DRUG / TREATMENT</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#drugtreatment" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <div>Search for a specific drug or intervention. You can use the drug's generic or brand name.</div>
+                <div class="field-group">
                     <label for="dr-multiselect" id="dr-label">Drug/Drug Family</label>
-                    </div>
+                    <select id="dr-multiselect" name="d" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" aria-label="drug multiselect"></select>
                 </div>
-                <div class="row">
-                    <select id="dr-multiselect" name="d" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters"></select>
-                </div>
-                <div class="row">
-                    <div>
+                <div class="field-group">
                     <label for="ti-multiselect" id="ti-label">Other Treatments</label>
+                    <select id="ti-multiselect" name="i" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" aria-label="treatment multiselect"></select>
+                </div>
+            </fieldset>
+            <!-- END trial/treatment select2 module -->
+
+            <!-- BEGIN phase/trial status fieldset -->
+            <fieldset id="fieldset--trialstatus">
+                <legend>TRIAL PHASE</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialphase" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <div>Search by one or more trial phases</div>
+                <div id="tp">
+                    <div class="checkbox">
+                        <input id="tp_all" name="tp" checked="checked" value="" type="checkbox"><label for="tp_all">All</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tp_1" name="tp" value="I" type="checkbox"><label for="tp_1">Phase I</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tp_2" name="tp" value="II" type="checkbox"><label for="tp_2">Phase II</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tp_3" name="tp" value="III" type="checkbox"><label for="tp_3">Phase III</label>
+                    </div>
+                    <div class="checkbox">
+                        <input id="tp_4" name="tp" value="IV" type="checkbox"><label for="tp_4">Phase IV</label>
                     </div>
                 </div>
-                <div class="row">
-                    <select id="ti-multiselect" name="i" multiple data-placeholder="Please enter 3 or more characters" placeholder="Please enter 3 or more characters" aria-label="ti-multiselect"></select>
-                </div>
-            </div>
-        </fieldset>
-        <!-- END trial/treatment select2 module -->
-        <!-- BEGIN phase/trial status fieldset -->
-        <fieldset id="fieldset--trialstatus">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>TRIAL PHASE</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#5" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>
-                        Search by one or more trial phases
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="tp" class="">
-                        <div class="checkbox large-3 columns">
-                            <input id="tp_all" name="tp" checked="checked" value="" type="checkbox"><label for="tp_all">All</label>
-                        </div>
-                        <div class="checkbox large-3 columns">
-                            <input id="tp_1" name="tp" value="I" type="checkbox"><label for="tp_1">Phase I</label>
-                        </div>
-                        <div class="checkbox large-3 columns">
-                            <input id="tp_2" name="tp" value="II" type="checkbox"><label for="tp_2">Phase II</label>
-                        </div>
-                        <div class="checkbox large-3 columns">
-                            <input id="tp_3" name="tp" value="III" type="checkbox"><label for="tp_3">Phase III</label>
-                        </div>
-                        <div class="checkbox large-3 columns">
-                            <input id="tp_4" name="tp" value="IV" type="checkbox"><label for="tp_4">Phase IV</label>
-                        </div>
-                        <div class="large-9 columns hide"></div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-        <!-- END phase/trial status fieldset -->
-        <!-- BEGIN trial ID fieldset -->
-        <fieldset id="fieldset--trialid">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>TRIAL ID</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#7" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>
-                        Separate multiple IDs with commas or semicolons
-                    </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input id="tid" name="tid" autocomplete="off" aria-label="Trial ID" placeholder="" type="text">
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-        <!-- END trial ID fieldset -->
-        <!-- BEGIN trial investigators fieldset -->
-        <fieldset id="fieldset--investigator">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>TRIAL INVESTIGATORS</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>
-                        Search by Trial Investigators
-                    </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input id="in" name="in" autocomplete="off" aria-label="Trial Investigator" placeholder="Please enter 3 or more characters" type="text">
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-        <!-- END trial investigators fieldset -->
-        <!-- BEGIN lead organization fieldset -->
-        <fieldset id="fieldset--organization">
-            <div class="adv-fieldset-header">
-                <h4 class="clearfix"><legend>LEAD ORGANIZATION</legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#8" class="text-icon-help right" target="_blank" aria-label="Help">?</a>
-                </h4>
-            </div>
-            <div class="adv-fieldset-body">
-                <div class="row">
-                    <div>
-                        Search by Lead Organization
-                    </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input id="lo" name="lo" autocomplete="off" aria-label="Lead Organization" placeholder="Please enter 3 or more characters" type="text">
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-        <!-- END lead organization fieldset -->
-        <!-- Hidden input for passing originating search form -->
-		<input name="rl" value="2" type="hidden" id="rl">
-        <div class="row">
-            <div class="large-12">
+            </fieldset>
+            <!-- END phase/trial status fieldset -->
+
+            <!-- BEGIN trial ID fieldset -->
+            <fieldset id="fieldset--trialid">
+                <legend>TRIAL ID</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialid" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <div class="hint-text">Separate multiple IDs with commas or semicolons</div>
+                <input id="tid" name="tid" autocomplete="off" aria-label="Trial ID" placeholder="" type="text">
+            </fieldset>
+            <!-- END trial ID fieldset -->
+
+            <!-- BEGIN trial investigators fieldset -->
+            <fieldset id="fieldset--investigator">
+                <legend>TRIAL INVESTIGATORS</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#trialinvestigators" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <div class="hint-text">Search by Trial Investigators</div>
+                <input id="in" name="in" autocomplete="off" aria-label="Trial Investigator" type="text">
+            </fieldset>
+            <!-- END trial investigators fieldset -->
+
+            <!-- BEGIN lead organization fieldset -->
+            <fieldset id="fieldset--organization">
+                <legend>LEAD ORGANIZATION</legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#leadorganization" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <div class="hint-text">Search by Lead Organization</div>
+                <input id="lo" name="lo" autocomplete="off" aria-label="Lead Organization" type="text">
+            </fieldset>
+            <!-- END lead organization fieldset -->
+
+            <!-- Hidden input for passing originating search form -->
+            <input name="rl" value="2" type="hidden" id="rl">
+            <div class="btn-group">
                 <input type="submit" class="submit button" value="Search">
             </div>
+        </form>
+    </div>
+
+    ## Begin "Delighter" section ##
+    <aside class="delighter-rail medium-3 small-12 columns">
+        <div class="cts-delighter-container">
+        <!--(bake LiveHelpDelighter.inc)-->
+        <!--(bake WhatAreTrialsDelighter.inc)-->
+        <!--(bake WhichTrialsDelighter.inc)-->
         </div>
-    </form>
-</div>
-## Begin "Delighter" section ##
-<div class="delighter-rail medium-3 columns">
-	<div class="cts-delighter-container">
-    <!--(bake LiveHelpDelighter.inc)-->
-    <!--(bake WhatAreTrialsDelighter.inc)-->
-    <!--(bake WhichTrialsDelighter.inc)-->
-	</div>	
-</div>
-## Begin section for referencing API instructions page ##
-<div class="api-reference-section api-ref-advanced">
+    </aside>
+
+    ## Begin section for referencing API instructions page ##
+    <div class="api-reference-section api-ref-advanced medium-9 small-12 columns">
     <!--(bake APIReferenceSection.inc)-->
+    </div>
+
 </div>

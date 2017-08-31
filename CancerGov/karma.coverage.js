@@ -1,21 +1,28 @@
 /** Configuration for Code Coverage checking with Istanbul */
+const path = require('path');
 var webpackConfig = require('./webpack.config');
 
-webpackConfig.module.rules = [{
-    test: /\.ts$/,
-    exclude: /node_modules/,
-    loader: "awesome-typescript-loader",
-    query: {
-        compilerOptions: {
-            inlineSourceMap: true,
-            sourceMap: false 
+const OUTPUT_LOG_FILE = path.join(__dirname, '_dist', 'logs', 'karma-output.log')
+
+webpackConfig.module.rules = [
+    {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        loader: "awesome-typescript-loader",
+        query: {
+            compilerOptions: {
+                inlineSourceMap: true,
+                sourceMap: false 
+            }
         }
-    }
-},
+    },
     {
         test: /\.ts$/,
         enforce: "post",
         loader: 'istanbul-instrumenter-loader',
+        options: {
+            esModules: true
+        },
         exclude: [
             'node_modules',
             /\.spec\.ts$/
@@ -33,35 +40,34 @@ module.exports = function (config) {
         ],
         exclude: [],
         preprocessors: {
-            '_test/**/*.ts': ['webpack']
+            '_test/**/*.ts': ['webpack', 'sourcemap']
         },
         webpack: {
             devtool: 'inline-source-map',
             module: webpackConfig.module,
             resolve: webpackConfig.resolve
         },
-        webpackServer: {
+        //This keeps webpack quiet
+        webpackMiddleware: {
+            stats: 'errors-only',
             noInfo: true
         },
-        coverageReporter: {
-            dir: 'coverage',
-            reporters: [
-                {
-                    type: 'html',
-                    subdir: 'report-html'
-                },
-                {
-                    type: 'lcov',
-                    subdir: 'report-lcov'
-                },
-                {
-                    type: 'cobertura',
-                    subdir: '.',
-                    file: 'cobertura.txt'
+        reporters: ['coverage-istanbul'],
+        coverageIstanbulReporter: {
+            //reports: ['json-summary'],
+            reports: ['html', 'lcovonly', 'text-summary', 'json-summary'],
+            fixWebpackSourcePaths: true,
+            dir: path.join(__dirname, '_dist', 'logs'),
+            'report-config': {
+                html: {
+                    subdir: 'html'
                 }
-            ]
+            }
         },
-        reporters: ['progress', 'coverage'],
+        loggers: [{
+            type: 'file',
+            filename: OUTPUT_LOG_FILE
+        }],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,

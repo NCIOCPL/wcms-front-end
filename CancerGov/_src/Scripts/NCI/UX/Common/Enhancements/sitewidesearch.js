@@ -48,6 +48,7 @@ define(function(require) {
             }
 
             element.autocomplete('option', 'position', position)
+                .autocomplete('option','classes',{"ui-autocomplete":"sitewide-search-menu"})
                 .data('ui-autocomplete')._resizeMenu = resizeMenu;
         };
 

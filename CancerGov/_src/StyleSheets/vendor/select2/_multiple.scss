@@ -14,17 +14,16 @@
     overflow: hidden;
     padding-left: 8px;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }
 
 .select2-search--inline {
-  float: left;
+  display: inline-block;
 
   .select2-search__field {
     box-sizing: border-box;
     border: none;
-    font-size: 100%;
+    //font-size: 100%;
     margin-top: 5px;
     padding: 0;
 

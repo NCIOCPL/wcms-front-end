@@ -13,4 +13,23 @@ describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
     expect(actual).to.eql(expected);
   });
 
+  it('should override defaults', () => {
+    
+    // Figure out how to add CDE config object to global 
+    // Fake hostname - use sinon or pushstate?
+
+    // Create new config object
+    let config:CDERuntimeConfig = new CDERuntimeConfig();
+
+    // Get the configuration (either default or overrides if they exist)
+    let actual:CDEConfiguration = config.getConfiguration();
+
+    // Set value to compare against
+    let expected:CDEConfiguration = <CDEConfiguration> {
+      ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov"
+    };
+
+    expect(actual).to.eql(expected);
+  });
+
 });

@@ -24,9 +24,13 @@ module.exports = function (config) {
         preprocessors: {
             '_test/**/*.ts': ['webpack']
         },
+        //Include the full webpack config. This needs to be
+        //updated to not include all.
         webpack: webpackConfig,
+        //Keeps webpack quiet
         webpackMiddleware: {
-            stats: 'errors-only'
+            stats: 'errors-only',
+            noInfo: true
         },
         reporters: ['mocha'],
         port: 9876,
