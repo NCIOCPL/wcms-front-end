@@ -7,7 +7,7 @@
 def FOLDER_NAME  = 'wcms-front-end'    // Jenkins folder where the jbos will be placed.
 
 def GH_REPO_NAME = 'wcms-front-end'     // The project's repository name (as used in the URL).
-def TARGET_BRANCH = 'master'            // Branch to run against.
+def TARGET_BRANCH = 'pilfering-penguin'            // Branch to run against.
 def GH_ORGANIZATION_NAME = 'NCIOCPL'   // GitHub Organization name (as used in the URL/userid).
 
 def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
