@@ -56,13 +56,7 @@
     }
     a:hover, a:active {
       background: #306 image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
-      -webkit-transform: all 0.5s ease 0s;
-      -moz-transform: all 0.5s ease 0s;
-      -ms-transform: all 0.5s ease 0s;
-      -o-transform: all 0.5s ease 0s;
-      transform: all 0.5s ease 0s;
       text-decoration: none;
-      //background-color: #306;
     }
   }
   .cts-livehelp {
