@@ -83,11 +83,11 @@
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
 @import "NCI.ProactiveLiveHelp";
-@import "enhancements/NCI.Delighters";
-@import "enhancements/cts.feedbackform";
-@import "enhancements/cts.basic";
-@import "enhancements/cts.advanced";
-@import "enhancements/cts.modal";
+@import "AppModuleSpecific/cts/NCI.Delighters";
+@import "AppModuleSpecific/cts/cts.feedbackform";
+@import "AppModuleSpecific/cts/cts.basic";
+@import "AppModuleSpecific/cts/cts.advanced";
+@import "AppModuleSpecific/cts/cts.modal";
 /****************** END NCI ENHANCEMENTS SECTION ********************/
 
 /****************** Blue Ribbon Panel ********************/
