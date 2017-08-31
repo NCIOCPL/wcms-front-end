@@ -24,7 +24,7 @@
   }
 
   .cts-feedback, .cts-livehelp, .cts-which, .cts-what {
-    padding: 132px 20px 0;
+    padding: 132px 0 0;
     h4 {
       border-radius: 8px;
       color: white;
@@ -158,6 +158,53 @@
   }
 }
 
+$icon-po-width: 23px;
+.cts-share {
+  margin-top: 30px;
+
+
+  a {
+    display:inline-block;
+    width:45%;
+    height:auto;
+    padding:5px 0;
+    border-radius: 3px;
+    color:#fff;
+    font: normal 14px Montserrat, Arial, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+
+    &:first-of-type {
+      margin-right: calc(9% - 3px);
+    }
+
+    &[title="Print"]{
+      background-color: #24B2A1;
+    }
+    &[title="Email"]{
+      background-color: #14819b;
+    }
+    .text {
+      position: relative;
+      top:-3px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .icon-print,.icon-email {
+    display:inline-block;
+    width:$icon-po-width;
+    height:$icon-po-width;
+  }
+  .icon-print {
+    @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
+  }
+  .icon-email {
+    @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
+  }
+}
+
 /* Large Screens */
 @include bp('(min-width:1025px)') {
   #delighter-homePage, #delighter-innerpage {
@@ -198,8 +245,19 @@
   .cts-share.view-delighter-share {
     text-align: center;
 
+    span {
+      display: inline-block;
+    }
+
+    a {
+      width: auto;
+      display: inline-block;
+      padding: 5px 20px;
+    }
+
     .share-text {
-      display: inline;
+      display: inline-block;
+      margin-right: 10px;
     }
 
     a.email {

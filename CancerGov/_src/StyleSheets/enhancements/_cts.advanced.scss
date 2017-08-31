@@ -79,6 +79,14 @@ Set Styles for Drug Selection
   }
 }
 
+//cooler checkbox override
+html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before {
+  background: #ffffff image-url($icons + "/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
+  color: #2a72a5;
+  content:"";
+  border-color: #2a72a5;
+}
+
 //styling for search criteria table
 .search-criteria-box {
   display: block;
@@ -144,6 +152,7 @@ Set Styles for Drug Selection
 }
 
 .ctscb {
+  background-color: #f2f2f3;
   background-image: image-url($icons + "cts-plus.png");
   background-repeat: no-repeat;
   background-position-x: right;
@@ -155,6 +164,7 @@ Set Styles for Drug Selection
   padding: 0 0 0 5px;
   background-size: 10%;
   width: 375px;
+  margin-bottom: .25em;
 
   &.show {
     background-image: image-url($icons + "cts-minus.png");
@@ -168,7 +178,7 @@ Set Styles for Drug Selection
 
 .cts-start-over {
   font-weight: bold;
-  line-height: 2.5em;
+  line-height: 1.5em;
 }
 
 .cts-results-label {
