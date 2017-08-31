@@ -1,7 +1,7 @@
 import { expect, assert } from 'chai';
 import * as TypeMoq from 'typemoq';
 
-import { ClinicalTrialsService, TermResults, DiseaseResults, TermResult, InterventionResults, InterventionResult } from '../../../../../_src/Scripts/NCI/Services/clinical-trials';
+import { ClinicalTrialsService, TermResults, DiseaseResult, DiseaseResults, TermResult, InterventionResults, InterventionResult } from '../../../../../_src/Scripts/NCI/Services/clinical-trials';
 import { CTAPIFacade } from '../../../../../_src/Scripts/NCI/UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 
 const VIEWABLE_TRIALS:string[] = [
@@ -80,7 +80,7 @@ function getTermsParameterTestMock(
  * @param results A DiseaseResults object to return
  */
 function getDiseaseParameterTestMock(
-    checkParamCallback: (menuType: string | string[], diseaseAncestorIDs: string | string[], additionalParams?:any) => void,
+    checkParamCallback: (menuType: string | string[], diseaseAncestorIDs?: string | string[], additionalParams?:any) => void,
     results:DiseaseResults
 ) : TypeMoq.IMock<ClinicalTrialsService> {
     //Create the fake interface implementation.
@@ -141,6 +141,35 @@ function getTermResult(termKey:string, termType:string, term:string, count:numbe
     rtn.term = term;
     rtn.count = count;
     rtn.codes = codes;
+
+    return rtn;
+}
+
+/**
+ * Gets a Disease Result with properties filled in.
+ */
+function getDiseaseResult(name:string, codes:string[], parentDiseaseID:string, menu:string): DiseaseResult {
+    let rtn:DiseaseResult = new DiseaseResult();
+
+    rtn.name = name;
+    rtn.codes = codes;
+    rtn.parentDiseaseID = parentDiseaseID;
+    rtn.menu = menu;
+
+    return rtn;
+}
+
+/**
+ * Gets a Disease Result with properties filled in.
+ */
+function getInterventionResult(category: string, name: string, codes:string[], synonyms: string[], type: string): InterventionResult {
+    let rtn:InterventionResult = new InterventionResult();
+
+    rtn.category = category;
+    rtn.name = name;
+    rtn.codes = codes;
+    rtn.synonyms = synonyms;
+    rtn.type = type;
 
     return rtn;
 }
@@ -290,41 +319,197 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
     });
 
     describe('searchDrugs', () => {
-        // Placeholder unit tests until endpoint is working
         it('should make the correct request to the ClinicalTrialsService', () => {
-            
-                expect('istanbul').to.be.eq('constantinople');
+            let res:InterventionResults = new InterventionResults();
+            res.total = 0;
+            res.terms = [];            
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
+                (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
+                    //Callback for assetions.
+                    expect(category).to.eql(['Agent', 'Agent Category']);
+                    expect(name).to.be.eq('bev');
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.be.deep.eq({
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            return facade.searchDrugs('bev'); 
         });
 
         it('should return the correct results based on response', () => {
-                expect('new york').to.be.eq('new amsterdam');
+            let res:InterventionResults = new InterventionResults();
+            res.total = 1;
+            
+            res.terms.push(getInterventionResult(
+                'agent',
+                "Trastuzumab",
+                [ "C1647" ],
+                [
+                    "Herceptin"
+                ],
+                undefined
+            ));
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
+                (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
+                    //Callback for assetions.
+                    expect(category).to.eql(['Agent', 'Agent Category']);
+                    expect(name).to.be.eq('Trastuzumab');
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.eql({
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            //Mocha will handle promises when they are returned.  So you can
+            //run the assertions in a then.
+            return facade.searchDrugs('Trastuzumab')
+                    .then((actual:InterventionResult[]) => {
+                        expect(actual).to.eql(res.terms);
+                    });
         });
 
     });
 
     describe('searchOtherInterventions', () => {
-        // Placeholder unit tests until endpoint is working
         it('should make the correct request to the ClinicalTrialsService', () => {
-                expect(1).to.be.eq(2);
+            let res:InterventionResults = new InterventionResults();
+            res.total = 0;
+            res.terms = [];            
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
+                (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
+                    //Callback for assetions.
+                    expect(category).to.be.eq("Other");
+                    expect(name).to.be.eq('therapy');
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.be.deep.eq({
+                        //name: 'therapy',
+                        //sort: 'name',
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            return facade.searchOtherInterventions('therapy'); 
         });
 
         it('should return the correct results based on response', () => {
-                expect(3).to.be.eq(4);
-        });
+            let res:InterventionResults = new InterventionResults();
+            res.total = 1;
+            
+            res.terms.push(getInterventionResult(
+                "Other",
+                "Ablation Therapy",
+                [ "C20985" ],
+                [
+                    "Ablation",
+                    "Ablation Therapy",
+                    "Local Ablation Therapy",
+                    "Local Ablative Therapy"
+                ],
+                undefined
+            ));
 
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
+                (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
+                    //Callback for assetions.
+                    expect(category).to.be.eq("Other");
+                    expect(name).to.be.eq('Ablation Therapy');
+                    expect(size).to.be.eq(10);
+                    expect(additionalParams).to.eql({
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            //Mocha will handle promises when they are returned.  So you can
+            //run the assertions in a then.
+            return facade.searchOtherInterventions('Ablation Therapy')
+                    .then((actual:InterventionResult[]) => {
+                        expect(actual).to.eql(res.terms);
+                    });
+        });
     });
 
-    describe('searchDiseases', () => {
-        // Placeholder unit tests until endpoint is working
+    describe('getDiseasesForSimpleTypeAhead', () => {
         it('should make the correct request to the ClinicalTrialsService', () => {
-                expect(5).to.be.eq(6);
+            let res:DiseaseResults = new DiseaseResults();
+            res.total = 0;
+            res.terms = [];            
+
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getDiseaseParameterTestMock(
+                (menuType: string | string[], diseaseAncestorIDs?: string | string[], additionalParams?:any) => {
+                    //Callback for assetions.
+                    expect(menuType).to.eql(["maintype", "subtype", "stage"],);
+                    expect(diseaseAncestorIDs).to.be.undefined;
+                    expect(additionalParams).to.be.deep.eq({
+                        name: "breast",
+                        size: 10,
+                        sort: "cancergov",
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            return facade.getDiseasesForSimpleTypeAhead('breast'); 
         });
 
         it('should return the correct results based on response', () => {
-                expect(7).to.be.eq(8);
-        });
+            let res:DiseaseResults = new DiseaseResults();
+            res.total = 1;
+            
+            res.terms.push(getDiseaseResult(
+                "Bilateral Breast Cancer",
+                [ "C8272" ],
+                "C4872",
+                "subtype"
+            ));
 
-    });    
+            let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getDiseaseParameterTestMock(
+                (menuType: string | string[], diseaseAncestorIDs?: string | string[], additionalParams?:any) => {
+                    //Callback for assetions.
+                    expect(menuType).to.eql(["maintype", "subtype", "stage"])
+                    expect(diseaseAncestorIDs).to.be.undefined;
+                    expect(additionalParams).to.eql({
+                        name: "Bilateral Breast Cancer",
+                        size: 10,
+                        sort: "cancergov",
+                        current_trial_status: VIEWABLE_TRIALS
+                    });
+                },
+                res
+            );
+
+            let facade:CTAPIFacade = new CTAPIFacade(svcMock.object);
+
+            //Mocha will handle promises when they are returned.  So you can
+            //run the assertions in a then.
+            return facade.getDiseasesForSimpleTypeAhead('Bilateral Breast Cancer')
+                    .then((actual:DiseaseResult[]) => {
+                        expect(actual).to.eql(res.terms);
+                    });
+        });
+    }); 
 
     describe('searchTrialInvestigators', () => {
 
