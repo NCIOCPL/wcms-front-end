@@ -25,6 +25,7 @@ webpackConfig.module.rules = [
         },
         exclude: [
             'node_modules',
+            /_test[\/\\].*\.ts$/,
             /\.spec\.ts$/
         ]
     }
