@@ -15,8 +15,10 @@ describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
 
   it('should override defaults', () => {
     
-    // Figure out how to add CDE config object to global 
-    // Fake hostname - use sinon or pushstate?
+    // We need 2 things to make this work:
+    // 1. A CDE config object - need to figure out how to add object to global 
+    // 2. A fake hostname - use sinon or pushstate?
+    // See: http://www.bradoncode.com/blog/2015/02/27/karma-tutorial/
 
     // Create new config object
     let config:CDERuntimeConfig = new CDERuntimeConfig();

@@ -21,7 +21,7 @@ module.exports = function (grunt, options) {
           asset_cache_buster: function(http_path, real_path, done){
               var extname = path.extname(http_path),
                   basename = path.basename(http_path, extname),
-                  digest = crypto.createHash('md5').update(options.fingerprint).digest("hex"),
+                  digest = options.fingerprint,
                   new_name = basename + '.__v' + digest + extname;
 
               done({path: path.join(path.dirname(http_path), new_name), query: null});

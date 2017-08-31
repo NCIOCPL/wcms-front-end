@@ -239,15 +239,13 @@
     </div>
 		<div class="no-resize cts-share view-delighter-share">
 			<div class="share-text">Share this clinical trial with your doctor:</div>
-			<a class="print" title="Print" href="#">
-				<span class="icon icon-print"></span>
-				<span class="text">Print</span>
-			</a>
+			## alifr - moved this variable above <a> tags to prevent whitespace node from being created
 			## This is the only place where GetUrl should be used.  All other places are specific only to this template.
-			#set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
-			<a class="email" title="Email" href="$emailUrl">
-				<span class="icon icon-email"></span>
-				<span class="text">Email</span>
+            #set($emailUrl = $SearchResults.Control.PageInstruction.GetUrl("email"))##
+			<a class="print" title="Print" href="#">
+				<span class="icon icon-print"></span><span class="text">Print</span>
+			</a><a class="email" title="Email" href="$emailUrl">
+				<span class="icon icon-email"></span><span class="text">Email</span>
 			</a>
 		</div>
   </div>
