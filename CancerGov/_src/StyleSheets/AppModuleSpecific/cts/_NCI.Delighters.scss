@@ -173,7 +173,7 @@ $icon-po-width: 23px;
     margin-top: 10px;
 
     &:first-of-type {
-      margin-right: calc(9% - 3px);
+      margin-right: 10%;
     }
 
     &[title="Print"]{
@@ -184,7 +184,8 @@ $icon-po-width: 23px;
     }
     .text {
       position: relative;
-      top:-3px;
+      top:-5px;
+      padding-left: 6px;
     }
     &:hover {
       text-decoration: none;
