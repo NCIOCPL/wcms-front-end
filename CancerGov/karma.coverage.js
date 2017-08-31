@@ -54,8 +54,15 @@ module.exports = function (config) {
         },
         reporters: ['coverage-istanbul'],
         coverageIstanbulReporter: {
-            reports: ['json-summary'],
-            dir: path.join(__dirname, '_dist', 'logs')
+            //reports: ['json-summary'],
+            reports: ['html', 'lcovonly', 'text-summary', 'json-summary'],
+            fixWebpackSourcePaths: true,
+            dir: path.join(__dirname, '_dist', 'logs'),
+            'report-config': {
+                html: {
+                    subdir: 'html'
+                }
+            }
         },
         loggers: [{
             type: 'file',
