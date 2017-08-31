@@ -15,7 +15,7 @@
         <form id="form--cts-basic" class="cts-form basic-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
             <fieldset id="fieldset--type" aria-labelledby="fieldset--type">
                 <legend><span>Cancer Type/Keyword</span></legend>
-                <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#basicsearch" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <input placeholder="Start typing to select a cancer type" type="text" id="q" aria-label="Cancer Type/Keyword" maxlength="100" name="q" autocomplete="off">
             </fieldset>
@@ -23,7 +23,7 @@
             <div class="field-cols">
                 <fieldset id="fieldset--age">
                     <legend><span>Age</span></legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#basicsearch" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                     <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
                     <div>Your age helps determine which trials are right for you.</div>
@@ -31,7 +31,7 @@
 
                 <fieldset id="fieldset--zip">
                     <legend><span>U.S. ZIP Code</span></legend>
-                    <a href="/about-cancer/treatment/clinical-trials/search/help#2" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#basicsearch" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                     <input type="text" id="z" name="z" aria-label="Zip Code" class="non-empty" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
                     <div>Show trials near this U.S. ZIP code.</div>
