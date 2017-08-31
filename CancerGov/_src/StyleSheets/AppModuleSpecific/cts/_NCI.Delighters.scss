@@ -50,12 +50,12 @@
   }
 
   .cts-feedback {
-    background: transparent url("/publishedcontent/images/images/design-elements/icons/send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    background: transparent image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
     h4 {
       background-color: #b74900;
     }
     a:hover, a:active {
-      background: #306 url("/publishedcontent/images/images/design-elements/icons/send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+      background: #306 image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
       -webkit-transform: all 0.5s ease 0s;
       -moz-transform: all 0.5s ease 0s;
       -ms-transform: all 0.5s ease 0s;
@@ -66,26 +66,26 @@
     }
   }
   .cts-livehelp {
-    background: transparent url("/publishedcontent/images/images/design-elements/icons/live-help-person-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    background: transparent image-url($icons + "live-help-person-icon.svg") no-repeat scroll center 10px / 110px 110px;
     h4 {
       background-color: #35778f;
     }
   }
   .cts-which {
-    background: transparent url("/publishedcontent/images/images/design-elements/icons/checklist-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    background: transparent image-url($icons + "checklist-icon.svg") no-repeat scroll center 10px / 110px 110px;
     h4 {
       background-color: #4a437a;
     }
   }
   .cts-what {
-    background: transparent url("/publishedcontent/images/images/design-elements/icons/what-are-clinical-trials-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    background: transparent image-url($icons + "what-are-clinical-trials-icon.svg") no-repeat scroll center 10px / 110px 110px;
     h4 {
       background-color: $navyblue;
     }
   }
   // This will need to be updated
   .cts-next-step {
-    background: url(/publishedcontent/images/images/design-elements/background-graphics/ct-red-triangles.jpg);
+    background: image-url($backgrounds + "ct-red-triangles.jpg");
     border: 3px solid #cf0549;
     color: white;
     h4, p, li, a {
