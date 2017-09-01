@@ -143,15 +143,12 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
     width: 100%;
   }
 }
-#other-diseases, #fieldset--location section {
+#other-diseases, #fieldset--location section > div:not(.radio) {
   opacity: 1;
   transition: opacity .5s ease;
 }
-
-#cts-advanced {
-  .disabled {
-    opacity: .45;
-  }
+#other-diseases.disabled {
+  opacity: .45;
 }
 
 
