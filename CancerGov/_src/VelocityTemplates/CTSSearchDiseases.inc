@@ -16,17 +16,11 @@
             <label for="stg-multiselect">Stage</label>
             <select id="stg-multiselect" name="stg" multiple data-placeholder="Select a stage" placeholder="Select cancer type or subtype first" disabled></select>
         </div>
+        <!--(bake-start _if="findings")-->
         <div class="field-group">
             <label for="fin-multiselect">Side Effects / Biomarkers / Participant Attributes</label>
             <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" disabled></select>
         </div>
+        <!--(bake-end)-->
     </div>
-    <!--(bake-start _if="findings")-->
-    <div class="field-group">
-        <div>
-            <label for="fin-multiselect" id="fin-label">Side Effects / Biomarkers / Participant Attributes</label>
-            <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first"></select>
-        </div>
-    </div>
-    <!--(bake-end)-->
 </fieldset>
