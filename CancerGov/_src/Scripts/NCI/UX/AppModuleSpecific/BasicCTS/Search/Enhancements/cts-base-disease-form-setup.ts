@@ -384,23 +384,34 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				let selectedInSet = [];
 
 				let findings = resList.map( val => {
-							let id = val.codes.join('|');
+					let id = val.codes.join('|');
 
-							if (selectedItems.includes(id)) {
-								selectedInSet.push(id);
-							}
+					if (selectedItems.includes(id)) {
+						selectedInSet.push(id);
+					}
 
-							return {
-								id: id,
-								text: val.name
-							}
-						});
+					return {
+						id: id,
+						text: val.name
+					}
+				});
+
+				//If there are findings then we need to have default no results
+				//text when the user enters characters that do not find anything.
+				let noResultsText = "No results found";
+				let finCount = this.findingsMinCount;
+
+				if (findings.length == 0 ) {
+					//Say there are no options and don't require 3 characters
+					noResultsText = "No available options based on your previous selections.";
+					finCount = 0;
+				}
 
 				this.$findings.select2({
 					data: findings,
-					minimumInputLength: this.findingsMinCount,
+					minimumInputLength: finCount,
 					language: {
-						noResults: ( params => "No available options based on your previous selections." )
+						noResults: ( params => noResultsText )
 					},
                     theme:"nci"
 				});
