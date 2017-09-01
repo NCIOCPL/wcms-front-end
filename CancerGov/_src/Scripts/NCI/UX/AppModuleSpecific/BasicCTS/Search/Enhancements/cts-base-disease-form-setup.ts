@@ -303,6 +303,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					},
                     theme:"nci"
 				});
+				this.$subtypeCancer.data('select2').$container.find("input").attr('aria-labelledby', 'st-label');
 				this.$subtypeCancer.prop("disabled", false);
 			})
 	}
@@ -350,7 +351,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					},
 					theme:"nci"
 				});
-
+				this.$stageCancer.data('select2').$container.find("input").attr('aria-labelledby', 'stg-label');
+				
 				if (selectedInSet.length > 0) {
 					this.$stageCancer.val(selectedInSet).trigger("change");
 				}
@@ -415,6 +417,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					},
                     theme:"nci"
 				});
+				this.$findings.data('select2').$container.find("input").attr('aria-labelledby', 'fin-label');
 
 				if (selectedInSet.length > 0) {
 					this.$findings.val(selectedInSet).trigger("change");
