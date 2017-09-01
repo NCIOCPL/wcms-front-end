@@ -1,4 +1,5 @@
 #!/bin/sh
+set +x  # Don't echo commands to the console
 
 # Coordinates the build of the front-end code and subsequent upload to GitHub
 # This script is added to /content-build by the Docker build process and is executed
@@ -38,13 +39,15 @@ github-release delete --user ${GH_ORGANIZATION_NAME} --repo wcms-front-end --tag
 
 # Remove the tag if it exists, Tag the code, replace the tag if it already exists.
 if git rev-parse ${TAG_NAME} > /dev/null 2>&1; then
+  echo "Removing pre-existing tag ${TAG_NAME}"
   git tag -d ${TAG_NAME}
-  git push "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_NAME/$GH_REPO_NAME" :refs/tags/${TAG_NAME}
+  git push "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_NAME/$GH_REPO_NAME" :refs/tags/${TAG_NAME} 2> /dev/null
 fi
 git tag ${TAG_NAME}
 
 # Push the tag to GitHub
-git push --tags "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
+echo Pushing tag to GitHub
+git push --tags "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_NAME/$GH_REPO_NAME" 2> /dev/null
 
 # Create new release.
 github-release release --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${TAG_NAME} --name ${TAG_NAME} --pre-release
