@@ -303,6 +303,7 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					},
                     theme:"nci"
 				});
+				this.$subtypeCancer.data('select2').$container.find("input").attr('aria-labelledby', 'st-label');
 				this.$subtypeCancer.prop("disabled", false);
 			})
 	}
@@ -350,7 +351,8 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 					},
 					theme:"nci"
 				});
-
+				this.$stageCancer.data('select2').$container.find("input").attr('aria-labelledby', 'stg-label');
+				
 				if (selectedInSet.length > 0) {
 					this.$stageCancer.val(selectedInSet).trigger("change");
 				}
@@ -384,26 +386,38 @@ export abstract class CTSBaseDiseaseFormSetup extends CTSBaseFormSetup{
 				let selectedInSet = [];
 
 				let findings = resList.map( val => {
-							let id = val.codes.join('|');
+					let id = val.codes.join('|');
 
-							if (selectedItems.includes(id)) {
-								selectedInSet.push(id);
-							}
+					if (selectedItems.includes(id)) {
+						selectedInSet.push(id);
+					}
 
-							return {
-								id: id,
-								text: val.name
-							}
-						});
+					return {
+						id: id,
+						text: val.name
+					}
+				});
+
+				//If there are findings then we need to have default no results
+				//text when the user enters characters that do not find anything.
+				let noResultsText = "No results found";
+				let finCount = this.findingsMinCount;
+
+				if (findings.length == 0 ) {
+					//Say there are no options and don't require 3 characters
+					noResultsText = "No available options based on your previous selections.";
+					finCount = 0;
+				}
 
 				this.$findings.select2({
 					data: findings,
-					minimumInputLength: this.findingsMinCount,
+					minimumInputLength: finCount,
 					language: {
-						noResults: ( params => "No available options based on your previous selections." )
+						noResults: ( params => noResultsText )
 					},
                     theme:"nci"
 				});
+				this.$findings.data('select2').$container.find("input").attr('aria-labelledby', 'fin-label');
 
 				if (selectedInSet.length > 0) {
 					this.$findings.val(selectedInSet).trigger("change");

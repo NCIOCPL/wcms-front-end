@@ -100,12 +100,12 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
   position: relative;
   top: -1px;
-  width: 75%;
-  padding: 0;
+  width: 702px;
+  padding: 10px 20px;
 
   h3 {
     margin: 0;
-    padding: .5em 0;
+    //padding: .25em 0;
     color: #2e2e2e;
   }
   > h3 {
@@ -124,18 +124,31 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   tr {
     height: 2.5em;
 
+    th {background-color: #f9f9f9;}
+
     th:first-child, td:first-child {
       text-align: right;
       width: 40%;
     }
+
     td.cts-schdr {
       text-align: left;
     }
   }
 
+  @include bp(medium){
+    width: 625px;
+  }
   @include bp(small){
     width: 100%;
   }
+}
+#other-diseases, #fieldset--location section > div:not(.radio) {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+#other-diseases.disabled {
+  opacity: .45;
 }
 
 
@@ -201,5 +214,5 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   display: none;
 }
 #clinical-trials-print .clinicaltrials-results-criteria-display {
-  left: -1em;
+  //left: -1em;
 }
