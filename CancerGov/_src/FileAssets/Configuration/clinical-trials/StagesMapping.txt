@@ -1,0 +1,7 @@
+C89366,C7900|Stage IV Bladder Cancer
+C7769,C88376|Stage III Breast Cancer
+C6319,C89552|Stage IIA Cervical Cancer
+C89999,C3994|Stage IV Colon Cancer
+C88414,C7916|Stage I Skin Melanoma
+C133404,C133418,C8628,C133434|Stage II Esophageal Adenocarcinoma
+C5023,C133447,C133519|Stage 0 Esophageal Squamous Cell Carcinoma

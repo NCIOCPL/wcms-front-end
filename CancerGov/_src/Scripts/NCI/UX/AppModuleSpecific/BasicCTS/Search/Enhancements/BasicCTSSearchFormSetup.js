@@ -26,7 +26,7 @@ define(function(require) {
 				m[i][j] = b.charAt(i - 1) == a.charAt(j - 1)
 					? m[i - 1][j - 1]
 					: m[i][j] = min(
-						m[i - 1][j - 1] + 1, 
+						m[i - 1][j - 1] + 1,
 						min(m[i][j - 1] + 1, m[i - 1 ][j] + 1))
 			}
 		}
@@ -109,7 +109,7 @@ define(function(require) {
 
 				//Log Error Message Here.  It would be nice to have an instance of
 				//this...
-				$(".clinical-trials-search-form").basicctsformtrack("errors", [{
+				$(".cts-form").basicctsformtrack("errors", [{
 					field: el.attr('id'),
 					message: el.data("error-message")
 				}]);
@@ -117,11 +117,11 @@ define(function(require) {
 		}
 	}
 	// to reset the search form on browser back
-	$(document).ready(function($){	
+	$(document).ready(function($){
 		$('form').each(function() {
 			this.reset();
 		});
-	});	
+	});
 
 	/**
 	 * Tracks the analytics for the Cancer Type/Keyword toggle
@@ -134,7 +134,7 @@ define(function(require) {
         if(typeof(s) !== 'undefined') {
             pageName = s.pageName;
         }
-        
+
 		clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'TypeKeywordToggle');
 
 		clickParams.Props = {
@@ -187,7 +187,7 @@ define(function(require) {
 				}
 			})
 		;
-		
+
 		$('.basic-cts-v2 #q')
 			.autocompleteselector({
 				fetchSrc: function(term) {
@@ -261,10 +261,10 @@ define(function(require) {
 		;
 
 		//Wire Up Web Analytics
-		$(".clinical-trials-search-form").basicctsformtrack({
+		$(".cts-form").basicctsformtrack({
 			formName: 'clinicaltrials_basic'
 		}).submit(function(e) {
-			
+
 			var $this = $(this);
 
 			if(!$this.data('valid')){
@@ -303,9 +303,9 @@ define(function(require) {
 
 					var $queryField = $('.basic-cts-v2 #q');
 					var $hasKeywordMatch = false;
-					
+
 					if ($queryField && ($queryField.length > 0) && !$queryField.prop("disabled")) {
-				
+
 						var searchTerm = $queryField.val();
 
                         dataQuery = {
@@ -314,10 +314,10 @@ define(function(require) {
                                 'size': 10
                         };
 
-						//Lookup term, then 
+						//Lookup term, then
                         $.ajax({
                             //url: 'nci-ocdev09-v.nci.nih.gov:3000/terms',
-                            url: _getAPIURL(), 
+                            url: _getAPIURL(),
                             data: dataQuery,
                             dataType: 'json'
                         }).done(function(res){

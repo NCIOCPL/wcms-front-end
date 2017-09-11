@@ -31,8 +31,9 @@ module.exports = {
         PDQPage:                  './UX/PageSpecific/PDQ/PDQPage',
         TopicPage:                './UX/PageSpecific/Topic/TopicPage',
         Popups:                   './UX/PageSpecific/Popups/Popups',
+        AdvancedCTSSearchPage:    './UX/AppModuleSpecific/BasicCTS/Search/AdvancedCTSSearchPage',
+        SimpleCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/SimpleCTSSearchPage',
         BasicCTSResultsPage:      './UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
-        BasicCTSSearchPage:       './UX/AppModuleSpecific/BasicCTS/Search/BasicCTSSearchPage',
         BasicCTSViewPage:         './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
         BasicCTSPrintPage:        './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
         CTListingPage:            './UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage',
@@ -73,9 +74,11 @@ module.exports = {
     },
     externals: {
         jquery: 'jQuery',
+        jQuery: 'jQuery',
         'jquery-ui': 'jQuery.ui',
         headroom: 'Headroom',
-        'jquery-touchswipe':'jQuery.fn.swipe'
+        'jquery-touchswipe':'jQuery.fn.swipe',
+        CDEConfig: 'CDEConfig'
     },
 
     module: {
@@ -95,6 +98,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             Modernizr: "modernizr"
         }),
-        new webpack.optimize.CommonsChunkPlugin({name:'BasicCTSCommon',chunks: ["BasicCTSViewPage", "BasicCTSSearchPage","BasicCTSResultsPage"]})
+        new webpack.optimize.CommonsChunkPlugin({
+            name:'BasicCTSCommon',
+            chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSResultsPage"]
+        })
     ]
 };

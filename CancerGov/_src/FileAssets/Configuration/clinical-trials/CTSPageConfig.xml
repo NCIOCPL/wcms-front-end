@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cde:Module_BasicCTSPageInfo xmlns:cde="http://www.example.org/CDESchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/CDESchema CDESchema.xsd">
+ <BasicSearchPageTemplatePath>~/PublishedContent/VelocityTemplates/SimpleCTSSearch.vm</BasicSearchPageTemplatePath>
+ <AdvSearchPageTemplatePath>~/PublishedContent/VelocityTemplates/AdvCTSSearch.vm</AdvSearchPageTemplatePath>
+ <ResultsPageTemplatePath>~/PublishedContent/VelocityTemplates/BasicCTSResultsv2.vm</ResultsPageTemplatePath>
+ <DetailedViewPageTemplatePath>~/PublishedContent/VelocityTemplates/BasicCTSViewv2.vm</DetailedViewPageTemplatePath>
+ <PrintPageTemplatePath>~/PublishedContent/VelocityTemplates/BasicCTSPrintResultsv2.vm</PrintPageTemplatePath>
+ <BasicSearchPagePrettyUrl>/about-cancer/treatment/clinical-trials/search</BasicSearchPagePrettyUrl>
+ <AdvSearchPagePrettyUrl>/about-cancer/treatment/clinical-trials/advanced-search</AdvSearchPagePrettyUrl>
+ <ResultsPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/r</ResultsPagePrettyUrl>
+ <DetailedViewPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/v</DetailedViewPagePrettyUrl>
+ <RedirectPagePrettyUrl>/about-cancer/treatment/clinical-trials/search/options</RedirectPagePrettyUrl>
+ <SearchIndex>clinicaltrials</SearchIndex>
+ <TrialIndexType>trial</TrialIndexType>
+ <GeoLocIndexType>geoloc</GeoLocIndexType>
+ <MenuTermIndexType>menuterm</MenuTermIndexType>
+ <SearchClusterName>SearchCluster</SearchClusterName>
+ <DefaultItemsPerPage>10</DefaultItemsPerPage>
+ <DefaultZipProximity>100</DefaultZipProximity>
+ <ESTemplateFullText>clinicaltrials_CTfulltextTemplate</ESTemplateFullText>
+ <ESTemplateCancerType>clinicaltrials_CTCancerTypeIDTemplate</ESTemplateCancerType>
+ <MappingFiles>
+ <MappingFile>~/PublishedContent/Files/Configuration/clinical-trials/CTSOverrideMapping.txt</MappingFile>
+ </MappingFiles>
+</cde:Module_BasicCTSPageInfo>

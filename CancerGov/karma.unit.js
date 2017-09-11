@@ -15,6 +15,7 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['mocha', 'chai', 'sinon'],
         files: [
+            'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js',
             'node_modules/babel-polyfill/dist/polyfill.js',
             '_test/**/*.ts'
         ],
@@ -23,11 +24,15 @@ module.exports = function (config) {
         preprocessors: {
             '_test/**/*.ts': ['webpack']
         },
-        webpack: {
-            module: webpackConfig.module,
-            resolve: webpackConfig.resolve
+        //Include the full webpack config. This needs to be
+        //updated to not include all.
+        webpack: webpackConfig,
+        //Keeps webpack quiet
+        webpackMiddleware: {
+            stats: 'errors-only',
+            noInfo: true
         },
-        reporters: ['progress'],
+        reporters: ['mocha'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
@@ -36,4 +41,4 @@ module.exports = function (config) {
         singleRun: true,
         concurrency: Infinity
     })
-}
+};

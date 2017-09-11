@@ -1,0 +1,218 @@
+#fieldset--location {
+  section {
+    margin: 12px 0 18px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.disabled {
+      > div:not(.radio) {
+        opacity: .45;
+      }
+      div.disabled {
+        opacity: 1;
+      }
+    }
+    div.disabled {
+      opacity: .45;
+    }
+  }
+  .field-group {
+    margin:0 0 12px 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    > input:first-child {
+      margin-top: 12px;
+    }
+    @include bp(small){
+      > div {
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+#tp {
+  display: flex;
+  flex-wrap: wrap;
+
+  .checkbox {
+    width: 25%;
+  }
+  @include bp('(max-width:450px)') {
+    .checkbox {
+      width: 33.333333%;
+    }
+  }
+}
+
+#tp, #tt {
+  margin-bottom: -6px;
+}
+
+/********
+Set Styles for Drug Selection
+*********/
+.trtmnt-select-dropdown .select2-results__option {
+  border-bottom: 1px dashed #bdbdc2;
+  color: #606060;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.drug-item-wrap, .trtmnt-item-wrap {
+  font-size: .875em;
+  padding: 0 20px 0 17.5px;
+
+  .drug-item, .trtmnt-item {
+    padding: 10px 0 10px 0;
+
+    .preferred-name {
+      font-weight: bold;
+    }
+  }
+}
+
+//cooler checkbox override
+html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before {
+  background: #ffffff image-url($icons + "/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
+  color: #2a72a5;
+  content:"";
+  border-color: #2a72a5;
+}
+
+//styling for search criteria table
+.search-criteria-box {
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 10px 5px 0 0;
+  position: relative;
+  top: -11px;
+}
+.clinicaltrials-results-criteria-display {
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: -1px;
+  width: 702px;
+  padding: 10px 20px;
+
+  h3 {
+    margin: 0;
+    //padding: .25em 0;
+    color: #2e2e2e;
+  }
+  > h3 {
+    padding-left: .5em;
+  }
+
+  table {
+    border: none;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  tbody {
+    max-height: 12em;
+    overflow: auto;
+  }
+  tr {
+    height: 2.5em;
+
+    th {background-color: #f9f9f9;}
+
+    th:first-child, td:first-child {
+      text-align: right;
+      width: 40%;
+    }
+
+    td.cts-schdr {
+      text-align: left;
+    }
+  }
+
+  @include bp(medium){
+    width: 625px;
+  }
+  @include bp(small){
+    width: 100%;
+  }
+}
+#other-diseases, #fieldset--location section > div:not(.radio) {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+#other-diseases.disabled {
+  opacity: .45;
+}
+
+
+.cts-results-title {
+  padding-bottom: 0.5em;
+  padding-top: 1em;
+}
+
+.row .row .medium-9 .status {
+  margin-top: 2em;
+}
+.accordion-controls {
+  margin-top: 3em;
+}
+
+.ctscb {
+  background-color: #f2f2f3;
+  background-image: image-url($icons + "cts-plus.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  display: inline-block;
+  white-space: nowrap;
+  border: 1px solid #777;
+  color: #333;
+  line-height:2em;
+  padding: 0 0 0 5px;
+  background-size: 10%;
+  width: 375px;
+  margin-bottom: .25em;
+
+  &.show {
+    background-image: image-url($icons + "cts-minus.png");
+  }
+
+  @include bp(small){
+    width: 300px;
+    background-size: 12%;
+  }
+}
+
+.cts-start-over {
+  font-weight: bold;
+}
+
+.cts-results-label {
+  line-height: 2.5em;
+  margin: auto 6px auto 0;
+}
+
+// Styles for search results page
+#proximity-trialslist h4 {
+  margin-top: 20px !important;
+  font-size: 20px;
+}
+.locationCity {
+  margin-left: 20px;
+}
+.locationBlock {
+  margin-left: 40px;
+}
+//for print results page
+#clinical-trials-print .ctscb {
+  display: none;
+}
+#clinical-trials-print .clinicaltrials-results-criteria-display {
+  //left: -1em;
+}

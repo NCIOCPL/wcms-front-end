@@ -46,7 +46,7 @@ a.definition:hover, a.definition:focus {
 	}
 }
 
-.contentzone:only-child  {
+div.row > div.contentzone:first-child {
 	width: 100%;
 }
 

@@ -7,5 +7,6 @@ define(function(require) {
 		require('BasicCTS/Results/Enhancements/Print').init();
 		require('BasicCTSCommon/Enhancements/ctsCommonAnalytics').init();
 		require('BasicCTS/Results/Enhancements/ctsResultsAnalytics').init();
+		require('BasicCTS/Results/Enhancements/criteriaToggle').init();
 	});
 });

@@ -47,12 +47,13 @@
             // extend options
             base.options = $.extend({},$.NCI.scroll_to.defaultOptions, options);
 
+
             /* PLUGIN LOGIC GOES HERE */
             var anchor = base.options.anchor || base.$el.attr("href"), // scroll to target can be an option or an href attribute
                 $anchor = $(anchor),
                 headerHeight = $(base.options.header).outerHeight() || 0,
                 width = window.innerWidth || $(window).width(),
-                isSection = base.options.isSection || anchor.match(/^#section\//i),
+                //isSection = base.options.isSection || anchor.match(/^#section\//i),
                 scrollY = window.scrollY || window.pageYOffset,
                 fuzz = base.options.fuzz,
                 anchorTop = ($anchor.length > 0) ? $anchor.offset().top : 0,

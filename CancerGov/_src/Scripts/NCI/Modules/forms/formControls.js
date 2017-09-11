@@ -148,7 +148,7 @@ define(function (require) {
 				});
 				this.menu.attr("aria-activedescendant", id);
 			};
-			$('select:not([multiple])').each(function () {
+			$('select:not([multiple]):not(.no-auto-jqueryui)').each(function () {
 				var $this = $(this);
 
 				$this.selectmenu({

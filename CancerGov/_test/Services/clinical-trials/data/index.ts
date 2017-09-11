@@ -1,0 +1,1 @@
+export * from './service-term-test_type-only';

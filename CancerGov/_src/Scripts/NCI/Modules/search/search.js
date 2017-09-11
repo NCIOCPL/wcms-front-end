@@ -23,7 +23,7 @@ define(function(require) {
 			},
 			show: function(e) {
 				var n = nav;
-				console.log(this);
+				// console.log(this);
 				$("#nvcgSlMainNav").addClass(this.classname);
 				this.$input.focus();
 				if ($("#searchclear").length === 0) {

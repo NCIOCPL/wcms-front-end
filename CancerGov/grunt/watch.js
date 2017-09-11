@@ -9,7 +9,7 @@ module.exports = function (grunt, options) {
             tasks: ['build-styles:' + 'dev']
         },
         js: {
-            files: [dirs.src.scripts + '**/*.js', dirs.src.scripts + '**/*.hbs'],
+            files: [dirs.src.scripts + '**/*.js', dirs.src.scripts + '**/*.ts', dirs.src.scripts + '**/*.hbs'],
             tasks: ["webpack:dev"],
             options: {
                 spawn: false
