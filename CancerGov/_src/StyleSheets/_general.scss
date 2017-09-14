@@ -31,7 +31,7 @@ h6 {
 		margin-top: .58em;
 	}
 }
-h1 {	
+h1 {
 	line-height: 1.1em;
 	font-size: 1.75em;    // 28px
 }
@@ -354,10 +354,21 @@ div#cgvSlPagination, div.previous-next-links {
 
 /* Pullquotes */
 .pullquote {
-	width: 75%;
-	margin: 0 auto;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	//width: 75%;
+	//margin: 0 auto;
+	//margin-top: 30px;
+	//margin-bottom: 30px;
+	border-left: 5px solid $jellybean;
+	margin-left: 30px auto;
+	padding-left: 20px;
+	width: 100%;
+	color: $jellybean;
+}
+.pullquote p {
+	margin: 0 0 30px 15px;
+	font-family: "DIN-Condensed-Bold";
+	font-size: 32px;
+	line-height: 35px;
 }
 .pullquote-left {
 	width: 40%;
@@ -369,20 +380,36 @@ div#cgvSlPagination, div.previous-next-links {
 	margin: 0 0 1.5em 1em;
 	float: right;
 }
+.pullquote-thumb {
+	position: relative;
+	float: right;
+	padding: 0 0 0 10px;
+		@include bp(small) {
+			display: none;
+		}
+}
 .pullquote, .pullquote-right, .pullquote-left {
 	@extend .clearfix;
-	color: #29768c;
-	@include font-montserrat;
+	//color: $lorange;
+	font-family: "DIN-Condensed-Bold";
+	//@include font-montserrat;
 	font-weight: bold;
-	line-height: 25px;
 	@include bp(small) {
-		width: 90%;
+		width: 100%;
+		//width: 90%;
 		float: none;
 		margin: 1em auto;
 	}
 	.author {
-		text-align: right;
-		font-style: italic;
+		//text-align: right;
+		//font-style: italic;
+		text-align: left;
+		color: $dovegray;
+		font-size: 24px;
+		line-height: 24px;
+	}
+	p.author {
+		margin-bottom: -1px;
 	}
 	p.author:before {
 		content: "\2014"
@@ -516,10 +543,10 @@ div#cgvSlPagination, div.previous-next-links {
 	> div > h2:first-child, > div > h3:first-child, h4, p:first-child, ul:first-child {
 		margin-top: 0;
 	}
-	
+
 	h2, h3 {
 		margin-top: 1em;
-	}	
+	}
 
 	p:last-child {
 		margin-bottom: 0;
@@ -611,7 +638,7 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 @include bp(small){
 	.contact-infos-desktop {
 		display: none;
-	}	
+	}
 	.guide-title h2 {
 		display: none;
 	}
