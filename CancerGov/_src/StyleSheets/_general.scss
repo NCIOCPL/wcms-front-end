@@ -384,6 +384,10 @@ div#cgvSlPagination, div.previous-next-links {
 	position: relative;
 	float: right;
 	padding: 0 0 0 10px;
+		.img-circle {
+		border-radius: 50%;
+		width: 130px;
+		}
 		@include bp(small) {
 			display: none;
 		}
