@@ -1,0 +1,400 @@
+/****************** BEGIN Delighters styling ***************** */
+.delighter-rail {
+  margin-right: -20px;
+  //margin-bottom: 160px;
+  //padding-bottom: 50px;
+  //width: calc(25% + 45px);
+  float: right;
+
+  span {
+    display: block;
+  }
+
+  a, a:hover, a:active {
+    text-decoration: none;
+  }
+
+  a {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  p {
+    line-height: 1.166667 !important;
+  }
+
+  .cts-feedback, .cts-livehelp, .cts-which, .cts-what {
+    padding: 132px 0 0;
+    h4 {
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      margin: auto;
+      padding: 9px;
+      text-transform: uppercase;
+      width: 180px;
+    }
+    p, li, a {
+      color: #706f6f;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      margin: auto;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      max-width: 185px;
+    }
+
+    @include bp(medium) {
+      padding: 132px 0 0;
+    }
+  }
+
+  .cts-feedback {
+    background: transparent image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: #b74900;
+    }
+    a:hover, a:active {
+      background: #306 image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+      text-decoration: none;
+    }
+  }
+  .cts-livehelp {
+    background: transparent image-url($icons + "live-help-person-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: #35778f;
+    }
+  }
+  .cts-which {
+    background: transparent image-url($icons + "checklist-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: #4a437a;
+    }
+  }
+  .cts-what {
+    background: transparent image-url($icons + "what-are-clinical-trials-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    h4 {
+      background-color: $navyblue;
+    }
+  }
+  // This will need to be updated
+  .cts-next-step {
+    background: image-url($backgrounds + "ct-red-triangles.jpg");
+    border: 3px solid #cf0549;
+    color: white;
+    h4, p, li, a {
+      color: white;
+      font-size: 12px;
+    }
+    h4 {
+      font-size: 15px;
+    }
+  }
+
+
+}
+.delighter {
+  position: relative;
+  background-color: #fbfbfb;
+  border-right: 0 !important;
+  padding: 15px;
+  font-size: 0.80em;
+  font-family: Montserrat;
+  text-align: center;
+
+  h4 {
+    font-weight: normal;
+  }
+
+  h4, p, hr {
+    position: relative;
+    margin: 0;
+  }
+  hr {
+    border: 0;
+    padding: 0.375em 0em;
+  }
+  span {
+    color: black;
+  }
+  .chat-with-us {
+    margin-bottom: 10px;
+
+    .live-help-button {
+      width: 84px;
+      height: 28px;
+      background: none;
+    }
+  }
+
+}
+
+#delighter-homePage, #delighter-innerpage {
+  //display: none;
+  position:fixed;
+  top:51%;
+  right:0;
+  z-index: 998;
+
+  a {
+    display:inline-block;
+    color:#fff;
+    font:bold 14px/16px Montserrat;
+    background-color: #82368C;
+    padding: 7px 10px;
+    max-width: 115px;
+    text-align: center;
+
+    &:hover {
+      background-color: #3f0557;
+      text-decoration: none;
+    }
+  }
+}
+
+$icon-po-width: 23px;
+.cts-share {
+  margin-top: 30px;
+
+  span {
+    display: inline;
+  }
+
+
+  a {
+    display:inline-block;
+    width:45%;
+    height:auto;
+    padding:5px 0;
+    border-radius: 3px;
+    color:#fff;
+    font: normal 14px Montserrat, Arial, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+
+    &:first-of-type {
+      margin-right: 10%;
+    }
+
+    &[title="Print"]{
+      background-color: #24B2A1;
+    }
+    &[title="Email"]{
+      background-color: #14819b;
+    }
+    .text {
+      position: relative;
+      top:-5px;
+      padding-left: 6px;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .icon-print,.icon-email {
+    display:inline-block;
+    width:$icon-po-width;
+    height:$icon-po-width;
+  }
+  .icon-print {
+    @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
+  }
+  .icon-email {
+    @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
+  }
+}
+
+/* Large Screens */
+@include bp('(min-width:1025px)') {
+  #delighter-homePage, #delighter-innerpage {
+    // left:0;
+    // max-width: 1250px;
+    width: 100%;
+    text-align: right;
+    margin:0 auto;
+    display: inline;
+    right: 1%;
+    width: 110px;
+  }
+}
+/* Extra Large Screens */
+@include bp('(min-width:1770px)') {
+  #delighter-homePage, #delighter-innerpage {
+    right: 10%;
+  }
+}
+/* Tablet/Mobile styles */
+@include bp(medium-down) {
+  .delighter-rail {
+    margin-right: 0;
+    width: calc(25% + 10px);
+    padding-right:0;
+  }
+
+  #delighter-homePage, #delighter-innerpage {
+    position:relative;
+    float:right;
+    top:13px;
+    right:10px;
+  }
+  #delighter-innerpage {
+    margin-top: -65px;
+  }
+  // centering the share this clinical trial text
+  .cts-share.view-delighter-share {
+    text-align: center;
+
+    span {
+      display: inline-block;
+    }
+
+    a {
+      width: auto;
+      display: inline-block;
+      padding: 5px 20px;
+    }
+
+    .share-text {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    a.email {
+      margin: 0;
+    }
+  }
+  .delighter.cts-feedback {
+    display: none;
+  }
+  .delighter.cts-livehelp {
+    //border-right: 3px solid #2c13a3 !important;
+  }
+  .delighter.cts-which {
+    //border-right: 3px solid #2c13a3 !important;
+  }
+  .delighter.cts-what {
+    //border-right: 3px solid #0bd3ca !important;
+  }
+  .delighter.cts-next-step {
+    //border-right: 3px solid #cf0549 !important;
+  }
+}
+
+/* Tablet styles */
+@include bp(medium) {
+  .delighter-rail {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+
+    // as soon as support is there we'd want to change to space-evently. as of 8/2017, doesn't work in IE11, Safari
+    .cts-delighter-container {
+      display: flex;
+      justify-content: space-around;
+
+    }
+
+    > a[href^="#"]  {
+      display: none;
+    }
+
+    a {
+      margin: 0;
+    }
+
+    .delighter {
+      width: 180px;
+      // height: 172px;
+
+      @include bp('(max-width: 1024px) and (min-width: 850px)') {
+        // height: 160px;
+
+        &.cts-which, &.cts-what {
+          //	padding-left: 50px;
+          //	padding-right: 50px;
+        }
+      }
+    }
+
+    .share-text {
+      clear: both;
+    }
+  }
+
+  /**
+   * Hack styles for delighter spacing 
+   */
+  .delighter-rail.results-delighter-rail {
+    margin-bottom: 100px!important;
+  }
+  .delighter-rail.view-delighter-rail {
+    margin-bottom: 20px!important;
+  }
+  .no-resize.cts-share.view-delighter-share {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+  /** End delighter hack styles for */
+
+}
+
+
+/* Mobile styles */
+@include bp(small) {
+  .delighter-rail {
+    margin: 20px 0 0 0;
+    padding: 0px;
+    width:100%;
+  }
+  .delighter {
+    border-right: inherit;
+  }
+  .cts-which,  .cts-what, .cts-livehelp, .cts-next-step {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 300px;
+    margin: 15px auto;
+  }
+  #PageOptionsControl1 {
+    padding-left:5px;
+    padding-right:0;
+    width:auto;
+    .po-pinterest {
+      margin:0;
+    }
+  }
+  #delighter-homePage, #delighter-innerpage {
+    right:5px;
+  }
+}
+// to fix find a clinical trial button positioning at small widths
+@include bp('(max-width: 360px)') {
+  #delighter-homePage, #delighter-innerpage {
+    top: 0;
+    margin-bottom: 8px;
+  }
+}
+
+// remove spacing after delighters on pages without API reference section
+.last-SI {
+  .delighter-rail:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+
+// the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
+@media only screen and (max-width: 400px) {
+  #delighter-homePage, #delighter-innerpage {
+    float: none;
+    margin-top: 10px;
+    position: static;
+    margin-bottom: 8px;
+    margin-right: 5px;
+    text-align: right;
+  }
+}
+
+/****************** End Delighters styling ***************** */

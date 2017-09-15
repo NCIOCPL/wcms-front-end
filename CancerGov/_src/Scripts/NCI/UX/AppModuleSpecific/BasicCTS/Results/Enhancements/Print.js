@@ -1,5 +1,6 @@
 define(function(require) {
     require('jquery');
+    require('../Plugins/Widgets/jquery.ui.ctsDialog'); //Pulled out print interstitial dialog into its own file.
 	var breakpoints = require('Modules/NCI.config').breakpoints;
 	var browser = require('Modules/utility/browserDetect');
 
@@ -10,81 +11,12 @@ define(function(require) {
 		selectAllChecked = sessionStorage.getItem('hasSelectAll') || false
     ;
 
-    //extend jQuery UI dialog
-    $.widget( "ui.ctsDialog", $.ui.dialog, {
-        options: {
-            clickOutside: true,
-            titleBar: false,
-            closeBtn: true,
-            responsive: true
-        },
-        open: function(){
-            var self = this;
-
-            this._super();
-
-            if(this.options.clickOutside) {
-                $('.ui-widget-overlay').addClass('clickable').on('click', function (evt) {
-                    self.close();
-                });
-            }
-
-            // make resizable
-            if(this.options.responsive === true) {
-                this._resize();
-                $(window).on("resize.ui-dialog orientationchange.ui-dialog", function () {
-                    self._resize();
-                });
-            }
-        },
-        close: function(){
-            if(this.options.responsive === true) {
-                $(window).off("resize.ui-dialog orientationchange.ui-dialog");
-            }
-            this._super();
-        },
-        _create: function(evt, ui){
-
-            this._super();
-            this.uiDialog.css({'max-width':this.options.maxWidth});
-
-        },
-        _createTitlebar: function(){
-            if(!this.options.titleBar) {
-                this.uiDialogTitlebarClose = $("<button type='button' class='ui-dialog-close'></button>")
-                    .button( {
-                        label: $( "<a>" ).text( 'hide' ).html(),
-                        icon: "ui-icon-closethick",
-                        showLabel: false
-                    })
-                    .prependTo(this.uiDialog);
-
-                this._on(this.uiDialogTitlebarClose, {
-                    click: function (event) {
-                        event.preventDefault();
-                        this.close(event);
-                    }
-                });
-                if(!this.options.closeBtn) {
-                    this.uiDialogTitlebarClose.hide();
-                }
-            } else {
-                this._super();
-            }
-        },
-        _resize: function () {
-            var elem = this.element,
-                oWidth = elem.parent().outerWidth(),
-                wWidth = $(window).width(),
-                setWidth = Math.min(wWidth * this.options.scaleW, oWidth);
-
-            elem.ctsDialog("option", "width", setWidth).parent().css("max-width", setWidth);
-            elem.ctsDialog("option", "position", { my: "center", at: "center", of: window });
-        }
-    });
-
-
     function _initialize() {
+
+        //TODO: This should be turned into a Typescript class, and we should add things like $('.cts-results-container')
+        //to the class instance so we are not calling the selector all over the place.
+
+        //TODO: Turn a lot of the HTML into a handlebars template so we can extract it from the actual code.
 
         // insert checkboxes next to each result
         $(".clinical-trial-individual-result")
@@ -224,30 +156,21 @@ define(function(require) {
 
             if(checkedTrials.length > 0) {
 				var modal = triggerModal('redirect');
-				
+
 				// Set up query parameters for ajax call
-				var postUrl = "/CTS.Print/GenCache",
-                    params = {
-					t: getParameterByName('t', window.location.href),
-					z: getParameterByName('z', window.location.href),
-					a: getParameterByName('a', window.location.href),
-					q: getParameterByName('q', window.location.href),
-					ct: getParameterByName('ct', window.location.href),
-					g: getParameterByName('g', window.location.href),
-					zp: getParameterByName('zp', window.location.href)
-				};
-				// Delete empty query params
-				for(var key in params) {
-					if (isEmpty(params[key])) {
-						delete params[key];
-					}
-				}
+				var postUrl = "/CTS.Print/GenCache";
 				
-				var urlParams = $.param(params);
-				if(urlParams.length > 0) {
-					postUrl += '?' + urlParams;
-				}
-				
+                //Extract the searchparams that the template outputs.
+                var searchParams = $(".cts-results-container").data("cts-printparams");
+                if (searchParams && searchParams != "") {
+                    //Chop off the first ? if we have params.  This should happen as we 
+                    //are outputting them in the template.
+                    if (searchParams[0] == "?") searchParams = searchParams.slice(1);
+
+                    //Now add the search params to the URL
+                    postUrl += '?' + searchParams;
+                }
+								
 				$.ajax({
 					type: "POST",
 					url: postUrl,
@@ -265,7 +188,9 @@ define(function(require) {
 				});
 			}
 			else {
-				triggerModal('none_selected');
+                triggerModal('none_selected');
+                var $this = $(this);
+                doResultsErrorAnalytics($this, window.location.href, 'noneselected');
 			}
         });
 		
@@ -303,9 +228,8 @@ define(function(require) {
                 totalChecked++;
 				
 				if(totalChecked >= LIMIT) {
-					// Analytics call for max selected reached
-					var $this = $(this);
-					NCIAnalytics.CTSResultsMaxSelectedClick($this);
+                    var $this = $(this);
+                    doResultsErrorAnalytics($this, window.location.href, 'maxselectionreached');
 				}
             }
         }
@@ -315,7 +239,7 @@ define(function(require) {
 
         return true;
     }
-	
+
 	function UpdateCheckedPagesList(page, numTrialsChecked) {
 		if (numTrialsChecked > 0) {
 			// Page has trials checked
@@ -441,7 +365,25 @@ define(function(require) {
 		else {
 			$('.delighter-rail').after($('.cts-results-lower-control'));
 		}
-	}
+    }
+    
+    /**
+     * Do analytics calls for print results
+     * @param {any} sender 
+     * @param {any} url 
+     * @param {any} text 
+     */
+    function doResultsErrorAnalytics(sender, url, text) {
+        // TODO: Add as data.
+        // Determine originating search form for analytics
+        var rl = getParameterByName('rl', url);
+        var searchForm = "clinicaltrials_basic";
+        if(rl == 2){
+            searchForm = "clinicaltrials_advanced";
+        }
+
+        NCIAnalytics.CTSResultsSelectedErrorClick(sender, searchForm, text);
+    }    
 
     /**
      * Identifies if this enhancement has been initialized or not.

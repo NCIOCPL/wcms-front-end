@@ -1,0 +1,33 @@
+/*
+    This is the main set up job for the wcms-front-end project.
+    Definitions for general purpose jobs (e.g. jobs which aren't tied to a specific branch)
+    belong in this file.
+*/
+
+def FOLDER_NAME  = 'wcms-front-end'    // Jenkins folder where the jbos will be placed.
+
+def GH_REPO_NAME = 'wcms-front-end'     // The project's repository name (as used in the URL).
+def TARGET_BRANCH = 'pilfering-penguin'            // Branch to run against.
+def GH_ORGANIZATION_NAME = 'NCIOCPL'   // GitHub Organization name (as used in the URL/userid).
+
+def sourceRepository = "$GH_ORGANIZATION_NAME/$GH_REPO_NAME"
+
+job("${FOLDER_NAME}/Create build job for a branch") {
+  description("Creates the jobs that build individual branches.\n\nTo modify this job, see the contents of setup.job and create-branch-skeleton.job.")
+
+  parameters {
+    stringParam('BRANCH', '', 'New Branch\'s Name')
+  }
+  
+  label('linux')  // Require Linux
+  
+  scm {
+    github(sourceRepository, "*/$TARGET_BRANCH")
+  }
+
+  steps {
+    dsl {
+      external("tools/build/create_branch_skeleton.job")
+    }
+  }
+}

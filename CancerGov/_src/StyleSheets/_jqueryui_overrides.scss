@@ -201,36 +201,11 @@ $ui-selectmenu-maxitems: 7;
 			padding:0;
 			margin:0;
 		}
-
-		 @include bp(medium-down) {
-			background-color: transparent;
-			border-bottom: 1px solid $body-font-color;
-			padding: 0.2em 1em;
-
-			.dictionary-search & {
-				padding-left: 0.5em;
-			}
-		}
 	}
 
 	.ui-state-focus {
 		color: #fff;
 		background: $navyblue;
-	}
-
-	 @include bp(medium-down) {
-		z-index: 99999; // this is so that the autocomplete is never covered by another element
-		background-color: rgb(233, 234, 232);
-		background-color: rgba(230, 232, 230, 0.9);
-	 	background-image: none !important;
-		font-size: $swKeywordFontSize;
-		 width:auto !important;
-		 right:20px;
-
-		.dictionary-search & {
-			height: auto;
-			font-size: 1em;
-		}
 	}
 }
 
@@ -360,3 +335,7 @@ $ui-selectmenu-maxitems: 7;
 	background-image: image-url($images + "jquery/ui-bg_flat_0_aaaaaa_40x100.png");
 }
 /* end override of default location for jquery ui images */
+
+[class^="ui-corner-"], [class*=" ui-corner-"] {
+	border-radius: 0;
+}

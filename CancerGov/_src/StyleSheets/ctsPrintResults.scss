@@ -12,6 +12,9 @@ body {
 	line-height:1.5em;
 	margin:0;
 }
+strong {
+	font-weight: bold !important;
+}
 
 p, span{
 	font-family: "Noto Sans", Arial, sans-serif;
@@ -89,6 +92,13 @@ li::-moz-list-bullet{
 	}
 }
 
+.print-check-for-updates {
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	color: #2b7bba;
+}
+
 .trialDataTable {
 	margin: 25px;
 
@@ -117,6 +127,10 @@ li::-moz-list-bullet{
 	&:last-child{
 		border-bottom: none;
 	}
+	
+	h3, h4 {
+		margin-top: 20px !important;	
+	}
 }
 
 .trial-container:last-child{
@@ -141,8 +155,12 @@ li::-moz-list-bullet{
 	font-weight: bold;
 }
 
+.locationCity {
+	margin: 20px 0 20px 20px;
+}
 .locationBlock{
-	margin-left: 15px;
+	 margin-top: 15px;
+	margin-left: 40px;
 }
 #searchCriteria{
 	margin-bottom: 10px;
@@ -198,6 +216,8 @@ li::-moz-list-bullet{
 	}
 	.trialContainer { 
 		page-break-after:always;
+		
+		
 	}
 	.trialContainer:last-child{
 		page-break-after: unset;

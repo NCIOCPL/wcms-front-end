@@ -1,4 +1,4 @@
-<!--(bake Includes/TemplateIntro.inc template_name="NVCGCancerTypeHomePageTemplate.aspx" skipto_id="content")-->
+<!--(bake includes/TemplateIntro.inc template_name="NVCGCancerTypeHomePageTemplate.aspx" skipto_id="content")-->
 <!-- Begin MAIN CONTENT AREA -->
 <div class="main-content" id="content">
 <!-- slots -->
@@ -11,8 +11,8 @@
 <div class="cthp-content cthp-hp-content" tabindex="0">
 	<div class="row">
 		<div class="large-12 columns resize-content cthp-padding">
-			<!--(bake Includes/PageTitle.inc)-->
-			<!--(bake Includes/PageOptions-CTHP.inc)-->
+			<!--(bake includes/PageTitle.inc)-->
+			<!--(bake includes/PageOptions-CTHP.inc)-->
 			<!-- Body slot -->
 			<NCI:TemplateSlot ID="nvcgSlCTHPIntro" runat="server" />
 			<!-- Does this contain intro text, OnThisPage, article image, sections, & endnotes? -->
@@ -21,4 +21,4 @@
 	</div>
 </div>
 </div> <!-- End MAIN CONTENT AREA -->
-<!--(bake Includes/TemplateEnding.inc)-->
+<!--(bake includes/TemplateEnding.inc)-->

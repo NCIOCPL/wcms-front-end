@@ -45,7 +45,7 @@ define(function (require) {
                 event.stopPropagation();
 
                 var view = this;
- 
+
                 view.$el.trigger("FEEDBACK_CANCELLED");
             }
         }
@@ -77,10 +77,10 @@ define(function (require) {
 			}
 		}
 	}
-	
+
 	// Track error event on the Feedback Form
     function _sendErrorAnalytics() {
-        var analyticsProp5 = "cts_basic_feedback - error";	
+        var analyticsProp5 = 'cts_feedback - error';
         if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
             NCIAnalytics.FeedbackFormClick(this, analyticsProp5);
         }
