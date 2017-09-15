@@ -58,17 +58,18 @@
 	}
 }
 
-@include bp(small) {
+
 	#best-bet-definition {
 		margin: 1em 0 0;
 	}
 	#definitionEnd {
 		display: none;
 	}
-}
+
 
 @include bp(medium-up) {
-	#best-bets-toggle {
-		display: none;
+	.featured.sitewide-results {
+		margin-left: -2.5%;
+		margin-right: -2.5%;
 	}
 }

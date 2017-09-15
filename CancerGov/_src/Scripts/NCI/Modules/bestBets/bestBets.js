@@ -105,24 +105,7 @@ define(function (require) {
 			}
 		});
 		
-		// check for leaving mobile size to make sure dictionary definition shows fully
-			var windowWidth;
-			$(window).on('resize', function () {
-				windowWidth = window.innerWidth || $(window).width();
-				console.log("windowwidth is " + windowWidth);
-				if (windowWidth > config.breakpoints.medium) {
-					console.log("we are bigger than mobile");
-					$('#definitionEnd').show();
-					$("#best-bets-toggle a").removeClass('expanded');
-				}
-				if (windowWidth < config.breakpoints.medium) {
-					console.log("we are smaller than tablet");
-					console.log(areWeExpanded);
-					$('#definitionEnd').hide();
-					$('#definitionShowHide').text('Show');
-					$("#best-bets-toggle a").removeClass('expanded');
-				}
-			});
+
 
 
 		if (jQuery.jPlayer && !Modernizr.touch) {
@@ -157,27 +140,6 @@ define(function (require) {
 				return '';
 			}
 		}
-
-		// we may not need this. will delete when code is final
-		function displayContent() {
-			// choose how to display the dictionary window
-			var windowWidth = window.innerWidth || $(window).width();
-			if (windowWidth > config.breakpoints.medium) {
-				//Add your javascript for large screens here 
-				console.log('bigger');
-			} else {
-				//Add your javascript for small screens here 
-				console.log('smaller');
-			}
-		}
-
-		
-
-
-
-
-
-
 	};
 
 	/**
