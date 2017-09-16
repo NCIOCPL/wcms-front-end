@@ -17,7 +17,7 @@ module.exports = function (grunt, options) {
         default: {
             files: [{
                 src: dirs.tmp.base + 'svg-sprite.svg',
-                dest:dirs.dist.images + "sprites/svg-sprite.svg"
+                dest:dirs.dist.sprites + "svg-sprite.svg"
             }]
         }
     }

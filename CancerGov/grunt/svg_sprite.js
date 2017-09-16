@@ -40,15 +40,15 @@ module.exports = function (grunt, options) {
 
         default: {
             expand: true,
-            cwd: dirs.src.images + "/svg",
+            cwd: dirs.src.sprites + "svg",
             src: ['**/*.svg'],
-            //src: dirs.src.images + "/svg/**/*.svg",
+            //src: dirs.src.images + "svg/**/*.svg",
             dest: './'
 
             // expand: true,
-            // cwd: dirs.src.images + "/svg",
+            // cwd: dirs.src.images + "svg",
             // src: ['**/*.svg'],
-            // dest: dirs.dist.images + "/svg"
+            // dest: dirs.dist.images + "svg"
         }
     }
 };

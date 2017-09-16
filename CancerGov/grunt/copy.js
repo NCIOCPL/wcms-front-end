@@ -14,23 +14,23 @@ module.exports = function (grunt, options) {
                 filter: 'isFile'
             }]
         },
-        sublayouttemplates: {
+        sublayout_templates: {
             nonull: true,
             files: [{
                 expand: true,
                 flatten: true,
-                src: [dirs.tmp.sublayouttemplates + '**/*.ascx'],
-                dest: dirs.dist.sublayouttemplates,
+                src: [dirs.tmp.sublayout_templates + '**/*.ascx'],
+                dest: dirs.dist.sublayout_templates,
                 filter: 'isFile'
             }]
         },
-        velocitytemplates: {
+        velocity_templates: {
             nonull: true,
             files: [{
                 expand: true,
                 flatten: true,
-                src: [dirs.tmp.velocitytemplates + '**/*.vm'],
-                dest: dirs.dist.velocitytemplates,
+                src: [dirs.tmp.velocity_templates + '**/*.vm'],
+                dest: dirs.dist.velocity_templates,
                 filter: 'isFile'
             }]
         },
@@ -42,6 +42,18 @@ module.exports = function (grunt, options) {
                 src: [
                     dirs.tmp.styles + '**/*.css',
                     dirs.tmp.styles + '**/*.css.map'
+                ],
+                dest: dirs.dist.styles,
+                filter: 'isFile'
+            }]
+        },
+        widget_styles: {
+            nonull: true,
+            files: [{
+                expand: true,
+                flatten: true,
+                src: [
+                    dirs.src.base + 'Widgets/**/*.css'
                 ],
                 dest: dirs.dist.styles,
                 filter: 'isFile'

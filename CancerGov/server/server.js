@@ -12,7 +12,6 @@ var querystring = require('querystring');
 var app = express();
 
 var proxyEnv = process.env.PROXY_ENV;
-var useHttps = process.env.PROXY_HTTPS === 'true';
 
 //We will use handlebars to deal with certain types of templating
 //mainly error pages.  THIS SHOULD NOT BE USED FOR WEBSITE CONTENT!!!
@@ -44,7 +43,7 @@ app.use(cookieParser());
 app.use('/PublishedContent',
 	function(req,res,next){
 		var extension = req.path.substring(req.path.lastIndexOf('.') >= 0 ? req.path.lastIndexOf('.') : 0).toLowerCase();
-		if(extension == ".js" || extension == ".css" || extension == "gif" || extension == "jpg" || extension == "png" || extension == "svg") {
+		if(extension == ".js" || extension == ".css" || extension == ".gif" || extension == ".jpg" || extension == ".png" || extension == ".svg") {
 			// Rewrite request for static files to remove generated fingerprints.
 			var staticFingerprintRE = new RegExp("\\.__v[0-9a-z]+\\.", "i");
 			if(staticFingerprintRE.test(req.path))
@@ -57,13 +56,6 @@ app.use('/PublishedContent',
 	},
 	express.static(__dirname.replace("server","_dist")) // Load from local directory
 );
-
-/** Proxy expects http requests to specify a bare host name; however to request from an https site,
- * it requires the URL to begin with https://
- */
-// var scheme = '';
-// if(useHttps)
-//     scheme = 'https://';
 
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
 app.use('*', proxy(proxyEnv + '.cancer.gov', {
