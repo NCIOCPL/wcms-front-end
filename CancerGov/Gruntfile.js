@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+    var target = grunt.option('target') || '_dist';
+
     var config = {
         dirs: {
             src: {
@@ -218,10 +220,10 @@ module.exports = function(grunt) {
 
         var tasks = ['bake:templates',
             'copy:templates',
-            'bake:sublayouttemplates',
-            'copy:sublayouttemplates',
-            'bake:velocitytemplates',
-            'copy:velocitytemplates',
+            'bake:sublayout_templates',
+            'copy:sublayout_templates',
+            'bake:velocity_templates',
+            'copy:velocity_templates',
             'clean:tmp'];
         grunt.task.run(tasks);
     });

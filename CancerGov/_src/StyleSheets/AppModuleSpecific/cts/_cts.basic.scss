@@ -124,7 +124,7 @@
     border-color: #bdbdc2;
 
     &:hover {
-      background: #e6e6e6 image-url($images + "jquery/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
+      background: #e6e6e6 image-url($jqueryui + "ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
     }
 
     &[aria-expanded=true] {
@@ -172,13 +172,15 @@
     position: relative;
     padding: 25px 25px 25px 105px;
     background-color: #f3f3f3;
-      &::before {
-        position: absolute;
-        @include svg-sprite(api-icon);
-        font-size: 2.286em;
-        left:2.286em;
-        top: 25px;
-      }
+
+    &::before {
+      content:"";
+      position: absolute;
+      @include svg-sprite(api-icon);
+      font-size: 2.286em;
+      left:.75em;
+      top: 25px;
+    }
     p:first-of-type {
       margin:0;
     }
