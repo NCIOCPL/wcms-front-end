@@ -17,6 +17,7 @@ requirejs.config({
 		//is not in this file, then require looks for it relative to the 
 		//current page.  Absolutely silly, but oh well.  
 		'BasicCTSSearch': 'UX/AppModuleSpecific/BasicCTS/Search',
+		'BasicCTSAdvSearch': 'UX/AppModuleSpecific/BasicCTS/AdvSearch',
 		'BasicCTSResults': 'UX/AppModuleSpecific/BasicCTS/Results',
 		'BasicCTSView': 'UX/AppModuleSpecific/BasicCTS/View',
 		'BasicCTSCommon': 'UX/AppModuleSpecific/BasicCTS/Common',

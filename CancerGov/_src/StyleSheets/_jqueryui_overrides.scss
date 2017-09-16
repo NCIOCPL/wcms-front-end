@@ -17,14 +17,14 @@
 		padding: 14.5px 70px 14.5px 20px;
 		margin: 0 -0.9375em;
 
-		// override icons
+	// override icons
 		.ui-accordion-header-icon {
-			top: 0;
-			left: auto;
-			right: 0;
-			background-image: none;
-			margin-top: 0;
-		}
+		top: 0;
+		left: auto;
+		right: 0;
+		background-image: none;
+		margin-top: 0;
+	}
 	}
 
 	&.columns .ui-accordion-header {
@@ -35,7 +35,7 @@
 	.ui-accordion-content {
 		border: 0;
 		padding: 10px 20px;
-
+		
 		@include bp(medium-up) {
 			margin-left: -16px;
 			margin-right: -16px;
@@ -85,23 +85,23 @@
 }
 
 /* Blog Series Archive accordion in right rail */
-.desktop{
+.desktop {
 	clear: both;
 
 	.toggle {
-		right: 0;
-		top: 0;
-		margin-top: 0;
-		font-size: 2em;
-		height: 100%;
-		width: 50px;
+	right: 0;
+	top: 0;
+	margin-top: 0;
+	font-size: 2em;
+	height: 100%;
+	width: 50px;
 
-		&:after {
-			position: absolute;
-			top: 50%;
-			margin-top: -0.5em;
-		}
+	&:after {
+		position: absolute;
+		top: 50%;
+		margin-top: -0.5em;
 	}
+}
 
 	#blog-archive-accordion {
 
@@ -121,17 +121,17 @@
 
 		.ui-accordion-header {
 			.toggle{
-				color: #454545;
-				background-color: white;
-			}
+			color: #454545;
+			background-color: white;
+		}
 			&.ui-state-active .toggle{
-				color: #14819b;
-			}
+			color: #14819b;
+		}
 		}
 		@include bp(medium-down) {
-			.ui-accordion .ui-accordion-header{
-				margin-right: 0 !important;
-			}
+		.ui-accordion .ui-accordion-header{
+			margin-right: 0 !important;
+		}
 		}
 	}
 }
@@ -255,11 +255,11 @@ $ui-selectmenu-maxitems: 7;
 	}
 
 	 @include bp(medium-down) {
-		 z-index: 99999; // this is so that the autocomplete is never covered by another element
-		 background-color: rgb(233, 234, 232);
-		 background-color: rgba(230, 232, 230, 0.9);
-	 	 background-image: none !important;
-		 font-size: $swKeywordFontSize;
+		z-index: 99999; // this is so that the autocomplete is never covered by another element
+		background-color: rgb(233, 234, 232);
+		background-color: rgba(230, 232, 230, 0.9);
+	 	background-image: none !important;
+		font-size: $swKeywordFontSize;
 		 width:auto !important;
 		 right:20px;
 
@@ -273,13 +273,15 @@ $ui-selectmenu-maxitems: 7;
 .ui-widget-content {
 	//background-image: image-url($jqueryui + "ui-bg_flat_75_ffffff_40x100.png");
 
-	.ui-state-hover,
+.ui-state-hover,
 	.ui-state-focus {
 		background-image: none;
-	}
+}
 }
 .ui-state-default .ui-icon {
 	background-image: image-url($jqueryui + "ui-icons_888888_256x240.png");
 }
-
+[class^="ui-corner-"], [class*=" ui-corner-"] {
+	border-radius: 0;
+}
 /* end override of default location for jquery ui images */

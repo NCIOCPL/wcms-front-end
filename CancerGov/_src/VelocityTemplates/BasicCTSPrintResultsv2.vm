@@ -1,19 +1,18 @@
+##Begin DrawSearchParamsV2
+<!--(bake DrawSearchParamsV2.inc)-->
+##End DrawSearchParamsV2
+
+##Begin Common Location Drawing
+<!--(bake CTSDrawLocations.inc)-->
+##End Common Location Drawing
+
 #macro(DrawResultsTextV2)##					
 	#foreach($trial in $resultSet) 
 		<div class="trialContainer">
 			<h2 class="hangingIndent">$velocityCount. $trial.BriefTitle</h2>
 			##<!-- Check search terms and set them if they are used -->
-			#if($SearchResults.SearchTerms.ZipCode)
-				#set($zipCode = "&z=$SearchResults.SearchTerms.ZipCode")
-			#else
-				#set($zipCode = "")
-			#end
-			#if($SearchResults.SearchTerms.AgeOfEligibility)
-				#set($age = "&a=$SearchResults.SearchTerms.AgeOfEligibility")
-			#else
-				#set($age = "")
-			#end
-			<a class="CheckForUpdatesButton" href="/about-cancer/treatment/clinical-trials/search/v?id=$trial.NCIID$zipCode$age"><span>Check for Updates</span></a>  
+			#set($checkURL = $SearchResults.PrintHelper.GetCheckForUpdatesURL($trial.NCIID, $SearchResults.Parameters))
+			<a class="hangingIndent print-check-for-updates" href="$checkURL"><span>Check for Updates</span></a>			
 			<table class="trialDataTable">
 				<tr class="trialDataHeaderRow">
 					<td>Phase</td>
@@ -95,7 +94,7 @@
 
 			#if(!$Tools.IsNullOrWhitespace($trial.DetailedDescription))
 				<h3 class="printHeading">Trial Objectives and Outlines</h3>
-				<div id="trialObjectives">$trial.DetailedDescription</div>	
+				<div id="trialObjectives">$SearchResults.TrialTools.GetPrettyDescription($trial)</div>	
 			#end
 
 			#if($trial.LeadOrganizationName || $trial.PrincipalInvestigator)
@@ -112,62 +111,12 @@
 				<span>Note:</span> Information about participating sites on pharmaceutical industry trials may be incomplete, so please look up the <a class="nctIdLink" href="http://clinicaltrials.gov/show/$trial.NCTID" target="_blank">NCT number</a> on ClinicalTrials.gov
 			</div>
 			<div>
-				#if ($SearchResults.SearchTerms.ZipCode)##
-					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.SearchTerms.GeoCode, $SearchResults.SearchTerms.ZipRadius))
+				#if ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH")##
+					#set($locationsToPrint = $SearchResults.TrialTools.GetFilteredLocations($trial, $SearchResults.Parameters))
 				#else
-					#set($locationsToPrint =  $SearchResults.TrialTools.GetAllStudySites($trial))
+					#set($locationsToPrint =  $trial.Sites)
 				#end
-				
-				#set($countryHeading = "")
-				#set($stateHeading = "")
-				#set($cityHeading = "")
-				#foreach($location in $locationsToPrint)
-				#each
-   					##<!-- If the country we're on now isn't the previous one, start a new heading. -->
-					#if(!$Tools.IsNullOrWhitespace($location.Country))
-						#if($location.Country == "United States")
-							#set($location.Country = "U.S.A.")
-						#end
-						#if($countryHeading != $location.Country)
-							#set($countryHeading = $location.Country)
-							<h4 class="locationCountryLabel">$location.Country</h4>
-						#end
-					#end
-					<div class="locationBlock">
-						#if(!$Tools.IsNullOrWhitespace($location.Country) && ($location.Country == "U.S.A." || $location.Country == "Canada"))
-							#if(!$Tools.IsNullOrWhitespace($location.StateOrProvince))
-								#if($stateHeading != $location.StateOrProvince)	
-									#set($stateHeading = $location.StateOrProvince)
-									<h5 class="locationStateLabel">$location.StateOrProvince</h5>
-								#end
-							#end
-						#end
-						#if(!$Tools.IsNullOrWhitespace($location.City))
-							#if($cityHeading != $location.City)	
-								#set($cityHeading = $location.City)
-								<span class="locationCity">$location.City</span>
-								<br>
-							#end
-						#end
-						#if(!$Tools.IsNullOrWhitespace($location.Name))
-							<span class="locationName">$location.Name</span>
-							<br>
-						#end
-						#if(!$Tools.IsNullOrWhitespace($location.ContactName))
-							<span class="locationContactName">Contact: $location.ContactName</span>
-							<br>
-						#end
-						#if(!$Tools.IsNullOrWhitespace($location.ContactPhone))
-							<span class="locationPhone">Phone: $location.ContactPhone</span>
-							<br>
-						#end
-						#if(!$Tools.IsNullOrWhitespace($location.ContactEmail))
-							<span class="locationEmail">Email: $location.ContactEmail</span>
-							<br>
-						#end
-						<br />
-					</div>
-				#end
+				#DrawSitesForNormal($locationsToPrint false)
 			</div>
 		</div>
 	#end
@@ -199,7 +148,7 @@
 					<div id="bodyHeadingLinks">					
 						<a id="printPage" href="javascript:window.print();">Print</a> | 
 						<a id="ctl10_EmailResults" href="${generatePrintURL}" target="_blank">E-Mail These Results</a> | 
-						<a id="newSearch" href="/about-cancer/treatment/clinical-trials/search">New Search</a>					
+						<a id="newSearch" href="$SearchResults.Control.SearchFormUrl">New Search</a>					
 					</div>
 				</div>
 			</div>
@@ -207,31 +156,9 @@
 
 					#set($resultSet =  $SearchResults.Results)
 
-					#if($SearchResults.SearchTerms.CancerType  || $SearchResults.SearchTerms.ZipCode  || $SearchResults.SearchTerms.AgeOfEligibility ||  $SearchResults.SearchTerms.Gender || $SearchResults.SearchTerms.CancerTypePhrase || $SearchResults.SearchTerms.Phrase)
-						<div id="searchCriteria">						
-							<p class="searchCriterion"><span>Search Criteria:</span></p>
-							<ul>
-							#if($SearchResults.SearchTerms.CancerType)
-								<li class="searchCriterion"><span>Cancer Type/Condition: </span>$SearchResults.SearchTerms.CancerType</li>
-							#end
-							#if($SearchResults.SearchTerms.CancerTypePhrase)
-								<li class="searchCriterion"><span>Cancer Type/Phrase: </span>$SearchResults.SearchTerms.CancerTypePhrase</li>
-							#end
-							#if($SearchResults.SearchTerms.Phrase)
-								<li class="searchCriterion"><span>Keyword: </span>$SearchResults.SearchTerms.Phrase</li>
-							#end							
-							#if($SearchResults.SearchTerms.Gender)
-								<li class="searchCriterion"><span>Gender: </span>$SearchResults.SearchTerms.Gender</li>
-							#end
-							#if($SearchResults.SearchTerms.ZipCode)
-								<li class="searchCriterion"><span>Zip Code: </span>Within $SearchResults.SearchTerms.ZipRadius miles of $SearchResults.SearchTerms.ZipCode</li>
-							#end
-							#if($SearchResults.SearchTerms.AgeOfEligibility)
-								<li class="searchCriterion"><span>Age: </span>$SearchResults.SearchTerms.AgeOfEligibility</li>
-							#end
-							<ul>						
-						</div>
-					#end
+					#if($SearchResults.Parameters.IsEmpty() == false)
+					#DrawSearchParamsV2($SearchResults)
+					#end##
 
 					<p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
 					<p class="printIntroText">You will be able to access this page for approximately 90 days. Since trial information is updated regularly, you should check for updates to see the most current information on any of the trials below.</p>

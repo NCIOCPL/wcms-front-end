@@ -161,6 +161,7 @@ define(function(require) {
 				urls: [
 					"/about-cancer/treatment/clinical-trials/search",
 					"/about-cancer/treatment/clinical-trials/basic",
+					"/about-cancer/treatment/clinical-trials/search/a",
 					"/about-cancer/treatment/clinical-trials/search/r",
 					"/about-cancer/treatment/clinical-trials/search/v",
 					"/about-cancer/treatment/clinical-trials/advanced-search",
@@ -238,7 +239,7 @@ define(function(require) {
 		//This marks all tables as scrollable, but only adds a shadow to the right side if it is scrolling.
 		//Inspired by http://www.456bereastreet.com/archive/201309/responsive_scrollable_tables/
 		(function () {
-			$("#content table").overflowEnlarge();
+			$("#content table:not(.no-auto-enlarge)").overflowEnlarge();
 		})();
 	});
 	// END Table Resizing

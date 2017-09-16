@@ -1,7 +1,5 @@
 module.exports = function(grunt) {
 
-    var target = grunt.option('target') || '_dist';
-
     var config = {
         dirs: {
             src: {
@@ -14,6 +12,7 @@ module.exports = function(grunt) {
                 modules: "_src/Scripts/NCI/Modules/",
                 images: "_src/ImageAssets/images/",
                 sprites: "_src/ImageAssets/sprites/",
+                files: "_src/FileAssets/",
                 fonts: '_src/Fonts/'
             },
             tmp: {
@@ -34,6 +33,7 @@ module.exports = function(grunt) {
                 images: target + "/images/images/",
                 designelements: target + "/images/images/design-elements/",
                 sprites: target + "/images/images/design-elements/sprites/",
+                files: target + "/Files/",
                 fonts: target + "/fonts/"
             },
             bower: 'bower_components/'
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-        fingerprint:'06/14/2017',
+        fingerprint: Date.now(),
         env: 'dev'
     };
 
@@ -193,6 +193,15 @@ module.exports = function(grunt) {
     });
 
     // ----------------------------------------------------------------
+    // Copying all file assets to the _dist folder
+    // ----------------------------------------------------------------
+    grunt.registerTask('build-files', 'Copy file assets.', function() {
+        var tasks = ['copy:files'];
+        grunt.log.writeln('Copying file assets');
+        grunt.task.run(tasks);
+    });
+
+    // ----------------------------------------------------------------
     // Copying all fonts to the _dist folder
     // ----------------------------------------------------------------
     grunt.registerTask('copy-fonts', 'Copy fonts.', function() {
@@ -209,10 +218,10 @@ module.exports = function(grunt) {
 
         var tasks = ['bake:templates',
             'copy:templates',
-            'bake:sublayout_templates',
-            'copy:sublayout_templates',
-            'bake:velocity_templates',
-            'copy:velocity_templates',
+            'bake:sublayouttemplates',
+            'copy:sublayouttemplates',
+            'bake:velocitytemplates',
+            'copy:velocitytemplates',
             'clean:tmp'];
         grunt.task.run(tasks);
     });
@@ -233,6 +242,7 @@ module.exports = function(grunt) {
             'build-templates:' + env,
             'build-xsl',
             'build-images',
+            'build-files',
             'copy-fonts',
             'webpack:' + env
         ];
@@ -241,44 +251,7 @@ module.exports = function(grunt) {
     });
 
     // ----------------------------------------------------------------
-    grunt.registerTask('build-local', 'Build all files for local CDE and watch for changes.', function(path) {
-
-        //Assumes path is a PublishedContent folder.
-        // if (path == null || path == '') {
-        //     grunt.log.error('path for build-local cannot be null or empty');
-        //     return false;
-        // }
-
-        //HACK: Figure out how to override the dist.
-        // run with grunt option - grunt build-local --target=PublishedContent
-
-        // grunt.config.set('dirs', {
-        //     src: {
-        //         base: "_src/",
-        //         templates: "_src/PageTemplates/",
-        //         sublayout_templates: "_src/SublayoutTemplates/",
-        //         velocity_templates: "_src/VelocityTemplates/",
-        //         styles: "_src/StyleSheets/",
-        //         scripts: "_src/Scripts/"
-        //     },
-        //     tmp: {
-        //         base: "_tmp/",
-        //         templates: "_tmp/Templates/",
-        //         sublayout_templates: "_tmp/SublayoutTemplates/",
-        //         velocity_templates: "_tmp/VelocityTemplates/",
-        //         styles: "_tmp/Styles/",
-        //         scripts: "_tmp/js/"
-        //     },
-        //     dist: {
-        //         base: path + "/",
-        //         templates: path + "/PageTemplates/",
-        //         sublayout_templates: path + "/SublayoutTemplates/",
-        //         velocity_templates: path + "/VelocityTemplates/",
-        //         styles: path + "/Styles/",
-        //         scripts: path + "/js/"
-        //     },
-        //     bower: 'bower_components/'
-        // });
+    grunt.registerTask('build-local', 'Build all files for local CDE and watch for changes.', function() {
 
         //Watch cannot work yet because it would need to push in the new paths.
         //removing it for now so we don't have to hit CTRL-C everytime we do
@@ -289,7 +262,6 @@ module.exports = function(grunt) {
 
         grunt.task.run(tasks);
     });
-
 
     // ----------------------------------------------------------------
     grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
@@ -340,5 +312,4 @@ module.exports = function(grunt) {
 
     // Deploy task is used by the build script
     grunt.registerTask('deploy', ['build:prod']);
-
 };

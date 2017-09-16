@@ -111,7 +111,7 @@ input {
 	&::-moz-placeholder {
 		@include input-placeholder();
 	}
-	&:-ms-input-placeholder {
+	&[type]:-ms-input-placeholder {
 		@include input-placeholder();
 	}
 }

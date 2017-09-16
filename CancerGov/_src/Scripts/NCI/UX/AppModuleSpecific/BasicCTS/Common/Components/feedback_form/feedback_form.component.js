@@ -18,9 +18,8 @@ define(function (require) {
     // - User Clicks close button on thank you screen
     //Tracked events are passed to FeedbackFormClick() in NCIAnalyticsFunctions.js
 
-
     function _sendAnalytics(prop) {
-        var analyticsProp5 = "cts_basic_feedback - ";
+        var analyticsProp5 = 'cts_feedback - ';
         analyticsProp5 += prop;
         if(!!NCIAnalytics && !!NCIAnalytics.FeedbackFormClick) {
             NCIAnalytics.FeedbackFormClick(this, analyticsProp5);
@@ -28,9 +27,7 @@ define(function (require) {
     }
 
     function _create(options){
-
-
-
+            
             //Create Holder for App
             var $content_elem = $("<div></div>");
 
@@ -95,7 +92,7 @@ define(function (require) {
                 close: function(evt, ui) {
                     //TODO: RAISE ANALYTICS EVENT
 
-                    var analyticsProp5 = "cts_basic_feedback - ";
+                    var analyticsProp5 = 'cts_feedback - ';
                     if (!closure_reason) {
                         _sendAnalytics("esc_close");
                     } else {

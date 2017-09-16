@@ -7,12 +7,21 @@
         "moduleResolution": "node",
         //This is the version of Javascript we want to target
         "target": "es2015",
+        //Base URL
+        "baseUrl": ".",
+        //Do not flag cases where the type cannot be inferred
+        "noImplicitAny": false,
         //These are helper Type definitions
         "lib": [
             "dom",
-            "es2015",
-            "es2015.promise"
-        ]
+            "es2017"
+        ],
+        "paths": {
+            "*": [
+                "*",
+                "_src/Scripts/NCI/*"
+            ]
+        }
     },
     "awesomeTypescriptLoaderOptions": {
         //After TSC has run, hand the resulting JS over to Babel

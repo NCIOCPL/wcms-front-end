@@ -15,13 +15,31 @@ define(function(require) {
 				pn = 1;
 			}
 		}
+
+		// Gets the results link flag from the URL - if it doesn't exist, set it equal to 1 (basic)
+		var rl = 1;
+		if(url.indexOf('rl=') > -1) {
+			var rlq = url.match(/rl=[0,1,2]/g) // get the "rl=x" query value - can only be 0, 1, or 2
+			rl = rlq[0].replace('rl=',''); // strip out the rl= to get the flag
+			if(rl.length < 1) {
+				rl = 1;
+			}
+		}
+
+		// Sets search form value for analytics
+		var searchForm = "clinicaltrials_basic";
+		if(rl == 2)
+		{
+			searchForm = "clinicaltrials_advanced";
+		}
+
 		/* Track clicks of individual results */
 		$('.clinical-trial-individual-result').each(function(i, el) {
 			$(el).on('click', 'a', function(event) {
 				var $this = $(this);
 					rank = $this.index('.clinical-trial-individual-result a') + 1;
 					rank += ('|page ' + pn);
-					NCIAnalytics.CTSResultsClick($this, rank);
+					NCIAnalytics.CTSResultsWithFormClick($this, rank, searchForm);
 			});
 		});
 		
@@ -47,7 +65,7 @@ define(function(require) {
 					selectAllText = "selectall";
 				}
 				
-				NCIAnalytics.CTSResultsPrintSelectedClick($this, location, selectAllText, totalChecked, checkedPages);
+				NCIAnalytics.CTSResultsPrintSelectedWithFormClick($this, location, selectAllText, totalChecked, checkedPages, searchForm);
 			}
 		});
 	}

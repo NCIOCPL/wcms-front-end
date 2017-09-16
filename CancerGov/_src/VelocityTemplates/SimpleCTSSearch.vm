@@ -1,0 +1,57 @@
+<div class="cts-search-page">
+    <div id="cts-simple" class="medium-9 small-12 columns">
+        #if ($SearchResults.Control.Redirected)
+        <div style="padding: 12px; margin: 10px 0px; background-color: #feefb3;">
+            <p style="margin: 10px 22px; vertical-align: middle;">We recently updated our clinical trials information. To get the most accurate results, you should rerun your search.</i></p>
+            <p style="margin: 10px 22px; vertical-align: middle;">We apologize for any inconvenience. If you have any questions, please contact our Cancer Information Service at 1-800-4-CANCER.</p>
+        </div>
+        #end
+
+        <form id="form--cts-basic" class="cts-form basic-search" action="$SearchResults.ResultsPagePrettyUrl" method="get">
+            <fieldset id="fieldset--type" aria-labelledby="fieldset--type">
+                <legend><span>Cancer Type/Keyword</span></legend>
+                <a href="/about-cancer/treatment/clinical-trials/search/help#basicsearch" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                <input placeholder="Start typing to select a cancer type" type="text" id="q" aria-label="Cancer Type/Keyword" maxlength="100" name="q" autocomplete="off">
+            </fieldset>
+
+            <div class="field-cols">
+                <fieldset id="fieldset--age">
+                    <legend><span>Age</span></legend>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#basicsearch" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                    <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
+                    <div>Your age helps determine which trials are right for you.</div>
+                </fieldset>
+
+                <fieldset id="fieldset--zip">
+                    <legend><span>U.S. ZIP Code</span></legend>
+                    <a href="/about-cancer/treatment/clinical-trials/search/help#basicsearch" class="text-icon-help" target="_blank" aria-label="Help">?</a>
+
+                    <input type="text" id="z" name="z" aria-label="Zip Code" class="non-empty" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
+                    <div>Show trials near this U.S. ZIP code.</div>
+                </fieldset>
+            </div>
+
+            <input name="rl" value="1" type="hidden" id="rl">
+            <div class="btn-group">
+                <input type="submit" class="submit button" value="Search">
+            </div>
+
+        </form>
+    </div>
+
+    ## Begin "Delighter" section ##
+    <aside class="delighter-rail medium-3 small-12 columns">
+        <div class="cts-delighter-container">
+        <!--(bake LiveHelpDelighter.inc)-->
+        <!--(bake WhatAreTrialsDelighter.inc)-->
+        <!--(bake WhichTrialsDelighter.inc)-->
+        </div>
+    </aside>
+
+    ## Begin section for referencing API instructions page ##
+    <div class="api-reference-section api-ref-advanced medium-9 columns">
+	<!--(bake APIReferenceSection.inc)-->
+	</div>
+</div>
