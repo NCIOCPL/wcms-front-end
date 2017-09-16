@@ -39,34 +39,19 @@ $style-map: (normal: "", italic: "italic");
 
 /* Noto Sans */
 $noto: "Noto Sans";
-$noto-font-stack: '#{$noto}', Arial, sans-serif;
-@mixin font-noto {
-	font-family: #{$noto-font-stack};
-}
+$noto-font-stack: $noto, Arial, sans-serif;
+
 @include font-face($noto, normal, normal);
 @include font-face($noto, normal, italic);
 @include font-face($noto, bold, normal);
 @include font-face($noto, bold, italic);
 
 /* Montserrat */
-$montserrat: "Montserrat";
-$montserrat-font-stack: '#{$montserrat}', Arial, sans-serif;
-@mixin font-montserrat {
-	font-family: #{$montserrat-font-stack};
-}
+$montserrat: Montserrat;
+$montserrat-font-stack: $montserrat, Arial, sans-serif;
+
 @include font-face($montserrat, normal);
 @include font-face($montserrat, bold);
-
-@font-face {
-	font-family: "Flaticon";
-	font-weight: normal;
-	font-style: normal;
-	src: url($fonts + "nci-flaticon.eot");
-	src: url($fonts + "nci-flaticon.eot#iefix") format("embedded-opentype"),
-		 url($fonts + "nci-flaticon.woff") format("woff"),
-		 url($fonts + "nci-flaticon.ttf") format("truetype"),
-		 url($fonts + "nci-flaticon.svg") format("svg");
-}
 
 @font-face {
 	font-family: "Montserrat-Regular";
