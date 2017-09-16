@@ -73,7 +73,7 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 /// Assign the correct SVG background image and dimensions to the element
 @mixin spriteBG {
   display: inline-block;
-  background-image: url(map-get($svg-sprite, svgPath));
+  background-image: image-url(map-get($svg-sprite, svgPath));
   background-size: mq-px2em(map-get($svg-sprite, width)) mq-px2em(map-get($svg-sprite, height));
 }
 
@@ -86,7 +86,7 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
   transform: $transforms;
 }
 
-@mixin rotate ($deg) {
+@mixin rotate($deg) {
   @include transform(rotate(#{$deg}deg));
 }
 
@@ -145,8 +145,9 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 
   @if type_of($rotate) == string {
     $rotation: map-get((
+            none: 0,
             right: 90,
-            bottom: 180,
+            flip: 180,
             left: -90
     ), $rotate);
   }

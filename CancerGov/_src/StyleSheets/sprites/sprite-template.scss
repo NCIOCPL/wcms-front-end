@@ -1,5 +1,6 @@
 $svg-icons: (
-  sprite: (width: {{spriteWidth}}px, height: {{spriteHeight}}px, svgPath: '/PublishedContent/Images/sprites/svg-sprite.svg'),
+  //sprite.svg needs fingerprint
+  sprite: (width: {{spriteWidth}}px, height: {{spriteHeight}}px, svgPath: '/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg'),
   {{#shapes}}
     {{base}}: (
       width: {{width.inner}}px - 1px,
