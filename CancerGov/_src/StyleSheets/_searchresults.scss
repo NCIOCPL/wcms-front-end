@@ -25,7 +25,7 @@
 	}
 
 	.results-count {
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 		font-weight: bold;
 		font-size: em-calc(20px);
 		line-height: em-calc(24px);

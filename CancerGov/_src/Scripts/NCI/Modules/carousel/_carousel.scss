@@ -1,10 +1,11 @@
 /* ***************** BEGIN CAROUSEL ***************** */
 
 .slick-slide .container {
-	background-repeat: repeat;
-	background-position: 0 0;
+	//background-repeat: repeat;
+	//background-position: 0 0;
 	background-color: #fff;
 	position: relative;
+	width: auto;
 	height: 14.25em;
 	display: block;
 
@@ -48,12 +49,12 @@
 }
 
 .site-name {
+	position: relative;
 	font-size: 1.45em;
-	@include font-montserrat;
+	font-family: $montserrat-font-stack;
 	font-weight: bold;
 	color: white;
 	text-transform: uppercase;
-	font-weight: bold;
 	padding: 15px;
 	margin: 0;
 	line-height: normal;
@@ -91,46 +92,19 @@
 }
 
 .other-nci-sites {
+	margin-left: -10px;
+
 	.slick-slide .container {
 		height: 16.25em;
 	}
 }
-
-/* various patterned background images for slides */
-@mixin nci-bg-pattern($pattern) {
-	.#{$pattern} {
-		background-image: image-url($backgrounds + $pattern + ".jpg");
-	}
-}
-
-/*!
-@each $bg-pattern in (
-	"blue-circles",
-	"blue-dots",
-	"blue-triangles",
-	"emerald-xes",
-	"fuchsia-waves",
-	"green-arrows",
-	"green-plaid",
-	"navy-squares",
-	"orange-plaid",
-	"orange-waves",
-	"pink-triangles",
-	"purple-circles",
-	"purple-triangles",
-	"red-squares",
-	"red-triangles",
-	"slate-grid",
-	"yellow-circles",
-	"yellow-hexagons"
-) {
-	@include nci-bg-pattern($bg-pattern);
-}
-*/
-@import "../../../../StyleSheets/sprites/img-sprites";
-@import "carousel-sprites-bgs";
-@include img-sprites-same-size($spritesheet-sprites);
-/* End background patterns */
+//.slick-slide {
+	/* background sprite for slides */
+	@import "../../../../StyleSheets/sprites/img-sprites";
+	@import "carousel-sprite-map";
+	@include img-sprites-same-size($carousel-sprites);
+	/* End background sprite */
+//}
 
 
 @include bp(medium-down){
@@ -184,7 +158,10 @@
 	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
 .arrows-for-other-nci-sites .next,
 .arrows-for-other-nci-sites .previous {
-	font-size: 46px;
+	font-size: 47px;
+	span {
+		font-size: 1px; //accessibility text
+	}
 }
 .arrows-for-other-nci-sites .next {
 	@include svg-sprite(chevron-circle-dk-blue,$rotate:right);

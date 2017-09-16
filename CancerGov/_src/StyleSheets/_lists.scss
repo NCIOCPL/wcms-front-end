@@ -10,7 +10,7 @@ dl {
 	margin: 0 0 1em;
 
 	> .title {
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 		color: #606060;
 		font-weight: normal;
 		font-size: 1.25em;
@@ -88,10 +88,10 @@ dl {
 		}
 	}
 
-.title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus {
-	color: $lcranberry;
-	text-decoration: none;
-}
+	.title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus {
+		color: $lcranberry;
+		text-decoration: none;
+	}
 
 	ul {
 		list-style-type: none;
@@ -145,7 +145,7 @@ dl {
 		}
 
 		.title {
-			font-family: 'Montserrat', Arial, sans-serif;
+			font-family: $montserrat-font-stack;
 			font-weight: normal;
 			font-size: 1.125em;
 			line-height: 1.111em;
@@ -158,21 +158,11 @@ dl {
 		}
 	}
 
-	// List Item Types
-	.general {}
-
-	.video {
-		&.carousel {}
-	}
-
 	.infographic {
 		background: transparent;
 	}
 
 	.file {
-		.filesize, .filetype {
-			
-		}
 
 		.filetype {
 			position: relative;
@@ -181,25 +171,22 @@ dl {
 			margin-left: 5px;
 
 			&.pdf {
-				@include sprite($x-coordinate: -72px, $y-coordinate: -677px, $width: 17px, $height: 19px);
+				@include svg-sprite(file-pdf-gray-o-thick);
 			}
-			&.exe {
-				@include sprite($x-coordinate: -75px, $y-coordinate: -709px, $width: 14px, $height: 19px);
-			}
-			&.txt {
-				@include sprite($x-coordinate: -75px, $y-coordinate: -709px, $width: 14px, $height: 19px);
+			&.exe, &.txt {
+				@include svg-sprite(file-download-gray-o);
 			}
 			&.ebook {
-				@include sprite($x-coordinate: -73px, $y-coordinate: -739px, $width: 18px, $height: 19px);
+				@include svg-sprite(file-ebook-gray);
 			}
 			&.ppt {
-				@include sprite($x-coordinate: -72px, $y-coordinate: -770px, $width: 19px, $height: 19px);
+				@include svg-sprite(file-ppt-gray);
 			}
 			&.word {
-				@include sprite($x-coordinate: -72px, $y-coordinate: -800px, $width: 19px, $height: 19px);
+				@include svg-sprite(file-word-gray);
 			}
 			&.excel {
-				@include sprite($x-coordinate: -72px, $y-coordinate: -832px, $width: 20px, $height: 19px);
+				@include svg-sprite(file-excel-gray);
 			}
 			&.unknown {
 				top: 0;
@@ -208,26 +195,20 @@ dl {
 			}
 		}
 	}
-
-	// Title,!DATE,!DESC,!IMAGE
-	// Title,!DATE, Desc,!IMAGE
-	// Title,!DATE, Desc, Image
-	// Title, Date, Desc,!IMAGE
-	// Title, Date, Desc, Image
 }
 
 // changing default behavior of list image for new landing page so that the image is 188px wide at desktop, matching the specs for thumbnail cards
 .row.news .list {
 		.container {
 			&.image {
-			width: 25%;
+				width: 25%;
 			}
 		}
 	}
 
 // Dynamic List styles
 .list-item span.title a.title {
-	font-family: 'Montserrat', Arial, sans-serif;
+	font-family: $montserrat-font-stack;
 	font-size: 1em;
 	line-height: 1.11111em;
 }
@@ -277,7 +258,7 @@ p.description.dynamic-description {
 	}
 
 	> ul > li {
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 		margin-left: 0;
 		margin-right: 1em;
 		display: inline-block;
@@ -384,4 +365,4 @@ ul.cancer-list {
 /* lists for Press Releases, NCI Fact Sheets */
 .list.no-bullets .general-list-item {
     margin: 0 0 1.875em;
-} 
+}

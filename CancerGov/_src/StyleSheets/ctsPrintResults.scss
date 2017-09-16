@@ -1,6 +1,5 @@
 @import "reset";
 
-
 /*******************************************************/
                /* CTSv4 Print Styles */
 /*******************************************************/
@@ -81,7 +80,7 @@ li::-moz-list-bullet{
     border-radius: 2px;
 
 	span{
-		font-family: "Montserrat", Arial, sans-serif;
+		font-family: Montserrat, Arial, sans-serif;
 	}
 	&:hover, &:focus{
 		background-color: #277c95;
@@ -232,7 +231,7 @@ h4{
 	font-size: 1.125em;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
   font-weight: bold;
   font-style: normal;
   color: #333;

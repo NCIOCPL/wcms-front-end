@@ -9,6 +9,8 @@
 		margin: 0;
 		background: transparent;
 		white-space: nowrap;
+		display: flex;
+		align-items: center;
 	}
 	li {
 		display: inline-block;
@@ -26,7 +28,7 @@
 		width: 100%;
 		&:before {
 			content: '';
-			font-size: 18px;
+			font-size: 1.2em;
 		}
 	}
 
@@ -86,14 +88,10 @@
 
 		li {
 			margin: 0 0 0 0.875em;
-			//@include sprite($width: 25px, $height: 25px);
 		}
 
-		.po-view-entire-document {
-			@include sprite($x-coordinate: 0, $y-coordinate: 0, $width: 25px, $height: 25px);
-		}
-		.po-font-resize {
-			@include sprite($x-coordinate: -17px, $y-coordinate: -16px, $width: 22px, $height: 25px);
+		.po-font-resize a::before {
+			@include svg-sprite(font-size-blue);
 		}
 	}
 

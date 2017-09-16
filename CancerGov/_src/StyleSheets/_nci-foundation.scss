@@ -65,7 +65,7 @@ $default-float: left;
 
 // $body-bg: #fff;
 $body-font-color: #2e2e2e;
-$body-font-family: #{$noto-font-stack};
+$body-font-family: $noto-font-stack;
 $body-font-weight: normal;
 $body-font-style: normal;
 
@@ -172,7 +172,7 @@ $large: "screen and (min-width: #{$large-screen})";
 
 // Control header font styles
 
-$header-font-family: #{$montserrat-font-stack};
+$header-font-family: $montserrat-font-stack;
 $header-font-weight: bold;
 $header-font-style: normal;
 $header-font-color: #606060;

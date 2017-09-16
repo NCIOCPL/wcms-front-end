@@ -135,6 +135,7 @@ button.nav-search::before {
 .nci-logo {
 	font-weight: bold;
 	font-size: 37.7px;
+	// I can haz svg?
 	background: image-url($logos + "NIH-red-logo.png") no-repeat 20px 0;
 	min-height: 54px;
 
@@ -189,7 +190,7 @@ button.nav-search::before {
 			width: 13%;
 			padding: 3em 0 0 0;
 			margin: 1em 8%;
-			@include font-montserrat;
+			font-family: $montserrat-font-stack;
 			line-height: 1;
 			font-weight: bold;
 			font-size: 0.8em;

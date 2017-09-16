@@ -6,7 +6,7 @@
 
   .ui-widget-content {
     color: white;
-    @include font-noto;
+    font-family: $noto-font-stack;
     padding: 3.5em 2.2em;
     text-align: center;
   }
@@ -23,16 +23,17 @@
     z-index: 1;
 
     .ui-icon {
-      /* background: url($icons + 'Close_icon.png') top left no-repeat; */
-      //@include sprite($x-coordinate: -240px, $y-coordinate: -388px, $width: 32px, $height: 32px);
-      background: image-url($icons + 'nci-sprite.png') top left no-repeat;
-      background-position: -237px -386px;
-      width: 34px;
-      height:34px;
+      @include svg-sprite(close-gray);
+      font-size: 1.0625em;
 
       margin:0;
       left:0;
       top:0;
+    }
+    &:hover, &:focus, &:active {
+      .ui-icon {
+        @include svg-sprite(close-gray);
+      }
     }
     &.btn-close-top {
       top: 1em;
@@ -46,8 +47,9 @@
   i.warning {
     display: block;
     text-align: center;
-    background: image-url($icons + 'modal-alert.svg') top center no-repeat;
-    height: 72px;
+    @include svg-sprite(modal-alert);
+    font-size: 2.25em;
+    margin: 0 auto;
   }
 
 }

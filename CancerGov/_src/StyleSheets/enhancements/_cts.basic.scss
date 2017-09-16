@@ -71,10 +71,17 @@
 		border-bottom: 10px solid #167a94;
 	}
 	.api-reference-content {
-		padding: 0 25px 0 105px;
-		background: #f3f3f3 image-url($icons + 'api-icon.svg') 18px 50% no-repeat;
-		background-size: 65px 65px; // need both sizes or IE11 will not render correctly
-		
+      position: relative;
+      padding: 0 25px 0 105px;
+      background-color: #f3f3f3;
+      &::before {
+        position: absolute;
+        @include svg-sprite(api-icon);
+        font-size: 2.286em;
+        left:2.286em;
+        top: 25px;
+      }
+
 	}
 	.api-section-image {
 		height: 85px;	
@@ -182,7 +189,7 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
 .status {
   display:inline-block;
   margin-left:-0.9375em; //negative gutter margin
-  font:normal 16px Montserrat, Arial, sans-serif;
+  font:normal 16px $montserrat-font-stack;
   text-transform: uppercase;
   color:#7F3187;
   border: 2px solid #7F3187;
@@ -206,69 +213,74 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
   }
 }
 
-$icon-expand-width: 20px;
 .icon-expand, .icon-collapse {
   display: inline-block;
   position: relative;
   top:5px;
   margin-right: 8px;
-  @include sprite($x-coordinate: -256px, $y-coordinate: -259px, $width: 20px, $height: 20px);
+  font-size: 16px;
+  @include svg-sprite(plus-o-blue);
 }
 .icon-collapse {
-  @include sprite($x-coordinate: -285px, $y-coordinate: -259px, $width: 20px, $height: 20px);
+  @include svg-sprite(minus-o-blue);
 }
 
 $icon-po-width: 23px;
 .cts-share {
-margin-top: 30px;
-margin-left: 10px;
+  margin-top: 30px;
+  margin-left: 10px;
 
-vertical-align: top;
+  vertical-align: top;
 
 
-.share-text {
-  font-family: $noto-font-stack;
-  font-size: 16px;
-  line-height: 18px;
-  margin-right: 15px;
-}
+  .share-text {
+    font-family: $noto-font-stack;
+    font-size: 16px;
+    line-height: 18px;
+    margin-right: 15px;
+  }
 
-a {
-  display:inline-block;
-  width:7em;
-  height:auto;
-  padding:5px 0;
-  border-radius: 3px;
-  color:#fff;
-  font: normal 14px Montserrat, Arial, sans-serif;
-  text-align: center;
-  margin: 10px 10px 0 0;
-  &[title="Print"]{
-	background-color: #24B2A1;
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    float: left;
+    min-height: 37px;
+    padding:5px 18px;
+    border-radius: 3px;
+    color:#fff;
+    font: normal 14px $montserrat-font-stack;
+    margin: 10px 10px 0 0;
+    box-shadow: inset 0 2px 15px 0 rgba(0, 0, 0, 0.2);
+
+    &[title="Print"]{
+      background-color: #24B2A1;
+      &:hover {
+        background-color: darken(#24B2A1, 10%);
+      }
+    }
+    &[title="Email"]{
+      background-color: #14819b;
+      &:hover {
+        background-color: darken(#14819b, 10%);
+      }
+    }
+    &:hover {
+      text-decoration: none;
+    }
   }
-  &[title="Email"]{
-	background-color: #14819b;
+  .icon-print,.icon-email {
+    font-size: 115%;
+    margin-right:6px;
   }
-  .text {
-	position: relative;
-	top:-3px;
-	padding-left:6px;
+  .icon-print {
+    @include svg-sprite(printer-white)
   }
-  &:hover {
-	text-decoration: none;
+  .icon-email {
+    @include svg-sprite(mail-envelope-closed-white)
   }
-}
-.icon-print,.icon-email {
-  display:inline-block;
-  width:$icon-po-width;
-  height:$icon-po-width;
-}
-.icon-print {
-  @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
-}
-.icon-email {
-  @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
-}
 }
 
 .accordion-controls {
@@ -276,7 +288,7 @@ a {
   margin:18px -0.9375em 10px 10px; //negative right gutter margin
 
   a {
-    font:normal 13px Montserrat, Arial, sans-serif;
+    font:normal 13px $montserrat-font-stack;
     &:last-child {
       margin-left:30px;
     }
@@ -334,7 +346,7 @@ a.listing-chat-button {
   display: block;
   color: #fff;
   line-height: 24px;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: $montserrat-font-stack;
   font-size: 1.125em;
   margin-left: 32%;
   margin-top: -8%;
@@ -438,12 +450,11 @@ a.listing-chat-button:visited {
     max-width: 300px;
     margin: 15px auto;
     position: relative;
+    display: flex;
 
     .share-text {
-      margin: 0;
-      display: inline-block;
-      width: 12em;
-      margin-bottom: 1em;
+      margin: 0 0 0 1em;
+      order: 1;
     }
 
     a {
