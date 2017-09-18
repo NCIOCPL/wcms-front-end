@@ -81,7 +81,8 @@ Set Styles for Drug Selection
 
 //cooler checkbox override
 html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before {
-  background: #ffffff image-url($icons + "/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
+  //background: #ffffff image-url($icons + "/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
+  @include svg-sprite(checkmark-blue);
   color: #2a72a5;
   content:"";
   border-color: #2a72a5;
@@ -165,27 +166,36 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
 }
 
 .ctscb {
+  position: relative;
   background-color: #f2f2f3;
-  background-image: image-url($icons + "cts-plus.png");
-  background-repeat: no-repeat;
-  background-position-x: right;
   display: inline-block;
   white-space: nowrap;
   border: 1px solid #777;
   color: #333;
   line-height:2em;
   padding: 0 0 0 5px;
-  background-size: 10%;
+  //background-size: 10%;
   width: 375px;
   margin-bottom: .25em;
 
+  &::after {
+    content:"";
+    position: absolute;
+    right: 0;
+    @include svg-sprite(plus-box);
+  }
+
   &.show {
-    background-image: image-url($icons + "cts-minus.png");
+    &::after {
+      @include svg-sprite(minus-box);
+
+    }
+    //background-image: image-url($icons + "cts-minus.png");
   }
 
   @include bp(small){
     width: 300px;
-    background-size: 12%;
+    //background-size: 12%;
   }
 }
 
