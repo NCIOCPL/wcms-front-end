@@ -36,22 +36,23 @@
 		
 		a {
 			text-decoration: none;
-			color: inherit
+			color: inherit;
+
+			&:before {
+				content:"";
+				display: inline-block;
+				@include svg-sprite(chevron-black,$rotate:flip);
+				margin: 0 8px 1px 0;
+				font-size: .6em;
+			}
+			&.expanded {
+				&:before {
+					transform: rotate(0);
+					margin-bottom: 3px;
+				}
+			}
 		}
-		#definition-arrow {
-			display: inline-block;
-			background: image-url($icons + "nci-sprite.png") no-repeat -460px -186px;	
-			height: 5px;
-			width: 8px;
-			margin: 0 8px 3px 0;
-		}
-		.expanded #definition-arrow {
-			display: inline-block;
-			background: image-url($icons + "nci-sprite.png") no-repeat -488px -186px;	
-			height: 5px;
-			width: 8px;
-			margin: 0 8px 3px 10px;
-		}
+
 	}
 }
 
