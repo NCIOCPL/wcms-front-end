@@ -26,6 +26,26 @@ define(function(require) {
             Section_Menu: {
                 en: 'Section Menu',
                 es: 'Menú de secciones'
+            },
+						Dictionary_More_Information: {
+                en: 'More information on dictionary page',
+                es: 'Más información'
+            },
+						Definition_Title: {
+                en: 'Definition',
+                es: 'Definición'
+            },
+						Definition_Show_Full: {
+                en: 'full definition',
+                es: 'definición completa'
+            },
+						Show: {
+                en: 'Show',
+                es: 'Espectáculo'
+            },
+						Hide: {
+                en: 'Hide',
+                es: 'Esconder'
             }
 
         }
