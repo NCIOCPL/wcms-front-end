@@ -56,22 +56,7 @@
 		font-size: 0.875em;
 		display: table;
 		word-break: break-all;
-	}
-	&.featured {
-		overflow: auto;
-		background: #dbf2f8;
-		padding: 2.5%;
-
-		h2 {
-			margin-top: 0;
-		}
-		.list-item .title {
-			font-size: 1em;
-		}
-		.list, .list-item {
-			margin-bottom: 0;
-		}
-	}
+	}	
 }
 
 .pagination {

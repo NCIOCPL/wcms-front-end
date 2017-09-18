@@ -64,4 +64,14 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 	url($fonts + "Montserrat-regular.svg") format("svg");
 }
 
+@font-face {
+	font-family: "DIN-Condensed-Bold";
+	font-weight: normal;
+	font-style: normal;
+	src: url($fonts + "DIN-Condensed-Bold.eot");
+	src: url($fonts + "DIN-Condensed-Bold#iefix") format("embedded-opentype"),
+		 url($fonts + "DIN-Condensed-Bold.woff") format("woff"),
+		 url($fonts + "DIN-Condensed-Bold.ttf") format("truetype"),
+		 url($fonts + "DIN-Condensed-Bold.svg") format("svg");
+}
 /********************* END Font Declarations ******************************************/

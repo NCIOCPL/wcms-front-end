@@ -3,6 +3,7 @@ define(function(require) {
 	require('Inner/Enhancements/showHideListingBodyField');
     var NCIAutocomplete = require('Modules/autocomplete/autocomplete');
     var DictionaryService = require('Data/DictionaryService');
+		var bestBets = require('Modules/bestBets/bestBets');
 
 	$(function() {
 
@@ -49,7 +50,11 @@ define(function(require) {
 
             }
         });
-
+		
+	
+		
+		bestBets.init();
+		
 
 	});
 });
