@@ -19,7 +19,7 @@ define(function (require) {
 		var term = _fetchTerm();
 		$.when(_getDefinition(term)).done(function (termObject) {
 
-			console.log(termObject);
+			// console.log(termObject);
 			if (termObject.result.length > 0) {
 				_render(termObject.result[0].term);
 			}
@@ -41,7 +41,7 @@ define(function (require) {
 
 	// render the defintion to produce the content and html
 	var _render = function (obj) {
-		console.log("inside render with:", obj);
+		// console.log("inside render with:", obj);
 		var term = '<dt>' + obj.term + '</dt>';
 		var audio = "";
 		var pronunciation = "";
@@ -71,8 +71,8 @@ define(function (require) {
 		}
 		
 
-		console.log("definitionStart is:" + definitionStart);
-		console.log("definitionEnd is:" + definitionEnd);
+		// console.log("definitionStart is:" + definitionStart);
+		// console.log("definitionEnd is:" + definitionEnd);
 		
 		// the box takes all the components and puts them together in the defintion box
 		var box = '<div id="best-bet-definition"><h2>' + config.lang.Definition_Title[lang] + ':</h2><dl>' + term + '<dd>' + audio + pronunciation + ' </dd><dd>' + definitionStart + definitionEnd + moreInfo() + '</dd></dl>'  + toggle + ' </div><div id="dictionary_jPlayer"></div>';
@@ -90,6 +90,7 @@ define(function (require) {
 		}
 		// functionality for changing from compact to full definition in mobile
 		var areWeExpanded = "yes";
+
 		$("#best-bets-toggle a").on("click", function (event) {
 			event.preventDefault();
 			var $this = $(this);
@@ -104,7 +105,6 @@ define(function (require) {
 				$('#definitionShowHide').text(config.lang.Hide[lang]);
 			}
 		});
-		
 
 
 
@@ -119,7 +119,7 @@ define(function (require) {
 			});
 
 			//Attach a click event to the audio link
-			$("a.CDR_audiofile").click(function (e) {
+            $("#best-bet-definition .CDR_audiofile").click(function (e) {
 				e.preventDefault();
 				my_jPlayer.jPlayer("setMedia", {
 					mp3: $(this).attr("href") // Defines the m4v url
