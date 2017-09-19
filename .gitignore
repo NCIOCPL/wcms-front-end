@@ -9,6 +9,7 @@ built/
 
 # Grunt usually preprocesses files such as coffeescript, compass... inside the .tmp directory
 .tmp/
+_tmp/
 
 # The Gruntfile stores generated files here.
 CancerGov/_src/Scripts/NCI/Generated/

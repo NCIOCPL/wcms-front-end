@@ -1,0 +1,12 @@
+$svg-icons: (
+  //sprite.svg needs fingerprint
+  sprite: (width: {{spriteWidth}}px, height: {{spriteHeight}}px, svgPath: '/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg'),
+  {{#shapes}}
+    {{base}}: (
+      width: {{width.inner}}px - 1px,
+      height: {{height.inner}}px - 1px,
+      backgroundX: {{position.absolute.x}}px,
+      backgroundY: {{position.absolute.y}}px
+    ),
+  {{/shapes}}
+);

@@ -2,7 +2,7 @@
 // overriding default spacing for p tags for the home/landing pages
 // The top margin for the p-tag causes extra spacing above the carousel
 // and has been excluded from this rule (VE, WCMSFEQ-390)
-.ncilandingpage p, .ncihome p, not(.ncihome p.site-name) {
+.ncilandingpage p, .ncihome p, :not(.ncihome p.site-name) {
 	margin: 0.5em 0;
 }
 
@@ -68,17 +68,18 @@
 	}
 }
 
-.hero-call-to-action {
-	font-size: 18px;
-	background: image-url($buttons + "hero-arrow.png") no-repeat center right;
-	display: inline-block;
-	padding-right: 1em;
-	@include transition(padding-right 0.4s ease-in-out);
-
-	&:hover, &:focus {
-		padding-right: 1.5em;
-	}
-}
+/*! TODO: is this style still in use? */
+//.hero-call-to-action {
+//	font-size: 18px;
+//	background: image-url($buttons + "hero-arrow.png") no-repeat center right;
+//	display: inline-block;
+//	padding-right: 1em;
+//	@include transition(padding-right 0.4s ease-in-out);
+//
+//	&:hover, &:focus {
+//		padding-right: 1.5em;
+//	}
+//}
 
 @include bp(small) {
 	.hero-slot {
@@ -433,16 +434,17 @@
 					line-height: 1.111em;
 					font-size: 1.125em;
 				}
-				h3 {
-					color: white;
-					background: image-url($buttons + "small-arrow.png") 95% center no-repeat;
-					border-bottom: 1px solid black;
-					padding: 0.3em 0.9375em;
-					margin: 0;
-				}
-				h3.last {
-					border-bottom: none;
-				}
+				/*! TODO: These h3's have been replaced with <a> elements. small-arrow.png is now in the sprite */
+				//h3 {
+				//	color: white;
+				//	background: image-url($buttons + "small-arrow.png") 95% center no-repeat;
+				//	border-bottom: 1px solid black;
+				//	padding: 0.3em 0.9375em;
+				//	margin: 0;
+				//}
+				//h3.last {
+				//	border-bottom: none;
+				//}
 			}
 			.featured-card {
 				background: #1d5e86;
@@ -464,44 +466,26 @@ a.arrow-link {
 	@extend %card-link-hover;
 
 	&::before {
-		background: $ncisprite no-repeat scroll -347px -215px;
+		@include svg-sprite(chevron-circle-lt-blue, $rotate:right);
 		content: "";
 		right: 0;
-		margin-top: -8px;
 		position: absolute;
-		width: 25px;
-		height: 25px;
-		top: 39%;
-		}
+	}
 
 	&:hover::before {
-		background: $ncisprite no-repeat scroll;
-		background-position: -379px -215px;
+		@include svg-sprite(chevron-circle-red, $rotate:right);
   	}
-	}
+}
 
 a.arrow-link-white {
 	@extend a.arrow-link;
 	padding-right: 1em;
 
 	&::before {
-		background: $ncisprite no-repeat scroll -317px -217px;
-		right: 0;
-		}
-
-	&:hover::before {
-		background-position: -379px -217px;
-  	}
-}
-
-
-@include bp(small) {
-	a.arrow-link-white {
-		&::before {
-			background: $ncisprite no-repeat scroll -347px -215px;
-		}
+		@include svg-sprite(chevron-circle-white, $rotate:right);
 	}
 }
+
 a.learn-more {
 	margin-top: 1em;
 	/* adding padding per #OCECREATIV-783 --sjc */
@@ -762,11 +746,22 @@ a.learn-more {
 	color: $white;
 
 	a {
+		position: relative;
 		color: $white;
 		padding: 1em 2em 1em 1em;
 		display: block;
-		background: #403f3f image-url($buttons + "white-arrow-view-infographic.png") no-repeat 95% 50%;
+		/*! TODO: add this image to the sprite */
+		background-color: #403f3f;
 		@extend %card-link-hover;
+
+		&::before {
+			@include svg-sprite(chevron-white);
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: .6em;
+			transform: translateY(-50%) rotate(90deg);
+		}
 	}
 }
 .home-director-stories {

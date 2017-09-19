@@ -52,7 +52,7 @@ define(function (require) {
 			pronunciation = obj.pronunciation.key;
 		}
 		// toggle controls whether to show first sentence or full definition in mobile
-		var toggle = '<div id="best-bets-toggle"><a href="#"><span id="definition-arrow"></span><span id="definitionShowHide">' + config.lang.Show[lang] + '</span> ' + config.lang.Definition_Show_Full[lang] + '</a></div>';
+		var toggle = '<div id="best-bets-toggle"><a href="#"><span id="definitionShowHide">' + config.lang.Show[lang] + '</span> ' + config.lang.Definition_Show_Full[lang] + '</a></div>';
 	
 		var definition = obj.definition.html;
 		// break the definition into first sentence and rest for display in mobile
@@ -131,10 +131,10 @@ define(function (require) {
 			// issue, some objects don't exist for some definitons, produces an error. I answered by checking for existance and then length
 			if ((obj.videos && obj.videos.length > 0) || (obj.images && obj.images.length > 0) || (obj.related_drug_summary && obj.related.drug_summary.length > 0) || (obj.related.external && obj.related.external.length > 0) || (obj.related.summary && obj.related.summary.length > 0) || (obj.related.term && obj.related.term.length > 0)) {
 				if (lang === "es") {
-					return '<p id="moreInfo"><a href="https://www.cancer.gov/espanol/publicaciones/diccionario?CdrID=' + obj.id + '">' + config.lang.Dictionary_More_Information[lang] + '</a></p>';
+					return '<p id="moreInfo"><a href="/espanol/publicaciones/diccionario?CdrID=' + obj.id + '">' + config.lang.Dictionary_More_Information[lang] + '</a></p>';
 				}
 				else {
-					return '<p id="moreInfo"><a href="https://www.cancer.gov/publications/dictionaries/cancer-terms?CdrID=' + obj.id + '">' + config.lang.Dictionary_More_Information[lang] + '</a></p>';
+					return '<p id="moreInfo"><a href="/publications/dictionaries/cancer-terms?CdrID=' + obj.id + '">' + config.lang.Dictionary_More_Information[lang] + '</a></p>';
 				}
 			} else {
 				return '';

@@ -110,11 +110,12 @@ p.blog-post-publishing-info {
 		}
 	}
 }
-a.comment-count {
-	background: image-url($icons + "comment-icon.png") no-repeat;
-	padding-left: 26px;
-	height: 22px;
-}
+// comment-count is a span element. This style is unused. The icon is not even on the server
+//a.comment-count {
+//	background: image-url($icons + "comment-icon.png") no-repeat;
+//	padding-left: 26px;
+//	height: 22px;
+//}
 .date-author {
 	padding-top: 10px;
 }
@@ -153,7 +154,7 @@ a.comment-count {
 		margin: 0;
 		padding-bottom: 1em;
 		font-size: 0.8em;
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 	}
 	p:last-child {
 		padding: 0;

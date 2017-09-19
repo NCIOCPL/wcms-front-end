@@ -2,7 +2,7 @@
 iframe.style.width = '100%';
 iframe.style.height = '475px';
 iframe.frameBorder= '0';
-iframe.src = "https://www-red-dev.cancer.gov/widgets/TermDictionaryWidgetSpanish";
+iframe.src = "https://www.cancer.gov/widgets/TermDictionaryWidgetSpanish";
 iframe.id = 'NCITermDictionaryWidgetContainerSpanish';
 iframe.title = 'NCI - Diccionario de téminos de cáncer';
 

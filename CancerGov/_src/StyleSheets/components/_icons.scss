@@ -8,7 +8,7 @@ $text-icon-help-border-size: 2px;
 .main-content .text-icon-help {
 	font-size: em-calc(16px);
 	line-height: 1;
-	@include font-montserrat;
+	font-family: $montserrat-font-stack;
 	font-weight: bold;
 	color: $color-link;
 	background-color: white;
@@ -28,11 +28,8 @@ $text-icon-help-border-size: 2px;
 	}
 }
 
-
-$icon-exit-notification-width: 13px;
-$icon-exit-notification-height: 11px;
 .icon-exit-notification {
-	@include sprite($x-coordinate: -470px, $y-coordinate: -264px, $width: 13px, $height: 11px);
+	@include svg-sprite(external-link-blue);
 	display: inline-block;
 	margin-left: 0.25em;
 	margin-right: 0.25em;
@@ -47,7 +44,7 @@ $icon-exit-notification-height: 11px;
 	width: 35.173439px;
 	height: 30px;
 	display: inline-block;
-	background: image-url($icons + "exit-disclaimer-purple.svg") bottom right no-repeat;
+	@include svg-sprite(external-link-purple);
 }
 @include bp(small) {
 		.feature-card .image-hover a.icon-exit-notification {
@@ -72,56 +69,29 @@ $icon-exit-notification-height: 11px;
 	right: 0;
 	bottom: 0;
 }
-$icon-cdr-audiofile-width: 27px;
-$icon-cdr-audiofile-height: 19px;
 .CDR_audiofile {
-	@include sprite($x-coordinate: -379px, $y-coordinate: -259px, $width: 27px, $height: 19px);
-	width: $icon-cdr-audiofile-width;
-	height: $icon-cdr-audiofile-height;
+	@include svg-sprite(volume-up-blue);
 	display: inline-block;
-	position: relative;
-	top: $icon-cdr-audiofile-height / 4;
+	//position: relative;
+	//top: calc(19px/4);
+	vertical-align: sub;
 }
 
-$icon-sitewide-search-submit-width: 16px;
-$icon-sitewide-search-submit-height: 20px;
 #sitesearch {
 	// reset general <button> styling
-	background: none;
+	//background: none;
 	border: none;
 	@include box-shadow(none);
 	@include transition(none);
 	padding: 0;
 	margin: 0;
 
-	@include sprite($x-coordinate: -199px, $y-coordinate: -261px, $width: 16px, $height: 20px);
-	min-height: $icon-sitewide-search-submit-height;
-	display: block;
+	@include svg-sprite(search);
+	background-color: transparent;
+	min-height: 20px;
+	//display: block;
 	position: absolute;
 	top: 50%;
-	margin-top: -($icon-sitewide-search-submit-height / 2);
+	margin-top: -(20px / 2);
 	right: 1em;
-}
-
-.pseudo-icon-deletelist {
-	// reset general <button> styling
-	background: none;
-	border: none;
-	@include box-shadow(none);
-	@include transition(none);
-	padding: 0;
-	margin: 0;
-
-	margin-right: 0.5em;
-	padding: 0 0.25em;
-
-	&:hover {
-		background-color: transparent;
-  }
-	
-	&:before {
-		content: "";
-		@include sprite($x-coordinate: -438px, $y-coordinate: -260px, $width: 16px, $height: 16px);
-		display: inline-block;
-	}
 }

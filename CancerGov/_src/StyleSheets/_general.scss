@@ -22,7 +22,7 @@ h6 {
 	}
 }
 .section-nav {
-	@include font-montserrat;
+	font-family: $montserrat-font-stack;
 }
 
 // Adjust article titles to line up with sub-menu in web.
@@ -123,7 +123,7 @@ table caption {
 
 .row .header	{
 	font-weight: bold;
-	@include font-montserrat;
+	font-family: $montserrat-font-stack;
 }
 /* begin add-on functionality to foundation rows */
 .row .row.vertical-space, .row.vertical-space {
@@ -305,7 +305,7 @@ table caption {
    	margin-bottom: 1.25em;
    	margin-top: 2em;
     min-height: 1.1875em;
-   	@include font-montserrat;
+	font-family: $montserrat-font-stack;
 }
 @include bp(small) {
 	.bcrumbs {
@@ -396,7 +396,8 @@ div#cgvSlPagination, div.previous-next-links {
 	@extend .clearfix;
 	//color: $lorange;
 	font-family: "DIN-Condensed-Bold";
-	//@include font-montserrat;
+	//font-family: $montserrat-font-stack;
+
 	font-weight: bold;
 	@include bp(small) {
 		width: 100%;

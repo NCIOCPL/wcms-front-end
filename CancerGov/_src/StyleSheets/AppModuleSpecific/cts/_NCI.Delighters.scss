@@ -23,56 +23,35 @@
     line-height: 1.166667 !important;
   }
 
-  .cts-feedback, .cts-livehelp, .cts-which, .cts-what {
-    padding: 132px 0 0;
-    h4 {
-      border-radius: 8px;
-      color: white;
-      font-size: 14px;
-      margin: auto;
-      padding: 9px;
-      text-transform: uppercase;
-      width: 180px;
-    }
-    p, li, a {
-      color: #706f6f;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      margin: auto;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      max-width: 185px;
-    }
-
-    @include bp(medium) {
-      padding: 132px 0 0;
-    }
-  }
-
   .cts-feedback {
-    background: transparent image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    &::before {
+      @include svg-sprite(feedback);
+    }
+
     h4 {
       background-color: #b74900;
     }
-    a:hover, a:active {
-      background: #306 image-url($icons + "send-feedback-icon.svg") no-repeat scroll center 10px / 110px 110px;
-      text-decoration: none;
-    }
   }
   .cts-livehelp {
-    background: transparent image-url($icons + "live-help-person-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    &::before {
+      @include svg-sprite(live-help-person);
+    }
     h4 {
       background-color: #35778f;
     }
   }
   .cts-which {
-    background: transparent image-url($icons + "checklist-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    &::before {
+      @include svg-sprite(checklist);
+    }
     h4 {
       background-color: #4a437a;
     }
   }
   .cts-what {
-    background: transparent image-url($icons + "what-are-clinical-trials-icon.svg") no-repeat scroll center 10px / 110px 110px;
+    &::before {
+      @include svg-sprite(questionmark);
+    }
     h4 {
       background-color: $navyblue;
     }
@@ -95,15 +74,35 @@
 }
 .delighter {
   position: relative;
-  background-color: #fbfbfb;
+  //background-color: #fbfbfb;
   border-right: 0 !important;
   padding: 15px;
   font-size: 0.80em;
-  font-family: Montserrat;
+  font-family: $montserrat-font-stack;
   text-align: center;
+  max-width: 203px;
 
+  &::before {
+    font-size: 435%;
+    content: "";
+  }
   h4 {
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
     font-weight: normal;
+    margin: auto;
+    padding: 9px;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  p, li, a {
+    color: #706f6f;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   h4, p, hr {
@@ -209,7 +208,7 @@ $icon-po-width: 23px;
   #delighter-homePage, #delighter-innerpage {
     // left:0;
     // max-width: 1250px;
-    width: 100%;
+    //width: 100%;
     text-align: right;
     margin:0 auto;
     display: inline;
@@ -266,18 +265,7 @@ $icon-po-width: 23px;
   .delighter.cts-feedback {
     display: none;
   }
-  .delighter.cts-livehelp {
-    //border-right: 3px solid #2c13a3 !important;
-  }
-  .delighter.cts-which {
-    //border-right: 3px solid #2c13a3 !important;
-  }
-  .delighter.cts-what {
-    //border-right: 3px solid #0bd3ca !important;
-  }
-  .delighter.cts-next-step {
-    //border-right: 3px solid #cf0549 !important;
-  }
+
 }
 
 /* Tablet styles */
@@ -301,20 +289,6 @@ $icon-po-width: 23px;
 
     a {
       margin: 0;
-    }
-
-    .delighter {
-      width: 180px;
-      // height: 172px;
-
-      @include bp('(max-width: 1024px) and (min-width: 850px)') {
-        // height: 160px;
-
-        &.cts-which, &.cts-what {
-          //	padding-left: 50px;
-          //	padding-right: 50px;
-        }
-      }
     }
 
     .share-text {

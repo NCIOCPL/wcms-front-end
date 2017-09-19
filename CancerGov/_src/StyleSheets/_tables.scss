@@ -6,7 +6,7 @@ td, th {
 }
 
 %default-caption {
-	@include font-montserrat;
+	font-family: $montserrat-font-stack;
 	font-weight: normal;
 	color: $header-font-color;
 	text-align: left;
@@ -37,7 +37,7 @@ table.table-default {
 		*/
 	}
 	th {
-		@include font-noto;
+		font-family: $noto-font-stack;
 		font-weight: bold;
 		color: $body-font-color;
 		background-color: #d0f1f2;
