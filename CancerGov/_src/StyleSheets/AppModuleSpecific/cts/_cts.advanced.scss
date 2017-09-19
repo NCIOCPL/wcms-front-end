@@ -81,8 +81,8 @@ Set Styles for Drug Selection
 
 //cooler checkbox override
 html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before {
-  //background: #ffffff image-url($icons + "/check-mark-2a72a5.svg") no-repeat scroll 1px 0 / 100% 100%;
-  @include svg-sprite(checkmark-blue);
+  @include spriteBG;
+  background-position: -0.275em -13.25em;
   color: #2a72a5;
   content:"";
   border-color: #2a72a5;
