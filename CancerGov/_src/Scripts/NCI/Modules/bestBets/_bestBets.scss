@@ -80,5 +80,10 @@
 	}
 }
 
+// hide definitions in cases where there are multiple best bets, ie paclitaxel
+.featured.sitewide-results:not(:first-of-type) #best-bet-definition {
+	display: none;
+}
+
 
 
