@@ -8,70 +8,17 @@
 
   span {
     display: block;
+    color: black;
   }
-
-  a, a:hover, a:active {
-    text-decoration: none;
-  }
-
-  a {
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  p {
-    line-height: 1.166667 !important;
-  }
-
-  .cts-feedback {
-    &::before {
-      @include svg-sprite(feedback);
-    }
-
-    h4 {
-      background-color: #b74900;
-    }
-  }
-  .cts-livehelp {
-    &::before {
-      @include svg-sprite(live-help-person);
-    }
-    h4 {
-      background-color: #35778f;
-    }
-  }
-  .cts-which {
-    &::before {
-      @include svg-sprite(checklist);
-    }
-    h4 {
-      background-color: #4a437a;
-    }
-  }
-  .cts-what {
-    &::before {
-      @include svg-sprite(questionmark);
-    }
-    h4 {
-      background-color: $navyblue;
-    }
-  }
-  // This will need to be updated
-  .cts-next-step {
-    background: image-url($backgrounds + "ct-red-triangles.jpg");
-    border: 3px solid #cf0549;
-    color: white;
-    h4, p, li, a {
-      color: white;
-      font-size: 12px;
-    }
-    h4 {
-      font-size: 15px;
-    }
-  }
-
-
 }
+@include bp(medium-down) {
+  .delighter-rail {
+    margin-right: 0;
+    width: calc(25% + 10px);
+    padding-right: 0;
+  }
+}
+
 .delighter {
   position: relative;
   //background-color: #fbfbfb;
@@ -82,9 +29,19 @@
   text-align: center;
   max-width: 203px;
 
-  &::before {
-    font-size: 435%;
-    content: "";
+  a {
+    display: block;
+    &::before {
+      font-size: 435%;
+      content: "";
+    }
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    line-height: 1.166667 !important;
   }
   h4 {
     border-radius: 8px;
@@ -94,9 +51,8 @@
     margin: auto;
     padding: 9px;
     text-transform: uppercase;
-    width: 100%;
   }
-  p, li, a {
+  p, a {
     color: #706f6f;
     font-size: 12px;
     letter-spacing: 0.05em;
@@ -105,51 +61,43 @@
     padding-bottom: 8px;
   }
 
-  h4, p, hr {
-    position: relative;
-    margin: 0;
-  }
-  hr {
-    border: 0;
-    padding: 0.375em 0em;
-  }
-  span {
-    color: black;
-  }
-  .chat-with-us {
-    margin-bottom: 10px;
+  .cts-feedback {
+    a::before {
+      @include svg-sprite(feedback);
+    }
 
-    .live-help-button {
-      width: 84px;
-      height: 28px;
-      background: none;
+    h4 {
+      background-color: #b74900;
+    }
+  }
+  .cts-livehelp {
+    a::before {
+      @include svg-sprite(live-help-person);
+    }
+    h4 {
+      background-color: #35778f;
+    }
+  }
+  .cts-which {
+    a::before {
+      @include svg-sprite(checklist);
+    }
+    h4 {
+      background-color: #4a437a;
+    }
+  }
+  .cts-what {
+    a::before {
+      @include svg-sprite(questionmark);
+    }
+    h4 {
+      background-color: $navyblue;
     }
   }
 
 }
 
-#delighter-homePage, #delighter-innerpage {
-  //display: none;
-  position:fixed;
-  top:51%;
-  right:0;
-  z-index: 998;
 
-  a {
-    display:inline-block;
-    color:#fff;
-    font:bold 14px/16px Montserrat;
-    background-color: #82368C;
-    padding: 7px 10px;
-    max-width: 115px;
-    text-align: center;
-
-    &:hover {
-      background-color: #3f0557;
-      text-decoration: none;
-    }
-  }
-}
 
 $icon-po-width: 23px;
 .cts-share {
@@ -203,42 +151,7 @@ $icon-po-width: 23px;
   }
 }
 
-/* Large Screens */
-@include bp('(min-width:1025px)') {
-  #delighter-homePage, #delighter-innerpage {
-    // left:0;
-    // max-width: 1250px;
-    //width: 100%;
-    text-align: right;
-    margin:0 auto;
-    display: inline;
-    right: 1%;
-    width: 110px;
-  }
-}
-/* Extra Large Screens */
-@include bp('(min-width:1770px)') {
-  #delighter-homePage, #delighter-innerpage {
-    right: 10%;
-  }
-}
-/* Tablet/Mobile styles */
 @include bp(medium-down) {
-  .delighter-rail {
-    margin-right: 0;
-    width: calc(25% + 10px);
-    padding-right:0;
-  }
-
-  #delighter-homePage, #delighter-innerpage {
-    position:relative;
-    float:right;
-    top:13px;
-    right:10px;
-  }
-  #delighter-innerpage {
-    margin-top: -65px;
-  }
   // centering the share this clinical trial text
   .cts-share.view-delighter-share {
     text-align: center;
@@ -265,7 +178,6 @@ $icon-po-width: 23px;
   .delighter.cts-feedback {
     display: none;
   }
-
 }
 
 /* Tablet styles */
@@ -330,25 +242,8 @@ $icon-po-width: 23px;
     max-width: 300px;
     margin: 15px auto;
   }
-  #PageOptionsControl1 {
-    padding-left:5px;
-    padding-right:0;
-    width:auto;
-    .po-pinterest {
-      margin:0;
-    }
-  }
-  #delighter-homePage, #delighter-innerpage {
-    right:5px;
-  }
 }
-// to fix find a clinical trial button positioning at small widths
-@include bp('(max-width: 360px)') {
-  #delighter-homePage, #delighter-innerpage {
-    top: 0;
-    margin-bottom: 8px;
-  }
-}
+
 
 // remove spacing after delighters on pages without API reference section
 .last-SI {
@@ -358,6 +253,77 @@ $icon-po-width: 23px;
   }
 }
 
+
+// the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
+#delighter-homePage, #delighter-innerpage {
+  //display: none;
+  position:fixed;
+  top:51%;
+  right:0;
+  z-index: 998;
+
+  a {
+    display:inline-block;
+    color:#fff;
+    font:bold 14px/16px Montserrat;
+    background-color: #82368C;
+    padding: 7px 10px;
+    max-width: 115px;
+    text-align: center;
+
+    &:hover {
+      background-color: #3f0557;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Large Screens */
+@include bp('(min-width:1025px)') {
+  #delighter-homePage, #delighter-innerpage {
+    // left:0;
+    // max-width: 1250px;
+    //width: 100%;
+    text-align: right;
+    margin:0 auto;
+    display: inline;
+    right: 1%;
+    width: 110px;
+  }
+}
+/* Extra Large Screens */
+@include bp('(min-width:1770px)') {
+  #delighter-homePage, #delighter-innerpage {
+    right: 10%;
+  }
+}
+/* Tablet/Mobile styles */
+@include bp(medium-down) {
+  #delighter-homePage, #delighter-innerpage {
+    position: relative;
+    float: right;
+    top: 13px;
+    right: 10px;
+  }
+  #delighter-innerpage {
+    margin-top: -65px;
+  }
+}
+
+/* Mobile styles */
+@include bp(small) {
+  #delighter-homePage, #delighter-innerpage {
+    right:5px;
+  }
+}
+
+// to fix find a clinical trial button positioning at small widths
+@include bp('(max-width: 360px)') {
+  #delighter-homePage, #delighter-innerpage {
+    top: 0;
+    margin-bottom: 8px;
+  }
+}
 
 // the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
 @media only screen and (max-width: 400px) {
