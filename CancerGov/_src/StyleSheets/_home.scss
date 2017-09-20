@@ -68,7 +68,7 @@
 	}
 }
 
-/*! TODO: is this style still in use? */
+/* TODO: is this style still in use? */
 //.hero-call-to-action {
 //	font-size: 18px;
 //	background: image-url($buttons + "hero-arrow.png") no-repeat center right;
@@ -434,7 +434,7 @@
 					line-height: 1.111em;
 					font-size: 1.125em;
 				}
-				/*! TODO: These h3's have been replaced with <a> elements. small-arrow.png is now in the sprite */
+				/* TODO: These h3's have been replaced with <a> elements. small-arrow.png is now in the sprite */
 				//h3 {
 				//	color: white;
 				//	background: image-url($buttons + "small-arrow.png") 95% center no-repeat;
@@ -750,7 +750,7 @@ a.learn-more {
 		color: $white;
 		padding: 1em 2em 1em 1em;
 		display: block;
-		/*! TODO: add this image to the sprite */
+		/* TODO: add this image to the sprite */
 		background-color: #403f3f;
 		@extend %card-link-hover;
 
