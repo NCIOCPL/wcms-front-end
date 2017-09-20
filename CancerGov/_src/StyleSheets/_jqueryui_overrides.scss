@@ -16,15 +16,22 @@
 	.ui-accordion-header {
 		padding: 14.5px 70px 14.5px 20px;
 		margin: 0 -0.9375em;
+		border: none;
+		background-color: #bcedf2;
+		color: $header-font-color;
+		margin: 0 -0.9375em;
+		min-height: 50px;
+		font-size: 1.125em;
+		background-image: none;
 
 	// override icons
 		.ui-accordion-header-icon {
-		top: 0;
-		left: auto;
-		right: 0;
-		background-image: none;
-		margin-top: 0;
-	}
+			top: 0;
+			left: auto;
+			right: 0;
+			background-image: none;
+			margin-top: 0;
+		}
 	}
 
 	&.columns .ui-accordion-header {
@@ -43,20 +50,11 @@
 	}
 }
 .ui-accordion-header {
-	font-weight: normal;
-	border: none;
-	border-radius: 0;
-	background-color: #bcedf2;
-	color: $header-font-color;
-	margin: 0 -0.9375em;
-	padding: 14.5px 70px 14.5px 20px;
-	min-height: 50px;
-	font-size: 1.125em;
-	background-image: none;
 
 	&.ui-state-active {
 		background-color: #CCEEFA;
 		color: $header-font-color;
+		border: none;
 
 		.toggle {
 			background-color: white;

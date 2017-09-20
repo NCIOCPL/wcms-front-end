@@ -114,6 +114,7 @@
 
 	//.contentzone {
 		.page-options {
+			width: auto;
 			li {
 				margin: 0 0.875em 0 0;
 				width: 35px;
@@ -131,6 +132,9 @@
 
 				&:hover {
 					background-color: $lcranberry;
+				}
+				&:last-child {
+					margin-right: 0;
 				}
 			}
 
