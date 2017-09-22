@@ -154,3 +154,31 @@ table tbody tr td figure a{
 }
 /* End PDQ table styling */
 /* END TABLE STYLES */
+[class^="flexTable"] {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	min-width: 140px;
+	> div {
+		box-sizing: border-box;
+		flex-grow: 1;
+		width: 100%;  // Default to full width
+		padding: 0.4em 0.8em;
+		overflow: hidden; // Or flex might break
+		list-style: none;
+		white-space: normal;
+		> h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+	}
+}
+.flexTable--2cols > div { width: 50%; }
+.flexTable--3cols > div { width: 33.33%; }
+.flexTable--4cols > div { width: 25%; }
+.flexTable--5cols > div { width: 20%; }
+.flexTable--6cols > div { width: 16.6%; }
+
+.highcharts-tooltip .flexTable--2cols {
+	> div:nth-child(odd) {width:60%}
+	> div:nth-child(even) {width:40%}
+}
+/* END TABLE STYLES */

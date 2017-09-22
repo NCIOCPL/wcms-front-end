@@ -30,7 +30,8 @@
     "scriptjs": "^2.5.8",
     "select2": "^4.0.3",
     "spin.js": "^2.3.2",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@types/chai": "^4.0.1",

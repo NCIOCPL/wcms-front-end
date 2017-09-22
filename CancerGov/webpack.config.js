@@ -38,7 +38,8 @@ module.exports = {
         BasicCTSPrintPage:        './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
         CTListingPage:            './UX/AppModuleSpecific/BasicCTS/Listing/CTListingPage',
         BlogPostPage:             './UX/PageSpecific/BlogPost/BlogPostPage',
-        BlogSeriesPage:           './UX/PageSpecific/BlogSeries/BlogSeriesPage'
+        BlogSeriesPage:           './UX/PageSpecific/BlogSeries/BlogSeriesPage',
+        Charts:                   './UX/Common/Enhancements/charts'
     },
     target: 'web',
     resolve: {
@@ -58,6 +59,7 @@ module.exports = {
             BasicCTS: 'UX/AppModuleSpecific/BasicCTS',
             Patches: 'Patches',
             Modules: 'Modules',
+            Charts: 'UX/Common/Enhancements/charts',
 
             // vendor scripts
             // jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
@@ -87,7 +89,17 @@ module.exports = {
             //this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
-            { test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" }
+            { test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" },
+
+            // expose the charts module to a global variable
+            {
+                test: path.resolve(__dirname,'./_src/Scripts/NCI/UX/Common/Enhancements/charts'),
+                use: [{
+                    loader: 'expose-loader',
+                    options: 'Chart' // global variable name
+                }]
+            }
+
         ]
     },
     output: {
@@ -96,7 +108,8 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-            Modernizr: "modernizr"
+            Modernizr: "modernizr",
+            Chart: 'Charts'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name:'BasicCTSCommon',

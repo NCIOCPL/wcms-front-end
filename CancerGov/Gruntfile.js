@@ -83,7 +83,6 @@ module.exports = function(grunt) {
             case 'blue-dev':
             case 'blue':
             case 'dev':
-            default:
                 proxy = 'www-blue-dev';
                 if(/^\d+$/.test(env))
                     proxy = 'www-ocdev' + env + '.ha2';
@@ -100,7 +99,6 @@ module.exports = function(grunt) {
                 break;
             case 'training':
                 proxy = 'www-training';
-                useHttps = false;
                 break;
             case 'preview':
                 proxy = 'preview';
@@ -110,6 +108,10 @@ module.exports = function(grunt) {
                 proxy = 'www';
                 env = 'prod';
                 break;
+            default:
+                proxy = 'www-blue-dev';
+                if(/^\d+$/.test(env))
+                    proxy = 'www-ocdev' + env + '.ha2';
         }
         env = (env === 'prod' ? 'prod' : 'dev');
 
