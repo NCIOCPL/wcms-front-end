@@ -1,4 +1,5 @@
 // The provided mixins are intended to be used with the array-like variables
+// The provided mixins are intended to be used with the array-like variables
 //
 // .icon-home {
 //   @include sprite-width($icon-home);
@@ -66,8 +67,6 @@ $i: 0 !default;
 // all sprites are the same width and height. Will format css to minimize repetition
 @mixin img-sprites-same-size($sprites, $width:null, $height:null, $repeatX: false, $repeatY: false) {
 
-  //@debug Sprite in group - $sprites;
-  @debug loop number $i;
   %group-styles-#{$i} {
     @include img-sprite-image(nth($sprites,1));
     @if $repeatX == true {
@@ -94,5 +93,4 @@ $i: 0 !default;
     }
   }
   $i: $i + 1 !global;
-  @debug "end of mixing, $i = " $i;
 }
