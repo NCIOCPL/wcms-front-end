@@ -57,7 +57,11 @@
 }
 
 #best-bet-definition {
-	margin: 1em 0 0;
+	margin: 0;
+	
+	@include bp(small) {
+		margin-top: 1em;
+	}
 }
 #definitionEnd {
 	display: none;
@@ -79,6 +83,14 @@
 			padding-right: 0.9375em;
 		}
 	}
+}
+
+// hide definitions in cases where there are multiple best bets, ie paclitaxel and make content span full width
+.featured.sitewide-results:not(:first-of-type) #best-bet-definition {
+	display: none;
+}
+.featured.sitewide-results:not(:first-of-type) .large-8 {
+	width: 100%
 }
 
 
