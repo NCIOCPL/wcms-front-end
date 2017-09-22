@@ -85,12 +85,8 @@
         }
     }
 }
-@include bp(small){
-	.site-footer {
-		background-position: -120% 150px;
-	}
-}
-@include bp(medium){
+
+@include bp(medium-down){
 	/** Hide feature card title on tablets and up **/
 	.site-footer {
 		background-position: 115% 150px;
