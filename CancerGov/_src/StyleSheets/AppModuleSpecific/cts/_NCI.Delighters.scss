@@ -99,82 +99,84 @@
 
 }
 
-
-
-$icon-po-width: 23px;
 .cts-share {
   margin-top: 30px;
 
-  span {
-    display: inline;
+  vertical-align: top;
+
+
+  .share-text {
+    font-family: $noto-font-stack;
+    font-size: 16px;
+    line-height: 18px;
   }
 
-
   a {
-    display:inline-block;
-    width:45%;
-    height:auto;
-    padding:5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    float: left;
+    min-height: 37px;
+    padding:5px 12px;
     border-radius: 3px;
     color:#fff;
-    font: normal 14px Montserrat, Arial, sans-serif;
-    text-align: center;
     margin-top: 10px;
+    font: normal 14px $montserrat-font-stack;
+    box-shadow: inset 0 2px 15px 0 rgba(0, 0, 0, 0.2);
 
-    &:first-of-type {
-      margin-right: 10%;
+    span {
+      color:#fff;
     }
 
     &[title="Print"]{
       background-color: #24B2A1;
+      margin-right: 10px;
+      &:hover {
+        background-color: darken(#24B2A1, 10%);
+      }
     }
     &[title="Email"]{
       background-color: #14819b;
-    }
-    .text {
-      position: relative;
-      top:-5px;
-      padding-left: 6px;
+      &:hover {
+        background-color: darken(#14819b, 10%);
+      }
     }
     &:hover {
       text-decoration: none;
     }
   }
   .icon-print,.icon-email {
-    display:inline-block;
-    width:$icon-po-width;
-    height:$icon-po-width;
+    font-size: 115%;
+    margin-right:6px;
   }
   .icon-print {
-    @include sprite($x-coordinate: -123px, $y-coordinate: -62px, $width: 23px, $height: 23px);
+    @include svg-sprite(printer-white)
   }
   .icon-email {
-    @include sprite($x-coordinate: -123px, $y-coordinate: -105px, $width: 23px, $height: 23px);
+    @include svg-sprite(mail-envelope-closed-white)
   }
 }
 
+
 @include bp(medium-down) {
   // centering the share this clinical trial text
-  .cts-share.view-delighter-share {
-    text-align: center;
-
-    span {
-      display: inline-block;
-    }
-
-    a {
-      width: auto;
-      display: inline-block;
-      padding: 5px 20px;
-    }
+  .cts-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto 0;
 
     .share-text {
-      display: inline-block;
       margin-right: 10px;
     }
 
-    a.email {
-      margin: 0;
+    a {
+      margin-top: 0;
+    }
+
+    a.print {
+      display: none;
     }
   }
   .delighter.cts-feedback {
@@ -194,15 +196,6 @@ $icon-po-width: 23px;
     .cts-delighter-container {
       display: flex;
       justify-content: space-around;
-
-    }
-
-    a {
-      margin: 0;
-    }
-
-    .share-text {
-      clear: both;
     }
   }
 
@@ -228,17 +221,20 @@ $icon-po-width: 23px;
 @include bp(small) {
   .delighter-rail {
     margin: 20px 0 0 0;
-    padding: 0px;
+    padding: 0;
     width:100%;
   }
   .delighter {
-    border-right: inherit;
-  }
-  .cts-which,  .cts-what, .cts-livehelp, .cts-next-step {
     padding-left: 30px;
     padding-right: 30px;
     max-width: 300px;
     margin: 15px auto;
+  }
+  .cts-share {
+    flex-direction: column;
+    .share-text {
+      margin-bottom: 1em;
+    }
   }
 }
 
