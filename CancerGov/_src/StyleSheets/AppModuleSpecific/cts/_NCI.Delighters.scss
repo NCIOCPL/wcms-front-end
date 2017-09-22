@@ -29,6 +29,15 @@
   text-align: center;
   max-width: 203px;
 
+  a, p {
+    color: #706f6f;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
   a {
     display: block;
     &::before {
@@ -43,6 +52,7 @@
   p {
     line-height: 1.166667 !important;
   }
+
   h4 {
     border-radius: 8px;
     color: white;
@@ -51,14 +61,6 @@
     margin: auto;
     padding: 9px;
     text-transform: uppercase;
-  }
-  p, a {
-    color: #706f6f;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    margin: auto;
-    padding-top: 8px;
-    padding-bottom: 8px;
   }
 
   .cts-feedback {
@@ -193,10 +195,6 @@ $icon-po-width: 23px;
       display: flex;
       justify-content: space-around;
 
-    }
-
-    > a[href^="#"]  {
-      display: none;
     }
 
     a {
