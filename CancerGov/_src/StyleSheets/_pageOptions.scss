@@ -22,13 +22,13 @@
 	}
 
 	a {
-		display: block;
-		position: relative;
-		height: 100%;
-		width: 100%;
+		//display: block;
+		//position: relative;
+		//height: 100%;
+		//width: 100%;
 		&:before {
 			content: '';
-			font-size: 1.2em;
+			//font-size: 1.2em;
 		}
 	}
 
@@ -122,13 +122,19 @@
 				background-color: $color-link;
 				border-radius: 50%;
 
-				a:before {
+				a {
+					position: relative;
 					display: block;
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					transform: translateX(-50%) translateY(-50%);
+					height: 100%;
+
+					&::before {
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translateX(-50%) translateY(-50%);
+					}
 				}
+
 
 				&:hover {
 					background-color: $lcranberry;
@@ -149,7 +155,7 @@
 			}
 			.po-email a::before {
 				@include svg-sprite(mail-envelope-closed-white);
-				font-size: 15px;
+				font-size: .95em;
 			}
 			.po-facebook a::before {
 				@include svg-sprite(facebook-white);

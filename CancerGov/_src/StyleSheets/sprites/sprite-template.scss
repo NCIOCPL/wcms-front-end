@@ -3,10 +3,10 @@ $svg-icons: (
   sprite: (width: {{spriteWidth}}px, height: {{spriteHeight}}px, svgPath: '/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg'),
   {{#shapes}}
     {{base}}: (
-      width: {{width.inner}}px - 1px,
-      height: {{height.inner}}px - 1px,
-      backgroundX: {{position.absolute.x}}px,
-      backgroundY: {{position.absolute.y}}px
+      width: {{width.inner}}px,
+      height: {{height.inner}}px,
+      backgroundX: {{position.relative.x}}%,
+      backgroundY: {{position.relative.y}}%
     ),
   {{/shapes}}
 );

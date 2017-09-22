@@ -134,13 +134,14 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 
   // Outputs dimensions in em
   @if $type == all or $type == size {
-    width: mq-px2em(map-get($iconMap, width) + 1);
-    height: mq-px2em(map-get($iconMap, height) + 1);
+    width: mq-px2em(map-get($iconMap, width));
+    height: mq-px2em(map-get($iconMap, height));
   }
 
   // Outputs background position in em
   @if $type == all or $type == bg {
-    background-position: mq-px2em(map-get($iconMap, x) - 5) mq-px2em(map-get($iconMap, y) - 5);
+    //background-position: mq-px2em(map-get($iconMap, x) - 5) mq-px2em(map-get($iconMap, y) - 5);
+    background-position: map-get($iconMap, x) map-get($iconMap, y);
   }
 
   @if type_of($rotate) == string {

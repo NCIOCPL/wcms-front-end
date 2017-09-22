@@ -44,8 +44,8 @@
     }
 
     .icon {
-        display: inline-block;
-        font-size: 18px;
+        //display: inline-block;
+        //font-size: 18px;
 
         &.facebook {
           @include svg-sprite(facebook-white);

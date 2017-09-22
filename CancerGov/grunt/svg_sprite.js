@@ -9,13 +9,14 @@ module.exports = function (grunt, options) {
         options: {
             shape: {
                 dimension: {		// Dimension related options
-                    maxWidth: 32,	// Max. shape width
-                    maxHeight: 32,	// Max. shape height
+                    // maxWidth: 32,	// Max. shape width
+                    // maxHeight: 32,	// Max. shape height
                     precision: 5    // Floating point precision
-                },
-                spacing: {
-                    padding: 5      // Padding around all shapes - must remain 5 due to calculation bug in svg-sprite
                 }
+                // ,
+                // spacing: {
+                //     padding: 5      // Padding around all shapes - must remain 5 due to calculation bug in svg-sprite
+                // }
             },
             mode: {
                 css: {       // Activate the «css» mode
@@ -27,7 +28,7 @@ module.exports = function (grunt, options) {
                             template: dirs.src.styles + 'sprites/sprite-template.scss'
                         }
                     },
-                    layout:"pack",
+                    layout:"diagonal",
                     bust: false,
                     example: false
                 }
