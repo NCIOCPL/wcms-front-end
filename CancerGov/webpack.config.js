@@ -85,6 +85,31 @@ module.exports = {
 
     module: {
         rules: [
+            // JavaScript Linter
+            // {
+            //     test: /\.js$/,
+            //     enforce: 'pre',
+            //     exclude: /node_modules/,
+            //     loader: "eslint-loader",
+            //     options: {
+            //         failOnWarning: false,
+            //         failOnError: false,
+            //         emitWarning: true
+            //     }
+            // },
+            // TypeScript Linter
+            // {
+            //     test: /\.tsx?$/,
+            //     enforce: 'pre',
+            //     loader: 'tslint-loader',
+            //     options: {
+            //         configFile: 'tslint.json',
+            //         failOnHint: false, // stop the build on fail
+            //         fix: false // do you dare make this true?
+            //     }
+            // },
+
+
             //The loader below passes off any required/imported .ts files off to the the typescript loader,
             //this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },

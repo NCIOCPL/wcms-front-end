@@ -1,0 +1,9 @@
+{
+  "extends": "standard",
+  "rules": {
+    "indent": ["warn", "tab", { "SwitchCase": 1 }],
+    "padded-blocks": ["warn", { "blocks": "never", "switches": "never", "classes": "never" }],
+    "no-tabs": "off",
+    "semi": ["off", "never"]
+  }
+}
