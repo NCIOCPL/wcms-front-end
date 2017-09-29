@@ -128,7 +128,7 @@ a.nav-dictionary::before {
 }
 button.nav-search::before {
 	@include svg-sprite(search);
-	font-size: 24px;
+	font-size: 200%;
 }
 
 /* popup */

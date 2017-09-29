@@ -168,7 +168,7 @@ ul.slick-dots {
 
 		button {
 			display: block;
-			border: 3px solid $dteal00;
+			border: 3px solid $dteal;
 			border-radius: 50%;
 			background-color: $white;
 			outline: none;
@@ -178,7 +178,7 @@ ul.slick-dots {
 			cursor: pointer;
 
 			&:focus {
-				outline: dotted 1px $dteal00;
+				outline: dotted 1px $dteal;
 			}
 
 			&:hover {
@@ -186,12 +186,12 @@ ul.slick-dots {
 			}
 
 			&:active {
-				background-color: $dteal00;
+				background-color: $dteal;
 			}
 		}
 
 		&.slick-active button {
-			background-color: $dteal00;
+			background-color: $dteal;
 		}
 	}
 }

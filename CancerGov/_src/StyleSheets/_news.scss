@@ -7,7 +7,7 @@ a.arrow-link.news-footer {
 	margin-bottom: 10px;
 	
 	
-	ul {margin-left: 23px;}
+	//ul {margin-left: 23px;}
 	ul li { position: relative; }
 	//ul a[class^="news"]:before {
   //  position: absolute;
@@ -15,10 +15,24 @@ a.arrow-link.news-footer {
   //  left: -26px;
   //}
 
+	ul > li {
+		margin-bottom: 5px;
+	}
+
+	a:first-child {
+		display: inline-block;
+		position: relative;
+		padding-left: 23px;
+		line-height: 130%;
+	}
+
 	a:before {
 		content: " ";
-		display: inline-block;
+		//display: inline-block;
 		margin-right: 0.5em;
+		position: absolute;
+		top: 3px;
+		left: 0;
 	}
 
 	a.news-twitter:before {
@@ -31,6 +45,7 @@ a.arrow-link.news-footer {
 	}
 
 	a.news-youtube:before {
+		top: 0;
 		@include svg-sprite(youtube-blue);
 	}
 
@@ -49,6 +64,10 @@ a.arrow-link.news-footer {
 		vertical-align: bottom;
 		margin-bottom: 6px;
 	}
+}
+
+li.news-share {
+
 }
 
 @include bp(small){

@@ -158,22 +158,23 @@
 	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
 .arrows-for-other-nci-sites .next,
 .arrows-for-other-nci-sites .previous {
-	font-size: 47px;
+	font-size: 100%;
 	span {
 		font-size: 1px; //accessibility text
 	}
 }
 .arrows-for-other-nci-sites .next {
-	@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+	@include svg-sprite(chevron-circle-dk-blue-large);
 }
 .arrows-for-other-nci-sites .next:hover {
-	@include svg-sprite(chevron-circle-red,$rotate:right);
+	@include svg-sprite(chevron-circle-red-large);
 }
 .arrows-for-other-nci-sites .previous {
-	@include svg-sprite(chevron-circle-dk-blue,$rotate:left);
+	margin-right: 5px;
+	@include svg-sprite(chevron-circle-dk-blue-large,$rotate:flip);
 }
 .arrows-for-other-nci-sites .previous:hover {
-	@include svg-sprite(chevron-circle-red,$rotate:left);
+	@include svg-sprite(chevron-circle-red-large,$rotate:flip);
 }
 
 @include bp(large-up){

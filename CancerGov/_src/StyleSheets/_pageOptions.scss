@@ -45,7 +45,7 @@
 		@include svg-sprite(twitter-blue);
 	}
 	.po-googleplus a::before {
-		@include svg-sprite(google-plus-old-blue);
+		@include svg-sprite(google-plus-blue);
 	}
 	.po-pinterest a::before {
 		@include svg-sprite(pinterest-blue);
@@ -155,7 +155,7 @@
 			}
 			.po-email a::before {
 				@include svg-sprite(mail-envelope-closed-white);
-				font-size: .95em;
+				//font-size: .95em;
 			}
 			.po-facebook a::before {
 				@include svg-sprite(facebook-white);
@@ -166,12 +166,12 @@
 				font-size: 17px;
 			}
 			.po-googleplus a::before {
-				@include svg-sprite(google-plus-old-white);
-				font-size: 17px;
+				@include svg-sprite(google-plus-white);
+				font-size: 93%;
 			}
 			.po-pinterest a::before {
 				@include svg-sprite(pinterest-white);
-				font-size: 19px;
+				font-size: 120%;
 			}
 
 			/* Note: if the flaticon font is ever updated with additional icon, make sure the keycodes have not changed */
