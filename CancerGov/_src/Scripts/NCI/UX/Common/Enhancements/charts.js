@@ -137,7 +137,7 @@ $(function () {
                 verticalAlign: 'top',
                 x: -10,
                 y: 100
-            },
+            }
         }],
 
         drilldown: {
