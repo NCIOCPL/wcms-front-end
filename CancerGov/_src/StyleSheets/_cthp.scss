@@ -364,34 +364,34 @@ h3.cthp-overview-title {
 //.cthp-content {
 //}
 
-.cthp-treatment h3 {
+.cthp-treatment h3.ui-accordion-header {
 	@extend .accordion-green-waves;
 }
-.cthp-research h3 {
+.cthp-research h3.ui-accordion-header {
 	@extend .accordion-blue-gears;
 }
-.cthp-causes h3 {
+.cthp-causes h3.ui-accordion-header {
 	@extend .accordion-purple-squares;
 }
-.cthp-genetics h3 {
+.cthp-genetics h3.ui-accordion-header {
 	@extend .accordion-blue-diamonds;
 }
-.cthp-screening h3 {
+.cthp-screening h3.ui-accordion-header {
 	@extend .accordion-pink-triangles;
 }
-.cthp-survival h3 {
+.cthp-survival h3.ui-accordion-header {
 	@extend .accordion-yellow-squares;
 }
-.cthp-general h3 {
+.cthp-general h3.ui-accordion-header {
 	@extend .accordion-blue-octagons;
 }
-.cthp-overview h3, h3.cthp-overview-title {
+.cthp-overview h3.ui-accordion-header, [class*="cthp-overview"] h3.cthp-overview-title {
 	@extend .accordion-blue-purple-circles;
 }
-.cthp-pink-feature h3 {
+.cthp-pink-feature h3.ui-accordion-header {
 	@extend .accordion-red-triangles;
 }
-.cthp-yellow-feature h3 {
+.cthp-yellow-feature h3.ui-accordion-header {
 	@extend .accordion-yellow-hexagons;
 }
 
