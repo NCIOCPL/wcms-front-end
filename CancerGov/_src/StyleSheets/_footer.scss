@@ -93,6 +93,14 @@
 	}
 }
 
+@include bp(small){
+	/** Hide feature card title on tablets and up **/
+	.site-footer {
+		background-position: -120% 150px;
+	}
+}
+
+
 .follow-us {
   margin: 0.5em 0;  
 	
