@@ -122,4 +122,12 @@ div.ebook-title {
 		}
 	}
 }
+
+// IE11 hack since flexbox align-items ignores max-height setting
+@media all and (-ms-high-contrast:none) {
+	.pub-buttons a.icon {
+		height: 37px;
+	}
+}
+
 /* End eBook buttons */

@@ -167,6 +167,13 @@
   }
 }
 
+// IE11 hack since flexbox align-items ignores max-height setting
+@media all and (-ms-high-contrast:none) {
+  .cts-share a {
+    height: 37px;
+  }
+}
+
 
 @include bp(medium-down) {
   // centering the share this clinical trial text
