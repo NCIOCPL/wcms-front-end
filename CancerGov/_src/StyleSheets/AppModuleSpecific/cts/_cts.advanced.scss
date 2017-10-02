@@ -182,6 +182,7 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
     position: absolute;
     right: 0;
     @include svg-sprite(plus-box);
+    font-size: 87%;
   }
 
   &.show {
