@@ -156,8 +156,6 @@ ul.slick-dots {
 	li {
 		position: relative;
 		display: inline-block;
-		height: 20px;
-		width: 20px;
 		margin: 0 5px;
 		padding: 0;
 		cursor: pointer;
@@ -171,10 +169,11 @@ ul.slick-dots {
 			border: 3px solid $dteal;
 			border-radius: 50%;
 			background-color: $white;
+			height: 20px;
+			width: 20px;
 			outline: none;
 			line-height: 0;
 			font-size: 0;
-			padding: 7px;
 			cursor: pointer;
 
 			&:focus {
