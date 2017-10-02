@@ -68,7 +68,7 @@ define(function(require){
                 + '<form onsubmit="return false;">'
                 + '<input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-button" value="Chat Now">'
                 + '</form>'
-                + '<div class="live-help"</div>';
+                + '<div class="live-help"></div>';
 
             // Create the pop up.
             $('body').append('<div id="' + this.options.popupID + '" class="ProactiveLiveHelpPrompt"><a class="close">X</a><h2 class="title">' + this.options.popupTitle + '</h2><div class="content">' + popupBody + '</div></div>');

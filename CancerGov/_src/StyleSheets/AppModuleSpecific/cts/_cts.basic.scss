@@ -3,14 +3,24 @@
   white-space: nowrap
 }
 
-.cts-search-page {
-  > .columns {
-    padding: 0;
-    &:last-child {
-      float:left;
-    }
+%no-col-padding {
+  padding: 0;
+  &:last-child {
+    float:left;
   }
 }
+
+.cts-search-page {
+  > .columns {
+    @extend %no-col-padding;
+  }
+}
+
+.delighter-rail {
+  @extend %no-col-padding;
+}
+
+
 
 .cts-form {
 

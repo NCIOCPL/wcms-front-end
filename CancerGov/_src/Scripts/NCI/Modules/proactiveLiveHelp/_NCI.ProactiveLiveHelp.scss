@@ -44,7 +44,7 @@
 	.live-help {
 		content: " ";
 		@include svg-sprite(live-help-logo);
-		font-size: 315%; // sprite icon max size is 32px. Using font-size to zoom it up
+		font-size: 60%;
 		margin-left: 20px;
 		margin-top: 12px;
 	}
