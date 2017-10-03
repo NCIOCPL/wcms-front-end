@@ -75,7 +75,7 @@
 .cts-feedback {
   &::before {
     content: "";
-    @include svg-sprite(feedback);
+    @include svg-sprite(feedback-large);
   }
 
   h4 {
@@ -84,7 +84,7 @@
 }
 .cts-livehelp {
   a::before {
-    @include svg-sprite(live-help-person);
+    @include svg-sprite(live-help-person-large);
   }
   h4 {
     background-color: #35778f;
@@ -92,7 +92,7 @@
 }
 .cts-which {
   a::before {
-    @include svg-sprite(checklist);
+    @include svg-sprite(checklist-large);
   }
   h4 {
     background-color: #4a437a;
@@ -100,7 +100,7 @@
 }
 .cts-what {
   a::before {
-    @include svg-sprite(questionmark);
+    @include svg-sprite(questionmark-large);
   }
   h4 {
     background-color: $navyblue;
