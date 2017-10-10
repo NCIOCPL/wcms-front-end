@@ -28,8 +28,12 @@ define(function(require) {
                 })
                 .done(function(data) {
                     // Initialize the selected player with the first item in the playlist
-                    var $initialID = (data.items[0].snippet.resourceId.videoId); 
-                    drawSelectedVideo($initialID);                        
+                    var $initialID = data.items[0].snippet.resourceId.videoId;
+                    drawSelectedVideo($initialID);
+
+                    // Get the number of results
+                    var $count = data.pageInfo.totalResults;
+                    $('.yt-carousel-count').text($count + ' Videos');
                     
                     // Draw the carousel thumbnails
                     // TODO: handle qty of > 50 (API only returns 50 at a time)
