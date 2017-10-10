@@ -208,7 +208,33 @@
 }
 .yt-carousel-thumb {
 	margin-top: 10px;
-	margin-right: 10px;
+	padding-right: 10px;
+}
+
+.yt-carousel-arrows {
+  float: right;
+  margin-top: -10px;
+  text-align: right;
+  width: 50%;
+}
+
+.yt-carousel-arrows button {
+	background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    display: inline;
+    height: 30px;
+    padding: 0;
+    width: 30px;
+}
+
+.yt-carousel-arrows .previous {
+	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+	transform: rotate(-90deg);
+}
+.yt-carousel-arrows .next {
+	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+  transform: rotate(90deg);
 }
 
 /****************** END VIDEO CAROUSEL STYLES ******************/
