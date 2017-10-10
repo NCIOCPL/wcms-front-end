@@ -39,7 +39,7 @@ define(function(require) {
                     // TODO: handle qty of > 50 (API only returns 50 at a time)
                     $.each(data.items, function(i, item) {
                         $vid = item.snippet.resourceId.videoId;
-                        $('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" id="' + $vid + '"><img src="https://i.ytimg.com/vi/' + $vid + '/mqdefault.jpg"></a>');
+                        $('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i + '" id="' + $vid + '"><img src="https://i.ytimg.com/vi/' + $vid + '/mqdefault.jpg"></a>');
                     });
                     
                     // JS snippets for YouTube playlist carousel 
