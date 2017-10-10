@@ -8,6 +8,8 @@ define(function(require) {
 
 		require('Common/Enhancements/clinicalTrialsDelighter');
 		require('Common/Enhancements/analytics.After').init();
+        require('Inner/Enhancements/video-carousel').init();       
+        
 
         // overriding dictionary pages' inline script
 		// set flag to recreate autocomplete on dictionary pages
