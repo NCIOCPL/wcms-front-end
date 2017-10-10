@@ -176,13 +176,14 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   //background-size: 10%;
   width: 375px;
   margin-bottom: .25em;
+  overflow: hidden;
 
   &::after {
     content:"";
     position: absolute;
     right: 0;
     @include svg-sprite(plus-box);
-    font-size: 87%;
+    font-size: 88%;
   }
 
   &.show {
