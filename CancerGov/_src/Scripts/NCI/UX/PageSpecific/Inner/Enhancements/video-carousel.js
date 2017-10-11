@@ -17,7 +17,7 @@ define(function(require) {
     function _initialize() {
     
         // Hit the YouTube API and draw the carousel if this is page contains an inline carousel
-        $( ".yt-carousel" ).each(function(i) {
+        $( ".yt-carousel" ).each(function() {
             var $this = $(this);
 
             // YouTube API address & params
@@ -31,7 +31,8 @@ define(function(require) {
                     playlistId  : $playlistId,
                     tagmode     : 'any',
                     format      : 'json',
-                    key         : $key
+                    key         : $key,
+                    maxResults  : 50                    
                 }
             )
             .done(function(data) {
@@ -43,6 +44,7 @@ define(function(require) {
                 var $count = data.pageInfo.totalResults;
                 $this.find('.yt-carousel-count').text($count + ' Videos');
                 
+                videoList = []; // Clear the video list
                 setVideoList($jsonUrl, $playlistId, $key);
                 console.log(videoList);
 
@@ -80,6 +82,14 @@ define(function(require) {
 
     }
 
+    /**
+     * Get playlist JSON from the YouTube API and build a complete list of videos associated with 
+     * a playlist ID.
+     * @param {any} $url 
+     * @param {any} $plid 
+     * @param {any} $key 
+     * @param {any} $npt 
+     */
     function setVideoList($url, $plid, $key, $npt)
     {
         $.get(
@@ -97,19 +107,21 @@ define(function(require) {
                     $vid = item.snippet.resourceId.videoId;
                     videoList.push($vid);
                 });
+                // If the nextPageToken property exists, there are more results. Call the method again 
+                // with the pageToken value set.
                 if(typeof(data.nextPageToken) !== 'undefined')
                 {
                     setVideoList($url, $plid, $key, data.nextPageToken)
                 }
             }
         );
-    }
-
-    
+    }    
 
     /**
-    * Update flex-video selector attributes with a new video ID
-    */
+     * Update flex-video selector attributes with a new video ID 
+     * @param {any} $vidID 
+     * @param {any} $el 
+     */
     function drawSelectedVideo($vidID, $el) {
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
