@@ -20,13 +20,16 @@ define(function(require) {
             // YouTube API address & params
             var $playlistId = $this.attr("data-playlist-id");
             var $key = "AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8"; // key for dev work - replace this!!!!
-            var $maxResults = "50";
-            var $jsonUrl = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId=" + $playlistId + "&key=" + $key + "&maxResults=" + $maxResults;
+            var $jsonUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
             
             // Retrieve video playlist data from the YouTube API. When the object is resolved, build the carousel HTML using each of the playlist's videos.
-            $.getJSON($jsonUrl, {
-                    tagmode: "any",
-                    format: "json"
+            $.get($jsonUrl, {
+                    part        : 'snippet',
+                    playlistId  : $playlistId,
+                    tagmode     : "any",
+                    format      : "json",
+                    key         : $key,
+                    maxResults  : 50
                 })
                 .done(function(data) {
                     // Initialize the selected player with the first item in the playlist
