@@ -7,7 +7,8 @@ define(function(require) {
 	$(function() {
 
 		require('Common/Enhancements/clinicalTrialsDelighter');
-		require('Common/Enhancements/analytics.After').init();
+        require('Common/Enhancements/analytics.After').init();
+        require('Inner/Enhancements/image-carousel').init();
         require('Inner/Enhancements/video-carousel').init();       
         
 
