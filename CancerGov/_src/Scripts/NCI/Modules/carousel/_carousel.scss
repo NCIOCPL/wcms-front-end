@@ -340,15 +340,9 @@
 }
 
 .yt-carousel-m-controls {
-  @include bp(large-up) {
+  @include bp(medium-up) {
     display: none;
   }
-  @include bp(medium-down) {
-    display: none;
-  }
-  @include bp(small) {
-    display: block;
-  } 
 }
 
 /****************** END VIDEO CAROUSEL STYLES ******************/
