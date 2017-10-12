@@ -24,6 +24,7 @@ define(function(require) {
             var $jsonUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
             
             // Retrieve video playlist data from the YouTube API. When the object is resolved, build the carousel HTML using each of the playlist's videos.
+            // Sample API URL: https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId=PLYKy4VbxNln61Inca7txbOLqAxJNMZypg&key=AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8
             $.get($jsonUrl, {
                     part        : 'snippet',
                     playlistId  : $playlistId,
