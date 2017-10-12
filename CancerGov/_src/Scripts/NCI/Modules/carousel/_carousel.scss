@@ -322,11 +322,13 @@
     width: 40px;
 }
 
-.yt-carousel-arrows .previous {
+.yt-carousel-arrows .previous,
+.yt-carousel-arrows .m-previous {
 	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
 	transform: rotate(-90deg);
 }
-.yt-carousel-arrows .next {
+.yt-carousel-arrows .next,
+.yt-carousel-arrows .m-next {
 	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
   transform: rotate(90deg);
 }
