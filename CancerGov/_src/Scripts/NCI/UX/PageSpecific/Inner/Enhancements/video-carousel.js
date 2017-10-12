@@ -6,7 +6,9 @@ define(function(require) {
 
     /***
     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
-    * TODO: - build mobile functionality
+    * TODO: - fix issue w/multiple video playlists
+    *       - test within an accordion
+    *       - get video titles 
     *       - test within an accordion
     *       - make key configurable
     **/
@@ -31,15 +33,15 @@ define(function(require) {
                     maxResults  : 50
                 })
             .then(function(data) {
-                // Initialize the selected player with the first item in the playlist
-                var $initialID = data.items[0].snippet.resourceId.videoId;
-                drawSelectedVideo($initialID, $this);
-
                 // Get the number of results
                 var $count = data.pageInfo.totalResults;
                 if($count > 50) { $count = 50; } 
                 $this.find('.yt-carousel-count').text($count + ' Videos');
-                
+
+                // Initialize the selected player with the first item in the playlist
+                var $initialID = data.items[0].snippet.resourceId.videoId;
+                drawSelectedVideoMobile($initialID, $this, 1, $count);
+
                 // Draw the carousel thumbnails
                 // TODO: handle qty of > 50 (API only returns 50 at a time)
                 vidIDList = [];
@@ -47,14 +49,20 @@ define(function(require) {
                     $vid = item.snippet.resourceId.videoId;
                     $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i + '" id="' + $vid + '"><img src="https://i.ytimg.com/vi/' + $vid + '/mqdefault.jpg"></a>');
                     vidIDList.push($vid);
-                });                
+                });
 
                 // JS snippets for YouTube playlist carousel 
                 // Draw slick slider for YT thumbnails
                 $this.find('.yt-carousel-thumbs').slick({
                     infinite: true,
                     slidesToShow: 3,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    responsive: [{
+                        breakpoint: 860,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }]
                 });
 
                 // Script for custom arrows
@@ -72,7 +80,7 @@ define(function(require) {
                     drawSelectedVideo($thumbVideoID, $this);
                 });
 
-                // Change the video upon mobile next arrow click 
+                // Change the video upon mobile next arrow click
                 $this.find('.yt-carousel-arrows .m-previous').click(function() {
                     $valueCurr = $('.flex-video').attr('data-video-id');
                     $indexPrev = vidIDList.indexOf($valueCurr) - 1;
@@ -80,27 +88,38 @@ define(function(require) {
                         $indexPrev = (vidIDList.length - 1);
                     }
                     $valuePrev = vidIDList[$indexPrev];
-                    drawSelectedVideo($valuePrev, $this);                    
+                    drawSelectedVideoMobile($valuePrev, $this, ($indexPrev + 1), vidIDList.length);
                 });
 
-                // Change the video upon mobile previous arrow click                 
+                // Change the video upon mobile previous arrow click
                 $this.find('.yt-carousel-arrows .m-next').click(function() {
-                    $valueCurr = $('.flex-video').attr('data-video-id'); 
+                    $valueCurr = $('.flex-video').attr('data-video-id');
                     $indexNext = vidIDList.indexOf($valueCurr) + 1;
-                    if($indexNext > (vidIDList.length - 1)) { 
+                    if($indexNext > (vidIDList.length - 1)) {
                         $indexNext = 0;
-                    }                        
+                    }
                     $valueNext = vidIDList[$indexNext];
-                    drawSelectedVideo($valueNext, $this);                    
-                });                
+                    drawSelectedVideoMobile($valueNext, $this, ($indexNext + 1), vidIDList.length);
+                });
 
-            });
-        });
+            }); // end $.get().then()
+        }); // end $.each for video carousels
 
     }
 
     /**
-     * Update flex-video selector attributes with a new video ID 
+     * Draw HTML elements for mobile view only, then render the selected video
+     * @param {any} $vidID
+     * @param {any} $el 
+     */
+    function drawSelectedVideoMobile($vidID, $el, $index, $total) {
+        var $count = $el.find('.yt-carousel-m-count');
+        $count.text($index + "/" + $total);
+        drawSelectedVideo($vidID, $el);
+    }
+
+    /**
+     * Update flex-video selector attributes with a new video ID, then render the selected video
      * @param {any} $vidID 
      * @param {any} $el 
      */
@@ -111,7 +130,7 @@ define(function(require) {
         $selectedVideo.attr('data-video-id', $vidID);
         $selectedVideo.find('noscript a').attr('href', 'https://www.youtube.com/watch?v=' + $vidID);
 
-        // Rebuild the YouTube embedded video from the updated flex-video element    
+        // Rebuild the YouTube embedded video from the updated flex-video element
         // flexVideo.init() enables the embedding of YouTube videos and playlists as iframes.
         (function() {
             flexVideo.init();
