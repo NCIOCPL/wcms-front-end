@@ -6,10 +6,9 @@ define(function(require) {
 
     /***
     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
-    * TODO: - fix issue w/multiple video playlists
+    * TODO: - fix issue w/multiple video playlists on mobile
     *       - test within an accordion
     *       - make key configurable
-    *       - add error handling 
     *       - fix transition from mobile to desktop
     *       - refactor and clean up ID/title collections    
     *       - first video does not load when in 2nd or 3rd carousel position 
@@ -91,7 +90,7 @@ define(function(require) {
                     var $th = $(this);
                     var $thumbVideoID = $th.attr('id');
                     var $thumbVideoTitle = $th.text();
-                    drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this);
+                    drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this);                     
                 });
 
                 // Change the video upon mobile next arrow click
@@ -103,7 +102,7 @@ define(function(require) {
                     }
                     $valuePrev = vidIDList[$indexPrev];
                     $titlePrev = vidTitleList[$indexPrev];
-                    drawSelectedVideoMobile($valuePrev, $titlePrev, $this, ($indexPrev + 1), vidIDList.length);
+                    drawSelectedVideoMobile($valuePrev, $titlePrev, $this, ($indexPrev + 1), $count);
                 });
 
                 // Change the video upon mobile previous arrow click
@@ -115,10 +114,14 @@ define(function(require) {
                     }
                     $valueNext = vidIDList[$indexNext];
                     $titleNext = vidTitleList[$indexNext];
-                    drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), vidIDList.length);
+                    drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), $count);
                 });
 
-            }); // end $.get().then()
+            }) // end $.get().then()
+            .fail(function() {
+                console.log('Error retrieving data from YouTube API. Verify the GET request URL.');
+            });
+
         }); // end $.each for video carousels
 
     }
