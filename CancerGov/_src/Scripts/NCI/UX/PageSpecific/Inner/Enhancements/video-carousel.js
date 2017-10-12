@@ -8,8 +8,6 @@ define(function(require) {
     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
     * TODO: - fix issue w/multiple video playlists
     *       - test within an accordion
-    *       - get video titles 
-    *       - test within an accordion
     *       - make key configurable
     **/
     function _initialize() {
@@ -41,14 +39,20 @@ define(function(require) {
 
                 // Initialize the selected player with the first item in the playlist
                 var $initialID = data.items[0].snippet.resourceId.videoId;
-                drawSelectedVideoMobile($initialID, $this, 1, $count);
+                var $initialTitle = data.items[0].snippet.title;
+                drawSelectedVideoMobile($initialID, 'placeholder', $this, 1, $count);
 
                 // Draw the carousel thumbnails
                 // TODO: handle qty of > 50 (API only returns 50 at a time)
                 vidIDList = [];
                 $.each(data.items, function(i, item) {
                     $vid = item.snippet.resourceId.videoId;
-                    $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i + '" id="' + $vid + '"><img src="https://i.ytimg.com/vi/' + $vid + '/mqdefault.jpg"></a>');
+                    $title = item.snippet.title;
+                    $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i 
+                                                             + '" id="' + $vid 
+                                                             + '"><img src="https://i.ytimg.com/vi/' 
+                                                             + $vid + '/mqdefault.jpg"><div>' 
+                                                             + $title + '</div></a>');
                     vidIDList.push($vid);
                 });
 
@@ -78,7 +82,7 @@ define(function(require) {
                 $this.find('.yt-carousel-thumb').click(function() {
                     var $th = $(this);
                     var $thumbVideoID = $th.attr('id');
-                    drawSelectedVideo($thumbVideoID, $this);
+                    drawSelectedVideo($thumbVideoID, 'placeholder', $this);
                 });
 
                 // Change the video upon mobile next arrow click
@@ -89,7 +93,7 @@ define(function(require) {
                         $indexPrev = (vidIDList.length - 1);
                     }
                     $valuePrev = vidIDList[$indexPrev];
-                    drawSelectedVideoMobile($valuePrev, $this, ($indexPrev + 1), vidIDList.length);
+                    drawSelectedVideoMobile($valuePrev, 'placeholder', $this, ($indexPrev + 1), vidIDList.length);
                 });
 
                 // Change the video upon mobile previous arrow click
@@ -100,7 +104,7 @@ define(function(require) {
                         $indexNext = 0;
                     }
                     $valueNext = vidIDList[$indexNext];
-                    drawSelectedVideoMobile($valueNext, $this, ($indexNext + 1), vidIDList.length);
+                    drawSelectedVideoMobile($valueNext, 'placeholder', $this, ($indexNext + 1), vidIDList.length);
                 });
 
             }); // end $.get().then()
@@ -113,10 +117,10 @@ define(function(require) {
      * @param {any} $vidID
      * @param {any} $el 
      */
-    function drawSelectedVideoMobile($vidID, $el, $index, $total) {
+    function drawSelectedVideoMobile($vidID, $vidTitle, $el, $index, $total) {
         var $count = $el.find('.yt-carousel-m-count');
         $count.text($index + "/" + $total);
-        drawSelectedVideo($vidID, $el);
+        drawSelectedVideo($vidID, $vidTitle, $el);
     }
 
     /**
@@ -124,12 +128,16 @@ define(function(require) {
      * @param {any} $vidID 
      * @param {any} $el 
      */
-    function drawSelectedVideo($vidID, $el) {
+    function drawSelectedVideo($vidID, $vidTitle, $el) {
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);
         $selectedVideo.attr('data-video-id', $vidID);
+        $selectedVideo.attr('data-video-title', $vidTitle);
         $selectedVideo.find('noscript a').attr('href', 'https://www.youtube.com/watch?v=' + $vidID);
+        $selectedVideo.find('noscript a').attr('title', $vidTitle);
+        
+        $el.find('h3').text($vidTitle);
 
         // Rebuild the YouTube embedded video from the updated flex-video element
         // flexVideo.init() enables the embedding of YouTube videos and playlists as iframes.
