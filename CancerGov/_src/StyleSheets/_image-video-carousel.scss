@@ -132,14 +132,15 @@
   transform: rotate(90deg);
 }
 
-.yt-carousel-controls {
-  @include bp(small) {
+@include bp(medium-up) {
+  .yt-carousel-m-controls {
     display: none;
   }
 }
 
-.yt-carousel-m-controls {
-  @include bp(medium-up) {
+@include bp(small) {
+	.yt-carousel-count,
+  .yt-carousel-controls {
     display: none;
   }
 }
