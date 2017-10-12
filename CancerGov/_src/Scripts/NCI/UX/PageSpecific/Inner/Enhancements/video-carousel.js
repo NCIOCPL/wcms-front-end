@@ -9,6 +9,10 @@ define(function(require) {
     * TODO: - fix issue w/multiple video playlists
     *       - test within an accordion
     *       - make key configurable
+    *       - add error handling 
+    *       - fix transition from mobile to desktop
+    *       - refactor and clean up ID/title collections    
+    *       - first video does not load when in 2nd or 3rd carousel position 
     **/
     function _initialize() {
     
@@ -40,20 +44,24 @@ define(function(require) {
                 // Initialize the selected player with the first item in the playlist
                 var $initialID = data.items[0].snippet.resourceId.videoId;
                 var $initialTitle = data.items[0].snippet.title;
-                drawSelectedVideoMobile($initialID, 'placeholder', $this, 1, $count);
+                drawSelectedVideoMobile($initialID, $initialTitle, $this, 1, $count);
 
                 // Draw the carousel thumbnails
                 // TODO: handle qty of > 50 (API only returns 50 at a time)
                 vidIDList = [];
+                vidTitleList = [];
                 $.each(data.items, function(i, item) {
                     $vid = item.snippet.resourceId.videoId;
                     $title = item.snippet.title;
                     $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i 
                                                              + '" id="' + $vid 
                                                              + '"><img src="https://i.ytimg.com/vi/' 
-                                                             + $vid + '/mqdefault.jpg"><div>' 
-                                                             + $title + '</div></a>');
-                    vidIDList.push($vid);
+                                                             + $vid + '/mqdefault.jpg" alt="'
+                                                             + $title + '">' 
+                                                             + $title + '</a>'
+                    );
+                    vidIDList.push($vid); 
+                    vidTitleList.push($title);
                 });
 
                 // JS snippets for YouTube playlist carousel 
@@ -82,7 +90,8 @@ define(function(require) {
                 $this.find('.yt-carousel-thumb').click(function() {
                     var $th = $(this);
                     var $thumbVideoID = $th.attr('id');
-                    drawSelectedVideo($thumbVideoID, 'placeholder', $this);
+                    var $thumbVideoTitle = $th.text();
+                    drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this);
                 });
 
                 // Change the video upon mobile next arrow click
@@ -93,7 +102,8 @@ define(function(require) {
                         $indexPrev = (vidIDList.length - 1);
                     }
                     $valuePrev = vidIDList[$indexPrev];
-                    drawSelectedVideoMobile($valuePrev, 'placeholder', $this, ($indexPrev + 1), vidIDList.length);
+                    $titlePrev = vidTitleList[$indexPrev];
+                    drawSelectedVideoMobile($valuePrev, $titlePrev, $this, ($indexPrev + 1), vidIDList.length);
                 });
 
                 // Change the video upon mobile previous arrow click
@@ -104,7 +114,8 @@ define(function(require) {
                         $indexNext = 0;
                     }
                     $valueNext = vidIDList[$indexNext];
-                    drawSelectedVideoMobile($valueNext, 'placeholder', $this, ($indexNext + 1), vidIDList.length);
+                    $titleNext = vidTitleList[$indexNext];
+                    drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), vidIDList.length);
                 });
 
             }); // end $.get().then()
@@ -137,6 +148,7 @@ define(function(require) {
         $selectedVideo.find('noscript a').attr('href', 'https://www.youtube.com/watch?v=' + $vidID);
         $selectedVideo.find('noscript a').attr('title', $vidTitle);
         
+        // Draw the video title
         $el.find('h3').text($vidTitle);
 
         // Rebuild the YouTube embedded video from the updated flex-video element
