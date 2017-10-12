@@ -6,7 +6,9 @@ define(function(require) {
 
     /***
     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
-    * TODO: - make key configurable
+    * TODO: - build mobile functionality
+    *       - test within an accordion
+    *       - make key configurable
     **/
     function _initialize() {
     
@@ -40,11 +42,13 @@ define(function(require) {
                 
                 // Draw the carousel thumbnails
                 // TODO: handle qty of > 50 (API only returns 50 at a time)
+                vidIDList = [];
                 $.each(data.items, function(i, item) {
                     $vid = item.snippet.resourceId.videoId;
                     $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i + '" id="' + $vid + '"><img src="https://i.ytimg.com/vi/' + $vid + '/mqdefault.jpg"></a>');
-                });
-                
+                    vidIDList.push($vid);
+                });                
+
                 // JS snippets for YouTube playlist carousel 
                 // Draw slick slider for YT thumbnails
                 $this.find('.yt-carousel-thumbs').slick({
@@ -67,6 +71,29 @@ define(function(require) {
                     var $thumbVideoID = $th.attr('id');
                     drawSelectedVideo($thumbVideoID, $this);
                 });
+
+                // Change the video upon mobile next arrow click 
+                $this.find('.yt-carousel-arrows .m-previous').click(function() {
+                    $valueCurr = $('.flex-video').attr('data-video-id');
+                    $indexPrev = vidIDList.indexOf($valueCurr) - 1;
+                    if($indexPrev < 0) { 
+                        $indexPrev = (vidIDList.length - 1);
+                    }
+                    $valuePrev = vidIDList[$indexPrev];
+                    drawSelectedVideo($valuePrev, $this);                    
+                });
+
+                // Change the video upon mobile previous arrow click                 
+                $this.find('.yt-carousel-arrows .m-next').click(function() {
+                    $valueCurr = $('.flex-video').attr('data-video-id'); 
+                    $indexNext = vidIDList.indexOf($valueCurr) + 1;
+                    if($indexNext > (vidIDList.length - 1)) { 
+                        $indexNext = 0;
+                    }                        
+                    $valueNext = vidIDList[$indexNext];
+                    drawSelectedVideo($valueNext, $this);                    
+                });                
+
             });
         });
 
