@@ -9,8 +9,8 @@ import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';
 import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/PageSpecific/Inner/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/PageSpecific/Inner/Enhancements/video-carousel';
+import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
-import 'UX/Common/Enhancements/clinicalTrialsDelighter';
 
 /**
  * Base class for all CTS Search Form Pages.
@@ -89,9 +89,10 @@ class InnerPage extends NCIBasePage {
             }
         });
 
-        // Do analytics 'after' functions
-        (<any>AnalyticsAfter).init();        
-	}    
+        // Run delighter and analytics 'after' init() functions
+        (<any>ClinicalTrialsDelighter).init(); 
+        (<any>AnalyticsAfter).init();
+	}
     
 }
 
