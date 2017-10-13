@@ -14,7 +14,8 @@ export interface YouTubeService {
      * @param size The number of terms to return. NOTE: API allows max of 100
      * @param from The 0-based offset of where to start fetching terms from.
      */
-    getYouTubeItems(termType: string, additionalParams?:any, size?:number, from?:number): Promise<YouTubeItems>;
-
+    //getYouTubeItems(termType: string, additionalParams?:any, size?:number, from?:number): Promise<YouTubeItems>;
+    getYouTubeItems(additionalParams?:any): Promise<YouTubeItems>;
+    
 }
 

@@ -24,7 +24,7 @@ export class YouTubeAPIConnectionImpl implements YouTubeAPIConnection {
 
     getRequest(path:string, params: any): Promise<any> {
         let port:string = this.port ? `:${this.port}` : '';
-        let reqURL: string = `${this.protocol}://${this.hostname}${port}/youtube/v3${path}`;
+        let reqURL:string = `${this.protocol}://${this.hostname}${port}/youtube/v3${path}`;
 
         return axios.get(
             reqURL, 
