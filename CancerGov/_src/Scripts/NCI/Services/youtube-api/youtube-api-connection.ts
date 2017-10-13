@@ -1,6 +1,6 @@
 
 /**
- * Interface for clinical trials API connections
+ * Interface for YouTube developer API connections
  */
 export interface YouTubeAPIConnection {
 

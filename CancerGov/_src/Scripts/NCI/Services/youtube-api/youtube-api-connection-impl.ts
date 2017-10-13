@@ -4,11 +4,11 @@ import { AxiosResponse } from 'axios';
 import { CDERuntimeConfig } from '../cde-configuration-service'
 
 /**
- * Interface for clinical trials v1 API connections
+ * Interface for YouTube v3 API connections
  */
 export class YouTubeAPIConnectionImpl implements YouTubeAPIConnection {
 
-    private protocol: string;    
+    private protocol: string;
     private hostname: string;
     private port: number;
 
@@ -24,7 +24,7 @@ export class YouTubeAPIConnectionImpl implements YouTubeAPIConnection {
 
     getRequest(path:string, params: any): Promise<any> {
         let port:string = this.port ? `:${this.port}` : '';
-        let reqURL: string = `${this.protocol}://${this.hostname}${port}/v1${path}`;
+        let reqURL: string = `${this.protocol}://${this.hostname}${port}/youtube/v3${path}`;
 
         return axios.get(
             reqURL, 
