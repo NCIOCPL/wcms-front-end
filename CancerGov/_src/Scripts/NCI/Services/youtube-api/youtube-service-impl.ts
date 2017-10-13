@@ -21,19 +21,22 @@ export class YouTubeServiceImpl implements YouTubeService {
 
     /**
      * Gets terms from the terms endpoint
-     * 
+     * Facade -> getYouTubeItems -> getRequest
      * @param termType The term type (REQUIRED)
      * @param additionalParams Optional additional params to use in narrowing endpoint call. Add search text and sorting here. See API for additional params.
      * @param size The number of terms to return. NOTE: API allows max of 100 (DEFAULT: 10)
      * @param from The 0-based offset of where to start fetching terms from. (DEFAULT: 0)
      */
-    getYouTubeItems(termType: string, additionalParams = {}, size = 10, from = 0): Promise<YouTubeItems> {
+    //getYouTubeItems(termType: string, additionalParams = {}, size = 10, from = 0): Promise<YouTubeItems> {
+    getYouTubeItems(additionalParams = {}): Promise<YouTubeItems> {
 
         //Setup the request
+        // TODO: remove these values - these are hardcoded for testing only
         let params = {
-            term_type: termType,
-            size: size,
-            from: from
+            part       : 'snippet',
+            playlistId : 'PLYKy4VbxNln61Inca7txbOLqAxJNMZypg',
+            key        : 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8'
+            //         &pageToken=CAUQAA   
         };
 
         //Merge in any additional params.
@@ -45,7 +48,7 @@ export class YouTubeServiceImpl implements YouTubeService {
         //Setup additional params for Viewable.
 
         return this.connection.getRequest(
-                '/terms',
+                '',
                 requestParams
             )
             .then((resJSON: any) => {
