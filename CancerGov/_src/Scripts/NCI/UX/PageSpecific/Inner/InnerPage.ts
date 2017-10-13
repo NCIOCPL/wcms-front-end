@@ -13,11 +13,11 @@ import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsD
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 
 /**
- * Base class for all CTS Search Form Pages.
+ * Class representing CancerGov inner pages.
  * 
  * @export
  * @abstract
- * @class BaseCTSSearchPage
+ * @class InnerPage
  */
 class InnerPage extends NCIBasePage {
     /**
@@ -41,7 +41,7 @@ class InnerPage extends NCIBasePage {
 	/**
 	 * Wire up the on Ready functions.
 	 * 
-	 * @memberof SimpleCTSSearchPage
+	 * @memberof InnerPage
 	 */
 	onReady():void {
 
@@ -100,6 +100,6 @@ class InnerPage extends NCIBasePage {
  * Initialize InnerPage
  */
 (function() { //encapsulation
-	let searchPage:InnerPage = new InnerPage();
-	searchPage.init();
+	let innerPage:InnerPage = new InnerPage();
+	innerPage.init();
 })();
