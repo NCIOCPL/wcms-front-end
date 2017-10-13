@@ -1,55 +1,72 @@
 
 /**
- * Represents a single disease item in the results of an diseases endpoint call
+ * Represents a single YouTube item (video) in the results of a YouTube API call
+ * TODO: - see if it makes more sense to use "playlist" and "video" as names once everything is working
  */
 export class YouTubeItem {
     
         /**
-         * The name of this disease menu item.
+         * The unique ID of this video item.
          */
-        name: string;
+        videoID: string;
     
         /**
-         * The NCI Thesaurus codes associated with this disease.
+         * The title of this video item.
          */
-        codes: string[]
-    
+        title: string;
+
         /**
-         * Parent disease ID of this menu item. Null if top level menu item.
+         * The description of this video item.
          */
-        parentDiseaseID: string
-    
+        description: string;
+        
         /**
-         * The menu this disease is in --
-         * can be "disease", "stage", or "finding".
+         * ID of the playlist that contains this video item.
          */
-        menu: string;
+        playlistID: string;
+
+        /**
+         * The link to this video item's default thumbnail image.
+         */
+        thumbnailURL: string;
+        
+        /**
+         * This video item's position in the parent playlist.
+         */
+        position: number;
     
         constructor() {
-            this.name = undefined;
-            this.codes = [];
-            this.parentDiseaseID = undefined;
-            this.menu = undefined;
+            this.videoID = undefined;
+            this.title = undefined;
+            this.description = undefined;
+            this.playlistID = undefined;
+            this.thumbnailURL = undefined;
+            this.position = 0;
         }
     
         static fromJSON(json: any) : YouTubeItem {
-            if (typeof json === 'string') {
+            if (typeof json === 'string') 
+            {
                 return JSON.parse(json, YouTubeItem.reviver);
-            } else {
+            } 
+            else 
+            {
                 //Create an instance of the InterventionResults class
-                let rtnDisease = new YouTubeItem();
+                let ytItem = new YouTubeItem();
     
                 //Loop over source
                 Object.keys(json).forEach((key: string) => {
                     switch(key) {
-                        case "name" : rtnDisease.name = json[key]; break;
-                        case "codes" : rtnDisease.codes = json[key]; break;
-                        case "disease_parent_id" : rtnDisease.parentDiseaseID = json[key]; break;
-                        case "menu" : rtnDisease.menu = json[key]; break;
+                        case "video_id" : ytItem.videoID = json[key]; break;
+                        case "title" : ytItem.title = json[key]; break;
+                        case "description" : ytItem.description = json[key]; break;
+                        case "playlist_id" : ytItem.playlistID = json[key]; break;
+                        case "thumbnail_url" : ytItem.thumbnailURL = json[key]; break;
+                        case "position" : ytItem.position = json[key]; break;
                     }
                 })
     
-                return rtnDisease;
+                return ytItem;
             }
         }
     
