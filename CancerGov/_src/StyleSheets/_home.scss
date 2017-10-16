@@ -480,9 +480,13 @@ a.arrow-link {
 a.arrow-link-white {
 	@extend a.arrow-link;
 	padding-right: 1em;
+}
 
-	&::before {
-		@include svg-sprite(chevron-circle-white, $rotate:right);
+@include bp(medium-up) {
+	a.arrow-link-white {
+		&::before {
+			@include svg-sprite(chevron-circle-white, $rotate:right);
+		}
 	}
 }
 
