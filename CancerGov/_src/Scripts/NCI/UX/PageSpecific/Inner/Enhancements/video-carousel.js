@@ -3,128 +3,157 @@ define(function(require) {
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
     var flexVideo = require('Modules/videoPlayer/flexVideo');
+    require('Vendor/gapi');
 
     /***
-    * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
-    * TODO: - fix issue w/multiple video playlists on mobile
-    *       - test within an accordion
-    *       - make key configurable
-    *       - fix transition from mobile to desktop
-    *       - refactor and clean up ID/title collections    
-    *       - first video does not load when in 2nd or 3rd carousel position 
-    **/
+     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
+     * TODO: - fix issue w/multiple video playlists on mobile
+     *       - make key configurable
+     *       - fix transition from mobile to desktop
+     *       - refactor and clean up ID/title collections 
+     *       - first video does not load when in 2nd or 3rd carousel position 
+     *       - refactor list building logic into facade
+     **/
     function _initialize() {
-    
-        // Hit the YouTube API and draw the carousel if this is page contains an inline carousel
-        $( ".yt-carousel" ).each(function(i) {
+        handleClientLoad();
+    }
+
+    /**
+     * Load the API's client and auth2 modules.
+     * Call the initClient function after the modules load.
+     */
+    function handleClientLoad() {
+        console.log('loading client');
+        gapi.load('client', initClient);
+    }
+
+    function initClient() {
+        $(".yt-carousel").each(function(i) {
             var $this = $(this);
 
             // YouTube API address & params
             var $playlistId = $this.attr("data-playlist-id");
             var $key = "AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8"; // key for dev work - replace this!!!!
             var $jsonUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
-            
-            // Retrieve video playlist data from the YouTube API. When the object is resolved, build the carousel HTML using each of the playlist's videos.
+
+            // Initialize the gapi.client object, which app uses to make API requests.
+            // Get API key and client ID from API Console.
+            // 'scope' field specifies space-delimited list of access scopes
             // Sample API URL: https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId=PLYKy4VbxNln61Inca7txbOLqAxJNMZypg&key=AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8
-            $.get($jsonUrl, {
-                    part        : 'snippet',
-                    playlistId  : $playlistId,
-                    tagmode     : 'any',
-                    format      : 'json',
-                    key         : $key,
-                    maxResults  : 50
-                })
-            .then(function(data) {
-                // Get the number of results
-                var $count = data.pageInfo.totalResults;
-                if($count > 50) { $count = 50; } 
-                $this.find('.yt-carousel-count').text($count + ' Videos');
+            gapi.client.init({
+                'apiKey': 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8',
+                'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
+                'scope': 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtubepartner'
+            })
+            .then(function() {
+                console.log('client loaded');
+                console.log('== BEGIN retrieiving playlist items data ==');                
+                gapi.client.youtube.playlistItems.list({
+                        playlistId: $playlistId,
+                        part: 'snippet',
+                        maxResults: 50
+                    })
+                    .then(function(data) {
+                        console.log(data);
+                        console.log(data.result.items);
+                        console.log('== END retrieiving playlist items data == ');
 
-                // Initialize the selected player with the first item in the playlist
-                var $initialID = data.items[0].snippet.resourceId.videoId;
-                var $initialTitle = data.items[0].snippet.title;
-                drawSelectedVideoMobile($initialID, $initialTitle, $this, 1, $count);
-
-                // Draw the carousel thumbnails
-                // TODO: handle qty of > 50 (API only returns 50 at a time)
-                vidIDList = [];
-                vidTitleList = [];
-                $.each(data.items, function(i, item) {
-                    $vid = item.snippet.resourceId.videoId;
-                    $title = item.snippet.title;
-                    $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i 
-                                                             + '" id="' + $vid 
-                                                             + '"><img src="https://i.ytimg.com/vi/' 
-                                                             + $vid + '/mqdefault.jpg" alt="'
-                                                             + $title + '">' 
-                                                             + $title + '</a>'
-                    );
-                    vidIDList.push($vid); 
-                    vidTitleList.push($title);
-                });
-
-                // JS snippets for YouTube playlist carousel 
-                // Draw slick slider for YT thumbnails
-                $this.find('.yt-carousel-thumbs').slick({
-                    infinite: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    responsive: [{
-                        breakpoint: 860,
-                        settings: {
-                            slidesToShow: 2
+                        console.log('== Begin enhancement to drawi HTML from items == ');
+                        var $count = data.result.pageInfo.totalResults;
+                        if ($count > 50) {
+                            $count = 50;
                         }
-                    }]
-                });
+                        $this.find('.yt-carousel-count').text($count + ' Videos');
 
-                // Script for custom arrows
-                $this.find('.yt-carousel-arrows .previous').click(function() {
-                    $this.find('.yt-carousel-thumbs').slick("slickPrev");
-                });
-                $this.find('.yt-carousel-arrows .next').click(function() {
-                    $this.find('.yt-carousel-thumbs').slick("slickNext");
-                });
-        
-                // Change the video on carousel click
-                $this.find('.yt-carousel-thumb').click(function() {
-                    var $th = $(this);
-                    var $thumbVideoID = $th.attr('id');
-                    var $thumbVideoTitle = $th.text();
-                    drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this);                     
-                });
+                        // Initialize the selected player with the first item in the playlist
+                        var $initialID = data.result.items[0].snippet.resourceId.videoId;
+                        var $initialTitle = data.result.items[0].snippet.title;
+                        drawSelectedVideoMobile($initialID, $initialTitle, $this, 1, $count);
 
-                // Change the video upon mobile next arrow click
-                $this.find('.yt-carousel-arrows .m-previous').click(function() {
-                    $valueCurr = $('.flex-video').attr('data-video-id');
-                    $indexPrev = vidIDList.indexOf($valueCurr) - 1;
-                    if($indexPrev < 0) { 
-                        $indexPrev = (vidIDList.length - 1);
-                    }
-                    $valuePrev = vidIDList[$indexPrev];
-                    $titlePrev = vidTitleList[$indexPrev];
-                    drawSelectedVideoMobile($valuePrev, $titlePrev, $this, ($indexPrev + 1), $count);
-                });
+                        // Draw the carousel thumbnails
+                        // TODO: handle qty of > 50 (API only returns 50 at a time)
+                        vidIDList = [];
+                        vidTitleList = [];
+                        $.each(data.result.items, function(i, item) {
+                            $vid = item.snippet.resourceId.videoId;
+                            $title = item.snippet.title;
+                            $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb" count="' + i +
+                                '" id="' + $vid +
+                                '"><img src="https://i.ytimg.com/vi/' +
+                                $vid + '/mqdefault.jpg" alt="' +
+                                $title + '">' +
+                                $title + '</a>'
+                            );
+                            vidIDList.push($vid);
+                            vidTitleList.push($title);
+                        });
 
-                // Change the video upon mobile previous arrow click
-                $this.find('.yt-carousel-arrows .m-next').click(function() {
-                    $valueCurr = $('.flex-video').attr('data-video-id');
-                    $indexNext = vidIDList.indexOf($valueCurr) + 1;
-                    if($indexNext > (vidIDList.length - 1)) {
-                        $indexNext = 0;
-                    }
-                    $valueNext = vidIDList[$indexNext];
-                    $titleNext = vidTitleList[$indexNext];
-                    drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), $count);
-                });
+                        // JS snippets for YouTube playlist carousel 
+                        // Draw slick slider for YT thumbnails
+                        $this.find('.yt-carousel-thumbs').slick({
+                            infinite: true,
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            responsive: [{
+                                breakpoint: 860,
+                                settings: {
+                                    slidesToShow: 2
+                                }
+                            }]
+                        });
 
-            }) // end $.get().then()
-            .fail(function() {
-                console.log('Error retrieving data from YouTube API. Verify the GET request URL.');
+                        // Script for custom arrows
+                        $this.find('.yt-carousel-arrows .previous').click(function() {
+                            $this.find('.yt-carousel-thumbs').slick("slickPrev");
+                        });
+                        $this.find('.yt-carousel-arrows .next').click(function() {
+                            $this.find('.yt-carousel-thumbs').slick("slickNext");
+                        });
+
+                        // Change the video on carousel click
+                        $this.find('.yt-carousel-thumb').click(function() {
+                            var $th = $(this);
+                            var $thumbVideoID = $th.attr('id');
+                            var $thumbVideoTitle = $th.text();
+                            drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this);
+                        });
+
+                        // Change the video upon mobile next arrow click
+                        $this.find('.yt-carousel-arrows .m-previous').click(function() {
+                            $valueCurr = $('.flex-video').attr('data-video-id');
+                            $indexPrev = vidIDList.indexOf($valueCurr) - 1;
+                            if ($indexPrev < 0) {
+                                $indexPrev = (vidIDList.length - 1);
+                            }
+                            $valuePrev = vidIDList[$indexPrev];
+                            $titlePrev = vidTitleList[$indexPrev];
+                            drawSelectedVideoMobile($valuePrev, $titlePrev, $this, ($indexPrev + 1), $count);
+                        });
+
+                        // Change the video upon mobile previous arrow click
+                        $this.find('.yt-carousel-arrows .m-next').click(function() {
+                            $valueCurr = $('.flex-video').attr('data-video-id');
+                            $indexNext = vidIDList.indexOf($valueCurr) + 1;
+                            if ($indexNext > (vidIDList.length - 1)) {
+                                $indexNext = 0;
+                            }
+                            $valueNext = vidIDList[$indexNext];
+                            $titleNext = vidTitleList[$indexNext];
+                            drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), $count);
+                        });
+                        console.log('== END enhancement to drawi HTML from items == ');                        
+                        
+                    })
+
+                console.log(gapi)
             });
-
-        }); // end $.each for video carousels
+            // .fail(function() {
+            //     console.log('Error retrieving data from YouTube API. Verify the GET request URL.');
+            // });
+        })
 
     }
+
 
     /**
      * Draw HTML elements for mobile view only, then render the selected video
@@ -150,7 +179,7 @@ define(function(require) {
         $selectedVideo.attr('data-video-title', $vidTitle);
         $selectedVideo.find('noscript a').attr('href', 'https://www.youtube.com/watch?v=' + $vidID);
         $selectedVideo.find('noscript a').attr('title', $vidTitle);
-        
+
         // Draw the video title
         $el.find('h3').text($vidTitle);
 
