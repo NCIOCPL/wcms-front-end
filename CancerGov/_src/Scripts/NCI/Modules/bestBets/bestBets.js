@@ -42,7 +42,7 @@ define(function (require) {
 	// render the defintion to produce the content and html
 	var _render = function (obj) {
 		// console.log("inside render with:", obj);
-		var term = '<dt>' + obj.term + '</dt>';
+		var term = '<dt class="term"><strong>' + obj.term + '</strong></dt>';
 		var audio = "";
 		var pronunciation = "";
 		
@@ -55,9 +55,11 @@ define(function (require) {
 		var toggle = '<div id="best-bets-toggle"><a href="#"><span id="definitionShowHide">' + config.lang.Show[lang] + '</span> ' + config.lang.Definition_Show_Full[lang] + '</a></div>';
 	
 		var definition = obj.definition.html;
+		// this is to pull out newline characters which have been found to interfere with the period + blank space method for identifying end of first sentence, ie in "tumor" definition.
+		definition = definition.replace(/(\r\n|\n|\r)/gm," ");
 		// break the definition into first sentence and rest for display in mobile
-		var definitionStart =  obj.definition.html.slice(0, definition.indexOf('. ') + 1);
-		var definitionEnd = obj.definition.html.slice(definition.indexOf('. ') + 1);
+		var definitionStart =  definition.slice(0, definition.indexOf('. ') + 1);
+		var definitionEnd = definition.slice(definition.indexOf('. ') + 1);
 		
 		// in cases where there is only one sentence, assign it to first and make the rest an empty string
 		if (definitionStart === '') {
@@ -75,7 +77,7 @@ define(function (require) {
 		// console.log("definitionEnd is:" + definitionEnd);
 		
 		// the box takes all the components and puts them together in the defintion box
-		var box = '<div id="best-bet-definition"><h2>' + config.lang.Definition_Title[lang] + ':</h2><dl>' + term + '<dd>' + audio + pronunciation + ' </dd><dd>' + definitionStart + definitionEnd + moreInfo() + '</dd></dl>'  + toggle + ' </div><div id="dictionary_jPlayer"></div>';
+		var box = '<div id="best-bet-definition"><h2>' + config.lang.Definition_Title[lang] + ':</h2><dl>' + term + '<dd class="pronunciation">' + audio + pronunciation + ' </dd><dd class="definition">' + definitionStart + definitionEnd + moreInfo() + '</dd></dl>'  + toggle + ' </div><div id="dictionary_jPlayer"></div>';
 		
 		// html rules for within best bets
 		if ($('.featured.sitewide-results')[0]) {
