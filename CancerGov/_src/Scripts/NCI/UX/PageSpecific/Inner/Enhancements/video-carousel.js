@@ -23,14 +23,17 @@ define(function(require) {
      * Call the initClient function after the modules load.
      */
     function handleClientLoad() {
-        console.log('loading client');
+        console.log('== BEGIN initClient() ==');
         gapi.load('client', initClient);
+        console.log('== END initClient() ==');                
     }
 
     function initClient() {
         $(".yt-carousel").each(function(i) {
             var $this = $(this);
 
+            console.log('1. loading client (' + i + ')');
+            
             // YouTube API address & params
             var $playlistId = $this.attr("data-playlist-id");
             var $key = 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8'; // key for dev work - replace this!!!!
@@ -45,19 +48,19 @@ define(function(require) {
                 'discoveryDocs': $discoveryDocs
             })
             .then(function() {
-                console.log('client loaded');
-                console.log('== BEGIN retrieiving playlist items data ==');                
+                console.log('2. client loaded (' + i + ')');
+                console.log('3. BEGIN retrieiving playlist items data (' + i + ')');                
                 gapi.client.youtube.playlistItems.list({
                         playlistId: $playlistId,
                         part: 'snippet',
                         maxResults: 50
                     })
                     .then(function(data) {
-                        console.log(data);
-                        console.log(data.result.items);
-                        console.log('== END retrieiving playlist items data == ');
+                        //console.log(data);
+                        //console.log(data.result.items);
+                        console.log('4. END retrieiving playlist items data (' + i + ')');
 
-                        console.log('== Begin enhancement to draw HTML from items == ');
+                        console.log('5. BEGIN enhancement to draw HTML from items (' + i + ')');
                         var $count = data.result.pageInfo.totalResults;
                         if ($count > 50) {
                             $count = 50;
@@ -140,11 +143,11 @@ define(function(require) {
                             $titleNext = vidTitleList[$indexNext];
                             drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), $count);
                         });
-                        console.log('== END enhancement to draw HTML from items == ');                        
+                        console.log('6. END enhancement to draw HTML from items (' + i + ')');                        
                         
                     })
 
-                console.log(gapi)
+                //console.log(gapi)
             });
             // .fail(function() {
             //     console.log('Error retrieving data from YouTube API. Verify the GET request URL.');
