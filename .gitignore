@@ -152,3 +152,6 @@ sftp-config.json
 # Visual Studio Code - https://code.visualstudio.com/
 .settings/
 .vscode/
+
+### Generated Files ###
+*-sprite-map.scss
