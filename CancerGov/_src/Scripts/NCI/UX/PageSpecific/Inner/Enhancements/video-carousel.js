@@ -33,17 +33,16 @@ define(function(require) {
 
             // YouTube API address & params
             var $playlistId = $this.attr("data-playlist-id");
-            var $key = "AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8"; // key for dev work - replace this!!!!
-            var $jsonUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
+            var $key = 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8'; // key for dev work - replace this!!!!
+            var $discoveryDocs = ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
 
             // Initialize the gapi.client object, which app uses to make API requests.
             // Get API key and client ID from API Console.
             // 'scope' field specifies space-delimited list of access scopes
             // Sample API URL: https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId=PLYKy4VbxNln61Inca7txbOLqAxJNMZypg&key=AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8
             gapi.client.init({
-                'apiKey': 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8',
-                'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'],
-                'scope': 'https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtubepartner'
+                'apiKey': $key,
+                'discoveryDocs': $discoveryDocs
             })
             .then(function() {
                 console.log('client loaded');
@@ -58,7 +57,7 @@ define(function(require) {
                         console.log(data.result.items);
                         console.log('== END retrieiving playlist items data == ');
 
-                        console.log('== Begin enhancement to drawi HTML from items == ');
+                        console.log('== Begin enhancement to draw HTML from items == ');
                         var $count = data.result.pageInfo.totalResults;
                         if ($count > 50) {
                             $count = 50;
@@ -141,7 +140,7 @@ define(function(require) {
                             $titleNext = vidTitleList[$indexNext];
                             drawSelectedVideoMobile($valueNext, $titleNext, $this, ($indexNext + 1), $count);
                         });
-                        console.log('== END enhancement to drawi HTML from items == ');                        
+                        console.log('== END enhancement to draw HTML from items == ');                        
                         
                     })
 
