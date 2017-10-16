@@ -28,6 +28,17 @@
 		margin-bottom: 0.5em;	
 		margin-top: 0;
 	}
+	dt.term {
+		margin-right: 8px;
+	}
+	dd.pronunciation {
+		margin-left: 0;
+		display: inline-block
+	}
+	dd.definition {
+		margin-top: 7px;	
+	}
+	
 	#best-bets-toggle {
 		border-top: 1px solid #C7C6C6;
 		margin-left: -19px;
