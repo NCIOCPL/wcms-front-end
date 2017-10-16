@@ -49,10 +49,10 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 /// @param {string} $icon - The name of the icon
 @function icon-attr($icon) {
   $attr: (
-          width: sprite-attr($icon, width),
-          height: sprite-attr($icon, height),
-          x: sprite-attr($icon, backgroundX),
-          y: sprite-attr($icon, backgroundY)
+    width: sprite-attr($icon, width),
+    height: sprite-attr($icon, height),
+    x: sprite-attr($icon, positionX),
+    y: sprite-attr($icon, positionY)
   );
 
   @return $attr;
@@ -141,7 +141,14 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
   // Outputs background position in em
   @if $type == all or $type == bg {
     //background-position: mq-px2em(map-get($iconMap, x) - 5) mq-px2em(map-get($iconMap, y) - 5);
-    background-position: map-get($iconMap, x) map-get($iconMap, y);
+    //background-position: map-get($iconMap, x) map-get($iconMap, y);
+    //-100 * (position + padding) / (sprite height - icon height - 1)  * -1 is for 1px padding within the original svg assest
+
+    $bgX: -100 * (map-get($iconMap, x) - map-get($svg-sprite, padding)) / (map-get($svg-sprite, width) - map-get($iconMap, width) - 1);
+    $bgY: -100 * (map-get($iconMap, y) - map-get($svg-sprite, padding)) / (map-get($svg-sprite, height) - map-get($iconMap, height) - 1);
+    $bgPos: unquote('#{$bgX}% #{$bgY}%');
+    background-position: $bgPos;
+
   }
 
   @if type_of($rotate) == string {
