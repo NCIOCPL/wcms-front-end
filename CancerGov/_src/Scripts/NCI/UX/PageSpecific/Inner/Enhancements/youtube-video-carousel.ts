@@ -1,4 +1,3 @@
-import { ClinicalTrialsServiceFactory } from 'Services/clinical-trials';
 import { YouTubeAPIFacade } from 'UX/PageSpecific/Inner/Enhancements/youtubeapi-facade';
 import { NCIBaseEnhancement } from 'UX/core';
 
@@ -10,7 +9,7 @@ import { NCIBaseEnhancement } from 'UX/core';
  * @class CTSBaseFormSetup
  * @extends {NCIBaseEnhancement}
  */
-export class VideoCarousel extends NCIBaseEnhancement{
+export class YouTubeVideoCarousel extends NCIBaseEnhancement{
 		
 
 	/**
