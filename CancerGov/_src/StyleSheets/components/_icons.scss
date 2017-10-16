@@ -48,8 +48,7 @@ $text-icon-help-border-size: 2px;
 }
 @include bp(small) {
 		.feature-card .image-hover a.icon-exit-notification {
-			width: 23.4488px;
-			height: 20px;
+			font-size: .7em;
 		}
 		.cthp-card-image a.icon-exit-notification {
 			display: none;
