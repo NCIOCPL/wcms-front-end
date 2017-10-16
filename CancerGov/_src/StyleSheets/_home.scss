@@ -68,18 +68,24 @@
 	}
 }
 
-/* TODO: is this style still in use? */
-//.hero-call-to-action {
-//	font-size: 18px;
-//	background: image-url($buttons + "hero-arrow.png") no-repeat center right;
-//	display: inline-block;
-//	padding-right: 1em;
-//	@include transition(padding-right 0.4s ease-in-out);
-//
-//	&:hover, &:focus {
-//		padding-right: 1.5em;
-//	}
-//}
+/* Used on Cancer Types hero */
+.hero-call-to-action {
+	display: inline-block;
+	font-size: 18px;
+
+	&:hover, &:focus {
+		&::after {
+			transform: translateX(.5em) rotate(90deg);
+		}
+	}
+
+	&::after {
+		content:'';
+		font-size: .85em;
+		@include svg-sprite(chevron-white, $rotate:right);
+		@include transition(transform 0.4s ease-in-out);
+	}
+}
 
 @include bp(small) {
 	.hero-slot {
