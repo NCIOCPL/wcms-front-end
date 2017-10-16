@@ -184,6 +184,7 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
     right: 0;
     @include svg-sprite(plus-box);
     font-size: 88%;
+    background-color: #389cc0;
   }
 
   &.show {
