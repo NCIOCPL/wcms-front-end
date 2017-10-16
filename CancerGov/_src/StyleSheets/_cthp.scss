@@ -364,35 +364,40 @@ h3.cthp-overview-title {
 //.cthp-content {
 //}
 
-.cthp-treatment h3.ui-accordion-header {
-	@extend .accordion-green-waves;
-}
-.cthp-research h3.ui-accordion-header {
-	@extend .accordion-blue-gears;
-}
-.cthp-causes h3.ui-accordion-header {
-	@extend .accordion-purple-squares;
-}
-.cthp-genetics h3.ui-accordion-header {
-	@extend .accordion-blue-diamonds;
-}
-.cthp-screening h3.ui-accordion-header {
-	@extend .accordion-pink-triangles;
-}
-.cthp-survival h3.ui-accordion-header {
-	@extend .accordion-yellow-squares;
-}
-.cthp-general h3.ui-accordion-header {
-	@extend .accordion-blue-octagons;
-}
-.cthp-overview h3.ui-accordion-header, [class*="cthp-overview"] h3.cthp-overview-title {
+[class*="cthp-overview"] h3.cthp-overview-title {
 	@extend .accordion-blue-purple-circles;
 }
-.cthp-pink-feature h3.ui-accordion-header {
-	@extend .accordion-red-triangles;
-}
-.cthp-yellow-feature h3.ui-accordion-header {
-	@extend .accordion-yellow-hexagons;
+.cthp-card-container {
+	.cthp-treatment h3 {
+		@extend .accordion-green-waves;
+	}
+	.cthp-research h3 {
+		@extend .accordion-blue-gears;
+	}
+	.cthp-causes h3 {
+		@extend .accordion-purple-squares;
+	}
+	.cthp-genetics h3 {
+		@extend .accordion-blue-diamonds;
+	}
+	.cthp-screening h3 {
+		@extend .accordion-pink-triangles;
+	}
+	.cthp-survival h3 {
+		@extend .accordion-yellow-squares;
+	}
+	.cthp-general h3 {
+		@extend .accordion-blue-octagons;
+	}
+	.cthp-overview h3 {
+		@extend .accordion-blue-purple-circles;
+	}
+	.cthp-pink-feature h3 {
+		@extend .accordion-red-triangles;
+	}
+	.cthp-yellow-feature h3 {
+		@extend .accordion-yellow-hexagons;
+	}
 }
 
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
