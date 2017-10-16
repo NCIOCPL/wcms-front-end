@@ -11,7 +11,6 @@ define(function(require) {
      *       - make key configurable
      *       - fix transition from mobile to desktop
      *       - refactor and clean up ID/title collections 
-     *       - first video does not load when in 2nd or 3rd carousel position 
      *       - refactor list building logic into facade
      **/
     function _initialize() {
@@ -116,6 +115,11 @@ define(function(require) {
                         $this.find('.yt-carousel-thumb').click(function() {
                             var $th = $(this);
                             var $thumbVideoID = $th.attr('id');
+                            if($thumbVideoID.length < 1) {
+                                // For for cases where slick does not clone the thumbnail link ID
+                                var $img = $th.find('img').attr('src');
+                                $thumbVideoID = $img.split('/')[4];
+                            }
                             var $thumbVideoTitle = $th.text();
                             drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this);
                         });
