@@ -27,7 +27,7 @@ export class YouTubeVideoCarousel extends NCIBaseEnhancement{
 	 */
 	protected initialize(): void {
 
-        console.log('vc.ts lives');
+        //console.log('vc.ts lives');
 	}
 	
 }
