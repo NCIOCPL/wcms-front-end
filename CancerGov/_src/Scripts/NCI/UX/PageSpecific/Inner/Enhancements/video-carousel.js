@@ -6,7 +6,6 @@ define(function(require) {
     require('Vendor/gapi');
 
     /* TODO: - make key configurable
-    *        - fix transition from mobile to desktop
     *        - refactor HTML drawing bits
     *        - handle initial loading screen
     *        - analytics
@@ -110,13 +109,9 @@ define(function(require) {
                         $this.find('.yt-carousel-thumbs').slick({
                             infinite: true,
                             slidesToShow: 3,
-                            slidesToScroll: 1,
-                            responsive: [{
-                                breakpoint: 860,
-                                settings: {
-                                    slidesToShow: 2
-                                }
-                            }]
+                            slidesToScroll: 3
+                            // TODO: find workaround for responsive bug
+                            // https://github.com/kenwheeler/slick/issues/542
                         });
 
                         // Script for custom arrows
@@ -172,7 +167,6 @@ define(function(require) {
             });
 
     }
-
 
     /**
      * Draw HTML elements for mobile view only, then render the selected video
