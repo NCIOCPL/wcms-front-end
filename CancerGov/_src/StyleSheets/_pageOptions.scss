@@ -87,7 +87,7 @@
 		}
 
 		li {
-			margin: 0 0 0 0.875em;
+			margin: 0 0 0 0.675em;
 		}
 
 		.po-font-resize a::before {
@@ -126,6 +126,7 @@
 					position: relative;
 					display: block;
 					height: 100%;
+					font-size: 91%;
 
 					&::before {
 						position: absolute;

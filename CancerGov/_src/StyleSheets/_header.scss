@@ -128,10 +128,13 @@ a.nav-dictionary::before {
 }
 button.nav-search::before {
 	@include svg-sprite(search);
-	font-size: 298%; //just under 300% to prevent unfavorable rounding
+	font-size: 210%; //just under 300% to prevent unfavorable rounding
+}
+_:-ms-fullscreen, :root button.nav-search::before {
+	font-size: 90%; // because IE is stupid
 }
 
-/* popup */
+	/* popup */
 .nci-logo {
 	font-weight: bold;
 	font-size: 37.7px;
