@@ -95,12 +95,11 @@ define(function(require) {
                         $.each(data.result.items, function(j, item) {
                             $vid = item.snippet.resourceId.videoId;
                             $title = item.snippet.title;
-                            $this.find('.yt-carousel-thumbs').append('<a class="yt-carousel-thumb"' +
-                                '" id="' + $vid +
-                                '"><img src="https://i.ytimg.com/vi/' +
+                            $this.find('.yt-carousel-thumbs').append('<div class="ytc-thumb-container"><a class="yt-carousel-thumb" id="' + 
+                                $vid + '"><img src="https://i.ytimg.com/vi/' +
                                 $vid + '/mqdefault.jpg" alt="' +
-                                $title + '">' +
-                                $title + '</a>'
+                                $title + '"></a><span>' +
+                                $title + '</span></div>'
                             );
                         });
 
