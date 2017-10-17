@@ -115,9 +115,12 @@ span.ic-arrow-button {
 	margin-bottom: 5px;
 }
 
-.yt-carousel-thumb {
-	margin-top: 10px;
+.ytc-thumb-container {
+	padding-top: 10px;
 	padding-right: 10px;
+	span {
+		font-size: 13px;
+	}
 }
 
 .yt-carousel-arrows {
@@ -143,20 +146,42 @@ span.ic-arrow-button {
 .yt-carousel-arrows .next,
 .yt-carousel-arrows .m-next {
 	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 @include bp(medium-up) {
-  .yt-carousel-m-controls {
-    display: none;
-  }
+	.yt-carousel-m-controls {
+		display: none;
+	}
+}
+
+@include bp(medium) {
+	.yt-carousel {
+		width: 80%;
+	}
+	a.yt-carousel-thumb img {
+		padding-top: 10px;
+		padding-right: 10px;
+	}	
+}
+
+@include bp(medium-down) {
+	a.yt-carousel-thumb img {
+		padding-top: 0px;
+		padding-right: 0px;
+	}
 }
 
 @include bp(small) {
+	.yt-carousel {
+		width: 100%;
+
+	}
 	.yt-carousel-count,
-  .yt-carousel-controls {
-    display: none;
-  }
+	.yt-carousel-controls {
+		display: none;
+	}
 }
+
 
 /****************** END VIDEO CAROUSEL STYLES ******************/
