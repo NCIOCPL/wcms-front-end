@@ -13,31 +13,41 @@
 	}
 	@include bp(small) {
 		//background: #306;
-		margin: 10px -16px 30px;
+		margin: 10px 0px 30px;
 		 .pagingInfo, .ic-carousel-title h4, .ic-caption p {
 			padding-left: 20px;
-			}
-			.slick-slide img {
-    display: block;
-    max-width: 103%;
-			}
+		}
+		.slick-slide img {
+    		display: block;
+    		max-width: 100%;
+		}
 	}
 }
 #ic .slick-slider {
 	margin-bottom: 0;
 }
-#ic .slick-slide {background-color: #fff;}
-#ic .slick-slide img {
-	//border: 2px solid #999;
+#ic .slick-slide {
+	background-color: #fff;
 }
-.ic-carousel-title h4 {line-height: 1.333em;}
+
+.ic-carousel-title h4 {
+	line-height: 1.333em;
+}
+
 .ic-credit {
 	color: #999;
-  font-size: 0.5em;
-  margin-top: -5px;
+    font-size: 0.5em;
+    margin-top: -5px;
 	text-align: right;
+
+	@include bp(small) {
+		margin-top: 0px !important;
+	}
 }
-.ic-caption {background-color: #fff;}
+
+.ic-caption {
+	background-color: #fff;
+}
 .ic-caption p {
 	color: #999;
 	font-size: 0.8em;
@@ -46,9 +56,6 @@
 	@include bp(small) {
 		margin-bottom: 30px;
 	}	
-}
-.row .ic-controls {
-	//background-color: #f3c;
 }
 
 .pagingInfo {
@@ -70,13 +77,20 @@
 }
 
 .arrows-for-ic-carousel button {
-		background-color: transparent;
+	background-color: transparent;
     border: 0 none;
     cursor: pointer;
     display: inline;
     height: 30px;
     padding: 0;
     width: 30px;
+}
+
+span.ic-arrow-button {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 .arrows-for-ic-carousel .previous {

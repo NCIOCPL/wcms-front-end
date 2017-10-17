@@ -17,6 +17,7 @@ define(function(require) {
 
         // Script for carousel
         $(function() {
+        //if(($('#ic').closest('section').length > 0) && ($(window).width() > 640)) {
             $('.slider').slick({
                 lazyLoad: 'ondemand',
                 arrows: true,
@@ -71,8 +72,29 @@ define(function(require) {
             $('.ic-controls .next').click(function() {
                 $('.slider').slick("slickNext");
             });
+        //}
+        });
+
+        /*$accordion = $('#ic').closest('section').find('h2.ui-state-active');
+        $accordion.click(function() {
+            $('.slider').slick('unslick');
+        });*/
+
+        $('.arrows-for-ic-carousel button').on('click', (function() {
+                var title = $(this).closest('#ic').find('.ic-carousel-title h4').text();
+                var direction = $(this).attr('class');
+                var imgNum = $(this).closest('#ic').find('.slick-active').data('slick-index') + 1;
+
+                console.log("imgcar_" + title + "_click_" + direction + "_" + imgNum);
+            })
+        );
 
 
+        $('.slider').on('swipe', function(event, slick, direction) {
+            var title = $(this).closest('#ic').find('.ic-carousel-title h4').text();
+            var imgNum = $(this).find('.slick-active').data('slick-index') + 1;
+
+            console.log("imgcar_" + title + "_swipe_" + direction + "_" + imgNum);
         });
     }
 
