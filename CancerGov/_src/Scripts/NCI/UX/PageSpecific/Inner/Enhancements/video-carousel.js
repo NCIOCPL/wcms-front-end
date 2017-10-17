@@ -1,20 +1,25 @@
 define(function(require) {
     var $ = require('jquery');
+    var flexVideo = require('Modules/videoPlayer/flexVideo');    
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
-    var flexVideo = require('Modules/videoPlayer/flexVideo');
     require('Vendor/gapi');
 
+    /* TODO: - make key configurable
+    *        - fix transition from mobile to desktop
+    *        - refactor HTML drawing bits
+    *        - handle initial loading screen
+    *        - analytics
+    */
+
     /***
-     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID
-     * TODO: - make key configurable
-     *       - fix transition from mobile to desktop
-     *       - refactor HTML drawing bits
-     *       - handle initial loading screen
-     *       - analytics
+     * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID. 
+     * The client should only be loaded if this page contains the YouTube carousel HTML snippet.
      **/
     function _initialize() {
-        handleClientLoad();
+        if($('.yt-carousel').length) {
+            handleClientLoad();
+        }
     }
 
     /**
@@ -40,7 +45,6 @@ define(function(require) {
 
     /**
      * Initialize the API client and draw HTML
-     * 
      */
     function initClient() {
             
@@ -50,8 +54,8 @@ define(function(require) {
 
             // console.log('1. loading client');            
             // Initialize the gapi.client object, which app uses to make API requests.
+            // API URL pattern: googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=_MY_PLAYLIST_ID_&key=_MY_GOOLE_API_KEY_&maxResults=50           
             // Get API key from API Console.
-            // Sample API URL: https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId=PLYKy4VbxNln61Inca7txbOLqAxJNMZypg&key=AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8
             gapi.client.init({
                 'apiKey': $key,
                 'discoveryDocs': $discoveryDocs
@@ -195,9 +199,6 @@ define(function(require) {
         $selectedVideo.attr('ytc-index', $index);
         $selectedVideo.find('noscript a').attr('href', 'https://www.youtube.com/watch?v=' + $vidID);
         $selectedVideo.find('noscript a').attr('title', $vidTitle);
-
-        // Draw the video title
-        $el.find('h3').text($vidTitle);
 
         // Rebuild the YouTube embedded video from the updated flex-video element
         // flexVideo.init() enables the embedding of YouTube videos and playlists as iframes.
