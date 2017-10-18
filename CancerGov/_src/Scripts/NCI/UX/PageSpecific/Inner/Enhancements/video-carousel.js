@@ -3,7 +3,7 @@ define(function(require) {
     var flexVideo = require('Modules/videoPlayer/flexVideo');    
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
-    require('Vendor/gapi');
+    require('Vendor/google-apis/js/api');
 
     /* TODO: - make key configurable
     *        - refactor HTML drawing bits
@@ -164,6 +164,12 @@ define(function(require) {
                     })
                 })
             });
+            
+            // // If we're inside a collapsed accordion, do a refresh of the slick carousel's position. 
+            // // This is a fix for slick image initialization error.             
+            // $('.yt-carousel-thumbs').closest('section').click(function() {
+            //     $('.yt-carousel-thumbs').slick('setPosition');
+            // }); 
 
     }
 
