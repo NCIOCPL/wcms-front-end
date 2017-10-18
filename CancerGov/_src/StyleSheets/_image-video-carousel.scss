@@ -19,7 +19,7 @@
 		}
 		.slick-slide img {
     		display: block;
-    		max-width: 100%;
+			max-width: 100%;
 		}
 	}
 }
@@ -30,6 +30,10 @@
 	background-color: #fff;
 }
 
+#ic .slick-slide img {
+	max-height: 400px;
+}
+
 .ic-carousel-title h4 {
 	line-height: 1.333em;
 }
@@ -37,7 +41,7 @@
 .ic-credit {
 	color: #999;
     font-size: 0.5em;
-    margin-top: -5px;
+    margin-top: 0px;
 	text-align: right;
 
 	@include bp(small) {
@@ -45,9 +49,9 @@
 	}
 }
 
-.ic-caption {
+/*.ic-caption {
 	background-color: #fff;
-}
+}*/
 .ic-caption p {
 	color: #999;
 	font-size: 0.8em;
