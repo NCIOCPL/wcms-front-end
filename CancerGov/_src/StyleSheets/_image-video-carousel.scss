@@ -1,41 +1,22 @@
 /****************** START IMAGE CAROUSEL STYLES ******************/
 #ic {
-
-	@include bp(xtra-large) {
-		#ic .slick-slide img {
-			max-height: 400px;
-		}
-	}
-	//background-color: #9cf;
 	@include bp(large-up){
-		//background-color: #9cf;
 		margin-left: 18%;
 		margin-right: 18%;
 	}
-	@include bp(large) {
-		#ic .slick-slide img {
-			max-height: 329px;
-		}
-	}
 	@include bp(medium-down) {
-		//background: #6c9;
 		margin-left: 12%;
 		margin-right: 12%;
-
-		#ic .slick-slide img {
-			max-height: 329px;
-		}
 	}
 	@include bp(small) {
-		//background: #306;
 		margin: 10px 0px 30px;
+
 		 .pagingInfo, .ic-carousel-title h4, .ic-caption p {
 			padding-left: 20px;
 		}
 		.slick-slide img {
     		display: block;
 			max-width: 100%;
-			max-height: 300px;
 		}
 	}
 }
@@ -47,7 +28,7 @@
 }
 
 #ic .slick-slide img {
-	max-height: 329px;
+	margin: auto;
 }
 
 .ic-carousel-title h4 {
@@ -56,23 +37,15 @@
 
 .ic-credit {
 	color: #757575;
-	font-size: 0.5em;
-	line-height: 0.7em;
-    margin-top: 0px;
+	font-size: 11px;
+	line-height: 15px;
 	text-align: right;
-
-	@include bp(small) {
-		margin-top: 0px !important;
-	}
 }
 
-/*.ic-caption {
-	background-color: #fff;
-}*/
 .ic-caption p {
 	color: #606060;
-	font-size: 0.8em;
-	line-height: 1em;
+	font-size: 13px;
+	line-height: 18px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	@include bp(small) {
@@ -81,17 +54,14 @@
 }
 
 .pagingInfo {
-	//background-color: #9cf;
-	//padding-left: 10px 20px;
 	color: #606060;
 	float: left;
 	font-family: Montserrat,Arial,sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 	width: 50%;
 }
 
 .arrows-for-ic-carousel {
-	//background-color: #306;
   float: right;
   margin-top: -10px;
   text-align: right;
