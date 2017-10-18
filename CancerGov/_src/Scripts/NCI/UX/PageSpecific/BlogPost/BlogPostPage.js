@@ -2,8 +2,9 @@ define(function(require) {
 	require('Common/Enhancements/sharecomponent');
 	var NCIAccordion = require('Modules/accordion/accordion');
 	$(function() {
+		require('Common/Enhancements/video-carousel').init();
 		require('Common/Enhancements/analytics.After').init();
-	});
+	}); 
 
 	// Ensure the PageOptionsControl is placed correctly according to page size
 	var setPageOptions = function(){
