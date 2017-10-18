@@ -3,7 +3,7 @@ define(function(require) {
     var flexVideo = require('Modules/videoPlayer/flexVideo');    
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
-    require('Vendor/gapi');
+    require('Vendor/google-apis/js/api');
 
     /* TODO: - make key configurable
     *        - refactor HTML drawing bits
@@ -65,7 +65,8 @@ define(function(require) {
                 // For each video carousel on the page, build the collection, download images, and draw HTML.
                 $(".yt-carousel").each(function(i) {
                     var $this = $(this);
-                    var $playlistId = $this.attr("data-playlist-id");                
+                    var $playlistId = $this.attr("data-playlist-id");
+                    var $carouselTitle = $this.find('h4').text();
             
                     // console.log('3. BEGIN retrieiving playlist items data (' + i + ')');                                    
                     // Get the list of items...
@@ -124,15 +125,24 @@ define(function(require) {
                         // Change the video on carousel click
                         $this.find('.yt-carousel-thumb').click(function() {
                             var $th = $(this);
-                            var $thumbVideoID = $th.attr('id');
+
+                            // Add 'ytc-clicked' class to thumbnail for selected item styling
+                            $('.ytc-clicked').removeClass('ytc-clicked');
+                            $th.addClass('ytc-clicked'); 
+
+                            // Get data from clicked thumnail and pass to draw function
                             var $thumbIndex = $th.closest('.slick-slide').attr('data-slick-index');
+                            var $thumbVideoTitle = $th.text();                            
+                            var $thumbVideoID = $th.attr('id');
                             if($thumbVideoID.length < 1) {
-                                // For for cases where slick does not clone the thumbnail link ID
+                                // For cases where slick does not clone the thumbnail link ID
                                 var $img = $th.find('img').attr('src');
                                 $thumbVideoID = $img.split('/')[4];
                             }
-                            var $thumbVideoTitle = $th.text();
-                            drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex);
+                            drawSelectedVideoMobile($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex, $count);
+
+                            // Trigger analytics
+                            doCarouselAnalytics($this, $carouselTitle, 'click',  $thumbIndex);
                         });
 
                         // Change the video upon mobile next arrow click
@@ -146,6 +156,7 @@ define(function(require) {
                             $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
                             $titlePrev = $selPrev.text();
                             drawSelectedVideoMobile($idPrev, $titlePrev, $this, $indexPrev, $count);
+                            doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);                            
                         });
 
                         // Change the video upon mobile previous arrow click
@@ -159,11 +170,18 @@ define(function(require) {
                             $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                             $titleNext = $selNext.text();
                             drawSelectedVideoMobile($idNext, $titleNext, $this, $indexNext, $count);
+                            doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexNext);
                         });
                         // console.log('6. END enhancement to draw HTML from items (' + i + ')');
                     })
                 })
             });
+            
+            // // If we're inside a collapsed accordion, do a refresh of the slick carousel's position. 
+            // // This is a fix for slick image initialization error.             
+            // $('.yt-carousel-thumbs').closest('section').click(function() {
+            //     $('.yt-carousel-thumbs').slick('setPosition');
+            // }); 
 
     }
 
@@ -173,8 +191,9 @@ define(function(require) {
      * @param {any} $el 
      */
     function drawSelectedVideoMobile($vidID, $vidTitle, $el, $index, $total) {
-        var $count = $el.find('.yt-carousel-m-count');
-        $count.text(($index + 1) + "/" + $total);
+        var $pager = $el.find('.yt-carousel-pager');
+        var $pos = 1 + parseInt($index);
+        $pager.text($pos + "/" + $total);
         drawSelectedVideo($vidID, $vidTitle, $el, $index);
     }
 
@@ -199,6 +218,25 @@ define(function(require) {
             flexVideo.init();
         })();
     }
+
+    /**
+     * Track analytics for click events on video carousel items.
+     * @param {any} sender 
+     * @param {any} title 
+     * @param {any} action 
+     * @param {any} index 
+     */
+    function doCarouselAnalytics(sender, title, action, index){
+        if(typeof(NCIAnalytics !== 'undefined')) {
+            var safeTitle = title;
+            if(title.length > 50) {
+                safeTitle = title.substring(0,50);
+            }
+            var value = 'vidcar_' + safeTitle + '_' + action + '_' + index;
+            NCIAnalytics.VideoCarouselClickSwipe(sender, value);     
+        }
+    }
+
 
     /**
      * Identifies if this enhancement has been initialized or not.

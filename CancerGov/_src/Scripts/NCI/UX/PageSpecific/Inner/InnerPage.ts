@@ -9,7 +9,6 @@ import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';
 import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/PageSpecific/Inner/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/PageSpecific/Inner/Enhancements/video-carousel';
-import { YouTubeVideoCarousel } from 'UX/PageSpecific/Inner/Enhancements/youtube-video-carousel';
 import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 
@@ -46,12 +45,11 @@ class InnerPage extends NCIBasePage {
 	 */
 	onReady():void {
 
-        // Build image or video carousels
+        // Build image carousels
         (<any>ImageCarousel).init();
-        (<any>VideoCarousel).init();
 
-		let videoCarousel = new YouTubeVideoCarousel();
-		videoCarousel.init();         
+        // Build video carousels
+        (<any>VideoCarousel).init();
 
         // overriding dictionary pages' inline script
 		// set flag to recreate autocomplete on dictionary pages
