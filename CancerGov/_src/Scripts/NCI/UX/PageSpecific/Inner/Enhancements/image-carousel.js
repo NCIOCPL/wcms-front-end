@@ -3,6 +3,7 @@ define(function(require) {
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
     var flexVideo = require('Modules/videoPlayer/flexVideo');
+    var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
     function _initialize() {    
         //custom function showing current slide
@@ -17,78 +18,100 @@ define(function(require) {
 
         // Script for carousel
         $(function() {
-            $('.slider').slick({
-                lazyLoad: 'ondemand',
-                arrows: true,
-                slidesToShow: 1,
-                previewMode: true,
-                centerItems: true,
-                slidesToScroll: 1,
-                speed: 500,
-                dots: false,
-                //customPaging: function(slider,index){return index + ' of ' + slider.slideCount;},
-                customPaging : function(slider, i) {
-                    var thumb = $(slider.$slides[i]).data();
-                    return '<a>'+i+'</a>'; },
-                responsive: [
-                    //alter breakpoint settings for image carousel
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 1,
-                            speed: 1000,
-                            slidesToScroll: 1
-                        }
-                    },
+            $('.slider').each(function(i, el) {
+                var $slickEl = $(el).slick({
+                    lazyLoad: 'ondemand',
+                    arrows: true,
+                    slidesToShow: 1,
+                    previewMode: true,
+                    centerItems: true,
+                    slidesToScroll: 1,
+                    speed: 500,
+                    dots: false,
+                    //customPaging: function(slider,index){return index + ' of ' + slider.slideCount;},
+                    customPaging : function(slider, i) {
+                        var thumb = $(slider.$slides[i]).data();
+                        return '<a>'+i+'</a>'; },
+                    responsive: [
+                        //alter breakpoint settings for image carousel
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 1,
+                                speed: 1000,
+                                slidesToScroll: 1
+                            }
+                        },
 
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            speed: 700,
-                            slidesToScroll: 1
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                speed: 700,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1,
+                                speed: 500,
+                                slidesToScroll: 1
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 1,
-                            speed: 500,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
+                    ]
+                })
 
-            // Script for custom arrows
-            // NOTE: The slick library comes with arrows, but they are pre-styled
-            // and they go after the carousel. Front End Devs can decide if they'd
-            // rather style the old ones or edit the HTML of the new ones, but
-            // make sure to change arrow setting in .slick() declaration
-            $('.ic-controls .previous').click(function() {
-                $('.slider').slick("slickPrev");
-            });
-            $('.ic-controls .next').click(function() {
-                $('.slider').slick("slickNext");
+                // Script for custom arrows
+                // NOTE: The slick library comes with arrows, but they are pre-styled
+                // and they go after the carousel. Front End Devs can decide if they'd
+                // rather style the old ones or edit the HTML of the new ones, but
+                // make sure to change arrow setting in .slick() declaration
+                $('.ic-controls .previous').click(function() {
+                    $('.slider').slick("slickPrev");
+                });
+                $('.ic-controls .next').click(function() {
+                    $('.slider').slick("slickNext");
+                });
             });
         });
+
+
 
         $('.slider').closest('section').click(function() {
 			$('.slider').slick('setPosition');
         });
 
+        /*// Set variable for analytics functions
+        var pageName = 'www.cancer.gov/';
+		var s = AdobeAnalytics.getSObject();
+        if(typeof(s) !== 'undefined') {
+            pageName = s.pageName;
+        }
+
+        var imgNum = $('.slider').find('.slick-active').data('slick-index');
+        console.log("before click/swipe index: " + imgNum);
+
+        // Record analytics on clicks of arrows in carousel
         $('.arrows-for-ic-carousel button').on('click', (function() {
-                var title = $(this).closest('#ic').find('.ic-carousel-title h4').text();
-                var direction = $(this).attr('class');
-                var imgNum = $(this).closest('#ic').find('.slick-active').data('slick-index') + 1;
+            var $this = $(this);
+            var title = $this.closest('#ic').find('.ic-carousel-title h4').text();
+            var direction = $this.attr('class');
+            imgNum = $('.slider').find('.slick-active').data('slick-index');
+            console.log("after click/swipe index: " + imgNum);
+            
+            NCIAnalytics.ImageCarouselClickSwipe($this, title, "click", direction, imgNum, pageName);
             })
         );
 
-
+        // Record analytics on left or right swipes on carousel
         $('.slider').on('swipe', function(event, slick, direction) {
-            var title = $(this).closest('#ic').find('.ic-carousel-title h4').text();
-            var imgNum = $(this).find('.slick-active').data('slick-index') + 1;
-        });
+            var $this = $(this);
+            var title = $this.closest('#ic').find('.ic-carousel-title h4').text();
+            imgNum = $('.slider').find('.slick-active').data('slick-index');
+            console.log("after click/swipe index: " + imgNum);
+            NCIAnalytics.ImageCarouselClickSwipe($this, title, "swipe", direction, imgNum, pageName);
+        });*/
     }
 
     /**
