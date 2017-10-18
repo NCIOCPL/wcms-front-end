@@ -127,7 +127,7 @@ define(function(require) {
                             var $th = $(this);
 
                             // Add 'ytc-clicked' class to thumbnail for selected item styling
-                            $('.ytc-clicked').removeClass('ytc-clicked');
+                            $this.find('.ytc-clicked').removeClass('ytc-clicked');
                             $th.addClass('ytc-clicked'); 
 
                             // Get data from clicked thumnail and pass to draw function

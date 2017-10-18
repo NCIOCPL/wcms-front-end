@@ -106,7 +106,7 @@ span.ic-arrow-button {
 /****************** START VIDEO CAROUSEL STYLES ******************/
 
 .yt-carousel {
-	width: 65%;
+	width: 85%;
     margin: auto;
 }
 
@@ -123,8 +123,9 @@ span.ic-arrow-button {
 	}
 }
 
-a.ytc-clicked {
+.ytc-clicked img {
 	padding: 5px;
+	background-color: $grey04;
 }
 
 .yt-carousel-arrows {
@@ -155,18 +156,17 @@ a.ytc-clicked {
 
 .yt-carousel-m-controls {
 	.yt-carousel-arrows {
-		margin: 0px;
+		margin-top: 6px;
 		padding: 0px;
 		float: right;
 	}
 }
 
 .yt-carousel-pager {
-		color: #999999;
 		float: left;
 		font-family: Montserrat,Arial,sans-serif;
-		font-size: 13px;
-		margin-left: 3px; 
+		font-size: 14px;
+		margin: 12px 10px;
 		width: 50%;
 }
 
@@ -190,6 +190,9 @@ a.ytc-clicked {
 	a.yt-carousel-thumb img {
 		padding-top: 0px;
 		padding-right: 0px;
+	}
+	.ytc-clicked img {
+		padding: 2px;
 	}
 }
 
