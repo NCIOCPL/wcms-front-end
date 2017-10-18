@@ -1406,6 +1406,32 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    VideoCarouselClickSwipe: function(sender, value) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'VideoCarouselClickSwipe');
+
+        clickParams.Props = {
+            66: value,
+            67: 'D=pageName'
+        };
+
+        clickParams.Events = [63];
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    VideoCarouselPlay: function(sender, value) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'VideoCarouselPlay');
+
+        clickParams.Props = {
+            66: value,
+            67: 'D=pageName'
+        };
+
+        clickParams.Events = [64];
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     LinkTrackTagBuilder: function(e) {
 
         if (e.button == 0) {  // Left mouse button pressed
