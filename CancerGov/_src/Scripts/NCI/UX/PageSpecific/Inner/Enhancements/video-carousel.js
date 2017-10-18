@@ -67,6 +67,9 @@ define(function(require) {
                     var $playlistId = $this.attr("data-playlist-id");
                     var $carouselTitle = $this.find('h4').text();
             
+                    // Draw the containers for the carousel thumbnails and arrows
+                    appendControls($this);
+
                     // console.log('3. BEGIN retrieiving playlist items data (' + i + ')');
                     // Get the list of items...
                     gapi.client.youtube.playlistItems.list({
@@ -191,6 +194,18 @@ define(function(require) {
             //     $('.yt-carousel-thumbs').slick('setPosition');
             // }); 
 
+    }
+
+    /**
+     * Draw the containers for the carousel thumbnails and arrows
+     * TODO: hide arrows if < 4 items
+     * @param {any} $el 
+     */
+    function appendControls($el) {
+        var blob = '<div class="row yt-carousel-controls"><div class="yt-carousel-thumbs columns small-10"></div><div class="yt-carousel-arrows columns small-2"><button class="previous" type="button"></button><button class="next" type="button"></button></div></div><div class="row yt-carousel-m-controls"><div class="yt-carousel-pager columns small-9"></div><div class="yt-carousel-arrows columns small-3"><button class="m-previous" type="button"></button><button class="m-next" type="button"></button></div></div>';
+        $el.append(blob);
+        var blob2 = '<p class="yt-carousel-count"></p>';
+        $el.find('h4').after(blob2);        
     }
 
     /**
