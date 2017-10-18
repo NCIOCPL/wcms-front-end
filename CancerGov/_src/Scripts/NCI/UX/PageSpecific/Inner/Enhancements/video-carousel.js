@@ -65,7 +65,8 @@ define(function(require) {
                 // For each video carousel on the page, build the collection, download images, and draw HTML.
                 $(".yt-carousel").each(function(i) {
                     var $this = $(this);
-                    var $playlistId = $this.attr("data-playlist-id");                
+                    var $playlistId = $this.attr("data-playlist-id");
+                    var $carouselTitle = $this.find('h4').text();
             
                     // console.log('3. BEGIN retrieiving playlist items data (' + i + ')');                                    
                     // Get the list of items...
@@ -133,6 +134,7 @@ define(function(require) {
                             }
                             var $thumbVideoTitle = $th.text();
                             drawSelectedVideoMobile($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex, $count);
+                            doCarouselAnalytics($this, $carouselTitle, 'click',  $thumbIndex);
                         });
 
                         // Change the video upon mobile next arrow click
@@ -146,6 +148,7 @@ define(function(require) {
                             $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
                             $titlePrev = $selPrev.text();
                             drawSelectedVideoMobile($idPrev, $titlePrev, $this, $indexPrev, $count);
+                            doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);                            
                         });
 
                         // Change the video upon mobile previous arrow click
@@ -159,6 +162,7 @@ define(function(require) {
                             $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                             $titleNext = $selNext.text();
                             drawSelectedVideoMobile($idNext, $titleNext, $this, $indexNext, $count);
+                            doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexNext);
                         });
                         // console.log('6. END enhancement to draw HTML from items (' + i + ')');
                     })
@@ -206,6 +210,25 @@ define(function(require) {
             flexVideo.init();
         })();
     }
+
+    /**
+     * Track analytics for click events on video carousel items.
+     * @param {any} sender 
+     * @param {any} title 
+     * @param {any} action 
+     * @param {any} index 
+     */
+    function doCarouselAnalytics(sender, title, action, index){
+        if(typeof(NCIAnalytics !== 'undefined')) {
+            var safeTitle = title;
+            if(title.length > 50) {
+                safeTitle = title.substring(0,50);
+            }
+            var value = 'vidcar_' + safeTitle + '_' + action + '_' + index;
+            NCIAnalytics.VideoCarouselClickSwipe(sender, value);     
+        }
+    }
+
 
     /**
      * Identifies if this enhancement has been initialized or not.
