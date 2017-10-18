@@ -1431,6 +1431,20 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 
+    /* ********************************************************************** */
+    ImageCarouselClickSwipe: function(sender, title, type, direction, imgNum, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'ImageCarouselClick');
+
+        clickParams.Props = {
+            66: "imgcar_" + title + "_" + type + "_" + direction + "_" + imgNum,
+            67: pageName
+        };
+
+        clickParams.Events = [62];
+        clickParams.LogToOmniture();
+    },
+
     //******************************************************************************************************
     LinkTrackTagBuilder: function(e) {
 
