@@ -1,14 +1,13 @@
 define(function(require) {
     var $ = require('jquery');
-    var flexVideo = require('Modules/videoPlayer/flexVideo');    
+    var flexVideo = require('Modules/videoPlayer/flexVideo');
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
     require('Vendor/google-apis/js/api');
 
     /* TODO: - make key configurable
-    *        - refactor HTML drawing bits
     *        - handle initial loading screen
-    *        - analytics
+    *        - convert to .ts and refactor
     */
 
     /***
@@ -51,9 +50,9 @@ define(function(require) {
             var $key = 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8'; // key for dev work - replace this!!!!
             var $discoveryDocs = ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
 
-            // console.log('1. loading client');            
+            // console.log('1. loading client');
             // Initialize the gapi.client object, which app uses to make API requests.
-            // API URL pattern: googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=_MY_PLAYLIST_ID_&key=_MY_GOOLE_API_KEY_&maxResults=50           
+            // API URL pattern: googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=_MY_PLAYLIST_ID_&key=_MY_GOOLE_API_KEY_&maxResults=50
             // Get API key from API Console.
             gapi.client.init({
                 'apiKey': $key,
@@ -68,7 +67,7 @@ define(function(require) {
                     var $playlistId = $this.attr("data-playlist-id");
                     var $carouselTitle = $this.find('h4').text();
             
-                    // console.log('3. BEGIN retrieiving playlist items data (' + i + ')');                                    
+                    // console.log('3. BEGIN retrieiving playlist items data (' + i + ')');
                     // Get the list of items...
                     gapi.client.youtube.playlistItems.list({
                         playlistId: $playlistId,
@@ -79,7 +78,7 @@ define(function(require) {
                     .then(function(data) {
 
                         // console.log('4. END retrieiving playlist items data (' + i + ')');
-                        // console.log('5. BEGIN enhancement to draw HTML from items (' + i + ')');                        
+                        // console.log('5. BEGIN enhancement to draw HTML from items (' + i + ')');
                         // Get total number of YouTube video items, maxed out at 50
                         var $count = data.result.pageInfo.totalResults;
                         if ($count > 50) {
@@ -91,7 +90,7 @@ define(function(require) {
                         var $initialID = data.result.items[0].snippet.resourceId.videoId;
                         var $initialTitle = data.result.items[0].snippet.title;
                         drawSelectedVideoMobile($initialID, $initialTitle, $this, 0, $count);
-
+                        
                         // Draw the carousel thumbnails
                         $.each(data.result.items, function(j, item) {
                             $vid = item.snippet.resourceId.videoId;
@@ -123,6 +122,7 @@ define(function(require) {
                         });
 
                         // Change the video on carousel click
+                        $this.find('.slick-current .yt-carousel-thumb').first().addClass('ytc-clicked');
                         $this.find('.yt-carousel-thumb').click(function() {
                             var $th = $(this);
 
@@ -132,7 +132,7 @@ define(function(require) {
 
                             // Get data from clicked thumnail and pass to draw function
                             var $thumbIndex = $th.closest('.slick-slide').attr('data-slick-index');
-                            var $thumbVideoTitle = $th.text();                            
+                            var $thumbVideoTitle = $th.text();
                             var $thumbVideoID = $th.attr('id');
                             if($thumbVideoID.length < 1) {
                                 // For cases where slick does not clone the thumbnail link ID
@@ -156,7 +156,7 @@ define(function(require) {
                             $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
                             $titlePrev = $selPrev.text();
                             drawSelectedVideoMobile($idPrev, $titlePrev, $this, $indexPrev, $count);
-                            doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);                            
+                            doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);
                         });
 
                         // Change the video upon mobile previous arrow click
@@ -178,7 +178,7 @@ define(function(require) {
             });
             
             // // If we're inside a collapsed accordion, do a refresh of the slick carousel's position. 
-            // // This is a fix for slick image initialization error.             
+            // // This is a fix for slick image initialization error. 
             // $('.yt-carousel-thumbs').closest('section').click(function() {
             //     $('.yt-carousel-thumbs').slick('setPosition');
             // }); 
@@ -233,7 +233,7 @@ define(function(require) {
                 safeTitle = title.substring(0,50);
             }
             var value = 'vidcar_' + safeTitle + '_' + action + '_' + index;
-            NCIAnalytics.VideoCarouselClickSwipe(sender, value);     
+            NCIAnalytics.VideoCarouselClickSwipe(sender, value); 
         }
     }
 
