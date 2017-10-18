@@ -114,11 +114,11 @@ span.ic-arrow-button {
 	margin: auto;
 
 	@include bp(medium) {
-		width: 80%;
+		width: 90%;
 	}
 	@include bp(small) {
 		width: 100%;
-	}	
+	}
 }
 
 .yt-carousel-count {
@@ -136,15 +136,8 @@ span.ic-arrow-button {
 
 .yt-carousel-thumb img {
 	padding: 5px;
-
-	@include bp(medium) {
-		padding-top: 10px;
-		padding-right: 10px;
-	}
-
 	@include bp(medium-down) {
-		padding-top: 0px;
-		padding-right: 0px;
+		padding: 3px;
 	}	
 }
 

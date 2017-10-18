@@ -245,7 +245,6 @@ define(function(require) {
         }
     }
 
-
     /**
      * Identifies if this enhancement has been initialized or not.
      * @type {Boolean}
