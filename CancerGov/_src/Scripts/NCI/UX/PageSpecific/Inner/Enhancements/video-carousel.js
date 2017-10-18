@@ -132,7 +132,7 @@ define(function(require) {
                                 $thumbVideoID = $img.split('/')[4];
                             }
                             var $thumbVideoTitle = $th.text();
-                            drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex);
+                            drawSelectedVideoMobile($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex, $count);
                         });
 
                         // Change the video upon mobile next arrow click
@@ -179,8 +179,9 @@ define(function(require) {
      * @param {any} $el 
      */
     function drawSelectedVideoMobile($vidID, $vidTitle, $el, $index, $total) {
-        var $count = $el.find('.yt-carousel-m-count');
-        $count.text(($index + 1) + "/" + $total);
+        var $pager = $el.find('.yt-carousel-pager');
+        var $pos = 1 + parseInt($index);
+        $pager.text($pos + "/" + $total);
         drawSelectedVideo($vidID, $vidTitle, $el, $index);
     }
 
