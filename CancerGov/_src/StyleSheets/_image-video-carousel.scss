@@ -149,6 +149,23 @@ span.ic-arrow-button {
     transform: rotate(90deg);
 }
 
+.yt-carousel-m-controls {
+	.yt-carousel-arrows {
+		margin: 0px;
+		padding: 0px;
+		float: right;
+	}
+}
+
+.yt-carousel-pager {
+		color: #999999;
+		float: left;
+		font-family: Montserrat,Arial,sans-serif;
+		font-size: 13px;
+		margin-left: 3px; 
+		width: 50%;
+}
+
 @include bp(medium-up) {
 	.yt-carousel-m-controls {
 		display: none;
