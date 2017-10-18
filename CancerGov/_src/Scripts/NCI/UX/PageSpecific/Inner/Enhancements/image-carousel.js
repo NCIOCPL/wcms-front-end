@@ -19,7 +19,7 @@ define(function(require) {
         // Script for carousel
         $(function() {
             $('.slider').each(function(i, el) {
-                var $slickEl = $(el).slick({
+                $slickEl = $(this).slick({
                     lazyLoad: 'ondemand',
                     arrows: true,
                     slidesToShow: 1,
@@ -42,7 +42,7 @@ define(function(require) {
                                 slidesToScroll: 1
                             }
                         },
-
+    
                         {
                             breakpoint: 768,
                             settings: {
@@ -60,8 +60,21 @@ define(function(require) {
                             }
                         }
                     ]
-                })
-
+                });
+                /*.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                    console.log("Before change, ", currentSlide, nextSlide);
+                }).on('afterChange', function(event, slick, currentSlide) {
+                    console.log("After change, " + currentSlide);
+                });*/
+    
+                $('slider').on('swipe', function(event, slick, direction) {
+                    console.log($('slider').slick('slickCurrentSlide'));
+                });
+    
+                $('.arrows-for-ic-carousel button').on('click', function() {
+                    console.log("Arrow click");
+                });
+    
                 // Script for custom arrows
                 // NOTE: The slick library comes with arrows, but they are pre-styled
                 // and they go after the carousel. Front End Devs can decide if they'd
@@ -73,10 +86,9 @@ define(function(require) {
                 $('.ic-controls .next').click(function() {
                     $('.slider').slick("slickNext");
                 });
+                
             });
         });
-
-
 
         $('.slider').closest('section').click(function() {
 			$('.slider').slick('setPosition');
