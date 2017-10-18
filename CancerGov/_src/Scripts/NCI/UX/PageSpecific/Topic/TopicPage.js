@@ -5,6 +5,7 @@ define(function(require) {
 	$(function() {
 		require('Common/Enhancements/clinicalTrialsDelighter').init();
 		$('[data-match-height]').NCI_equal_heights();
+		require('Common/Enhancements/video-carousel').init();		
 		require('Common/Enhancements/analytics.After').init();
 	});
 });

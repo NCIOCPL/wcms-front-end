@@ -202,10 +202,31 @@ define(function(require) {
      * @param {any} $el 
      */
     function appendControls($el) {
-        var blob = '<div class="row yt-carousel-controls"><div class="yt-carousel-thumbs columns small-10"></div><div class="yt-carousel-arrows columns small-2"><button class="previous" type="button"></button><button class="next" type="button"></button></div></div><div class="row yt-carousel-m-controls"><div class="yt-carousel-pager columns small-9"></div><div class="yt-carousel-arrows columns small-3"><button class="m-previous" type="button"></button><button class="m-next" type="button"></button></div></div>';
-        $el.append(blob);
-        var blob2 = '<p class="yt-carousel-count"></p>';
-        $el.find('h4').after(blob2);        
+        var $prev = 'previous';
+        var $next = 'next';
+        if($('.yt-carousel.ytc-spanish').length) {
+            $prev = 'anterior';    
+            $next = 'siguiente';
+        }
+
+        var $countBlob = '<p class="yt-carousel-count"></p>';
+        var $containterBlob = '<div class="row yt-carousel-controls">' + 
+                                '<div class="yt-carousel-thumbs columns small-10"></div>' +
+                                '<div class="yt-carousel-arrows columns small-2">' +
+                                    '<button class="previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
+                                    '<button class="next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
+                                '</div>' + 
+                            '</div>' + 
+                            '<div class="row yt-carousel-m-controls">' + 
+                                '<div class="yt-carousel-pager columns small-9"></div>' + 
+                                '<div class="yt-carousel-arrows columns small-3">' + 
+                                    '<button class="m-previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
+                                    '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
+                                '</div>' +
+                            '</div>';
+
+        $el.find('h4').after($countBlob);                            
+        $el.append($containterBlob);
     }
 
     /**

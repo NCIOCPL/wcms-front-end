@@ -8,7 +8,7 @@ import 'UX/PageSpecific/Inner/Enhancements/showHideListingBodyField';
 import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';
 import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/PageSpecific/Inner/Enhancements/image-carousel';
-import * as VideoCarousel from 'UX/PageSpecific/Inner/Enhancements/video-carousel';
+import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 
