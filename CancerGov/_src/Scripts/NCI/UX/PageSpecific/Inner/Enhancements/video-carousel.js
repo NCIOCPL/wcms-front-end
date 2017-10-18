@@ -111,6 +111,14 @@ define(function(require) {
                             slidesToScroll: 3
                             // TODO: find workaround for responsive bug
                             // https://github.com/kenwheeler/slick/issues/542
+                            // ,responsive: [
+                            // {
+                            //   breakpoint: 860,
+                            //   settings: {
+                            //     slidesToShow: 2,
+                            //     slidesToScroll: 2
+                            //   }
+                            // }]
                         });
 
                         // Script for custom arrows

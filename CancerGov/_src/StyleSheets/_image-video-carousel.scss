@@ -111,7 +111,14 @@ span.ic-arrow-button {
 
 .yt-carousel {
 	width: 85%;
-    margin: auto;
+	margin: auto;
+
+	@include bp(medium) {
+		width: 80%;
+	}
+	@include bp(small) {
+		width: 100%;
+	}	
 }
 
 .yt-carousel-count {
@@ -127,8 +134,21 @@ span.ic-arrow-button {
 	}
 }
 
-.ytc-clicked img {
+.yt-carousel-thumb img {
 	padding: 5px;
+
+	@include bp(medium) {
+		padding-top: 10px;
+		padding-right: 10px;
+	}
+
+	@include bp(medium-down) {
+		padding-top: 0px;
+		padding-right: 0px;
+	}	
+}
+
+.yt-carousel-thumb.ytc-clicked img {
 	background-color: $grey04;
 }
 
@@ -174,42 +194,17 @@ span.ic-arrow-button {
 		width: 50%;
 }
 
-@include bp(medium-up) {
+/** Custom breakpoints for desktop/tablet slick transition **/
+@media only screen and (min-width: 861px) {
 	.yt-carousel-m-controls {
 		display: none;
 	}
 }
-
-@include bp(medium) {
-	.yt-carousel {
-		width: 80%;
-	}
-	a.yt-carousel-thumb img {
-		padding-top: 10px;
-		padding-right: 10px;
-	}	
-}
-
-@include bp(medium-down) {
-	a.yt-carousel-thumb img {
-		padding-top: 0px;
-		padding-right: 0px;
-	}
-	.ytc-clicked img {
-		padding: 2px;
-	}
-}
-
-@include bp(small) {
-	.yt-carousel {
-		width: 100%;
-
-	}
+@media only screen and (max-width: 860px) {
 	.yt-carousel-count,
 	.yt-carousel-controls {
 		display: none;
 	}
 }
-
 
 /****************** END VIDEO CAROUSEL STYLES ******************/
