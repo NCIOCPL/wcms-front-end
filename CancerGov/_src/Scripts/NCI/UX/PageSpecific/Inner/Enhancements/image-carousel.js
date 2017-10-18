@@ -19,7 +19,7 @@ define(function(require) {
         // Script for carousel
         $(function() {
             $('.slider').each(function(i, el) {
-                $slickEl = $(this).slick({
+                var $slickEl = $(this).slick({
                     lazyLoad: 'ondemand',
                     arrows: true,
                     slidesToShow: 1,
@@ -61,6 +61,7 @@ define(function(require) {
                         }
                     ]
                 });
+                
                 /*.on('beforeChange', function(event, slick, currentSlide, nextSlide){
                     console.log("Before change, ", currentSlide, nextSlide);
                 }).on('afterChange', function(event, slick, currentSlide) {
