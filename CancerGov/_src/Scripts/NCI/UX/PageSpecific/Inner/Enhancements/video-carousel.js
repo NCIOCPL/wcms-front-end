@@ -125,15 +125,23 @@ define(function(require) {
                         // Change the video on carousel click
                         $this.find('.yt-carousel-thumb').click(function() {
                             var $th = $(this);
-                            var $thumbVideoID = $th.attr('id');
+
+                            // Add 'ytc-clicked' class to thumbnail for selected item styling
+                            $('.ytc-clicked').removeClass('ytc-clicked');
+                            $th.addClass('ytc-clicked'); 
+
+                            // Get data from clicked thumnail and pass to draw function
                             var $thumbIndex = $th.closest('.slick-slide').attr('data-slick-index');
+                            var $thumbVideoTitle = $th.text();                            
+                            var $thumbVideoID = $th.attr('id');
                             if($thumbVideoID.length < 1) {
-                                // For for cases where slick does not clone the thumbnail link ID
+                                // For cases where slick does not clone the thumbnail link ID
                                 var $img = $th.find('img').attr('src');
                                 $thumbVideoID = $img.split('/')[4];
                             }
-                            var $thumbVideoTitle = $th.text();
                             drawSelectedVideoMobile($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex, $count);
+
+                            // Trigger analytics
                             doCarouselAnalytics($this, $carouselTitle, 'click',  $thumbIndex);
                         });
 
