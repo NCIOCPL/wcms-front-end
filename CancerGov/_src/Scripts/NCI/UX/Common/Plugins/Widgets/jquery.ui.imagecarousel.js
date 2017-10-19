@@ -28,14 +28,17 @@
     }
 }(function( $ ) {
 
-    var ENG_PREV_TEXT = "Previous";
+    /*var ENG_PREV_TEXT = "Previous";
     var ENG_NEXT_TEXT = "Next";
     var SPN_PREV_TEXT = "Anterior";
-    var SPN_NEXT_TEXT = "Siguiente";
+    var SPN_NEXT_TEXT = "Siguiente";*/
 
     return $.widget("nci.imagecarousel", {
 
         options: {
+            previousText: "Previous",
+            nextText: "Next",
+
             // Callbacks
             change: null //This is triggered on a slide change.
             
@@ -48,17 +51,23 @@
             //probably should have slick options
             //
         },
+        getTitle: function() {
+            return this.title;
+        },
+        setPosition: function() {
+            this.$sliderEl.slick('setPosition');
+        },
         // Adds the previous next controls to the element
         _addControls: function() {
             this.controls = {};
             
-            var prevButtonTxt = ENG_PREV_TEXT;
+            /*var prevButtonTxt = ENG_PREV_TEXT;
             var nextButtonTxt = ENG_NEXT_TEXT;
     
             if ('language' == 'spanish') {
                 prevButtonTxt = SPN_PREV_TEXT;
                 nextButtonTxt = SPN_NEXT_TEXT;    
-            }
+            }*/
     
             // Script for custom arrows
             // NOTE: The slick library comes with arrows, but they are pre-styled
@@ -72,14 +81,14 @@
                 type: 'button'
             }).append('<span>', {
                 "class": "ic-arrow-button",
-                text: prevButtonTxt
+                text: this.options.previousText
             })           
     
             this.controls.$nextButton = $('<button>', {
                 "class": 'next'
             }).append('<span>', {
                 "class": "ic-arrow-button",
-                text: nextButtonTxt
+                text: this.options.nextText
             });
     
             this.controls.$status = $('<div>', {
@@ -116,7 +125,8 @@
 
             var thisCarousel = this;
             thisCarousel.$el = $(this.element);
-            thisCarousel.$sliderEl = thisCarousel.$el.find('.slider').first();            
+            thisCarousel.$sliderEl = thisCarousel.$el.find('.slider').first();     
+            thisCarousel.title = thisCarousel.$el.find('.ic-carousel-title h4').text();
 
             //Add the controls
             thisCarousel._addControls();
@@ -161,7 +171,7 @@
                     direction: carouselDir,
                     beforeIndex: previousSlide,
                     afterIndex: currSlide,
-                    totalImages: thisCarousel.slideCount
+                    totalImages: thisCarousel.slideCount,
                 });
             })
            
@@ -229,7 +239,7 @@
                         direction: 'previous',
                         beforeIndex: beforeSlide,
                         afterIndex: nextSlide,
-                        totalImages: thisCarousel.slideCount                         
+                        totalImages: thisCarousel.slideCount,                        
                     });
                 }                
             }); 
@@ -252,17 +262,10 @@
                         direction: 'next',
                         beforeIndex: beforeSlide,
                         afterIndex: nextSlide,
-                        totalImages: thisCarousel.slideCount
+                        totalImages: thisCarousel.slideCount,
                     });
                 }                    
             });
-
-            thisCarousel.$sliderEl.closest('section').click(function() {
-                thisCarousel.$sliderEl.slick('setPosition');
-            });
         }
-
-
     });
-
 }));
