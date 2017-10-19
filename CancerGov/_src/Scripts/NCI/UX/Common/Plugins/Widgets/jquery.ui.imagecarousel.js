@@ -172,7 +172,6 @@
                 arrows: true,
                 slidesToShow: 1,
                 previewMode: true,
-                centerItems: true,
                 slidesToScroll: 1,
                 speed: 500,
                 dots: false,
@@ -258,6 +257,9 @@
                 }                    
             });
 
+            thisCarousel.$sliderEl.closest('section').click(function() {
+                thisCarousel.$sliderEl.slick('setPosition');
+            });
         }
 
 
