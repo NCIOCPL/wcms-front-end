@@ -1,5 +1,5 @@
 /****************** START IMAGE CAROUSEL STYLES ******************/
-#ic {
+.ic-carousel {
 	@include bp(large-up){
 		margin-left: 18%;
 		margin-right: 18%;
@@ -19,16 +19,18 @@
 			max-width: 100%;
 		}
 	}
-}
-#ic .slick-slider {
-	margin-bottom: 0;
-}
-#ic .slick-slide {
-	background-color: #fff;
-}
 
-#ic .slick-slide img {
-	margin: auto;
+	.slick-slider {
+		margin-bottom: 0;
+	}
+
+	.slick-slide {
+		background-color: #fff;
+
+		img {
+			margin: auto;
+		}
+	}
 }
 
 .ic-carousel-title h4 {
@@ -66,9 +68,8 @@
   margin-top: -10px;
   text-align: right;
   width: 50%;
-}
 
-.arrows-for-ic-carousel button {
+  button {
 	background-color: transparent;
     border: 0 none;
     cursor: pointer;
@@ -76,6 +77,17 @@
     height: 30px;
     padding: 0;
     width: 30px;
+  }
+
+  .previous {
+	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+	transform: rotate(-90deg);
+  }
+
+  .next {
+	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+    transform: rotate(90deg);
+  }
 }
 
 span.ic-arrow-button {
@@ -85,14 +97,6 @@ span.ic-arrow-button {
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
-.arrows-for-ic-carousel .previous {
-	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
-	transform: rotate(-90deg);
-}
-.arrows-for-ic-carousel .next {
-	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
-  transform: rotate(90deg);
-}
 /****************** END IMAGE CAROUSEL STYLES ******************/
 
 /****************** START VIDEO CAROUSEL STYLES ******************/
