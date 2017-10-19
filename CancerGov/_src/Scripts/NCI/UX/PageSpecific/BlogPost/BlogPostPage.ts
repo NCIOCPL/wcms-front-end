@@ -21,7 +21,7 @@ class BlogPostPage extends NCIBasePage {
     protected Config: CDEConfiguration;
 	
 	/**
-	* Creates an instance of InnerPage.
+	* Creates an instance of BlogPostPage.
 	* @param {string} apiHost 
 	*/
 	constructor() { 
@@ -33,7 +33,7 @@ class BlogPostPage extends NCIBasePage {
 	/**
 	 * Wire up the on Ready functions.
 	 * 
-	 * @memberof TopicPage
+	 * @memberof BlogPostPage
 	 */
 	onReady():void {
 		(<any>VideoCarousel).init();

@@ -6,7 +6,6 @@ import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsD
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 
-
 /**
  * Class representing CancerGov Topic Pages.
  * 
@@ -23,7 +22,7 @@ class TopicPage extends NCIBasePage {
     protected Config: CDEConfiguration;
 	
 	/**
-	* Creates an instance of InnerPage.
+	* Creates an instance of TopicPage.
 	* @param {string} apiHost 
 	*/
 	constructor() { 
