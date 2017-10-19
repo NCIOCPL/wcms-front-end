@@ -4,15 +4,23 @@
 		margin-left: 18%;
 		margin-right: 18%;
 	}
-	@include bp(medium-down) {
-		margin-left: 12%;
-		margin-right: 12%;
+	@include bp('(max-width: 1024px) and (min-width: 769px)') {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+	@include bp('(max-width: 768px) and (min-width: 641px)') {
+		margin-left: 18%;
+		margin-right: 18%;
 	}
 	@include bp(small) {
 		margin: 10px 0px 30px;
 
 		 .pagingInfo, .ic-carousel-title h4, .ic-caption p {
 			padding-left: 20px;
+		}
+
+		.slick-slide {
+			margin: 0 5px 0 5px !important;
 		}
 		.slick-slide img {
     		display: block;
