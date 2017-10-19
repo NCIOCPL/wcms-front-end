@@ -39,7 +39,7 @@ class TopicPage extends NCIBasePage {
 	onReady():void {
 		(<any>ClinicalTrialsDelighter).init();
 		(<any>$('[data-match-height]')).NCI_equal_heights();
-		(<any>VideoCarousel).init();
+        (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 		(<any>AnalyticsAfter).init();
 	}
 
