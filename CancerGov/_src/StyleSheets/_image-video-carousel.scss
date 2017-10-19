@@ -27,8 +27,8 @@
 	@include bp(small) {
 		margin: 10px 0px 30px;
 
-		 .pagingInfo, .ic-carousel-title h4, .ic-caption p {
-			padding-left: 20px;
+		 .pagingInfo, .ic-carousel-title h4 {
+			padding-left: 5px;
 		}
 
 		.slick-slide {
@@ -63,16 +63,17 @@
 	font-size: 11px;
 	line-height: 15px;
 	text-align: right;
+	margin-top: 3px;
 }
 
 .ic-caption p {
 	color: #606060;
 	font-size: 13px;
 	line-height: 18px;
-	margin-top: 10px;
+	margin-top: -5px;
 	margin-bottom: 10px;
 	@include bp(small) {
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 	}	
 }
 
@@ -97,7 +98,11 @@
     display: inline;
     height: 30px;
     padding: 0;
-    width: 30px;
+	width: 30px;
+  }
+
+  button:focus {
+	  outline:0;
   }
 
   .previous {
