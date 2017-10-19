@@ -2,6 +2,7 @@ import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-s
 import { NCIBasePage } from 'UX/core';
 import 'UX/Common/Enhancements/sharecomponent';
 import * as NCIAccordion from 'Modules/accordion/accordion';
+import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 
@@ -36,7 +37,10 @@ class BlogPostPage extends NCIBasePage {
 	 * @memberof BlogPostPage
 	 */
 	onReady():void {
-        (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
+		// Build image carousels
+		(<any>ImageCarousel).init();
+
+		(<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 		(<any>AnalyticsAfter).init();
 
 		// Ensure the PageOptionsControl is placed correctly according to page size
