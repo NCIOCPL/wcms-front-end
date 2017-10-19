@@ -4,19 +4,51 @@ define(function(require) {
     //require('slick-carousel');
     //require('Modules/carousel/slick-patch');
     //var flexVideo = require('Modules/videoPlayer/flexVideo');
-    //var AdobeAnalytics = require('Patches/AdobeAnalytics');
+    var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
     
 
-    function _initialize() {    
+    function _initialize() {  
+        // Get language for previous/next buttons
+        var prev = "Previous";
+        var next = "Next"; 
+        if ($('html').attr("lang") === "es") {
+            prev = "Anterior";
+            next = "Siguiente";
+        }
 
-        //Iterate over each carousel on the page.
+        // Set pagename variable for analytics function
+        var pageName = 'www.cancer.gov/';
+		var s = AdobeAnalytics.getSObject();
+        if(typeof(s) !== 'undefined') {
+            pageName = s.pageName;
+        }
+
+        // Iterate over each carousel on the page.
         $('.ic-carousel').each(function(i, el) {
-            $(this).imagecarousel({
-                //Attach on analytics handlers here
+            var $carousel = $(this).imagecarousel({
+                // Attach on analytics handlers here
                 change: function(event, eventData) {
-                    console.log(eventData);
-                }
+                    // Set variables for analytics function
+                    var safeTitle = $(this).imagecarousel('getTitle');
+                    if(safeTitle.length > 50) {
+                        safeTitle = safeTitle.substring(0,50);
+                    }
+                    if (safeTitle.length == 0) {
+                        safeTitle = "none";
+                    }
+                    var action = eventData.triggerEvent;
+                    var direction = eventData.direction;
+                    var imgNum = eventData.beforeIndex + 1;
+
+                    NCIAnalytics.ImageCarouselClickSwipe($(this), safeTitle, action, direction, imgNum, pageName);
+                },
+                previousText: prev,
+                nextText: next
+            });
+            
+            $carousel.closest('section').click(function() {
+                $carousel.imagecarousel('setPosition');
             });
         });
 
