@@ -47,6 +47,7 @@ define(function(require) {
     function initClient() {
             
             // YouTube API address & params
+            // TODO: see if we can do without discoveryDocs
             var $key = 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8'; // key for dev work - replace this!!!!
             var $discoveryDocs = ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
 
