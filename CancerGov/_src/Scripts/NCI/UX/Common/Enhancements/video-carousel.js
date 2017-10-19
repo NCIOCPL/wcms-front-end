@@ -5,8 +5,7 @@ define(function(require) {
     require('Modules/carousel/slick-patch');
     require('Vendor/google-apis/js/api');
 
-    /* TODO: - make key configurable
-    *        - handle initial loading screen
+    /* TODO: - handle initial loading screen
     *        - convert to .ts and refactor
     */
 
@@ -14,29 +13,33 @@ define(function(require) {
      * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID. 
      * The client should only be loaded if this page contains the YouTube carousel HTML snippet.
      **/
-    function _initialize() {
+    function _initialize(key) {
         if($('.yt-carousel').length) {
-            handleClientLoad();
+            handleClientLoad(key);
         }
     }
 
     /**
      * Load the API's client.
      */
-    function handleClientLoad() {
+    function handleClientLoad(key) {
         gapi.load('client', {
             callback: function() {
                 // Handle gapi.client initialization.
-                initClient();
+                if(key !== null) {
+                    initClient(key);
+                } else {
+                    console.log('No API key provided for carousel initialization.');                    
+                }
             },
             onerror: function() {
                // Handle loading error.
-                alert('gapi.js failed to load.');
+                console.log('gapi.js failed to load.');
             },
             timeout: 5000, // 5 seconds.
             ontimeout: function() {
                 // Handle timeout.
-                alert('gapi.js did not load in a timely manner.');
+                console.log('gapi.js did not load in a timely manner.');
             }
         });
     }
@@ -44,11 +47,11 @@ define(function(require) {
     /**
      * Initialize the API client and draw HTML
      */
-    function initClient() {
+    function initClient(key) {
             
             // YouTube API address & params
             // TODO: see if we can do without discoveryDocs
-            var $key = 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8'; // key for dev work - replace this!!!!
+            var $key = key; 
             var $discoveryDocs = ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
 
             // console.log('1. loading client');
@@ -298,6 +301,17 @@ define(function(require) {
             }
 
             _initialize();
+            initialized = true;
+        },
+        apiInit: function(key) {
+            if (initialized) {
+                return;
+            }
+            if (key == null) {
+                return;
+            }
+
+            _initialize(key);
             initialized = true;
         }
     };

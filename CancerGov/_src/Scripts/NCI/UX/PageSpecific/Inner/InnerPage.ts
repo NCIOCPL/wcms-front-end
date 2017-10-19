@@ -49,7 +49,7 @@ class InnerPage extends NCIBasePage {
         (<any>ImageCarousel).init();
 
         // Build video carousels
-        (<any>VideoCarousel).init();
+        (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);
 
         // overriding dictionary pages' inline script
 		// set flag to recreate autocomplete on dictionary pages

@@ -36,7 +36,7 @@ class BlogPostPage extends NCIBasePage {
 	 * @memberof BlogPostPage
 	 */
 	onReady():void {
-		(<any>VideoCarousel).init();
+        (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 		(<any>AnalyticsAfter).init();
 
 		// Ensure the PageOptionsControl is placed correctly according to page size
