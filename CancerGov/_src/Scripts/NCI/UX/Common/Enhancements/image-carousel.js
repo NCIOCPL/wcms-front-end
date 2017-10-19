@@ -14,6 +14,9 @@ define(function(require) {
         $('.ic-carousel').each(function(i, el) {
             $(this).imagecarousel({
                 //Attach on analytics handlers here
+                change: function(event, eventData) {
+                    console.log(eventData);
+                }
             });
         });
 

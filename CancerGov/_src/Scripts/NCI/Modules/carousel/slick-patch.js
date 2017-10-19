@@ -46,7 +46,17 @@ define(function(require) {
           // Call the old $().slick() function and capture what it returns.
           // NOTE: Use .call() instead of just calling the function directly with
           // oldSlickFunction() in order to preserve the scope.
-          oldSlickFunction.call(this, options).each(function(index, element) {
+
+          //The following patch was only really written to handle the initialization of slick,
+          //not additional calls for information.  A quick fix is to call each if there is an 
+          //each function, otherwise, we return the call response.
+          var callResponse = oldSlickFunction.call(this, options);
+
+          if (callResponse['each'] !== "function") {
+              return callResponse;
+          }
+          //Otherwise handle the each
+          callResponse.each(function(index, element) {
 
               // The old slick function will return an array of elements that have
               // slick properties/objects attached to the original HTML element
