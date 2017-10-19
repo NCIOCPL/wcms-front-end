@@ -8,7 +8,6 @@ define(function(require) {
     /* TODO: - handle initial loading screen
     *        - convert to .ts and refactor
     */
-
     /***
      * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID. 
      * The client should only be loaded if this page contains the YouTube carousel HTML snippet.
@@ -27,19 +26,19 @@ define(function(require) {
             callback: function() {
                 // Handle gapi.client initialization.
                 if(typeof(key) == 'undefined') {
-                    console.log('No API key provided for carousel initialization.');                    
+                    console.log('No API key provided for carousel initialization.');
                 } else {
-                    initClient(key);           
+                    initClient(key);
                 }
             },
             onerror: function() {
                // Handle loading error.
-                console.log('gapi.js failed to load.');
+                console.log('Google api.js failed to load.');
             },
             timeout: 5000, // 5 seconds.
             ontimeout: function() {
                 // Handle timeout.
-                console.log('gapi.js did not load in a timely manner.');
+                console.log('Google api.js did not load in a timely manner.');
             }
         });
     }
@@ -64,9 +63,9 @@ define(function(require) {
             })
             .then(function() {
                 // console.log('2. client loaded');
-                
                 // For each video carousel on the page, build the collection, download images, and draw HTML.
                 $(".yt-carousel").each(function(i) {
+
                     var $this = $(this);
                     var $playlistId = $this.attr("data-playlist-id");
                     var $carouselTitle = $this.find('h4').text();
@@ -83,7 +82,6 @@ define(function(require) {
                     })
                     // ...then build the HTML
                     .then(function(data) {
-
                         // console.log('4. END retrieiving playlist items data (' + i + ')');
                         // console.log('5. BEGIN enhancement to draw HTML from items (' + i + ')');
                         // Get total number of YouTube video items, maxed out at 50
@@ -92,12 +90,15 @@ define(function(require) {
                             $count = 50;
                         }
                         $this.find('.yt-carousel-count').text($count + ' Videos');
+                        if ($count <= 3) {
+                            $this.find('.yt-carousel-controls button').addClass('hidden');
+                        }
 
                         // Initialize the selected player with the first item in the playlist
                         var $initialID = data.result.items[0].snippet.resourceId.videoId;
                         var $initialTitle = data.result.items[0].snippet.title;
                         drawSelectedVideoMobile($initialID, $initialTitle, $this, 0, $count);
-                        
+
                         // Draw the carousel thumbnails
                         $.each(data.result.items, function(j, item) {
                             $vid = item.snippet.resourceId.videoId;
@@ -304,7 +305,6 @@ define(function(require) {
             initialized = true;
         },
         apiInit: function(key) {
-            console.log(key);
             if (initialized) {
                 return;
             }
