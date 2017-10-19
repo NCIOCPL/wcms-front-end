@@ -26,10 +26,10 @@ define(function(require) {
         gapi.load('client', {
             callback: function() {
                 // Handle gapi.client initialization.
-                if(key !== null) {
-                    initClient(key);
-                } else {
+                if(typeof(key) == 'undefined') {
                     console.log('No API key provided for carousel initialization.');                    
+                } else {
+                    initClient(key);           
                 }
             },
             onerror: function() {
@@ -304,10 +304,8 @@ define(function(require) {
             initialized = true;
         },
         apiInit: function(key) {
+            console.log(key);
             if (initialized) {
-                return;
-            }
-            if (key == null) {
                 return;
             }
 
