@@ -210,23 +210,23 @@ define(function(require) {
         }
 
         var $countBlob = '<p class="yt-carousel-count"></p>';
-        var $containterBlob = '<div class="row yt-carousel-controls">' + 
+        var $carouselControls = '<div class="row yt-carousel-controls">' + 
                                 '<div class="yt-carousel-thumbs columns small-10"></div>' +
                                 '<div class="yt-carousel-arrows columns small-2">' +
-                                    '<button class="previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
-                                    '<button class="next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
+                                  '<button class="previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
+                                  '<button class="next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
                                 '</div>' + 
-                            '</div>' + 
-                            '<div class="row yt-carousel-m-controls">' + 
+                              '</div>';
+        var $mobileControls = '<div class="row yt-carousel-m-controls">' + 
                                 '<div class="yt-carousel-pager columns small-9"></div>' + 
                                 '<div class="yt-carousel-arrows columns small-3">' + 
-                                    '<button class="m-previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
-                                    '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
+                                  '<button class="m-previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
+                                  '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
                                 '</div>' +
-                            '</div>';
+                              '</div>';
 
         $el.find('h4').after($countBlob);                            
-        $el.append($containterBlob);
+        $el.append($carouselControls + $mobileControls);
     }
 
     /**
