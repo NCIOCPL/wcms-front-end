@@ -3,6 +3,7 @@ import { NCIBasePage } from 'UX/core';
 import 'Plugins/jquery.nci.equal_heights';
 import 'UX/Common/Enhancements/sharecomponent';
 import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
+import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 
@@ -39,6 +40,7 @@ class TopicPage extends NCIBasePage {
 	onReady():void {
 		(<any>ClinicalTrialsDelighter).init();
 		(<any>$('[data-match-height]')).NCI_equal_heights();
+		(<any>ImageCarousel).init();
         (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 		(<any>AnalyticsAfter).init();
 	}
