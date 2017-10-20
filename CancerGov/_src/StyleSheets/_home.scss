@@ -476,6 +476,8 @@ a.arrow-link {
 		content: "";
 		right: 0;
 		position: absolute;
+		margin-top: -8px;
+		top: 39%;
 	}
 
 	&:hover::before {
