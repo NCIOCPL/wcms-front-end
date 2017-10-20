@@ -149,7 +149,7 @@
             thisCarousel.$sliderEl.on('swipe', function(event, slick, direction) {
 
                 //Assume that we moved to the next slide first.
-                let currSlide = thisCarousel.$sliderEl.slick('slickCurrentSlide');            
+                var currSlide = thisCarousel.$sliderEl.slick('slickCurrentSlide');            
                 var carouselDir = 'unknown';
                 var previousSlide = -1;
 
