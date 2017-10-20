@@ -131,7 +131,8 @@
     color:#fff;
     margin-top: 10px;
     font: normal 14px $montserrat-font-stack;
-    box-shadow: inset 0 2px 15px 0 rgba(0, 0, 0, 0.2);
+    //box-shadow: inset 0 2px 15px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,.05);
     width: calc(50% - 5px);
 
     span {
