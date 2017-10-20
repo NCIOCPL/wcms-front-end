@@ -11,7 +11,7 @@
 }
 
 .site-footer {
-    background: $footer image-url($backgrounds + "hexagon_molecular_structure.png") no-repeat -26% 115px;
+    background: $footer image-url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
     padding: 1em 0;
     color: white;
 
@@ -77,12 +77,12 @@
         }
 
         &.rss {
-          font-size: 91%;
+          //font-size: 91%;
           @include svg-sprite(rss-white);
         }
         &.govdelivery {
           @include svg-sprite(gov-delivery-white);
-          font-size: 91%;
+          //font-size: 91%;
         }
     }
 }
@@ -90,7 +90,7 @@
 @include bp(medium-down){
 	/** Hide feature card title on tablets and up **/
 	.site-footer {
-		background-position: 115% 150px;
+		background-position: 130% 150px;
 	}
 }
 
