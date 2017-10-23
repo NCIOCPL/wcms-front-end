@@ -159,14 +159,11 @@ span.ic-arrow-button {
 }
 
 .yt-carousel-thumb img {
-	padding: 5px;
-	@include bp(medium-down) {
-		padding: 3px;
-	}	
+	padding: 4px;
 }
 
 .yt-carousel-thumb.ytc-clicked img {
-	background-color: $grey04;
+	background-color: #979797;
 }
 
 .yt-carousel-arrows {
