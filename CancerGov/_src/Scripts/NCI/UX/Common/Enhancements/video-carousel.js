@@ -263,6 +263,7 @@ define(function(require) {
 
         // Rebuild the YouTube embedded video from the updated flex-video element
         // flexVideo.init() enables the embedding of YouTube videos and playlists as iframes.
+        $selectedVideo.children('iframe').remove();
         (function() {
             flexVideo.init();
         })();
