@@ -130,13 +130,9 @@ span.ic-arrow-button {
 .yt-carousel {
 	width: 85%;
 	margin: auto;
-
-	@include bp(medium) {
-		width: 90%;
-	}
 	@include bp(small) {
 		width: 100%;
-	}
+	} 
 }
 
 .yt-carousel-count {
@@ -217,6 +213,11 @@ span.ic-arrow-button {
 }
 
 /** Custom breakpoints for desktop/tablet slick transition **/
+@media only screen and (min-width: 770px) and (max-width: 1024px) {
+	.yt-carousel {		
+		width: 80%;
+	}
+}
 @media only screen and (min-width: 770px) {
 	.yt-carousel-m-controls {
 		display: none;
