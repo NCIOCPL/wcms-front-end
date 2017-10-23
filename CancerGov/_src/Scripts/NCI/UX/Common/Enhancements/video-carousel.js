@@ -121,7 +121,7 @@ define(function(require) {
                             // https://github.com/kenwheeler/slick/issues/542
                             // ,responsive: [
                             // {
-                            //   breakpoint: 860,
+                            //   breakpoint: 770,
                             //   settings: {
                             //     slidesToShow: 2,
                             //     slidesToScroll: 2
