@@ -99,7 +99,7 @@ define(function(require) {
                         // Initialize the selected player with the first item in the playlist
                         var $initialID = data.result.items[0].snippet.resourceId.videoId;
                         var $initialTitle = data.result.items[0].snippet.title;
-                        drawSelectedVideo($this, $initialID, $initialTitle, 0, $count, true);
+                        drawSelectedVideo($this, $initialID, $initialTitle, 0, $count);
 
                         // Draw the carousel thumbnails
                         $.each(data.result.items, function(j, item) {
@@ -216,9 +216,9 @@ define(function(require) {
      * @param {any} $vidTitle 
      * @param {any} $index 
      * @param {any} $total 
-     * @param {any} $isInitial
+     * @param {any} $isAutoPlay
      */
-    function drawSelectedVideo($el, $vidID, $vidTitle, $index, $total, $isInitial) {
+    function drawSelectedVideo($el, $vidID, $vidTitle, $index, $total, $isAutoPlay) {
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);
@@ -255,11 +255,11 @@ define(function(require) {
 
         // Function to execute when the onReady event fires
         function onPlayerReady(e) {
-            if(!$isInitial) {
+            if($isAutoPlay) {
                 // Start the video when when the player is ready - 
                 // unless this is the initial page load.            
                 e.target.playVideo();   
-            }            
+            }
         }
 
         // Call the onPlayerStateChange function when the player's state changes, which may indicate that the player is playing, paused, finished, etc
@@ -271,7 +271,7 @@ define(function(require) {
                     $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                     $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                     $titleNext = $selNext.text();
-                    drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total);
+                    drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
                     doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
                 }
             }
