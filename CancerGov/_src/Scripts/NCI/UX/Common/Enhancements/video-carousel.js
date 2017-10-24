@@ -232,51 +232,49 @@ define(function(require) {
         var $pos = 1 + parseInt($index);
         $pager.text($pos + "/" + $total);
 
-        // Rebuild the YouTube embedded video from the updated flex-video element
+        // Rebuild the YouTube embedded video from the updated flex-video element, then draw the player.
         // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
         $selectedVideo.children('iframe').remove();
-        
-        (function() {
-            FlexVideoAPI.init();
-        })();
+        FlexVideoAPI.init();
 
-        // TODO: clean this up
-        var player;
+        //************ Begin YouTube API onPlayer functions  ************//        
+        /**
+         * The API will call this function when the page has finished downloading the JavaScript for the player API, 
+         * which enables us to then use the API on the page
+         */
+        //var player;        
         function onYouTubeIframeAPIReady() {
-            console.log('iframe loaded');
-            player = new YT.Player('flex-video-api', {
+            new YT.Player('flex-video-api', {
                 events : {
                     'onReady' : onPlayerReady,
                     'onStateChange' : onPlayerStateChange
                 }
             })
         }
-    
-        
+
+        // Function to execute when the onReady event fires
         function onPlayerReady() {
-            console.log('player ready');
+            // If we want to fire off anything when the player is ready, add it here
         }
 
-        /// TODO: clean up and refactor
+        // Call the onPlayerStateChange function when the player's state changes, which may indicate that the player is playing, paused, finished, etc
         function onPlayerStateChange(e) {
             if(e.data == 0) {
-            console.log('Video ended');
-            $indexNcurr = $el.find('.flex-video').attr('ytc-index');
-            $indexNext = ++$indexNcurr;
-            if ($indexNext > ($total - 1)) {
-                $indexNext = 0;
+                $indexNcurr = $el.find('.flex-video').attr('ytc-index');
+                $indexNext = ++$indexNcurr;
+                if($indexNext <= ($total - 1)) {
+                    $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
+                    $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
+                    $titleNext = $selNext.text();
+                    drawSelectedVideo($idNext, $titleNext, $el, $indexNext, $total);
+                    doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
+                }
             }
-            $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
-            $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
-            $titleNext = $selNext.text();
-            drawSelectedVideo($idNext, $titleNext, $el, $indexNext, $total);
-            doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
-            }
-
         }
-            
-        onYouTubeIframeAPIReady();
 
+        // Initialize
+        onYouTubeIframeAPIReady();
+        //************ End YouTube API onPlayer functions  ************//
     }
     
     /**
