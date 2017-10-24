@@ -1,6 +1,6 @@
 define(function(require) {
     var $ = require('jquery');
-    var flexVideo = require('Modules/videoPlayer/flexVideo');
+    var FlexVideoAPI = require('Modules/videoPlayer/flex-video-api');
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
     require('Vendor/google-apis/js/api');
@@ -262,10 +262,10 @@ define(function(require) {
         $selectedVideo.find('noscript a').attr('title', $vidTitle);
 
         // Rebuild the YouTube embedded video from the updated flex-video element
-        // flexVideo.init() enables the embedding of YouTube videos and playlists as iframes.
+        // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
         $selectedVideo.children('iframe').remove();
         (function() {
-            flexVideo.init();
+            FlexVideoAPI.init();
         })();
     }
 
