@@ -23,7 +23,7 @@ define(function(require) {
      */
     function handleClientLoad(key) {
         gapi.load('client', {
-            callback: function() {
+            callback: function() { 
                 // Handle gapi.client initialization.
                 if(typeof(key) == 'undefined') {
                     console.log('No API key provided for carousel initialization.');
@@ -119,14 +119,6 @@ define(function(require) {
                             slidesToScroll: 3
                             // TODO: find workaround for responsive bug
                             // https://github.com/kenwheeler/slick/issues/542
-                            // ,responsive: [
-                            // {
-                            //   breakpoint: 770,
-                            //   settings: {
-                            //     slidesToShow: 2,
-                            //     slidesToScroll: 2
-                            //   }
-                            // }]
                         });
 
                         // Script for custom arrows
@@ -189,6 +181,7 @@ define(function(require) {
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexNext);
                         });
                         // console.log('6. END enhancement to draw HTML from items (' + i + ')');
+                        
                     })
                 })
             });
@@ -200,6 +193,7 @@ define(function(require) {
             // }); 
 
     }
+
 
     /**
      * Draw the containers for the carousel thumbnails and arrows
@@ -243,7 +237,7 @@ define(function(require) {
         var $pager = $el.find('.yt-carousel-pager');
         var $pos = 1 + parseInt($index);
         $pager.text($pos + "/" + $total);
-        drawSelectedVideo($vidID, $vidTitle, $el, $index);
+        drawSelectedVideo($vidID, $vidTitle, $el, $index, $total);
     }
 
     /**
@@ -251,7 +245,7 @@ define(function(require) {
      * @param {any} $vidID 
      * @param {any} $el 
      */
-    function drawSelectedVideo($vidID, $vidTitle, $el, $index) {
+    function drawSelectedVideo($vidID, $vidTitle, $el, $index, $count) {
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);
@@ -264,10 +258,52 @@ define(function(require) {
         // Rebuild the YouTube embedded video from the updated flex-video element
         // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
         $selectedVideo.children('iframe').remove();
+        
         (function() {
             FlexVideoAPI.init();
         })();
+
+        // TODO: clean this up
+        var player;
+        function onYouTubeIframeAPIReady() {
+            console.log('iframe loaded');
+            player = new YT.Player('flex-video-api', {
+                events : {
+                    'onReady' : onPlayerReady,
+                    'onStateChange' : onPlayerStateChange
+                }
+            })
+        }
+    
+        
+        function onPlayerReady() {
+            console.log('player ready');
+        }
+
+        /// TODO: clean up and refactor
+        function onPlayerStateChange(e) {
+            if(e.data == 0) {
+            console.log('Video ended');
+            $indexNcurr = $el.find('.flex-video').attr('ytc-index');
+            $indexNext = ++$indexNcurr;
+            if ($indexNext > ($count - 1)) {
+                $indexNext = 0;
+            }
+            $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
+            $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
+            $titleNext = $selNext.text();
+            drawSelectedVideoMobile($idNext, $titleNext, $el, $indexNext, $count);
+            doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
+            }
+
+        }
+            
+        onYouTubeIframeAPIReady();
+
+
     }
+
+
 
     /**
      * Track analytics for click events on video carousel items.

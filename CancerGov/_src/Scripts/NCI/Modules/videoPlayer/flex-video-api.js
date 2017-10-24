@@ -1,12 +1,22 @@
 /**
-* Copy of flexVideo.js, but with the enablejsapi attribute set. This allows us to interact with the YouTube API 
-* and fire off events using the 'YT' object. 
+* Copy of flexVideo.js, but with the following differences:
+*   1) The enablejsapi attribute is set
+*   2) A script tag for the YouTube iframe API is added to the dom
+* This allows us to interact with the YouTube API and fire off events using the 'YT' object. 
 */
 define(function(require) {
-	
 		var $ = require('jquery');	
-		var _initialized = false;
-	
+        var _initialized = false;
+
+        // Create a script tag on the dom that references the iframe API 
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+        /**
+         * Initialize the embedded YouTube iframe.
+         */
 		function _initialize() {
 		  $('.flex-video').each(function() {
 					var $this = $(this);
