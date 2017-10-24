@@ -46,6 +46,9 @@
 	}
 
 	.slick-slide {
+		background-color: $white;
+		border-color: $white;
+
 		img {
 			margin: auto;
 		}
@@ -62,6 +65,7 @@
 	line-height: 15px;
 	text-align: right;
 	margin-top: 3px;
+	padding-right: 1px;
 }
 
 .ic-caption p {
