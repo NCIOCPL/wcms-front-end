@@ -71,7 +71,7 @@ define(function(require) {
                     var $carouselTitle = $this.find('h4').text();
             
                     // Draw the containers for the carousel thumbnails and arrows
-                    appendControls($this);
+                    appendCarouselControls($this);
 
                     // Get the list of items...
                     gapi.client.youtube.playlistItems.list({
@@ -90,7 +90,7 @@ define(function(require) {
                             $count = 50;
                         }
 
-                        // Hide the desktop arrows if there are 3 or less videos
+                        // Draw the total count; hide the desktop arrows if there are 3 or less videos
                         $this.find('.yt-carousel-count').text($count + ' Videos');
                         if ($count <= 3) {
                             $this.find('.yt-carousel-controls button').addClass('hidden');
@@ -105,37 +105,17 @@ define(function(require) {
                         $.each(data.result.items, function(j, item) {
                             $vid = item.snippet.resourceId.videoId;
                             $title = item.snippet.title;
-                            $carouselThumbs.append('<div class="ytc-thumb-container"><a class="yt-carousel-thumb" id="' + 
-                                $vid + '"><img src="https://i.ytimg.com/vi/' +
-                                $vid + '/mqdefault.jpg" alt="' +
-                                $title + '"></a><span>' +
-                                $title + '</span></div>'
-                            );
+                            appendCarouselThumbnails($carouselThumbs, $vid, $title);
                         });
 
                         // JS snippets for YouTube playlist carousel 
                         createSlickCarousel($this, $carouselThumbs);
 
                         // Change the video on carousel click
-                        $this.find('.slick-current .yt-carousel-thumb').first().addClass('ytc-clicked');
+                        $this.find('.slick-current .yt-carousel-thumb').first().addClass('ytc-clicked'); // init selector
                         $this.find('.yt-carousel-thumb').click(function() {
-                            var $th = $(this);
-
-                            // Add 'ytc-clicked' class to thumbnail for selected item styling
-                            $this.find('.ytc-clicked').removeClass('ytc-clicked');
-                            $th.addClass('ytc-clicked'); 
-
-                            // Get data from clicked thumnail and pass to draw function
-                            var $thumbIndex = $th.closest('.slick-slide').attr('data-slick-index');
-                            var $thumbVideoTitle = $th.text();
-                            var $thumbVideoID = $th.attr('id');
-                            if($thumbVideoID.length < 1) {
-                                // For cases where slick does not clone the thumbnail link ID
-                                var $img = $th.find('img').attr('src');
-                                $thumbVideoID = $img.split('/')[4];
-                            }
-                            drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $this, $thumbIndex, $count);
-                            doCarouselAnalytics($this, $carouselTitle, 'click',  $thumbIndex);
+                            var $thumb = $(this);                            
+                            doThumbClickActions($this, $thumb, $count, $carouselTitle);
                         });
 
                         // Change the video upon mobile next arrow click
@@ -179,11 +159,27 @@ define(function(require) {
 
 
     /**
+     * Draw a carousel thumbnail element & attributes
+     * @param {any} $item 
+     * @param {any} $id 
+     * @param {any} $title 
+     */
+    function appendCarouselThumbnails($item, $id, $title) {
+        var $thumbBlob = '<div class="ytc-thumb-container">' +
+                           '<a class="yt-carousel-thumb" id="' + $id + '">' + 
+                             '<img src="https://i.ytimg.com/vi/' + $id + '/mqdefault.jpg" alt="' + $title + '">' + 
+                           '</a>' +
+                           '<span>' + $title + '</span>' + 
+                         '</div>'
+        $item.append($thumbBlob);
+    }
+
+    /**
      * Draw the containers for the carousel thumbnails and arrows
      * TODO: hide arrows if < 4 items
      * @param {any} $el 
      */
-    function appendControls($el) {
+    function appendCarouselControls($el) {
         var $prev = 'previous';
         var $next = 'next';
         if($('.yt-carousel.ytc-spanish').length) {
@@ -219,9 +215,9 @@ define(function(require) {
      * @param {any} $vidTitle 
      * @param {any} $el 
      * @param {any} $index 
-     * @param {any} $count 
+     * @param {any} $total 
      */
-    function drawSelectedVideo($vidID, $vidTitle, $el, $index, $count) {
+    function drawSelectedVideo($vidID, $vidTitle, $el, $index, $total) {
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);
@@ -234,7 +230,7 @@ define(function(require) {
         // Draw mobile HTML elements 
         var $pager = $el.find('.yt-carousel-pager');
         var $pos = 1 + parseInt($index);
-        $pager.text($pos + "/" + $count);
+        $pager.text($pos + "/" + $total);
 
         // Rebuild the YouTube embedded video from the updated flex-video element
         // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
@@ -267,13 +263,13 @@ define(function(require) {
             console.log('Video ended');
             $indexNcurr = $el.find('.flex-video').attr('ytc-index');
             $indexNext = ++$indexNcurr;
-            if ($indexNext > ($count - 1)) {
+            if ($indexNext > ($total - 1)) {
                 $indexNext = 0;
             }
             $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
             $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
             $titleNext = $selNext.text();
-            drawSelectedVideo($idNext, $titleNext, $el, $indexNext, $count);
+            drawSelectedVideo($idNext, $titleNext, $el, $indexNext, $total);
             doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
             }
 
@@ -282,7 +278,7 @@ define(function(require) {
         onYouTubeIframeAPIReady();
 
     }
-
+    
     /**
      * slick-carousel calls to draw the YouTube playlist carousel 
      * @param {any} $el 
@@ -305,6 +301,32 @@ define(function(require) {
         $el.find('.yt-carousel-arrows .next').click(function() {
             $item.slick("slickNext");
         });
+    }
+
+
+    /**
+     * Track analytics for click events on video carousel items.
+     * @param {any} sender 
+     * @param {any} title 
+     * @param {any} action 
+     * @param {any} index 
+     */
+    function doThumbClickActions($el, $thumb, $total, $title){
+        // Add 'ytc-clicked' class to thumbnail for selected item styling
+        $el.find('.ytc-clicked').removeClass('ytc-clicked');
+        $thumb.addClass('ytc-clicked'); 
+
+        // Get data from clicked thumnail and pass to draw function
+        var $thumbIndex = $thumb.closest('.slick-slide').attr('data-slick-index');
+        var $thumbVideoTitle = $thumb.text();
+        var $thumbVideoID = $thumb.attr('id');
+        if($thumbVideoID.length < 1) {
+            // For cases where slick does not clone the thumbnail link ID
+            var $img = $thumb.find('img').attr('src');
+            $thumbVideoID = $img.split('/')[4];
+        }
+        drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $el, $thumbIndex, $total);
+        doCarouselAnalytics($el, $title, 'click',  $thumbIndex);
     }
 
     /**
