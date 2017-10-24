@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import "environments/percussion";
-//@import "config";
 @import "variables";
 @import "mixins";
 @import "functions";
@@ -12,6 +11,10 @@
 @import "reset";
 /***  END RESET STYLES ***/
 /***  BEGIN FOUNDATION STYLES ***/
+
+/****************** NCI UTILITIES ********************/
+@import "sprites/svg-sprite"; //sprites are sometimes used in *_overrides files
+
 @import "nci-foundation";
 /* @import "grid"; */ /* using this for override of foundation media screen if necessary */
 /***  END FOUNDATION STYLES ***/
@@ -31,6 +34,7 @@
 @import "vendor/select2/core";
 /***  END SELECT2 JQUERY PLUG-IN STYLES ***/
 /****************** END VENDOR LIBRARIES SECTION ********************/
+
 
 /****************** NCI COMPONENTS SECTION ********************/
 // these styles override and extend Foundation SASS partials
@@ -70,6 +74,7 @@
 @import "ebookButtons";
 @import "materials_to_share";
 @import "searchresults";
+@import "bestBets";
 @import "lists";
 @import "videos";
 @import "popups";
@@ -81,6 +86,7 @@
 @import "nav";
 @import "pagination";
 @import "image-video-carousel";
+
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
 @import "NCI.ProactiveLiveHelp";

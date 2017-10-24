@@ -28,7 +28,7 @@
 		border-bottom: 7px solid transparent;
 		font-size: 14px;
 		color: #fff;
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 		text-transform: uppercase;
 		text-align: center;
 		@include transition(all linear 150ms);
@@ -147,7 +147,7 @@
 		font-weight: bold;
 		color: $color-link;
 		display: block;
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 	}
 	/* sub nav group header hover color */
 	.sub-nav-group-header:hover, .sub-nav-group-header:focus {
@@ -284,27 +284,5 @@
 		//		background-color: transparent !important;
 		//	}
 		//}
-	}
-}
-
-
-#nvcgSlMainNav.searching {
-	@include bp(small) {
-		.mobile-menu-bar .menu-btn:before {
-			left: 10%;
-		}
-		#siteSearchForm:before {
-			width: 80%;
-			left: 16%;
-		}
-		#swKeyword {
-			width: 70%;
-			left: 17.5%;
-		}
-	}
-	#searchclear {
-		@include bp(xtra-small) {
-			top: 0.0625em;
-		}
 	}
 }

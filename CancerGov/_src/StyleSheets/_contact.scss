@@ -1,8 +1,9 @@
 /****************** BEGIN Contact Info styles ********************/
 
-.live-help-button {
-	@include sprite($x-coordinate: -467px, $y-coordinate: 11px, $width: 164px, $height: 54px);
-}
+//.live-help-button {
+//	@include svg-sprite(live-help-logo);
+//	font-size: 315%; // sprite icon max size is 32px. Using font-size to zoom it up
+//}
 
 .contact-buttons {
 	overflow: auto;
@@ -20,7 +21,7 @@
 	display: block;
 	color: #fff;
 	line-height: 24px;
-	font-family: 'Montserrat', Arial, sans-serif;
+	font-family: $montserrat-font-stack;
 	font-size: 13px;
 }
 
@@ -39,32 +40,31 @@
 }
 
 .contact-buttons a.icon {
-	padding-left: 11px;
+	padding:8px 11px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .contact-buttons a.icon span {
 	padding-left: 11px;
 	vertical-align: top;
-	display: inline-block;
 }
 
 .contact-buttons a.icon:before {
 	content: "";
-	display: inline-block;
+	font-size: 130%;
 }
 
 // these are used on Contact Us mobile page
-// background-position-y below is to account for the difference in height between the max height (above, 27px) and the icon's height
-// it should center the icon vertically
-// Example: background-position: X (Y + (maxHeight - iconHeight) / 2);
-.contact-buttons a.phone.icon:before {
-	@include sprite($x-coordinate: -282px, $y-coordinate: (-350px + (27px - 15px) / 2), $width: 13px, $height: 27px);
+.contact-buttons .phone:before {
+	@include svg-sprite(phone-white)
 }
-.contact-buttons a.chat.icon:before {
-	@include sprite($x-coordinate: -307px, $y-coordinate: (-350px + (27px - 15px) / 2), $width: 18px, $height: 27px);
+.contact-buttons .chat:before {
+	@include svg-sprite(comment-white)
 }
-.contact-buttons a.email.icon:before {
-	@include sprite($x-coordinate: -123px, $y-coordinate: (-110px + (27px - 15px) / 2), $width: 23px, $height: 27px);
+.contact-buttons .email:before {
+	@include svg-sprite(mail-envelope-closed-white)
 }
 
 /****************** END Contact Info styles ********************/

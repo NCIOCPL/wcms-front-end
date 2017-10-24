@@ -8,18 +8,21 @@
 	border: 6px solid #2A7CB8;
 	z-index: 1000;
 	transform: translateY(-50%) translateX(-50%);
-	font:normal .875em Montserrat, Arial, sans-serif;
+	font:normal .875em $montserrat-font-stack;
 	color:#606060;
-	background: #fff image-url($css + 'proactive-chat-woman.jpg') no-repeat bottom right;
+	background: #fff image-url($backgrounds + 'proactive-chat-woman.jpg') no-repeat bottom right;
 
 	input {
 		background: #086F89;
 		color: #ffffff;
 		border: none;
-		font:bold 1.1em Montserrat, Arial, sans-serif;
+		font:bold 1.1em $montserrat-font-stack;
 		padding: .35em 1.8em;
 		border-radius: .2em;
 		cursor: pointer;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+
 	}
 
 	h2 {
@@ -42,11 +45,11 @@
 	}
 
 	.live-help {
-		background: image-url($css + 'livehelp-proactive-chat.png') no-repeat 0;
 		content: " ";
-		min-height: 37px;
+		@include svg-sprite(live-help-logo);
+		font-size: 60%;
 		margin-left: 20px;
-		margin-top: 10px;
+		margin-top: 12px;
 	}
 
 	.close {
@@ -55,7 +58,7 @@
 		right: 10px;
 		top: 10px;
 		display: inline-block;
-		@include sprite($x-coordinate: -438px, $y-coordinate: -260px, $width: 1.1875em, $height: 1.1875em);
+		@include svg-sprite(close-blue);
 	}
 
 	@include bp(small) {

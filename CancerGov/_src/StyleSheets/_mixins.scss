@@ -44,3 +44,13 @@
 	-moz-box-shadow: $shadows;
 	box-shadow: $shadows;
 }
+
+@mixin hCenter {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin vCenter {
+	top: 50%;
+	transform: translateY(-50%);
+}

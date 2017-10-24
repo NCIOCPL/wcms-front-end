@@ -1,6 +1,6 @@
 /********************* BEGIN Footer Styles ******************************************/
 .columns.footer-nci {
-    @include font-montserrat;
+    font-family: $montserrat-font-stack;
     font-size: 25px;
     padding-left: 0.6em;
     padding-right: 0.6em;
@@ -11,7 +11,7 @@
 }
 
 .site-footer {
-    background: #123e57 image-url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
+    background: $footer image-url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
     padding: 1em 0;
     color: white;
 
@@ -20,7 +20,7 @@
         font-size: 1em;
         font-weight: normal;
         text-transform: uppercase;
-        @include font-noto;
+        font-family: $noto-font-stack;
         margin-bottom: 1em;
     }
 
@@ -44,62 +44,70 @@
     }
 
     .icon {
-        display: inline-block;
+        //display: inline-block;
+        //font-size: 18px;
 
         &.facebook {
-          @include sprite($x-coordinate: -132px, $y-coordinate: -155px, $width: 8px, $height: 17px);
+          @include svg-sprite(facebook-white);
         }
 
         &.twitter {
-					@include sprite($x-coordinate: -123px, $y-coordinate: -200px, $width: 19px, $height: 16px);
+          @include svg-sprite(twitter-white);
         }
 			
-				&.instagram {
-					@include sprite($x-coordinate: -125px, $y-coordinate: -467px, $width: 18px, $height: 18px);
+        &.instagram {
+          @include svg-sprite(instagram-white);
         }
 
         &.googleplus {
-					@include sprite($x-coordinate: -123px, $y-coordinate: -245px, $width: 19px, $height: 19px);
+          @include svg-sprite(google-plus-white);
         }
 
         &.pinterest {
-					@include sprite($x-coordinate: -127px, $y-coordinate: -290px, $width: 15px, $height: 19px);
+          @include svg-sprite(pinterest-white);
         }
 
         &.youtube {
-					@include sprite($x-coordinate: -126px, $y-coordinate: -335px, $width: 18px, $height: 21px);
+          @include svg-sprite(youtube-white);
         }
 
         &.linkedin {
-					@include sprite($x-coordinate: -127px, $y-coordinate: -425px, $width: 14px, $height: 14px);
+          @include svg-sprite(linkedin-white);
+          font-size: 120%;
         }
 
         &.rss {
-					@include sprite($x-coordinate: -127px, $y-coordinate: -380px, $width: 16px, $height: 16px);
+          //font-size: 91%;
+          @include svg-sprite(rss-white);
         }
-				&.govdelivery {
-					@include sprite($x-coordinate: -126px, $y-coordinate: -518px, $width: 18px, $height: 18px);
+        &.govdelivery {
+          @include svg-sprite(gov-delivery-white);
+          //font-size: 91%;
         }
     }
 }
-@include bp(small){
-	.site-footer {
-		background-position: -120% 150px;
-	}
-}
-@include bp(medium){
+
+@include bp(medium-down){
 	/** Hide feature card title on tablets and up **/
 	.site-footer {
 		background-position: 130% 150px;
 	}
 }
 
+@include bp(small){
+	/** Hide feature card title on tablets and up **/
+	.site-footer {
+		background-position: -120% 150px;
+	}
+}
+
+
 .follow-us {
   margin: 0.5em 0;  
 	
 	li {
 		float: left;
-		margin-right: 0.9em;
+		margin-right: 0.7em;
 		margin-left: 0;
 		text-indent: 0;
 		margin-bottom: 0;
@@ -117,15 +125,20 @@
 
     li {
         display: inline-block;
-        background: image-url($backgrounds + "agencies-divider.gif") center right no-repeat;
-        padding-right: 0.5em;
         margin-right: 0.25em;
+      &:after {
+        content: "|";
+        padding-left: 0.5em;
+        -webkit-font-smoothing: antialiased;
+      }
     }
 
     li.last {
         background: none;
-        padding-right: 0;
         margin-right: 0;
+      &:after {
+        display:none;
+      }
     }
 }
 
@@ -142,9 +155,11 @@
 	}
 	.agencies ul li {
 		display: block;
-		background: none;
 		padding-right: 0;
 		margin-right: 0;
+        &:after {
+          display:none;
+        }
 	}
 }
 

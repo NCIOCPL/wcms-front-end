@@ -5,6 +5,7 @@
 .bgWhite {
 	background-color: #fff;
 }
+/* no longer used on CTHP
 .relatedcontent {
 	&:hover a, a:hover,
 	&:focus a, a:focus {
@@ -26,8 +27,10 @@
 		content: $circle-arrow-blue-small;
 	}
 }
+*/
 .cthp-content {
-	background: #008eb0 image-url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
+	//background: #008eb0 image-url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
+	background: #008eb0 image-url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
   &.cthp-patient-content {
 		background-color: #6254A3;
 	}
@@ -112,10 +115,10 @@
 		color: $header-font-color;
 	}
 }
-.normal li {
-	background: image-url($icons + "blue-list-dot.png") 0 7px no-repeat;
-	padding-left: 0.9375em;
-}
+//.normal li {
+//	background: image-url($icons + "blue-list-dot.png") 0 7px no-repeat;
+//	padding-left: 0.9375em;
+//}
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
 
@@ -202,21 +205,6 @@
 	margin: 0 50% 20px 0;
 
 	/* margin-top: -10px; -->  half the icon height */
-	& a:after {
-		content: "";
-		background: $ncisprite no-repeat -467px -217px;
-		width: 20px;
-		height: 20px;
-		display: inline-block;
-		position: absolute;
-		margin-top: -10px;
-		right: 2%;
-		top: 50%;
-	}
-
-	& a:hover:after, & a:focus:after {
-		background-position: -382px -217px;
-	}
 
 	a {
 		display: block;
@@ -231,45 +219,46 @@
 		/* Also need to pay attention to proper case in ES*/
 		html[lang="es"] & {
 			text-transform: lowercase;
-		}
-		html[lang="es"] &:first-letter {
-			text-transform: uppercase;
+
+			&::first-letter {
+				text-transform: uppercase;
+			}
 		}
 
-		html[lang="en"] &:before {
+		html[lang="en"] &::before {
 			content: 'Go to ';
 		}
-		html[lang="es"] &:before {
+		html[lang="es"] &::before {
 			content: 'Vaya a la ';
 		}
+
+		&::after {
+			content: "";
+			@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+			position: absolute;
+			right: 2%;
+		}
+
+		&:hover, &:focus {
+			text-decoration: none;
+			color: #bd153c;
+
+			&::after {
+				@include svg-sprite(chevron-circle-red);
+			}
+		}
 	}
-	&:hover a, &:focus a {
-		text-decoration: none;
-		color: #bd153c;
-	}
+
 
 	@include bp(small) {
 		float: none;
 		background-color: white;
 		display: inline-block;
-		margin-top: 0;
 		margin-right: 0;
-
-		&:before {
-			content: "";
-			background: $ncisprite no-repeat -467px -217px;
-			position: relative;
-			right: -230px;
-			top: 24px;
-		}
 
 		a {
 			padding: 0 40px 0 0;
 			white-space: normal;
-		}
-		&:before:hover, &:focus {
-			content: "";
-			background: $ncisprite no-repeat -382px -217px;
 		}
 	}
 }
@@ -279,13 +268,14 @@
 .alphalist {
 	padding: 1.2em 0;
 	overflow: auto;
-}
-.alphalist li {
-	float: left;
-	font-size: 1.625em;
-	@include font-montserrat;
-	margin-right: 1em;
-	color: $body-font-color;
+
+	li {
+		float: left;
+		font-size: 1.625em;
+		font-family: $montserrat-font-stack;
+		margin-right: 1em;
+		color: $body-font-color;
+	}
 }
 .cthp-content.ui-accordion .ui-accordion-header {
 	color: white;
@@ -333,7 +323,7 @@
 }
 /* Format card title */
 h3.cthp-overview-title {
-	background: #4c34c3 image-url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
+	//background: #4c34c3 image-url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
 	color: #ffffff;
 	padding: 0.47em 0.6em;
 	margin: -5px -15px 0;
@@ -368,35 +358,46 @@ h3.cthp-overview-title {
 }
 /** End CTHP Overview styling */
 /** Begin CTHP Card styling */
-.cthp-content .cthp-treatment h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-green-waves.jpg") repeat-x;
+@import "../../../../StyleSheets/sprites/img-sprites";
+@import "accordion-sprite-map";
+@include img-sprites-same-size($accordion-sprites,$height:auto,$repeatX:true);
+//.cthp-content {
+//}
+
+[class*="cthp-overview"] h3.cthp-overview-title {
+	@extend .accordion-blue-purple-circles;
 }
-.cthp-content .cthp-research h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-blue-gears.jpg") repeat-x;
-}
-.cthp-content .cthp-causes h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-purple-squares.jpg") repeat-x;
-}
-.cthp-content .cthp-genetics h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-blue-diamonds.jpg") repeat-x;
-}
-.cthp-content .cthp-screening h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-pink-triangles.jpg") repeat;
-}
-.cthp-content .cthp-survival h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-yellow-squares.jpg") repeat-x;
-}
-.cthp-content .cthp-general h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-blue-octagons.jpg") repeat-x;
-}
-.cthp-content .cthp-overview h3 {
-	background: #008eb0 image-url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
-}
-.cthp-content .cthp-pink-feature h3 {
-	background: #008eb0 image-url($backgrounds + "pink-triangles.jpg") repeat-x;
-}
-.cthp-content .cthp-yellow-feature h3 {
-	background: #008eb0 image-url($backgrounds + "yellow-hexagons.jpg") repeat-x;
+.cthp-card-container {
+	.cthp-treatment h3 {
+		@extend .accordion-green-waves;
+	}
+	.cthp-research h3 {
+		@extend .accordion-blue-gears;
+	}
+	.cthp-causes h3 {
+		@extend .accordion-purple-squares;
+	}
+	.cthp-genetics h3 {
+		@extend .accordion-blue-diamonds;
+	}
+	.cthp-screening h3 {
+		@extend .accordion-red-triangles;
+	}
+	.cthp-survival h3 {
+		@extend .accordion-yellow-squares;
+	}
+	.cthp-general h3 {
+		@extend .accordion-blue-octagons;
+	}
+	.cthp-overview h3 {
+		@extend .accordion-blue-purple-circles;
+	}
+	.cthp-pink-feature h3 {
+		@extend .accordion-pink-triangles;
+	}
+	.cthp-yellow-feature h3 {
+		@extend .accordion-yellow-hexagons;
+	}
 }
 
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
