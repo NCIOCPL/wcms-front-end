@@ -11,6 +11,7 @@ import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
+import * as BestBets from 'Modules/bestBets/bestBets';
 
 /**
  * Class representing CancerGov inner pages.
@@ -94,6 +95,7 @@ class InnerPage extends NCIBasePage {
         // Run delighter and analytics 'after' init() functions
         (<any>ClinicalTrialsDelighter).init(); 
         (<any>AnalyticsAfter).init();
+        (<any>BestBets).init();
 	}
     
 }
