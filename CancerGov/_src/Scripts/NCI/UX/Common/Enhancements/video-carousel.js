@@ -99,7 +99,7 @@ define(function(require) {
                         // Initialize the selected player with the first item in the playlist
                         var $initialID = data.result.items[0].snippet.resourceId.videoId;
                         var $initialTitle = data.result.items[0].snippet.title;
-                        drawSelectedVideo($initialID, $initialTitle, $this, 0, $count);
+                        drawSelectedVideo($this, $initialID, $initialTitle, 0, $count, true);
 
                         // Draw the carousel thumbnails
                         $.each(data.result.items, function(j, item) {
@@ -128,7 +128,7 @@ define(function(require) {
                             $selPrev = $this.find(".slick-slide[data-slick-index='" + $indexPrev + "']");
                             $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
                             $titlePrev = $selPrev.text();
-                            drawSelectedVideo($idPrev, $titlePrev, $this, $indexPrev, $count);
+                            drawSelectedVideo($this, $idPrev, $titlePrev, $indexPrev, $count);
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);
                         });
 
@@ -142,7 +142,7 @@ define(function(require) {
                             $selNext = $this.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                             $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                             $titleNext = $selNext.text();
-                            drawSelectedVideo($idNext, $titleNext, $this, $indexNext, $count);
+                            drawSelectedVideo($this, $idNext, $titleNext, $indexNext, $count);
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexNext);
                         });
                         
@@ -211,13 +211,14 @@ define(function(require) {
     /**
      * Update flex-video selector attributes with a new video ID, then draw the selected video, mobile elements, and
      * fire off onstatechanged events 
+     * @param {any} $el 
      * @param {any} $vidID 
      * @param {any} $vidTitle 
-     * @param {any} $el 
      * @param {any} $index 
      * @param {any} $total 
+     * @param {any} $isInitial
      */
-    function drawSelectedVideo($vidID, $vidTitle, $el, $index, $total) {
+    function drawSelectedVideo($el, $vidID, $vidTitle, $index, $total, $isInitial) {
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);
@@ -253,8 +254,12 @@ define(function(require) {
         }
 
         // Function to execute when the onReady event fires
-        function onPlayerReady() {
-            // If we want to fire off anything when the player is ready, add it here
+        function onPlayerReady(e) {
+            if(!$isInitial) {
+                // Start the video when when the player is ready - 
+                // unless this is the initial page load.            
+                e.target.playVideo();   
+            }            
         }
 
         // Call the onPlayerStateChange function when the player's state changes, which may indicate that the player is playing, paused, finished, etc
@@ -266,7 +271,7 @@ define(function(require) {
                     $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                     $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                     $titleNext = $selNext.text();
-                    drawSelectedVideo($idNext, $titleNext, $el, $indexNext, $total);
+                    drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total);
                     doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
                 }
             }
@@ -323,7 +328,7 @@ define(function(require) {
             var $img = $thumb.find('img').attr('src');
             $thumbVideoID = $img.split('/')[4];
         }
-        drawSelectedVideo($thumbVideoID, $thumbVideoTitle, $el, $thumbIndex, $total);
+        drawSelectedVideo($el, $thumbVideoID, $thumbVideoTitle, $thumbIndex, $total);
         doCarouselAnalytics($el, $title, 'click',  $thumbIndex);
     }
 
