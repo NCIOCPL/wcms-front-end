@@ -134,6 +134,7 @@ span.ic-arrow-button {
 .yt-carousel {
 	width: 85%;
 	margin: auto;
+	margin-top: 30px;
 	@include bp(small) {
 		width: 100%;
 	} 
