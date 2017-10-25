@@ -116,13 +116,15 @@
   }
 
   .previous {
-	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+	@include svg-sprite(chevron-dkblue);
 	transform: rotate(-90deg);
+	font-size: 1.875em;
   }
 
   .next {
-	background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
-    transform: rotate(90deg);
+	@include svg-sprite(chevron-dkblue);
+	transform: rotate(90deg);
+	font-size: 1.875em;
   }
 }
 
