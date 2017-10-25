@@ -94,6 +94,9 @@ module.exports = function(grunt) {
             case 'dt':
                 proxy = 'www-dt-qa';
                 break;
+	        case 'preview-qa':
+		        proxy = 'preview-qa';
+		        break;
             case 'stage':
                 proxy = 'www-stage';
                 break;
