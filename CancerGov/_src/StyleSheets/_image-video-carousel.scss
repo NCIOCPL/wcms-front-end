@@ -1,5 +1,7 @@
 /****************** START IMAGE CAROUSEL STYLES ******************/
 .ic-carousel {
+	margin-bottom: 30px;
+
 	@include bp(large-up){
 		margin-left: 18%;
 		margin-right: 18%;
