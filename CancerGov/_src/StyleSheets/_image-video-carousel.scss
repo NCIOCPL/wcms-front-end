@@ -47,9 +47,15 @@
 		margin-bottom: 0;
 	}
 
+	.slick-track {
+		display: flex;
+		align-items: center;
+	}
+
 	.slick-slide {
 		background-color: $white;
 		border-color: $white;
+		float: none;
 
 		img {
 			margin: auto;
@@ -189,13 +195,15 @@ span.ic-arrow-button {
 .yt-carousel-arrows .previous,
 .yt-carousel-arrows .m-previous {
 	@include svg-sprite(chevron-dkblue);
-	//background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+	font-size: 1.875em;
+	margin-bottom: 2px;
 	transform: rotate(-90deg);
 }
 .yt-carousel-arrows .next,
 .yt-carousel-arrows .m-next {
 	@include svg-sprite(chevron-dkblue);	
-	//background: rgba(0, 0, 0, 0) url("/publishedcontent/images/images/design-elements/icons/chevron-blue.svg") no-repeat scroll center center / 90% auto;
+	font-size: 1.875em;
+	margin-top: -1px;
     transform: rotate(90deg);
 }
 
@@ -231,6 +239,12 @@ span.ic-arrow-button {
 	.yt-carousel-count,
 	.yt-carousel-controls {
 		display: none;
+	}
+	.yt-carousel-arrows {
+		.m-previous,	
+		.m-next {
+			font-size: 1.33em;
+		}
 	}
 }
 
