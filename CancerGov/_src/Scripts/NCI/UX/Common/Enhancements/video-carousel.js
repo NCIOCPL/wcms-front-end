@@ -268,11 +268,12 @@ define(function(require) {
                 $indexNcurr = $el.find('.flex-video').attr('ytc-index');
                 $indexNext = ++$indexNcurr;
                 if($indexNext <= ($total - 1)) {
+                    $carouselTitle = $el.find('h4').text();                    
                     $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                     $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                     $titleNext = $selNext.text();
+                    doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
                     drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
-                    doCarouselAnalytics($el, $titleNext, 'swipe',  $indexNext);
                 }
             }
         }
@@ -346,7 +347,11 @@ define(function(require) {
                 safeTitle = title.substring(0,50);
             }
             var value = 'vidcar_' + safeTitle + '_' + action + '_' + index;
-            NCIAnalytics.VideoCarouselClickSwipe(sender, value); 
+            if(action == 'complete') {
+                NCIAnalytics.VideoCarouselComplete(sender, value); 
+            } else {
+                NCIAnalytics.VideoCarouselClickSwipe(sender, value);
+            }
         }
     }
 
