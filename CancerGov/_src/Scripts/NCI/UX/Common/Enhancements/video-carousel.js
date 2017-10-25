@@ -128,7 +128,7 @@ define(function(require) {
                             $selPrev = $this.find(".slick-slide[data-slick-index='" + $indexPrev + "']");
                             $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
                             $titlePrev = $selPrev.text();
-                            drawSelectedVideo($this, $idPrev, $titlePrev, $indexPrev, $count);
+                            drawSelectedVideo($this, $idPrev, $titlePrev, $indexPrev, $count, true);
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);
                         });
 
@@ -142,7 +142,7 @@ define(function(require) {
                             $selNext = $this.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                             $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                             $titleNext = $selNext.text();
-                            drawSelectedVideo($this, $idNext, $titleNext, $indexNext, $count);
+                            drawSelectedVideo($this, $idNext, $titleNext, $indexNext, $count, true);
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexNext);
                         });
                         
@@ -328,7 +328,7 @@ define(function(require) {
             var $img = $thumb.find('img').attr('src');
             $thumbVideoID = $img.split('/')[4];
         }
-        drawSelectedVideo($el, $thumbVideoID, $thumbVideoTitle, $thumbIndex, $total);
+        drawSelectedVideo($el, $thumbVideoID, $thumbVideoTitle, $thumbIndex, $total, true);
         doCarouselAnalytics($el, $title, 'click',  $thumbIndex);
     }
 
