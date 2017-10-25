@@ -185,6 +185,9 @@ span.ic-arrow-button {
 	@include bp(xtra-large) {
 		margin-top: 50px;
 	} 
+	@include bp(xtra-small) {
+		width: 90px;
+	}
 }
 
 .yt-carousel-arrows button {
@@ -251,9 +254,7 @@ span.ic-arrow-button {
 @media only screen and (max-width: 860px) {
 	.yt-carousel-arrows {
 		text-align: right;
-		display: inline;			
 		.next, .m-next {
-			float: right;
 			margin-right: 1px;
 		}
 	}
