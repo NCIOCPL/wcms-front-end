@@ -47,9 +47,15 @@
 		margin-bottom: 0;
 	}
 
+	.slick-track {
+		display: flex;
+		align-items: center;
+	}
+
 	.slick-slide {
 		background-color: $white;
 		border-color: $white;
+		float: none;
 
 		img {
 			margin: auto;
