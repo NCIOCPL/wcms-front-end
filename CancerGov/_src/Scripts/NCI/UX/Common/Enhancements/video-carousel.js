@@ -236,7 +236,7 @@ define(function(require) {
         // Rebuild the YouTube embedded video from the updated flex-video element, then draw the player.
         // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
         $selectedVideo.children('iframe').remove();
-        FlexVideoAPI.init();
+        FlexVideoAPI.init($el);
 
         //************ Begin YouTube API onPlayer functions  ************//        
         /**
