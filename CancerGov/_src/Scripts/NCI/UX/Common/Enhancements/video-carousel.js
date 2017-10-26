@@ -11,8 +11,6 @@ define(function(require) {
      *
      * TODO: - handle initial loading screen
      *       - convert to .ts and refactor
-     *       - auto-start videos?
-     * 
      **/
     function _initialize(key) {
         if($('.yt-carousel').length) {
@@ -82,7 +80,7 @@ define(function(require) {
                     // ...then build the HTML
                     .then(function(data) {
                         // Create vars for commonly used selectors
-                        var $carouselThumbs = $this.find('.yt-carousel-thumbs');                        
+                        var $carouselThumbs = $this.find('.yt-carousel-thumbs');
 
                         // Get total number of YouTube video items, maxed out at 50
                         var $count = data.result.pageInfo.totalResults;
@@ -105,7 +103,8 @@ define(function(require) {
                         $.each(data.result.items, function(j, item) {
                             $vid = item.snippet.resourceId.videoId;
                             $title = item.snippet.title;
-                            appendCarouselThumbnails($carouselThumbs, $vid, $title);
+                            $imageUrl = item.snippet.thumbnails.medium.url;
+                            appendCarouselThumbnails($carouselThumbs, $vid, $title, $imageUrl);
                         });
 
                         // JS snippets for YouTube playlist carousel 
@@ -114,7 +113,7 @@ define(function(require) {
                         // Change the video on carousel click
                         $this.find('.slick-current .yt-carousel-thumb').first().addClass('ytc-clicked'); // init selector
                         $this.find('.yt-carousel-thumb').click(function() {
-                            var $thumb = $(this);                            
+                            var $thumb = $(this); 
                             doThumbClickActions($this, $thumb, $count, $carouselTitle);
                         });
 
@@ -163,11 +162,12 @@ define(function(require) {
      * @param {any} $item 
      * @param {any} $id 
      * @param {any} $title 
+     * @param {any} $imgUrl 
      */
-    function appendCarouselThumbnails($item, $id, $title) {
+    function appendCarouselThumbnails($item, $id, $title, $imgUrl) {
         var $thumbBlob = '<div class="ytc-thumb-container">' +
                            '<a class="yt-carousel-thumb" id="' + $id + '">' + 
-                             '<img src="https://i.ytimg.com/vi/' + $id + '/mqdefault.jpg" alt="' + $title + '">' + 
+                             '<img src="' + $imgUrl + '" alt="' + $title + '">' + 
                            '</a>' +
                            '<span>' + $title + '</span>' + 
                          '</div>'
@@ -257,7 +257,7 @@ define(function(require) {
         function onPlayerReady(e) {
             if($isAutoPlay) {
                 // Start the video when when the player is ready - 
-                // unless this is the initial page load.            
+                // unless this is the initial page load.  
                 e.target.playVideo();   
             }
         }
@@ -268,7 +268,7 @@ define(function(require) {
                 $indexNcurr = $el.find('.flex-video').attr('ytc-index');
                 $indexNext = ++$indexNcurr;
                 if($indexNext <= ($total - 1)) {
-                    $carouselTitle = $el.find('h4').text();                    
+                    $carouselTitle = $el.find('h4').text();
                     $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                     $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                     $titleNext = $selNext.text();
