@@ -111,10 +111,6 @@
 	width: 40px;
   }
 
-  button:focus {
-	  outline:0;
-  }
-
   .previous {
 	@include svg-sprite(chevron-dkblue);
 	transform: rotate(-90deg);
