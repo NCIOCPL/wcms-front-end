@@ -14,36 +14,28 @@
 .ui-accordion {
 	// accordion header
 	.ui-accordion-header {
-		font-weight: bold;
-		border-left: 0;
-		border-right: 0;
-		border-top: 0;
-		border-radius: 0;
-		border-bottom: 1px solid #96aeb8;
-		background: #bcedf2;
-		color: #fff;
-		margin: 0 -0.9375em;
 		padding: 14.5px 70px 14.5px 20px;
+		margin: 0 -0.9375em;
+		border: none;
+		background-color: #bcedf2;
+		color: $header-font-color;
+		margin: 0 -0.9375em;
 		min-height: 50px;
+		font-size: 1.125em;
+		background-image: none;
+
+	// override icons
+		.ui-accordion-header-icon {
+			top: 0;
+			left: auto;
+			right: 0;
+			background-image: none;
+			margin-top: 0;
+		}
 	}
+
 	&.columns .ui-accordion-header {
 		margin: 0;
-	}
-	.ui-accordion-header:first-child {
-		border-top: 1px solid #96aeb8;
-	}
-	// opened accordion
-	.ui-accordion-header.ui-state-active {
-		background: #CCEEFA;
-		color: $header-font-color;
-	}
-	// override icons
-	.ui-accordion-header .ui-accordion-header-icon {
-		top: 0;
-		left: auto;
-		right: 0;
-		background-image: none;
-		margin-top: 0;
 	}
 
 	// accordion content
@@ -57,12 +49,44 @@
 		}
 	}
 }
+.ui-accordion-header {
 
-// Full page (.desktop) accordions general plus/minus buttons
+	&.ui-state-active {
+		background-color: #CCEEFA;
+		color: $header-font-color;
+		border: none;
+
+		.toggle {
+			background-color: white;
+			color: #8fd4db;
+		}
+	}
+
+	/* accordion zebra styling */
+	&.odd,
+	&.odd.ui-state-active {
+		background-color: #bcedf2;
+	}
+	&.even,
+	&.even.ui-state-active {
+		background-color: #dbf4f6;
+	}
+
+	&:first-child {
+		border-top-width: 0;
+	}
+
+	> p {
+		margin: 0;
+		line-height: inherit;
+	}
+}
+
+/* Blog Series Archive accordion in right rail */
 .desktop {
 	clear: both;
-}
-.desktop .toggle {
+
+	.toggle {
 	right: 0;
 	top: 0;
 	margin-top: 0;
@@ -77,26 +101,30 @@
 	}
 }
 
-/* Blog Series Archive accordion in right rail */
-.desktop{
 	#blog-archive-accordion {
 
-		#archive, .ui-accordion .ui-accordion-header.ui-state-active, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+		#archive,
+		.ui-accordion .ui-accordion-header.ui-state-active,
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default {
 			background-image: none;
 			background-color: white;		
 		}
 		ul li {
 			margin-top: 5px;
 			margin-bottom: 5px;
-			@include font-montserrat;
+			font-family: $montserrat-font-stack;
 		}
 
-		.ui-accordion-header .toggle{
+		.ui-accordion-header {
+			.toggle{
 			color: #454545;
 			background-color: white;
 		}
-		.accordion-header-active .toggle{
+			&.ui-state-active .toggle{
 			color: #14819b;
+		}
 		}
 		@include bp(medium-down) {
 		.ui-accordion .ui-accordion-header{
@@ -109,11 +137,6 @@
 /* selectmenu */
 // variables
 $ui-selectmenu-padding-topbottom: 0.5em;
-$ui-selectmenu-padding-right: 1em;
-$ui-selectmenu-padding-left: 1em;
-@mixin ui-selectmenu-padding($top:$ui-selectmenu-padding-topbottom, $right:$ui-selectmenu-padding-right, $bottom:$ui-selectmenu-padding-topbottom, $left:$ui-selectmenu-padding-left) {
-	padding: $top $right $bottom $left;
-};
 
 $ui-selectmenu-maxitems: 7;
 
@@ -125,12 +148,23 @@ $ui-selectmenu-maxitems: 7;
 	overflow: hidden;
 
 	span.ui-icon {
-		@include sprite($x-coordinate: -378.5px, $y-coordinate: -172px, $width: 8px, $height: 11px);
+		position: relative;
+		background-image: none;
 		background-color: #2b7bba;
 		top: 0;
 		right: 0;
 		margin-top: 0;
 		padding: 2 * $ui-selectmenu-padding-topbottom;
+
+		&::before {
+			content:'';
+			position: absolute;
+			@include svg-sprite(chevron-white);
+			top:50%;
+			left:50%;
+			transform: translateX(-50%) translateY(-50%) rotate(180deg);
+			font-size: .6em;
+		}
 	}
 	span.ui-selectmenu-text {
 		padding: .5em;
@@ -140,7 +174,7 @@ $ui-selectmenu-maxitems: 7;
 	}
 	&:hover span.ui-icon,
 	&:focus span.ui-icon {
-		@include sprite($x-coordinate: -378.5px, $y-coordinate: -172px, $width: 8px, $height: 11px);
+		background-image: none;
 		background-color: #2b7bba;
 	}
 
@@ -190,8 +224,8 @@ $ui-selectmenu-maxitems: 7;
 		background-color: rgba($beige, 0.9);
 		color: $body-font-color;
 		padding: 3px 1em 3px .4em;
-
 		list-style: none;
+
 		&:before {
 			content: none;
 			display: none;
@@ -201,141 +235,51 @@ $ui-selectmenu-maxitems: 7;
 			padding:0;
 			margin:0;
 		}
+
+		 @include bp(medium-down) {
+			background-color: transparent;
+			border-bottom: 1px solid $body-font-color;
+			padding: 0.2em 1em;
+
+			.dictionary-search & {
+				padding-left: 0.5em;
+			}
+		}
 	}
 
 	.ui-state-focus {
 		color: #fff;
 		background: $navyblue;
 	}
+
+	 @include bp(medium-down) {
+		z-index: 99999; // this is so that the autocomplete is never covered by another element
+		background-color: rgb(233, 234, 232);
+		background-color: rgba(230, 232, 230, 0.9);
+	 	background-image: none !important;
+		font-size: $swKeywordFontSize;
+		 width:auto !important;
+		 right:20px;
+
+		.dictionary-search & {
+			height: auto;
+			font-size: 1em;
+		}
+	}
 }
 
-/* accordion zebra styling */
-.ui-accordion-header.odd, .ui-accordion .ui-accordion-header.odd.ui-state-active {
-	background: #bcedf2;
-}
-.ui-accordion-header.even, .ui-accordion .ui-accordion-header.even.ui-state-active {
-	background: #dbf4f6;
-}
-
-/* end accordion zebra styling */
-.ui-accordion .ui-accordion-header {
-	color: $header-font-color;
-	font-size: 1.125em;
-	font-weight: normal;
-	border-bottom-width: 0;
-}
-.ui-accordion .ui-accordion-header:first-child {
-	border-top-width: 0;
-}
-.accordion-header-active .toggle {
-	background: white;
-	color: #8fd4db;
-}
-/* this overcomes p tag Percussion is putting inside h2 */
-.ui-accordion-header > p {
-	margin: 0;
-	line-height: inherit;
-}
-
-/* begin - images for these classes have not been uploaded */
-.ui-icon, .ui-widget-content .ui-icon {
-  background-image: none; }
-.ui-widget-header .ui-icon {
-  background-image: none; }
-.ui-state-default .ui-icon {
- background-image: none; }
-.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
-  background-image: none; }
-.ui-state-active .ui-icon {
-  background-image: none; }
-.ui-state-highlight .ui-icon {
-  background-image: none; }
-.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
-  background-image: none; }
 .ui-widget-content {
-	background-image: none; }
-.ui-widget-header {
-  background-image: none;}
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-	background-image: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
-	background-image: none; }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-  background-image: none; }
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
-	background-image: none; }
-.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
-	background-image: none; }
-/* end - images for these classes have not been uploaded */
+	//background-image: image-url($jqueryui + "ui-bg_flat_75_ffffff_40x100.png");
 
-
-/* begin override of default location for jquery ui images */
-.ui-widget-content {
-	background-image: image-url($images + "jquery/ui-bg_flat_75_ffffff_40x100.png");
-}
-.ui-widget-header {
-	background-image: image-url($images + "jquery/ui-bg_highlight-soft_75_cccccc_1x100.png");
-}
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-	background-image: image-url($images + "jquery/ui-bg_glass_75_e6e6e6_1x400.png");
-}
 .ui-state-hover,
-// .ui-widget-content .ui-state-hover,   // was interfering with autocomplete dropdown styling
-.ui-widget-header .ui-state-hover,
-.ui-state-focus,
-// .ui-widget-content .ui-state-focus,   // was interfering with autocomplete dropdown styling
-.ui-widget-header .ui-state-focus {
-	background-image: image-url($images + "jquery/ui-bg_glass_75_dadada_1x400.png");
+	.ui-state-focus {
+		background-image: none;
 }
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active {
-	background-image: image-url($images + "jquery/ui-bg_glass_65_ffffff_1x400.png");
-}
-.ui-state-highlight,
-.ui-widget-content .ui-state-highlight,
-.ui-widget-header .ui-state-highlight {
-	background-image: image-url($images + "jquery/ui-bg_glass_55_fbf9ee_1x400.png");
-}
-.ui-state-error,
-.ui-widget-content .ui-state-error,
-.ui-widget-header .ui-state-error {
-	background-image: image-url($images + "jquery/ui-bg_glass_95_fef1ec_1x400.png");
-}
-.ui-icon,
-.ui-widget-content .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_222222_256x240.png");
-}
-.ui-widget-header .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_222222_256x240.png");
 }
 .ui-state-default .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_888888_256x240.png");
+	background-image: image-url($jqueryui + "ui-icons_888888_256x240.png");
 }
-.ui-state-hover .ui-icon,
-.ui-state-focus .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_454545_256x240.png");
-}
-.ui-state-active .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_454545_256x240.png");
-}
-.ui-state-highlight .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_2e83ff_256x240.png");
-}
-.ui-state-error .ui-icon,
-.ui-state-error-text .ui-icon {
-	background-image: image-url($images + "jquery/ui-icons_cd0a0a_256x240.png");
-}
-.ui-widget-overlay {
-	background-image: image-url($images + "jquery/ui-bg_flat_0_aaaaaa_40x100.png");
-}
-.ui-widget-shadow {
-	background-image: image-url($images + "jquery/ui-bg_flat_0_aaaaaa_40x100.png");
-}
-/* end override of default location for jquery ui images */
-
 [class^="ui-corner-"], [class*=" ui-corner-"] {
 	border-radius: 0;
 }
+/* end override of default location for jquery ui images */

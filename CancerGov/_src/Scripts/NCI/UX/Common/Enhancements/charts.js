@@ -32,7 +32,7 @@ $(function () {
         [],
         []
     ];
-    themeColors.forEach((color, i) => {
+    themeColors.forEach(function (color, i) {
         splitColors[i % 2].push(color)
     });
 
@@ -137,7 +137,7 @@ $(function () {
                 verticalAlign: 'top',
                 x: -10,
                 y: 100
-            },
+            }
         }],
 
         drilldown: {

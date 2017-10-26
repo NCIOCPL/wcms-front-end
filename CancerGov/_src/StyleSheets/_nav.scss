@@ -4,6 +4,20 @@
 	}
 }
 
+#section-menu-button {
+	&::before {
+		content:'';
+		position: absolute;
+		top: 49%;
+		right: .7em;
+		@include svg-sprite(chevron-white);
+		//font-size: .9em;
+		transform: translateY(-50%) rotate(180deg);
+		//transition: transform .5s;
+	}
+}
+
+
 /* *************************************************************************/
 /* LARGE AND UP */
 /* *************************************************************************/
@@ -280,12 +294,12 @@
 		padding: 0.75em 2.5em 0.75em 0.75em;
 		right: 5%;
 		background: #1c5e86 95% 50% no-repeat;
-		background-image: image-url($buttons + "section-menu-down-arrow.png");
-		@include font-montserrat;
+		font-family: $montserrat-font-stack;
 		text-transform: uppercase;
-	}
-	#section-menu-button.open {
-		background-image: image-url($buttons + "section-menu-up-arrow.png");
+
+		&.open::before {
+			transform: translateY(-50%) rotate(0);
+		}
 	}
 	/* Fallbacks */
 	.no-js .section-nav ul {
@@ -353,8 +367,8 @@
 
 			.menu-btn {
 				position: absolute;
-				left: 100%; // Get back here!
-				width: 10%;
+				left: calc(100% + 2em); // Get back here!
+				width: auto;
 				margin-right: 0;
 				color: transparent; // get rid of the text
 				z-index: 90; // needs to be above search
@@ -362,14 +376,9 @@
 
 				&:before {
 					/* The arrow in the back to menu button */
-					content: " "; // we're adding image content
-					position: absolute;
-					top: 50%;
-					left: 25%;
-					display: block;
-					@include sprite($x-coordinate: -173px, $y-coordinate: -298px, $width: 46px, $height: 18px);
-					$searching-menu-arrow-height: 18px;
-					margin-top: -($searching-menu-arrow-height / 2);
+					@include svg-sprite(menu-return-white);
+					font-size: 169%;
+					top: .7em;
 				}
 			}
 		}
@@ -379,9 +388,11 @@
 			display: block;
 			width: 100%;
 			position: absolute;
-			right: 0px;
-			top: 0px;
+			right: 0;
+			top: 0;
 			height: 100%;
+			padding-left: 90px; //reserve space for "back to menu" icon
+			background-color: #444;
 		}
 
 		// These are all ID selectors, so we really don't
@@ -390,17 +401,16 @@
 		// with javascript on the parent.
 		#siteSearchForm {
 			margin: 0;
-			background-color: #444;
+
 
 			&:before {
 				content: " ";
 				display: block;
-				width: 85%;
+				width: calc(100% - 68px); // reserve space on right for "X"
 				height: 10px;
 				border: 2px solid $teal;
 				border-top: none;
 				background-color: transparent;
-				left: 11%;
 				position: absolute;
 				bottom: 10px;
 			}
@@ -408,13 +418,14 @@
 
 		#swKeyword {
 			position: relative;
-			left: 12.5%;
+			left: 2%;
 			height: 100%;
-			width: 75%;
+			width: calc(96% - 68px); // 2% offset on left and right minus reserved space for "X"
 			margin: 0;
 			padding: 0;
 			font-size: $swKeywordFontSize;
 			z-index: 80; //needs to be below the menu-btn
+			box-shadow: none;
 			background-color: transparent;
 
 			@include placeholder {
@@ -432,26 +443,17 @@
 
 		#searchclear {
 			position: absolute;
-			right: 5%;
+			right: 20px;
 			top: 0.25em;
-			width: 1em;
-			height: 1em;
 			padding: 0;
 			margin: 0;
-			border: none;
-			@include box-shadow(none);
-			background-color: transparent;
-			@include font-noto;
+			font-family: $noto-font-stack;
 			color: #888;
-			font-size: 3em;
-			line-height: 1;
+			min-height: auto;
 
 			&:before {
 				content: "\00d7";
-				font-weight: normal;
-				display: block;
-				width: 100%;
-				height: 100%;
+				font-size: 3em;
 			}
 		}
 	}
@@ -529,7 +531,7 @@
 		/* Level Styles */
 		.lvl-1, .lvl-2, .lvl-3 {
 			a {
-				@include font-montserrat;
+				font-family: $montserrat-font-stack;
 			}
 		}
 			/* list item spacing through the hierarchy */
@@ -619,4 +621,33 @@
 		overflow: hidden;
 	}
 	/*** END Megamenus/Search Styles ***/
+}
+
+// x-small
+@include bp(xtra-small) {
+	.mobile-menu-bar {
+		> a,
+		> button {
+			font-size: 0.5em;
+			padding: 4.5em 0 0 0;
+		}
+		//> .menu-btn {
+		//	font-size: .6em;
+		//}
+	}
+	#nvcgSlMainNav.searching {
+		.search {
+			padding-left: 75px;
+		}
+		#siteSearchForm:before {
+			width: calc(100% - 53px);
+		}
+		#swKeyword {
+			width: calc(96% - 53px);
+		}
+		#searchclear {
+			right: 10px;
+			top: -.3em;
+		}
+	}
 }

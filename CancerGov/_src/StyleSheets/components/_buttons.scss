@@ -16,7 +16,7 @@ $button-med: em-calc(6px);
 
 // We use these to control button text styles.
 
-$button-font-family: #{$montserrat-font-stack};
+$button-font-family: $montserrat-font-stack;
 $button-font-color: #fff;
 // $button-font-color-alt: #333;
 $button-font-med: em-calc(16);
@@ -139,7 +139,7 @@ $button-radius: $global-radius;
 // $split-button-pip-default-float-lrg: em-calc(-9);
 
 form a.button,
-form a.button:hover, {
+form a.button:hover {
 	text-decoration: none;
 }
 
@@ -187,8 +187,8 @@ form button,
 		&:before {
 			content: "";
 			position: absolute;
-			left: 0.75em;
-			@include sprite($x-coordinate: -245px, $y-coordinate: -348px, $width: 23px, $height: 20px);
+			left: 0.5em;
+			@include svg-sprite(undo-white);
 		}
 	}
 
@@ -226,7 +226,7 @@ a.button {
 // as a button but was changed to a link.  This link needs to set the 
 // font specificly
 a.search-link {
-	font-family: Montserrat, Arial, sans-serif;	
+	font-family: $montserrat-font-stack;
 }
 
 @media only screen {

@@ -7,32 +7,36 @@ module.exports = function(grunt) {
             src: {
                 base: "_src/",
                 templates: "_src/PageTemplates/",
-                sublayouttemplates: "_src/SublayoutTemplates/",
-                velocitytemplates: "_src/VelocityTemplates/",
+                sublayout_templates: "_src/SublayoutTemplates/",
+                velocity_templates: "_src/VelocityTemplates/",
                 styles: "_src/StyleSheets/",
                 scripts: "_src/Scripts/",
-                images: "_src/ImageAssets/",
+                modules: "_src/Scripts/NCI/Modules/",
+                images: "_src/ImageAssets/images/",
+                sprites: "_src/ImageAssets/sprites/",
                 files: "_src/FileAssets/",
-                fonts: '_src/Fonts'
+                fonts: '_src/Fonts/'
             },
             tmp: {
                 base: "_tmp/",
                 templates: "_tmp/PageTemplates/",
-                sublayouttemplates: "_tmp/SublayoutTemplates/",
-                velocitytemplates: "_tmp/VelocityTemplates/",
+                sublayout_templates: "_tmp/SublayoutTemplates/",
+                velocity_templates: "_tmp/VelocityTemplates/",
                 styles: "_tmp/Styles/",
                 scripts: "_tmp/js/"
             },
             dist: {
                 base: target + "/",
                 templates: target + "/PageTemplates/",
-                sublayouttemplates: target + "/SublayoutTemplates/",
-                velocitytemplates: target + "/VelocityTemplates/",
+                sublayout_templates: target + "/SublayoutTemplates/",
+                velocity_templates: target + "/VelocityTemplates/",
                 styles: target + "/Styles/",
                 scripts: target + "/js/",
-                images: target + "/Images/",
+                images: target + "/images/images/",
+                designelements: target + "/images/images/design-elements/",
+                sprites: target + "/images/images/design-elements/sprites/",
                 files: target + "/Files/",
-                fonts: target + '/fonts'
+                fonts: target + "/fonts/"
             },
             bower: 'bower_components/'
         },
@@ -56,6 +60,65 @@ module.exports = function(grunt) {
         },
         fingerprint: Date.now(),
         env: 'dev'
+    };
+
+    var getProxy = function(env) {
+        switch (env) {
+            case 'dev/red':
+            case 'red-dev':
+            case 'red':
+                proxy = 'www-red-dev';
+                break;
+            case 'dev/red/preview':
+            case 'preview-red-dev':
+            case 'preview-red':
+                proxy = 'preview-red-dev';
+                break;
+            case 'dev/pink':
+            case 'pink-dev':
+            case 'pink':
+                proxy = 'www-pink-dev';
+                break;
+            case 'dev/blue':
+            case 'blue-dev':
+            case 'blue':
+            case 'dev':
+                proxy = 'www-blue-dev';
+                if(/^\d+$/.test(env))
+                    proxy = 'www-ocdev' + env + '.ha2';
+                break;
+            case 'qa':
+                proxy = 'www-qa';
+                break;
+            case 'dt-qa':
+            case 'dt':
+                proxy = 'www-dt-qa';
+                break;
+            case 'stage':
+                proxy = 'www-stage';
+                break;
+            case 'training':
+                proxy = 'www-training';
+                break;
+            case 'preview':
+                proxy = 'preview';
+                break;
+            case 'production':
+            case 'prod':
+                proxy = 'www';
+                env = 'prod';
+                break;
+            default:
+                proxy = 'www-blue-dev';
+                if(/^\d+$/.test(env))
+                    proxy = 'www-ocdev' + env + '.ha2';
+        }
+        env = (env === 'prod' ? 'prod' : 'dev');
+
+        config.env = env;
+        grunt.config('env', env);
+
+        return proxy;
     };
 
     // Load Plugins
@@ -96,8 +159,20 @@ module.exports = function(grunt) {
         grunt.config('env', env);
 
         var tasks = ['sass:' + env,
-            'copy:styles',
-            'clean:tmp'];
+            'copy:styles'];
+        grunt.task.run(tasks);
+    });
+
+    // ----------------------------------------------------------------
+    grunt.registerTask('build-sprites', 'Building Sprites.', function(env) {
+        env = (env === 'prod' ? 'prod' : 'dev');
+        grunt.config('env', env);
+
+        var tasks = [
+            'sprite:carousel',
+            'sprite:accordion',
+            'svg_sprite',
+            'svgmin'];
         grunt.task.run(tasks);
     });
 
@@ -147,10 +222,10 @@ module.exports = function(grunt) {
 
         var tasks = ['bake:templates',
             'copy:templates',
-            'bake:sublayouttemplates',
-            'copy:sublayouttemplates',
-            'bake:velocitytemplates',
-            'copy:velocitytemplates',
+            'bake:sublayout_templates',
+            'copy:sublayout_templates',
+            'bake:velocity_templates',
+            'copy:velocity_templates',
             'clean:tmp'];
         grunt.task.run(tasks);
     });
@@ -162,9 +237,11 @@ module.exports = function(grunt) {
 
         var tasks = [
             'generate-config:' + env,
+            'build-sprites:' + env,
             'build-styles:' + env,
             'uglify:' + env,
             'copy:scripts',
+            'copy:widget_styles',
             'clean:tmp',
             'build-templates:' + env,
             'build-xsl',
@@ -192,74 +269,41 @@ module.exports = function(grunt) {
 
     // ----------------------------------------------------------------
     grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
-        var proxy;
-        var useHttps = true;
+        var proxy = getProxy(env);
 
-        switch (env) {
-            case 'dev/red':
-            case 'red-dev':
-            case 'red':
-                proxy = 'www-red-dev';
-                break;
-            case 'dev/red/preview':
-            case 'preview-red-dev':
-            case 'preview-red':
-                proxy = 'preview-red-dev';
-                break;
-            case 'dev/pink':
-            case 'pink-dev':
-            case 'pink':
-                proxy = 'www-pink-dev';
-                break;
-            case 'dev/blue':
-            case 'blue-dev':
-            case 'blue':
-            case 'dev':
-            default:
-                proxy = 'www-blue-dev';
-                if(/^\d+$/.test(env))
-                    proxy = 'www-ocdev' + env + '.ha2';
-                break;
-            case 'qa':
-                proxy = 'www-qa';
-                break;
-            case 'dt-qa':
-            case 'dt':
-                proxy = 'www-dt-qa';
-                break;
-            case 'stage':
-                proxy = 'www-stage';
-                break;
-            case 'training':
-                proxy = 'www-training';
-                useHttps = false;
-                break;
-            case 'preview':
-                proxy = 'preview';
-                break;
-            case 'production':
-            case 'prod':
-                proxy = 'www';
-                env = 'prod';
-                break;
-        }
-        env = (env === 'prod' ? 'prod' : 'dev');
-
-        config.env = env;
-
-        grunt.config('env', env);
         grunt.config.merge({
             develop: {
                 server: {
                     env: {
-                        PROXY_ENV: proxy,
-                        PROXY_HTTPS: useHttps
+                        PROXY_ENV: proxy
                     }
                 }
             }
         });
 
         var tasks = ['build:' + env,
+            'develop',
+            'watch'];
+        grunt.task.run(tasks);
+    });
+
+    // ----------------------------------------------------------------
+
+    // ----------------------------------------------------------------
+    grunt.registerTask('proxy', 'Watch for changes without rebuild.', function(env) {
+        var proxy = getProxy(env);
+
+        grunt.config.merge({
+            develop: {
+                server: {
+                    env: {
+                        PROXY_ENV: proxy
+                    }
+                }
+            }
+        });
+
+        var tasks = [
             'develop',
             'watch'];
         grunt.task.run(tasks);

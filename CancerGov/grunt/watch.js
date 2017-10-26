@@ -19,11 +19,11 @@ module.exports = function (grunt, options) {
             files: [
                 dirs.src.templates + '*.aspx',
                 dirs.src.templates + 'Includes/*.inc',
-                dirs.src.sublayouttemplates + '*.ascx',
-                dirs.src.sublayouttemplates + 'Includes/*.inc',
-                dirs.src.velocitytemplates + '*.vm',
-                dirs.src.velocitytemplates + 'Includes/*.inc',
-                dirs.src.velocitytemplates + '/*.inc'
+                dirs.src.sublayout_templates + '*.ascx',
+                dirs.src.sublayout_templates + 'Includes/*.inc',
+                dirs.src.velocity_templates + '*.vm',
+                dirs.src.velocity_templates + 'Includes/*.inc',
+                dirs.src.velocity_templates + '/*.inc'
             ],
             tasks: ['build-templates:' + 'dev']
         }

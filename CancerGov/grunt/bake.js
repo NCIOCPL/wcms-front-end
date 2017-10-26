@@ -14,23 +14,23 @@ module.exports = function (grunt, options) {
                 ext: ".aspx"
             }]
         },
-        sublayouttemplates: {
+        sublayout_templates: {
             options: {},
             files: [{
                 expand: true,
-                cwd: dirs.src.sublayouttemplates,
+                cwd: dirs.src.sublayout_templates,
                 src: ['**/*.ascx'],
-                dest: dirs.tmp.sublayouttemplates,
+                dest: dirs.tmp.sublayout_templates,
                 ext: ".ascx"
             }]
         },
-        velocitytemplates: {
+        velocity_templates: {
             options: {},
             files: [{
                 expand: true,
-                cwd: dirs.src.velocitytemplates,
+                cwd: dirs.src.velocity_templates,
                 src: ['**/*.vm'],
-                dest: dirs.tmp.velocitytemplates,
+                dest: dirs.tmp.velocity_templates,
                 ext: ".vm"
             }]
         }

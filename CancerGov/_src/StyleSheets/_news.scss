@@ -7,54 +7,72 @@ a.arrow-link.news-footer {
 	margin-bottom: 10px;
 	
 	
-	ul {margin-left: 23px;}
+	//ul {margin-left: 23px;}
 	ul li { position: relative; }
-	ul a[class^="news"]:before {
-    position: absolute;
-    top: 8px;
-    left: -26px;
-  }	
+	//ul a[class^="news"]:before {
+  //  position: absolute;
+  //  top: 8px;
+  //  left: -26px;
+  //}
+
+	ul > li {
+		margin-bottom: 5px;
+	}
+
+	a:first-child {
+		display: inline-block;
+		position: relative;
+		padding-left: 23px;
+		line-height: 130%;
+	}
 
 	a:before {
 		content: " ";
-		display: inline-block;
-		margin-right: 0.25em;
+		//display: inline-block;
+		margin-right: 0.5em;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 
 	a.news-twitter:before {
-		// background position has been moved (from -16px to -17px) to shift the icon to be center aligned
-		@include sprite($x-coordinate: -17px, $y-coordinate: -201px, $width: 19px, $height: 16px);
+		top: 3px;
+		@include svg-sprite(twitter-blue);
 	}
 	
 	a.news-facebook:before {
-		// background position has been moved (from -25px to -20px) to shift the icon to be center aligned
-		@include sprite($x-coordinate: -20px, $y-coordinate: -156px, $width: 19px, $height: 17px);
-		top: 4px !important;
+		left: 4px;
+		top: 1px;
+		min-width: 18px;
+		@include svg-sprite(facebook-blue);
 	}
 
 	a.news-youtube:before {
-		@include sprite($x-coordinate: -19px, $y-coordinate: -336px, $width: 19px, $height: 21px);
-		top: 0 !important;
+		top: -2px;
+		@include svg-sprite(youtube-blue);
 	}
 
 	a.news-rss:before {
-		@include sprite($x-coordinate: -20px, $y-coordinate: -381px, $width: 19px, $height: 16px);
+		top: 3px;
+		@include svg-sprite(rss-blue);
 	}
 	a.news-govdelivery:before {
-		@include sprite($x-coordinate: -126px, $y-coordinate: -563px, $width: 19px, $height: 18px);
-		top: 6px !important;
-		position: relative;
+		top: 3px;
+		@include svg-sprite(gov-delivery-blue);
+		font-size: .85em;
 	}
 	a.news-events:before {
-		@include sprite($x-coordinate: -16px, $y-coordinate: -673px, $width: 23px, $height: 23px);
-		top: 0px !important;
-		position: relative;
+		@include svg-sprite(calendar-blue);
 	}
 	
 	a.icon-exit-notification {
 		vertical-align: bottom;
 		margin-bottom: 6px;
 	}
+}
+
+li.news-share {
+
 }
 
 @include bp(small){

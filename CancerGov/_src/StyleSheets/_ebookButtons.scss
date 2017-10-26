@@ -8,9 +8,10 @@ div.ebook-info {
 div.ebook-cover {
 	float: left;
 	margin: 0 0 10px 0;
-}
-div.ebook-cover img {
-	margin-bottom: 10px;
+
+	img {
+		margin-bottom: 10px;
+	}
 }
 div.ebook-title {
 	margin-left: 103px;
@@ -21,126 +22,112 @@ div.ebook-title {
 }
 /* End Ebooks */
 
+// Used in the /publications/patient-education section of site
 /* Begin eBook buttons */
 .pub-buttons {
 	overflow: auto;
-	font-family: #{$montserrat-font-stack};
+	font-family: $montserrat-font-stack;
+	a {
+		min-width: 130px;
+		padding: 6px 15px;
+		text-decoration: none;
+		float: left;
+		margin-right: 15px;
+		margin-bottom: 15px;
+		//display: block;
+		color: #fff;
+		//line-height: 24px;
+		//font-size: 13px;
+		//font-weight: bold;
+		//box-shadow: inset 0 2px 15px 0 rgba(0, 0, 0, 0.2);
+		box-shadow: inset 0 2px 4px 0 rgba(0,0,0,.05);
+
+		&.icon {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: nowrap;
+			float: left;
+			min-height: 37px;
+			padding:5px 18px;
+			border-radius: 3px;
+			color:#fff;
+			font: normal 14px $montserrat-font-stack;
+			margin: 10px 10px 0 0;
+
+			&::before {
+				content: "";
+				margin-right:11px;
+				font-size: 115%;
+				//display: inline-block;
+			}
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+		&.lector {
+			line-height: 12px;
+			padding-bottom: 4px;
+		}
+		&.html {
+			background-color: #82368c;
+
+			&::before {
+				@include svg-sprite(embed-white);
+			}
+		}
+		&.pdf {
+			background-color: #bb0e3d;
+
+			&:hover {
+				background-color: darken(#bb0e3d, 10%);
+			}
+
+			&::before {
+				@include svg-sprite(file-pdf-white-o-thick);
+			}
+		}
+		&.kindle {
+			background-color: #ff5f00;
+
+			&:hover {
+				background-color: darken(#ff5f00, 10%);
+			}
+
+			&::before {
+				@include svg-sprite(amazon-white);
+				font-size: 103%;
+			}
+		}
+		&.epub,&.lector {
+			background-color: #2a72a5;
+			&:hover {
+				background-color: darken(#2a72a5, 10%);
+			}
+			&::before {
+				@include svg-sprite(epub-white);
+			}
+		}
+		&.free {
+			background-color: #2dc799;
+
+			&:hover {
+				background-color: darken(#2dc799, 10%);
+			}
+			&::before {
+				@include svg-sprite(newspaper-white);
+			}
+		}
+	}
 }
 
-.pub-buttons a {
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	min-width: 130px;
-	padding: 6px 15px 0;
-	text-decoration: none;
-	float: left;
-	margin-right: 15px;
-	margin-bottom: 15px;
-	display: block;
-	color: #fff;
-	line-height: 24px;
-	font-size: 13px;
-	font-weight: bold;
-	-webkit-box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
-	-moz-box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
-	box-shadow: inset 0px 2px 4px 0px rgba(0,0,0,0.05);
+// IE11 hack since flexbox align-items ignores max-height setting
+@media all and (-ms-high-contrast:none) {
+	.pub-buttons a.icon {
+		height: 37px;
+	}
 }
 
-.pub-buttons a.lector {
-	line-height: 12px;
-	padding-bottom: 4px;
-}
-
-.pub-buttons a:hover {
-	text-decoration: none;
-}
-
-.pub-buttons a.html {
-	background-color: #82368c;
-}
-
-.pub-buttons a.pdf {
-	background-color: #bb0e3d;
-}
-.pub-buttons a.pdf:hover {
-	background-color: darken(#bb0e3d, 10%);
-}
-
-.pub-buttons a.kindle {
-	background-color: #ff5f00;
-}
-.pub-buttons a.kindle:hover {
-	background-color: darken(#ff5f00, 10%);
-}
-
-.pub-buttons a.epub,
-.pub-buttons a.lector {
-	background-color: #2a72a5;
-}
-.pub-buttons a.epub:hover,
-.pub-buttons a.lector:hover {
-	background-color: darken(#2a72a5, 10%);
-}
-
-.pub-buttons a.free {
-	background-color: #2dc799;
-}
-.pub-buttons a.free:hover {
-	background-color: darken(#2dc799, 10%);
-}
-
-.pub-buttons a.icon {
-	padding-left: 11px;
-	height: 36px;
-}
-.pub-buttons a.icon.pdf {
-	padding-left: 36px;
-}
-.pub-buttons a.icon.kindle {
-	padding-left: 27px;
-}
-.pub-buttons a.icon.epub {
-	padding-left: 35px;
-}
-:lang(es) .pub-buttons a.icon.epub {
-	padding-left: 13px;
-}
-
-.pub-buttons a.icon span {
-	padding-left: 11px;
-	vertical-align: top;
-	display: inline-block;
-}
-
-.pub-buttons a.icon:before {
-	content: "";
-	display: inline-block;
-}
-
-// Used in the /publications/patient-education section of site
-// background-position-y below is to account for the difference in height between the max height (above, 25px) and the icon's height
-// it should center the icon vertically
-// example:
-// background-position: X (Y + (maxHeight - iconHeight) / 2);
-.pub-buttons a.kindle.icon:before {
-	@include sprite($x-coordinate: -18px, $y-coordinate: (-513px + (25px - 18px) / 2), $width: 21px, $height: 25px);
-}
-
-.pub-buttons a.html.icon:before {
-	@include sprite($x-coordinate: -20px, $y-coordinate: (-590px + (25px - 13px) / 2), $width: 23px, $height: 25px);
-}
-
-.pub-buttons a.pdf.icon:before {
-	@include sprite($x-coordinate: -21px, $y-coordinate: (-475px + (25px - 19px) / 2), $width: 17px, $height: 25px);
-}
-
-.pub-buttons a.epub.icon:before,
-.pub-buttons a.lector.icon:before {
-	@include sprite($x-coordinate: -21px, $y-coordinate: (-547px + (25px - 25px) / 2), $width: 17px, $height: 25px);
-}
-
-.pub-buttons a.free.icon:before {
-	@include sprite($x-coordinate: -21px, $y-coordinate: (-625px + (25px - 24px) / 2), $width: 17px, $height: 19px);
-}
 /* End eBook buttons */

@@ -16,17 +16,18 @@ define(function(require){
         $delighterContainer = $(".delighter-rail");
         if ($delighterContainer) {
 
-            var $feedbackDelighter = $("<a></a>", {
-                href: "#"
-            }).on('click', function(){                
-                _openFeedbackForm($feedbackDelighter);                
+
+            var $feedbackDelighter = $("<div></div>", {
+	            class: "delighter cts-feedback"
+            }).on('click', function(){
+                _openFeedbackForm($feedbackDelighter);
 				_openFeedbackFormFormAnalytics();
                 return false;
             }).appendTo($delighterContainer)
             .append(
-                $('<div></div>', {
-                    class: "delighter cts-feedback"
-                }).html(
+	            $("<a></a>", {
+		            href: "#"
+	            }).html(
                     '<h4>Send us your feedback</h4>' +
                     '<p>Help us improve our clinical trials search.</p>'
                 )

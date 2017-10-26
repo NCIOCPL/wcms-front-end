@@ -13,13 +13,6 @@ header {
 	display: block;
 }
 
-@include bp(medium-down) {
-	header {
-		padding-top: 1em;
-		padding-bottom: 1em;
-	}
-}
-
 .nci-logo-pages {
 	// SVG is default for most browers
 	// GIF is default for IE8-
@@ -54,11 +47,6 @@ header {
 		padding-right: 20px;
 	}
 	//}
-	@include bp(large-down) {
-		html.no-svg & img.nci-logo-IE-xl {
-			display: none;
-		}
-	}
 
 	@include bp(large) {
 		html.svg & img {
@@ -72,6 +60,12 @@ header {
 		a {
 			padding-left: $logo-padding-desktop;
 			padding-right: $logo-padding-desktop;
+		}
+	}
+
+	@include bp(large-down) {
+		html.no-svg & img.nci-logo-IE-xl {
+			display: none;
 		}
 	}
 
@@ -108,14 +102,43 @@ header {
 	}
 }
 
+/* mobile menu sprites - must be set outside of media query for mixins to operate */
+button.nav-header,
+a.nav-contact,
+a.nav-dictionary,
+button.nav-search {
+	&::before {
+		font-size:16px;
+		content: "";
+		position: absolute;
+		top:2px;
+		left: 50%;
+		@include transform(translateX(-50%));
+	}
+}
+button.nav-header::before {
+	@include svg-sprite(menu);
+	top:7px;
+}
+a.nav-contact::before {
+	@include svg-sprite(info);
+}
+a.nav-dictionary::before {
+	@include svg-sprite(book);
+}
+button.nav-search::before {
+	@include svg-sprite(search-large);
+	//font-size: 210%; //just under 300% to prevent unfavorable rounding
+}
+//_:-ms-fullscreen, :root button.nav-search::before {
+//	font-size: 90%; // because IE is stupid
+//}
 
-
-
-
-/* popup */
+	/* popup */
 .nci-logo {
 	font-weight: bold;
 	font-size: 37.7px;
+	// I can haz svg?
 	background: image-url($logos + "NIH-red-logo.png") no-repeat 20px 0;
 	min-height: 54px;
 
@@ -142,7 +165,7 @@ header {
 // tablet
 @include bp(medium) {
 	.nci-logo {
-		background: image-url($logos + "NIH-red-logo-tablet.png") no-repeat 30px 0;
+		//background: image-url($logos + "NIH-red-logo-tablet.png") no-repeat 30px 0;
 		font-size: 24px;
 		min-height: 36px;
 
@@ -153,31 +176,14 @@ header {
 	}
 }
 
-// smartphone
-@include bp(small) {
-	.nci-logo {
-		background: image-url($logos + "NIH-red-logo-smartphone.png") no-repeat 30px 0;
-		font-size: 16px;
-		min-height: 28px;
-
-		a {
-			padding-left: 80px;
-			padding-top: 5px;
-		}
-	}
-}
-
-// x-small
-@include bp(xtra-small) {
-	.nci-logo {
-		font-size: 13px;
-	}
-}
-
-
 /* begin mobile menu bar styles */
 // smartphone + tablet
 @include bp(medium-down) {
+
+	header {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
 	.mobile-menu-bar {
 		> a,
 		> button {
@@ -185,9 +191,9 @@ header {
 			position: relative;
 			background: transparent no-repeat center 0;
 			width: 13%;
-			padding: 3em 0 1px 0;
+			padding: 3em 0 0 0;
 			margin: 1em 8%;
-			@include font-montserrat;
+			font-family: $montserrat-font-stack;
 			line-height: 1;
 			font-weight: bold;
 			font-size: 0.8em;
@@ -197,14 +203,6 @@ header {
 
 			&:hover, &:focus {
 				color: #fff;
-			}
-
-			&::before {
-				content: "";
-				position: absolute;
-				top:0;
-				left: 50%;
-				@include transform(translateX(-50%));
 			}
 		}
 		> button {
@@ -216,39 +214,27 @@ header {
 				cursor: pointer;
 			}
 		}
-	}
-
-	/* mtn updated bkgrnd images to pull from sprite  06-19-17 */
-	button.nav-header {
-		margin-left: 0;
-
-		&::before {
-			@include sprite($x-coordinate: -189px, $y-coordinate: -291px, $width: 35px, $height: 40px);
+		button.nav-header {
+			margin-left: 0;
 		}
-
-	}
-	a.nav-contact {
-		&::before {
-			@include sprite($x-coordinate: -226px, $y-coordinate: -291px, $width: 35px, $height: 40px);
-		}
-
-	}
-	a.nav-dictionary {
-		&::before {
-			@include sprite($x-coordinate: -266px, $y-coordinate: -291px, $width: 45px, $height: 35px);
-		}
-	}
-	button.nav-search {
-		margin-right: 0;
-
-		&::before {
-			@include sprite($x-coordinate: -324px, $y-coordinate: -292px, $width: 30px, $height: 30px);
+		button.nav-search {
+			margin-right: 0;
 		}
 	}
 }
 
-// small
+// smartphone
 @include bp(small) {
+	.nci-logo {
+		//background: image-url($logos + "NIH-red-logo-smartphone.png") no-repeat 30px 0;
+		font-size: 16px;
+		min-height: 28px;
+
+		a {
+			padding-left: 80px;
+			padding-top: 5px;
+		}
+	}
 	.mobile-menu-bar {
 		> a,
 		> button {
@@ -269,12 +255,8 @@ header {
 
 // x-small
 @include bp(xtra-small) {
-	.mobile-menu-bar {
-		> a,
-		> button {
-			font-size: 0.5em;
-			padding: 4em 0 0 0;
-		}
+	.nci-logo {
+		font-size: 13px;
 	}
 }
 /* end mobile menu styles */

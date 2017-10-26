@@ -61,7 +61,7 @@
 	display: none;
 }
 .popup-close a {
-	@include sprite($x-coordinate: -436px, $y-coordinate: -256px, $width: 1.1875em, $height: 1.1875em);
+	@include svg-sprite(close-blue);
 	display: inline-block;
 	position: relative;
 }
