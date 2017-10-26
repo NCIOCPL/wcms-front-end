@@ -17,9 +17,12 @@ define(function(require) {
 	/**
 	 * Initialize the embedded YouTube iframe.
 	 */
-	function _initialize($el) {
+	function _initialize($parent) {
+
+	    if(typeof($parent) == 'undefined')
+		   $parent = $('body');
 		
-	  $el.find('.flex-video').each(function() {
+	    $parent.find('.flex-video').each(function() {
 				var $this = $(this);				
 				var lang = $('html').attr('lang') || 'en';
 				var contentLanguage = document.documentElement.lang;
@@ -84,9 +87,9 @@ define(function(require) {
 	 * Exposed functions of this module.
 	 */
 	return {
-		init: function (el) {
+		init: function (parent) {
 			if (!_initialized) {
-				_initialize(el);
+				_initialize(parent);
 			}
 		}
 	};
