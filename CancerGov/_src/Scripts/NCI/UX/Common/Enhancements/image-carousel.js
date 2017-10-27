@@ -48,15 +48,13 @@ define(function(require) {
             });
 
 	        // check if carousel is inside an accordion, which can cause it's width to be 0 if accordion panel is not visible
-	        if($carousel.closest('.ui-accordion')[0]) {
+            $(window).on('accordionactivate',function(e,ui){
 	            // on activation of accordion panels, check that the activated panel is the same one the carousel is in
-	            $carousel.closest('.ui-accordion').on('accordionactivate', function(e,ui){
-	                if($carousel.closest('.ui-accordion-content').is(ui.newPanel)){
-	                    // use setPosition to trigger a redraw so width is not 0
-		                $carousel.imagecarousel('setPosition');
-                    }
-                })
-            }
+	            if($carousel.closest('.ui-accordion-content').is(ui.newPanel)){
+		            // use setPosition to trigger a redraw so width is not 0
+		            $carousel.imagecarousel('setPosition');
+	            }
+            });
 
         });
 
