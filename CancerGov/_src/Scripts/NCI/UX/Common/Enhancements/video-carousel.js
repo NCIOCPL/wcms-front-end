@@ -346,6 +346,7 @@ define(function(require) {
             if(title.length > 50) {
                 safeTitle = title.substring(0,50);
             }
+            ++index; // Add one to index to track corresponding video #
             var value = 'vidcar_' + safeTitle + '_' + action + '_' + index;
             if(action == 'complete') {
                 NCIAnalytics.VideoCarouselComplete(sender, value); 
