@@ -325,7 +325,7 @@ define(function(require) {
             drawThumbIndicator($el, $total);
         });
 
-        // Script for custom arrows
+        // Trigger slick & pager on custom arrow click
         $el.find('.yt-carousel-arrows .previous').click(function() {
             $item.slick("slickPrev");
             drawThumbIndicator($el, $total);
@@ -334,6 +334,19 @@ define(function(require) {
             $item.slick("slickNext");
             drawThumbIndicator($el, $total);
         });
+
+        // Trigger slick & pager on left/right arrow press
+        $el.on('keydown', function(e) {
+            if(e.keyCode == 37) {
+                $item.slick('slickPrev'); // l
+                drawThumbIndicator($el, $total);
+            }
+            if(e.keyCode == 39) {
+                $item.slick('slickNext'); // right arrow
+                drawThumbIndicator($el, $total);                            
+            }
+        });
+
     }
 
     /**
