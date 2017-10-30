@@ -105,7 +105,7 @@ define(function(require) {
                         // If there are 3 or less videos, hide the desktop slick arrows
                         // If there are more than 3 videos, add 'dummy' thumbnails
                         if ($count <= 3) {
-                            $this.find('.yt-carousel-controls button').addClass('hidden');
+                            $this.find('.yt-carousel-controls button').addClass('ytc-hidden');
                         }
                         else {
                             appendDummyThumbnails($this, $count);
