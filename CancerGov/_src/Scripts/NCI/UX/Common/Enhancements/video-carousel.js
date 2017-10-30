@@ -251,8 +251,11 @@ define(function(require) {
         // Draw mobile HTML elements 
         var $pager = $el.find('.yt-carousel-m-pager');
         var $pos = 1 + parseInt($index);
-        $pager.text($pos + "/" + $total);
-
+        if($('.yt-carousel.ytc-spanish').length)        
+            $pager.text($pos + " de " + $total);
+        else 
+            $pager.text($pos + " of " + $total);
+        
         // Rebuild the YouTube embedded video from the updated flex-video element, then draw the player.
         // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
         $selectedVideo.children('iframe').remove();
@@ -393,9 +396,6 @@ define(function(require) {
      * @param {any} $total 
      */
     function drawThumbIndicator($el, $total){
-        var $of = ' of ';
-        if($('.yt-carousel.ytc-spanish').length)
-            $of = ' de ';
         var $pager = $el.find('.yt-carousel-pager');
         var $first = $el.find('.slick-current').attr('data-slick-index');
             $first = ++$first;
@@ -410,7 +410,10 @@ define(function(require) {
             $last = $total;            
             $range  = $first + '-' + $last;                
         }
-        $pager.text($range + $of + $total);
+        if($('.yt-carousel.ytc-spanish').length)        
+            $pager.text($range + ' de ' + $total);
+        else 
+            $pager.text($range + ' of ' + $total);
     }
 
     /**
