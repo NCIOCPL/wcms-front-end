@@ -284,23 +284,30 @@ define(function(require) {
 
         // Call the onPlayerStateChange function when the player's state changes, which may indicate that the player is playing, paused, finished, etc
         function onPlayerStateChange(e) {
-            if(e.data == 0) {
-                $indexCurr = $el.find('.flex-video').attr('ytc-index');
-                $indexNext = ++$indexCurr;
-                if($indexNext <= ($total - 1)) {
-                    $carouselTitle = $el.find('h4').text();
-                    $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
-                    $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
-                    $titleNext = $selNext.text();
+            switch (e.data) {
+                // Finished event
+                case 0:    
+                    $indexCurr = $el.find('.flex-video').attr('ytc-index');
+                    $indexNext = ++$indexCurr;
+                    if($indexNext <= ($total - 1)) {
+                        $carouselTitle = $el.find('h4').text();
+                        $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
+                        $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
+                        $titleNext = $selNext.text();
 
-                    // Change the thumbnail seelctor
-                    $el.find('.ytc-clicked').removeClass('ytc-clicked');
-                    $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');
-                    
-                    // Fire off analytics and draw the video
-                    doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
-                    drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
-                }
+                        // Change the thumbnail selector
+                        $el.find('.ytc-clicked').removeClass('ytc-clicked');
+                        $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');
+                        if(($indexCurr % 3 == 0) && ($indexCurr < $total)) {
+                            $('.yt-carousel-thumbs').slick("slickNext");
+                            drawThumbIndicator($el, $total);
+                        }
+                        
+                        // Fire off analytics and draw the video
+                        doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
+                        drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
+                    }
+                    break;
             }
         }
 
@@ -312,12 +319,12 @@ define(function(require) {
     /**
      * slick-carousel calls to draw the YouTube playlist carousel 
      * @param {any} $el 
-     * @param {any} $item 
+     * @param {any} $carousel 
      * @param {any} $total
      */
-    function createSlickCarousel($el, $item, $total){
+    function createSlickCarousel($el, $carousel, $total){
         // Draw slick slider for YT thumbnails
-        $item.slick({
+        $carousel.slick({
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 3
@@ -327,28 +334,28 @@ define(function(require) {
 
         // Draw the "n of total" text under the slick arrows
         drawThumbIndicator($el, $total);
-        $item.on('swipe', function(event, slick, direction){
+        $carousel.on('swipe', function(event, slick, direction){
             drawThumbIndicator($el, $total);
         });
 
         // Trigger slick & pager on custom arrow click
         $el.find('.yt-carousel-arrows .previous').click(function() {
-            $item.slick("slickPrev");
+            $carousel.slick("slickPrev");
             drawThumbIndicator($el, $total);
         });
         $el.find('.yt-carousel-arrows .next').click(function() {
-            $item.slick("slickNext");
+            $carousel.slick("slickNext");
             drawThumbIndicator($el, $total);
         });
 
         // Trigger slick & pager on left/right arrow press
         $el.on('keydown', function(e) {
             if(e.keyCode == 37) {
-                $item.slick('slickPrev'); // l
+                $carousel.slick('slickPrev'); // l
                 drawThumbIndicator($el, $total);
             }
             if(e.keyCode == 39) {
-                $item.slick('slickNext'); // right arrow
+                $carousel.slick('slickNext'); // right arrow
                 drawThumbIndicator($el, $total);                            
             }
         });
