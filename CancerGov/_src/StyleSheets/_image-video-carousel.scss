@@ -212,6 +212,14 @@ span.ic-arrow-button {
 
 .yt-carousel-arrows.small-2 {
 	text-align: center;
+	@include bp(large-up) {		
+		button.previous {
+			margin-right: 7px;
+		}
+		button.next {
+			margin-left: 7px;
+		}
+	}
 } 
 .yt-carousel-pager {
 	color: $dgrey00;
