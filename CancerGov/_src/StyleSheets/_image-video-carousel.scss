@@ -210,6 +210,14 @@ span.ic-arrow-button {
 		width: 50%;
 }
 
+.ytc-indicator {
+	color: $dgrey00;
+	display: block;
+	font-family: Montserrat,Arial,sans-serif;
+	font-size: 14px;
+	margin: auto;
+}
+
 /** Custom breakpoints for desktop/tablet slick transition **/
 @media only screen and (min-width: 770px) and (max-width: 1024px) {
 	.yt-carousel {		

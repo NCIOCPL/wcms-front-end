@@ -285,8 +285,8 @@ define(function(require) {
         // Call the onPlayerStateChange function when the player's state changes, which may indicate that the player is playing, paused, finished, etc
         function onPlayerStateChange(e) {
             if(e.data == 0) {
-                $indexNcurr = $el.find('.flex-video').attr('ytc-index');
-                $indexNext = ++$indexNcurr;
+                $indexCurr = $el.find('.flex-video').attr('ytc-index');
+                $indexNext = ++$indexCurr;
                 if($indexNext <= ($total - 1)) {
                     $carouselTitle = $el.find('h4').text();
                     $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
