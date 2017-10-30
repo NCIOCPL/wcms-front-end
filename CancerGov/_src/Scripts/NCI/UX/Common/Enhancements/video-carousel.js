@@ -122,7 +122,7 @@ define(function(require) {
                         });
 
                         // Change the video upon mobile next arrow click
-                        $this.find('.yt-carousel-arrows .m-previous').click(function() {
+                        $this.find('.m-previous').click(function() {
                             $indexPcurr = $this.find('.flex-video').attr('ytc-index');
                             $indexPrev = --$indexPcurr;
                             if ($indexPrev < 0) {
@@ -136,7 +136,7 @@ define(function(require) {
                         });
 
                         // Change the video upon mobile previous arrow click
-                        $this.find('.yt-carousel-arrows .m-next').click(function() {
+                        $this.find('.m-next').click(function() {
                             $indexNcurr = $this.find('.flex-video').attr('ytc-index');
                             $indexNext = ++$indexNcurr;
                             if ($indexNext > ($count - 1)) {
@@ -219,7 +219,7 @@ define(function(require) {
                               '</div>';
         var $mobileControls = '<div class="row yt-carousel-m-controls">' + 
                                 '<div class="yt-carousel-m-pager columns small-9"></div>' + 
-                                '<div class="yt-carousel-arrows columns small-3">' + 
+                                '<div class="yt-carousel-m-arrows columns small-3">' + 
                                   '<button class="m-previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
                                   '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
                                 '</div>' +

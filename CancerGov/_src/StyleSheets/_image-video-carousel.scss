@@ -170,15 +170,30 @@ span.ic-arrow-button {
 .yt-carousel-arrows {
 	margin-top: 35px;
 	padding: 0px 10px;
+	text-align: center;	
+	@include bp(xtra-large) {
+		button.previous {
+			margin-right: 7px;
+		}
+		button.next {
+			margin-left: 7px;
+		}
+	}
 	@include bp(xtra-large) {
 		margin-top: 50px;
 	} 
+}
+
+.yt-carousel-m-arrows {
+	margin-top: 35px;
+	padding: 0px 10px;
 	@include bp(xtra-small) {
 		width: 90px;
 	}
 }
 
-.yt-carousel-arrows button {
+.yt-carousel-arrows button,	
+.yt-carousel-m-arrows button {
 	background-color: transparent;
     border: 0 none;
     cursor: pointer;
@@ -189,44 +204,33 @@ span.ic-arrow-button {
 }
 
 .yt-carousel-arrows .previous,
-.yt-carousel-arrows .m-previous {
+.yt-carousel-m-arrows .m-previous {
 	@include svg-sprite(chevron-dkblue);
 	font-size: 1.875em;
 	transform: rotate(-90deg) scaleX(-1);
 }
 .yt-carousel-arrows .next,
-.yt-carousel-arrows .m-next {
+.yt-carousel-m-arrows .m-next {
 	@include svg-sprite(chevron-dkblue);	
 	font-size: 1.875em;
     transform: rotate(90deg);
 }
 
-.yt-carousel-m-pager {
-		color: $dgrey00;
-		float: left;
-		font-family: Montserrat,Arial,sans-serif;
-		font-size: 14px;
-		margin: 12px 10px;
-		width: 50%;
-}
-
-.yt-carousel-arrows.small-2 {
-	text-align: center;
-	@include bp(large-up) {		
-		button.previous {
-			margin-right: 7px;
-		}
-		button.next {
-			margin-left: 7px;
-		}
-	}
-} 
 .yt-carousel-pager {
 	color: $dgrey00;
 	display: block;
 	font-family: Montserrat,Arial,sans-serif;
 	font-size: 14px;
 	margin-top: 15px;
+}
+
+.yt-carousel-m-pager {
+	color: $dgrey00;
+	float: left;
+	font-family: Montserrat,Arial,sans-serif;
+	font-size: 14px;
+	margin: 12px 10px;
+	width: 50%;
 }
 
 /** Custom breakpoints for desktop/tablet slick transition **/
@@ -244,7 +248,7 @@ span.ic-arrow-button {
 	.yt-carousel-controls {
 		display: none;
 	}
-	.yt-carousel-arrows {
+	.yt-carousel-m-arrows {
 		margin-top: 14px;
 		padding: 0px 8px;
 		float: right;
@@ -258,12 +262,12 @@ span.ic-arrow-button {
 	}
 }
 @media only screen and (max-width: 860px) {
-	.yt-carousel-arrows {
+	.yt-carousel-m-arrows {
 		text-align: right;
-		.next, .m-next {
+		.m-next {
 			margin-right: 1px;
 		}
-	}
+	}	
 }
 
 /****************** END VIDEO CAROUSEL STYLES ******************/
