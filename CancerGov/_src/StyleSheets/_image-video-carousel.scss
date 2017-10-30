@@ -144,14 +144,6 @@ span.ic-arrow-button {
 	} 
 }
 
-.yt-carousel-count {
-	color: $dgrey00;
-	font-family: Montserrat,Arial,sans-serif;
-	font-size: 14px;
-	margin-bottom: 10px;	
-	margin-top: 5px;
-}
-
 .ytc-thumb-container {
 	background-color: $white;
 	border-color: $white;
@@ -230,7 +222,6 @@ span.ic-arrow-button {
 	}
 }
 @media only screen and (max-width: 769px) {
-	.yt-carousel-count,
 	.yt-carousel-controls {
 		display: none;
 	}
