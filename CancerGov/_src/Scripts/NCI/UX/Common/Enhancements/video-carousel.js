@@ -284,23 +284,30 @@ define(function(require) {
 
         // Call the onPlayerStateChange function when the player's state changes, which may indicate that the player is playing, paused, finished, etc
         function onPlayerStateChange(e) {
-            if(e.data == 0) {
-                $indexCurr = $el.find('.flex-video').attr('ytc-index');
-                $indexNext = ++$indexCurr;
-                if($indexNext <= ($total - 1)) {
-                    $carouselTitle = $el.find('h4').text();
-                    $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
-                    $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
-                    $titleNext = $selNext.text();
+            switch (e.data) {
+                // Finished event
+                case 0:    
+                    $indexCurr = $el.find('.flex-video').attr('ytc-index');
+                    $indexNext = ++$indexCurr;
+                    if($indexNext <= ($total - 1)) {
+                        $carouselTitle = $el.find('h4').text();
+                        $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
+                        $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
+                        $titleNext = $selNext.text();
 
-                    // Change the thumbnail seelctor
-                    $el.find('.ytc-clicked').removeClass('ytc-clicked');
-                    $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');                        
-                    
-                    // Fire off analytics and draw the video
-                    doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
-                    drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
-                }
+                        // Change the thumbnail selector
+                        $el.find('.ytc-clicked').removeClass('ytc-clicked');
+                        $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');
+                        if(($indexCurr % 3 == 0) && ($indexCurr < $total)) {
+                            $('.yt-carousel-thumbs').slick("slickNext");
+                            drawThumbIndicator($el, $total);
+                        }
+                        
+                        // Fire off analytics and draw the video
+                        doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
+                        drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
+                    }
+                    break;
             }
         }
 
