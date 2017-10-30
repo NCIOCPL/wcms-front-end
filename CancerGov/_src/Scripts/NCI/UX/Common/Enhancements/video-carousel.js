@@ -214,11 +214,11 @@ define(function(require) {
                                 '<div class="yt-carousel-arrows columns small-2">' +
                                   '<button class="previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
                                   '<button class="next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
-                                  '<div class="ytc-indicator" />' + 
+                                  '<div class="yt-carousel-pager" />' + 
                                   '</div>' + 
                               '</div>';
         var $mobileControls = '<div class="row yt-carousel-m-controls">' + 
-                                '<div class="yt-carousel-pager columns small-9"></div>' + 
+                                '<div class="yt-carousel-m-pager columns small-9"></div>' + 
                                 '<div class="yt-carousel-arrows columns small-3">' + 
                                   '<button class="m-previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
                                   '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
@@ -249,7 +249,7 @@ define(function(require) {
         $selectedVideo.find('noscript a').attr('title', $vidTitle);
 
         // Draw mobile HTML elements 
-        var $pager = $el.find('.yt-carousel-pager');
+        var $pager = $el.find('.yt-carousel-m-pager');
         var $pos = 1 + parseInt($index);
         $pager.text($pos + "/" + $total);
 
@@ -370,7 +370,7 @@ define(function(require) {
         var $of = ' of ';
         if($('.yt-carousel.ytc-spanish').length)
             $of = ' de ';
-        var $pager = $el.find('.ytc-indicator');
+        var $pager = $el.find('.yt-carousel-pager');
         var $first = $el.find('.slick-current').attr('data-slick-index');
             $first = ++$first;
         var $last = $first + 2;
