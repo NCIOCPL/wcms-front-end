@@ -112,7 +112,7 @@ define(function(require) {
                         }
 
                         // JS snippets for YouTube playlist carousel 
-                        createSlickCarousel($this, $carouselThumbs);
+                        createSlickCarousel($this, $carouselThumbs, $count);
 
                         // Change the video on carousel click
                         $this.find('.slick-current .yt-carousel-thumb').first().addClass('ytc-clicked'); // init selector
@@ -214,7 +214,8 @@ define(function(require) {
                                 '<div class="yt-carousel-arrows columns small-2">' +
                                   '<button class="previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
                                   '<button class="next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
-                                '</div>' + 
+                                  '<span class="ytc-indicator" />' + 
+                                  '</div>' + 
                               '</div>';
         var $mobileControls = '<div class="row yt-carousel-m-controls">' + 
                                 '<div class="yt-carousel-pager columns small-9"></div>' + 
@@ -306,8 +307,9 @@ define(function(require) {
      * slick-carousel calls to draw the YouTube playlist carousel 
      * @param {any} $el 
      * @param {any} $item 
+     * @param {any} $total
      */
-    function createSlickCarousel($el, $item){
+    function createSlickCarousel($el, $item, $total){
         // Draw slick slider for YT thumbnails
         $item.slick({
             infinite: true,
@@ -317,15 +319,22 @@ define(function(require) {
             // https://github.com/kenwheeler/slick/issues/542
         });
 
+        // Draw the "n of total" text under the slick arrows
+        drawThumbIndicator($el, $total);
+        $item.on('swipe', function(event, slick, direction){
+            drawThumbIndicator($el, $total);
+        });
+
         // Script for custom arrows
         $el.find('.yt-carousel-arrows .previous').click(function() {
             $item.slick("slickPrev");
+            drawThumbIndicator($el, $total);
         });
         $el.find('.yt-carousel-arrows .next').click(function() {
             $item.slick("slickNext");
+            drawThumbIndicator($el, $total);
         });
     }
-
 
     /**
      * Track analytics for click events on video carousel items.
@@ -350,6 +359,32 @@ define(function(require) {
         }
         drawSelectedVideo($el, $thumbVideoID, $thumbVideoTitle, $thumbIndex, $total, true);
         doCarouselAnalytics($el, $title, 'click',  $thumbIndex);
+    }
+
+    /**
+     * Draw text our displayed range of video thumbnail items
+     * @param {any} $el 
+     * @param {any} $total 
+     */
+    function drawThumbIndicator($el, $total){
+        var $of = ' of ';
+        if($('.yt-carousel.ytc-spanish').length)
+            $of = ' de ';
+        var $pager = $el.find('.ytc-indicator');
+        var $first = $el.find('.slick-current').attr('data-slick-index');
+            $first = ++$first;
+        var $last = $first + 2;
+            
+        // Logic to handle text at the end of the carousel
+        var $range  = $first + '-' + $last;
+        if($last - $total == 2) {
+            $range = $total;
+        }
+        else if($last - $total == 1) {
+            $last = $total;            
+            $range  = $first + '-' + $last;                
+        }
+        $pager.text($range + $of + $total);
     }
 
     /**
