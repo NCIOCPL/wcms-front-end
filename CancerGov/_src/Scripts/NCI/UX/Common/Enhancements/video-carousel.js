@@ -214,7 +214,7 @@ define(function(require) {
                                 '<div class="yt-carousel-arrows columns small-2">' +
                                   '<button class="previous" type="button" value="' + $prev + '" alt="' + $prev + '"></button>' + 
                                   '<button class="next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
-                                  '<span class="ytc-indicator" />' + 
+                                  '<div class="ytc-indicator" />' + 
                                   '</div>' + 
                               '</div>';
         var $mobileControls = '<div class="row yt-carousel-m-controls">' + 
