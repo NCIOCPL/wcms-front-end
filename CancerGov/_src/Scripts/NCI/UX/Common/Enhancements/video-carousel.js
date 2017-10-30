@@ -88,11 +88,8 @@ define(function(require) {
                             $count = 50;
                         }
 
-                        // Draw the total count; hide the desktop arrows if there are 3 or less videos
+                        // Draw the total count
                         $this.find('.yt-carousel-count').text($count + ' Videos');
-                        if ($count <= 3) {
-                            $this.find('.yt-carousel-controls button').addClass('hidden');
-                        }
 
                         // Initialize the selected player with the first item in the playlist
                         var $initialID = data.result.items[0].snippet.resourceId.videoId;
@@ -106,6 +103,16 @@ define(function(require) {
                             $imageUrl = item.snippet.thumbnails.medium.url;
                             appendCarouselThumbnails($carouselThumbs, $vid, $title, $imageUrl);
                         });
+
+                        // Draw elements based on the total number of videos:
+                        // If there are 3 or less videos, hide the desktop slick arrows
+                        // If there are more than 3 videos, add 'dummy' thumbnails
+                        if ($count <= 3) {
+                            $this.find('.yt-carousel-controls button').addClass('hidden');
+                        }
+                        else {
+                            appendDummyThumbnails($this, $count);
+                        }
 
                         // JS snippets for YouTube playlist carousel 
                         createSlickCarousel($this, $carouselThumbs);
@@ -172,6 +179,24 @@ define(function(require) {
                            '<span>' + $title + '</span>' + 
                          '</div>'
         $item.append($thumbBlob);
+    }
+
+    /**
+     * Add dummy thumbnails to make the total carousel elements divisible by 3. 
+     * This is to help delineate the last/first videos when scrolling around on slick.
+     * @param {any} $el 
+     * @param {any} $total 
+     */
+    function appendDummyThumbnails($el, $total) {
+        var $thumbSelector = $el.find('.ytc-thumb-container').last();
+        var $dummyBlob = '<div class="ytc-thumb-container ytc-dummy" />';
+
+        if($total % 3  == 2) { // remainder == 2, so add one dummy space'); 
+            $thumbSelector.after($dummyBlob);
+        }
+        else if($total % 3 == 1) { // remainder == 1, so add two dummy spaces'); 
+            $thumbSelector.after($dummyBlob).after($dummyBlob);
+        }
     }
 
     /**
