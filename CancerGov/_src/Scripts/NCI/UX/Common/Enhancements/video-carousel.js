@@ -88,9 +88,6 @@ define(function(require) {
                             $count = 50;
                         }
 
-                        // Draw the total count
-                        $this.find('.yt-carousel-count').text($count + ' Videos');
-
                         // Initialize the selected player with the first item in the playlist
                         var $initialID = data.result.items[0].snippet.resourceId.videoId;
                         var $initialTitle = data.result.items[0].snippet.title;
@@ -212,7 +209,6 @@ define(function(require) {
             $next = 'siguiente';
         }
 
-        var $countBlob = '<p class="yt-carousel-count"></p>';
         var $carouselControls = '<div class="row yt-carousel-controls">' + 
                                 '<div class="yt-carousel-thumbs columns small-10"></div>' +
                                 '<div class="yt-carousel-arrows columns small-2">' +
@@ -227,8 +223,6 @@ define(function(require) {
                                   '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
                                 '</div>' +
                               '</div>';
-
-        $el.find('h4').after($countBlob);
         $el.append($carouselControls + $mobileControls);
     }
 
