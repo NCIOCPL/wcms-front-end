@@ -9,8 +9,8 @@ define(function(require) {
      * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID. 
      * The client should only be loaded if this page contains the YouTube carousel HTML snippet.
      *
-     * TODO: - handle initial loading screen
-     *       - convert to .ts and refactor
+     * TODO: - Handle initial loading screen
+     *       - Convert to .ts and refactor. This thing has turned into an abomination.
      **/
     function _initialize(key) {
         if($('.yt-carousel').length) {
@@ -111,7 +111,7 @@ define(function(require) {
                             appendDummyThumbnails($this, $count);
                         }
 
-                        // JS snippets for YouTube playlist carousel 
+                        // Fire off slick.js functions to draw the carousel 
                         createSlickCarousel($this, $carouselThumbs, $count);
 
                         // Change the video on carousel click
@@ -292,6 +292,12 @@ define(function(require) {
                     $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                     $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                     $titleNext = $selNext.text();
+
+                    // Change the thumbnail seelctor
+                    $el.find('.ytc-clicked').removeClass('ytc-clicked');
+                    $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');
+                    
+                    // Fire off analytics and draw the video
                     doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
                     drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
                 }
@@ -350,11 +356,11 @@ define(function(require) {
     }
 
     /**
-     * Track analytics for click events on video carousel items.
-     * @param {any} sender 
-     * @param {any} title 
-     * @param {any} action 
-     * @param {any} index 
+     * Draw new video and fire off analytics on thumbnail click
+     * @param {any} $el 
+     * @param {any} $thumb 
+     * @param {any} $total 
+     * @param {any} $title 
      */
     function doThumbClickActions($el, $thumb, $total, $title){
         // Add 'ytc-clicked' class to thumbnail for selected item styling
@@ -423,6 +429,14 @@ define(function(require) {
         }
     }
 
+    /**
+     * Check if the Video Carousel is a Spanish content item
+     */
+    function isEspanol()
+    {
+        $('.yt-carousel.ytc-spanish').length;
+    }
+        
     /**
      * Identifies if this enhancement has been initialized or not.
      * @type {Boolean}
