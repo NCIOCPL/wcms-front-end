@@ -216,6 +216,17 @@ span.ic-arrow-button {
     transform: rotate(90deg);
 }
 
+button.previous.ytc-hidden,
+button.next.ytc-hidden {
+	background-image: none;
+	&:focus {
+		outline: 0;
+	}
+	&:hover {
+		cursor: default;
+	}
+}
+
 .yt-carousel-pager {
 	color: $dgrey00;
 	display: block;
