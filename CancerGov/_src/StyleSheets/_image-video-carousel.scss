@@ -210,12 +210,15 @@ span.ic-arrow-button {
 		width: 50%;
 }
 
+.yt-carousel-arrows.small-2 {
+	text-align: center;
+}
 .ytc-indicator {
 	color: $dgrey00;
 	display: block;
 	font-family: Montserrat,Arial,sans-serif;
 	font-size: 14px;
-	margin: auto;
+	margin-top: 15px;
 }
 
 /** Custom breakpoints for desktop/tablet slick transition **/
