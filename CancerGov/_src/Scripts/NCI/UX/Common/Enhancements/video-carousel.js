@@ -5,6 +5,9 @@ define(function(require) {
     require('Modules/carousel/slick-patch');
     require('Vendor/google-apis/js/api');
 
+    // Number of thumbnails to show in the carousel
+    var thumbsToShow = 3;
+    
     /***
      * This snippet uses the slick library to dynamically draw a clickable image carousel based on the playlist ID. 
      * The client should only be loaded if this page contains the YouTube carousel HTML snippet.
@@ -102,9 +105,9 @@ define(function(require) {
                         });
 
                         // Draw elements based on the total number of videos:
-                        // If there are 3 or less videos, hide the desktop slick arrows
-                        // If there are more than 3 videos, add 'dummy' thumbnails
-                        if ($count <= 3) {
+                        // If there are less videos than the set number of slides, hide the desktop slick arrows
+                        // If the number of videos is not evenly divisible by the set number of slides, add 'dummy' thumbnails
+                        if ($count <= thumbsToShow) {
                             $this.find('.yt-carousel-controls button').addClass('ytc-hidden');
                         }
                         else {
@@ -187,12 +190,9 @@ define(function(require) {
     function appendDummyThumbnails($this, $total) {
         var $thumbSelector = $this.find('.ytc-thumb-container').last();
         var $dummyBlob = '<div class="ytc-thumb-container ytc-dummy" />';
-
-        if($total % 3  == 2) { // remainder == 2, so add one dummy space'); 
+        var $spacesToDraw = thumbsToShow - ($total % thumbsToShow);
+        for (i = 0; i < $spacesToDraw; i++) { 
             $thumbSelector.after($dummyBlob);
-        }
-        else if($total % 3 == 1) { // remainder == 1, so add two dummy spaces'); 
-            $thumbSelector.after($dummyBlob).after($dummyBlob);
         }
     }
 
@@ -301,9 +301,11 @@ define(function(require) {
                         // Change the thumbnail selector
                         $this.find('.ytc-clicked').removeClass('ytc-clicked');
                         $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');
-                        if(($indexCurr % 3 == 0) && ($indexCurr < $total)) {
-                            $('.yt-carousel-thumbs').slick("slickNext");
-                            drawThumbIndicator($this, $total);
+                        if(($indexCurr % thumbsToShow == 0) && ($indexCurr < $total)) {
+                            if($indexCurr <= $indexNext) {
+                                $('.yt-carousel-thumbs').slick("slickNext");
+                                drawThumbIndicator($this, $total);
+                            }
                         }
                         
                         // Fire off analytics and draw the video
@@ -329,8 +331,8 @@ define(function(require) {
         // Draw slick slider for YT thumbnails
         $carousel.slick({
             infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToShow: thumbsToShow,
+            slidesToScroll: thumbsToShow
             // TODO: find workaround for responsive bug
             // https://github.com/kenwheeler/slick/issues/542
         });
