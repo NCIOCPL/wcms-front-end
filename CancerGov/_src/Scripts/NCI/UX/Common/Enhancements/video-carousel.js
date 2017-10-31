@@ -163,29 +163,29 @@ define(function(require) {
 
     /**
      * Draw a carousel thumbnail element & attributes
-     * @param {any} $item 
+     * @param {any} $carousel 
      * @param {any} $id 
      * @param {any} $title 
      * @param {any} $imgUrl 
      */
-    function appendCarouselThumbnails($item, $id, $title, $imgUrl) {
+    function appendCarouselThumbnails($carousel, $id, $title, $imgUrl) {
         var $thumbBlob = '<div class="ytc-thumb-container">' +
                            '<a class="yt-carousel-thumb" id="' + $id + '">' + 
                              '<img src="' + $imgUrl + '" alt="' + $title + '">' + 
                            '</a>' +
                            '<span>' + $title + '</span>' + 
                          '</div>'
-        $item.append($thumbBlob);
+        $carousel.append($thumbBlob);
     }
 
     /**
      * Add dummy thumbnails to make the total carousel elements divisible by 3. 
      * This is to help delineate the last/first videos when scrolling around on slick.
-     * @param {any} $el 
+     * @param {any} $this 
      * @param {any} $total 
      */
-    function appendDummyThumbnails($el, $total) {
-        var $thumbSelector = $el.find('.ytc-thumb-container').last();
+    function appendDummyThumbnails($this, $total) {
+        var $thumbSelector = $this.find('.ytc-thumb-container').last();
         var $dummyBlob = '<div class="ytc-thumb-container ytc-dummy" />';
 
         if($total % 3  == 2) { // remainder == 2, so add one dummy space'); 
@@ -199,9 +199,9 @@ define(function(require) {
     /**
      * Draw the containers for the carousel thumbnails and arrows
      * TODO: hide arrows if < 4 items
-     * @param {any} $el 
+     * @param {any} $this 
      */
-    function appendCarouselControls($el) {
+    function appendCarouselControls($this) {
         var $prev = 'previous';
         var $next = 'next';
         if($('.yt-carousel.ytc-spanish').length) {
@@ -224,23 +224,23 @@ define(function(require) {
                                   '<button class="m-next" type="button" value="'+ $next +'" alt="'+ $next +'"></button>' + 
                                 '</div>' +
                               '</div>';
-        $el.append($carouselControls + $mobileControls);
+        $this.append($carouselControls + $mobileControls);
     }
 
 
     /**
      * Update flex-video selector attributes with a new video ID, then draw the selected video, mobile elements, and
      * fire off onstatechanged events 
-     * @param {any} $el 
+     * @param {any} $this 
      * @param {any} $vidID 
      * @param {any} $vidTitle 
      * @param {any} $index 
      * @param {any} $total 
      * @param {any} $isAutoPlay
      */
-    function drawSelectedVideo($el, $vidID, $vidTitle, $index, $total, $isAutoPlay) {
+    function drawSelectedVideo($this, $vidID, $vidTitle, $index, $total, $isAutoPlay) {
         // Replace all instances of the YouTube video ID within the <figure> element
-        var $selectedVideo = $el.find('.yt-carousel-selected .flex-video');
+        var $selectedVideo = $this.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);
         $selectedVideo.attr('data-video-id', $vidID);
         $selectedVideo.attr('data-video-title', $vidTitle);
@@ -249,7 +249,7 @@ define(function(require) {
         $selectedVideo.find('noscript a').attr('title', $vidTitle);
 
         // Draw mobile HTML elements 
-        var $pager = $el.find('.yt-carousel-m-pager');
+        var $pager = $this.find('.yt-carousel-m-pager');
         var $pos = 1 + parseInt($index);
         if($('.yt-carousel.ytc-spanish').length)        
             $pager.text($pos + " de " + $total);
@@ -259,7 +259,7 @@ define(function(require) {
         // Rebuild the YouTube embedded video from the updated flex-video element, then draw the player.
         // FlexVideoAPI.init() enables the embedding of YouTube videos and playlists as iframes.
         $selectedVideo.children('iframe').remove();
-        FlexVideoAPI.init($el);
+        FlexVideoAPI.init($this);
 
         //************ Begin YouTube API onPlayer functions  ************//        
         /**
@@ -290,25 +290,25 @@ define(function(require) {
             switch (e.data) {
                 // Finished event
                 case 0:    
-                    $indexCurr = $el.find('.flex-video').attr('ytc-index');
+                    $indexCurr = $this.find('.flex-video').attr('ytc-index');
                     $indexNext = ++$indexCurr;
                     if($indexNext <= ($total - 1)) {
-                        $carouselTitle = $el.find('h4').text();
-                        $selNext = $el.find(".slick-slide[data-slick-index='" + $indexNext + "']");
+                        $carouselTitle = $this.find('h4').text();
+                        $selNext = $this.find(".slick-slide[data-slick-index='" + $indexNext + "']");
                         $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
                         $titleNext = $selNext.text();
 
                         // Change the thumbnail selector
-                        $el.find('.ytc-clicked').removeClass('ytc-clicked');
+                        $this.find('.ytc-clicked').removeClass('ytc-clicked');
                         $selNext.find('.yt-carousel-thumb').addClass('ytc-clicked');
                         if(($indexCurr % 3 == 0) && ($indexCurr < $total)) {
                             $('.yt-carousel-thumbs').slick("slickNext");
-                            drawThumbIndicator($el, $total);
+                            drawThumbIndicator($this, $total);
                         }
                         
                         // Fire off analytics and draw the video
-                        doCarouselAnalytics($el, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
-                        drawSelectedVideo($el, $idNext, $titleNext, $indexNext, $total, true);
+                        doCarouselAnalytics($this, $carouselTitle, 'complete',  $index); // Fire analytics for current video ending                    
+                        drawSelectedVideo($this, $idNext, $titleNext, $indexNext, $total, true);
                     }
                     break;
             }
@@ -321,11 +321,11 @@ define(function(require) {
     
     /**
      * slick-carousel calls to draw the YouTube playlist carousel 
-     * @param {any} $el 
+     * @param {any} $this 
      * @param {any} $carousel 
      * @param {any} $total
      */
-    function createSlickCarousel($el, $carousel, $total){
+    function createSlickCarousel($this, $carousel, $total){
         // Draw slick slider for YT thumbnails
         $carousel.slick({
             infinite: true,
@@ -336,30 +336,30 @@ define(function(require) {
         });
 
         // Draw the "n of total" text under the slick arrows
-        drawThumbIndicator($el, $total);
+        drawThumbIndicator($this, $total);
         $carousel.on('swipe', function(event, slick, direction){
-            drawThumbIndicator($el, $total);
+            drawThumbIndicator($this, $total);
         });
 
         // Trigger slick & pager on custom arrow click
-        $el.find('.yt-carousel-arrows .previous').click(function() {
+        $this.find('.yt-carousel-arrows .previous').click(function() {
             $carousel.slick("slickPrev");
-            drawThumbIndicator($el, $total);
+            drawThumbIndicator($this, $total);
         });
-        $el.find('.yt-carousel-arrows .next').click(function() {
+        $this.find('.yt-carousel-arrows .next').click(function() {
             $carousel.slick("slickNext");
-            drawThumbIndicator($el, $total);
+            drawThumbIndicator($this, $total);
         });
 
         // Trigger slick & pager on left/right arrow press
-        $el.on('keydown', function(e) {
+        $this.on('keydown', function(e) {
             if(e.keyCode == 37) {
                 $carousel.slick('slickPrev'); // l
-                drawThumbIndicator($el, $total);
+                drawThumbIndicator($this, $total);
             }
             if(e.keyCode == 39) {
                 $carousel.slick('slickNext'); // right arrow
-                drawThumbIndicator($el, $total);                            
+                drawThumbIndicator($this, $total);                            
             }
         });
 
@@ -367,14 +367,14 @@ define(function(require) {
 
     /**
      * Draw new video and fire off analytics on thumbnail click
-     * @param {any} $el 
+     * @param {any} $this 
      * @param {any} $thumb 
      * @param {any} $total 
      * @param {any} $title 
      */
-    function doThumbClickActions($el, $thumb, $total, $title){
+    function doThumbClickActions($this, $thumb, $total, $title){
         // Add 'ytc-clicked' class to thumbnail for selected item styling
-        $el.find('.ytc-clicked').removeClass('ytc-clicked');
+        $this.find('.ytc-clicked').removeClass('ytc-clicked');
         $thumb.addClass('ytc-clicked'); 
 
         // Get data from clicked thumnail and pass to draw function
@@ -386,18 +386,18 @@ define(function(require) {
             var $img = $thumb.find('img').attr('src');
             $thumbVideoID = $img.split('/')[4];
         }
-        drawSelectedVideo($el, $thumbVideoID, $thumbVideoTitle, $thumbIndex, $total, true);
-        doCarouselAnalytics($el, $title, 'click',  $thumbIndex);
+        drawSelectedVideo($this, $thumbVideoID, $thumbVideoTitle, $thumbIndex, $total, true);
+        doCarouselAnalytics($this, $title, 'click',  $thumbIndex);
     }
 
     /**
      * Draw text our displayed range of video thumbnail items
-     * @param {any} $el 
+     * @param {any} $this 
      * @param {any} $total 
      */
-    function drawThumbIndicator($el, $total){
-        var $pager = $el.find('.yt-carousel-pager');
-        var $first = $el.find('.slick-current').attr('data-slick-index');
+    function drawThumbIndicator($this, $total){
+        var $pager = $this.find('.yt-carousel-pager');
+        var $first = $this.find('.slick-current').attr('data-slick-index');
             $first = ++$first;
         var $last = $first + 2;
             
@@ -439,14 +439,6 @@ define(function(require) {
         }
     }
 
-    /**
-     * Check if the Video Carousel is a Spanish content item
-     */
-    function isEspanol()
-    {
-        $('.yt-carousel.ytc-spanish').length;
-    }
-        
     /**
      * Identifies if this enhancement has been initialized or not.
      * @type {Boolean}
