@@ -100,6 +100,7 @@
   float: right;
   text-align: right;
   width: 50%;
+  margin-top: 7px;
 
   button {
 	background-color: transparent;
@@ -113,7 +114,7 @@
 
   .previous {
 	@include svg-sprite(chevron-dkblue);
-	transform: rotate(-90deg);
+	transform: rotate(-90deg) scaleX(-1);
 	font-size: 1.875em;
   }
 
@@ -263,18 +264,12 @@ button.next.ytc-hidden {
 		margin-top: 14px;
 		padding: 0px 8px;
 		float: right;
-		.m-previous {
-			font-size: 1.4em;					
-		}
-		.m-next {
-			font-size: 1.4em;
-			margin-left: 10px;
-		}
 	}
 }
 @media only screen and (max-width: 860px) {
 	.yt-carousel-m-arrows {
 		text-align: right;
+		width: 40% !important;
 		.m-next {
 			margin-right: 1px;
 		}
