@@ -191,8 +191,10 @@ define(function(require) {
         var $thumbSelector = $this.find('.ytc-thumb-container').last();
         var $dummyBlob = '<div class="ytc-thumb-container ytc-dummy" />';
         var $spacesToDraw = thumbsToShow - ($total % thumbsToShow);
-        for (i = 0; i < $spacesToDraw; i++) { 
-            $thumbSelector.after($dummyBlob);
+        if($spacesToDraw != thumbsToShow) {
+            for (i = 0; i < $spacesToDraw; i++) { 
+                $thumbSelector.after($dummyBlob);
+            }
         }
     }
 
@@ -401,17 +403,19 @@ define(function(require) {
         var $pager = $this.find('.yt-carousel-pager');
         var $first = $this.find('.slick-current').attr('data-slick-index');
             $first = ++$first;
-        var $last = $first + 2;
-            
+        var offset = thumbsToShow - 1;
+        var $last = $first + offset;
+        
         // Logic to handle text at the end of the carousel
-        var $range  = $first + '-' + $last;
-        if($last - $total == 2) {
+        if($last > $total) {
+            $last = $total;
+        }
+        var $range = $first + '-' + $last;        
+        if($first == $total) {
             $range = $total;
         }
-        else if($last - $total == 1) {
-            $last = $total;            
-            $range  = $first + '-' + $last;                
-        }
+
+        // Set 'of' value for English or Spanish
         if($('.yt-carousel.ytc-spanish').length)        
             $pager.text($range + ' de ' + $total);
         else 
