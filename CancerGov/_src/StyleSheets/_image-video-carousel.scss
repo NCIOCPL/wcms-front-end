@@ -53,8 +53,8 @@
 	}
 
 	.slick-slide {
-		background-color: $white;
-		border-color: $white;
+		background-color: $offwhite;
+		border-color: $offwhite;
 		float: none;
 
 		img {
@@ -65,6 +65,11 @@
 
 .ic-carousel-title h4 {
 	line-height: 1.333em;
+}
+
+.ic-controls {
+	border-top: solid 1px #ccc;
+	margin-top: 10px;
 }
 
 .ic-credit {
@@ -80,7 +85,7 @@
 	color: #606060;
 	font-size: 13px;
 	line-height: 18px;
-	margin-top: -5px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	@include bp(small) {
 		margin-bottom: 10px;
@@ -93,14 +98,14 @@
 	font-family: Montserrat,Arial,sans-serif;
 	font-size: 14px;
 	width: 50%;
-	margin-top: 16px;
+	margin-top: 7px;
 }
 
 .arrows-for-ic-carousel {
   float: right;
   text-align: right;
   width: 50%;
-  margin-top: 7px;
+  margin-top: 12px;
 
   button {
 	background-color: transparent;
@@ -146,8 +151,8 @@ span.ic-arrow-button {
 }
 
 .ytc-thumb-container {
-	background-color: $white;
-	border-color: $white;
+	background-color: $offwhite;
+	border-color: $offwhite;
 	padding-top: 10px;
 	padding-right: 10px;
 	span {
