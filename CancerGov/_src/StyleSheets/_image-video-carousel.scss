@@ -2,6 +2,10 @@
 .ic-carousel {
 	margin-bottom: 30px;
 
+	.row:nth-child(2) {
+		padding-bottom: 2px;
+	}
+
 	@include bp(large-up){
 		margin-left: 18%;
 		margin-right: 18%;
@@ -98,7 +102,7 @@
 	font-family: Montserrat,Arial,sans-serif;
 	font-size: 14px;
 	width: 50%;
-	margin-top: 7px;
+	margin-top: 5px;
 }
 
 .arrows-for-ic-carousel {
