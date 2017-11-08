@@ -49,6 +49,7 @@
 
 	.slick-slider {
 		margin-bottom: 0;
+		overflow: hidden;
 	}
 
 	.slick-track {
@@ -64,6 +65,10 @@
 		img {
 			margin: auto;
 		}
+	}
+
+	.slick-list {
+		left: -1px;
 	}
 }
 
@@ -91,6 +96,7 @@
 	line-height: 18px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	padding-left: 1px;
 	@include bp(small) {
 		margin-bottom: 10px;
 	}	
