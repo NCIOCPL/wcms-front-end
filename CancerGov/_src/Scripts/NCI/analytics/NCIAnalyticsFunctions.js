@@ -1406,6 +1406,46 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    VideoCarouselClickSwipe: function(sender, value) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'VideoCarouselClickSwipe');
+
+        clickParams.Props = {
+            66: value,
+            67: 'D=pageName'
+        };
+
+        clickParams.Events = [63];
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    VideoCarouselComplete: function(sender, value) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'VideoCarouselComplete');
+
+        clickParams.Props = {
+            66: value,
+            67: 'D=pageName'
+        };
+
+        clickParams.Events = [64];
+        clickParams.LogToOmniture();
+    },
+
+    /* ********************************************************************** */
+    ImageCarouselClickSwipe: function(sender, title, type, direction, imgNum, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'ImageCarouselClick');
+
+        clickParams.Props = {
+            66: "imgcar_" + title + "_" + type + "_" + direction + "_" + imgNum,
+            67: pageName
+        };
+
+        clickParams.Events = [62];
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     LinkTrackTagBuilder: function(e) {
 
         if (e.button == 0) {  // Left mouse button pressed
