@@ -2,7 +2,11 @@ define(function (require) {
 	var $ = require('jquery');
 	var initialized = false;
 	/*** BEGIN Exit Disclaimer
-	 * This script looks for URLs where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link. The image itself links to the exit disclaimer page.
+	 * This script looks for URLs where the href points to websites 
+     * not in the federal domain (.gov) and if it finds one, it appends 
+     * an image to the link. The image itself links to the exit 
+     * disclaimer page.
+     * Changed code to exclude the exit icon from images within the anchor tag.
 	 ***/
 	function _initialize() {
 		var lang = $('html').attr('lang') || 'en',
