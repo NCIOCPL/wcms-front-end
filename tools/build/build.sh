@@ -26,7 +26,8 @@ export PROJECT_HOME="$(cd $SCRIPT_PATH/../.. && pwd)"
 echo Starting build
 
 # Fail the build immediately if master has commits which aren't already in the branch.
-COUNT=`git rev-list --left-only --count master...$GIT_COMMIT`
+COUNT=`git rev-list --left-only --count origin/master...$GIT_COMMIT`
+if [ $? != 0 ]; then echo Git failure; exit 1; fi
 if [ $COUNT -ne 0 ]; then echo Error: master is $COUNT commits ahead of $BRANCH_NAME.; exit 1; fi
 
 # Get the old image ID so we can delete it after a successful build and not have
