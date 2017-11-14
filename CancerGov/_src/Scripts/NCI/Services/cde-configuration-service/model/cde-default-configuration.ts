@@ -21,6 +21,6 @@ export class CDEDefaultConfiguration implements CDEConfiguration {
      * @type {string}
      * @memberof CDEDefaultConfiguration
      */
-    GoogleAPIKey : string = 'AIzaSyAc7H6wMKjEqxe2J9iHNnc9OBZhfa6TXN8';
+    GoogleAPIKey : string = 'AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg';
     
 }
