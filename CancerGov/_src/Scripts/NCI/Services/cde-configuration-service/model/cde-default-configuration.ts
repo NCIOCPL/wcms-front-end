@@ -14,4 +14,13 @@ export class CDEDefaultConfiguration implements CDEConfiguration {
      * @memberof CDEDefaultConfiguration
      */
     ClinicalTrialsAPIServer : string = 'clinicaltrialsapi.cancer.gov';
+
+    /**
+     * The key required to conect to the Google developer API
+     * 
+     * @type {string}
+     * @memberof CDEDefaultConfiguration
+     */
+    GoogleAPIKey : string = 'AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg';
+    
 }
