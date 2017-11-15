@@ -113,6 +113,7 @@ define(function(require) {
             //This is a bit hacky to get at the words a user is filtering.
             var filter_text = this.data('select2').$container.find("input").val();
             if (filter_text) {
+                filter_text = escapeRegExp(filter_text);                
                 var matchedSyn = [];
                 var regexBold = new RegExp('(^' + filter_text + '|\\s+' + filter_text + ')', 'i');
                 item.synonyms.forEach(function(syn) {
@@ -198,6 +199,17 @@ define(function(require) {
 	
         });
 
+    }
+
+    /**
+     * Utility function to escape regex characters in a given string
+     * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+     * TODO: find a reusable solution
+     * @param {any} str 
+     * @returns 
+     */
+    function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
     return initSelect2Fn;
