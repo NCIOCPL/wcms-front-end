@@ -12,4 +12,13 @@ export interface CDEConfiguration {
      * @memberof CDEConfiguration
      */
     ClinicalTrialsAPIServer : string;
+
+    /**
+     * The key required to conect to the Google developer API
+     * 
+     * @type {string}
+     * @memberof CDEConfiguration
+     */
+    GoogleAPIKey : string;    
+
 }
