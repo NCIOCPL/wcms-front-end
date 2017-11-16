@@ -203,13 +203,15 @@ define(function(require) {
 
     /**
      * Utility function to escape regex characters in a given string
-     * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-     * TODO: find a reusable solution
+     * This is the regex used in the escape-string-regexp npm module;
+     * see https://raw.githubusercontent.com/sindresorhus/escape-string-regexp/master/index.js
+     * TODO: Pull this out and implement as a reusable fix for simple search, 
+     * sitewide search, and dictionary widget
      * @param {any} str 
      * @returns 
      */
     function escapeRegExp(str) {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
     }
 
     return initSelect2Fn;
