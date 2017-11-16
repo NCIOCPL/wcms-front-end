@@ -6,6 +6,7 @@ define(function(require) {
     var megaMenuModule = require('Modules/megamenu/megamenu');
     var headroomPlugin = require('Modules/headroom/headroom');
     var DeepLinkPatch = require('Modules/utility/deepLinkPatch');
+    var escapeRegExp = require('escape-string-regexp');
 
     // Patch to restore ui-focus-state to menu items
     $.widget( "ui.menu", $.ui.menu, {
@@ -28,8 +29,7 @@ define(function(require) {
 
     $.widget( "ui.autocomplete", $.ui.autocomplete, {
         _renderItem: function(ul,item){
-            var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
-
+            var lterm = escapeRegExp(this.term);
             regexBold = new RegExp('(' + lterm + ')', 'i');
             var word = (item.value || item.term).replace(regexBold, "<strong>$&</strong>");
 
