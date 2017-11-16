@@ -76,7 +76,8 @@
         },
         _renderItem : function(ul, item) {
             //Escape bad characters
-            var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
+            //Regex from the escape-string-regexp node package 
+            var lterm = this.term.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
             var regexBold = new RegExp();
 
             if (this.options.contains) {
