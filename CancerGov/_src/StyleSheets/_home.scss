@@ -794,4 +794,108 @@ a.learn-more {
 		position: relative;
 	}
 }
+
+/* BEGIN Social Media section */
+.row.follow-us {
+	margin-left: auto;
+	margin-right: auto;
+}
+.social-media-row, .social-media-card {
+	display: flex;
+}
+.social-media-card {
+	width: 23.5%;
+	margin-right: 2%;
+}
+.social-media-card .social-media-icon img {
+	display: block;
+	margin: 0 auto;
+}
+.social-media-card:last-child {
+	margin-right: 0;
+}
+.social-media-card > div {
+	background: white;
+	padding: 30px;
+}
+.social-media-row .icon-exit-notification {
+	font-size: 15px;
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
+	.row.follow-us {
+		padding-left: 30px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.row.follow-us {
+		background: white;
+		padding-left: 40px;
+		margin-bottom: 0;
+	}
+	.social-media-row, .social-media-card {
+		display: block;
+	}
+	.social-media-card {
+		width: 100%;
+		display: block;
+	}
+	.social-media-card .social-media-icon {
+		display: inline-block;
+		float: left;
+		width: 15%;
+		margin-right: 5%;
+	}
+	.social-media-card .social-media-text {
+		display: inline-block;
+		width: 80%;
+		float: left;
+	}
+	.social-media-card .social-media-text h3 {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.social-media-card .social-media-icon {
+		width: 20%;
+	}
+	.social-media-card .social-media-text {
+		width: 75%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.social-media-card .social-media-icon {
+		display: block;
+		width: 100%;
+	}
+	.social-media-card .social-media-icon img {
+		text-align: center;
+		width: 40%;
+	}
+	.social-media-card .social-media-text {
+		display: block;
+		width: 100%;
+	}
+	.social-media-card .social-media-text h3 {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.social-media-card .social-media-text p {
+		display: none;
+	}
+	.row.follow-us {
+		padding-left: 0;
+	}
+	.follow-us h2 {
+		text-align: center;
+		margin-top: 50px;
+	}
+	.social-media-card > div {
+		padding-top: 7px;
+	}
+}
+/* END Social Media section */
 /********************* END Home Page Styles ******************************************/
