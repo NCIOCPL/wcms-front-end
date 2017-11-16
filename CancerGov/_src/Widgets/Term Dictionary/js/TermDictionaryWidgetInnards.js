@@ -215,7 +215,8 @@ NCI.doAutocomplete = function(target, src, contains, queryParam, queryString, op
 	$target.autocomplete(options)
 		.data('ui-autocomplete')._renderItem = function(ul, item) {
 			//Escape bad characters
-			var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
+            //Regex from the escape-string-regexp node package 
+            var lterm = this.term.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
 			var regexBold = new RegExp();
 
 			if (regexIsContains) {
