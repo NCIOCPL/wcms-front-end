@@ -1419,8 +1419,8 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
-    VideoCarouselPlay: function(sender, value) {
-        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'VideoCarouselPlay');
+    VideoCarouselComplete: function(sender, value) {
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'VideoCarouselComplete');
 
         clickParams.Props = {
             66: value,
