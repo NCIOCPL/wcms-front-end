@@ -8,28 +8,32 @@ define(function(require) {
 				'#984e9b',
 				'#fb7830',
 				'#01acc8',
-				'#FFBC23',
-				'#FF1100',
-				'#E8E076',
-				'#6F0DFF',
-				'#0AE812',
-				'#0A9FE8'
+				'#2A71A4',
+				'#82378C',
+				'#BB0E3C',
+				'#FE9F65',
+				'#7F99B4',
+				'#80DDC2',
+				'#329FBE',
+				'#706E6F',
+				'#1C4A79'
 			],
 			bgColors: [
 				'#ffffff',
 				'#f0f0ff'
 			],
+			font: 'DIN-Condensed-Bold, Arial, sans-serif',
 			title: {
-				color: '#4F408A'
+				color: '#62559f'
 			},
 			subtitle: {
-				color: '#4F408A'
+				color: '#62559f'
 			},
 			drilldown: {}
 		};
 
 		// extend defaults with settings
-		this.settings = $.extend({}, this.defaultSettings, options);
+		this.settings = $.extend(true,{}, this.defaultSettings, options);
 		this.settings.target = target;
 
 		if (typeof window.fetchingHighcharts == "undefined") {
@@ -119,13 +123,17 @@ define(function(require) {
 							[0, this.settings.bgColors[0]],
 							[1, this.settings.bgColors[1]]
 						]
+					},
+					style: {
+						fontFamily: 'DIN-Condensed, Arial, sans-serif',
+						color: '#62559f'
 					}
 				},
 				title: {
 					text: this.settings.title.text,
 					style: {
 						color: this.settings.title.color,
-						font: '25px "Noto Sans", Arial, sans-serif',
+						fontSize: '25px',
 						fontWeight: 'bold'
 					}
 				},
@@ -133,8 +141,13 @@ define(function(require) {
 					text: this.settings.subtitle.text,
 					style: {
 						color: this.settings.subtitle.color,
-						font: '16px "Noto Sans", Arial, sans-serif',
+						fontSize: '16px',
 						fontWeight: 'normal'
+					}
+				},
+				legend: {
+					itemStyle: {
+						color: '#58595b'
 					}
 				},
 				credits: {
@@ -181,13 +194,73 @@ define(function(require) {
 						},
 						relativeTo: 'spacingBox'
 					}
+				},
+				// making axis labels and titles gray
+				xAxis: {
+					labels: {
+						style: {
+							color: '#58595b'
+						}
+					},
+					title: {
+						style: {
+							color: '#58595b'
+						}
+					}
+				},
+				yAxis: {
+					labels: {
+						style: {
+							color: '#58595b'
+						}
+					},
+					title: {
+						style: {
+							color: '#58595b'
+						}
+					}
+				},
+				zAxis: {
+					labels: {
+						style: {
+							color: '#58595b'
+						}
+					},
+					title: {
+						style: {
+							color: '#58595b'
+						}
+					}
 				}
 			};
 
 			// Apply the theme
 			Highcharts.setOptions(theme);
 		};
+
+		var generateDrilldownColors = function(drilldown){
+
+			//var drilldown = this.settings.drilldown;
+
+
+			if(typeof drilldown.series == "object") {
+
+				for (var i = 0; i < drilldown.series.length; i++) {
+					var obj = drilldown.series[i];
+					if (typeof obj.data == "object") {
+						var colors = tinycolor(this.settings.colors[i]).analogous(obj.data.length, 5);
+						obj.colors = colors.map(function (t) { return t.toHexString(); });
+					}
+				}
+			}
+
+			return drilldown;
+
+		};
+
 		var NCI_pie = function () {
+
+			var module = this;
 
 			var seriesSettings = {
 				innerSize: '60%'
@@ -228,32 +301,38 @@ define(function(require) {
 						//     //this.series[0].chart.marginBottom += 70;
 						// },
 						load: function (chart) {
-							var pie = this.series[0],
-								left = this.plotLeft + pie.center[0],
-								top = this.plotTop + pie.center[1] - 4;
 
-							totalText = this.renderer.text("TOTAL BUDGET<br/>$" + Highcharts.numberFormat(pie.total, 0));
+							if(module.settings.showTotal) {
 
-							totalText.attr({
-								'text-anchor': 'middle',
-								id: 'donutText',
-								x: left,
-								y: top,
-								style: 'color:#585757;font:bold 11px "Noto Sans", Arial, sans-serif;'
-							}).add();
+								var pie = this.series[0],
+									left = this.plotLeft + pie.center[0],
+									top = this.plotTop + pie.center[1] - 4;
+
+								totalText = this.renderer.text("TOTAL BUDGET<br/>$" + Highcharts.numberFormat(pie.total, 0));
+
+								totalText.attr({
+									'text-anchor': 'middle',
+									id: 'donutText',
+									x: left,
+									y: top,
+									style: 'color:#585757;font:bold 14px ' + module.settings.font + ';'
+								}).add();
+							}
 						},
 						redraw: function () {
-							var pie = this.series[0],
-								left = this.plotLeft + pie.center[0],
-								top = this.plotTop + pie.center[1] - 4;
+							if(module.settings.showTotal) {
+								var pie = this.series[0],
+									left = this.plotLeft + pie.center[0],
+									top = this.plotTop + pie.center[1] - 4;
 
-							if (typeof totalText != 'undefined') {
+								if (typeof totalText != 'undefined') {
 
-								totalText.element.lastChild.innerHTML = "$" + Highcharts.numberFormat(this.series[0].data[0].total, 0);
-								totalText.attr({
-									x: left,
-									y: top
-								})
+									totalText.element.lastChild.innerHTML = "$" + Highcharts.numberFormat(this.series[0].data[0].total, 0);
+									totalText.attr({
+										x: left,
+										y: top
+									})
+								}
 							}
 						}
 					}
@@ -266,7 +345,8 @@ define(function(require) {
 				},
 
 				series: this.settings.series,
-				drilldown: this.settings.drilldown,
+				//drilldown: this.settings.drilldown,
+				drilldown: generateDrilldownColors.call(this, this.settings.drilldown),
 
 				plotOptions: {
 					pie: {
@@ -281,10 +361,12 @@ define(function(require) {
 							style: {
 								textOutline: false,
 								fontSize: '16px',
-								fontFamily: '"Noto Sans", Arial, sans-serif'
+								fontFamily: this.settings.font,
+								color: '#58595b'
 							},
 							formatter: function (label) {
-								return '<span style="color:' + this.point.color + '">' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
+								return '<span>' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
+								//return '<span style="color:' + this.point.color + '">' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
 								//return '<span style="color:' + this.point.color + '">' + this.point.name + '</span>';
 							}
 						},
@@ -328,7 +410,7 @@ define(function(require) {
 				}
 			};
 
-			var chartSettings = $.extend(presets, this.settings);
+			var chartSettings = $.extend(true, presets, this.settings);
 
 			//force the chart type to pie
 			chartSettings.chart.type = "pie";
