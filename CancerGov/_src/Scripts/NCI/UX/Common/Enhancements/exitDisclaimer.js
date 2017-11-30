@@ -2,7 +2,11 @@ define(function (require) {
 	var $ = require('jquery');
 	var initialized = false;
 	/*** BEGIN Exit Disclaimer
-	 * This script looks for URLs where the href points to websites not in the federal domain (.gov) and if it finds one, it appends an image to the link. The image itself links to the exit disclaimer page.
+	 * This script looks for URLs where the href points to websites 
+     * not in the federal domain (.gov) and if it finds one, it appends 
+     * an image to the link. The image itself links to the exit 
+     * disclaimer page.
+     * Changed code to exclude the exit icon from images within the anchor tag.
 	 ***/
 	function _initialize() {
 		var lang = $('html').attr('lang') || 'en',
@@ -19,7 +23,7 @@ define(function (require) {
 			altText = 'Exit Disclaimer';
 			break;
 		}
-		$("a[href]").filter(function () {
+		$("a[href]:not(:has(img))").filter(function () {
 			return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
 		}).after($(
 			'<a class="icon-exit-notification" title="' + altText + '" href="' + path + '">' +

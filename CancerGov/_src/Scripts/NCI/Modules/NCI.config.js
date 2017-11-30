@@ -27,25 +27,25 @@ define(function(require) {
                 en: 'Section Menu',
                 es: 'Menú de secciones'
             },
-						Dictionary_More_Information: {
+			Dictionary_More_Information: {
                 en: 'More information on dictionary page',
                 es: 'Más información'
             },
-						Definition_Title: {
+			Definition_Title: {
                 en: 'Definition',
                 es: 'Definición'
             },
-						Definition_Show_Full: {
+            Definition_Show_Full: {
                 en: 'full definition',
-                es: 'definición completa'
+                es: 'toda la definición'
             },
-						Show: {
+            Show: {
                 en: 'Show',
-                es: 'Espectáculo'
+                es: 'Mostrar'
             },
-						Hide: {
+            Hide: {
                 en: 'Hide',
-                es: 'Esconder'
+                es: 'Ocultar'
             }
 
         }
