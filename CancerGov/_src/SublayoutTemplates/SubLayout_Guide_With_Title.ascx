@@ -16,16 +16,16 @@
     <NCI:TemplateSlot
         id="nvcgSlLayoutGuideB"
         CssClass="row guide-card"
-        AdditionalSnippetClasses="equalheight large-4 columns card gutter"
+        AdditionalSnippetClasses="equalheight large-4 columns card gutter flex-columns"
         runat="server"
-        data-match-height="" />
+        />
 </div>
 <!-- END GUIDE CARDS ROW -->
 <!-- BEGIN FEATURE SECONDARY CARDS ROW -->
 <NCI:TemplateSlot
     id="nvcgSlLayoutFeatureB"
     CssClass="row feature-secondary"
-    AdditionalSnippetClasses="equalheight large-4 columns card gutter"
+    AdditionalSnippetClasses="equalheight large-4 columns card gutter flex-columns"
     runat="server"
-    data-match-height="" />
+    />
 <!-- END FEATURE SECONDARY CARDS ROW -->

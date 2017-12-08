@@ -29,9 +29,9 @@
 								<NCI:TemplateSlot
 									id="nvcgSlLayoutFeatureA"
 									CssClass="row"
-									AdditionalSnippetClasses="equalheight large-6 topic-feature columns card gutter"
+									AdditionalSnippetClasses="equalheight large-6 topic-feature columns card gutter flex-columns"
 									runat="server"
-									data-match-height="" />
+									/>
 								<!-- END FEATURE CARDS ROW -->
 								<NCI:TemplateSlot ID="cgvBody" runat="server" />
 								<!-- BEGIN THUMBNAIL CARDS ROW -->

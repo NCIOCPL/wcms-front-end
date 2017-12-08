@@ -132,17 +132,47 @@
 .cardBody p {
 	font-size: 1em;
 }
+
+// Foundation grid components need to be overwritten
 .cthp-card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+
 	margin-left: -0.9375em;
 	margin-right: -0.9375em;
 	margin-top: 0;
-}
-@include bp(small) {
-	.cthp-card-container {
+	margin-bottom: 1em;
+
+	@include bp(small) {
+		display: block;
+
 		margin-top: 0;
 		padding-left: 0.9375em;
-		padding-right: 0.9375em;
+		padding-right: 0;
 	}
+
+	@include bp(medium) {
+		margin-left: 0;
+	}
+
+	.equalheight {
+		height: 100%;
+	}
+
+	.cthpCard {
+		padding: inherit;
+		width: 49%;
+		margin: 0.5em 0;
+
+		@include bp(small) {
+			width: 100%;
+			margin: 0;
+		}
+	}
+}
+@include bp(small) {
 	.cthp-card-container img {
 		display: none;
 	}
@@ -287,7 +317,7 @@
 	}
 }
 .cthpCard > div {
-	margin-bottom: 1.25em;
+	// margin-bottom: 1.25em;
 
 	@include bp(small) {
 		margin-bottom: 0;

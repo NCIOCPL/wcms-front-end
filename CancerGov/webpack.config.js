@@ -24,7 +24,6 @@ module.exports = {
 		"Babel-Polyfill":       'babel-polyfill',
 		Common:                 ['modernizr','./UX/Common/Common'],
 		ContentPage:            './UX/Common/ContentPage',
-		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
 		InnerPage:              './UX/PageSpecific/Inner/InnerPage',
 		LandingPage:            './UX/PageSpecific/Landing/LandingPage',

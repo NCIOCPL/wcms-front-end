@@ -11,12 +11,12 @@
 <NCI:TemplateSlot
     id="nvcgSlLayoutFeatureA"
     CssClass="row feature-primary"
-    AdditionalSnippetClasses="equalheight large-4 columns card gutter"
+    AdditionalSnippetClasses="equalheight large-4 columns card gutter flex-columns"
     runat="server"
-    data-match-height="" />
+    />
 <!-- END FEATURE PRIMARY CARDS CARDS ROW -->
 <!-- BEGIN GENERAL ROW -->
-<div class="row news" data-match-height="">
+<div class="row news flex-columns">
 	<NCI:TemplateSlot
 		id="nvcgSlLayoutGeneralA"
 		CssClass="large-8 columns card gutter"

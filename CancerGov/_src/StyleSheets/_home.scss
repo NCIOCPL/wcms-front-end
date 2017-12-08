@@ -11,6 +11,23 @@
 	margin-top: .58em;
 }
 
+// Creates a flex wrapper for elements with equalheight class to hook on
+.flex-columns {
+    display: flex;
+
+    @include bp('(max-width: 765px)') {
+        &.guide-card {
+            display: inherit;
+        }
+    }
+
+    @include bp(small) {
+        &:not(.multimedia) {
+            display: inherit;
+        }
+    }
+}
+
 /* BEGIN Hero Section */
 .row .hero {
 	position: relative;
@@ -106,9 +123,6 @@
 	}
 	.row .gutter:first-child {
 		margin-left: 0;
-	}
-	.nvcgSlLayoutGuideB .card:first-child {
-		margin-left: 2%;
 	}
 }
 
@@ -411,18 +425,6 @@
 			width: 100%;
 		}
 	}
-	.featured-card {
-		// this is the first card in the guide cards row.
-		background: #dbf2f8;
-
-		h3, a, a.arrow-link-white {
-			color: #2f2f2f;
-		}
-
-		a.arrow-link-white:hover {
-			@extend %card-link-hover;
-		}
-	}
 }
 	@include bp(small) {
 		.guide-card {
@@ -451,12 +453,6 @@
 				//h3.last {
 				//	border-bottom: none;
 				//}
-			}
-			.featured-card {
-				background: #1d5e86;
-				padding-top: 0;
-				padding-bottom: 0;
-				margin: 0;
 			}
 		}
 	}
@@ -501,6 +497,21 @@ a.arrow-link-white {
 a.learn-more {
 	margin-top: 1em;
 	/* adding padding per #OCECREATIV-783 --sjc */
+}
+
+/* Class used to target homepage only with blue tint on 'Resources for' */
+.guide-card--home {
+    div:first-child {
+        background: $lightblue;
+        
+        h3, a, a.arrow-link-white {
+            color: $dgrey02;
+        }
+
+        a.arrow-link-white:hover {
+            @extend %card-link-hover;
+        }
+    }
 }
 /* END GUIDE CARDS ROW */
 
@@ -899,3 +910,4 @@ a.learn-more {
 }
 /* END Social Media section */
 /********************* END Home Page Styles ******************************************/
+
