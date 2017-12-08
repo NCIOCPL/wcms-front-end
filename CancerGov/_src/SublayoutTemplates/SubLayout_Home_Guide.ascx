@@ -8,6 +8,3 @@
         runat="server" />
 </div>
 <!-- END CARDS ROW -->
-
-<!--  NOTE TO change percussion such that all three items are layoutguideB with the 
-previously layoutguideA element being the first child -->
