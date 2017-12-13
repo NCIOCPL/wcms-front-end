@@ -28,8 +28,8 @@
 								<!-- BEGIN FEATURE CARDS ROW -->
 								<NCI:TemplateSlot
 									id="nvcgSlLayoutFeatureA"
-									CssClass="row"
-									AdditionalSnippetClasses="equalheight large-6 topic-feature columns card gutter flex-columns"
+									CssClass="row flex-columns"
+									AdditionalSnippetClasses="equalheight large-6 topic-feature columns card gutter"
 									runat="server"
 									/>
 								<!-- END FEATURE CARDS ROW -->

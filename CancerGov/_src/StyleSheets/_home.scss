@@ -501,17 +501,19 @@ a.learn-more {
 
 /* Class used to target homepage only with blue tint on 'Resources for' */
 .guide-card--home {
-    div:first-child {
-        background: $lightblue;
-        
-        h3, a, a.arrow-link-white {
-            color: $dgrey02;
-        }
-
-        a.arrow-link-white:hover {
-            @extend %card-link-hover;
-        }
-    }
+	div {
+		div:first-child {
+			background: $lightblue;
+			
+			h3, a, a.arrow-link-white {
+				color: $dgrey02;
+			}
+	
+			a.arrow-link-white:hover {
+				@extend %card-link-hover;
+			}
+		}
+	}
 }
 /* END GUIDE CARDS ROW */
 
