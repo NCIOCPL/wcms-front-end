@@ -5,10 +5,12 @@
 <html runat="server">
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar--parent.css" />
-	<script type="text/javascript" src="//static.cancer.gov/returnToNCI-bar/returnToNCI-bar.js" async></script>
-	<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NCI" async></script>
-	</head>
+	<style>
+		/* Build: 24a6020 */
+		#returnToNCI-frame{border:0;margin:0;width:100%;min-width:320px;max-width:100%;position:absolute;left:0;right:0;bottom:calc(100% - 20px);z-index:8000;overflow:hidden;visibility:visible !important}#skip:focus,#skip a:focus,#skip a.element-invisible:focus,.skip:focus,.skip a:focus,.skip a.element-invisible:focus,.skip-link:focus,.skip-link a:focus,.skip-link a.element-invisible:focus,#skip-link:focus,#skip-link a:focus,#skip-link a.element-invisible:focus,.skip2home:focus,.skip2home a:focus,.skip2home a.element-invisible:focus,.skipToContent:focus,.skipToContent a:focus,.skipToContent a.element-invisible:focus,.skipToContentLink:focus,.skipToContentLink a:focus,.skipToContentLink a.element-invisible:focus,.skipNavigation:focus,.skipNavigation a:focus,.skipNavigation a.element-invisible:focus,#skipNav:focus,#skipNav a:focus,#skipNav a.element-invisible:focus,.skip_nav:focus,.skip_nav a:focus,.skip_nav a.element-invisible:focus,.hiddenStructure:focus,.hiddenStructure a:focus,.hiddenStructure a.element-invisible:focus,#maincontent:focus,#maincontent a:focus,#maincontent a.element-invisible:focus,.genSiteSkipToContent:focus,.genSiteSkipToContent a:focus,.genSiteSkipToContent a.element-invisible:focus,.hideLink:focus,.hideLink a:focus,.hideLink a.element-invisible:focus,[href="#Content"]:focus,[href="#Content"] a:focus,[href="#Content"] a.element-invisible:focus{position:absolute !important;z-index:8001;top:0}@media print{#returnToNCI-frame{display:none !important}}body{transform:translateY(24px);overflow:visible}
+	</style>
+	<script type="text/javascript" src="//static.cancer.gov/nci-globals/modules/returnToNCI/returnToNCI-bar-v1.0.1.min.js" async></script>	<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NCI" async></script>
+</head>
 <body class="genGeneral">
 	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
 	<!-- Branding Bar Slot (#genSlotBrandingBar) -->
