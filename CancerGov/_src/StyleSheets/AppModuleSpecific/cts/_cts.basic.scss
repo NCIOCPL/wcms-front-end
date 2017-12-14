@@ -318,7 +318,7 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
   @include svg-sprite(minus-o-blue);
 }
 
-.accordion-controls {
+.nciappmodulepage .accordion-controls {
   float:right;
   margin:18px -0.9375em 10px 10px; //negative right gutter margin
 
@@ -330,7 +330,7 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
   }
 }
 
-.accordion {
+.nciappmodulepage .accordion {
   margin-top:20px;
 
   #country-selector-button, #state-selector-button {

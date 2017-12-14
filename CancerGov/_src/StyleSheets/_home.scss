@@ -12,8 +12,9 @@
 }
 
 // Creates a flex wrapper for elements with equalheight class to hook on
-.flex-columns {
+#content .flex-columns {
     display: flex;
+	float: none;
 
     @include bp('(max-width: 765px)') {
         &.guide-card {
