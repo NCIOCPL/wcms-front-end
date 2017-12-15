@@ -179,7 +179,7 @@ define(function(require) {
 
 					
 			if((window.location.href.indexOf("about-cancer/treatment/clinical-trials/disease") > -1) || (window.location.href.indexOf("about-cancer/treatment/clinical-trials/intervention") > -1))  {
-       PLHinitObject.popupDelaySeconds = 5;
+       PLHinitObject.popupDelaySeconds = 30;
     }
 
 			ProactiveLiveHelpforCTS.initialize(PLHinitObject);
