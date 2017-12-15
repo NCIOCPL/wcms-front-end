@@ -353,86 +353,24 @@ div#cgvSlPagination, div.previous-next-links {
 }
 /* End Previous/Next */
 
- //New Pullquote styles for a future release
-/* Pullquotes */
-.pullquote {
-	//width: 75%;
-	//margin: 0 auto;
-	//margin-top: 30px;
-	//margin-bottom: 30px;
-	border-left: 5px solid $jellybean;
-	margin-left: 30px;
-	padding-left: 20px;
-	width: 100%;
-	color: $jellybean;
-
-}
-.pullquote p {
-	margin: 0 0 30px 15px;
-	font-family: "DIN-Condensed-Bold";
-	font-size: 32px;
-	line-height: 35px;
-}
-.pullquote-left {
-	width: 40%;
-	margin: 0 1.5em 1em 0;
-	float: left;
-}
-.pullquote-right {
-	width: 40%;
-	margin: 0 0 1.5em 1em;
-	float: right;
-}
-.pullquote-thumb {
-	position: relative;
-	float: right;
-	padding: 0 0 0 10px;
-		.img-circle {
-		border-radius: 50%;
-		width: 130px;
-		}
-		@include bp(small) {
-			display: none;
-		}
-}
-.pullquote, .pullquote-right, .pullquote-left {
-	@extend .clearfix;
-	//color: $lorange;
-	font-family: "DIN-Condensed-Bold";
-	//font-family: $montserrat-font-stack;
-
-	font-weight: bold;
-	@include bp(small) {
-		width: 100%;
-		//width: 90%;
-		float: none;
-		margin: 1em auto;
-	}
-	.author {
-		//text-align: right;
-		//font-style: italic;
-		text-align: left;
-		color: $dovegray;
-		font-size: 24px;
-		line-height: 24px;
-	}
-	p.author {
-		margin-bottom: -1px;
-	}
-	p.author:before {
-		content: "\2014"
-	}
-	p.author:after {
-		content: none;
-	}
-}
-
-/* Pullquotes */
+// New Pullquote styles for a future release
+///* Pullquotes */
 //.pullquote {
-//	width: 75%;
-//	margin: 0 auto;
-//	margin-top: 30px;
-//	margin-bottom: 30px;
+//	//width: 75%;
+//	//margin: 0 auto;
+//	//margin-top: 30px;
+//	//margin-bottom: 30px;
+//	border-left: 5px solid $jellybean;
+//	margin-left: 30px auto;
+//	padding-left: 20px;
+//	width: 100%;
+//	color: $jellybean;
+//}
+//.pullquote p {
+//	margin: 0 0 30px 15px;
+//	font-family: "DIN-Condensed-Bold";
+//	font-size: 32px;
+//	line-height: 35px;
 //}
 //.pullquote-left {
 //	width: 40%;
@@ -444,20 +382,41 @@ div#cgvSlPagination, div.previous-next-links {
 //	margin: 0 0 1.5em 1em;
 //	float: right;
 //}
+//.pullquote-thumb {
+//	position: relative;
+//	float: right;
+//	padding: 0 0 0 10px;
+//		.img-circle {
+//		border-radius: 50%;
+//		width: 130px;
+//		}
+//		@include bp(small) {
+//			display: none;
+//		}
+//}
 //.pullquote, .pullquote-right, .pullquote-left {
 //	@extend .clearfix;
-//	color: #29768c;
-//	font-family: $montserrat-font-stack;
+//	//color: $lorange;
+//	font-family: "DIN-Condensed-Bold";
+//	//font-family: $montserrat-font-stack;
+//
 //	font-weight: bold;
-//	line-height: 25px;
 //	@include bp(small) {
-//		width: 90%;
+//		width: 100%;
+//		//width: 90%;
 //		float: none;
 //		margin: 1em auto;
 //	}
 //	.author {
-//		text-align: right;
-//		font-style: italic;
+//		//text-align: right;
+//		//font-style: italic;
+//		text-align: left;
+//		color: $dovegray;
+//		font-size: 24px;
+//		line-height: 24px;
+//	}
+//	p.author {
+//		margin-bottom: -1px;
 //	}
 //	p.author:before {
 //		content: "\2014"
@@ -466,16 +425,56 @@ div#cgvSlPagination, div.previous-next-links {
 //		content: none;
 //	}
 //}
-//.pullquote-text:before {
-//	content: "\201c"
-//	}
-///* we are doing quotes manually for spanish pages due to difference in grammar where period comes after quote in spanish */
-//:lang(es) .pullquote-text:before {
-//	content: "";
-//}
-//.pullquote-text:after {
-//	content: "\201d"
-//}
+
+/* Pullquotes */
+.pullquote {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.pullquote-left {
+	width: 40%;
+	margin: 0 1.5em 1em 0;
+	float: left;
+}
+.pullquote-right {
+	width: 40%;
+	margin: 0 0 1.5em 1em;
+	float: right;
+}
+.pullquote, .pullquote-right, .pullquote-left {
+	@extend .clearfix;
+	color: #29768c;
+	font-family: $montserrat-font-stack;
+	font-weight: bold;
+	line-height: 25px;
+	@include bp(small) {
+		width: 90%;
+		float: none;
+		margin: 1em auto;
+	}
+	.author {
+		text-align: right;
+		font-style: italic;
+	}
+	p.author:before {
+		content: "\2014"
+	}
+	p.author:after {
+		content: none;
+	}
+}
+.pullquote-text:before {
+	content: "\201c"
+	}
+/* we are doing quotes manually for spanish pages due to difference in grammar where period comes after quote in spanish */
+:lang(es) .pullquote-text:before {
+	content: "";
+}
+.pullquote-text:after {
+	content: "\201d"
+}
 /* we are doing quotes manually for spanish pages due to difference in grammar where period comes after quote in spanish */
 :lang(es) .pullquote-text:after {
 	content: "";
