@@ -114,3 +114,64 @@
 /* HACK STYLES */
 @import "hacks";
 /* END HACK STYLES */
+
+.video-preview--container {
+
+    &::before {
+        z-index: 1;
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(rgba($black, 0.6) 0%, rgba($black, 0.2) 60%, rgba($black, 0) 100%);
+    }
+
+    p {
+        position: absolute;
+        color: white;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        z-index: 10;
+        width: 95%;
+    }
+}
+
+.video-preview--container .video-preview--play-button {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 40px);
+    width: 80px;
+    height: 50px;
+    background: rgba($black, 0.5);
+    border-radius: 15px 5px / 5px 15px;
+    
+    &:hover {
+        background: red;
+        transition: all 75ms ease-in-out;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 7.5px);
+        width: 0; 
+        height: 0; 
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid white;
+    }
+}
+
+.video-preview--container .video-preview--preview-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8%;
+    margin-top: -8%;
+}
