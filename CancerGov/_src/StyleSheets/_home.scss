@@ -742,7 +742,7 @@ a.learn-more {
 		//height: 100%;
 	}
 }
-.card > .slot-item {
+.row:not(.flex-columns) .card > .slot-item {
 	@extend %autoheight-fix;
 }
 .multimedia-slot .equalheight .slot-item {
