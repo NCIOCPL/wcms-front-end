@@ -3,7 +3,7 @@ define(function(require) {
     var FlexVideoAPI = require('Modules/videoPlayer/flex-video-api');
     require('slick-carousel');
     require('Modules/carousel/slick-patch');
-    require('Vendor/google-apis/js/api');
+    // require('Vendor/google-apis/js/api');
 
     // Number of thumbnails to show in the carousel
     var thumbsToShow = 3;
@@ -25,32 +25,34 @@ define(function(require) {
      * Load the API's client.
      */
     function handleClientLoad(key) {
-        gapi.load('client', {
-            callback: function() { 
-                // Handle gapi.client initialization.
-                if(typeof(key) == 'undefined') {
-                    console.log('No API key provided for carousel initialization.');
-                } else {
-                    initClient(key);
+        $.getScript("https://apis.google.com/js/client.js", () => {
+            gapi.load('client', {
+                callback: function() { 
+                    // Handle gapi.client initialization.
+                    if(typeof(key) == 'undefined') {
+                        console.log('No API key provided for carousel initialization.');
+                    } else {
+                        initClient(key);
+                    }
+                },
+                onerror: function() {
+                   // Handle loading error.
+                    console.log('Google api.js failed to load.');
+                },
+                timeout: 5000, // 5 seconds.
+                ontimeout: function() {
+                    // Handle timeout.
+                    console.log('Google api.js did not load in a timely manner.');
                 }
-            },
-            onerror: function() {
-               // Handle loading error.
-                console.log('Google api.js failed to load.');
-            },
-            timeout: 5000, // 5 seconds.
-            ontimeout: function() {
-                // Handle timeout.
-                console.log('Google api.js did not load in a timely manner.');
-            }
-        });
+            });
+        })    
+        
     }
 
     /**
      * Initialize the API client and draw HTML
      */
     function initClient(key) {
-            
             // YouTube API address & params
             // TODO: see if we can do without discoveryDocs
             var $key = key; 
@@ -98,9 +100,9 @@ define(function(require) {
 
                         // Draw the carousel thumbnails
                         $.each(data.result.items, function(j, item) {
-                            $vid = item.snippet.resourceId.videoId;
-                            $title = item.snippet.title;
-                            $imageUrl = item.snippet.thumbnails.medium.url;
+                            var $vid = item.snippet.resourceId.videoId;
+                            var $title = item.snippet.title;
+                            var $imageUrl = item.snippet.thumbnails.medium.url;
                             appendCarouselThumbnails($carouselThumbs, $vid, $title, $imageUrl);
                         });
 
@@ -126,28 +128,28 @@ define(function(require) {
 
                         // Change the video upon mobile next arrow click
                         $this.find('.m-previous').click(function() {
-                            $indexPcurr = $this.find('.flex-video').attr('ytc-index');
-                            $indexPrev = --$indexPcurr;
+                            var $indexPcurr = $this.find('.flex-video').attr('ytc-index');
+                            var $indexPrev = --$indexPcurr;
                             if ($indexPrev < 0) {
                                 $indexPrev = ($count - 1);
                             }
-                            $selPrev = $this.find(".slick-slide[data-slick-index='" + $indexPrev + "']");
-                            $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
-                            $titlePrev = $selPrev.text();
+                            var $selPrev = $this.find(".slick-slide[data-slick-index='" + $indexPrev + "']");
+                            var $idPrev = $selPrev.find('.yt-carousel-thumb').attr('id');
+                            var $titlePrev = $selPrev.text();
                             drawSelectedVideo($this, $idPrev, $titlePrev, $indexPrev, $count, true);
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexPrev);
                         });
 
                         // Change the video upon mobile previous arrow click
                         $this.find('.m-next').click(function() {
-                            $indexNcurr = $this.find('.flex-video').attr('ytc-index');
-                            $indexNext = ++$indexNcurr;
+                            var $indexNcurr = $this.find('.flex-video').attr('ytc-index');
+                            var $indexNext = ++$indexNcurr;
                             if ($indexNext > ($count - 1)) {
                                 $indexNext = 0;
                             }
-                            $selNext = $this.find(".slick-slide[data-slick-index='" + $indexNext + "']");
-                            $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
-                            $titleNext = $selNext.text();
+                            var $selNext = $this.find(".slick-slide[data-slick-index='" + $indexNext + "']");
+                            var $idNext = $selNext.find('.yt-carousel-thumb').attr('id');
+                            var $titleNext = $selNext.text();
                             drawSelectedVideo($this, $idNext, $titleNext, $indexNext, $count, true);
                             doCarouselAnalytics($this, $carouselTitle, 'swipe',  $indexNext);
                         });
@@ -241,6 +243,7 @@ define(function(require) {
      * @param {any} $isAutoPlay
      */
     function drawSelectedVideo($this, $vidID, $vidTitle, $index, $total, $isAutoPlay) {
+        
         // Replace all instances of the YouTube video ID within the <figure> element
         var $selectedVideo = $this.find('.yt-carousel-selected .flex-video');
         $selectedVideo.attr('id', 'ytplayer-' + $vidID);

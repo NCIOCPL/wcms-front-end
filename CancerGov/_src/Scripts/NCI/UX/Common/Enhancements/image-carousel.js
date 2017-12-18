@@ -3,7 +3,7 @@ define(function(require) {
     require('UX/Common/Plugins/Widgets/jquery.ui.imagecarousel')
     //require('slick-carousel');
     //require('Modules/carousel/slick-patch');
-    //var flexVideo = require('Modules/videoPlayer/flexVideo');
+    // var flexVideo = require('Modules/videoPlayer/flexVideo');
     var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
     
