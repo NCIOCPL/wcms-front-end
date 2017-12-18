@@ -1,4 +1,4 @@
 {
     //This sets up what ES2015 functions must be transpiled.  The line below handles all es2015 items.
-    "presets": ["es2015"]
+    "presets": ["env"]
 }

@@ -115,12 +115,7 @@ module.exports = {
 			{ test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" },
 			{ test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['babel-preset-env']
-					}
-				}
+				loader: 'babel-loader'
 			},
 
 			// expose the charts module to a global variable
