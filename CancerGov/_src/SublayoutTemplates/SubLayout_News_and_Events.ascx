@@ -16,7 +16,7 @@
     />
 <!-- END FEATURE PRIMARY CARDS CARDS ROW -->
 <!-- BEGIN GENERAL ROW -->
-<div class="row news flex-columns">
+<div class="row news">
 	<NCI:TemplateSlot
 		id="nvcgSlLayoutGeneralA"
 		CssClass="large-8 columns card gutter"
