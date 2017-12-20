@@ -1,4 +1,6 @@
 import { NCIBasePage } from 'UX/core';
+import * as DictionaryService from 'Data/DictionaryService';
+import * as NCI from 'UX/Common/Enhancements/NCI';
 import * as AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest-et-al';
 
 /**

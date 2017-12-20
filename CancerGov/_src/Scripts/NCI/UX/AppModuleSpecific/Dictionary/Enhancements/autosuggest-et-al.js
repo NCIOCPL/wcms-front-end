@@ -48,13 +48,7 @@ define(function(require) {
         var isContains = IsContains();
     
         (function(factory) {
-            if (typeof define === 'function' && define.amd && typeof require === 'function') {
-                // AMD
-                require(['Common/Enhancements/NCI', 'Data/DictionaryService'], factory);
-            } else {
-                // Browser globals
-                factory(NCI, NCI.dictionary);
-            }
+            factory(NCI, NCI.dictionary);
         }(function(NCI, DictionaryService) {
             NCI.doAutocomplete('#' + ids.AutoComplete1, function(term) {
                 return DictionaryService.searchSuggest(dictionary, term, language, isContains ? 'contains' : 'begins');
