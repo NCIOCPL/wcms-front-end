@@ -35,12 +35,14 @@ define(function(require) {
 
     // Autocomplete functionality
     var ids = {
-        radioContains: "ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains", // TODO: clean up
-        AutoComplete1: "ctl34_ctl00_dictionarySearchBlock_dictionarySearchBlock_AutoComplete1" // TODO: clean up
-    }    
-
+        // TODO: refactor this and remove hardcoded values
+        radioStarts: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStarts",
+        radioContains: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains",
+        AutoComplete1: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_AutoComplete1"
+    }
+    
     function autoFunc() {
-        var dictionary = "term"; // TODO: get values dynamically
+        var dictionary = "term"; // TODO: get values dynamically (e.g. 'term', 'drug', 'genetic')
         var language = 'English';
         if ($('html').attr('lang') === 'es') {
             language = 'Spanish';
