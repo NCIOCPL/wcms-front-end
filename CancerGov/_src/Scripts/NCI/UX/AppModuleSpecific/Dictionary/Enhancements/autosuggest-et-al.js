@@ -34,8 +34,8 @@ define(function(require) {
     // Dynamically-generated radio/autoComplete element IDs
     // TODO: refactor this and remove hardcoded values    
     var ids = {
-        radioStarts: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStartsxxx",
-        radioContains: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContainsxxx",
+        radioStarts: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStarts",
+        radioContains: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains",
         AutoComplete1: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_AutoComplete1"
     }
     
@@ -44,14 +44,13 @@ define(function(require) {
      * TODO: fix autoFunc() console error
      */
     function autoFunc() {
-        // Look for the "dict-data" pattern in the results div ID.
-        var prepend = 'dict-data-';
-        var $dict = $("div[id*='" + prepend + "']");
+        // Look for the "dict-data-id" attribute 
+        var $dict = $('[dict-data-id]');
 
         // Set dictionary value (e.g. 'term', 'drug', or 'genetic') if a matching ID is found.
         var dictionary = '';
-        if($dict.length = 1) {
-            dictionary = $dict.attr('id').replace(prepend,'');
+        if($dict.length > 0) {
+            dictionary = $dict.attr('dict-data-id').trim();
         }
 
         // Set language.
