@@ -32,16 +32,18 @@ define(function(require) {
     }
 
     // Dynamically-generated radio/autoComplete element IDs
-    // TODO: refactor this and remove hardcoded values    
     var ids = {
-        radioStarts: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStarts",
-        radioContains: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains",
-        AutoComplete1: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_AutoComplete1"
+        radioStarts: 'dict-radio-starts',
+        radioContains: 'dict-radio-contains',
+        AutoComplete1: 'dict-autocomplete'
     }
     
     /**
      * Autocomplete functionality.
      * TODO: fix autoFunc() console error
+            radioStarts.InputAttributes.Add("data-ac", "dict-radio-starts");
+            radioContains.InputAttributes.Add("data-ac", "dict-radio-contains");
+            AutoComplete1.Attributes.Add("data-ac", "dict-autocomplete");
      */
     function autoFunc() {
         // Look for the "dict-data-id" attribute 
@@ -64,7 +66,7 @@ define(function(require) {
         (function(factory) {
             factory(NCI, NCI.dictionary);
             } (function(NCI, DictionaryService) {
-                NCI.doAutocomplete('#' + ids.AutoComplete1, function(term) {
+                NCI.doAutocomplete("input[data-ac='" + ids.AutoComplete1 + "']", function(term) {
                     return DictionaryService.searchSuggest(dictionary, term, language, isContains ? 'contains' : 'begins');
                 }, isContains);
             })
@@ -77,7 +79,7 @@ define(function(require) {
      */
     function IsContains() {
         var ret = false;
-        if ($("#" + ids.radioContains).prop("checked"))
+        if ($("input[data-ac='" + ids.radioContains + "']").prop("checked"))
             ret = true;    
         return ret;
     }
