@@ -18,7 +18,6 @@ define(function(require) {
             });
 
             //Attach a click event to the audio link
-
             $(".CDR_audiofile").click(function() {
                 my_jPlayer.jPlayer("setMedia", {
                     mp3: $(this).attr("href") // Defines the m4v url
@@ -30,43 +29,58 @@ define(function(require) {
 
         // Kick off autosuggest
         autoFunc();
-
     }
 
-    // Autocomplete functionality
+    // Dynamically-generated radio/autoComplete element IDs
+    // TODO: refactor this and remove hardcoded values    
     var ids = {
-        // TODO: refactor this and remove hardcoded values
-        radioStarts: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStarts",
-        radioContains: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContains",
+        radioStarts: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioStartsxxx",
+        radioContains: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_radioContainsxxx",
         AutoComplete1: "ctl32_ctl00_dictionarySearchBlock_dictionarySearchBlock_AutoComplete1"
     }
     
+    /**
+     * Autocomplete functionality.
+     */
     function autoFunc() {
-        var dictionary = "term"; // TODO: get values dynamically (e.g. 'term', 'drug', 'genetic')
+        // Look for the "dict-data" pattern in the results div ID.
+        var prepend = 'dict-data-';
+        var $dict = $("div[id*='" + prepend + "']");
+
+        // Set dictionary value (e.g. 'term', 'drug', or 'genetic') if a matching ID is found.
+        var dictionary = '';
+        if($dict.length = 1) {
+            dictionary = $dict.replace(prepend,'');
+        }
+
+        // Set language.
         var language = 'English';
         if ($('html').attr('lang') === 'es') {
             language = 'Spanish';
         }
-        var isContains = IsContains();
     
+        // Do autocomplete
+        var isContains = IsContains();        
         (function(factory) {
             factory(NCI, NCI.dictionary);
-        }(function(NCI, DictionaryService) {
-            NCI.doAutocomplete('#' + ids.AutoComplete1, function(term) {
-                return DictionaryService.searchSuggest(dictionary, term, language, isContains ? 'contains' : 'begins');
-            }, isContains);
-        }));
+            } (function(NCI, DictionaryService) {
+                NCI.doAutocomplete('#' + ids.AutoComplete1, function(term) {
+                    return DictionaryService.searchSuggest(dictionary, term, language, isContains ? 'contains' : 'begins');
+                }, isContains);
+            })
+        );
     }
     
+    /**
+     * Checks whether 'contains' radio button has been selected.
+	 * @type {Boolean}
+     */
     function IsContains() {
         var ret = false;
-    
         if ($("#" + ids.radioContains).prop("checked"))
-            ret = true;
-    
+            ret = true;    
         return ret;
     }
-
 
 	/**
 	 * Identifies if this enhancement has been initialized or not.
