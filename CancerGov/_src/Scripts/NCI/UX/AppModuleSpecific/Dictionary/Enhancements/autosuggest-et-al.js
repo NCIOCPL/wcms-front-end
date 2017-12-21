@@ -41,6 +41,7 @@ define(function(require) {
     
     /**
      * Autocomplete functionality.
+     * TODO: fix autoFunc() console error
      */
     function autoFunc() {
         // Look for the "dict-data" pattern in the results div ID.
@@ -50,7 +51,7 @@ define(function(require) {
         // Set dictionary value (e.g. 'term', 'drug', or 'genetic') if a matching ID is found.
         var dictionary = '';
         if($dict.length = 1) {
-            dictionary = $dict.replace(prepend,'');
+            dictionary = $dict.attr('id').replace(prepend,'');
         }
 
         // Set language.
