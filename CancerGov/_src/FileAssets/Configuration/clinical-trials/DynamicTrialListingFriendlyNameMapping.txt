@@ -1,0 +1,9 @@
+C26665|pomegranate-juice
+C128625|Caplacizumab
+C2039|Bevacizumab
+C2910|breast-cancer
+C7510|thyroid-cancer
+C1647|trastuzumab
+c9242|colon-cancer
+C7515,C7716|transitional-cell-renal-pelvis-ureter
+C5816,C8550,C3813|adult-metastatic-brain-tumors
