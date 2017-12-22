@@ -23,7 +23,8 @@ define(function (require) {
 			altText = 'Exit Disclaimer';
 			break;
 		}
-		$("a[href]:not(:has(img))").filter(function () {
+		// Looks for all non .gov links (that do not include an image immediately inside the anchor tag) and adds external link href aftr the link.
+		$("a[href]:not(:has(>img))").filter(function () {
 			return /^https?\:\/\/([a-zA-Z0-9\-]+\.)+/i.test(this.href) && !/^https?\:\/\/([a-zA-Z0-9\-]+\.)+gov/i.test(this.href) && this.href !== "" && this.href.indexOf(location.protocol + '//' + location.hostname) !== 0 && !$(this).hasClass('add_this_btn') && !$(this).hasClass('no-exit-notification');
 		}).after($(
 			'<a class="icon-exit-notification" title="' + altText + '" href="' + path + '">' +
