@@ -27,9 +27,12 @@ define(function(require) {
             });
         }
 
-        // Kick off autosuggest
+        // Initialize autosuggest and kick off if radio button is changed
         autoFunc();
-    }
+        $("input[data-autocorrect*='dict-radio']").change(function() { 
+            autoFunc();
+        });
+    } 
 
     // Dynamically-generated radio/autoComplete element IDs
     var ids = {
