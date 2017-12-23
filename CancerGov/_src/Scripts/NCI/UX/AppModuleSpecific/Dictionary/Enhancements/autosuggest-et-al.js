@@ -41,18 +41,15 @@ define(function(require) {
     /**
      * Autocomplete functionality.
      * TODO: fix autoFunc() console error
-            radioStarts.InputAttributes.Add("data-ac", "dict-radio-starts");
-            radioContains.InputAttributes.Add("data-ac", "dict-radio-contains");
-            AutoComplete1.Attributes.Add("data-ac", "dict-autocomplete");
      */
     function autoFunc() {
-        // Look for the "dict-data-id" attribute 
-        var $dict = $('[dict-data-id]');
+        // Look for the "data-dict-type" attribute 
+        var $dict = $('[data-dict-type]');
 
         // Set dictionary value (e.g. 'term', 'drug', or 'genetic') if a matching ID is found.
         var dictionary = '';
         if($dict.length > 0) {
-            dictionary = $dict.attr('dict-data-id').trim();
+            dictionary = $dict.attr('data-dict-type').trim();
         }
 
         // Set language.
@@ -66,7 +63,7 @@ define(function(require) {
         (function(factory) {
             factory(NCI, NCI.dictionary);
             } (function(NCI, DictionaryService) {
-                NCI.doAutocomplete("input[data-ac='" + ids.AutoComplete1 + "']", function(term) {
+                NCI.doAutocomplete("input[data-autocorrect='" + ids.AutoComplete1 + "']", function(term) {
                     return DictionaryService.searchSuggest(dictionary, term, language, isContains ? 'contains' : 'begins');
                 }, isContains);
             })
@@ -79,7 +76,7 @@ define(function(require) {
      */
     function IsContains() {
         var ret = false;
-        if ($("input[data-ac='" + ids.radioContains + "']").prop("checked"))
+        if ($("input[data-autocorrect='" + ids.radioContains + "']").prop("checked"))
             ret = true;    
         return ret;
     }
