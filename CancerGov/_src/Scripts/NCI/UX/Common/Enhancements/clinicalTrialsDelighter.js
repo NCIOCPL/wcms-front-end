@@ -2,7 +2,7 @@ define(function(require) {
     var $ = require('jquery');
 	var AdobeAnalytics = require('Patches/AdobeAnalytics');
 	var ctsPath = '/about-cancer/treatment/clinical-trials/search';
-	var pathName = location.pathname.replace(/\/$/, "");
+	var pathName = location.pathname.replace(/\/$/, "").toLowerCase();
     
     function _initialize() {    
         /* Only display the delighter on the NCI Home page but not on other
