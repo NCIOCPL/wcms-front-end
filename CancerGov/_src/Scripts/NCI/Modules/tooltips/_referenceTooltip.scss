@@ -76,19 +76,19 @@ Uncomment the following for the new tool tip look and feel
     position: static;
 }
 .RTflipped {
-    padding-top: 13px;
+    padding-top: 11px;
 }
 .referencetooltip.RTflipped li + li {
     position: absolute;
-    top: 1px;
+    top: 0;
     border-top: 0;
     border-bottom: 12px #b3b3b3 solid;
 }
 .referencetooltip.RTflipped li + li:after {
     border-top: 0;
-    border-bottom: 8px #F7F7F7 solid;
+    border-bottom: 10px #F7F7F7 solid;
     position: absolute;
-    margin-top: 7px;
+    margin-top: 3px;
 }
 .RTTarget {
     border: #b3b3b3 1px solid;
