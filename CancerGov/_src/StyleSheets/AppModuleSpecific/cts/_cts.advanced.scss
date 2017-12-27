@@ -92,10 +92,10 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   display: block;
   border: none;
   margin: 0;
-  padding: 10px 5px 0 0;
   position: relative;
-  top: -11px;
+  margin: 5px 0;
 }
+
 .clinicaltrials-results-criteria-display {
   box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
   position: relative;
@@ -175,8 +175,6 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   padding: 0 0 0 5px;
   //background-size: 10%;
   width: 375px;
-  margin-bottom: .25em;
-  overflow: hidden;
 
   &::after {
     content:"";
