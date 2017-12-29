@@ -144,7 +144,7 @@ define(function(require) {
 
 			function accordionize() {
 				/* determine window width */
-				var width = window.innerWidth || $(window).width(),
+				var width = document.body.parentNode.clientWidth,
 					accordion;
 
 				/* If the width is less than or equal to 640px (small screens)
