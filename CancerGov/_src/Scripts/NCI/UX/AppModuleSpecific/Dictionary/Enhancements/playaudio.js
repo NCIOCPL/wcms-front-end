@@ -1,6 +1,5 @@
 define(function(require) {
     var $ = require('jquery');
-    require('jplayer');
 
 	/***
 	* Main function
@@ -12,8 +11,6 @@ define(function(require) {
             var my_jPlayer = $("#dictionary_jPlayer");
 
             my_jPlayer.jPlayer({
-                swfPath: "/PublishedContent/files/global/flash/", //Path to SWF File Used by jPlayer
-                //errorAlerts: true,
                 supplied: "mp3" //The types of files which will be used.
             });
 
