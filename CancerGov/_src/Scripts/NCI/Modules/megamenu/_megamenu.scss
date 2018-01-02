@@ -90,6 +90,7 @@
 		visibility: hidden;
 		//@include transform(translateY(-15px));
 		@include transition(all 500ms ease 100ms);
+		overflow: hidden;
 
 		/* sub-navigation panel open state */
 		&.open {
