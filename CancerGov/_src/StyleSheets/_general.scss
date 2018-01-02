@@ -532,21 +532,17 @@ div#cgvSlPagination, div.previous-next-links {
 	}
 }
 /* END columns by css instead of tables */
-.callout-box,
-.callout-box-right,
-.callout-box-left,
-.callout-box-full,
-.callout-box-blue {
+[class*="callout-box"]{
 	background: #DBF2F8;
 	overflow: auto;
 	padding: 25px;
 
 	// to prevent extra space at top of callout box area
-	> div > h2:first-child, > div > h3:first-child, h4, p:first-child, ul:first-child {
-		margin-top: 0;
-	}
-
-	h2, h3 {
+	h2:first-child, 
+	h3:first-child,
+	p:first-child,
+	ul:first-child,
+	h4 {
 		margin-top: 0;
 	}
 
