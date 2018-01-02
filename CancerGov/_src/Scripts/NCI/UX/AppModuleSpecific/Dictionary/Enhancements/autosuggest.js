@@ -1,31 +1,10 @@
 define(function(require) {
     var $ = require('jquery');
-    require('jplayer');
 
 	/***
 	* Main function
 	*/
 	function _initialize() {
-
-        //Hookup JPlayer for Audio
-        if (jQuery.jPlayer && !Modernizr.touch) {
-            var my_jPlayer = $("#dictionary_jPlayer");
-
-            my_jPlayer.jPlayer({
-                swfPath: "/PublishedContent/files/global/flash/", //Path to SWF File Used by jPlayer
-                //errorAlerts: true,
-                supplied: "mp3" //The types of files which will be used.
-            });
-
-            //Attach a click event to the audio link
-            $(".CDR_audiofile").click(function() {
-                my_jPlayer.jPlayer("setMedia", {
-                    mp3: $(this).attr("href") // Defines the m4v url
-                }).jPlayer("play");
-
-                return false;
-            });
-        }
 
         // Initialize autosuggest and kick off if radio button is changed
         autoFunc();
@@ -43,7 +22,6 @@ define(function(require) {
     
     /**
      * Autocomplete functionality.
-     * TODO: fix autoFunc() console error
      */
     function autoFunc() {
         // Look for the "data-dict-type" attribute 
