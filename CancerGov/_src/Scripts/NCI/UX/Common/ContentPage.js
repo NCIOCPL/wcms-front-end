@@ -156,8 +156,8 @@ define(function(require) {
 			var ProactiveLiveHelpforColorectal = new ProactiveLiveHelp();
 
 			//console.log(ProactiveLiveHelp);
-
-			ProactiveLiveHelpforCTS.initialize({
+					
+			var PLHinitObject = {
 				urls: [
 					"/about-cancer/treatment/clinical-trials/search",
 					"/about-cancer/treatment/clinical-trials/basic",
@@ -174,7 +174,15 @@ define(function(require) {
 				popupTitle: "Questions about Clinical Trials?",
 				optOutDurationDays: 30,
 				popupDelaySeconds: 90
-			});
+			}
+			
+
+					
+			if((window.location.href.indexOf("about-cancer/treatment/clinical-trials/disease") > -1) || (window.location.href.indexOf("about-cancer/treatment/clinical-trials/intervention") > -1))  {
+       PLHinitObject.popupDelaySeconds = 30;
+    }
+
+			ProactiveLiveHelpforCTS.initialize(PLHinitObject);
 			// END Clinical Trial Search Setup
 
 			// Proactive Live Help for Colo-rectal Cancer Type Pages

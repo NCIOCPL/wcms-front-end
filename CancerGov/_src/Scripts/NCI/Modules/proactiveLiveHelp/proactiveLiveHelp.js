@@ -4,6 +4,9 @@ define(function(require){
     var CookieManager = require('js-cookie');
     var LiveChat = require('BasicCTSCommon/Enhancements/LiveChat');
     var DateUtility = require('Modules/utility/dateUtility');
+	
+	
+	
 
 
     var PLH = function(settings) {
@@ -23,6 +26,8 @@ define(function(require){
             startDate: new Date(0), // default start data is 1/1/1970
             endDate: null
         };
+			
+
 
         // internal settings
         this.userActivity = {
@@ -155,8 +160,9 @@ define(function(require){
         // minimum of zero seconds.
         getCountdownTimeRemaining: function () {
             var timeleft = CookieManager.get(this.options.popupID + '-timer');
-            if (!timeleft)
+            if (!timeleft) {
                 timeleft = this.options.popupDelaySeconds;
+						}
             timeleft = Number(timeleft);
             if (timeleft < 0)
                 timeleft = 0;
