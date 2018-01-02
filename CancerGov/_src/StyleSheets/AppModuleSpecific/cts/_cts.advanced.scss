@@ -175,6 +175,8 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   padding: 0 0 0 5px;
   //background-size: 10%;
   width: 375px;
+  min-width: 215px;
+  overflow: hidden;
 
   &::after {
     content:"";
@@ -188,13 +190,12 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   &.show {
     &::after {
       @include svg-sprite(minus-box);
-
     }
     //background-image: image-url($icons + "cts-minus.png");
   }
 
   @include bp(small){
-    width: 280px;
+    width: 100%;
     //background-size: 12%;
   }
 }
