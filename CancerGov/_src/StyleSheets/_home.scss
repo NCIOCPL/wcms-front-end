@@ -18,6 +18,26 @@
 	padding-left: 0;
 	padding-right: 0;
 	@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
+	//adding styles for hero <picture> elements
+	.row {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0;
+		margin-bottom: 0;
+		max-width: 62.5em;
+		@include bp(xtra-large){
+			max-width: 1200px;
+		}
+		.hero-text {
+			left: auto;
+			padding: 0 0 0 8px;
+			@include bp(xtra-large){
+				padding-left: 20px;
+			}
+		}
+	}
+	//end new picture element styles
 }
 .hero-inner-page {
 	position: relative;
