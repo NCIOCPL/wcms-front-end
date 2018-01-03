@@ -41,6 +41,10 @@ module.exports = function (grunt, options) {
           src: dirs.src.styles + 'nvcg.scss'
         },
         {
+          dest: dirs.tmp.styles + 'micro1.css',
+          src: dirs.src.styles + 'micro1.scss'
+        },        
+        {
           dest: dirs.tmp.styles + 'ctsPrintResults.css',
           src: dirs.src.styles + 'ctsPrintResults.scss'
         }
@@ -59,6 +63,10 @@ module.exports = function (grunt, options) {
           dest: dirs.tmp.styles + 'nvcg.css',
           src: dirs.src.styles + 'nvcg.scss'
         },
+        {
+          dest: dirs.tmp.styles + 'micro1.css',
+          src: dirs.src.styles + 'micro1.scss'
+        },        
         {
           dest: dirs.tmp.styles + 'ctsPrintResults.css',
           src: dirs.src.styles + 'ctsPrintResults.scss'
