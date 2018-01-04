@@ -73,6 +73,9 @@
 // What's the point in having VM templates if you don't use them?
 // Feedback delighter is getting shoved in from the backend so the markup is completely different.
 .cts-feedback {
+	// turning feedback box off, its been replaced by a qualtrics survey.
+	display: none;
+	
   &::before {
     content: "";
     @include svg-sprite(feedback-large);
@@ -153,6 +156,10 @@
       }
     }
     &:hover {
+      text-decoration: none;
+    }
+
+    &:focus {
       text-decoration: none;
     }
   }
