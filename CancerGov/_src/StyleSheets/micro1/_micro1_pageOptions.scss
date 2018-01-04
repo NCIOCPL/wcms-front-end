@@ -1,0 +1,251 @@
+/***** BEGIN PAGE OPTIONS *************************************/
+
+/* COMMON for all page options */
+.page-options {
+	margin: 0;
+	font-size: 16px;
+
+	ul {
+		margin: 0;
+		background: transparent;
+		white-space: nowrap;
+		display: flex;
+		align-items: center;
+	}
+	li {
+		display: inline-block;
+		margin: 0;
+		&:before {
+			content: none !important;
+			display: none !important;
+		}
+	}
+
+	a {
+		//display: block;
+		//position: relative;
+		//height: 100%;
+		//width: 100%;
+		&:before {
+			content: '';
+			//font-size: 1.2em;
+		}
+	}
+
+	.po-print a::before {
+		@include svg-sprite(printer-blue);
+	}
+	.po-email a::before {
+		@include svg-sprite(mail-envelope-closed-blue);
+	}
+	.po-facebook a::before {
+		@include svg-sprite(facebook-blue);
+	}
+	.po-twitter a::before {
+		@include svg-sprite(twitter-blue);
+	}
+	.po-googleplus a::before {
+		@include svg-sprite(google-plus-blue);
+	}
+	.po-pinterest a::before {
+		@include svg-sprite(pinterest-blue);
+	}
+}
+
+
+/* DESKTOP page options */
+@include bp(large-up) {
+	// apply homepage- and landing page-only styles
+	.columns.page-options {
+		top: 0;
+		right: 0;
+		position: static;
+	}
+
+	// apply CTHP-only styles
+	.cthp-mobile.page-options {
+		display: none;
+	}
+
+	// Apply styling for share icons on CTS Basic Search
+	.page-options.cts-share {
+		top-margin: 0;
+		top: 0;
+		position: relative;
+		float: none;
+	}
+
+	.page-options {
+		//margin-top: 1.25em;
+		//float: right;
+		//position: absolute;
+		//top: -3.75em;
+		//right: 0.875em;
+
+		ul {
+			//float: right;
+		}
+
+		li {
+			margin: 0 0 0 0;
+		}
+
+		.po-font-resize a::before {
+			@include svg-sprite(font-size-blue);
+		}
+	}
+
+	/* Blog pages template places the page options outside the normal container
+	   To fix styling we simply need to reverse the top margin applied by the page-options class
+	*/
+	#blogPageOptionsOuterContainer {
+		position: absolute;
+		right: 0;
+		top: 3.8em;
+	}
+
+}
+
+/* MOBILE page options */
+@include bp(medium-down) {
+	.cthp-desktop.page-options {
+		display: none;
+	}
+
+	//.contentzone {
+		.page-options {
+			width: auto;
+			li {
+				margin: 0 0.875em 0 0;
+				width: 35px;
+				height: 35px;
+				background-color: $color-link;
+				border-radius: 50%;
+
+				a {
+					position: relative;
+					display: block;
+					height: 100%;
+					font-size: 91%;
+					min-width: 35px;
+
+					&::before {
+						position: absolute;
+						left: 50%;
+						top: calc(50% + 1px);
+						transform: translateX(-50%) translateY(-50%);
+					}
+				}
+
+
+				&:hover {
+					background-color: $lcranberry;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			.po-view-entire-document {
+				display: none;
+			}
+			.po-font-resize {
+				display: none;
+			}
+			.po-print {
+				display: none;
+			}
+			.po-email a::before {
+				@include svg-sprite(mail-envelope-closed-white);
+				//font-size: .95em;
+			}
+			.po-facebook a::before {
+				@include svg-sprite(facebook-white);
+				font-size: 22px;
+			}
+			.po-twitter a::before {
+				@include svg-sprite(twitter-white);
+				font-size: 17px;
+			}
+			.po-googleplus a::before {
+				@include svg-sprite(google-plus-white);
+				top: 50%;
+			}
+			.po-pinterest a::before {
+				@include svg-sprite(pinterest-white);
+				font-size: 120%;
+			}
+
+			/* Note: if the flaticon font is ever updated with additional icon, make sure the keycodes have not changed */
+			/*
+			.po-email a:before {
+				content: "\e006"; //.flaticon-envelopes5
+			}
+			.po-facebook a:before {
+				content: "\e008"; //.flaticon-facebook55
+			}
+			.po-twitter a:before {
+				content: "\e01c"; //.flaticon-twitter35
+				top: 19px;
+				left: 19px;
+			}
+			.po-googleplus a:before {
+				content: "\e009"; //.flaticon-google45
+				top: 19px;
+				left: 20px;
+			}
+			.po-pinterest a:before {
+				content: "\e017"; //.flaticon-pinterest26
+			}
+			*/
+			/*
+            .po-email {
+                background-position: -183px -12px;
+
+                &:hover {
+                    background-position: -243px -12px;
+                }
+            }
+            .po-facebook {
+                background-position: -183px -56px;
+
+                &:hover {
+                    background-position: -243px -56px;
+                }
+            }
+            .po-twitter {
+                background-position: -183px -102px;
+
+                &:hover {
+                    background-position: -243px -102px;
+                }
+            }
+            .po-googleplus {
+                background-position: -183px -147px;
+
+                &:hover {
+                    background-position: -243px -147px;
+                }
+            }
+            .po-pinterest {
+                background-position: -183px -192px;
+
+                &:hover {
+                    background-position: -243px -192px;
+                }
+            }
+            */
+		}
+	//}
+}
+
+/* TABLET page options */
+@include bp(medium) {
+    .ncilandingpage #PageOptionsControl1 ul {
+        float: right;
+    }
+    .espanol-home #PageOptionsControl1 ul {
+        float: left;
+    }
+}
+/****** END PAGE OPTIONS *************************************/

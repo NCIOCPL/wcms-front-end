@@ -1,0 +1,177 @@
+/************** BEGIN Font Declarations ************************/
+$weight-map: (normal: "400", bold: "700");
+$style-map: (normal: "", italic: "italic");
+
+// mixin for creating fonts with family/weight/style.
+// use with @include font-face("Family", "24", "italic")
+@mixin font-face($family, $weight:normal, $style:normal) {
+	// set the font-family path component (e.g., "Noto-Sans")
+	$path-family: str-replace($family, ' ', '-');
+
+	// set the weight and style path components (e.g., "700", "700italic", "regular", "italic")
+	$path-weight: '';
+	$path-style: 'regular';
+	@if($weight == normal) {
+		@if($style == normal) {
+			$path-style: 'regular';
+		} @else {
+			$path-style: map-get($style-map, $style);
+		}
+	} @else {
+		$path-weight: map-get($weight-map, $weight);
+		$path-style: map-get($style-map, $style);
+	}
+
+	$path: $fonts + $path-family + '-' + $path-weight + $path-style;
+
+
+	@font-face {
+		font-family: '#{$family}';
+		font-weight: $weight;
+		font-style: $style;
+		src: url($path + '.eot');
+		src: url($path + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		     url($path + '.woff') format('woff'), // Modern Browsers
+		     url($path + '.ttf') format('truetype'), // Safari, Android, iOS
+		     url($path + '.svg#' + str-replace(#{$family}, ' ', '')) format('svg'); // Legacy iOS
+	}
+}
+
+/* Leaguegothic */
+$leaguegothic: "leaguegothic";
+$leaguegothic-font-stack: $leaguegothic, sans-serif;
+$leaguegothicpath: $fonts + 'leaguegothic-regular-webfont';
+@font-face {
+	font-family: '#{$leaguegothic}';
+	font-weight: normal;
+	font-style: normal;
+	src: url($leaguegothicpath + '.eot');
+	src: url($leaguegothicpath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($leaguegothicpath + '.woff') format('woff'), // Modern Browsers
+		 url($leaguegothicpath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($leaguegothicpath + '.svg#' + str-replace(#{$leaguegothic}, ' ', '')) format('svg'); // Legacy iOS
+}
+
+
+/* Ostrich-sans */
+$ostrichsans: "ostrich sans";
+$ostrichsans-font-stack: $ostrichsans, sans-serif;
+$ostrichsanspath: $fonts + 'ostrich-sans-regular';
+$ostrichsansboldpath: $fonts + 'ostrich-sans-bold';
+@font-face {
+	font-family: '#{$ostrichsans}';
+	font-weight: normal;
+	font-style: normal;
+	src: url($ostrichsanspath + '.eot');
+	src: url($ostrichsanspath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($ostrichsanspath + '.woff') format('woff'), // Modern Browsers
+		 url($ostrichsanspath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($ostrichsanspath + '.svg#' + str-replace(#{$ostrichsans}, ' ', '')) format('svg'); // Legacy iOS
+}
+@font-face {
+	font-family: '#{$ostrichsans}';
+	font-weight: bold;
+	font-style: normal;
+	src: url($ostrichsansboldpath + '.eot');
+	src: url($ostrichsansboldpath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($ostrichsansboldpath + '.woff') format('woff'), // Modern Browsers
+		 url($ostrichsansboldpath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($ostrichsansboldpath + '.svg#' + str-replace(#{$ostrichsans}, ' ', '')) format('svg'); // Legacy iOS
+}
+
+
+/* open Sans */
+
+$opensans: "OpenSans";
+$opensans-font-stack: $opensans, sans-serif;
+$opensanspath: $fonts + 'OpenSans-Regular-webfont';
+$opensansboldpath: $fonts + 'OpenSans-Bold-webfont';
+$opensansbolditalicpath: $fonts + 'OpenSans-BoldItalic-webfont';
+$opensansitalicpath: $fonts + 'OpenSans-Italic-webfont';
+
+@font-face {
+	font-family: '#{$opensans}';
+	font-weight: normal;
+	font-style: normal;
+	src: url($opensanspath + '.eot');
+	src: url($opensanspath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($opensanspath + '.woff') format('woff'), // Modern Browsers
+		 url($opensanspath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($opensanspath + '.svg#' + str-replace(#{$opensans}, ' ', '')) format('svg'); // Legacy iOS
+}
+
+@font-face {
+	font-family: '#{$opensans}';
+	font-weight: bold;
+	font-style: normal;
+	src: url($opensansboldpath + '.eot');
+	src: url($opensansboldpath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($opensansboldpath + '.woff') format('woff'), // Modern Browsers
+		 url($opensansboldpath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($opensansboldpath + '.svg#' + str-replace(#{$opensans}, ' ', '')) format('svg'); // Legacy iOS
+}
+
+@font-face {
+	font-family: '#{$opensans}';
+	font-weight: bold;
+	font-style: italic;
+	src: url($opensansbolditalicpath + '.eot');
+	src: url($opensansbolditalicpath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($opensansbolditalicpath + '.woff') format('woff'), // Modern Browsers
+		 url($opensansbolditalicpath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($opensansbolditalicpath + '.svg#' + str-replace(#{$opensans}, ' ', '')) format('svg'); // Legacy iOS
+}
+
+@font-face {
+	font-family: '#{$opensans}';
+	font-weight: normal;
+	font-style: italic;
+	src: url($opensansitalicpath + '.eot');
+	src: url($opensansitalicpath + '.eot?#iefix') format('embedded-opentype'), // IE6-8
+		 url($opensansitalicpath + '.woff') format('woff'), // Modern Browsers
+		 url($opensansitalicpath + '.ttf') format('truetype'), // Safari, Android, iOS
+		 url($opensansitalicpath + '.svg#' + str-replace(#{$opensans}, ' ', '')) format('svg'); // Legacy iOS
+}
+
+
+
+
+/* Noto Sans */
+$noto: "Noto Sans";
+$noto-font-stack: $noto, Arial, sans-serif;
+
+@include font-face($noto, normal, normal);
+@include font-face($noto, normal, italic);
+@include font-face($noto, bold, normal);
+@include font-face($noto, bold, italic);
+
+/* Montserrat */
+$montserrat: Montserrat;
+/** $montserrat-font-stack: $montserrat, Arial, sans-serif; **/
+$montserrat-font-stack: $leaguegothic-font-stack;
+
+@include font-face($montserrat, normal);
+@include font-face($montserrat, bold);
+
+@font-face {
+	font-family: "Montserrat-Regular";
+	font-weight: normal;
+	font-style: normal;
+	src: url($fonts + "Montserrat-regular.eot");
+	src: url($fonts + "Montserrat-regular.eot#iefix") format("embedded-opentype"),
+	url($fonts + "Montserrat-regular.woff") format("woff"),
+	url($fonts + "Montserrat-regular.ttf") format("truetype"),
+	url($fonts + "Montserrat-regular.svg") format("svg");
+}
+
+@font-face {
+	font-family: "DIN-Condensed-Bold";
+	font-weight: normal;
+	font-style: normal;
+	src: url($fonts + "DIN-Condensed-Bold.eot");
+	src: url($fonts + "DIN-Condensed-Bold#iefix") format("embedded-opentype"),
+		 url($fonts + "DIN-Condensed-Bold.woff") format("woff"),
+		 url($fonts + "DIN-Condensed-Bold.ttf") format("truetype"),
+		 url($fonts + "DIN-Condensed-Bold.svg") format("svg");
+}
+/********************* END Font Declarations ******************************************/
