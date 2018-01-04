@@ -264,6 +264,12 @@
   top: -0.6em;
   left: 0;
   z-index: 1;
+  
+  // This is a hack to prevent the outline on focus from creating a ring around this 'invisible'
+  // element. (Overring jquery-ui)
+  .ui-helper-hidden-accessible {
+	margin: -9999px;
+  }
 }
 
 input[type="checkbox"] {
