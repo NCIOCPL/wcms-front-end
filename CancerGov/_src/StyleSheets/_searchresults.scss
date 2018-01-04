@@ -101,7 +101,6 @@
 		&:hover {
 			cursor: pointer;
 		}
-
 	}
 	span {
 		display: inline-block;
@@ -126,14 +125,4 @@
 .results-pager .pagination li span {
 	margin-left: 0;
 	margin-right: 0;
-}
-
-// Override of hardcoded width and input[size] attribute on _form.scss
-// to prevent horizontal overflow of search results input bar on
-// site-wide search
-.results .small-12 input {
-	
-	@include bp(small) {
-		width: 100%;
-	}
 }
