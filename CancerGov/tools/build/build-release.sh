@@ -51,4 +51,4 @@ git push --tags "https://${GH_USER}:${GH_PASSWORD}@github.com/$GH_ORGANIZATION_N
 
 # Create new release.
 github-release release --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${TAG_NAME} --name ${TAG_NAME} --pre-release
-github-release upload --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${TAG_NAME} --name built-files.zip --file wcms-front-end.zip
+github-release upload --user ${GH_ORGANIZATION_NAME} --repo ${GH_REPO_NAME} --tag ${TAG_NAME} --name ${TAG_NAME}.zip --file wcms-front-end.zip
