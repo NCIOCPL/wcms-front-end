@@ -40,11 +40,6 @@ s._tpDST = {
 2018:'3/11,11/4',
 2019:'3/10,11/3'}
 
-// If the cid query parameter exists - set prop16 and eVar16 to value of cid
-var cdrid = caseInsensitiveGetQueryParm('cdrid');
-if(cdrid)
-    s.prop16=s.eVar16=cdrid;
-
 //set the font size variable
 s.prop42="Normal";
 
@@ -122,12 +117,12 @@ else
 s.prop7=s.eVar7=omversion;
 
 // if dictionary, define addToLocalPageName
-if(localPageName.indexOf("dictionary") > 0 || 
+if(localPageName.indexOf("dictionaries") > 0 || 
    localPageName.indexOf("diccionario")> 0)
 {
     if (caseInsensitiveGetQueryParm('expand'))
         addToLocalPageName = CommaList(addToLocalPageName,'AlphaNumericBrowse');
-    else if (cdrid)
+    else if (localPageName.indexOf("/def/") >= 0 )
         addToLocalPageName = CommaList(addToLocalPageName,'Definition');
 }
 
