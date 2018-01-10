@@ -412,13 +412,13 @@ div#cgvSlPagination, div.previous-next-links {
 .pullquote, .pullquote-right, .pullquote-left {
 	@extend .clearfix;
 	font-family: "DIN-Condensed-Bold";
-	font-weight: bold;
 	@include bp(small) {
 		width: 100%;
 		float: none;
 		margin: 1em auto;
 	}
 	.author {
+		font-family: "DIN-Condensed-regular";
 		text-align: left;
 		color: $dovegray;
 		font-size: 24px;
