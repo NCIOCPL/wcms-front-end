@@ -68,7 +68,7 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 	font-family: "DIN-Condensed-Regular";
 	font-weight: normal;
 	font-style: normal;
-	src: url($fonts + "DIN-Condensed-Regular.eot");
+	src: url($fonts + "DIN-Condensed-regular.eot");
 	src: url($fonts + "DIN-Condensed-regular#iefix") format("embedded-opentype"),
 		 url($fonts + "DIN-Condensed-regular.woff") format("woff"),
 		 url($fonts + "DIN-Condensed-regular.ttf") format("truetype"),
