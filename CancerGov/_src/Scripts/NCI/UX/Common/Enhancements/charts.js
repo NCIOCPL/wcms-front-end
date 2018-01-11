@@ -24,10 +24,10 @@ define(function(require) {
 			],
 			font: 'DIN-Condensed-Bold, Arial, sans-serif',
 			title: {
-				color: '#62559f'
+				color: '#80378b'
 			},
 			subtitle: {
-				color: '#62559f'
+				color: '#80378b'
 			},
 			drilldown: {}
 		};
@@ -126,8 +126,9 @@ define(function(require) {
 					},
 					style: {
 						fontFamily: 'DIN-Condensed, Arial, sans-serif',
-						color: '#62559f'
-					}
+						color: '#80378b'
+					},
+					height: 400
 				},
 				title: {
 					text: this.settings.title.text,
@@ -278,7 +279,7 @@ define(function(require) {
 				}
 			}
 
-			$.extend(this.settings.series[0], seriesSettings);
+			$.extend(true, this.settings.series[0], seriesSettings);
 
 			// console.log("pie settings",this.settings);
 
@@ -308,7 +309,7 @@ define(function(require) {
 									left = this.plotLeft + pie.center[0],
 									top = this.plotTop + pie.center[1] - 4;
 
-								totalText = this.renderer.text("TOTAL BUDGET<br/>$" + Highcharts.numberFormat(pie.total, 0));
+								totalText = this.renderer.text("TOTAL<br/>$" + Highcharts.numberFormat(pie.total, 0));
 
 								totalText.attr({
 									'text-anchor': 'middle',
@@ -376,9 +377,12 @@ define(function(require) {
 				responsive: {
 					rules: [{
 						condition: {
-							maxWidth: 500
+							maxWidth: 610
 						},
 						chartOptions: {
+							chart: {
+								height: 600
+							},
 							spacingLeft: 0,
 							spacingRight: 0,
 							legend: {
@@ -448,7 +452,7 @@ define(function(require) {
 				}
 			};
 
-			var chartSettings = $.extend(presets, module.settings);
+			var chartSettings = $.extend(true, presets, module.settings);
 
 			//force the chart type to bar or column
 			chartSettings.chart.type = this.settings.chart.type == 'NCI_bar' ? 'bar' : 'column';
@@ -486,6 +490,9 @@ define(function(require) {
 							return data;
 						}()
 					),
+					tooltip: {
+						pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%"><b>{point.y:,.0f}</b></div>',
+					},
 					marker: {
 						lineWidth: 2,
 						lineColor: Highcharts.getOptions().colors[3],
@@ -571,7 +578,7 @@ define(function(require) {
 				},
 				tooltip: {
 					headerFormat: '<span style="font-size:10px">{point.key}</span><div class="flexTable--2cols">',
-					pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%"><b>{point.y:,.0f}</b></div>',
+					pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%"><b>{point.y}</b></div>',
 					footerFormat: '</div>',
 					shared: true,
 					useHTML: true
@@ -594,7 +601,7 @@ define(function(require) {
 				responsive: {
 					rules: [{
 						condition: {
-							maxWidth: 500
+							maxWidth: 610
 						},
 						chartOptions: {
 							yAxis: [{
@@ -610,10 +617,11 @@ define(function(require) {
 								}
 							}, {
 								labels: {
+									rotation: -60,
 									formatter: function () {
 										return '$' + (this.value / 1000000)
 									},
-									x: 5
+									x: 10
 								},
 								title: {
 									text: 'Funding (millions)',
@@ -633,7 +641,7 @@ define(function(require) {
 				}
 			};
 
-			var chartSettings = $.extend(presets, module.settings);
+			var chartSettings = $.extend(true, presets, module.settings);
 
 			this.instance = Highcharts.chart(this.settings.target, chartSettings);
 		};
