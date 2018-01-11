@@ -1,3 +1,5 @@
+// Currently inactive. Keeping it for potential future use.
+
 define(function(require){
     require('spin.js/jquery.spin');
     var FeedbackFormComponent = require('BasicCTSCommon/Components/feedback_form/feedback_form.component');
