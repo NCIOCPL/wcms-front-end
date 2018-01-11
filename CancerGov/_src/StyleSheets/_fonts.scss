@@ -65,14 +65,14 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 }
 
 @font-face {
-	font-family: "DIN-Condensed-regular";
+	font-family: "DIN-Condensed-Regular";
 	font-weight: normal;
 	font-style: normal;
-	src: url($fonts + "DIN-Condensed-regular.eot");
-	src: url($fonts + "DIN-Condensed-regular#iefix") format("embedded-opentype"),
-		 url($fonts + "DIN-Condensed-regular.woff") format("woff"),
-		 url($fonts + "DIN-Condensed-regular.ttf") format("truetype"),
-		 url($fonts + "DIN-Condensed-regular.svg") format("svg");
+	src: url($fonts + "DIN-Condensed-Regular.eot");
+	src: url($fonts + "DIN-Condensed-Regular#iefix") format("embedded-opentype"),
+		 url($fonts + "DIN-Condensed-Regular.woff") format("woff"),
+		 url($fonts + "DIN-Condensed-Regular.ttf") format("truetype"),
+		 url($fonts + "DIN-Condensed-Regular.svg") format("svg");
 }
 @font-face {
 	font-family: "DIN-Condensed-Bold";
