@@ -11,6 +11,24 @@
 	margin-top: .58em;
 }
 
+// Creates a flex wrapper for elements with equalheight class to hook on
+#content .flex-columns {
+    display: flex;
+	float: none;
+
+    @include bp('(max-width: 765px)') {
+        &.guide-card {
+            display: inherit;
+        }
+    }
+
+    @include bp(small) {
+        &:not(.multimedia) {
+            display: inherit;
+        }
+    }
+}
+
 /* BEGIN Hero Section */
 .row .hero {
 	position: relative;
@@ -126,9 +144,6 @@
 	}
 	.row .gutter:first-child {
 		margin-left: 0;
-	}
-	.nvcgSlLayoutGuideB .card:first-child {
-		margin-left: 2%;
 	}
 }
 
@@ -431,18 +446,6 @@
 			width: 100%;
 		}
 	}
-	.featured-card {
-		// this is the first card in the guide cards row.
-		background: #dbf2f8;
-
-		h3, a, a.arrow-link-white {
-			color: #2f2f2f;
-		}
-
-		a.arrow-link-white:hover {
-			@extend %card-link-hover;
-		}
-	}
 }
 	@include bp(small) {
 		.guide-card {
@@ -471,12 +474,6 @@
 				//h3.last {
 				//	border-bottom: none;
 				//}
-			}
-			.featured-card {
-				background: #1d5e86;
-				padding-top: 0;
-				padding-bottom: 0;
-				margin: 0;
 			}
 		}
 	}
@@ -521,6 +518,23 @@ a.arrow-link-white {
 a.learn-more {
 	margin-top: 1em;
 	/* adding padding per #OCECREATIV-783 --sjc */
+}
+
+/* Class used to target homepage only with blue tint on 'Resources for' */
+.guide-card--home {
+	div {
+		div:first-child {
+			background: $lightblue;
+			
+			h3, a, a.arrow-link-white {
+				color: $dgrey02;
+			}
+	
+			a.arrow-link-white:hover {
+				@extend %card-link-hover;
+			}
+		}
+	}
 }
 /* END GUIDE CARDS ROW */
 
@@ -760,6 +774,7 @@ a.learn-more {
 		//height: 100%;
 	}
 }
+//.row:not(.flex-columns) .card > .slot-item {
 .card > .slot-item {
 	@extend %autoheight-fix;
 }
@@ -828,61 +843,97 @@ a.learn-more {
 }
 
 /* BEGIN Social Media section */
-.row.follow-us {
+.row.social-media-title {
 	margin-left: auto;
 	margin-right: auto;
 }
-.social-media-row, .social-media-card {
+.social-media-row {
 	display: flex;
+	margin-bottom: 2em;
 }
 .social-media-card {
-	width: 23.5%;
+	flex-grow: 1;
+	flex-basis: 23%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-right: 2%;
-}
-.social-media-card .social-media-icon img {
-	display: block;
-	margin: 0 auto;
+	background: white;
+
 }
 .social-media-card:last-child {
 	margin-right: 0;
 }
-.social-media-card > div {
-	background: white;
-	padding: 30px;
+
+.social-media-card .social-media-icon {
+	width: 80%;
+	margin-top: 30px;
 }
+
+.social-media-card .social-media-text {
+	width: 80%;
+	margin-bottom: 30px;
+}
+
+.social-media-card .social-media-icon img {
+	display: block;
+	margin: 0 auto;
+}
+
+
 .social-media-row .icon-exit-notification {
 	font-size: 15px;
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1024px) {
-	.row.follow-us {
-		padding-left: 30px;
+	.row.social-media-title {
+		padding-left: 33px;
 	}
 }
 
 @media only screen and (max-width: 900px) {
-	.row.follow-us {
+	.row.social-media-title {
 		background: white;
-		padding-left: 40px;
+		padding-left: 33px;
 		margin-bottom: 0;
 	}
-	.social-media-row, .social-media-card {
-		display: block;
+	
+	.social-media-row {
+		flex-direction: column;
+		margin-bottom: 0;
 	}
+
 	.social-media-card {
+		flex-grow: 0;
 		width: 100%;
-		display: block;
+		margin: 0;
+		padding: 15px 0;
+		flex-direction: row;
+		align-items: stretch;
+		
+		&:first-child {
+			padding-top: 30px;
+		}
+		
+		&:last-child {
+			padding-bottom: 30px;
+		}
 	}
+	
 	.social-media-card .social-media-icon {
-		display: inline-block;
-		float: left;
-		width: 15%;
-		margin-right: 5%;
+		margin-top: 0;
+		width: 180px;
+		
+		a img {
+			width: 104px;
+			height: auto;
+		}
+
 	}
 	.social-media-card .social-media-text {
-		display: inline-block;
-		width: 80%;
-		float: left;
+		margin-bottom: 0;
+		flex-grow: 1;
+		padding-right: 30px;
 	}
 	.social-media-card .social-media-text h3 {
 		margin-top: 0;
@@ -890,25 +941,55 @@ a.learn-more {
 }
 
 @media only screen and (max-width: 640px) {
-	.social-media-card .social-media-icon {
-		width: 20%;
+	.social-media-card {
+		padding: 0;
+		margin: 15px 0;
+		
+		&:first-child {
+			padding-top: 0;
+		}
 	}
-	.social-media-card .social-media-text {
-		width: 75%;
+	
+	.social-media-card .social-media-icon {
+		align-self: flex-start;
+		
+		a img {
+			height: 85px;
+			width: auto;
+		}
 	}
 }
 
 @media only screen and (max-width: 460px) {
-	.social-media-card .social-media-icon {
-		display: block;
-		width: 100%;
+	.social-media-row {
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
-	.social-media-card .social-media-icon img {
-		text-align: center;
-		width: 40%;
+	
+	.social-media-card {
+		flex: 0 1 auto;
+		width: 50%;
+		flex-direction: column;
+		margin-top: 0;
+		margin-bottom: 25px;
+		
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+	
+	.social-media-card .social-media-icon {
+		align-self: inherit;
+		width: 100%;
+		
+		a img {
+			max-width: none;
+			height: 100px;
+			width: auto;
+		}
 	}
 	.social-media-card .social-media-text {
-		display: block;
+		padding-right: 0;
 		width: 100%;
 	}
 	.social-media-card .social-media-text h3 {
@@ -918,16 +999,16 @@ a.learn-more {
 	.social-media-card .social-media-text p {
 		display: none;
 	}
-	.row.follow-us {
+	.row.social-media-title {
 		padding-left: 0;
+		margin: 25px 0;
 	}
-	.follow-us h2 {
+	.social-media-title h2 {
 		text-align: center;
-		margin-top: 50px;
+		margin: 0;
 	}
-	.social-media-card > div {
-		padding-top: 7px;
-	}
+
 }
 /* END Social Media section */
 /********************* END Home Page Styles ******************************************/
+

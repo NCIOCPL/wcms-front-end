@@ -28,10 +28,10 @@
 								<!-- BEGIN FEATURE CARDS ROW -->
 								<NCI:TemplateSlot
 									id="nvcgSlLayoutFeatureA"
-									CssClass="row"
+									CssClass="row flex-columns"
 									AdditionalSnippetClasses="equalheight large-6 topic-feature columns card gutter"
 									runat="server"
-									data-match-height="" />
+									/>
 								<!-- END FEATURE CARDS ROW -->
 								<NCI:TemplateSlot ID="cgvBody" runat="server" />
 								<!-- BEGIN THUMBNAIL CARDS ROW -->

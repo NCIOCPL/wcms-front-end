@@ -92,10 +92,6 @@ define(function(require) {
 				$(target).each(function() {
 					if (typeof $(this).data("ui-accordion") !== "undefined") {
 						$(this).accordion("destroy");
-						if (typeof $.fn.NCI_equal_heights === "function") {
-							// if we're on homepage, landing page, or CTHP
-							$('[data-match-height]').NCI_equal_heights();
-						}
 					}
 				});
 			}
