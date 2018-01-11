@@ -239,6 +239,23 @@
 	//}
 }
 
+@include bp(xtra-small) {
+	.ncihome {
+		.page-options {
+			float: none;
+			
+			ul {
+				justify-content: space-between;
+			}
+
+			li {
+				width: 48px;
+				height: 48px;
+			}
+		}
+	}
+}
+
 /* TABLET page options */
 @include bp(medium) {
     .ncilandingpage #PageOptionsControl1 ul {

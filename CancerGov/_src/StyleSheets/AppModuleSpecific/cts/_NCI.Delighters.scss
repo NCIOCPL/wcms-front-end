@@ -345,7 +345,7 @@
 
 // the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
 @media only screen and (max-width: 400px) {
-  #delighter-homePage, #delighter-innerpage {
+  #delighter-innerpage {
     float: none;
     margin-top: 10px;
     position: static;
