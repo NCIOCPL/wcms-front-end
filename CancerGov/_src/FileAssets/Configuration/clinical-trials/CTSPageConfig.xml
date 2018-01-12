@@ -19,6 +19,7 @@
  <DefaultZipProximity>100</DefaultZipProximity>
  <ESTemplateFullText>clinicaltrials_CTfulltextTemplate</ESTemplateFullText>
  <ESTemplateCancerType>clinicaltrials_CTCancerTypeIDTemplate</ESTemplateCancerType>
+ <LegacyPDQNCIIDMapFilePath>~/PublishedContent/Files/Configuration/clinical-trials/LegacyPDQIDToNCIIDMap.txt</LegacyPDQNCIIDMapFilePath>
  <MappingFiles>
  <MappingFile>~/PublishedContent/Files/Configuration/clinical-trials/CTSOverrideMapping.txt</MappingFile>
  </MappingFiles>
