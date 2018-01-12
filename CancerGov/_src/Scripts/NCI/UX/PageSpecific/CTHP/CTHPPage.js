@@ -1,9 +1,4 @@
 define(function(require) {
-	require('CTHP/Enhancements/cthp_cards');
-	require('Plugins/jquery.nci.equal_heights');
-
-	$(function() {
-		$('[data-match-height]').NCI_equal_heights();
-	});
+	// I'm an empty file
 
 });

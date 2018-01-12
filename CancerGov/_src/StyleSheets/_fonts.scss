@@ -47,7 +47,7 @@ $noto-font-stack: $noto, Arial, sans-serif;
 @include font-face($noto, bold, italic);
 
 /* Montserrat */
-$montserrat: Montserrat;
+$montserrat: Montserrat; 
 $montserrat-font-stack: $montserrat, Arial, sans-serif;
 
 @include font-face($montserrat, normal);
@@ -64,6 +64,16 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 	url($fonts + "Montserrat-regular.svg") format("svg");
 }
 
+@font-face {
+	font-family: "DIN-Condensed-Regular";
+	font-weight: normal;
+	font-style: normal;
+	src: url($fonts + "DIN-Condensed-regular.eot");
+	src: url($fonts + "DIN-Condensed-regular#iefix") format("embedded-opentype"),
+		 url($fonts + "DIN-Condensed-regular.woff") format("woff"),
+		 url($fonts + "DIN-Condensed-regular.ttf") format("truetype"),
+		 url($fonts + "DIN-Condensed-regular.svg") format("svg");
+}
 @font-face {
 	font-family: "DIN-Condensed-Bold";
 	font-weight: normal;
