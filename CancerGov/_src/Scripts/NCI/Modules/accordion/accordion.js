@@ -140,8 +140,16 @@ define(function(require) {
 
 			function accordionize() {
 				/* determine window width */
-				var width = document.body.parentNode.clientWidth,
+				var width = window.innerWidth || $(window).width(),
 					accordion;
+
+				// catch Safari desktop issue where an external mouse will trigger scrollbars
+				if(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
+					if(window.innerWidth === $(window).width() + 15) {
+						width = $(window).width();
+					}
+				}
+
 
 				/* If the width is less than or equal to 640px (small screens)
 				 * AND if the accordion(s) isn't (aren't) already built */
@@ -149,7 +157,8 @@ define(function(require) {
 					// verify that the accordion will build correctly
 					$(targetsHeaderSelector).each(function() {
 						var $this = $(this);
-						if($this.nextAll().length > 0 || $this.next().is('ul, ol')) {
+						var $next = $this.nextAll();
+						if(($next.length > 0 || $this.next().is('ul, ol')) && !$next.is(".clearfix")) {
 							$this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
 						}
 					});
