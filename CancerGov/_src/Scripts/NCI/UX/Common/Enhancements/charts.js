@@ -249,7 +249,7 @@ define(function(require) {
 				for (var i = 0; i < drilldown.series.length; i++) {
 					var obj = drilldown.series[i];
 					if (typeof obj.data == "object") {
-						var colors = tinycolor(this.settings.colors[i]).analogous(obj.data.length, 5);
+						var colors = tinycolor(this.settings.colors[i]).analogous(8, 15);
 						obj.colors = colors.map(function (t) { return t.toHexString(); });
 					}
 				}
