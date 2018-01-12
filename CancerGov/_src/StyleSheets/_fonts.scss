@@ -54,18 +54,7 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 @include font-face($montserrat, bold);
 
 @font-face {
-	font-family: "Montserrat-Regular";
-	font-weight: normal;
-	font-style: normal;
-	src: url($fonts + "Montserrat-regular.eot");
-	src: url($fonts + "Montserrat-regular.eot#iefix") format("embedded-opentype"),
-	url($fonts + "Montserrat-regular.woff") format("woff"),
-	url($fonts + "Montserrat-regular.ttf") format("truetype"),
-	url($fonts + "Montserrat-regular.svg") format("svg");
-}
-
-@font-face {
-	font-family: "DIN-Condensed-Regular";
+	font-family: "DIN Condensed";
 	font-weight: normal;
 	font-style: normal;
 	src: url($fonts + "DIN-Condensed.eot?#iefix");
@@ -75,15 +64,23 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 		 url($fonts + "DIN-Condensed.ttf") format("truetype"),
 		 url($fonts + "DIN-Condensed.svg") format("svg");
 }
-@font-face {
-	font-family: "DIN-Condensed-Bold";
-	font-weight: normal;
-	font-style: normal;
-	src: url($fonts + "DIN-Condensed-Bold.eot");
-	src: url($fonts + "DIN-Condensed-Bold#iefix") format("embedded-opentype"),
-		 url($fonts + "DIN-Condensed-Bold.woff") format("woff"),
-		 url($fonts + "DIN-Condensed-Bold.ttf") format("truetype"),
-		 url($fonts + "DIN-Condensed-Bold.svg") format("svg");
+
+@font-face{
+	font-family:"DIN Condensed Bold";
+	src:url($fonts + "DIN-Condensed-Bold.eot?#iefix");
+	src:url($fonts + "DIN-Condensed-Bold.eot?#iefix") format("eot"),
+		url($fonts + "DIN-Condensed-Bold.woff2") format("woff2"),
+		url($fonts + "DIN-Condensed-Bold.woff") format("woff"),
+		url($fonts + "DIN-Condensed-Bold.ttf") format("truetype");
+}
+
+@font-face{
+	font-family:"DIN Regular";
+	src:url($fonts + "DIN-Regular.eot?#iefix");
+	src:url($fonts + "DIN-Regular.eot?#iefix") format("eot"),
+		url($fonts + "DIN-Regular.woff2") format("woff2"),
+		url($fonts + "DIN-Regular.woff") format("woff"),
+		url($fonts + "DIN-Regular.ttf") format("truetype");
 }
 
 $din-condensed-stack: "DIN Condensed", $montserrat-font-stack;

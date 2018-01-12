@@ -22,7 +22,7 @@ define(function(require) {
 				'#ffffff',
 				'#f0f0ff'
 			],
-			font: 'DIN-Condensed-Bold, Arial, sans-serif',
+			font: '"DIN Condensed Bold", Arial, sans-serif',
 			title: {
 				color: '#80378b'
 			},
@@ -125,7 +125,7 @@ define(function(require) {
 						]
 					},
 					style: {
-						fontFamily: 'DIN-Condensed, Arial, sans-serif',
+						fontFamily: '"DIN Regular", Arial, sans-serif',
 						color: '#80378b'
 					},
 					height: 400
@@ -307,7 +307,7 @@ define(function(require) {
 
 								var pie = this.series[0],
 									left = this.plotLeft + pie.center[0],
-									top = this.plotTop + pie.center[1] - 4;
+									top = this.plotTop + pie.center[1];
 
 								totalText = this.renderer.text("TOTAL<br/>$" + Highcharts.numberFormat(pie.total, 0));
 
@@ -316,7 +316,7 @@ define(function(require) {
 									id: 'donutText',
 									x: left,
 									y: top,
-									style: 'color:#585757;font:bold 14px ' + module.settings.font + ';'
+									style: 'color:#585757;font:bold 18px ' + module.settings.font + ';'
 								}).add();
 							}
 						},
@@ -324,7 +324,7 @@ define(function(require) {
 							if(module.settings.showTotal) {
 								var pie = this.series[0],
 									left = this.plotLeft + pie.center[0],
-									top = this.plotTop + pie.center[1] - 4;
+									top = this.plotTop + pie.center[1];
 
 								if (typeof totalText != 'undefined') {
 
