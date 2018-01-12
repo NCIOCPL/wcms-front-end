@@ -385,7 +385,7 @@ div#cgvSlPagination, div.previous-next-links {
 
 .pullquote p {
 	margin: 0 0 30px 0;
-	font-family: "DIN-Condensed-Bold";
+	font-family: $din-condensed-bold-stack;
 }
 .pullquote-left {
 	width: 40%;
@@ -411,14 +411,14 @@ div#cgvSlPagination, div.previous-next-links {
 }
 .pullquote, .pullquote-right, .pullquote-left {
 	@extend .clearfix;
-	font-family: "DIN-Condensed-Bold";
+	font-family: $din-condensed-bold-stack;
 	@include bp(small) {
 		width: 100%;
 		float: none;
 		margin: 1em auto;
 	}
 	.author {
-		font-family: "DIN-Condensed-Regular";
+		font-family: $din-condensed-stack;
 		text-align: left;
 		color: $dovegray;
 		font-size: 24px;
