@@ -900,12 +900,12 @@ a.learn-more {
 	
 	.social-media-row {
 		flex-direction: column;
-		flex-basis: auto;
 		margin-bottom: 0;
 	}
 
 	.social-media-card {
 		flex-grow: 0;
+		flex-basis: auto;
 		width: 100%;
 		margin: 0;
 		padding: 15px 0;
