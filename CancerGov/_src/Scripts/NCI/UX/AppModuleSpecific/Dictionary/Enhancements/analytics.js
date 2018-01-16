@@ -39,20 +39,16 @@ define(function(require) {
 
             if(dictionary === "term") {
                 if(language === "Spanish") {
-                    console.log("TermsDictionaryAlphaListSpanish");
                     NCIAnalytics.TermsDictionarySearchAlphaListSpanish($this, expandVal);
                 }
                 else {
-                    console.log("TermsDictionaryAlphaList");
                     NCIAnalytics.TermsDictionarySearchAlphaList($this, expandVal)
                 }
             }
             if(dictionary === "genetic") {
-                console.log("GeneticsDictionarySearchAlphaList");
                 NCIAnalytics.GeneticsDictionarySearchAlphaList($this, expandVal);
             }
             if(dictionary === "drug") {
-                    console.log("DrugDictionarySearchAlphaList");
                     NCIAnalytics.DrugDictionarySearchAlphaList($this, expandVal);
             }
         });
@@ -62,15 +58,12 @@ define(function(require) {
             var $this = $(this);
             console.log("Submitted dictionary search form");
             if(dictionary === "term") {
-                    console.log("TermsDictionarySearch");
                     NCIAnalytics.TermsDictionarySearch($this, isSpanish)
             }
             if(dictionary === "genetic") {
-                    console.log("GeneticsDictionarySearchNew");
                     NCIAnalytics.GeneticsDictionarySearchNew($this);
             }
              if(dictionary === "drug") {
-                    console.log("DrugDictionarySearch");
                     NCIAnalytics.DrugDictionarySearch($this);
             }
         });
