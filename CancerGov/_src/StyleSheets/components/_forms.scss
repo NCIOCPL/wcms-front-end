@@ -695,3 +695,105 @@ fieldset fieldset .legend
 	font-weight: bold;
 }
 // End clinical trial search form
+
+
+// ###################################
+// Genetics Directory Application Form
+
+.genetics-form {
+
+	legend, .legend {
+		background: transparent;
+	}
+
+	@include bp(medium-down) {
+	
+		.row {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			max-width: calc(100vw - 50px);
+
+			.columns {
+				display: flex;
+				width: calc(100vw - 110px);
+				margin: 0;
+				padding: 0;
+				margin-left: 50px;
+
+				&.scrolling-list {
+					padding: 8px 0 8px 8px;
+					max-width: calc(100% - 50px);
+				
+					label {
+						word-wrap: break-word;
+					}
+		
+				}
+			}
+
+			.legend {
+				width: 50px;
+				display: flex;
+				justify-content: flex-start
+			}
+
+			.legend, legend {
+				font-size: 1.1em;
+			}
+		}
+
+		fieldset {
+			.row:first-child{
+				flex-direction: row;
+	
+				.columns {
+					margin: 0;
+				}
+			}
+
+			&:last-of-type {
+				.row:last-of-type {
+					
+				}
+			}
+		}
+		
+
+		.label.right, label.right {
+			text-align: left;
+		}
+
+		.checkbox {
+			width: 100%;
+		}
+		
+		.genetics-form__options {
+	
+			.columns {
+				flex-direction: column;
+			}
+	
+			.checkbox {
+	
+				label {
+					line-height: 1.4em;
+				}
+			}
+		}    
+	}
+
+	@include bp(xtra-small) {
+		.captcha-row {
+
+			
+			.columns {
+				margin: 0;
+			}
+		}
+	}
+}
+
+
+// End Genetics Directory Application Form
+// #######################################
