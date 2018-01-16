@@ -3,6 +3,7 @@ import * as DictionaryService from 'Data/DictionaryService';
 import * as NCI from 'UX/Common/Enhancements/NCI';
 import * as AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest';
 import * as PlayAudio from 'UX/AppModuleSpecific/Dictionary/Enhancements/playaudio';
+import * as Analytics from 'UX/AppModuleSpecific/Dictionary/Enhancements/analytics';
 
 /**
  * Class representing CancerGov Dictionary pages.
@@ -28,6 +29,7 @@ class DictionaryPage extends NCIBasePage {
         // Do autosuggest and dictionary click audio
 		(<any>PlayAudio).init(); 
 		(<any>AutoSuggest).init();
+		(<any>Analytics).init();
 	}
     
 }
