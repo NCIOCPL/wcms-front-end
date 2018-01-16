@@ -423,10 +423,10 @@ var NCIAnalytics = {
 
     //******************************************************************************************************
     TermsDictionarySearch: function(sender, isSpanish) {
-        //var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
-        var prop24Contents = ($("#" + ids.radioStarts)[0].checked) ? 'starts with' : 'contains';
+        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
+
         NCIAnalytics.TermsDictionarySearchCore(sender,
-            $("#" + ids.AutoComplete1).val(),
+            $("#AutoComplete1").val(),
             prop24Contents,
             'TermsDictionarySearch',
             isSpanish);
@@ -457,14 +457,13 @@ var NCIAnalytics = {
     //the original function GeneticsDictionarySearch alone.
     //******************************************************************************************************
     GeneticsDictionarySearchNew: function(sender) {
-
-        var prop24Contents = ($("#" + ids.radioStarts)[0].checked) ? 'starts with' : 'contains';
+        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
 
         clickParams = new NCIAnalytics.ClickParams(sender,
             '', 'o', 'GeneticsDictionarySearch');
         clickParams.Props = {
             11: 'dictionary_genetics',
-            22: $("#" + ids.AutoComplete1).val(),
+            22: $("#AutoComplete1").val(),
             24: prop24Contents
         };
         clickParams.Evars = {
@@ -564,10 +563,10 @@ var NCIAnalytics = {
 
     //******************************************************************************************************
     DrugDictionarySearch: function(sender) {
-        var prop24Contents = ($("#" + ids.radioStarts)[0].checked) ? 'starts with' : 'contains';
+        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
 
         NCIAnalytics.DrugDictionarySearchCore(sender,
-            $("#" + ids.AutoComplete1).val(),
+            $("#AutoComplete1").val(),
             prop24Contents,
             'DrugDictionarySearch');
     },
