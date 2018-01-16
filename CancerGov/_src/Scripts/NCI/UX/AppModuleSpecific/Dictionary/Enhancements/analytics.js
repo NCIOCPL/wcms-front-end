@@ -33,7 +33,6 @@ define(function(require) {
     
         // Set up analytics onclick functions for A-Z list
         $('.az-list a').on('click.analytics', function(e) {
-            console.log("Clicked dictionary expand list");
             var $this = $(this);
             var expandVal = $this.text();
 
@@ -56,7 +55,6 @@ define(function(require) {
         // Set up analytics onsubmit fuction for search button click
         $('#aspnetForm').submit(function(e) {
             var $this = $(this);
-            console.log("Submitted dictionary search form");
             if(dictionary === "term") {
                     NCIAnalytics.TermsDictionarySearch($this, isSpanish)
             }
@@ -73,17 +71,6 @@ define(function(require) {
     var ids = {
         radioStarts: 'radioStarts',
         radioContains: 'radioContains'
-    }
-    
-    /**
-     * Checks whether 'contains' radio button has been selected.
-	 * @type {Boolean}
-     */
-    function IsContains() {
-        var ret = false;
-        if ($("input[data-autosuggest='" + ids.radioContains + "']").prop("checked"))
-            ret = true;    
-        return ret;
     }
 
 	/**
