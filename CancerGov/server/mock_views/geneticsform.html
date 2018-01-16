@@ -2129,8 +2129,12 @@
 											<fieldset>
 												<div class="row">
 													<div class="large-4 columns legend">1.</div>
-													<div class="large-8 columns">Please provide your full name, including middle initial, and the complete address, telephone number, fax number,
-														and email address where you can be contacted for annual verification of your information:</div>
+													<div class="large-8 columns">
+														<legend>
+															Please provide your full name, including middle initial, and the complete address, telephone number, fax number,
+															and email address where you can be contacted for annual verification of your information:
+														</legend>
+													</div>
 												</div>
 												<input name="Question 1" type="hidden" value="Please provide your full name, including middle initial, and the complete address, telephone number, fax number, and email address where you can be contacted for annual verification of your information">
 												<input name="__linebreak1" type="hidden">
@@ -2206,60 +2210,56 @@
 														<input id="Website_URL" name="Website_URL" type="text" maxlength="64">
 													</div>
 												</div>
-												<div>
-													<div class="row">
-														<div class="medium-4 columns">
-															<span id="Provide_services_at_this_location_label" class="label right">Do you provide services at this location?</span>
-														</div>
-														<div class="medium-8 columns">
-															<span class="radio">
-																<input id="Provide_services_at_this_location[Yes]" name="Provide_services_at_this_location" type="radio" value="Yes">
-																<label for="Provide_services_at_this_location[Yes]">Yes</label>
-															</span>
-															<span class="radio">
-																<input id="Provide_services_at_this_location[No]" name="Provide_services_at_this_location" type="radio" value="No">
-																<label for="Provide_services_at_this_location[No]">No</label>
-															</span>
-														</div>
+												<div class="row">
+													<div class="medium-4 columns">
+														<span id="Provide_services_at_this_location_label" class="label right">Do you provide services at this location?</span>
 													</div>
-													<div>
-														<div class="row">
-															<div class="medium-8 columns right">
-																<span id="Service_location_label" class="label">If no, please provide information for service location:</span>
-															</div>
-														</div>
-														<div class="row">
-															<div class="medium-4 columns">
-																<label for="Service_Institution" class="required inline right">Institution:*</label>
-															</div>
-															<div class="medium-8 columns">
-																<input id="Service_Institution" name="Service_Institution" type="text" maxlength="100">
-															</div>
-														</div>
-														<div class="row">
-															<div class="medium-4 columns">
-																<label for="Service_Address" class="required inline right">Service Address:*</label>
-															</div>
-															<div class="medium-8 columns">
-																<textarea cols="46" id="Service_Address" name="Service_Address" rows="5"></textarea>
-															</div>
-														</div>
-														<div class="row">
-															<div class="medium-4 columns">
-																<label for="Service_Phone_Number" class="required inline right">Telephone Number:*</label>
-															</div>
-															<div class="medium-8 columns">
-																<input id="Service_Phone_Number" name="Service_Phone_Number" type="text" maxlength="20">
-															</div>
-														</div>
-														<div class="row">
-															<div class="medium-4 columns">
-																<label for="Additional_Locations" class="inline right">If you want additional locations, please enter them here (maximum of four):</label>
-															</div>
-															<div class="medium-8 columns">
-																<textarea id="Additional_Locations" name="Additional_Locations" rows="5"></textarea>
-															</div>
-														</div>
+													<div class="medium-8 columns">
+														<span class="radio">
+															<input id="Provide_services_at_this_location[Yes]" name="Provide_services_at_this_location" type="radio" value="Yes">
+															<label for="Provide_services_at_this_location[Yes]">Yes</label>
+														</span>
+														<span class="radio">
+															<input id="Provide_services_at_this_location[No]" name="Provide_services_at_this_location" type="radio" value="No">
+															<label for="Provide_services_at_this_location[No]">No</label>
+														</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="medium-8 columns right">
+														<span id="Service_location_label" class="label">If no, please provide information for service location:</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="medium-4 columns">
+														<label for="Service_Institution" class="required inline right">Institution:*</label>
+													</div>
+													<div class="medium-8 columns">
+														<input id="Service_Institution" name="Service_Institution" type="text" maxlength="100">
+													</div>
+												</div>
+												<div class="row">
+													<div class="medium-4 columns">
+														<label for="Service_Address" class="required inline right">Service Address:*</label>
+													</div>
+													<div class="medium-8 columns">
+														<textarea cols="46" id="Service_Address" name="Service_Address" rows="5"></textarea>
+													</div>
+												</div>
+												<div class="row">
+													<div class="medium-4 columns">
+														<label for="Service_Phone_Number" class="required inline right">Telephone Number:*</label>
+													</div>
+													<div class="medium-8 columns">
+														<input id="Service_Phone_Number" name="Service_Phone_Number" type="text" maxlength="20">
+													</div>
+												</div>
+												<div class="row">
+													<div class="medium-4 columns">
+														<label for="Additional_Locations" class="inline right">If you want additional locations, please enter them here (maximum of four):</label>
+													</div>
+													<div class="medium-8 columns">
+														<textarea id="Additional_Locations" name="Additional_Locations" rows="5"></textarea>
 													</div>
 												</div>
 											</fieldset>
@@ -2969,6 +2969,7 @@
 													</div>
 												</div>
 												<div class="row">
+													<div class="columns">
 														<p>We will process your application within a week and send you an email with a link to your listing on the Cancer.gov
 															Web site. Please review the listing and let us know if any changes need to be made. You will also receive
 															a verification request by email once a year.</p>
@@ -2984,6 +2985,7 @@
 															<button id="submitBtn" type="submit" class="submit button">Submit</button>
 															<button type="reset" class="reset button">Clear</button>
 														</div>
+													</div>
 													</div>													
 											</fieldset>
 										</form>
