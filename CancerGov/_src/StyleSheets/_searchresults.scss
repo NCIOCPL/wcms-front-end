@@ -131,9 +131,16 @@
 // Override of hardcoded width and input[size] attribute on _form.scss
 // to prevent horizontal overflow of search results input bar on
 // site-wide search
-.results .small-12 input {
+.results .small-12 {
+
 	
 	@include bp(small) {
-		width: 100%;
+		input {
+			width: 100%;
+		}
+
+		.submit {
+			margin-right: 0;
+		}
 	}
 }
