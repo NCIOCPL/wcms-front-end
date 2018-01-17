@@ -139,6 +139,7 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   }
   @include bp(small){
     width: 100%;
+    word-break: break-word;
   }
 }
 #other-diseases, #fieldset--location section > div:not(.radio) {
