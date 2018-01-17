@@ -14,6 +14,10 @@ _tmp/
 # The Gruntfile stores generated files here.
 CancerGov/_src/Scripts/NCI/Generated/
 
+# Mock_views for Dev
+CancerGov/server/mock_views/*
+!CancerGov/server/mock_views/mock_example.html
+
 
 ### Node ###
 # Logs
