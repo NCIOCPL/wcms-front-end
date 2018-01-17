@@ -157,6 +157,11 @@
   }
 }
 
+// Safari hack for icons over legend elements
+_::-webkit-full-page-media, _:future, :root .cts-form .text-icon-help {
+  top: -34px;
+}
+
 // firefox hack for icons over legend elements
 @-moz-document url-prefix() {
   .cts-form {
