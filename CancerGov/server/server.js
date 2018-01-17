@@ -41,7 +41,7 @@ app.use(cookieParser());
 
 /**
  * For editing raw HTML content during dev. To proxy an HTML file, just dump it in the 
- * mock_views directory and go to localhost:3000/mock/[filename].html.
+ * mock_views directory and go to localhost:3000/mock/[filename].
  * 
  */
 if (env === 'development') {
