@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mock Views Folder For Development</title>
-    <style>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Princess+Sofia|Schoolbell" rel="stylesheet">    <style>
 
         * {
             margin: 0;
@@ -93,6 +93,7 @@
         }
 
         h1 {
+            font-family: 'Julius Sans One', sans-serif;
             grid-area: 1 / 2 / 3 / 8;
             font-size: 4rem;
             align-self: center;
@@ -105,6 +106,7 @@
         }
 
         p {
+            font-family: 'Schoolbell', cursive;
             font-size: 1.2rem;
         }
         
@@ -112,17 +114,17 @@
             grid-area: 3 / 1 / 4 / 9;
             margin-left: 50px;
         }
-
+        
         p:nth-of-type(2) {
             grid-area: 4 / 4 / 6 / 9;
         }
         p:nth-of-type(3) {
             grid-area: 5 / 7 / 7 / 12;
         }
-
+        
         p:nth-of-type(4) {
+            font-family: 'Princess Sofia', cursive;
             grid-area: 9 / 4 / 12 / 6;
-            font-size: 1rem;
         }
 
         li {
@@ -219,6 +221,7 @@
         }
 
     </style>
+    
 </head>
 <body>
     <div id="bokehBG"></div>
@@ -248,7 +251,7 @@
         const bokeh1Settings = {
             parent: document.getElementById('bokeh1'),
             transparent: true,
-            gradient: ['black'],
+            color: 'black',
             radius: 10
         }
         const bokeh1 = bokehfy(bokeh1Settings);
@@ -256,7 +259,7 @@
         const bokeh2Settings = {
             parent: document.getElementById('bokeh2'),
             transparent: true,
-            gradient: ['red'],
+            color: 'red',
             radius: 40,
             dx: 0.2,
             dy: 1            
