@@ -704,6 +704,15 @@ fieldset fieldset .legend
 
 	legend, .legend {
 		background: transparent;
+		line-height: 1.35em;
+	}
+
+	.checkbox {
+	
+		label {
+			line-height: 1.4em;
+			word-wrap: break-word;
+		}
 	}
 
 	@include bp(medium-down) {
@@ -724,11 +733,6 @@ fieldset fieldset .legend
 				&.scrolling-list {
 					padding: 8px 0 8px 8px;
 					max-width: calc(100% - 50px);
-				
-					label {
-						word-wrap: break-word;
-					}
-		
 				}
 			}
 
@@ -767,20 +771,12 @@ fieldset fieldset .legend
 			.columns {
 				flex-direction: column;
 			}
-	
-			.checkbox {
-	
-				label {
-					line-height: 1.4em;
-				}
-			}
 		}    
 	}
 
 	@include bp(xtra-small) {
-		.captcha-row {
+		.captcha-row, .buttons-row {
 
-			
 			.columns {
 				margin: 0;
 			}
