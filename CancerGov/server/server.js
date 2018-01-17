@@ -44,7 +44,7 @@ app.use(cookieParser());
  * mock_views directory and go to localhost:3000/mock/[filename].html.
  * 
  */
-if (app.get('env') === 'development') {
+if (env === 'development') {
     const mockRouter = express.Router()
     mockRouter.get('/:filename', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'mock_views', req.params.filename + '.html'))
