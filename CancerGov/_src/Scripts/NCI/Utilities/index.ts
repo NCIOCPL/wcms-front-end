@@ -1,1 +1,1 @@
-export { checkNodeAncestryForClass } from './dom';
+export * from './dom';
