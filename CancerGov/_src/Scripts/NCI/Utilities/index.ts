@@ -1,0 +1,1 @@
+export { checkNodeAncestryForClass } from './dom';
