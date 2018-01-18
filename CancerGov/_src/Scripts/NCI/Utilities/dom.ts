@@ -23,3 +23,18 @@ export const checkNodeAncestryForClass = (node, className) => {
 };
 
 
+/**
+ * Return an array of nodes that match a given selector string starting from a given node
+ * in the DOM tree.
+ * 
+ * DOM Querying typically returns nodelists not true arrays. We want to always get an array 
+ * back from querySelectorAll for easy reasoning.
+ * 
+ * @param {string} selector 
+ * @param {node} [node=document] 
+ * @returns {node[]}
+ */
+export const getNodeArray = (selector, node = document) => {
+    const nodeList = node.querySelectorAll(selector)
+    return nodeList ? Array.from(nodeList) : []
+}
