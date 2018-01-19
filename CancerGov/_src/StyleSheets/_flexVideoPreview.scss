@@ -1,6 +1,6 @@
 .video-preview--container {
 
-    &:hover {
+    &:hover, &:focus {
         cursor: pointer;
 
         .play-button--bg {
@@ -32,7 +32,7 @@
     }
 }
 
-.video-preview--container .video-preview--play-button {
+.video-preview--play-button {
     position: absolute;
     top: calc(50% - 24px);
     left: calc(50% - 34px);
@@ -40,7 +40,7 @@
     height: 48px;    
 }
 
-.video-preview--container .video-preview--preview-img {
+.video-preview--preview-img {
     position: absolute;
     top: 0;
     left: 0;
