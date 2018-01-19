@@ -5,7 +5,7 @@ define(function(require) {
         $script('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js',function(){
     
             require('./slick-patch');
-            var flexVideo = require('Modules/videoPlayer/flexVideo');
+            // var flexVideo = require('Modules/videoPlayer/flexVideo');
             
             //custom function showing current slide
             var $status = $('.pagingInfo');

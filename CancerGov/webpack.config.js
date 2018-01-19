@@ -113,6 +113,10 @@ module.exports = {
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
 			{ test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" },
+			{ test: /\.js$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel-loader'
+			},
 
 			// expose the charts module to a global variable
 			{
