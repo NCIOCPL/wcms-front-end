@@ -22,9 +22,9 @@ export class CDEDefaultConfiguration implements CDEConfiguration {
      * @memberof CDEDefaultConfiguration
      */
     // This is our official key
-    // GoogleAPIKey : string = 'AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg';
+    GoogleAPIKey : string = 'AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg';
     
     // This is Brendan's key for testing on localhost
-    GoogleAPIKey : string = 'AIzaSyASmav6-lTS2G7xb-7fL146lsvtK9_oJgs';
+    // GoogleAPIKey : string = 'AIzaSyASmav6-lTS2G7xb-7fL146lsvtK9_oJgs';
     
 }
