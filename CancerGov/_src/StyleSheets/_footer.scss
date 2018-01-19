@@ -89,42 +89,41 @@
   }
 
   .icon {
-    filter: brightness(0.2); // NO GOOD, doesn't support IE11. Need new images
 
     &.facebook {
-      @include svg-sprite(facebook-white);
+      @include svg-sprite(facebook-blue);
     }
 
     &.twitter {
-      @include svg-sprite(twitter-white);
+      @include svg-sprite(twitter-blue);
     }
   
     &.instagram {
-      @include svg-sprite(instagram-white);
+      @include svg-sprite(instagram-blue);
     }
 
     &.googleplus {
-      @include svg-sprite(google-plus-white);
+      @include svg-sprite(google-plus-blue);
     }
 
     &.pinterest {
-      @include svg-sprite(pinterest-white);
+      @include svg-sprite(pinterest-blue);
     }
 
     &.youtube {
-      @include svg-sprite(youtube-white);
+      @include svg-sprite(youtube-blue);
     }
 
     &.linkedin {
-      @include svg-sprite(linkedin-white);
+      @include svg-sprite(linkedin-blue);
       font-size: 120%;
     }
 
     &.rss {
-      @include svg-sprite(rss-white);
+      @include svg-sprite(rss-blue);
     }
     &.govdelivery {
-      @include svg-sprite(gov-delivery-white);
+      @include svg-sprite(gov-delivery-blue);
     }
   }
 }
