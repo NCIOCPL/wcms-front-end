@@ -74,6 +74,7 @@
   margin-bottom: 1.25em; // To match sitewide ul styling
 
   li {
+    position: relative;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -124,6 +125,16 @@
     }
     &.govdelivery {
       @include svg-sprite(gov-delivery-blue);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
     }
   }
 }
