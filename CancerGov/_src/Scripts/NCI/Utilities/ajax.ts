@@ -16,6 +16,15 @@ export const loadScript = url => new Promise((resolve, reject) => {
     firstElementOfType.parentNode.insertBefore(element, firstElementOfType);
 });
 
+/**
+ * Dynamically load stylesheets from other websites. Returns a promise that resolves when the stylesheet 
+ * loads or rejects when the onerror function triggers
+ * 
+ * NOTE: The stylesheet is appended to the DOM before the first link/rel=stylesheet on the page. 
+ * 
+ * @param {String} url of script to include
+ * @return {Promise} script node
+ */
 export const loadStylesheet = url => new Promise((resolve, reject) => {
     const element = document.createElement('link');
     element.rel = 'stylesheet';
