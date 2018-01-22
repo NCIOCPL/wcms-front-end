@@ -6,6 +6,7 @@ import { BaseCTSSearchPage } from './BaseCTSSearchPage';
 import { CTSAdvancedFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-advanced-form-setup';
 import { CTSFieldValidator } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-field-validator';
 import * as CTSCommonAnalytics from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics";
+import '../../../../../../StyleSheets/vendor/select2/core.scss';
 
 /**
  * Defined the class for loading the enhancements of the page
