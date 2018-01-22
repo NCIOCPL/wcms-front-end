@@ -124,7 +124,11 @@ module.exports = {
 				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
+<<<<<<< HEAD
 					use: ['css-loader', 'postcss-loader', 'sass-loader']
+=======
+					use: ['css-loader', 'sass-loader']
+>>>>>>> Webpack update. Dynamic loading css for SearchPage
 				})
 			},
 
