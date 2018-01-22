@@ -1,7 +1,7 @@
 import { CTSBaseDiseaseFormSetup } from './cts-base-disease-form-setup';
 import * as NCI from "UX/Common/Enhancements/NCI";
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
-import "select2";
+// import "select2";
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 import "../../Common/Enhancements/trialCheck";
