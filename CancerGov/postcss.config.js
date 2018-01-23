@@ -1,9 +1,17 @@
+const postcss = require('postcss');
+
+const cachekiller = postcss.plugin('cachekiller', function cachekiller(options = {}) {
+    return function (css) {
+        css.replaceValues(/url\(['|"].+\.\w+['|"]\)/, string => {
+            return string.replace(/(url\(['|"])(.+)(\.\w+['|"]\))/, (full, pre, match, post) => `${pre}${match}${'.__v' + Date.now()}${post}`)
+        })
+    }
+});
+
 module.exports = {
     plugins: [
         require('autoprefixer'),
-        require('postcss-assets')({
-            cachebuster: true
-        }),
+        cachekiller(),
         require('css-mqpacker')(),
         require('cssnano')({
             preset: [
