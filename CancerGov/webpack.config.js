@@ -153,7 +153,9 @@ module.exports = {
 			chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSResultsPage"]
 		}),
 		new ExtractTextPlugin({
-			filename: getPath => '[name]' === 'nvcg' ? getPath('../Style/nvcg.css') : getPath('../Styles/PageSpecific/[name].css')
+			filename: getPath => {
+				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/PageSpecific/[name].css')
+			}
 		})
 	]
 };

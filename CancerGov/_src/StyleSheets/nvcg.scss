@@ -22,7 +22,7 @@
 @import "foundation_overrides";
 /***  END FOUNDATION OVERRIDE STYLES ***/
 /***  BEGIN SLICK STYLES ***/
-@import "slick";
+@import "../Scripts/NCI/Modules/carousel/slick";
 /***  BEGIN SLICK STYLES ***/
 /***  BEGIN JQUERY UI STYLES ***/
 @import "jqueryui";
@@ -48,20 +48,20 @@
 @import "language_bar";
 @import "utilitynav";
 
-@import "search";
+@import "../Scripts/NCI/Modules/search/search";
 @import "footer";
 
 @import "mainContent";
 @import "images";
 @import "banners";
 @import "home";
-@import "accordion";
+@import "../Scripts/NCI/Modules/accordion/accordion";
 @import "tables";
 @import "cthp";
 @import "pageOptions";
 @import "font_resizer";
-@import "carousel";
-@import "backToTop";
+@import "../Scripts/NCI/Modules/carousel/carousel";
+@import "../Scripts/NCI/Modules/backToTop/backToTop";
 @import "contentTemplate";
 @import "pdq";
 @import "blogs";
@@ -71,11 +71,11 @@
 @import "ebookButtons";
 @import "materials_to_share";
 @import "searchresults";
-@import "bestBets";
+@import "../Scripts/NCI/Modules/bestBets/bestBets";
 @import "lists";
 @import "videos";
 @import "popups";
-@import "referenceTooltip";
+@import "../Scripts/NCI/Modules/tooltips/referenceTooltip";
 @import "errorPage";
 @import "topicPages";
 @import "nokia-maps";
@@ -87,7 +87,7 @@
 
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
-@import "NCI.ProactiveLiveHelp";
+@import "../Scripts/NCI/Modules/proactiveLiveHelp/NCI.ProactiveLiveHelp";
 @import "AppModuleSpecific/cts/NCI.Delighters";
 // @import "AppModuleSpecific/cts/cts.basic";
 // @import "AppModuleSpecific/cts/cts.advanced";
@@ -96,13 +96,13 @@
 
 /****************** Blue Ribbon Panel ********************/
 //Temporary home since this is a page specific style
-@import "brp";
+// @import "brp";
 
 
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
-@import "megamenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
+@import "../Scripts/NCI/Modules/megamenu/megamenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
 
 /* PRINT STYLES --------------------------------- */
 @import "print";

@@ -388,8 +388,8 @@ h3.cthp-overview-title {
 }
 /** End CTHP Overview styling */
 /** Begin CTHP Card styling */
-@import "../../../../StyleSheets/sprites/img-sprites";
-@import "accordion-sprite-map";
+@import "sprites/img-sprites";
+@import "../Scripts/NCI/Modules/accordion/accordion-sprite-map";
 @include img-sprites-same-size($accordion-sprites,$height:auto,$repeatX:true);
 //.cthp-content {
 //}
