@@ -5,7 +5,7 @@
  * NOTE: The script is appended to the DOM before the first script on the page. 
  * 
  * @param {String} url of script to include
- * @return {Promise} script node
+ * @return {Promise} resolve with DOM node of element
  */
 export const loadScript = url => new Promise((resolve, reject) => {
     const element = document.createElement('script');
@@ -22,8 +22,8 @@ export const loadScript = url => new Promise((resolve, reject) => {
  * 
  * NOTE: The stylesheet is appended to the DOM before the first link/rel=stylesheet on the page. 
  * 
- * @param {String} url of script to include
- * @return {Promise} script node
+ * @param {String} url of stylesheet to include
+ * @return {Promise} resolve with DOM node of element
  */
 export const loadStylesheet = url => new Promise((resolve, reject) => {
     const element = document.createElement('link');

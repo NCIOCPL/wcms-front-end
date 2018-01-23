@@ -61,6 +61,7 @@ module.exports = {
 			Patches:        'Patches',
 			Modules:        'Modules',
 			Charts:         'UX/Common/Enhancements/charts',
+			StyleSheets:	path.resolve(__dirname, '_src', 'StyleSheets'),
 
 			// vendor scripts
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
