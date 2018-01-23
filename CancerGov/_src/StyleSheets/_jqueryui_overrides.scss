@@ -269,7 +269,7 @@ $ui-selectmenu-maxitems: 7;
 }
 
 .ui-widget-content {
-	//background-image: image-url($jqueryui + "ui-bg_flat_75_ffffff_40x100.png");
+	//background-image: url($jqueryui + "ui-bg_flat_75_ffffff_40x100.png");
 
 .ui-state-hover,
 	.ui-state-focus {
@@ -277,7 +277,7 @@ $ui-selectmenu-maxitems: 7;
 }
 }
 .ui-state-default .ui-icon {
-	background-image: image-url($jqueryui + "ui-icons_888888_256x240.png");
+	background-image: url($jqueryui + "ui-icons_888888_256x240.png");
 }
 [class^="ui-corner-"], [class*=" ui-corner-"] {
 	border-radius: 0;

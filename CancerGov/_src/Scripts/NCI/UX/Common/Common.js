@@ -1,6 +1,7 @@
 define(function(require) {
     var $script = require('scriptjs');
     require('Common/Enhancements/analytics');
+    require('StyleSheets/nvcg.scss')
 
     var SiteWideSearch = require('Common/Enhancements/sitewidesearch');
     var megaMenuModule = require('Modules/megamenu/megamenu');

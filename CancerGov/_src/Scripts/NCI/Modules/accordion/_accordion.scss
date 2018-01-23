@@ -38,7 +38,7 @@
 			  // background-image sprite is set in _chtp.scss.
 			  // No need to set it again even though I already did all this work making an awesome iterator
 			  // Saving it as a code example for assigning custom sprite backgrounds
-			  //background-image: image-url($accordion-image);
+			  //background-image: url($accordion-image);
 			  &.ui-state-active span {
 				  background-color: #fff;
 			  }
