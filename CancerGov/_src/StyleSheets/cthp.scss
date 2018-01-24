@@ -1,3 +1,13 @@
+
+@import "environments/percussion";
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import 'breakpoints';
+@import "sprites/svg-sprite";
+@import "nci-foundation";
+
+
 /********** BEGIN Cancer Type Home Page Styles ******************************************/
 .image-right-medium {
 	position: relative;
@@ -5,29 +15,6 @@
 .bgWhite {
 	background-color: #fff;
 }
-/* no longer used on CTHP
-.relatedcontent {
-	&:hover a, a:hover,
-	&:focus a, a:focus {
-		color: #bb0e3d;
-		text-decoration: none;
-	}
-
-	a:after {
-		content: $circle-arrow-red-small;
-		vertical-align: middle;
-		padding-top: 7px;
-		padding-left: 7px;
-		top: 4px;
-		position: relative;
-	}
-
-	&:hover a:after,
-	&:focus a:after {
-		content: $circle-arrow-blue-small;
-	}
-}
-*/
 .cthp-content {
 	//background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
 	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
@@ -115,10 +102,6 @@
 		color: $header-font-color;
 	}
 }
-//.normal li {
-//	background: url($icons + "blue-list-dot.png") 0 7px no-repeat;
-//	padding-left: 0.9375em;
-//}
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
 

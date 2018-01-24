@@ -1,4 +1,1 @@
-define(function(require) {
-	// I'm an empty file
-
-});
+import 'StyleSheets/cthp.scss';
