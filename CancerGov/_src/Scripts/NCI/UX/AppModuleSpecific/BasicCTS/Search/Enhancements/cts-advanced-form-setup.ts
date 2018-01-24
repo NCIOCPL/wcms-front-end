@@ -72,7 +72,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		// });
 
 		// Add select2 wrapper to state selector, with options
-		$("#lst-multiselect").select2({
+		(<any>$("#lst-multiselect")).select2({
             theme: "nci",
 			matcher: function(params, data) {
 				return $this.matchBeginning(params, data);
