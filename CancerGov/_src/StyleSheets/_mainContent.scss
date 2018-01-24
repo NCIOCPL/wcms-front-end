@@ -217,26 +217,6 @@ li {
 	}
 }
 
-%no-bullets {
-	padding: 0;
-	& > li {
-		background: none;
-		list-style-type: none;
-		padding: 0;
-		&:before {
-			display: none;
-			content: none;
-		}
-	}
-	ul {
-		margin: 5px 0 8px;
-		& > li {
-			padding: 0 0 0 10px;
-			margin: 0 0 5px;
-		}
-	}
-}
-
 .toptoc ul > li:before {
 	content: none;
 	display: none;
