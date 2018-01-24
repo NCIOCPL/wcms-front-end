@@ -1,6 +1,9 @@
 /*****************************************
  *  SASS Preprocessing
  ****************************************/
+
+// This is deprecated in favor of using webpack to handle sass as of January 2018
+
 module.exports = function (grunt, options) {
   var dirs = options.dirs;
 

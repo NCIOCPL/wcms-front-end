@@ -157,6 +157,7 @@ module.exports = function(grunt) {
 
 
     // ----------------------------------------------------------------
+    // This is deprecated in favor of using webpack to handle sass as of January 2018
     grunt.registerTask('build-styles', 'Build the CSS.', function(env) {
         env = (env === 'prod' ? 'prod' : 'dev');
         grunt.config('env', env);
@@ -241,6 +242,7 @@ module.exports = function(grunt) {
         var tasks = [
             'generate-config:' + env,
             'build-sprites:' + env,
+            // This is deprecated in favor of using webpack to handle sass as of January 2018
             // 'build-styles:' + env,
             'uglify:' + env,
             'copy:scripts',
