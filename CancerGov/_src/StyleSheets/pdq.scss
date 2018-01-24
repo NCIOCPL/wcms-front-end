@@ -7,7 +7,6 @@
 @import "sprites/svg-sprite";
 @import "nci-foundation_mixins";
 @import "nci-foundation_variables";
-@import "tables";
 
 /*** BEGIN PDQ Styles ***/
 
@@ -188,12 +187,7 @@ table tfoot {
 	line-height: 1.5em;
 	font-family: $montserrat-font-stack;
 }
-// Publish preview does not have class names on the body, hence summary-sections.
-body.pdqcancerinfosummary table.table-default, .summary-sections table.table-default {
 
-	// What is going on here? I can't find what this is extending from or what it is being applied to.  BB 1/2018
-	@extend table.complex-table;
-}
 /* removing padding for nested ul elements inside an accordion */
 
 #accordion li > ul,
