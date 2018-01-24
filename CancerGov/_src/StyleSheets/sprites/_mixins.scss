@@ -73,7 +73,7 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 /// Assign the correct SVG background image and dimensions to the element
 @mixin spriteBG {
   display: inline-block;
-  background-image: image-url(map-get($svg-sprite, svgPath));
+  background-image: url(map-get($svg-sprite, svgPath));
   background-size: mq-px2em(map-get($svg-sprite, width)) mq-px2em(map-get($svg-sprite, height));
 }
 

@@ -36,7 +36,7 @@
 		}
 		&.selected {
 			/* Convert this to a border style */
-			//background: image-url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
+			//background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
 			font-weight: bold;
 			> a {
 				padding: 0.5em 1em 0.5em calc(1em - 5px);

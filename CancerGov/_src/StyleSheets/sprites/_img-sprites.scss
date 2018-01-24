@@ -39,7 +39,7 @@
 
 @mixin img-sprite-image($sprite) {
   $sprite-image: nth($sprite, 9);
-  background-image: image-url(#{$sprite-image});
+  background-image: url(#{$sprite-image});
 }
 
 @mixin img-sprite($sprite) {
