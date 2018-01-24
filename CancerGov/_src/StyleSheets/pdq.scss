@@ -1,3 +1,14 @@
+@import "environments/percussion";
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import 'breakpoints';
+@import "sprites/svg-sprite";
+@import "nci-foundation";
+@import "tables";
+@import "placeholders";
+
+
 /*** BEGIN PDQ Styles ***/
 
 .toptoc {
@@ -179,6 +190,8 @@ table tfoot {
 }
 // Publish preview does not have class names on the body, hence summary-sections.
 body.pdqcancerinfosummary table.table-default, .summary-sections table.table-default {
+
+	// What is going on here? I can't find what this is extending from or what it is being applied to.  BB 1/2018
 	@extend table.complex-table;
 }
 /* removing padding for nested ul elements inside an accordion */
@@ -331,94 +344,6 @@ table.table-default tfoot td {
 }
 /* end new styles */
 
-/* begin clinical trial search results */
-// CTS Styles are now in /StyleSheets/enhancements/_cts.*
-//form .row .clinical-trial-individual-result {
-//	margin-bottom: 75px;
-//}
-//.row .row .ct-results-form  {
-//	margin: 60px 20px 30px 0;
-//}
-//form .row .view-content-for-container {
-//	border: 1px solid #bdbdbd;
-//	border-top: 4px solid #00cccc;
-//	padding: 10px;
-//}
-//.ct-results-help {
-//	text-align:right;
-//}
-//.search-criteria-box {
-//	display: inline-block;
-//	border: 1px solid #bdbdbd;
-//	padding: 10px 15px;
-//	margin: 0 0 30px;
-//}
-//.ct-results-top-search-options {
-//	margin-top: 30px
-//}
-//%criteria-link {
-//	content: " ";
-//	 @include sprite($x-coordinate: -460px, $y-coordinate: -186px, $width: 8px, $height: 5px);
-//	display: inline-block;
-//	position: relative;
-//	margin-left: 5px;
-//	margin-bottom: 2px;
-//	padding: 0 10px;
-//}
-//.show-criteria-link a {
-//	color: #606060;
-//}
-//.show-criteria-link a:after {
-//	@extend %criteria-link;
-//}
-//.hide-criteria-link {
-//	border-bottom: 1px solid #bdbdbd;
-//
-//	a {color: #606060;}
-//
-//	a:after {
-//		@extend %criteria-link;
-//		background-position: -488px -186px;
-//	}
-//}
-//.clinicaltrials-results-criteria-display {
-//	padding: 10px 0px;
-//}
-//.ct-results-lower-control {
-//	margin-bottom: 40px;
-//}
-//.ct-results-bottom-action {
-//}
-//.ct-results-top-control {
-//	margin: 0 0 30px 0;
-//	line-height: 3;
-//}
-//.ct-results-top-control label strong {
-//	font-weight: normal;
-//}
-//@include bp(small) {
-//	.ct-results-top-control span
-//	{
-//		display: block;
-//	}
-//}
-//.ct-results-select-all, .ct-results-sort, .ct-results-show {
-//	margin-right: 20px;
-//	display: inline-block;
-//}
-//.ct-results-go {
-//}
-//.cts-results-container .row .checkbox {
-//	float: right;
-//	margin-right: 0.5em;
-//	line-height: 1.25;
-//}
-//@include bp(medium-down) {
-//	.cts-results-container .row .checkbox {
-//		float: none;
-//	}
-//}
-/* end clinical trial search results */
 
 /* Protocol search results */
 .study-site-city {

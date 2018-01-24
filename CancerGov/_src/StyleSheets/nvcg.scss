@@ -5,6 +5,7 @@
 @import "functions";
 @import "fonts";
 @import 'breakpoints';
+@import "placeholders";
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 /***  BEGIN RESET STYLES ***/
@@ -63,7 +64,7 @@
 @import "../Scripts/NCI/Modules/carousel/carousel";
 @import "../Scripts/NCI/Modules/backToTop/backToTop";
 @import "contentTemplate";
-@import "pdq";
+// @import "pdq";
 @import "blogs";
 @import "news";
 @import "onthispage";

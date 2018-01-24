@@ -1,4 +1,5 @@
 define(function(require) {
+    require('StyleSheets/pdq.scss');
     var $ = require('jquery');
     require('PDQ/pdqcis');
     require('Patches/Hotfixes/WCMSFEQ-243');
