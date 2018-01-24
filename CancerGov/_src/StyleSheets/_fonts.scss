@@ -29,7 +29,7 @@ $style-map: (normal: "", italic: "italic");
 		font-family: '#{$family}';
 		font-weight: $weight;
 		font-style: $style;
-		src: url($path + '.eot');
+		src: url($path + '.eot?#iefix');
 		src: url($path + '.eot?#iefix') format('embedded-opentype'), // IE6-8
 		url($path + '.woff') format('woff'), // Modern Browsers
 		url($path + '.ttf') format('truetype'), // Safari, Android, iOS
@@ -53,12 +53,13 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 @include font-face($montserrat, normal);
 @include font-face($montserrat, bold);
 
+/* DIN */
 @font-face {
 	font-family: "DIN Condensed";
 	font-weight: normal;
 	font-style: normal;
 	src: url($fonts + "DIN-Condensed.eot?#iefix");
-	src: url($fonts + "DIN-Condensed#iefix") format("eot"),
+	src: url($fonts + "DIN-Condensed.eot?#iefix") format("eot"),
 		 //url($fonts + "DIN-Condensed.woff2") format("woff2"),
 		 url($fonts + "DIN-Condensed.woff") format("woff"),
 		 url($fonts + "DIN-Condensed.ttf") format("truetype"),
@@ -86,5 +87,27 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 $din-condensed-stack: "DIN Condensed", $montserrat-font-stack;
 $din-condensed-bold-stack: "DIN Condensed Bold", $montserrat-font-stack;
 $din-regular-stack: "DIN Regular", $montserrat-font-stack;
+
+
+/* Museo */
+@font-face {
+	font-family: Museo;
+	src:
+		url($fonts + 'Museo-300.ttf') format('truetype'),
+		url($fonts + 'Museo-300.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Museo;
+	src:
+		url($fonts + 'Museo-regular.ttf') format('truetype'),
+		url($fonts + 'Museo-regular.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+$museo-stack: Museo, $montserrat-font-stack;
 
 /********************* END Font Declarations ******************************************/

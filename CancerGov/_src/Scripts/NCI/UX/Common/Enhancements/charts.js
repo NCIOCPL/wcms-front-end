@@ -22,7 +22,12 @@ define(function(require) {
                 '#ffffff',
                 '#f0f0ff'
             ],
-            font: 'DIN-Condensed-Bold, Arial, sans-serif',
+            font: {
+                dinConB: 'DIN Condensed Bold, Arial, sans-serif',
+                dinCon: 'DIN Condensed, Arial, sans-serif',
+                din: 'DIN Regular, Arial, sans-serif',
+                museo: 'Museo, Montserrat, Arial, sans-serif'
+            },
             title: {
                 color: '#62559f'
             },
@@ -33,7 +38,7 @@ define(function(require) {
         };
 
         // extend defaults with settings
-        this.settings = $.extend(true,{}, this.defaultSettings, options);
+        this.settings = $.extend(true, {}, this.defaultSettings, options);
         this.settings.target = target;
 
         if (typeof window.fetchingHighcharts == "undefined") {
@@ -125,7 +130,6 @@ define(function(require) {
                         ]
                     },
                     style: {
-                        fontFamily: 'DIN-Condensed, Arial, sans-serif',
                         color: '#62559f'
                     }
                 },
@@ -133,26 +137,45 @@ define(function(require) {
                     text: this.settings.title.text,
                     style: {
                         color: this.settings.title.color,
-                        fontSize: '25px',
-                        fontWeight: 'bold'
+	                    fontFamily: this.settings.font.dinConB,
+	                    fontSize: '32px',
+	                    fontWeight: 'bold'
                     }
                 },
                 subtitle: {
                     text: this.settings.subtitle.text,
                     style: {
                         color: this.settings.subtitle.color,
-                        fontSize: '16px',
+	                    fontFamily: this.settings.font.dinCon,
+                        fontSize: '22px',
                         fontWeight: 'normal'
+                    }
+                },
+                labels: {
+                    style: {
+	                    extOutline: false,
+	                    fontSize: '18px',
+	                    fontFamily: this.settings.font.din,
+	                    fontWeight: 'normal',
+	                    color: '#58595b'
                     }
                 },
                 legend: {
                     itemStyle: {
-                        color: '#58595b'
+                        color: '#706F6F',
+	                    fontSize: '14px',
+	                    fontFamily: this.settings.font.din,
+                        fontWeight: 'bold'
                     }
                 },
                 credits: {
                     text: 'cancer.gov',
-                    href: 'http://www.cancer.gov'
+                    href: 'http://www.cancer.gov',
+                    style: {
+                        color: '#959595',
+                        fontFamily: this.settings.font.dinConB,
+                        fontSize: '13px'
+                    }
                 },
                 lang: {
                     thousandsSep: ','
@@ -177,7 +200,10 @@ define(function(require) {
                 // },
                 tooltip: {
                     hideDelay: 150,
-                    followTouchMove: false
+                    followTouchMove: false,
+                    style: {
+                        fontFamily: this.settings.font.din
+                    }
                 },
                 drilldown: {
                     activeAxisLabelStyle: {
@@ -185,8 +211,7 @@ define(function(require) {
                         fontStyle: 'italic'
                     },
                     activeDataLabelStyle: {
-                        textDecoration: 'none',
-                        color: '{point.color}'
+                        fontWeight: 'normal'
                     },
                     drillUpButton: {
                         position: {
@@ -199,36 +224,45 @@ define(function(require) {
                 xAxis: {
                     labels: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+                            fontFamily: this.settings.font.museo
                         }
                     },
                     title: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.din,
+                            textTransform: 'uppercase'
                         }
                     }
                 },
                 yAxis: {
                     labels: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.museo
                         }
                     },
                     title: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.din,
+	                        textTransform: 'uppercase'
                         }
                     }
                 },
                 zAxis: {
                     labels: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.museo
                         }
                     },
                     title: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.din,
+	                        textTransform: 'uppercase'
                         }
                     }
                 }
@@ -275,10 +309,11 @@ define(function(require) {
                 for (var i = 0; i < this.settings.drilldown.series.length; i++) {
                     $.extend(this.settings.drilldown.series[i], drilldownSettings);
                     //this.settings.drilldown.series[i].id = this.settings.drilldown.series[i].name;
+                    //this.settings.drilldown.series[i].id = this.settings.drilldown.series[i].name;
                 }
             }
 
-            $.extend(this.settings.series[0], seriesSettings);
+            $.extend(true, this.settings.series[0], seriesSettings);
 
             // console.log("pie settings",this.settings);
 
@@ -315,8 +350,11 @@ define(function(require) {
                                     id: 'donutText',
                                     x: left,
                                     y: top,
-                                    style: 'color:#585757;font:bold 14px ' + module.settings.font + ';'
+                                    style: 'color:#585757;font:22px/30px ' + module.settings.font.dinConB + ';'
                                 }).add();
+                                // move the budget number down a bit
+                                totalText.element.children[1].setAttribute('dy', 22);
+
                             }
                         },
                         redraw: function () {
@@ -341,7 +379,8 @@ define(function(require) {
                 legend: {
                     layout: 'vertical',
                     align: 'right',
-                    verticalAlign: 'middle'
+                    verticalAlign: 'middle',
+                    itemMarginBottom: 3
                 },
 
                 series: this.settings.series,
@@ -358,17 +397,17 @@ define(function(require) {
                             overflow: 'none',
                             allowOverlap: true,
                             y: -6,
-                            style: {
-                                textOutline: false,
-                                fontSize: '16px',
-                                fontFamily: this.settings.font,
-                                color: '#58595b'
-                            },
                             formatter: function (label) {
                                 return '<span>' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
                                 //return '<span style="color:' + this.point.color + '">' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
                                 //return '<span style="color:' + this.point.color + '">' + this.point.name + '</span>';
-                            }
+                            },
+	                        style: {
+		                        fontSize: '14px',
+		                        fontFamily: this.settings.font.museo,
+		                        fontWeight: 'normal',
+		                        color: '#58595b'
+	                        }
                         },
                         showInLegend: true
                     }
@@ -448,7 +487,7 @@ define(function(require) {
                 }
             };
 
-            var chartSettings = $.extend(presets, module.settings);
+            var chartSettings = $.extend(true. presets, module.settings);
 
             //force the chart type to bar or column
             chartSettings.chart.type = this.settings.chart.type == 'NCI_bar' ? 'bar' : 'column';
@@ -633,7 +672,7 @@ define(function(require) {
                 }
             };
 
-            var chartSettings = $.extend(presets, module.settings);
+            var chartSettings = $.extend(true, presets, module.settings);
 
             this.instance = Highcharts.chart(this.settings.target, chartSettings);
         };
