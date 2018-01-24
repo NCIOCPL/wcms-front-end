@@ -1,6 +1,7 @@
 define(function(require) {
+	require('StyleSheets/AppModuleSpecific/cts/index.scss')
+	require('StyleSheets/vendor/select2/core.scss')	
 	var $ = require('jquery');
-
 
 	$(document).ready(function($){
 		require('BasicCTSView/Enhancements/LocationFilter').init();
