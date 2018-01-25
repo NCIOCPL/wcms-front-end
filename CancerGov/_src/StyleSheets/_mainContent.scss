@@ -389,7 +389,20 @@ hr.ps-divider {
 /* Separator line for right above the public use and/or syndication text blocks */
 #nvcgSlPublicUse,
 #nvcgSlSyndication {
-     border-top: 1px solid #7d7d7d;
+
+	/*
+	// Remove border
+	@include bp(medium-up) {
+		border-top: 1px solid #7d7d7d;
+	}
+	*/
+	
+	// Or add margin
+	border-top: 1px solid #7d7d7d;
+	@include bp(small) {
+		margin-top: 1.25em;
+	}
+ 	
 }
 
 #nvcgSlPublicUse + #nvcgSlSyndication {

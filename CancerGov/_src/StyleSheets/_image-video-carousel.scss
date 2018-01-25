@@ -105,7 +105,7 @@
 .pagingInfo {
 	color: #606060;
 	float: left;
-	font-family: Montserrat,Arial,sans-serif;
+	font-family: $montserrat-font-stack;
 	font-size: 14px;
 	width: 50%;
 	margin-top: 5px;
@@ -246,7 +246,7 @@ button.next.ytc-hidden {
 .yt-carousel-pager {
 	color: $dgrey00;
 	display: block;
-	font-family: Montserrat,Arial,sans-serif;
+	font-family: $montserrat-font-stack;
 	font-size: 14px;
 	margin-top: 15px;
 }
@@ -254,7 +254,7 @@ button.next.ytc-hidden {
 .yt-carousel-m-pager {
 	color: $dgrey00;
 	float: left;
-	font-family: Montserrat,Arial,sans-serif;
+	font-family: $montserrat-font-stack;
 	font-size: 14px;
 	margin: 12px 10px;
 	width: 50%;

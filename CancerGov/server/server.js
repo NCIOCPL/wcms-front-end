@@ -39,6 +39,23 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
+/**
+ * For editing raw HTML content during dev. To proxy an HTML file, just dump it in the 
+ * mock_views directory and go to localhost:3000/mock/[filename].
+ * 
+ */
+if (env === 'development') {
+    const mockRouter = express.Router()
+    mockRouter.get('/:filename', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'mock_views', req.params.filename + '.html'))
+    })
+    mockRouter.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'mock_views', 'mock_example.html'))
+    })
+
+    app.use('/mock', mockRouter)
+}
+
 /** Serve up static content in the public folder **/
 app.use('/PublishedContent',
 	function(req,res,next){

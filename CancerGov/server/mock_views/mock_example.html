@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mock Views Folder For Development</title>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Princess+Sofia|Schoolbell" rel="stylesheet">    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            grid-gap: 10px;
+        }
+
+        #bokehBG {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            grid-area: 1 / 1 / span 12 / span 12;
+        }
+
+        .header-bg {
+            grid-area: 1 / 1 / 2 / 11;
+            background: #4aeeff;
+            margin: 20px 0 0 40px;
+        }
+
+        .color1 {
+            grid-area: 3 / 1 / 9 / 4;
+            background: thistle;
+            margin: 20px;
+        }
+
+        .color2 {
+            grid-area: 5 / 3 / 7 / 5;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            align-self: center;
+            justify-self: center;
+            background: rgba(139, 233, 223, 0.555);
+        }
+        
+        .color3 {
+            grid-area: 9 / 6 / span 3 / span 3;
+            background: rgba(95, 162, 235, 0.479);
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            align-self: center;
+            justify-self: center;
+        }
+        
+        #bokeh1 {
+            position: relative;
+            grid-area: 7 / 1 / 11 / 4;
+            align-self: center;
+            justify-self: center;
+            height: 200px;
+            width: 200px;
+            clip-path: circle(100px at center);
+        }
+
+        #bokeh1::before {
+            content: '';
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            top: -50%;
+            left: -50%;
+            background: black;
+        }
+        
+        #bokeh2 {
+            position: relative;
+            grid-area: 7 / 9 / span 4 / span 4;
+            height: 250px;
+            width: 250px;
+            clip-path: circle(125px at center);
+        }
+
+        h1 {
+            font-family: 'Julius Sans One', sans-serif;
+            grid-area: 1 / 2 / 3 / 8;
+            font-size: 4rem;
+            align-self: center;
+        }
+
+
+        h3 {
+            grid-area: 2 / 5 / 3 / 12;
+            align-self: center;
+        }
+
+        p {
+            font-family: 'Schoolbell', cursive;
+            font-size: 1.2rem;
+        }
+        
+        p:first-of-type {
+            grid-area: 3 / 1 / 4 / 9;
+            margin-left: 50px;
+        }
+        
+        p:nth-of-type(2) {
+            grid-area: 4 / 4 / 6 / 9;
+        }
+        p:nth-of-type(3) {
+            grid-area: 5 / 7 / 7 / 12;
+        }
+        
+        p:nth-of-type(4) {
+            font-family: 'Princess Sofia', cursive;
+            grid-area: 9 / 4 / 12 / 6;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        li:first-of-type {
+            grid-area: rouge;
+            background: red;
+        }
+
+        li:nth-of-type(2) {
+            grid-area: yllw;
+            background: yellow;
+        }
+
+        li:nth-of-type(3) {
+            grid-area: blck;
+            background: black;
+        }
+
+        li:nth-of-type(4) {
+            grid-area: blu;
+            background: blue;
+        }
+
+        li:nth-of-type(5) {
+            grid-area: grn;
+            background: black;
+        }
+
+        .grid-2 {
+            grid-area: 2 / 8 / 8 / 11;
+            background: yellow;
+            opacity: 0.3;
+            margin-top: 50px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "rouge yllw blck blck"
+            "rouge yllw . blu"
+            "grn yllw . blu";
+            clip-path: circle(150px);
+        }
+
+        @media screen and (min-width: 1024px) {
+            .grid-2 {
+                clip-path: circle(300px);
+            }
+        }
+
+        .heart {
+            position: relative;
+            grid-area: 6 / 5 / span 2 / span 2;
+            justify-self: center;
+            align-self: center;
+            height: 80px;
+            width: 80px;
+            background: pink;
+            transform: rotateZ(45deg);
+            animation: hrt 3s ease-in-out infinite;
+        }
+
+        .heart::before {
+            content: '';
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            background: pink;
+            top: -50%;
+            left: 0;
+        }
+
+        .heart::after {
+            content: '';
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            background: pink;
+            top: 0;
+            left: -50%;
+        }
+
+        @keyframes hrt {
+            0% {
+                transform: scale(1) rotateZ(45deg);
+            }
+
+            50% {
+                transform: scale(1.3) rotateZ(45deg);
+            }
+
+            90% {
+                transform: scale(0.6) rotateZ(45deg);
+            }
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div id="bokehBG"></div>
+    <div class="header-bg"></div>
+    <div class="color1"></div>
+    <div class="color2"></div>
+    <div id="bokeh2"></div>
+    <div class="color3"></div>
+    <div id="bokeh1"></div>
+    <ul class="grid-2">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="heart"></div>
+    <h1>Mock Views</h1>
+    <h3>(Development Only)</h3>
+    <p>If you want to test HTML changes in dev, just save the HTML file in the <strong>./server/mock_views/</strong> directory.</p>
+    <p>The route will be <strong>localhost:3000/mock/<em>[filename]</em>.html</strong></p>
+    <p>For example, this file is index.html and can be reached at <strong>localhost:3000/mock/index</strong></p>
+    <p>NOTE: This is only in dev, <strong>/mock</strong> routes are not available in production.</p>
+    <script src="https://cdn.jsdelivr.net/npm/bokehfy@0.2.1/lib/bokehfy.min.js"></script>
+    <script>
+
+        const bokeh1Settings = {
+            parent: document.getElementById('bokeh1'),
+            transparent: true,
+            color: 'black',
+            radius: 10
+        }
+        const bokeh1 = bokehfy(bokeh1Settings);
+
+        const bokeh2Settings = {
+            parent: document.getElementById('bokeh2'),
+            transparent: true,
+            color: 'red',
+            radius: 40,
+            dx: 0.2,
+            dy: 1            
+        }
+
+        const bokeh2 = bokehfy(bokeh2Settings);
+    </script>
+</body>
+</html>

@@ -24,7 +24,7 @@
     <!--(bake-end)-->
     <!--(bake-start _if="blog_feature_cards")-->
         
-    <NCI:TemplateSlot id="nvcgSlLayoutFeatureA" CssClass="row" AdditionalSnippetClasses="equalheight large-4 columns card gutter blog-feature" runat="server" data-match-height="">
+    <NCI:TemplateSlot id="nvcgSlLayoutFeatureA" CssClass="row flex-columns" AdditionalSnippetClasses="equalheight large-4 columns card gutter blog-feature" runat="server">
         <HeaderHtml><div id="blog-cards"><h4>{mx:CancerGov.ViewProperty(BlogFeatureCardsHeader)}</h4></HeaderHtml>
         <FooterHtml></div></FooterHtml>
     </NCI:TemplateSlot>

@@ -157,6 +157,11 @@
   }
 }
 
+// Safari hack for icons over legend elements
+_::-webkit-full-page-media, _:future, :root .cts-form .text-icon-help {
+  top: -34px;
+}
+
 // firefox hack for icons over legend elements
 @-moz-document url-prefix() {
   .cts-form {
@@ -264,6 +269,12 @@
   top: -0.6em;
   left: 0;
   z-index: 1;
+  
+  // This is a hack to prevent the outline on focus from creating a ring around this 'invisible'
+  // element. (Overring jquery-ui)
+  .ui-helper-hidden-accessible {
+	margin: -9999px;
+  }
 }
 
 input[type="checkbox"] {
@@ -318,7 +329,7 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
   @include svg-sprite(minus-o-blue);
 }
 
-.accordion-controls {
+.nciappmodulepage .accordion-controls {
   float:right;
   margin:18px -0.9375em 10px 10px; //negative right gutter margin
 
@@ -330,7 +341,7 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
   }
 }
 
-.accordion {
+.nciappmodulepage .accordion {
   margin-top:20px;
 
   #country-selector-button, #state-selector-button {

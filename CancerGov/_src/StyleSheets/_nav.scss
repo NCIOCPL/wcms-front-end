@@ -367,8 +367,8 @@
 
 			.menu-btn {
 				position: absolute;
-				left: calc(100% + 2em); // Get back here!
-				width: auto;
+				left: calc(100% + 1em); // Get back here!
+				width: 64px;
 				margin-right: 0;
 				color: transparent; // get rid of the text
 				z-index: 90; // needs to be above search
@@ -377,8 +377,13 @@
 				&:before {
 					/* The arrow in the back to menu button */
 					@include svg-sprite(menu-return-white);
-					font-size: 169%;
+					font-size: 170%;
 					top: .7em;
+
+					// hack for stupid IE
+					@include bp('(-ms-high-contrast: none), (-ms-high-contrast: active)') {
+						font-size: 80%;
+					}
 				}
 			}
 		}

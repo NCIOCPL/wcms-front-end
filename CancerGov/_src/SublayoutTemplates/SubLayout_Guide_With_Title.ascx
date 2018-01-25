@@ -15,17 +15,17 @@
 <div class="accordion">
     <NCI:TemplateSlot
         id="nvcgSlLayoutGuideB"
-        CssClass="row guide-card"
+        CssClass="row guide-card flex-columns"
         AdditionalSnippetClasses="equalheight large-4 columns card gutter"
         runat="server"
-        data-match-height="" />
+        />
 </div>
 <!-- END GUIDE CARDS ROW -->
 <!-- BEGIN FEATURE SECONDARY CARDS ROW -->
 <NCI:TemplateSlot
     id="nvcgSlLayoutFeatureB"
-    CssClass="row feature-secondary"
+    CssClass="row feature-secondary flex-columns"
     AdditionalSnippetClasses="equalheight large-4 columns card gutter"
     runat="server"
-    data-match-height="" />
+    />
 <!-- END FEATURE SECONDARY CARDS ROW -->

@@ -90,16 +90,14 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
 //styling for search criteria table
 .search-criteria-box {
   display: block;
+  position: relative;
   border: none;
   margin: 0;
-  padding: 10px 5px 0 0;
-  position: relative;
-  top: -11px;
 }
+
 .clinicaltrials-results-criteria-display {
-  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0.2em rgba(0, 0, 0, 0.5);
   position: relative;
-  top: -1px;
   width: 702px;
   padding: 10px 20px;
 
@@ -141,6 +139,7 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   }
   @include bp(small){
     width: 100%;
+    word-break: break-word;
   }
 }
 #other-diseases, #fieldset--location section > div:not(.radio) {
@@ -167,7 +166,7 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
 .ctscb {
   position: relative;
   background-color: #f2f2f3;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   border: 1px solid #777;
   color: #333;
@@ -175,8 +174,9 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   padding: 0 0 0 5px;
   //background-size: 10%;
   width: 375px;
-  margin-bottom: .25em;
+  min-width: 215px;
   overflow: hidden;
+  margin: 0;
 
   &::after {
     content:"";
@@ -190,19 +190,20 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
   &.show {
     &::after {
       @include svg-sprite(minus-box);
-
     }
     //background-image: image-url($icons + "cts-minus.png");
   }
 
   @include bp(small){
-    width: 300px;
+    width: 100%;
     //background-size: 12%;
   }
 }
 
 .cts-start-over {
   font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
 }
 
 .cts-results-label {

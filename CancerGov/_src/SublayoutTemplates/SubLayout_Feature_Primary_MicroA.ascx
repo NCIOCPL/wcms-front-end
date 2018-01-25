@@ -10,8 +10,8 @@
 <!-- BEGIN FEATURE PRIMARY CARDS ROW -->
 <NCI:TemplateSlot
     id="nvcgSlLayoutFeatureA"
-    CssClass="row feature-primary micro-a"
+    CssClass="row feature-primary micro-a flex-columns"
     AdditionalSnippetClasses="equalheight large-4 columns card gutter"
     runat="server"
-    data-match-height="" />
+    />
 <!-- END FEATURE PRIMARY CARDS CARDS ROW -->
