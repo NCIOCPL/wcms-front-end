@@ -1,4 +1,5 @@
 define(function(require) {
+    require('./HomePage.scss');
     require('Modules/carousel/carousel');
 
     $(function() {

@@ -12,6 +12,7 @@ import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import * as BestBets from 'Modules/bestBets/bestBets';
+import './InnerPage.scss';
 
 /**
  * Class representing CancerGov inner pages.
