@@ -92,10 +92,6 @@ define(function(require) {
 				$(target).each(function() {
 					if (typeof $(this).data("ui-accordion") !== "undefined") {
 						$(this).accordion("destroy");
-						if (typeof $.fn.NCI_equal_heights === "function") {
-							// if we're on homepage, landing page, or CTHP
-							$('[data-match-height]').NCI_equal_heights();
-						}
 					}
 				});
 			}
@@ -147,13 +143,22 @@ define(function(require) {
 				var width = window.innerWidth || $(window).width(),
 					accordion;
 
+				// catch Safari desktop issue where an external mouse will trigger scrollbars
+				if(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)) {
+					if(window.innerWidth === $(window).width() + 15) {
+						width = $(window).width();
+					}
+				}
+
+
 				/* If the width is less than or equal to 640px (small screens)
 				 * AND if the accordion(s) isn't (aren't) already built */
 				if (width <= config.breakpoints.medium && $(targetsBuiltAccordionSelector).length === 0 || ($( ".accordion" ).hasClass( "desktop" )) && $(targetsBuiltAccordionSelector).length === 0 ) {
 					// verify that the accordion will build correctly
 					$(targetsHeaderSelector).each(function() {
 						var $this = $(this);
-						if($this.nextAll().length > 0 || $this.next().is('ul, ol')) {
+						var $next = $this.nextAll();
+						if(($next.length > 0 || $this.next().is('ul, ol')) && !$next.is(".clearfix")) {
 							$this.nextUntil($(targetsHeaderSelector)).wrapAll('<div class="clearfix"></div>');
 						}
 					});

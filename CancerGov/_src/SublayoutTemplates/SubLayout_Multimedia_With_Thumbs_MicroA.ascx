@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.SnippetControls.SubLayoutControl" %>
 <!-- BEGIN MULTIMEDIA, SECONDARY FEATURE ROW -->
 <div class="multimedia-slot micro-a">
-    <div class="row multimedia" data-match-height="">
+    <div class="row multimedia flex-columns">
         <NCI:TemplateSlot
             id="nvcgSlLayoutMultimediaA"
             CssClass="equalheight small-8 columns card"
