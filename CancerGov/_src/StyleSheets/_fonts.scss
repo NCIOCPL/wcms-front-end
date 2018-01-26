@@ -82,17 +82,32 @@ $montserrat-font-stack: $montserrat, Arial, sans-serif;
 		//url($fonts + "DIN-Regular.woff2") format("woff2"),
 		url($fonts + "DIN-Regular.woff") format("woff"),
 		url($fonts + "DIN-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family:"DIN Regular";
+	src:url($fonts + "DIN-Bold.eot?#iefix");
+	src:url($fonts + "DIN-Bold.eot?#iefix") format("eot"),
+		//url($fonts + "DIN-Regular.woff2") format("woff2"),
+	url($fonts + "DIN-Bold.woff") format("woff"),
+	url($fonts + "DIN-Bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
 }
 
 $din-condensed-stack: "DIN Condensed", $montserrat-font-stack;
 $din-condensed-bold-stack: "DIN Condensed Bold", $montserrat-font-stack;
 $din-regular-stack: "DIN Regular", $montserrat-font-stack;
+$din-regular-stack: "DIN Bold", $montserrat-font-stack;
 
 
 /* Museo */
 @font-face {
 	font-family: Museo;
-	src:
+	src:url($fonts + "Museo-300.eot?#iefix");
+	src:url($fonts + "Museo-300.eot?#iefix") format("eot"),
 		url($fonts + 'Museo-300.ttf') format('truetype'),
 		url($fonts + 'Museo-300.woff') format('woff');
 	font-weight: 300;
@@ -101,10 +116,21 @@ $din-regular-stack: "DIN Regular", $montserrat-font-stack;
 
 @font-face {
 	font-family: Museo;
-	src:
+	src:url($fonts + "Museo-regular.eot?#iefix");
+	src:url($fonts + "Museo-regular.eot?#iefix") format("eot"),
 		url($fonts + 'Museo-regular.ttf') format('truetype'),
 		url($fonts + 'Museo-regular.woff') format('woff');
-	font-weight: 500;
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Museo;
+	src:url($fonts + "Museo-700.eot?#iefix");
+	src:url($fonts + "Museo-700.eot?#iefix") format("eot"),
+		url($fonts + 'Museo-700.ttf') format('truetype'),
+		url($fonts + 'Museo-700.woff') format('woff');
+	font-weight: bold;
 	font-style: normal;
 }
 

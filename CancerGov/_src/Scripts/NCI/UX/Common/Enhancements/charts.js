@@ -60,8 +60,7 @@ define(function(require) {
                 console.time("Highcharts Load Time");
                 window.fetchingHighcharts = true;
                 $.when(
-                    $.getScript('https://code.highcharts.com/highcharts.src.js'),
-                    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js')
+                    $.getScript('https://code.highcharts.com/highcharts.src.js')
                 ).then(function () {
                     console.log("loading Highchart plug-ins");
                     return $.when(
@@ -203,15 +202,18 @@ define(function(require) {
                     followTouchMove: false,
                     style: {
                         fontFamily: this.settings.font.din
-                    }
+                    },
+                    headerFormat: '<span style="font-size: 12px; font-weight:bold">{point.key}</span><br/>',
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: {point.y}<br/>'
                 },
                 drilldown: {
                     activeAxisLabelStyle: {
-                        textDecoration: 'none !important',
-                        fontStyle: 'italic'
+                        fontStyle: 'normal',
+	                    color: '#58595b'
                     },
                     activeDataLabelStyle: {
-                        fontWeight: 'normal'
+                        fontWeight: 'normal',
+                        color: '#58595b'
                     },
                     drillUpButton: {
                         position: {
@@ -272,18 +274,26 @@ define(function(require) {
             Highcharts.setOptions(theme);
         };
 
+
+
         var generateDrilldownColors = function(drilldown){
-
-            //var drilldown = this.settings.drilldown;
-
 
             if(typeof drilldown.series == "object") {
 
                 for (var i = 0; i < drilldown.series.length; i++) {
                     var obj = drilldown.series[i];
-                    if (typeof obj.data == "object") {
-                        var colors = tinycolor(this.settings.colors[i]).analogous(obj.data.length, 5);
-                        obj.colors = colors.map(function (t) { return t.toHexString(); });
+                    if (typeof obj.data == "object" && typeof obj.colors == "undefined") {
+
+	                    var colors = [],
+		                    base = base || Highcharts.getOptions().colors[0],
+		                    i;
+
+	                    for (i = 0; i < 10; i += 1) {
+		                    // Start out with a darkened base color (negative brighten), and end
+		                    // up with a much brighter color
+		                    colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+	                    }
+	                    obj.colors = colors;
                     }
                 }
             }
@@ -293,6 +303,7 @@ define(function(require) {
         };
 
         var NCI_pie = function () {
+
 
             var module = this;
 
@@ -405,7 +416,7 @@ define(function(require) {
 	                        style: {
 		                        fontSize: '14px',
 		                        fontFamily: this.settings.font.museo,
-		                        fontWeight: 'normal',
+		                        fontWeight: 'bold',
 		                        color: '#58595b'
 	                        }
                         },
@@ -479,8 +490,8 @@ define(function(require) {
                     }
                 },
                 tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div style="color:{series.color};">{series.name}: </div><div><b>{point.y}</b></div>',
+                    headerFormat: '<span style="font-size:20px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
+                    pointFormat: '<div style="color:{series.color};">{series.name}: </div><div>{point.y}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
@@ -609,8 +620,8 @@ define(function(require) {
                     }]
                 },
                 tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%"><b>{point.y:,.0f}</b></div>',
+                    headerFormat: '<span style="font-size:10px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
+                    pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%">{point.y:,.0f}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
