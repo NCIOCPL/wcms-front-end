@@ -60,6 +60,7 @@ module.exports = {
 			BasicCTS:       'UX/AppModuleSpecific/BasicCTS',
 			Patches:        'Patches',
 			Modules:        'Modules',
+			Utilities:		'Utilities',
 			Charts:         'UX/Common/Enhancements/charts',
 			StyleSheets:	path.resolve(__dirname, '_src', 'StyleSheets'),
 
