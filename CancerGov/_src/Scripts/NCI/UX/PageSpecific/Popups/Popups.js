@@ -1,11 +1,9 @@
 define(function(require) {
     require('./Popups.scss');
+    var CONFIG = require('Modules/NCI.config');
 	var $script = require('scriptjs');
 
-	$script([
-			'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js',
-			'https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js'
-		],function(){
+	$script([CONFIG.CDN.jquery, CONFIG.CDN.jplayer], function(){
         	require('Common/Enhancements/popup_functions');
 
         	if (jQuery.jPlayer && !Modernizr.touch) {

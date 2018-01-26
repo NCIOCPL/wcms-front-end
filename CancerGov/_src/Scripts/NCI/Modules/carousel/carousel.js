@@ -1,8 +1,9 @@
 define(function(require) {
 
     var $script = require('scriptjs');
+    var CONFIG = require('Modules/NCI.config');
 
-    $script('//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js',function(){
+    $script(CONFIG.CDN.slick, function(){
 
         require('./slick-patch');
 
