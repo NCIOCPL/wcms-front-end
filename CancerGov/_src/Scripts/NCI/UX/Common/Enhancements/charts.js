@@ -313,10 +313,18 @@ define(function(require) {
             var drilldownSettings = {
                 innerSize: '60%'
             };
+            var moreDrilldownSettingsBecauseOfStupidFontStyles = {
+                activeDataLabelStyle: {
+                    fontWeight: 'bold'
+                }
+            }
 
             var totalText;
 
             if (Object.keys(this.settings.drilldown).length > 0) {
+
+                $.extend(this.settings.drilldown, moreDrilldownSettingsBecauseOfStupidFontStyles);
+
                 for (var i = 0; i < this.settings.drilldown.series.length; i++) {
                     $.extend(this.settings.drilldown.series[i], drilldownSettings);
                     //this.settings.drilldown.series[i].id = this.settings.drilldown.series[i].name;
