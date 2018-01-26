@@ -19,3 +19,10 @@
 		}
 	}
 }
+
+%card-link-hover {
+	&:hover, &:focus {
+		color: $lcranberry;
+		text-decoration: none;
+	}
+}

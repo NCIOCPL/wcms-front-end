@@ -1,4 +1,5 @@
 define(function(require) {
+	require('./BlogSeriesPage.scss');
 	require('Common/Enhancements/sharecomponent');
 	var NCIAccordion = require('Modules/accordion/accordion');
 	$(function() {

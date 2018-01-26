@@ -1,1 +1,1 @@
-import 'StyleSheets/cthp.scss';
+import './CTHPPage.scss';
