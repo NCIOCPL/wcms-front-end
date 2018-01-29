@@ -6,6 +6,7 @@ import { BaseCTSSearchPage } from './BaseCTSSearchPage';
 import { CTSAdvancedFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-advanced-form-setup';
 import { CTSFieldValidator } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-field-validator';
 import * as CTSCommonAnalytics from "UX/AppModuleSpecific/BasicCTS/Common/Enhancements/ctsCommonAnalytics";
+import { CDN } from 'Modules/NCI.config';
 
 /////////
 /**
@@ -20,13 +21,13 @@ class AdvancedCTSSearchPage extends BaseCTSSearchPage {
 	}
 
 	onReady():void {
-		const select2Script = loadScript('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js')
+		const select2Script = loadScript(CDN.select2)
 			.then(scriptElement => {
 				new CTSAdvancedFormSetup(this.Config.ClinicalTrialsAPIServer).init();
 				new CTSFieldValidator().init();
 				(<any>(CTSCommonAnalytics)).init();
 			})
-			.catch(err => {throw(err)})
+			.catch(err => { throw(err) })
 	}
 }
 

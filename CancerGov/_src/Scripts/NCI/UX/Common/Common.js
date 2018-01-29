@@ -1,4 +1,5 @@
 define(function(require) {
+    var CONFIG = require('Modules/NCI.config');
     var $script = require('scriptjs');
     require('Common/Enhancements/analytics');
     require('StyleSheets/nvcg.scss')
@@ -52,7 +53,7 @@ define(function(require) {
     jQuery(document).ready(function(jQuery) {
         /*** BEGIN header component ***/
 
-        $script('//cdnjs.cloudflare.com/ajax/libs/ScrollToFixed/1.0.8/jquery-scrolltofixed-min.js', function () {
+        $script(CONFIG.CDN.scrollToFixed, function () {
             // initialize scrollToFixed plugin
             var headerHeight = $('.fixedtotop').outerHeight();
             $('.fixedtotop').scrollToFixed({
