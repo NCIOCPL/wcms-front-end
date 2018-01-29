@@ -22,7 +22,12 @@ define(function(require) {
                 '#ffffff',
                 '#f0f0ff'
             ],
-            font: 'DIN-Condensed-Bold, Arial, sans-serif',
+            font: {
+                dinConB: 'DIN Condensed Bold, Arial, sans-serif',
+                dinCon: 'DIN Condensed, Arial, sans-serif',
+                din: 'DIN Regular, Arial, sans-serif',
+                museo: 'Museo, Montserrat, Arial, sans-serif'
+            },
             title: {
                 color: '#62559f'
             },
@@ -33,7 +38,7 @@ define(function(require) {
         };
 
         // extend defaults with settings
-        this.settings = $.extend(true,{}, this.defaultSettings, options);
+        this.settings = $.extend(true, {}, this.defaultSettings, options);
         this.settings.target = target;
 
         if (typeof window.fetchingHighcharts == "undefined") {
@@ -55,8 +60,7 @@ define(function(require) {
                 console.time("Highcharts Load Time");
                 window.fetchingHighcharts = true;
                 $.when(
-                    $.getScript('https://code.highcharts.com/highcharts.src.js'),
-                    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js')
+                    $.getScript('https://code.highcharts.com/highcharts.src.js')
                 ).then(function () {
                     console.log("loading Highchart plug-ins");
                     return $.when(
@@ -125,7 +129,6 @@ define(function(require) {
                         ]
                     },
                     style: {
-                        fontFamily: 'DIN-Condensed, Arial, sans-serif',
                         color: '#62559f'
                     }
                 },
@@ -133,26 +136,45 @@ define(function(require) {
                     text: this.settings.title.text,
                     style: {
                         color: this.settings.title.color,
-                        fontSize: '25px',
-                        fontWeight: 'bold'
+	                    fontFamily: this.settings.font.dinConB,
+	                    fontSize: '32px',
+	                    fontWeight: 'bold'
                     }
                 },
                 subtitle: {
                     text: this.settings.subtitle.text,
                     style: {
                         color: this.settings.subtitle.color,
-                        fontSize: '16px',
+	                    fontFamily: this.settings.font.dinCon,
+                        fontSize: '22px',
                         fontWeight: 'normal'
+                    }
+                },
+                labels: {
+                    style: {
+	                    extOutline: false,
+	                    fontSize: '18px',
+	                    fontFamily: this.settings.font.din,
+	                    fontWeight: 'normal',
+	                    color: '#58595b'
                     }
                 },
                 legend: {
                     itemStyle: {
-                        color: '#58595b'
+                        color: '#706F6F',
+	                    fontSize: '14px',
+	                    fontFamily: this.settings.font.din,
+                        fontWeight: 'bold'
                     }
                 },
                 credits: {
                     text: 'cancer.gov',
-                    href: 'http://www.cancer.gov'
+                    href: 'http://www.cancer.gov',
+                    style: {
+                        color: '#959595',
+                        fontFamily: this.settings.font.dinConB,
+                        fontSize: '13px'
+                    }
                 },
                 lang: {
                     thousandsSep: ','
@@ -177,16 +199,21 @@ define(function(require) {
                 // },
                 tooltip: {
                     hideDelay: 150,
-                    followTouchMove: false
+                    followTouchMove: false,
+                    style: {
+                        fontFamily: this.settings.font.din
+                    },
+                    headerFormat: '<span style="font-size: 12px; font-weight:bold">{point.key}</span><br/>',
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: {point.y}<br/>'
                 },
                 drilldown: {
                     activeAxisLabelStyle: {
-                        textDecoration: 'none !important',
-                        fontStyle: 'italic'
+                        fontStyle: 'normal',
+	                    color: '#58595b'
                     },
                     activeDataLabelStyle: {
-                        textDecoration: 'none',
-                        color: '{point.color}'
+                        fontWeight: 'normal',
+                        color: '#58595b'
                     },
                     drillUpButton: {
                         position: {
@@ -199,36 +226,45 @@ define(function(require) {
                 xAxis: {
                     labels: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+                            fontFamily: this.settings.font.museo
                         }
                     },
                     title: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.din,
+                            textTransform: 'uppercase'
                         }
                     }
                 },
                 yAxis: {
                     labels: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.museo
                         }
                     },
                     title: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.din,
+	                        textTransform: 'uppercase'
                         }
                     }
                 },
                 zAxis: {
                     labels: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.museo
                         }
                     },
                     title: {
                         style: {
-                            color: '#58595b'
+                            color: '#706F6F',
+	                        fontFamily: this.settings.font.din,
+	                        textTransform: 'uppercase'
                         }
                     }
                 }
@@ -238,18 +274,26 @@ define(function(require) {
             Highcharts.setOptions(theme);
         };
 
+
+
         var generateDrilldownColors = function(drilldown){
-
-            //var drilldown = this.settings.drilldown;
-
 
             if(typeof drilldown.series == "object") {
 
                 for (var i = 0; i < drilldown.series.length; i++) {
                     var obj = drilldown.series[i];
-                    if (typeof obj.data == "object") {
-                        var colors = tinycolor(this.settings.colors[i]).analogous(obj.data.length, 5);
-                        obj.colors = colors.map(function (t) { return t.toHexString(); });
+                    if (typeof obj.data == "object" && typeof obj.colors == "undefined") {
+
+	                    var colors = [],
+		                    base = base || Highcharts.getOptions().colors[0],
+		                    i;
+
+	                    for (i = 0; i < 10; i += 1) {
+		                    // Start out with a darkened base color (negative brighten), and end
+		                    // up with a much brighter color
+		                    colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+	                    }
+	                    obj.colors = colors;
                     }
                 }
             }
@@ -260,6 +304,7 @@ define(function(require) {
 
         var NCI_pie = function () {
 
+
             var module = this;
 
             var seriesSettings = {
@@ -268,17 +313,26 @@ define(function(require) {
             var drilldownSettings = {
                 innerSize: '60%'
             };
+            var moreDrilldownSettingsBecauseOfStupidFontStyles = {
+                activeDataLabelStyle: {
+                    fontWeight: 'bold'
+                }
+            }
 
             var totalText;
 
             if (Object.keys(this.settings.drilldown).length > 0) {
+
+                $.extend(this.settings.drilldown, moreDrilldownSettingsBecauseOfStupidFontStyles);
+
                 for (var i = 0; i < this.settings.drilldown.series.length; i++) {
                     $.extend(this.settings.drilldown.series[i], drilldownSettings);
+                    //this.settings.drilldown.series[i].id = this.settings.drilldown.series[i].name;
                     //this.settings.drilldown.series[i].id = this.settings.drilldown.series[i].name;
                 }
             }
 
-            $.extend(this.settings.series[0], seriesSettings);
+            $.extend(true, this.settings.series[0], seriesSettings);
 
             // console.log("pie settings",this.settings);
 
@@ -315,8 +369,11 @@ define(function(require) {
                                     id: 'donutText',
                                     x: left,
                                     y: top,
-                                    style: 'color:#585757;font:bold 14px ' + module.settings.font + ';'
+                                    style: 'color:#585757;font:22px/30px ' + module.settings.font.dinConB + ';'
                                 }).add();
+                                // move the budget number down a bit
+                                totalText.element.children[1].setAttribute('dy', 22);
+
                             }
                         },
                         redraw: function () {
@@ -341,7 +398,8 @@ define(function(require) {
                 legend: {
                     layout: 'vertical',
                     align: 'right',
-                    verticalAlign: 'middle'
+                    verticalAlign: 'middle',
+                    itemMarginBottom: 3
                 },
 
                 series: this.settings.series,
@@ -358,17 +416,17 @@ define(function(require) {
                             overflow: 'none',
                             allowOverlap: true,
                             y: -6,
-                            style: {
-                                textOutline: false,
-                                fontSize: '16px',
-                                fontFamily: this.settings.font,
-                                color: '#58595b'
-                            },
                             formatter: function (label) {
                                 return '<span>' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
                                 //return '<span style="color:' + this.point.color + '">' + Highcharts.numberFormat(this.percentage, 1) + '%</span>';
                                 //return '<span style="color:' + this.point.color + '">' + this.point.name + '</span>';
-                            }
+                            },
+	                        style: {
+		                        fontSize: '14px',
+		                        fontFamily: this.settings.font.museo,
+		                        fontWeight: 'bold',
+		                        color: '#58595b'
+	                        }
                         },
                         showInLegend: true
                     }
@@ -440,15 +498,15 @@ define(function(require) {
                     }
                 },
                 tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div style="color:{series.color};">{series.name}: </div><div><b>{point.y}</b></div>',
+                    headerFormat: '<span style="font-size:20px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
+                    pointFormat: '<div style="color:{series.color};">{series.name}: </div><div>{point.y}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
                 }
             };
 
-            var chartSettings = $.extend(presets, module.settings);
+            var chartSettings = $.extend(true. presets, module.settings);
 
             //force the chart type to bar or column
             chartSettings.chart.type = this.settings.chart.type == 'NCI_bar' ? 'bar' : 'column';
@@ -570,8 +628,8 @@ define(function(require) {
                     }]
                 },
                 tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%"><b>{point.y:,.0f}</b></div>',
+                    headerFormat: '<span style="font-size:10px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
+                    pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%">{point.y:,.0f}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
@@ -633,7 +691,7 @@ define(function(require) {
                 }
             };
 
-            var chartSettings = $.extend(presets, module.settings);
+            var chartSettings = $.extend(true, presets, module.settings);
 
             this.instance = Highcharts.chart(this.settings.target, chartSettings);
         };
