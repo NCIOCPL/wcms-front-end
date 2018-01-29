@@ -397,18 +397,6 @@ div#cgvSlPagination, div.previous-next-links {
 	margin: 20px 0 20px 1em;
 	float: right;
 }
-.pullquote-thumb {
-	position: relative;
-	float: right;
-	padding: 0 0 0 10px;
-		.img-circle {
-		border-radius: 50%;
-		width: 130px;
-		}
-		@include bp(small) {
-			display: none;
-		}
-}
 .pullquote, .pullquote-right, .pullquote-left {
 	@extend .clearfix;
 	font-family: $din-condensed-bold-stack;

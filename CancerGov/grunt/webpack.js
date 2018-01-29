@@ -23,10 +23,10 @@ module.exports = function (grunt,options) {
             }
         },
         prod: {
-        output: {
-            filename: '[name].js',
-            path: dist_scripts
-        },
+            output: {
+                filename: '[name].js',
+                path: dist_scripts
+            },
             plugins: webpackConfig.plugins.concat(
                 new webpack.DefinePlugin({
                     "process.env": {

@@ -1,5 +1,5 @@
 .select2-selection--single {
-  background: #e6e6e6 image-url($jqueryui + "ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
+  background: #e6e6e6 url($jqueryui + "ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
   height: 40px;
   border-radius: $border-radius;
   border: 1px solid $border-color;
@@ -27,7 +27,7 @@
   }
 
   .select2-selection__arrow {
-    //background: #2b7bba image-url($icons + "nci-sprite.png") no-repeat scroll -374.5px -168px;
+    //background: #2b7bba url($icons + "nci-sprite.png") no-repeat scroll -374.5px -168px;
 
     background-color: #2b7bba;
     //border-bottom-right-radius: 4px;

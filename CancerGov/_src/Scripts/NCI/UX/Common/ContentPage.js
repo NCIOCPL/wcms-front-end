@@ -1,7 +1,6 @@
 define(function(require) {
 
     var $ = require('jquery');
-	var $script = require('scriptjs');
     require('Common/Enhancements/popup_functions');
 	//require('scrolltofixed');
 	var NCI = require('Common/Enhancements/NCI');

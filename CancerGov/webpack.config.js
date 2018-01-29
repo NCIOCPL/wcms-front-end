@@ -2,6 +2,7 @@ var webpack = require("webpack");
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var path = require("path");
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
 console.log("__dirname is:" + __dirname);
@@ -59,7 +60,9 @@ module.exports = {
 			BasicCTS:       'UX/AppModuleSpecific/BasicCTS',
 			Patches:        'Patches',
 			Modules:        'Modules',
+			Utilities:		'Utilities',
 			Charts:         'UX/Common/Enhancements/charts',
+			StyleSheets:	path.resolve(__dirname, '_src', 'StyleSheets'),
 
 			// vendor scripts
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
@@ -113,6 +116,18 @@ module.exports = {
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
 			{ test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" },
+			{ 
+				test: /\.js$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel-loader'
+			},
+			{
+				test: /\.s?css$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'postcss-loader', 'sass-loader']
+				})
+			},
 
 			// expose the charts module to a global variable
 			{
@@ -137,6 +152,11 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin({
 			name:'BasicCTSCommon',
 			chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSResultsPage"]
+		}),
+		new ExtractTextPlugin({
+			filename: getPath => {
+				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/PageSpecific/[name].css')
+			}
 		})
 	]
 };

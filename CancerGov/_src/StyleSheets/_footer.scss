@@ -1,166 +1,243 @@
 /********************* BEGIN Footer Styles ******************************************/
-.columns.footer-nci {
-    font-family: $montserrat-font-stack;
-    font-size: 25px;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-
-    span {
-        font-size: 16px;
-    }
-}
-
 .site-footer {
-    background: $footer image-url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -30% 150px;
+    background: $color-footer-bg url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat -120% 150px;
     padding: 1em 0;
-    color: white;
+    
+    * {
+      color: $white;
+      font-family: $noto-font-stack;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
 
     h2 {
-        color: white;
-        font-size: 1em;
+        font-size: 1.3em;
         font-weight: normal;
         text-transform: uppercase;
-        font-family: $noto-font-stack;
         margin-bottom: 1em;
     }
 
-    a,
-    a:hover, a:focus {
-        color: white;
-        font-weight: 700;
-    }
+    a {
+      font-weight: 700;
 
-    a:hover, a:focus {
+      &:hover, &:focus {
+        color: $white;
         text-decoration: underline;
-    }
-
-    .row {
-        margin: 1em auto;
-    }
-
-    li {
-        margin-bottom: 1em;
-        line-height: 1.1em;
-    }
-
-    .icon {
-        //display: inline-block;
-        //font-size: 18px;
-
-        &.facebook {
-          @include svg-sprite(facebook-white);
-        }
-
-        &.twitter {
-          @include svg-sprite(twitter-white);
-        }
-			
-        &.instagram {
-          @include svg-sprite(instagram-white);
-        }
-
-        &.googleplus {
-          @include svg-sprite(google-plus-white);
-        }
-
-        &.pinterest {
-          @include svg-sprite(pinterest-white);
-        }
-
-        &.youtube {
-          @include svg-sprite(youtube-white);
-        }
-
-        &.linkedin {
-          @include svg-sprite(linkedin-white);
-          font-size: 120%;
-        }
-
-        &.rss {
-          //font-size: 91%;
-          @include svg-sprite(rss-white);
-        }
-        &.govdelivery {
-          @include svg-sprite(gov-delivery-white);
-          //font-size: 91%;
-        }
-    }
-}
-
-@include bp(medium-down){
-	/** Hide feature card title on tablets and up **/
-	.site-footer {
-		background-position: 130% 150px;
-	}
-}
-
-@include bp(small){
-	/** Hide feature card title on tablets and up **/
-	.site-footer {
-		background-position: -120% 150px;
-	}
-}
-
-
-.follow-us {
-  margin: 0.5em 0;  
-	
-	li {
-		float: left;
-		margin-right: 0.7em;
-		margin-left: 0;
-		text-indent: 0;
-		margin-bottom: 0;
-	}
-	img:hover, img:focus {
-		opacity: 0.9;
-	}
-}
-
-.agencies {
-    clear: both;
-    ul {
-        text-align: center;
-    }
-
-    li {
-        display: inline-block;
-        margin-right: 0.25em;
-      &:after {
-        content: "|";
-        padding-left: 0.5em;
-        -webkit-font-smoothing: antialiased;
-      }
-    }
-
-    li.last {
-        background: none;
-        margin-right: 0;
-      &:after {
-        display:none;
       }
     }
 }
 
-.tagline {
-    text-align: center;
+.site-footer__container > .slot-item {
+  width: 100%;
+  max-width: 62.5em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-@include bp(medium-down){
-	.footer-utility .columns {
-		width: 100%;
-	}
-	.agencies ul {
-		text-align: left;
-	}
-	.agencies ul li {
-		display: block;
-		padding-right: 0;
-		margin-right: 0;
-        &:after {
-          display:none;
-        }
-	}
+.site-footer__header {
+  text-align: left;
+  width: 95%;
+  margin: 0 auto;
+
+  h1 {
+    font-family: $montserrat-font-stack;
+    font-size: 23px;
+
+    span {
+      display: block;
+      font-size: 16px;
+    }
+  }
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li {
+    width: 100%;
+    margin-bottom: 1em;
+    line-height: 1.3em;
+  }
+}
+
+.site-footer__icons {
+  max-width: 232px;
+  margin: 0 auto;
+  margin-bottom: 1.25em; // To match sitewide ul styling
+
+  li {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin: 5px;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover, &:focus {
+      opacity: 0.8;
+    }
+  }
+
+  .icon {
+
+    &.facebook {
+      @include svg-sprite(facebook-blue);
+    }
+
+    &.twitter {
+      @include svg-sprite(twitter-blue);
+    }
+  
+    &.instagram {
+      @include svg-sprite(instagram-blue);
+    }
+
+    &.googleplus {
+      @include svg-sprite(google-plus-blue);
+    }
+
+    &.pinterest {
+      @include svg-sprite(pinterest-blue);
+    }
+
+    &.youtube {
+      @include svg-sprite(youtube-blue);
+    }
+
+    &.linkedin {
+      @include svg-sprite(linkedin-blue);
+      font-size: 120%;
+    }
+
+    &.rss {
+      @include svg-sprite(rss-blue);
+    }
+    &.govdelivery {
+      @include svg-sprite(gov-delivery-blue);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.site-footer__agencies {
+  width: auto;
+  align-self: center;
+  font-size: 0.8em;
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li {
+    
+    &:not(:last-child):after {
+      content: '';
+      display: block;
+      margin: 10px auto;
+      width: 75px;
+      height: 1px;
+      background: rgba($white, 0.6);
+    }
+  }
+}
+
+.site-footer__tagline {
+  width: 95%;
+  align-self: center;
+  font-size: 0.8em;
+}
+
+@include break(medium) {
+  .site-footer {
+    background-position: -30% 150px;
+  }
+
+  .site-footer__header {
+    width: 100%;
+    margin: 0.9375em;
+    
+    * {
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 25px;
+    }
+  }
+
+  .site-footer__nav {
+    max-width: 100%;
+    margin: 0.9375em;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    * {
+      text-align: left;
+    }
+
+    div {
+      flex: 1;
+      padding-right: 1.2em;
+    }
+  }
+
+  .site-footer__icons {
+    max-width: 100%;
+    min-width: 140px;
+
+    li {
+      margin: 6px 12px 6px 0;
+    }
+  }
+
+  .site-footer__tagline {
+    font-size: 0.95em;
+  }
+  
+}
+
+@include break(large) {
+  .site-footer {
+    background-position: 130% 150px;
+  }
+
+  .site-footer__nav {
+    width: 100%;
+
+    div {
+      flex-basis: 20%;
+      margin-right: 2%;
+      padding-right: 10px; 
+    }
+  }
+}
+
+@include break(xlarge) {
+  .site-footer__container > .slot-item {
+    max-width: 1200px;
+  }
 }
 
 /********************* END Footer Styles ******************************************/
+

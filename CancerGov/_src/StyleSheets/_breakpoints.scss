@@ -45,3 +45,22 @@ $breakpoints: (
 		@media only screen and #{$point} { @content; }
 	}
 }
+
+/* Mobile First */
+@mixin break($breakpoint) {
+  @if $breakpoint == medium {
+    @media only screen and (min-width: 641px) { @content; }
+  }
+
+  @else if $breakpoint == large {
+    @media only screen and (min-width: 1025px) { @content; }
+  }
+
+  @else if $breakpoint == xlarge {
+    @media only screen and (min-width: 1441px) { @content; }
+  }
+
+  @else {
+		@media only screen and (#{$point}) { @content; }
+	}
+}

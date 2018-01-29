@@ -1,4 +1,5 @@
 define(function(require) {
+    require('./Popups.scss');
 	var $script = require('scriptjs');
 
 	$script([

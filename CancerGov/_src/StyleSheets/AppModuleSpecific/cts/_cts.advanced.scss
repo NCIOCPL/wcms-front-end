@@ -191,7 +191,7 @@ html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + la
     &::after {
       @include svg-sprite(minus-box);
     }
-    //background-image: image-url($icons + "cts-minus.png");
+    //background-image: url($icons + "cts-minus.png");
   }
 
   @include bp(small){

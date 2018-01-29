@@ -112,7 +112,7 @@ p.blog-post-publishing-info {
 }
 // comment-count is a span element. This style is unused. The icon is not even on the server
 //a.comment-count {
-//	background: image-url($icons + "comment-icon.png") no-repeat;
+//	background: url($icons + "comment-icon.png") no-repeat;
 //	padding-left: 26px;
 //	height: 22px;
 //}

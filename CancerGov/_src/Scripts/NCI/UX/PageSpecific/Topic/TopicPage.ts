@@ -5,6 +5,7 @@ import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsD
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
+import './TopicPage.scss';
 
 /**
  * Class representing CancerGov Topic Pages.

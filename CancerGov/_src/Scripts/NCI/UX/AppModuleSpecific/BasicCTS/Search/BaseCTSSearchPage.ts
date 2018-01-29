@@ -1,5 +1,8 @@
 import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-service';
 import { NCIBasePage } from 'UX/core';
+import 'StyleSheets/AppModuleSpecific/cts/index.scss';
+import 'StyleSheets/vendor/select2/core.scss';
+
 /**
  * Base class for all CTS Search Form Pages.
  * 
