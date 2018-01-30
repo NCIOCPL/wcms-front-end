@@ -2,134 +2,134 @@ const settings = {
     '.blue-circles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#3fb2c7',
+            generator: 'overlappingRings',
         }
     },
     '.blue-diamonds': {
         str: '',
         options: {
             color: '',
-            generator: '',
+            generator: 'xes',
         }
     },
     '.blue-dots': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#319cd2',
+            generator: 'concentricCircles',
         }
     },
     '.blue-triangles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#3e53c8',
+            generator: 'tessellation',
         }
     },
     '.emerald-xes': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#0f7811',
+            generator: 'xes',
         }
     },
     '.fuchsia-waves': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#9b38b6',
+            generator: 'sineWaves',
         }
     },
     '.green-arrows': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#34c381',
+            generator: 'chevrons',
         }
     },
     '.green-plaid': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#7cc02b',
+            generator: 'plaid',
         }
     },
     '.navy-squares': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#42698e',
+            generator: 'nestedSquares',
         }
     },
     '.orange-plaid': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#f5620f',
+            generator: 'plaid',
         }
     },
     '.orange-waves': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#f47a0a',
+            generator: 'sineWaves',
         }
     },
     '.pink-triangles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#cf2eb0',
+            generator: 'mosaicSquares',
         }
     },
     '.purple-circles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#814bd2',
+            generator: 'concentricCircles'
         }
     },
     '.purple-triangles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#af4f97',
+            generator: 'mosaicSquares',
         }
     },
     '.red-squares': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#c83335',
+            generator: 'plusSigns',
         }
     },
     '.red-triangles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#d7275f',
+            generator: 'mosaicSquares',
         }
     },
     '.slate-grid': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#41688d',
+            generator: 'squares',
         }
     },
     '.yellow-circles': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#eb9017',
+            generator: 'octogons', // Library writer misspelled this in the source code. Ugh.
         }
     },
     '.yellow-hexagons': {
         str: '',
         options: {
-            color: '',
-            generator: '',
+            color: '#e0c714',
+            generator: 'hexagons',
         }
     },
 }

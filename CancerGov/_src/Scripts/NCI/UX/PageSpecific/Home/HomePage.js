@@ -9,6 +9,7 @@ import './HomePage.scss';
 const onDOMContentLoaded = () => {
     espanolHome.init();
     CTDelighter.init();
+    patternInjector(carouselSettings);
 }
 
 window.addEventListener('DOMContentLoaded', onDOMContentLoaded);
