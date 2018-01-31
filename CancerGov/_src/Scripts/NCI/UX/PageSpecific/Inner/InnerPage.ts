@@ -6,7 +6,7 @@ import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';
 import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
-import * as FloatingDelighter from 'Modules/floatingDelighter';
+import FloatingDelighter from 'Modules/floatingDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import * as BestBets from 'Modules/bestBets/bestBets';
 import './InnerPage.scss';
@@ -51,7 +51,7 @@ class InnerPage extends NCIBasePage {
         (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);
 
         // Run delighter and analytics 'after' init() functions
-        (<any>FloatingDelighter).init(); 
+        (<any>FloatingDelighter)(); 
         (<any>AnalyticsAfter).init();
         (<any>BestBets).init();
 	}
