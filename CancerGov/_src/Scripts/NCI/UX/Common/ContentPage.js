@@ -1,9 +1,7 @@
 define(function(require) {
 
     var $ = require('jquery');
-	var $script = require('scriptjs');
     require('Common/Enhancements/popup_functions');
-	//require('scrolltofixed');
 	var NCI = require('Common/Enhancements/NCI');
 	//var search = require('Modules/search/search.js');
 	var exitDisclaimer = require('Common/Enhancements/exitDisclaimer');
@@ -20,8 +18,8 @@ define(function(require) {
 	require('Plugins/jquery.nci.prevent_enter');
 	//require('fork-placeholders.js');
 
-
-	$(document).ready(function() {
+	//DOM Ready event
+	$(function() {
 
 		/*** BEGIN dictionary toggle ***/
 		(function() {

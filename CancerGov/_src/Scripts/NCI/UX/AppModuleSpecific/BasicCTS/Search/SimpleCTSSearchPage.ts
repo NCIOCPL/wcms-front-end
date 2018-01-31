@@ -1,6 +1,3 @@
-import 'core-js/fn/object/assign';
-import 'core-js/fn/promise';
-import 'core-js/fn/string/includes';
 import { BaseCTSSearchPage } from './BaseCTSSearchPage';
 import { CTSSimpleFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-simple-form-setup';
 import { CTSFieldValidator } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-field-validator';
