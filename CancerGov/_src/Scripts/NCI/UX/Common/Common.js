@@ -1,4 +1,9 @@
 define(function(require) {
+	require('es6-promise').Promise;
+	require('core-js/fn/object/assign');
+	require('core-js/fn/string/includes');
+	require('core-js/fn/array/includes');
+
     require('Common/Enhancements/analytics');
     require('StyleSheets/nvcg.scss');
     require('jquery/scrollToFixed');
