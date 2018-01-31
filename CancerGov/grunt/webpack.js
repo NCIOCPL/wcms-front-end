@@ -17,7 +17,7 @@ module.exports = function (grunt,options) {
     return {
         options: webpackConfig,
         dev: {
-            devtool: "source-map",
+            devtool: "eval-source-map",
             output: {
                 filename: '[name].js',
                 path: dist_scripts
