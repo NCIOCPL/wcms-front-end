@@ -21,6 +21,7 @@
     "cookie-parser": "^1.4.3",
     "core-js": "^2.5.0",
     "geopattern": "^1.2.3",
+    "es6-promise": "^4.2.4",
     "handlebars": "^4.0.6",
     "headroom.js": "^0.9.4",
     "jplayer": "^2.9.2",
