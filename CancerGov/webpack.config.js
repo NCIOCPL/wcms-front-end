@@ -45,7 +45,7 @@ module.exports = {
 	target: 'web',
 	resolve: {
 		modules: [
-			'_src/Scripts/NCI',
+			'_src/Scripts/NCI', 
 			'node_modules'
 		],
 		alias: {
