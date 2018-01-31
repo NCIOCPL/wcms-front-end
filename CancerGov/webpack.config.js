@@ -1,8 +1,10 @@
 var webpack = require("webpack");
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var path = require("path");
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HappyPack = require('happypack');
+var happyPackThreadPool = HappyPack.ThreadPool({ size: 5 })
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
 console.log("__dirname is:" + __dirname);
@@ -118,13 +120,13 @@ module.exports = {
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				loader: 'babel-loader'
+				loader: 'happyPack/loader?id=js'
 			},
 			{
 				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: ['css-loader', 'postcss-loader', 'sass-loader']
+					use: 'happyPack/loader?id=styles'
 				})
 			},
 
@@ -156,6 +158,16 @@ module.exports = {
 			filename: getPath => {
 				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/PageSpecific/[name].css')
 			}
+		}),
+		new HappyPack({
+			id: 'js',
+			threadPool: happyPackThreadPool,
+			loaders: ['babel-loader']
+		}),
+		new HappyPack({
+			id: 'styles',
+			threadPool: happyPackThreadPool,
+			loaders: ['css-loader', 'postcss-loader', 'sass-loader']
 		})
 	]
 };
