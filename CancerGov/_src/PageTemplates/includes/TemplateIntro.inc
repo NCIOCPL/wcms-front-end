@@ -16,6 +16,10 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no" />
     <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans" rel="preload" onload="this.rel=stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700i|Noto+Sans:400i,700,700i" rel="prefetch" onload="this.rel=stylesheet">
+
     <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
 
     <!--(bake Favicons.inc)-->
