@@ -1,5 +1,5 @@
 import GeoPattern from 'GeoPattern';
-import { getNodeArray } from 'Utilities//domManipulation';
+import { getNodeArray } from 'Utilities/domManipulation';
 
 /**
  * This is a helper library that wraps the GeoPattern external library and simplifies component calls to it for
