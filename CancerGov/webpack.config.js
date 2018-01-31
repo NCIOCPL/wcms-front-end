@@ -5,6 +5,7 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HappyPack = require('happypack');
 var happyPackThreadPool = HappyPack.ThreadPool({ size: 5 })
+var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
 console.log("__dirname is:" + __dirname);
@@ -168,6 +169,7 @@ module.exports = {
 			id: 'styles',
 			threadPool: happyPackThreadPool,
 			loaders: ['css-loader', 'postcss-loader', 'sass-loader']
-		})
+		}),
+		new HardSourceWebpackPlugin(),
 	]
 };
