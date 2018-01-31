@@ -12,17 +12,22 @@ const buildPattern = (seed = `${Date.now()}`) => {
     if(typeof seed === 'string') {
         pattern = GeoPattern.generate(seed);
     } 
-    else if(typeof seed === 'object') {
+    else if(seed && typeof seed === 'object') {
+        const { 
+            str = '',
+            options = {}
+        } = seed;
+
         try {
-            pattern = GeoPattern.generate(seed.str, seed.options)
+            pattern = GeoPattern.generate(str, options);
         }
         catch(err) {
-            pattern = GeoPattern.generate(seed.str)
-            console.log('Invalid options', err)
+            pattern = GeoPattern.generate(str);
+            console.log('Invalid options', err);
         }
     }
     else {
-        throw new Error('Invalid seed provided for GeoPattern')
+        throw new Error('Invalid seed provided for GeoPattern');
     }
     const dataUrl = pattern.toDataUrl();
     return dataUrl;
