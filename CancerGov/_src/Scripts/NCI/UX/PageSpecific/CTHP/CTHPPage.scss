@@ -338,7 +338,6 @@
 }
 /* Format card title */
 h3.cthp-overview-title {
-	//background: #4c34c3 url($backgrounds + "CTHP-blue-purple-circles.jpg") repeat-x;
 	color: #ffffff;
 	padding: 0.47em 0.6em;
 	margin: -5px -15px 0;
@@ -372,47 +371,8 @@ h3.cthp-overview-title {
 	}
 }
 /** End CTHP Overview styling */
+
 /** Begin CTHP Card styling */
-
-@include img-sprites-same-size($accordion-sprites,$height:auto,$repeatX:true);
-//.cthp-content {
-//}
-
-[class*="cthp-overview"] h3.cthp-overview-title {
-	@extend .accordion-blue-purple-circles;
-}
-.cthp-card-container {
-	.cthp-treatment h3 {
-		@extend .accordion-green-waves;
-	}
-	.cthp-research h3 {
-		@extend .accordion-blue-gears;
-	}
-	.cthp-causes h3 {
-		@extend .accordion-purple-squares;
-	}
-	.cthp-genetics h3 {
-		@extend .accordion-blue-diamonds;
-	}
-	.cthp-screening h3 {
-		@extend .accordion-red-triangles;
-	}
-	.cthp-survival h3 {
-		@extend .accordion-yellow-squares;
-	}
-	.cthp-general h3 {
-		@extend .accordion-blue-octagons;
-	}
-	.cthp-overview h3 {
-		@extend .accordion-blue-purple-circles;
-	}
-	.cthp-pink-feature h3 {
-		@extend .accordion-pink-triangles;
-	}
-	.cthp-yellow-feature h3 {
-		@extend .accordion-yellow-hexagons;
-	}
-}
 
 /* TODO: update CTHP home and guide Percussion templates with a cleaner image hover class. This is a dirty fix for Devon Rex pre-go-live*/
 .cthpCard .cardBody,
