@@ -1,4 +1,3 @@
-import 'core-js/fn/array/includes';
 import { CTSBaseFormSetup } from './cts-base-form-setup';
 import { DiseaseResult } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';

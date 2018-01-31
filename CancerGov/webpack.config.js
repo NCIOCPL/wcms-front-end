@@ -8,6 +8,7 @@ var happyPackThreadPool = HappyPack.ThreadPool({ size: 5 })
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
+
 console.log("__dirname is:" + __dirname);
 module.exports = {
 	context: path.resolve(__dirname, "_src/Scripts/NCI"),
@@ -25,8 +26,8 @@ module.exports = {
 		//                             // 'jquery'
 		//                           ],
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
-		// "Babel-Polyfill":       'babel-polyfill',
-		Common:                 ['modernizr','./UX/Common/Common'],
+		//"Babel-Polyfill":       'babel-polyfill',
+		CommonBase:             ['modernizr','./UX/Common/Common'],
 		ContentPage:            './UX/Common/ContentPage',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
@@ -72,7 +73,8 @@ module.exports = {
 			modernizr$: path.resolve(__dirname, "./.modernizrrc"),
 
 			// vendor jQuery plugins
-			'jquery/megamenu$': 'Vendor/jquery-accessibleMegaMenu'
+			'jquery/megamenu$': 'Vendor/jquery-accessibleMegaMenu',
+			'jquery/scrollToFixed$': 'Vendor/jquery-scrolltofixed'
 			// throttle: 'throttle-debounce/throttle'
 
 		},
@@ -82,8 +84,6 @@ module.exports = {
 		jquery: 'jQuery',
 		jQuery: 'jQuery',
 		'jquery-ui': 'jQuery.ui',
-		headroom: 'Headroom',
-		'jquery-touchswipe':'jQuery.fn.swipe',
 		CDEConfig: 'CDEConfig'
 	},
 
@@ -151,10 +151,18 @@ module.exports = {
 			Modernizr: "modernizr",
 			Chart: 'Charts'
 		}),
+
 		new webpack.optimize.CommonsChunkPlugin({
-			name:'BasicCTSCommon',
-			chunks: ["AdvancedCTSSearchPage", "SimpleCTSSearchPage", "BasicCTSViewPage", "BasicCTSResultsPage"]
+			name: 'shared',
+			chunks: ['BlogPostPage', 'BlogSeriesPage', 'ContentPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
+			minChunks: 3
 		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'Common',
+			chunks: ['CommonBase','shared'],
+			minChunks: 1
+		}),
+
 		new ExtractTextPlugin({
 			filename: getPath => {
 				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/PageSpecific/[name].css')
