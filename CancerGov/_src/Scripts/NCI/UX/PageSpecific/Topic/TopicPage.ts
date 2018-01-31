@@ -1,7 +1,7 @@
 import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-service';
 import { NCIBasePage } from 'UX/core';
 import 'UX/Common/Enhancements/sharecomponent';
-import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
+import * as FloatingDelighter from 'Modules/floatingDelighter';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
@@ -38,7 +38,7 @@ class TopicPage extends NCIBasePage {
 	 * @memberof TopicPage
 	 */
 	onReady():void {
-		(<any>ClinicalTrialsDelighter).init();
+		(<any>FloatingDelighter).init();
 		(<any>ImageCarousel).init();
         (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 		(<any>AnalyticsAfter).init();

@@ -239,21 +239,21 @@
 	//}
 }
 
+// Expand the Social Media icons to full width at mobile
 @include bp(xtra-small) {
-	.ncihome {
-		.page-options {
-			float: none;
-			
-			ul {
-				justify-content: space-between;
-			}
+	.page-options {
+		float: none;
+		
+		ul {
+			justify-content: space-between;
+		}
 
-			li {
-				width: 48px;
-				height: 48px;
-			}
+		li {
+			width: 48px;
+			height: 48px;
 		}
 	}
+	
 }
 
 /* TABLET page options */

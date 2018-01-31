@@ -1,6 +1,6 @@
 import 'Modules/carousel/carousel';
 import espanolHome from 'Home/Enhancements/espanolHome';
-import CTDelighter from 'Common/Enhancements/clinicalTrialsDelighter';
+import CTDelighter from 'Modules/floatingDelighter';
 import patternInjector from 'Modules/patternInjector';
 import carouselSettings from './carouselSettings';
 import './HomePage.scss';
