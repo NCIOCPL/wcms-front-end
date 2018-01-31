@@ -1,3 +1,5 @@
+/// Note: this JS may be out of date and should be removed - daquinohd 1/16/2018. 
+/// TODO: Verify that this can be removed without breaking PDQ page navigation. 
 (function($){
  $.fn.stoc = function(options) {
     //Our default options
