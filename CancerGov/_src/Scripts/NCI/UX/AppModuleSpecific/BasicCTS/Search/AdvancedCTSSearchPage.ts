@@ -1,6 +1,3 @@
-import 'core-js/fn/object/assign';
-import 'core-js/fn/promise';
-import 'core-js/fn/string/includes';
 import { loadScript } from 'Utilities/ajax';
 import { BaseCTSSearchPage } from './BaseCTSSearchPage';
 import { CTSAdvancedFormSetup } from 'UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-advanced-form-setup';

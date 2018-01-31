@@ -1,8 +1,5 @@
 import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-service';
 import { NCIBasePage } from 'UX/core';
-import 'core-js/fn/object/assign';
-import 'core-js/fn/promise';
-import 'core-js/fn/string/includes';
 import 'UX/Common/Enhancements/sharecomponent';
 import 'UX/PageSpecific/Inner/Enhancements/showHideListingBodyField';
 import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';

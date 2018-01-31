@@ -14,11 +14,19 @@
 <head id="header" runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes" />
     <title></title>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://ajax.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://static.cancer.gov">
+    <link rel="preconnect" href="https://assets.adobedtm.com">
+    <link rel="preconnect" href="https://dap.digitalgov.gov">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans" rel="preload" onload="this.rel=stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700i|Noto+Sans:400i,700,700i" rel="prefetch" onload="this.rel=stylesheet">
+
 
     <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
 

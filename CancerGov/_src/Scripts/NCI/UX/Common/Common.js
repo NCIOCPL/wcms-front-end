@@ -1,8 +1,13 @@
 define(function(require) {
-    var CONFIG = require('Modules/NCI.config');
-    var $script = require('scriptjs');
+	require('es6-promise').Promise;
+	require('core-js/fn/object/assign');
+	require('core-js/fn/string/includes');
+	require('core-js/fn/array/includes');
+
     require('Common/Enhancements/analytics');
-    require('StyleSheets/nvcg.scss')
+    require('StyleSheets/nvcg.scss');
+    require('jquery/scrollToFixed');
+    require('jquery-touchswipe');
 
     var SiteWideSearch = require('Common/Enhancements/sitewidesearch');
     var megaMenuModule = require('Modules/megamenu/megamenu');
@@ -42,26 +47,21 @@ define(function(require) {
         }
     });
 
-    /*** BEGIN deeplinking fix
-     * This script fixes the scroll position for deeplinking.
-     ***/
     (function() {
         DeepLinkPatch.init();
     })();
-    /*** END deeplinking fix ***/
 
-    jQuery(document).ready(function(jQuery) {
+    // DOM Ready
+    $(function() {
         /*** BEGIN header component ***/
 
-        $script(CONFIG.CDN.scrollToFixed, function () {
-            // initialize scrollToFixed plugin
-            var headerHeight = $('.fixedtotop').outerHeight();
-            $('.fixedtotop').scrollToFixed({
-                spacerClass: 'fixedtotop-spacer',
-                fixed: function () {
-                    $('.fixedtotop-spacer').height(headerHeight);
-                }
-            });
+        // initialize scrollToFixed plugin
+        var headerHeight = $('.fixedtotop').outerHeight();
+        $('.fixedtotop').scrollToFixed({
+            spacerClass: 'fixedtotop-spacer',
+            fixed: function () {
+                $('.fixedtotop-spacer').height(headerHeight);
+            }
         });
 
         megaMenuModule.init();

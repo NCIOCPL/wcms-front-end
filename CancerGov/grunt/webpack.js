@@ -47,7 +47,7 @@ module.exports = function (grunt,options) {
                 })
             )
         },
-        analyse: {
+        analyze: {
             plugins: webpackConfig.plugins.concat(
                 new BundleAnalyzerPlugin({analyzerMode: 'static'})
             )
