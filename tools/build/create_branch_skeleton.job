@@ -39,10 +39,6 @@ job("${folderName}/_lower/Build for $BRANCH") {
     }
   }
 
-  parameters {
-    stringParam('RELEASE_LABEL', 'latest', 'Release label')
-  }
-
   label('docker && linux') // Require Linux and Docker
 
   scm {
