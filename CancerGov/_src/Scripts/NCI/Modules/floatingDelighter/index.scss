@@ -1,114 +1,173 @@
 @import '../../../../StyleSheets/variables';
 @import '../../../../StyleSheets/breakpoints';
+@import '../../../../StyleSheets/sprites/svg-sprite';
 
-// the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
 .floating-delighter {
-    //display: none;
-    position:fixed;
-    top:51%;
-    right:0;
+    position: fixed;
+    top: 51%;
+    right: 20px;
     z-index: 998;
   
-    a {
-      display:inline-block;
-      color:#fff;
-      font:bold 14px/16px Montserrat;
-      background-color: #82368C;
-      padding: 7px 10px;
-      max-width: 115px;
-      text-align: center;
+  .floating-delighter__link {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 7px 10px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    
+    &:hover, &:focus, &:active {
+      background-color: #3f0557;
+      text-decoration: none;
+    }
+    
+  }
+}
+
+.floating-delighter__icon, .floating-delighter__label {
+  height: 50%;
+  width: 100%;
+}
+
+.floating-delighter__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-delighter__label {
+  text-align: center;
+}
+
+/* Extra Large Screens */
+@include bp('(min-width:1770px)') {
+  .floating-delighter {
+    right: 10%;
+  }
+}
+
+/* Tablet/Mobile styles */
+@include bp(medium-down) {
+  .floating-delighter {
+    
+  }
+  // #delighter-innerpage {
+    //   margin-top: -65px;
+    // }
+}
+
+// // to fix find a clinical trial button positioning at small widths
+// @include bp('(max-width: 360px)') {
+//   .floating-delighter {
+//     top: 0;
+//     margin-bottom: 8px;
+//   }
+// }
   
-      &:hover {
-        background-color: #3f0557;
+@include bp(small) {
+  .floating-delighter {
+    position: initial;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    
+    .floating-delighter__link {
+      flex-direction: row;
+      align-items: center;
+      width: 80%;
+      max-width: 100%;
+      height: 90%;
+      padding: 12px 10px;
+      border-radius: initial;
+      margin: 0 auto;
+      font-size: 1.2em;
+      letter-spacing: 1.5px;
+      font-weight: normal;
+      
+      &:hover, &:focus, &:active {
         text-decoration: none;
       }
     }
   }
-  
-  /* Large Screens */
-  @include bp('(min-width:1025px)') {
-    .floating-delighter {
-      // left:0;
-      // max-width: 1250px;
-      //width: 100%;
-      text-align: right;
-      margin:0 auto;
-      display: inline;
-      right: 1%;
-      width: 110px;
-    }
+
+  .floating-delighter__icon {
+    width: 25%;
+    height: 100%;
+    margin-right: 4px;
   }
-  /* Extra Large Screens */
-  @include bp('(min-width:1770px)') {
-    .floating-delighter {
-      right: 10%;
-    }
+
+  .floating-delighter__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+    font-size: 0.8em;
+
   }
-  /* Tablet/Mobile styles */
-  @include bp(medium-down) {
-    .floating-delighter {
-      position: relative;
-      float: right;
-      top: 13px;
-      right: 10px;
-    }
-    // #delighter-innerpage {
-    //   margin-top: -65px;
-    // }
-  }
-  
-  /* Mobile styles */
-  @include bp(small) {
-    .floating-delighter {
-      right:5px;
+}
+
+@include bp(xtra-small) {
+  .floating-delighter {
+    width: 100%;
+    margin-bottom: 10px;
+
+
+    .floating-delighter__link {
+      width: 95%;
+      padding: 15px 40px;
+      height: auto;
     }
   }
   
-  // to fix find a clinical trial button positioning at small widths
-  @include bp('(max-width: 360px)') {
-    .floating-delighter {
-      top: 0;
-      margin-bottom: 8px;
-    }
+  .floating-delighter__icon {
+    flex-grow: 1;
+    width: 23%;
+    margin-right: 0;
   }
   
-  @include bp(xtra-small) {
-    .floating-delighter {
-      position: initial;
-      display: block;
-      float: none;
-      z-index: 0;
-      width: 100%;
-      margin: 0;
-      margin-bottom: 10px;
-      padding: 0;
+  .floating-delighter__label {
+    flex-grow: 1;
+    font-size: .9em;
+  }
+
+}
+
+.floating-delighter--cts {
+
+  .floating-delighter__link {
+    background-color: #82368c;
+  }
+  
+  .floating-delighter__icon {
+    
+    &::after {
+      content: '';
+      @include svg-sprite(search-large);
       
-      a {
-        display: block;
-        width: 95%;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 15px 0;
-        font-size: 1.2em;
-        letter-spacing: 1.5px;
-        font-weight: normal;
-        
-        &:hover, &:focus, &:active {
-          text-decoration: none;
-        }
-        
-        br {
-          display: none;
-        }
+      @include bp(small) {
+        font-size: .7em;
       }
     }
   }
-  
-  // 10/31/2017 hotfix to hide the feedback delighter upon launch of new survey tool
-  .results-delighter-rail,
-  .view-delighter-rail {
-    .delighter.cts-feedback {
-      display: none;
-    }
+
+  .floating-delighter__label {
+
   }
-  
+}
+
+// 10/31/2017 hotfix to hide the feedback delighter upon launch of new survey tool
+.results-delighter-rail,
+.view-delighter-rail {
+  .delighter.cts-feedback {
+    display: none;
+  }
+}

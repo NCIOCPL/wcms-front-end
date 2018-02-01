@@ -3,19 +3,27 @@ import AdobeAnalytics from 'Patches/AdobeAnalytics';
 
 const cts = {
     href: '/about-cancer/treatment/clinical-trials/search',
-    innerHTML: `Find A Clinical Trial`,
+    innerHTML: `
+        <div class="floating-delighter__icon">
+        </div>
+        <div class="floating-delighter__label">Find A Clinical Trial</div>
+    `,
     classList: ['floating-delighter--cts']
 };
 
 const socialMedia = {
     href: '#',
-    innerHTML: 'Social Media',
+    innerHTML: `
+        <div class="floating-delighter__icon">
+        </div>
+        <div class="floating-delighter__label">Social Media</div>
+    `,
     classList: ['floating-delighter--social-media']
 };
 
 const pages = {
     '/': cts,
-    '/mock/homepage': cts,
+    '/mock/pagespecificfeatures': cts,
     '/about-cancer/treatment/clinical-trials/search/trial-guide': cts,
     '/about-cancer/treatment/clinical-trials/search/help': cts,
     // '/social-media': socialMedia
@@ -23,6 +31,8 @@ const pages = {
 
 let isInitialized = false;
 
+// This can be expanded with changes in the underlying data structure to add more complex inclusion/exclusion rules if we watn to expand on the simple 
+// hash map DB (currently being used specifically to enforce the idea that one page = one delighter)
 const getDelighterSettings = pathName => pages[pathName];
 
 const buildDelighter = ({href, innerHTML, classList}) => {
@@ -31,8 +41,9 @@ const buildDelighter = ({href, innerHTML, classList}) => {
     classList.map(className => delighter.classList.add(className))
     const link = document.createElement('a');
     link.href = href;
+    link.classList.add('floating-delighter__link');
 
-    // This is a stopgap hardcoded until Analytics is brought in line. Needs to be changed this release. Ignore all ugliness (I'm looking at you Frank).
+    // This is a stopgap, hardcoded until Analytics is brought in line. Needs to be changed this release. Ignore all ugliness (I'm looking at you Frank).
     const analyticsClickEvent = () => {
         var s = AdobeAnalytics.getSObject();
         NCIAnalytics.HomePageDelighterClick($(this), 'hp_find', s.pageName);        
