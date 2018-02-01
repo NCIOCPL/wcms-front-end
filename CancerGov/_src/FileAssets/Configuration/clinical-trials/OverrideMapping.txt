@@ -18943,3 +18943,11 @@ C65690|Flavodic Acid
 C81117|Leucocianidol
 C77402|Monoxerutin
 C81118|Sofalcone
+treatment|Treatment
+other|Other
+supportive_care|Supportive Care
+diagnostic|Diagnostic
+prevention|Prevention
+basic_science|Basic Science
+health_services_research|Health Services Research
+screening|Screening
