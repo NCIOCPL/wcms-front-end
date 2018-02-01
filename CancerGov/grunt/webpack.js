@@ -48,9 +48,29 @@ module.exports = function (grunt,options) {
             )
         },
         analyze: {
-            plugins: webpackConfig.plugins.concat(
-                new BundleAnalyzerPlugin({analyzerMode: 'static'})
-            )
+	        output: {
+		        filename: '[name].js',
+		        path: dist_scripts
+	        },
+	        plugins: webpackConfig.plugins.concat(
+		        new webpack.DefinePlugin({
+			        "process.env": {
+				        // This has effect on the react lib size
+				        "NODE_ENV": JSON.stringify("production")
+			        }
+		        }),
+		        new webpack.LoaderOptionsPlugin({
+			        minimize: true,
+			        debug: false
+		        }),
+		        new UglifyJsPlugin({
+			        parallel: true,
+			        uglifyOptions: {
+				        exclude: [/\.min\.js$/gi], // skip pre-minified libs
+			        }
+		        }),
+		        new BundleAnalyzerPlugin({analyzerMode: 'static'})
+	        )
         }
     }
 };
