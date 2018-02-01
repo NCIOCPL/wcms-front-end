@@ -6,4 +6,4 @@ const onDOMContentLoaded = () => {
 	FloatingDelighter();
 }
 
-window.addEventListener('DOMContentLoaded', onDOMCOntentLoaded);
+window.addEventListener('DOMContentLoaded', onDOMContentLoaded);

@@ -1,31 +1,72 @@
 import './index.scss';
 import AdobeAnalytics from 'Patches/AdobeAnalytics';
 
+const cts = {
+    href: '/about-cancer/treatment/clinical-trials/search',
+    innerHTML: `Find A Clinical Trial`,
+    classList: ['floating-delighter--cts']
+};
+
+const socialMedia = {
+    href: '#',
+    innerHTML: 'Social Media',
+    classList: ['floating-delighter--social-media']
+};
+
+const pages = {
+    '/': cts,
+    '/mock/homepage': cts,
+    '/about-cancer/treatment/clinical-trials/search/trial-guide': cts,
+    '/about-cancer/treatment/clinical-trials/search/help': cts,
+    // '/social-media': socialMedia
+}
+
 let isInitialized = false;
 
-const buildDelighter = (id, href, innerHTML) => {
+const getDelighterSettings = pathName => pages[pathName];
+
+const buildDelighter = ({href, innerHTML, classList}) => {
     const delighter = document.createElement('div');
-    delighter.id = id;
+    delighter.classList.add('floating-delighter');
+    classList.map(className => delighter.classList.add(className))
     const link = document.createElement('a');
     link.href = href;
+
+    // This is a stopgap hardcoded until Analytics is brought in line. Needs to be changed this release. Ignore all ugliness (I'm looking at you Frank).
+    const analyticsClickEvent = () => {
+        var s = AdobeAnalytics.getSObject();
+        NCIAnalytics.HomePageDelighterClick($(this), 'hp_find', s.pageName);        
+    }
+    link.addEventListener('click', analyticsClickEvent)
+
     link.innerHTML = innerHTML;
     delighter.appendChild(link);
+
 
     return delighter;
 }
 
 const init = () => {
-    if(isInitialized) return;
-    isInitialized = true;
+    if(isInitialized) {
+        return;
+    }
+    else {
+        isInitialized = true;
+    }
 
-    const ctsPath = '/about-cancer/treatment/clinical-trials/search';
-    const pathName = location.pathname.replace(/\/$/, "").toLowerCase();
-    const isHomePage = document.body.classList.contains('ncihome');
-    const delighterSibling = document.getElementById('PageOptionsControl1');
+    // This regex strips the tailing slash from every path except the root
+    const pathName = location.pathname.replace(/[^\^]\/$/, "").toLowerCase();
+    const delighterSettings = getDelighterSettings(pathName);
 
-    const delighter = buildDelighter('delighter-innerpage', '#', 'HELLLO');
-    delighterSibling.insertAdjacentElement('afterend', delighter);
+    if(delighterSettings) {
+        const delighterElement = buildDelighter(delighterSettings);
+        const delighterSibling = document.getElementById('PageOptionsControl1');
+    
+        delighterSibling.insertAdjacentElement('afterend', delighterElement);
+        return delighterElement;
+    }
 
+    return
 }
 
 export default init;

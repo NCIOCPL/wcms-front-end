@@ -2,7 +2,7 @@
 @import '../../../../StyleSheets/breakpoints';
 
 // the following code is for the purple box that links to the CTS section on home page and elsewhere. This keeps if from colliding with social medial links when minimizing screen.
-#delighter-homePage, #delighter-innerpage {
+.floating-delighter {
     //display: none;
     position:fixed;
     top:51%;
@@ -27,7 +27,7 @@
   
   /* Large Screens */
   @include bp('(min-width:1025px)') {
-    #delighter-homePage, #delighter-innerpage {
+    .floating-delighter {
       // left:0;
       // max-width: 1250px;
       //width: 100%;
@@ -40,13 +40,13 @@
   }
   /* Extra Large Screens */
   @include bp('(min-width:1770px)') {
-    #delighter-homePage, #delighter-innerpage {
+    .floating-delighter {
       right: 10%;
     }
   }
   /* Tablet/Mobile styles */
   @include bp(medium-down) {
-    #delighter-homePage, #delighter-innerpage {
+    .floating-delighter {
       position: relative;
       float: right;
       top: 13px;
@@ -59,21 +59,21 @@
   
   /* Mobile styles */
   @include bp(small) {
-    #delighter-homePage, #delighter-innerpage {
+    .floating-delighter {
       right:5px;
     }
   }
   
   // to fix find a clinical trial button positioning at small widths
   @include bp('(max-width: 360px)') {
-    #delighter-homePage, #delighter-innerpage {
+    .floating-delighter {
       top: 0;
       margin-bottom: 8px;
     }
   }
   
   @include bp(xtra-small) {
-    #delighter-homePage, #delighter-innerpage {
+    .floating-delighter {
       position: initial;
       display: block;
       float: none;
