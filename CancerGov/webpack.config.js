@@ -126,13 +126,13 @@ module.exports = {
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				loader: 'happyPack/loader?id=js'
+				loader: 'happypack/loader?id=js'
 			},
 			{
 				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: 'happyPack/loader?id=styles'
+					use: 'happypack/loader?id=styles'
 				})
 			},
 
