@@ -1,4 +1,4 @@
-import GeoPattern from 'GeoPattern';
+import GeoPattern from 'geopattern';
 import { getNodeArray } from 'Utilities/domManipulation';
 
 /**
