@@ -22,18 +22,82 @@ const socialMedia = {
 };
 
 const pages = {
-    '/': cts,
-    '/mock/pagespecificfeatures': cts,
-    '/about-cancer/treatment/clinical-trials/search/trial-guide': cts,
-    '/about-cancer/treatment/clinical-trials/search/help': cts,
-    // '/social-media': socialMedia
-}
+    '/about-cancer/treatment/clinical-trials':{
+        delighter: cts,
+        exclude: [
+            /^\/advanced-search$/,
+            {
+                rule: /^\/search/,
+                whitelist: [
+                    '/about-cancer/treatment/clinical-trials/search/help',
+                    '/about-cancer/treatment/clinical-trials/search/trial-guide'
+                ]
+            },
+        ]
+    },
+    '/mock/':{
+        delighter: cts,
+    },
+};
+
+const pageBaseMatches = Object.keys(pages);
+
 
 let isInitialized = false;
 
-// This can be expanded with changes in the underlying data structure to add more complex inclusion/exclusion rules if we watn to expand on the simple 
-// hash map DB (currently being used specifically to enforce the idea that one page = one delighter)
-const getDelighterSettings = pathName => pages[pathName];
+const getStringTail = (head, string) => string.split(head)[1];
+
+const checkExclusions = (pathName, basePartial) => {
+    const pathTail = getStringTail(basePartial, pathName);
+    const exclusionRules = pages[basePartial].exclude;
+
+    const exclusionMatches = exclusionRules.map(rule => {
+        if (rule instanceof RegExp) {
+            const isOnExclusionList = pathTail.match(rule) ? true : false;
+            return isOnExclusionList;
+        }
+        // Rule is an object with a whitelist
+        else {
+            const isOnExclusionList = pathTail.match(rule.rule) ? true : false;
+            const isOnWhiteList = rule.whitelist.includes(pathName);
+
+            return isOnExclusionList ? !isOnWhiteList : false;
+        }
+    })
+
+    const isOnExclusionList = exclusionMatches.includes(true);
+    return isOnExclusionList;
+
+}
+
+
+const getDelighterSettings = pathName => {
+    // This is not the most elegant way to deal with the more exceptional root path
+    // Remove or change this block to handle root matches
+    if(pathName === '/') {
+        return cts;
+    }
+
+    // Test for path partial match in Map, if a perfect match is found or a partial map with no exclusion rules
+    // return the appropriate delighter settings immediately. Otherwise we need to map through the exclusion list rules
+    // and their possible associated whitelist paths.
+    for(let i = 0; i < pageBaseMatches.length; i++) {
+        const basePartial = pageBaseMatches[i];
+        if(pathName === basePartial) {
+            return pages[basePartial].delighter;
+        }
+        else if(pathName.includes(basePartial)) {
+            if(!pages[basePartial].exclude) {
+                return pages[basePartial].delighter
+            }
+
+            const isOnExclusionList = checkExclusions(pathName, basePartial);
+            return isOnExclusionList ? null : pages[basePartial].delighter;
+        }
+    }
+
+    return null;
+};
 
 const buildDelighter = ({href, innerHTML, classList}) => {
     const delighter = document.createElement('div');
@@ -43,16 +107,15 @@ const buildDelighter = ({href, innerHTML, classList}) => {
     link.href = href;
     link.classList.add('floating-delighter__link');
 
-    // This is a stopgap, hardcoded until Analytics is brought in line. Needs to be changed this release. Ignore all ugliness (I'm looking at you Frank).
-    const analyticsClickEvent = () => {
+    // This is a stopgap, hardcoded until Analytics is brought in line. Needs to be changed this release.
+    const analyticsClickEvent = e => {
         var s = AdobeAnalytics.getSObject();
-        NCIAnalytics.HomePageDelighterClick($(this), 'hp_find', s.pageName);        
+        NCIAnalytics.HomePageDelighterClick(e.currentTarget, 'hp_find', s.pageName);        
     }
     link.addEventListener('click', analyticsClickEvent)
 
     link.innerHTML = innerHTML;
     delighter.appendChild(link);
-
 
     return delighter;
 }
@@ -65,15 +128,19 @@ const init = () => {
         isInitialized = true;
     }
 
-    // This regex strips the tailing slash from every path except the root
-    const pathName = location.pathname.replace(/[^\^]\/$/, "").toLowerCase();
+    const pathName = location.pathname.toLowerCase();
     const delighterSettings = getDelighterSettings(pathName);
 
     if(delighterSettings) {
         const delighterElement = buildDelighter(delighterSettings);
-        const delighterSibling = document.getElementById('PageOptionsControl1');
-    
-        delighterSibling.insertAdjacentElement('afterend', delighterElement);
+        const delighterParent = document.querySelector('.page-options-container'); 
+        
+        delighterParent.appendChild(delighterElement);
+
+        // This allows us to add more custom CSS rules to siblings when delighter isn't present
+        // At the moment it is not being used so I'm leaving it here just in case.
+        // delighterParent.classList.append('floating-delighter--active');
+
         return delighterElement;
     }
 
@@ -81,68 +148,3 @@ const init = () => {
 }
 
 export default init;
-
-
-// define(function(require) {
-    // require('./index.scss');
-    // var $ = require('jquery');
-    // var AdobeAnalytics = require('Patches/AdobeAnalytics');
-
-	// var ctsPath = '/about-cancer/treatment/clinical-trials/search';
-	// var pathName = location.pathname.replace(/\/$/, "").toLowerCase();
-    
-    // function _initialize() {    
-    //     /* Only display the delighter on the NCI Home page but not on other
-    //     * pages regardless if they are using the home page template
-    //     * ---------------------------------------------------------------- */
-    //     if( $("body").hasClass("ncihome") ) {
-    //         var delighter = $('<div id="delighter-homePage"><a href="' + ctsPath + '">Find a <br/>Clinical Trial</a></div>');
-    //         delighter.find('a').on('click.analytics',function(e){
-    //             var s = AdobeAnalytics.getSObject();
-    //             NCIAnalytics.HomePageDelighterClick($(this), 'hp_find', s.pageName);
-    //         });
-    //         delighter.insertAfter('#PageOptionsControl1');
-    //     }
-
-    //     /* Display the delighter on all pages under the /clinical-trials path, except for the search/results/view pages
-    //     * ---------------------------------------------------------------- */
-    //     else if( pathName.indexOf("about-cancer/treatment/clinical-trials") > -1 ) {
-    //         // if(pathName.indexOf(ctsPath) == -1 && pathName.indexOf('advanced-search') == -1 || /\/v$/.test(pathName))
-    //         if(pathName.indexOf(ctsPath) == -1 && pathName.indexOf('advanced-search') == -1 ||
-    //         pathName.match('/about-cancer/treatment/clinical-trials/search/trial-guide') ||
-    //         pathName.match('/about-cancer/treatment/clinical-trials/search/help'))
-    //         {
-    //             var delighter = $('<div id="delighter-innerpage"><a href="' + ctsPath + '">Find a <br/>Clinical Trial</a></div>');
-    //             delighter.find('a').on('click.analytics',function(e){
-    //                 var s = AdobeAnalytics.getSObject();
-    //                 NCIAnalytics.HomePageDelighterClick($(this), 'hp_find', s.pageName);
-    //             });
-    //             delighter.insertAfter('#PageOptionsControl1');
-    //         }
-    //     }
-    // }
-
-
-// 	/**
-// 	 * Identifies if this enhancement has been initialized or not.
-// 	 * @type {Boolean}
-// 	 */
-// 	var initialized = false;
-
-// 	/**
-// 	 * Exposed functions available to this module.
-// 	 */
-// 	return {
-// 		init: function() {
-// 			if (initialized) {
-// 				return;
-// 			}
-
-// 			_initialize();
-
-// 			initialized = true;
-// 		}
-// 	};
-
-// });
-

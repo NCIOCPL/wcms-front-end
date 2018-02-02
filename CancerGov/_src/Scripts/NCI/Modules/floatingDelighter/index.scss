@@ -20,12 +20,6 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     line-height: 16px;
-    
-    &:hover, &:focus, &:active {
-      background-color: #3f0557;
-      text-decoration: none;
-    }
-    
   }
 }
 
@@ -145,6 +139,11 @@
 
   .floating-delighter__link {
     background-color: #82368c;
+
+    &:hover, &:focus, &:active {
+      background-color: #3f0557;
+      text-decoration: none;
+    }
   }
   
   .floating-delighter__icon {
