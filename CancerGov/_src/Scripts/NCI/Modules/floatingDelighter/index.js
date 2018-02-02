@@ -35,15 +35,15 @@ const pages = {
             },
         ]
     },
-    // '/social-media': {
-    //     delighter: socialMedia
-    // },
-    // '/mock/cts-delightertesting': {
-    //     delighter: cts,
-    // },
-    // '/mock/social-delightertesting': {
-    //     delighter: socialMedia
-    // }
+    '/social-media': {
+        delighter: socialMedia
+    },
+    '/mock/cts-delightertesting': {
+        delighter: cts,
+    },
+    '/mock/social-delightertesting': {
+        delighter: socialMedia
+    }
 };
 
 const pageBaseMatches = Object.keys(pages);
