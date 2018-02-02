@@ -16,7 +16,7 @@ const socialMedia = {
     innerHTML: `
         <div class="floating-delighter__icon">
         </div>
-        <div class="floating-delighter__label">Social Media</div>
+        <div class="floating-delighter__label">NCI Social Media Events</div>
     `,
     classList: ['floating-delighter--social-media']
 };
@@ -35,9 +35,15 @@ const pages = {
             },
         ]
     },
-    '/mock/':{
-        delighter: cts,
-    },
+    // '/social-media': {
+    //     delighter: socialMedia
+    // },
+    // '/mock/cts-delightertesting': {
+    //     delighter: cts,
+    // },
+    // '/mock/social-delightertesting': {
+    //     delighter: socialMedia
+    // }
 };
 
 const pageBaseMatches = Object.keys(pages);
