@@ -1,6 +1,6 @@
 import 'Modules/carousel/carousel';
 import espanolHome from 'Home/Enhancements/espanolHome';
-import CTDelighter from 'Common/Enhancements/clinicalTrialsDelighter';
+import FloatingDelighter from 'Modules/floatingDelighter';
 import patternInjector from 'Modules/patternInjector';
 import carouselSettings from './carouselSettings';
 import './HomePage.scss';
@@ -8,7 +8,7 @@ import './HomePage.scss';
 
 const onDOMContentLoaded = () => {
     espanolHome.init();
-    CTDelighter.init();
+    FloatingDelighter();
     patternInjector(carouselSettings);
 }
 
