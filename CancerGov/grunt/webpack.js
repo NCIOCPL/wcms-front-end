@@ -41,9 +41,8 @@ module.exports = function (grunt,options) {
                 }),
                 new UglifyJsPlugin({
                     parallel: true,
-                    uglifyOptions: {
-                        exclude: [/\.min\.js$/gi], // skip pre-minified libs
-                    }
+                    // exclude: [/\.min\.js$/gi,'wa_wcms_pre','s_code','NCIAnalyticsFunctions'] // skip pre-minified libs
+                    exclude: [/\.min\.js$/gi] // skip pre-minified libs
                 })
             )
         },

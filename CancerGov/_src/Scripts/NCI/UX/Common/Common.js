@@ -6,8 +6,7 @@ define(function(require) {
 
     require('Common/Enhancements/analytics');
     require('StyleSheets/nvcg.scss');
-    require('jquery/scrollToFixed');
-    require('jquery-touchswipe');
+
 
     var SiteWideSearch = require('Common/Enhancements/sitewidesearch');
     var megaMenuModule = require('Modules/megamenu/megamenu');
@@ -54,15 +53,6 @@ define(function(require) {
     // DOM Ready
     $(function() {
         /*** BEGIN header component ***/
-
-        // initialize scrollToFixed plugin
-        var headerHeight = $('.fixedtotop').outerHeight();
-        $('.fixedtotop').scrollToFixed({
-            spacerClass: 'fixedtotop-spacer',
-            fixed: function () {
-                $('.fixedtotop-spacer').height(headerHeight);
-            }
-        });
 
         megaMenuModule.init();
 

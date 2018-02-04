@@ -1,4 +1,5 @@
 define(function(require) {
+	require('headroom.js/dist/headroom.min');
     var oldHeadroom = Headroom;
 
     var HeadroomExtensions = {

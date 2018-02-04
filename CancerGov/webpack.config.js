@@ -27,7 +27,7 @@ module.exports = {
 		//                           ],
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
 		//"Babel-Polyfill":       'babel-polyfill',
-		CommonBase:             ['modernizr','./UX/Common/Common'],
+		Common:             ['modernizr','./UX/Common/Common'],
 		ContentPage:            './UX/Common/ContentPage',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
@@ -45,10 +45,7 @@ module.exports = {
 		DictionaryPage:         './UX/AppModuleSpecific/Dictionary/DictionaryPage',
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
-		Charts:                 './UX/Common/Enhancements/charts',
-		NCIAnalyticsFunctions:  './analytics/NCIAnalyticsFunctions.js',
-		s_code:                 './analytics/s_code',
-		wa_wcms_pre:            './analytics/wa_wcms_pre'
+		Charts:                 './UX/Common/Enhancements/charts'
 	},
 	target: 'web',
 	resolve: {
@@ -76,6 +73,7 @@ module.exports = {
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
 			// 'jquery-ui': '//code.jquery.com/ui/1.12.1/jquery-ui.min.js',
 			modernizr$: path.resolve(__dirname, "./.modernizrrc"),
+			Headroom$: 'headroom.js/dist/headroom.min',
 
 			// vendor jQuery plugins
 			'jquery/megamenu$': 'Vendor/jquery-accessibleMegaMenu',
@@ -154,7 +152,8 @@ module.exports = {
 	plugins: [
 		new webpack.ProvidePlugin({
 			Modernizr: "modernizr",
-			Chart: 'Charts'
+			Chart: 'Charts',
+			Headroom: 'Headroom'
 		}),
 
 		new webpack.optimize.CommonsChunkPlugin({
@@ -164,9 +163,11 @@ module.exports = {
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'Common',
-			chunks: ['CommonBase','shared'],
+			chunks: ['shared'],
 			minChunks: 1
 		}),
+
+
 
 		new ExtractTextPlugin({
 			filename: getPath => {

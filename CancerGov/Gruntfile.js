@@ -245,6 +245,7 @@ module.exports = function(grunt) {
             // This is deprecated in favor of using webpack to handle sass as of January 2018
             // 'build-styles:' + env,
             'uglify:' + env,
+            'uglify:analytics',
             'copy:scripts',
             'copy:widget_styles',
             'clean:tmp',
