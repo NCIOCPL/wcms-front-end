@@ -52,6 +52,10 @@ $breakpoints: (
     @media only screen and (min-width: 641px) { @content; }
   }
 
+  @else if $breakpoint == tablet-ls {
+    @media only screen and (min-width: 769px) { @content; }
+  }
+
   @else if $breakpoint == large {
     @media only screen and (min-width: 1025px) { @content; }
   }

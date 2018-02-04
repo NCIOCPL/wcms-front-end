@@ -1,8 +1,9 @@
-define(function(require) {
-	require('./LandingPage.scss');
-	require('Modules/carousel/carousel');
+import './LandingPage.scss';
+import 'Modules/carousel/carousel';
+import FloatingDelighter from 'Modules/floatingDelighter';
 
-	$(function() {
-		require('Common/Enhancements/clinicalTrialsDelighter').init();
-	});
-});
+const onDOMContentLoaded = () => {
+	FloatingDelighter();
+}
+
+window.addEventListener('DOMContentLoaded', onDOMContentLoaded);
