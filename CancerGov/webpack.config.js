@@ -171,7 +171,7 @@ module.exports = {
 
 		new ExtractTextPlugin({
 			filename: getPath => {
-				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/PageSpecific/[name].css')
+				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')
 			}
 		}),
 		new HappyPack({

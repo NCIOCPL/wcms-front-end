@@ -23,7 +23,7 @@
 	<link rel="preconnect" href="https://static.cancer.gov"/>
 
 	<link rel="preload" id="gFonts" as="style" crossorigin
-	    href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i|Noto+Sans:400,400i,700,700i" />
+	    href="https://fonts.googleapis.com/css?family=Montserrat:600,600i,700,700i|Noto+Sans:400,400i,700,700i" />
 
 	<script>
 		/* loadCSS. [c]2017 Filament Group, Inc. MIT License */
