@@ -11,3 +11,13 @@
 @import "../../../../../StyleSheets/searchresults";
 @import "../../../../NCI/Modules/bestBets/bestBets";
 @import "../../../../../StyleSheets/nokia-maps";
+
+// This was implemented by Sarina to match CTS Results pages on CTS
+// listing pages. [OCECTS-465].
+@include bp(large-up) {
+    .ct-listing-util-top {
+      .pager-between-hr {
+        display: none;
+      }
+    }
+  }
