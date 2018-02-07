@@ -23,3 +23,38 @@
       }
     }
   }
+
+// controls spacing of images on the nci organization page. Mark Cramer [OCEPROJECT-3322]
+.nci-organization {
+  .large-5 figure {
+    margin: 1.25em auto;
+  }
+  
+  .nci-organization__pattern {
+    display: flex;
+    height: 230px;
+
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+    
+    h1 {
+      margin: 20px;
+      line-height: 1.2em;
+      color: $white;
+    }
+
+    @include bp(small) {
+      h1 {
+        font-size: 2.1em;
+      }
+    }
+
+    @include bp(xtra-small) {
+
+      h1 {
+        font-size: 8vw;
+      }
+    }
+  }
+}
