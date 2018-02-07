@@ -38,21 +38,23 @@
       text-decoration: none;
     }
     
-    h1 {
+    span {
       margin: 20px;
-      line-height: 1.2em;
-      color: $white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      line-height: 1.3em;
+      color: #fff;
     }
 
     @include bp(small) {
-      h1 {
+      span {
         font-size: 2.1em;
       }
     }
 
     @include bp(xtra-small) {
 
-      h1 {
+      span {
         font-size: 8vw;
       }
     }
