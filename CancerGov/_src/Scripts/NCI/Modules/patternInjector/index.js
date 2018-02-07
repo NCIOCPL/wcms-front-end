@@ -40,14 +40,6 @@ const insertPatternIntoElement = (element, imgData) => {
     return element;
 };
 
-/**
- * Using the GeoPattern NPM library, inject on-the-fly rendered SVG patterns into the DOM. 
- * Pass a settings object containing keys matching a selector string for the elements you wish to process, 
- * and values that are either a string (representing a random seed) or an object with color, basecolor, and or generator
- * keys with string values (see https://github.com/btmills/geopattern for a more detailed explanation)
- * 
- * @param {object} settings 
- */
 const processBackgrounds = settings => {
     const elementTypes = Object.entries(settings);
     return elementTypes.map(elementValues => {
@@ -59,4 +51,27 @@ const processBackgrounds = settings => {
     });
 }
 
-export default processBackgrounds;
+
+/**
+ * Using the GeoPattern NPM library, inject on-the-fly rendered SVG patterns into the DOM. 
+ * Pass a settings object containing keys matching a selector string for the elements you wish to process, 
+ * and values that are either a string (representing a random seed) or an object with color, basecolor, and or generator
+ * keys with string values (see https://github.com/btmills/geopattern for a more detailed explanation)
+ * 
+ * If you only want to run the injector on certain pages and have no other options for encapsulation,
+ * pass a querySelector string as the second argument. It will abort the process if the specified 
+ * test case element can not be found.
+ * 
+ * @param {object} settings 
+ * @param {string} [pageCheckQuery='body'] - A valid querySelector string
+ * @return {array}
+ */
+const publicAPI = (settings, pageCheckQuery = 'body') => {
+    const isDesiredPage = document.querySelector(pageCheckQuery);
+    if(isDesiredPage) {
+        return processBackgrounds(settings);
+    }
+    return [];
+}
+
+export default publicAPI;

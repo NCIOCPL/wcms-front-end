@@ -9,6 +9,9 @@ import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import FloatingDelighter from 'Modules/floatingDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import * as BestBets from 'Modules/bestBets/bestBets';
+import patternInjector from 'Modules/patternInjector';
+import nciOrgPatternSettings from './nciOrgPatternSettings';
+
 import './InnerPage.scss';
 
 /**
@@ -43,7 +46,6 @@ class InnerPage extends NCIBasePage {
 	 * @memberof InnerPage
 	 */
 	onReady():void {
-
         // Build image carousels
         (<any>ImageCarousel).init();
 
@@ -54,6 +56,8 @@ class InnerPage extends NCIBasePage {
         (<any>FloatingDelighter)(); 
         (<any>AnalyticsAfter).init();
         (<any>BestBets).init();
+
+
 	}
     
 }
@@ -63,5 +67,6 @@ class InnerPage extends NCIBasePage {
  */
 (function() { //encapsulation
 	let innerPage:InnerPage = new InnerPage();
-	innerPage.init();
+    innerPage.init();
+    patternInjector(nciOrgPatternSettings, '.nci-organization__pattern');
 })();

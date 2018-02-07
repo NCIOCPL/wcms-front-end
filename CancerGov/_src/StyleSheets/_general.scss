@@ -617,11 +617,6 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 }
 /* End Body by Location top Navigation */
 
-/* controls spacing of images on the nci organization page */
-.nci-organization .large-5 figure {
-  margin: 1.25em auto;
-}
-
 
 @include bp(small){
 	.contact-infos-desktop {

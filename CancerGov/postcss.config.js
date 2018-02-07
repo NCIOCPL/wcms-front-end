@@ -14,7 +14,7 @@ module.exports = {
     plugins: [
         require('autoprefixer'),
         cachekiller(),
-        require('css-mqpacker')(),
+        // require('css-mqpacker')(), // Ideal in a world where cascades don't cascade onto cascade
         require('cssnano')({
             preset: [
                 'default', {

@@ -8,6 +8,53 @@
 @import "../../../../../StyleSheets/nci-foundation_mixins";
 @import "../../../../../StyleSheets/nci-foundation_variables";
 
+@import "../../../../../StyleSheets/topicFeature";
 @import "../../../../../StyleSheets/searchresults";
+@import "../../../../../StyleSheets/bodybanner";
 @import "../../../../NCI/Modules/bestBets/bestBets";
 @import "../../../../../StyleSheets/nokia-maps";
+
+// This was implemented by Sarina to match CTS Results pages on CTS
+// listing pages. [OCECTS-465].
+@include bp(large-up) {
+    .ct-listing-util-top {
+      .pager-between-hr {
+        display: none;
+      }
+    }
+  }
+
+// controls spacing of images on the nci organization page. Mark Cramer [OCEPROJECT-3322]
+.nci-organization {
+  .large-5 figure {
+    margin: 1.25em auto;
+  }
+  
+  .nci-organization__pattern {
+    display: flex;
+    height: 230px;
+
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+    
+    h1 {
+      margin: 20px;
+      line-height: 1.2em;
+      color: $white;
+    }
+
+    @include bp(small) {
+      h1 {
+        font-size: 2.1em;
+      }
+    }
+
+    @include bp(xtra-small) {
+
+      h1 {
+        font-size: 8vw;
+      }
+    }
+  }
+}
