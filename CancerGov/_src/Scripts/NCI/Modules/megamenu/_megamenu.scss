@@ -214,7 +214,7 @@
 
 @include bp(xtra-large) {
 	.nav-item > .nav-item-title > a {
-		padding: 14px 20px 8px;
+		padding: 14px 1.39em 8px;
 	}
 	.row, nav .sub-nav-group-wrapper {
 		max-width: 1200px;
