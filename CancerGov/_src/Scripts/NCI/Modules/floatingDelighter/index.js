@@ -139,9 +139,12 @@ const init = () => {
 
     if(delighterSettings) {
         const delighterElement = buildDelighter(delighterSettings);
-        const delighterParent = document.querySelector('.page-options-container'); 
-        
-        delighterParent.appendChild(delighterElement);
+        const delighterParent = document.querySelector('.page-options-container');
+
+        // Just in case this ends up running on a page without the container (it shouldn't)
+        if(delighterParent) {
+            delighterParent.appendChild(delighterElement);
+        }
 
         // This allows us to add more custom CSS rules to siblings when delighter isn't present
         // At the moment it is not being used so I'm leaving it here just in case.
