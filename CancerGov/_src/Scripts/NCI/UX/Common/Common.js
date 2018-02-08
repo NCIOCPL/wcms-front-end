@@ -1,8 +1,10 @@
 define(function(require) {
 	require('es6-promise').Promise;
-	require('core-js/fn/object/assign');
-	require('core-js/fn/string/includes');
-	require('core-js/fn/array/includes');
+    require('core-js/fn/array/from');
+    require('core-js/fn/array/includes');
+    require('core-js/fn/object/assign');
+    require('core-js/fn/object/entries');
+    require('core-js/fn/string/includes');
 
     require('Common/Enhancements/analytics');
     require('StyleSheets/nvcg.scss');

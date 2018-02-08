@@ -22,14 +22,7 @@
 	<link rel="preconnect" crossorigin href="https://fonts.gstatic.com"/>
 	<link rel="preconnect" href="https://static.cancer.gov"/>
 
-	<link rel="preload" id="gFonts" as="style" crossorigin
-	    href="https://fonts.googleapis.com/css?family=Montserrat:600,600i,700,700i|Noto+Sans:400,400i,700,700i" />
-
-	<script>
-		/* loadCSS. [c]2017 Filament Group, Inc. MIT License */
-		(function(a){a.loadCSS||(a.loadCSS=function(){});var c=loadCSS.relpreload={};c.support=function(){try{var b=a.document.createElement("link").relList.supports("preload")}catch(e){b=!1}return function(){return b}}();c.bindMediaToggle=function(b){function a(){b.media=c}var c=b.media||"all";b.addEventListener?b.addEventListener("load",a):b.attachEvent&&b.attachEvent("onload",a);setTimeout(function(){b.rel="stylesheet";b.media="only x"});setTimeout(a,3E3)};c.poly=function(){if(!c.support())for(var b=a.document.getElementsByTagName("link"), e=0;e<b.length;e++){var d=b[e];"preload"!==d.rel||"style"!==d.getAttribute("as")||d.getAttribute("data-loadcss")||(d.setAttribute("data-loadcss",!0),c.bindMediaToggle(d))}};if(!c.support()){c.poly();var f=a.setInterval(c.poly,500);a.addEventListener?a.addEventListener("load",function(){c.poly();a.clearInterval(f)}):a.attachEvent&&a.attachEvent("onload",function(){c.poly();a.clearInterval(f)})}"undefined"!==typeof exports?exports.loadCSS=loadCSS:a.loadCSS=loadCSS})("undefined"!==typeof global?global: this);
-		document.getElementById("gFonts").addEventListener('load',function(){this.rel='stylesheet'});
-	</script>
+	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Montserrat:600,600i,700,700i|Noto+Sans:400,400i,700,700i" />
 
     <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
 
