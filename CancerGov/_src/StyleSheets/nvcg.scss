@@ -96,3 +96,72 @@
 /* HACK STYLES */
 @import "hacks";
 /* END HACK STYLES */
+
+// This is a partial waiting to be made, it comes from the PDQ page, but at least 
+// some of the styles (.brand-fda) are being used in InnerPages 
+// (https://www.cancer.gov/about-cancer/treatment/drugs/raloxifenehydrochloride for
+// example). I'm moving it here to fix issues for QA and make sure it's not easily ignored.
+// Nothing in this file should remain as floating code for long. Partials only.
+
+/* new styles */
+.trial-sites h4 {
+	background: #E6E6E2;
+	padding: 3px 0;
+	/* font-size: 16px; */
+}
+.trial-sites h5 {
+	color: #993333;
+	font-size: 15px;
+	margin: 10px 0;
+}
+.trial-sites h6 {
+	/* font-size: 14px; */
+	font-style: normal;
+	margin: 5px 0 10px;
+}
+.trial-sites .two-columns {
+	margin: 0 30px;
+}
+.definition-term {
+	line-height: 1em;
+}
+.definition-term-image {
+	display: inline-block;
+	vertical-align: middle;
+}
+figure.definition-image {
+	width: 25%;
+	display: block;
+}
+table.drug-combination {
+	margin-left: 0px; //removed 20px per OCEPROJECT-2527
+	width: 100%;
+
+	td {
+		padding: 5px;
+
+		&.drug-combo-letter {
+			text-align: right;
+			font-weight: bold;
+		}
+	}
+}
+.two-columns.brand-fda {
+	width: 60%;
+}
+.brand-fda .column1 {
+	font-weight: bold;
+}
+table.table-default tfoot td {
+	border: none;
+	font-style: normal;
+	margin: 0;
+	padding: 8px 10px;
+	background: $caption-background;
+	font-size: 14px;
+	line-height: 1.5em;
+	font-family: $montserrat-font-stack;
+}
+.dis-disclaimer {
+}
+/* end new styles */
