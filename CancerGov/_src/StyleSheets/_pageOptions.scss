@@ -113,7 +113,6 @@
 	}
 
 	.page-options {
-		width: auto;
 		li {
 			margin: 0 0.875em 0 0;
 			width: 35px;
@@ -181,12 +180,14 @@
 	.page-options-container {
 		display: flex;
 		align-items: center;
+		clear: both;
 	}
 
 
 	.page-options {
-		width: 50%;
+		width: auto;
 		flex-grow: 1;
+		margin: 0;
 
 		li {
 			margin: 0 3% 0 0;

@@ -1,5 +1,4 @@
 define(function(require) {
-    require('./Popups.scss');
     var CONFIG = require('Modules/NCI.config');
 	var $script = require('scriptjs');
 

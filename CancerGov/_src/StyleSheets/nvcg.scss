@@ -78,6 +78,8 @@
 @import "flexVideoPreview";
 @import "arrowLinks";
 
+@import "checkbox";
+@import "popups";
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
 @import "../Scripts/NCI/Modules/proactiveLiveHelp/NCI.ProactiveLiveHelp";
@@ -101,7 +103,7 @@
 // some of the styles (.brand-fda) are being used in InnerPages 
 // (https://www.cancer.gov/about-cancer/treatment/drugs/raloxifenehydrochloride for
 // example). I'm moving it here to fix issues for QA and make sure it's not easily ignored.
-// Nothing in this file should remain as floating code for long. Partials only.
+// Nothing in this file should remain as floating code for long. Partials only. (BB - 2/2018)
 
 /* new styles */
 .trial-sites h4 {

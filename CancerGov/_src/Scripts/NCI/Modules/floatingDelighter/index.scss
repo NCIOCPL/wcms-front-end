@@ -51,18 +51,8 @@
   .floating-delighter {
     
   }
-  // #delighter-innerpage {
-    //   margin-top: -65px;
-    // }
 }
 
-// // to fix find a clinical trial button positioning at small widths
-// @include bp('(max-width: 360px)') {
-//   .floating-delighter {
-//     top: 0;
-//     margin-bottom: 8px;
-//   }
-// }
   
 @include bp(small) {
   .floating-delighter {
@@ -71,7 +61,7 @@
     justify-content: center;
     z-index: 0;
     width: 50%;
-    margin: 0;
+    margin: 7px 0;
     padding: 0;
     
     .floating-delighter__link {
