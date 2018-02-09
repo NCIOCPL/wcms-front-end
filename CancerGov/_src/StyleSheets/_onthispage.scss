@@ -46,6 +46,10 @@
 		}
 	}
 }
+@include bp(small){
+
+}	
+
 @include bp(medium-down){
 	.key-facts,
 	.key-points {
@@ -54,11 +58,25 @@
 		margin-right: 0;
 		float: none;
 	}
+
+	// show the full-page (all sections) OTP
+	#pdq-toc-article > .on-this-page {
+		display: block;
+	}
+	// hide the individual sections' OTP
+	.pdq-sections .on-this-page {
+		display: none;
+	}
 }
 // suppress the OTP on mobile
 // Need to add the sibling div.pre-otp as a selector to prevent 
 // non-collapsable OTPs from disappearing.
 @include bp(small) {
+	/* Hide 'On This Page' section on PDQ & factsheet pages */
+	#pdq-toc-article nav.on-this-page, body.cgvfactsheet nav.on-this-page {
+		display: none;
+	}
+
     div.pre-otp ~ .on-this-page {
         display: none;
     }
