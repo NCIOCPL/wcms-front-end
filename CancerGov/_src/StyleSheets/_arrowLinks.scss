@@ -8,6 +8,10 @@ a.arrow-link {
 	position: relative;
 	@extend %card-link-hover;
 
+	&:hover {
+		text-decoration: none;
+	}
+
 	&::before {
 		@include svg-sprite(chevron-circle-lt-blue, $rotate:right);
 		content: "";
