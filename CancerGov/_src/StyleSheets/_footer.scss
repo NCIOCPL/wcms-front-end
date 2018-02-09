@@ -27,7 +27,7 @@
     }
 }
 
-.site-footer__container > .slot-item {
+.site-footer__container {
   width: 100%;
   max-width: 62.5em;
   margin: 0 auto;
@@ -174,7 +174,6 @@
   }
 
   .site-footer__header {
-    width: 100%;
     margin: 0.9375em;
     
     * {

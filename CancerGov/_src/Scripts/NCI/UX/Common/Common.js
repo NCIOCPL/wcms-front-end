@@ -1,5 +1,5 @@
 define(function(require) {
-	require('es6-promise').Promise;
+	require('es6-promise/auto');
     require('core-js/fn/array/from');
     require('core-js/fn/array/includes');
     require('core-js/fn/object/assign');
