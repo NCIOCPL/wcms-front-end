@@ -58,6 +58,11 @@
 	height: 354px;
 	border: 1px solid #BDBDBD;
 	margin: 15px auto 13px auto;
-	padding: 1px;
+    padding: 1px;
+    
+    img {
+		max-width: 1024px;
+		max-width: initial;
+	}
 }
 /****************** END Nokia Maps ********************/
