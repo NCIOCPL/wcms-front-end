@@ -233,7 +233,7 @@
 }
 
 @include break(xlarge) {
-  .site-footer__container > .slot-item {
+  .site-footer__container {
     max-width: 1200px;
   }
 }
