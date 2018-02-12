@@ -96,7 +96,7 @@
 		font-family: $montserrat-font-stack;
 		text-transform: uppercase;
 		text-align: center;
-		transition: color .15s linear, background-color .15s linear;
+		transition: background-color .15s linear;
 	}
 
 	/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
