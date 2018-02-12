@@ -203,7 +203,6 @@
 
   .site-footer__icons {
     max-width: 100%;
-    min-width: 140px;
 
     li {
       margin: 6px 12px 6px 0;
@@ -233,7 +232,7 @@
 }
 
 @include break(xlarge) {
-  .site-footer__container > .slot-item {
+  .site-footer__container {
     max-width: 1200px;
   }
 }

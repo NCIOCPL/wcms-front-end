@@ -22,13 +22,8 @@
 	}
 
 	a {
-		//display: block;
-		//position: relative;
-		//height: 100%;
-		//width: 100%;
 		&:before {
 			content: '';
-			//font-size: 1.2em;
 		}
 	}
 
@@ -69,7 +64,6 @@
 
 	// Apply styling for share icons on CTS Basic Search
 	.page-options.cts-share {
-		top-margin: 0;
 		top: 0;
 		position: relative;
 		float: none;
@@ -181,7 +175,7 @@
 		display: flex;
 		align-items: center;
 		clear: both;
-		margin: 0 0 1em 0;
+		margin: 1em 0;
 	}
 
 
