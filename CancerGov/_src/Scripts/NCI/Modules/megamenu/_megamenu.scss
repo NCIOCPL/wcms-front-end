@@ -47,19 +47,6 @@
 	padding: 14px 1.39em 8px;
 }
 
-@include bp(xtra-large) {	
-	.row, nav .sub-nav-group-wrapper {
-		max-width: 1200px;
-	}
-	/* MegaMenu styles for side exits */
-		nav .sub-nav-group-wrapper {
-		max-width: 90em;
-	}
-	nav .sub-nav-group-subwrapper {
-		max-width: 75em;
-		margin: 0 auto;
-	}
-}
 
 @include bp(large-up) {
 	#nvcgSlMainNav {
@@ -286,6 +273,20 @@
 	}
 	nav .sub-nav-group-subwrapper {
 		max-width: 62.5em;
+		margin: 0 auto;
+	}
+}
+
+@include bp(xtra-large) {	
+	.row, nav .sub-nav-group-wrapper {
+		max-width: 1200px;
+	}
+	/* MegaMenu styles for side exits */
+		nav .sub-nav-group-wrapper {
+		max-width: 90em;
+	}
+	nav .sub-nav-group-subwrapper {
+		max-width: 75em;
 		margin: 0 auto;
 	}
 }
