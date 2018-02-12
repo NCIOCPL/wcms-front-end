@@ -62,9 +62,20 @@
 }
 
 @include bp(large-up) {
+	#nvcgSlMainNav {
+		display: flex;
+
+		.slot-item:first-of-type {
+			width: 75%;
+		}
+
+		.slot-item:last-child {
+			width: 25%;
+		}
+	}
 	/* mega menu list */
 	.nav-menu {
-		display: block;
+		display: flex;
 		/* removing style to allow for full screen width mega menu
 		position: relative; */
 		list-style: none;
@@ -75,10 +86,15 @@
 
 	/* a top level navigation item in the mega menu */
 	.nav-menu .nav-item {
+		flex-grow: 1;
 		list-style: none;
-		float: left;
 		padding: 0;
 		margin: 0;
+	}
+
+	.search {
+		float: none;
+		width: auto;
 	}
 
 	/* first descendant link within a top level navigation item */
@@ -100,10 +116,10 @@
 	.nav-menu .level-1 {
 		display: block;
 	}
-	.nav-search-bar nav {
-		width: 75%;
-		float: left;
-	}
+	// .nav-search-bar nav {
+	// 	width: 75%;
+	// 	float: left;
+	// }
 	.nav-menu .level-1 {
 		display: none;
 	}
