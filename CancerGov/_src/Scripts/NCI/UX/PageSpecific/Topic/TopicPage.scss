@@ -8,6 +8,7 @@
 @import "../../../../../StyleSheets/nci-foundation_variables";
 @import "../../../../../StyleSheets/thumbnailcards";
 @import "../../../../../StyleSheets/topicFeature";
+@import "../../../../../StyleSheets/landing-thumb";
 
 /****************** BEGIN Topic Pages ********************/
 
@@ -20,33 +21,6 @@ div.cc-main-pages div.title-red-arrow {
 	width: 31.25em;
 }
 
-.landing-thumb {
-	clear: both;
-}
-.landing-thumb-image {
-	width: 190px;
-	margin-top: 1.8125em;
-	display: inline-block;
-	vertical-align: top;
-}
-
-.landing-thumb-image figure.image-center-full{
-	margin: 0 auto;
-}
-
-.landing-thumb-text {
-	width: 70%;
-	padding-left: 1.25em;
-	display: inline-block;
-	vertical-align: top;
-}
-.landing-thumb-text h3 {
-	font-weight: normal;
-}
-.landing-thumb-text h3 a:hover, .landing-thumb-text h3 a:focus {
-	text-decoration: none;
-	color: $lcranberry;
-}
 .cgvtopicpage .columns > h3 {
 	font-weight: normal;
 }
@@ -62,17 +36,6 @@ div.cc-main-pages div.title-red-arrow {
 	}
 	.cgvtopicpage .card-thumbnail-image {
 		padding-left: 0;	
-	}
-}
-
-@include bp(medium-down) {
-	.landing-thumb-image {
-		display: none;
-	}
-
-	.landing-thumb-text {
-		width: 100%;
-		padding-left: 0em;
 	}
 }
 

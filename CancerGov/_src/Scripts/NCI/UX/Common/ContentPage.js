@@ -152,8 +152,6 @@ define(function(require) {
 
 			var ProactiveLiveHelpforCTS = new ProactiveLiveHelp();
 			var ProactiveLiveHelpforColorectal = new ProactiveLiveHelp();
-
-			//console.log(ProactiveLiveHelp);
 					
 			var PLHinitObject = {
 				urls: [
@@ -169,7 +167,8 @@ define(function(require) {
 					/^\/about-cancer\/treatment\/clinical-trials\/intervention\/.*/
 				],
 				popupID: 'ProactiveLiveHelpForCTSPrompt',
-				popupTitle: "Questions about Clinical Trials?",
+				popupTitle: "Need Help Finding a Clinical Trial?",
+				popupMessage: "<p>Information Specialists are available to help you search and answer your questions.</p>",
 				optOutDurationDays: 30,
 				popupDelaySeconds: 90
 			}
