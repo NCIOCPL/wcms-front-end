@@ -36,7 +36,12 @@ const injectPreviewContents = parent => {
 	container.setAttribute("tabIndex", "0");
 
 	// Create Thumbnail Element ################
-	const thumbnailSource = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+	// At the moment, we are using hqdefault as a more likely catchall, there are multiple
+	// thumbnail sizes but not all are always available. A future 
+	// improvement would be gracefully degrading in the event of a 404 if the requested 
+	// thumbnail type wasn't found (this means potentially saving 5-15kb at the cost of
+	// one or two more HTTP requests)
+	const thumbnailSource = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 	const thumbnail = new Image();
 	thumbnail.src = thumbnailSource;
 	thumbnail.classList.add('video-preview--preview-img');
