@@ -56,9 +56,25 @@
 			width: 75%;
 		}
 
-		.slot-item:last-child {
+		// All the weirdness from here down is to accomodate the different DOM structure on 404 pages
+		// where the search is not a separate slot-item, unlike the rest of the site.
+		.slot-item:not(:only-child):last-child {
 			width: 25%;
 		}
+
+		.slot-item:only-child {
+			display: flex;
+			width: 100%;
+
+			>div:first-child {
+				width: 75%;
+			}
+
+			>div:nth-of-type(2) {
+				width: 25%;
+			}
+		}
+		// End weirdness
 	}
 	/* mega menu list */
 	.nav-menu {

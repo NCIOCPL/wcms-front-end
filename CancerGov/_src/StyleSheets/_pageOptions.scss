@@ -48,6 +48,11 @@
 }
 
 
+#blogPageOptionsInnerContainer {
+	margin: 1em 0;
+}
+
+
 /* DESKTOP page options */
 @include bp(large-up) {
 	// apply homepage- and landing page-only styles
@@ -98,11 +103,6 @@
 		top: 3.8em;
 
 	}
-
-	#blogPageOptionsInnerContainer {
-		margin: 1em 0;
-	}
-
 }
 
 /* MOBILE page options */

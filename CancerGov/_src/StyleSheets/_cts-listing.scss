@@ -1,8 +1,11 @@
 /* Counter / pager styles above listing body*/
 .ct-listing-util-top  {
-    hr {
-      margin-top: 32px;
-      margin-bottom: 0px;
+
+    @include bp(large) {
+      hr {
+        margin-top: 32px;
+        margin-bottom: 0px;
+      }
     }
   }
   
