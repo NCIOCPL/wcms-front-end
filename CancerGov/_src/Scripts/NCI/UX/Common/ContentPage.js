@@ -11,6 +11,7 @@ define(function(require) {
 	var flexVideo = require('Modules/videoPlayer/flexVideo');
 	var formControls = require('Modules/forms/formControls');
 	var tooltips = require('Modules/tooltips/referenceTooltip');
+	var proactiveLiveHelp = require('Modules/liveHelpPopup');
 
 
 	//require('Modules/autocomplete/autocomplete');
@@ -147,81 +148,7 @@ define(function(require) {
 
 
         // Proactive Live Help for CTS
-        (function () {
-			var ProactiveLiveHelp = require("Modules/proactiveLiveHelp/proactiveLiveHelp");
-
-			var ProactiveLiveHelpforCTS = new ProactiveLiveHelp();
-			var ProactiveLiveHelpforColorectal = new ProactiveLiveHelp();
-					
-			var PLHinitObject = {
-				urls: [
-					"/about-cancer/treatment/clinical-trials/search",
-					"/about-cancer/treatment/clinical-trials/basic",
-					"/about-cancer/treatment/clinical-trials/search/a",
-					"/about-cancer/treatment/clinical-trials/search/r",
-					"/about-cancer/treatment/clinical-trials/search/v",
-					"/about-cancer/treatment/clinical-trials/advanced-search",
-					"/about-cancer/treatment/clinical-trials/search/results",
-					"/about-cancer/treatment/clinical-trials/search/view",
-					/^\/about-cancer\/treatment\/clinical-trials\/disease\/.*/,
-					/^\/about-cancer\/treatment\/clinical-trials\/intervention\/.*/
-				],
-				popupID: 'ProactiveLiveHelpForCTSPrompt',
-				popupTitle: "Need Help Finding a Clinical Trial?",
-				popupMessage: "<p>Information Specialists are available to help you search and answer your questions.</p>",
-				optOutDurationDays: 30,
-				popupDelaySeconds: 90
-			}
-			
-
-					
-			if((window.location.href.indexOf("about-cancer/treatment/clinical-trials/disease") > -1) || (window.location.href.indexOf("about-cancer/treatment/clinical-trials/intervention") > -1))  {
-       PLHinitObject.popupDelaySeconds = 30;
-    }
-
-			ProactiveLiveHelpforCTS.initialize(PLHinitObject);
-			// END Clinical Trial Search Setup
-
-			// Proactive Live Help for Colo-rectal Cancer Type Pages
-			// END Date has passed. Turning off code.
-			// ProactiveLiveHelpforColorectal.initialize({
-			// 	urls: [
-			// 		'/types/colorectal',
-			// 		'/types/colorectal/patient/colon-treatment-pdq',
-			// 		'/types/colorectal/patient/rectal-treatment-pdq',
-			// 		'/types/colorectal/patient/colorectal-prevention-pdq',
-			// 		'/types/colorectal/patient/colorectal-screening-pdq',
-			// 		'/types/colorectal/hp',
-			// 		'/types/colorectal/hp/colon-treatment-pdq',
-			// 		'/types/colorectal/hp/rectal-treatment-pdq',
-			// 		'/types/colorectal/hp/colorectal-prevention-pdq',
-			// 		'/types/colorectal/hp/colorectal-genetics-pdq',
-			// 		'/types/colorectal/hp/colorectal-screening-pdq',
-			// 		'/types/colorectal/research',
-			// 		'/types/colorectal/screening-fact-sheet',
-			// 		'/types/colorectal/did-you-know-colorectal-cancer-screening-video',
-			// 		'/types/colorectal/research/cetuximab-chemo-no-benefit',
-			// 		'/types/colorectal/research/colonoscopy-reduces-deaths',
-			// 		'/types/colorectal/research/eflornithine-sulindac',
-			// 		'/types/colorectal/research/folfox-celecoxib',
-			// 		'/types/colorectal/research/preop-treatment',
-			// 		'/types/colorectal/research/screening-sigmoidoscopy',
-			// 		'/types/colorectal/research/aspirin-reduces-risk',
-			// 		'/types/colorectal/research/TAS-102-overall-survival',
-			// 		'/types/colorectal/research/bevacizumab-severe-side-effects',
-			// 		'/types/colorectal/research/virtual-colonoscopy-results-qa',
-			// 		'/types/colorectal/research/polyp-fiber-prevention-qa',
-			// 		'/about-cancer/treatment/drugs/colorectal'
-			// 	],
-			// 	popupID: 'PLH-colorectal',
-			// 	popupTitle: 'Questions about Colorectal Cancer?',
-			// 	optOutDurationDays: 14,
-			// 	popupDelaySeconds: 30,
-			// 	start:'03/01/2017',
-			// 	endDate:'04/01/2017'
-			// });
-        })();
-
+		proactiveLiveHelp();
 
 		// Blue Ribbon Panel - Page Specific
     // removed on 6.7.17 by MTN require to NCI.Video.js, pages/fuctionality no longer used
