@@ -77,11 +77,11 @@ const spanishCTSSettings = {
 // before scanning at a more granular level.
 const basePaths = [
     {
-        path: /^about-cancer\/treatment\/clinical-trials/,
+        path: /^\/about-cancer\/treatment\/clinical-trials/,
         settings: englishCTSSettings
     },
     {
-        path: /^espanol\/cancer\/tratamiento/,
+        path: /^\/espanol\/cancer\/tratamiento/,
         settings: spanishCTSSettings
     }
 ];
@@ -134,12 +134,6 @@ const verifyOptInStatus = popupId => {
     return !!CookieManager.get(popupId + '-opt');
 }
 
-const getSecondsSinceLastInteraction = lastActivityTime => {
-    const now = new Date().getTime(); // Time in milliseconds
-    const elapsed = now - lastActivityTime;
-    return Math.floor(elapsed / 1000);
-}
-
 // Verify if current time is beyond end date.
 const verifyIsPastDate = date => {
     if (!date) return false;
@@ -156,8 +150,14 @@ const verifyShouldLiveHelpRun = ({ startDate, endDate, popupId }) => {
     const isNotPastEndDate = !verifyIsPastDate(endDate);
     // Replace result after testing (localhost doesn't work)
     const isNotOptedOut = true // verifyOptInStatus(popupId);
-    const isValidTimeToRun = isLiveHelpPage && isLiveHelpAvailable && isPastStartDate && isNotPastEndDate && isNotOptedOut;
+    const isValidTimeToRun = isLiveHelpAvailable && isPastStartDate && isNotPastEndDate && isNotOptedOut;
     return isValidTimeToRun;
+}
+
+const getSecondsSinceLastInteraction = lastActivityTime => {
+    const now = new Date().getTime(); // Time in milliseconds
+    const elapsed = now - lastActivityTime;
+    return Math.floor(elapsed / 1000);
 }
 
 class ProactiveLiveHelp {
@@ -182,7 +182,7 @@ class ProactiveLiveHelp {
         // interaction time is 1/1/1970.
 
         const self = this;
-        const secondsSinceLastInteraction = this.getSecondsSinceLastInteraction(this.userActivity.lastActivityTime);
+        const secondsSinceLastInteraction = getSecondsSinceLastInteraction(this.userActivity.lastActivityTime);
         if(secondsSinceLastInteraction < this.options.interactionDelaySeconds){
             window.setTimeout(self.displayPrompt, 1000); // Retry in a second.
             return;
@@ -301,6 +301,7 @@ class ProactiveLiveHelp {
     }
 }
 
+// TODO: Rewrite to remove jquery clickhandling
 function activatePromptAnalytics () {
     // Record prompt activation.
     if (NCIAnalytics && NCIAnalytics.RecordProactiveChatPromptDisplay)
@@ -338,7 +339,7 @@ const initialize = () => {
 
         // Should pass in pathName to make testing even easier without correct routing
         const pathName = location.pathname.toLowerCase();
-        const popupSettings = getPopupSettings(pathName);
+        const popupSettings = getPopupSettings(basePaths, pathName);
 
         // If we were able to retrieve a settings object we know we have a page match
         if(popupSettings) {
@@ -356,9 +357,11 @@ const initialize = () => {
             }
         }
         else {
-            //TODO: DO WE NEED THIS? THIS DOESN'T WORK IF WE'RE TESTING FOR MULTIPLE TYPES ANYWAY
+            //TODO: DO WE NEED THIS? THIS DOESN'T WORK IF WE'RE TESTING FOR MULTIPLE TYPES ANYWAY, SINCE THERE IS NO SETTINGS
+            // ON NON-LIVE HELP PAGES.
+            // WE CAN REMOVE ALL TIMERS, BUT THAT ISN'T REALLY THE POINT EITHER.
             // If we're not on a page listed within the options.urls, clear the timer if it exists.
-            CookieManager.remove(options.popupID + '-timer');
+            // CookieManager.remove(options.popupID + '-timer');
         }
 
     }
