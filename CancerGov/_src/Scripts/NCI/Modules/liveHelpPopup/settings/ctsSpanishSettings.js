@@ -32,7 +32,7 @@ const ctsSpanishSettings = {
     popupID: 'ProactiveLiveHelpForCTSPrompt',
     popupBody: `
         <h2 class="title">¿Necesita ayuda en encontrar un estudio clínico?</h2>
-        <div class="content">
+        <div class="content spanish-livehelp">
             <p>Especialistas de Información están disponibles para ayudarle en hacer una búsqueda y contestar a sus preguntas.</p>
             <form onsubmit="return false;">
                 <input id="chat-button" type="button" name="rn_nciChatLaunchButton_4_Button" class="chat-button" value="Iniciar Chat">

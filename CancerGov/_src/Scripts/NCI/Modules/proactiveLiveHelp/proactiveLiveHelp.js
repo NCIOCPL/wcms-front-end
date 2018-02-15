@@ -1,3 +1,4 @@
+//NOTE: THIS IS DEPRECATED IN FAVOR OF liveHelpPopup. Schedule for termination. BB 2/2018
 define(function(require){
 
     var $ = require('jquery');

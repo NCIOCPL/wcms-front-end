@@ -118,10 +118,9 @@ const initialize = () => {
             }
         }
         else {
-            //TODO: DO WE NEED THIS? THIS DOESN'T WORK IF WE'RE TESTING FOR MULTIPLE TYPES ANYWAY, SINCE THERE IS NO SETTINGS
-            // ON NON-LIVE HELP PAGES.
-            // WE CAN REMOVE ALL TIMERS, BUT THAT ISN'T REALLY THE POINT EITHER.
-            // If we're not on a page listed within the options.urls, clear the timer if it exists.
+            //THIS IS HARDCODED. BUT WHEN THE WIDGET BECOMES MORE EXTENSIBLE A FIX
+            //NEED TO BE IMPLEMENTED. I SUGGEST RENAMING THE COOKIES WITH A PREFIX
+            //SUCH AS LIVEHELP- AND THEN DELETING ALL COOKIES WITH THAT PREFIX.
             CookieManager.remove('ProactiveLiveHelpForCTSPrompt-timer');
         }
 
