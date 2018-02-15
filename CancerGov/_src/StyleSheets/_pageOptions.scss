@@ -1,4 +1,3 @@
-/***** BEGIN PAGE OPTIONS *************************************/
 
 /* COMMON for all page options */
 .page-options {
@@ -233,4 +232,17 @@
         float: left;
     }
 }
-/****** END PAGE OPTIONS *************************************/
+
+// HACK FOR WHEN PAGE OPTIONS IS NESTED IN THE PAGE AND NOT A TOP LEVEL ELEMENT
+// example /about-cancer/treatment/clinical-trials/disease/esophageal-cancer
+.resize-content {
+	.page-options-container {
+		@include bp(small) {
+			width: calc(100% + 15px);
+		}
+
+		@include bp(xtra-small) {
+			width: 100%;
+		}
+	}
+}
