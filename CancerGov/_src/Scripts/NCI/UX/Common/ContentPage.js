@@ -11,7 +11,7 @@ define(function(require) {
 	var flexVideo = require('Modules/videoPlayer/flexVideo');
 	var formControls = require('Modules/forms/formControls');
 	var tooltips = require('Modules/tooltips/referenceTooltip');
-	var proactiveLiveHelp = require('Modules/liveHelpPopup');
+	var proactiveLiveHelp = require('Modules/liveHelpPopup').default;
 
 
 	//require('Modules/autocomplete/autocomplete');
@@ -147,8 +147,10 @@ define(function(require) {
 		})();
 
 
-        // Proactive Live Help for CTS
-		proactiveLiveHelp();
+		// Proactive Live Help for CTS
+		(function () {
+			proactiveLiveHelp();
+		})();
 
 		// Blue Ribbon Panel - Page Specific
     // removed on 6.7.17 by MTN require to NCI.Video.js, pages/fuctionality no longer used
