@@ -34,6 +34,23 @@ module.exports = function (grunt, options) {
             },
             files: [oldFiles]
         },
+        dictionaryWidget: {
+            options: {
+		        compress: {
+			        collapse_vars: false,
+			        keep_fnames: true,
+			        unused: false,
+
+                },
+			    mangle: true
+            },
+            files: [{
+                expand: true,
+                flatten: true,
+                dest: dirs.dist.scripts + 'dictionaryWidget',
+                src: [dirs.src.base + 'Widgets/**/*.js']                
+            }]
+        },
 	    analytics: {
 		    options: {
 		        compress: {
