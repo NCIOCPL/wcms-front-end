@@ -1,3 +1,5 @@
+import CookieManager from 'js-cookie';
+
 export default class ProactiveLiveHelp {
     constructor(options) {
         this.options = options;

@@ -12,7 +12,7 @@ const ctsEnglishSettings = {
         /^\/about-cancer\/treatment\/clinical-trials\/disease\/.*/,
         /^\/about-cancer\/treatment\/clinical-trials\/intervention\/.*/
     ],
-    popupDelaySeconds: 1, // Number of seconds to delay before displaying the popup.
+    popupDelaySeconds: 90, // Number of seconds to delay before displaying the popup.
 
     popupID: 'ProactiveLiveHelpForCTSPrompt',
     popupBody: `

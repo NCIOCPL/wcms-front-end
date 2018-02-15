@@ -5,12 +5,15 @@ import DateUtility from 'Modules/utility/dateUtility';
 import basePaths from './settings';
 import ProactiveLiveHelp from './ProactiveLiveHelp';
 
+// Placeholder until this utility stops being used in common/contentpage
+// import './index.scss';
+
 // #########################################################################
 // ####### UTILITY FUNCTIONS FOR VALIDATING PATHNAME AND RETRIEVING SETTINGS
 
 // To avoid scanning every possible path on every page load, we're going to do a preliminary scan for base path matches 
 // before scanning at a more granular level.
-const testForBasePathMatch = (basePaths, pathName = '/i/am/not/a/palindrome/or/a/valid/path') => {
+const testForBasePathMatch = (basePaths, pathName) => {
     for(let i = 0; i < basePaths.length; i++) {
         if(pathName.match(basePaths[i].path)) {
             return basePaths[i].settings;
@@ -33,7 +36,7 @@ const testForExactPathMatch = (pathName, paths) => {
     return false;
  }
 
-const getPopupSettings = (basePaths, pathName = '/i/am/not/a/palindrome/or/a/valid/path') => {
+const getPopupSettings = (basePaths = [], pathName = '/i/am/not/a/palindrome/or/a/valid/path') => {
     const settings = testForBasePathMatch(basePaths, pathName);
     if(settings) {
         // For now we don't have to worry about exceptions or whitelists! :)
@@ -77,7 +80,7 @@ const verifyShouldLiveHelpRun = ({ startDate, endDate, popupId }) => {
     const isLiveHelpAvailable = verifyLiveHelpIsCurrentlyAvailable();
     const isPastStartDate = verifyIsPastDate(startDate);
     const isNotPastEndDate = !verifyIsPastDate(endDate);
-    const isNotOptedOut = verifyOptInStatus(popupId);
+    const isNotOptedOut = !verifyOptInStatus(popupId);
     const isValidTimeToRun = isLiveHelpAvailable && isPastStartDate && isNotPastEndDate && isNotOptedOut;
     return isValidTimeToRun;
 }
@@ -103,7 +106,7 @@ const initialize = () => {
 
         // If we were able to retrieve a settings object we know we have a page match
         if(popupSettings) {
-            const isValidTimeToRun = true // UNCOMMENT AFTER TESTING! verifyShouldLiveHelpRun(popupSettings);
+            const isValidTimeToRun = verifyShouldLiveHelpRun(popupSettings);
             
             if(isValidTimeToRun) {
                 // TODO: Make it possible to add exceptional rules in the url rules of the individual settings
@@ -119,7 +122,7 @@ const initialize = () => {
             // ON NON-LIVE HELP PAGES.
             // WE CAN REMOVE ALL TIMERS, BUT THAT ISN'T REALLY THE POINT EITHER.
             // If we're not on a page listed within the options.urls, clear the timer if it exists.
-            // CookieManager.remove(options.popupID + '-timer');
+            CookieManager.remove('ProactiveLiveHelpForCTSPrompt-timer');
         }
 
     }
