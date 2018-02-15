@@ -246,6 +246,7 @@ module.exports = function(grunt) {
             // 'build-styles:' + env,
             'uglify:' + env,
             'uglify:analytics',
+            'uglify:dictionaryWidget',
             'copy:scripts',
             'copy:widget_styles',
             'clean:tmp',
