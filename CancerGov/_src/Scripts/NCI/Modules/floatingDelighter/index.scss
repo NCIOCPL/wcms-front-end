@@ -58,6 +58,7 @@
   .floating-delighter {
     position: initial;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     z-index: 0;
     width: 50%;
@@ -109,7 +110,6 @@
 
     .floating-delighter__link {
       width: 95%;
-      padding: 15px 40px;
       height: auto;
     }
   }
