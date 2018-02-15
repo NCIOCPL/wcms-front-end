@@ -154,3 +154,5 @@ sftp-config.json
 
 ### Generated Files ###
 *-sprite-map.scss
+
+package-lock.json
