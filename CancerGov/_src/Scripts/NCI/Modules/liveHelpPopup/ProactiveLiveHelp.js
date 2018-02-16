@@ -25,7 +25,7 @@ export default class ProactiveLiveHelp {
         const self = this;
         const secondsSinceLastInteraction = getSecondsSinceLastInteraction(this.userActivity.lastActivityTime);
         if(secondsSinceLastInteraction < this.options.interactionDelaySeconds){
-            window.setTimeout(self.displayPrompt, 1000); // Retry in a second.
+            window.setTimeout(self.displayPrompt.bind(self), 1000); // Retry in a second.
             return;
         }
 
