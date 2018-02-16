@@ -3,6 +3,7 @@
 /************** BEGIN Font Declarations ************************/
 
 $static-font-path: "https://static.cancer.gov/fonts/";
+$percussion-font-path: "/PublishedContent/Fonts/";
 
 /* Noto Sans */
 $noto: "Noto Sans";
@@ -11,6 +12,26 @@ $noto-font-stack: $noto, "Century Gothic", Arial, sans-serif;
 /* Montserrat */
 $montserrat: Montserrat;
 $montserrat-font-stack: $montserrat,"Avant Garde", Arial, sans-serif;
+
+@font-face {
+	font-family: "Montserrat";
+	src:url($percussion-font-path + "Montserrat-regular.eot?#iefix");
+	src:url($percussion-font-path + "Montserrat-regular.eot?#iefix") format("eot"),
+	url($percussion-font-path + "Montserrat-regular.woff") format("woff"),
+	url($percussion-font-path + "Montserrat-regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Montserrat";
+	src:url($percussion-font-path + "Montserrat-700.eot?#iefix");
+	src:url($percussion-font-path + "Montserrat-700.eot?#iefix") format("eot"),
+	url($percussion-font-path + "Montserrat-700.woff") format("woff"),
+	url($percussion-font-path + "Montserrat-700.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
 
 /* DIN */
 $din-font-path: $static-font-path + "FS-WebFonts/";

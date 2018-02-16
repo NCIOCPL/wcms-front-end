@@ -14,7 +14,7 @@
 <head id="header" runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, minimum-scale=1" />
     <title></title>
 
 	<link rel="preconnect" crossorigin href="https://cdnjs.cloudflare.com"/>
@@ -22,7 +22,7 @@
 	<link rel="preconnect" crossorigin href="https://fonts.gstatic.com"/>
 	<link rel="preconnect" href="https://static.cancer.gov"/>
 
-	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Montserrat:600,600i,700,700i|Noto+Sans:400,400i,700,700i" />
+	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
 
     <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
 
