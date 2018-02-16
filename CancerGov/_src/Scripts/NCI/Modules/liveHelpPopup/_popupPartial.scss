@@ -52,6 +52,14 @@
 		margin-top: 12px;
 	}
 
+	.spanish-livehelp {
+		.live-help {
+			@include svg-sprite(live-help-logo-spanish);
+			font-size: 0.18em;
+			margin: 0;
+		}
+	}
+
 	.close {
 		position: absolute;
 		text-indent: -2000%; // Move the text portion very, very far offscreen.
