@@ -1,4 +1,5 @@
 import CookieManager from 'js-cookie';
+import LiveChat from 'BasicCTSCommon/Enhancements/LiveChat';
 
 export default class ProactiveLiveHelp {
     constructor(options) {
@@ -20,12 +21,9 @@ export default class ProactiveLiveHelp {
         // Before displaying, check whether the user has recently interacted with the UI.
         // If this fires on page load (i.e. the timer has already expired), then the last
         // interaction time is 1/1/1970.
-
-        // TODO: GET RID OF SELF USAGE WITH BINDING AND ARROW FUNCTIONS AND GIN
-        const self = this;
         const secondsSinceLastInteraction = getSecondsSinceLastInteraction(this.userActivity.lastActivityTime);
         if(secondsSinceLastInteraction < this.options.interactionDelaySeconds){
-            window.setTimeout(self.displayPrompt.bind(self), 1000); // Retry in a second.
+            window.setTimeout(this.displayPrompt.bind(this), 1000); // Retry in a second.
             return;
         }
 
@@ -40,22 +38,27 @@ export default class ProactiveLiveHelp {
         popupElement.innerHTML = popupMarkup;
         document.querySelector('body').appendChild(popupElement);
 
-        const popupCloseHandler = () => {
+        const popupLiveHelpHandler = () => {
             LiveChat.openChatWindow();
-            self.dismissPrompt();
+            this.dismissPrompt();
         }
-        document.getElementById('chat-button').addEventListener('click', popupCloseHandler);
+        document.getElementById('chat-button').addEventListener('click', popupLiveHelpHandler);
 
         // Center and display the pop up.
         this.makePromptVisible();
 
         // Set up event handlers for the various ways to close the pop up
-        $(".ProactiveLiveHelpPrompt .close").on('click.PLH', function () {
-            self.dismissPrompt();
-        });
-        $(document).keypress(function (e) {
-            if (e.keyCode == 27 && this.popupStatus == true) self.dismissPrompt();
-        });
+        const popupCloseButton = document.querySelector('.ProactiveLiveHelpPrompt .close');
+        const popupCloseButtonHandler = () => this.dismissPrompt();
+        popupCloseButton.addEventListener('click', popupCloseButtonHandler);
+
+        const liveHelpKeypressListener = (e) => {
+            if(e.keyCode === 27 && this.popupStatus === true) {
+                this.dismissPrompt();
+                document.removeEventListener('keyup', liveHelpKeypressListener)
+            }
+        }
+        document.addEventListener('keyup', liveHelpKeypressListener)
 
         // Hook up analytics for the dynamically created elements.
         activatePromptAnalytics();

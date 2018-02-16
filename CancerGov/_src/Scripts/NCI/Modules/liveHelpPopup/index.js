@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import CookieManager from 'js-cookie';
-import LiveChat from 'BasicCTSCommon/Enhancements/LiveChat';
 import DateUtility from 'Modules/utility/dateUtility';
 import basePaths from './settings';
 import ProactiveLiveHelp from './ProactiveLiveHelp';
@@ -36,14 +35,6 @@ const testForExactPathMatch = (pathName, paths) => {
     return false;
 }
 
-const buildPopupIdArray = (basePaths) => {
-    const popups = [];
-	for(let i = 0; i < basePaths.length; i++) {
-		popups.push(basePaths[i].settings.popupID);
-	}
-	return popups
-}
-
 const getPopupSettings = (basePaths = [], pathName = '/i/am/not/a/palindrome/or/a/valid/path') => {
     const settings = testForBasePathMatch(basePaths, pathName);
     if(settings) {
@@ -71,8 +62,8 @@ const verifyLiveHelpIsCurrentlyAvailable = () => {
     return isCurrentlyAvailable;
 }
 
-const verifyOptInStatus = popupId => {
-    return !!CookieManager.get(popupId + '-opt');
+const verifyOptInStatus = popupID => {
+    return !!CookieManager.get(popupID + '-opt');
 }
 
 const verifyIsPastDate = date => {
@@ -84,11 +75,11 @@ const verifyIsPastDate = date => {
     return dateEastern > endDate;
 }
 
-const verifyShouldLiveHelpRun = ({ startDate, endDate, popupId }) => {
+const verifyShouldLiveHelpRun = ({ startDate, endDate, popupID }) => {
     const isLiveHelpAvailable = verifyLiveHelpIsCurrentlyAvailable();
     const isPastStartDate = verifyIsPastDate(startDate);
     const isNotPastEndDate = !verifyIsPastDate(endDate);
-    const isNotOptedOut = !verifyOptInStatus(popupId);
+    const isNotOptedOut = !verifyOptInStatus(popupID);
     const isValidTimeToRun = isLiveHelpAvailable && isPastStartDate && isNotPastEndDate && isNotOptedOut;
     return isValidTimeToRun;
 }
@@ -111,14 +102,14 @@ const initialize = () => {
         // Should pass in pathName to make testing even easier without correct routing
         const pathName = location.pathname.toLowerCase();
         const popupSettings = getPopupSettings(basePaths, pathName);
-        const popupResetList = buildPopupIdArray(basePaths);
+        const popupIDArray = basePaths.map(({settings}) => settings.popupID)
 
         // If we were able to retrieve a settings object we know we have a page match
         if(popupSettings) {
             const isValidTimeToRun = verifyShouldLiveHelpRun(popupSettings);
 
             // remove this popup id from the reject list
-	        popupResetList.splice(popupResetList.indexOf(popupSettings.popupID), 1);
+	        popupIDArray.splice(popupIDArray.indexOf(popupSettings.popupID), 1);
             
             if(isValidTimeToRun) {
                 // TODO: Make it possible to add exceptional rules in the url rules of the individual settings
@@ -130,12 +121,8 @@ const initialize = () => {
             }
         }
 
-        if(popupResetList.length > 0) {
-	        for(let i = 0; i < popupResetList.length; i++) {
-	            //console.log("Resetting Cookie for ",popupResetList[i]);
-		        CookieManager.remove(popupResetList[i] + '-timer');
-	        }
-        }
+        // Remove any existing timers for other pages
+        popupIDArray.map(id => CookieManager.remove(id + '-timer'))
 
 
     }
