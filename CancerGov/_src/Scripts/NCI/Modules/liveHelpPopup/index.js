@@ -106,7 +106,7 @@ const initialize = () => {
 
         // If we were able to retrieve a settings object we know we have a page match
         if(popupSettings) {
-            const isValidTimeToRun = true // verifyShouldLiveHelpRun(popupSettings);
+            const isValidTimeToRun = verifyShouldLiveHelpRun(popupSettings);
             
             if(isValidTimeToRun) {
                 // TODO: Make it possible to add exceptional rules in the url rules of the individual settings
