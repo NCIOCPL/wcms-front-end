@@ -55,8 +55,8 @@
 	.spanish-livehelp {
 		.live-help {
 			@include svg-sprite(live-help-logo-spanish);
-			font-size: 0.18em;
-			margin: 0;
+			font-size: 1em;
+			margin: 10px 0 0 10px;
 		}
 	}
 
