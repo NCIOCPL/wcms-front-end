@@ -301,7 +301,7 @@ function loadDefinition(id) {
 				.append($('<p>').append(
 					$('<a>')
 						.attr({
-							href: i18nText.dictionaryLink[shortLang] + '/def/' + result.term.id + '&cid=cdw_' + parentHostname,
+							href: i18nText.dictionaryLink[shortLang] + '/def/' + result.term.id + '?cid=cdw_' + parentHostname,
 							target: "_blank"
 						})
 						.html(i18nText.dictionaryText[shortLang])
