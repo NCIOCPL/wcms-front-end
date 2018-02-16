@@ -3,8 +3,8 @@ var path = require("path");
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HappyPack = require('happypack');
-var happyPackThreadPool = HappyPack.ThreadPool({ size: 4 })
+// var HappyPack = require('happypack');
+// var happyPackThreadPool = HappyPack.ThreadPool({ size: 4 })
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
@@ -124,13 +124,13 @@ module.exports = {
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-				loader: 'happypack/loader?id=js'
+				loader: ['babel-loader']
 			},
 			{
 				test: /\.s?css$/,
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
-					use: 'happypack/loader?id=styles'
+					use: ['css-loader', 'postcss-loader', 'sass-loader']
 				})
 			},
 
@@ -174,16 +174,16 @@ module.exports = {
 				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')
 			}
 		}),
-		new HappyPack({
-			id: 'js',
-			threadPool: happyPackThreadPool,
-			loaders: ['babel-loader']
-		}),
-		new HappyPack({
-			id: 'styles',
-			threadPool: happyPackThreadPool,
-			loaders: ['css-loader', 'postcss-loader', 'sass-loader']
-		}),
+		// new HappyPack({
+		// 	id: 'js',
+		// 	threadPool: happyPackThreadPool,
+		// 	loaders: ['babel-loader']
+		// }),
+		// new HappyPack({
+		// 	id: 'styles',
+		// 	threadPool: happyPackThreadPool,
+		// 	loaders: ['css-loader', 'postcss-loader', 'sass-loader']
+		// }),
 		new HardSourceWebpackPlugin({
 			cacheDirectory: path.resolve(__dirname, 'node_modules', '.cache', 'hard-source', '[confighash]'),
 			recordsPath: path.resolve(__dirname, 'node_modules', '.cache', 'hard-source', '[confighash]', 'records.json'),
