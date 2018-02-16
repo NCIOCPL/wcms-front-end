@@ -34,7 +34,15 @@ const testForExactPathMatch = (pathName, paths) => {
         }
     }
     return false;
- }
+}
+
+const buildPopupIdArray = (basePaths) => {
+    const popups = [];
+	for(let i = 0; i < basePaths.length; i++) {
+		popups.push(basePaths[i].settings.popupID);
+	}
+	return popups
+}
 
 const getPopupSettings = (basePaths = [], pathName = '/i/am/not/a/palindrome/or/a/valid/path') => {
     const settings = testForBasePathMatch(basePaths, pathName);
@@ -103,10 +111,14 @@ const initialize = () => {
         // Should pass in pathName to make testing even easier without correct routing
         const pathName = location.pathname.toLowerCase();
         const popupSettings = getPopupSettings(basePaths, pathName);
+        const popupResetList = buildPopupIdArray(basePaths);
 
         // If we were able to retrieve a settings object we know we have a page match
         if(popupSettings) {
             const isValidTimeToRun = verifyShouldLiveHelpRun(popupSettings);
+
+            // remove this popup id from the reject list
+	        popupResetList.splice(popupResetList.indexOf(popupSettings.popupID), 1);
             
             if(isValidTimeToRun) {
                 // TODO: Make it possible to add exceptional rules in the url rules of the individual settings
@@ -117,12 +129,14 @@ const initialize = () => {
                 const ProactiveLiveHelpforCTS = new ProactiveLiveHelp(popupSettings);
             }
         }
-        else {
-            //THIS IS HARDCODED. BUT WHEN THE WIDGET BECOMES MORE EXTENSIBLE A FIX
-            //NEED TO BE IMPLEMENTED. I SUGGEST RENAMING THE COOKIES WITH A PREFIX
-            //SUCH AS LIVEHELP- AND THEN DELETING ALL COOKIES WITH THAT PREFIX.
-            CookieManager.remove('ProactiveLiveHelpForCTSPrompt-timer');
+
+        if(popupResetList.length > 0) {
+	        for(let i = 0; i < popupResetList.length; i++) {
+	            //console.log("Resetting Cookie for ",popupResetList[i]);
+		        CookieManager.remove(popupResetList[i] + '-timer');
+	        }
         }
+
 
     }
                 
