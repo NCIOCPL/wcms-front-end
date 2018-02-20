@@ -98,13 +98,14 @@
     flex-grow: 1;
     height: 100%;
     font-size: 0.8em;
-
+    letter-spacing: 1px;
   }
 }
 
 @include bp(xtra-small) {
   .floating-delighter {
     width: 100%;
+    margin-top: 20px;
     margin-bottom: 10px;
 
 
@@ -176,6 +177,12 @@
       @include bp(small) {
         font-size: .7em;
       }
+    }
+  }
+
+  .floating-delighter__label {
+    @include bp(xtra-small) {
+      font-size: 14px;
     }
   }
 }
