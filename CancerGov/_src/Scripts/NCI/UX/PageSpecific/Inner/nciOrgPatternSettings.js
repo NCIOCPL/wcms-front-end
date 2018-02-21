@@ -23,7 +23,7 @@ const settings = {
     ".nci-organization__pattern--cancercontrol": {
         str: '',
         options: {
-            color: '#cf2eb0',
+            color: '#d7275f',
             generator: 'mosaicSquares'
         }
     },
