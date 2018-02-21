@@ -112,6 +112,7 @@
 		font-family: $montserrat-font-stack;
 		text-transform: uppercase;
 		text-align: center;
+		-ms-transition: background-color .15s linear;
 		transition: background-color .15s linear;
 	}
 

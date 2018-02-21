@@ -1,4 +1,6 @@
 @import "../../../../../../StyleSheets/reset";
+@import "../../../../../../StyleSheets/breakpoints";
+@import "../../../../../../StyleSheets/AppModuleSpecific/cts/cts.advresultsdisplay";
 
 /*******************************************************/
                /* CTSv4 Print Styles */
@@ -230,6 +232,11 @@ li::-moz-list-bullet{
 	#headingWrapper{
 		max-width: 500px;
 	}
+}
+
+//for print results page
+#clinical-trials-print .ctscb {
+  display: none;
 }
 
 

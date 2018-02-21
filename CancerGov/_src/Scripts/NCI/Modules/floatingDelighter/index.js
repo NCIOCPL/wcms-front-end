@@ -6,7 +6,7 @@ const cts = {
     innerHTML: `
         <div class="floating-delighter__icon">
         </div>
-        <div class="floating-delighter__label">Find A Clinical Trial</div>
+        <div class="floating-delighter__label">Find a Clinical Trial</div>
     `,
     classList: ['floating-delighter--cts']
 };

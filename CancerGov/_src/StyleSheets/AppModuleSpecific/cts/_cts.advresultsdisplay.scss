@@ -1,0 +1,60 @@
+.clinicaltrials-results-criteria-display {
+    box-shadow: 0 1px 0.2em rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 702px;
+    padding: 10px 20px;
+  
+    h3 {
+      margin: 0;
+      //padding: .25em 0;
+      color: #2e2e2e;
+    }
+    > h3 {
+      padding-left: .5em;
+    }
+  
+    table {
+      border: none;
+      width: 100%;
+      margin-bottom: 0;
+    }
+    tbody {
+      max-height: 12em;
+      overflow: auto;
+    }
+    tr {
+      height: 2.5em;
+  
+      th {background-color: #f9f9f9;}
+  
+      th:first-child, td:first-child {
+        text-align: right;
+        width: 40%;
+      }
+  
+      td.cts-schdr {
+        text-align: left;
+      }
+    }
+  
+    @include bp(medium){
+      width: 625px;
+    }
+    @include bp(small){
+      width: 100%;
+      word-break: break-word;
+    }
+  }
+  #other-diseases, #fieldset--location section > div:not(.radio) {
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+  #other-diseases.disabled {
+    opacity: .45;
+  }
+  
+  
+  .cts-results-title {
+    padding-bottom: 0.5em;
+    padding-top: 1em;
+  }
