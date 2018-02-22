@@ -30,7 +30,13 @@ const settings = {
             generator: 'nestedSquares'
         }
     },
-    ".cthp-genetics h3": 'NONE',
+    ".cthp-genetics h3": {
+        str: '',
+        options: {
+            color: '#33ccb0',
+            generator: 'xes'
+        }
+    },
     ".cthp-screening h3": {
         str: '',
         options: {

@@ -58,7 +58,7 @@ const settings = {
     '.navy-squares': {
         str: '',
         options: {
-            color: '#42698e',
+            color: '#002f66',
             generator: 'nestedSquares',
         }
     },
