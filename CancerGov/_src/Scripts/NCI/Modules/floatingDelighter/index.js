@@ -12,7 +12,7 @@ const cts = {
 };
 
 const socialMedia = {
-    href: '#',
+    href: '/news-events/events/social-media',
     innerHTML: `
         <div class="floating-delighter__icon">
         </div>
