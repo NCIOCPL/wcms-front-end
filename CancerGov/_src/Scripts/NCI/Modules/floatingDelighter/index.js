@@ -36,13 +36,7 @@ const pages = {
         ]
     },
     '/social-media': {
-        delighter: socialMedia
-    },
-    '/mock/cts-delightertesting': {
-        delighter: cts,
-    },
-    '/mock/social-delightertesting': {
-        delighter: socialMedia
+        delighter: socialMedia,
     }
 };
 
@@ -92,7 +86,7 @@ const getDelighterSettings = pathName => {
         if(pathName === basePartial) {
             return pages[basePartial].delighter;
         }
-        else if(pathName.includes(basePartial)) {
+        else if(pathName.startsWith(basePartial)) {
             if(!pages[basePartial].exclude) {
                 return pages[basePartial].delighter
             }
