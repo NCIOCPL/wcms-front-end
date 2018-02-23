@@ -5,6 +5,7 @@ define(function(require) {
     require('core-js/fn/object/assign');
     require('core-js/fn/object/entries');
     require('core-js/fn/string/includes');
+    require('core-js/fn/string/starts-with');
 
     require('Common/Enhancements/analytics');
     require('StyleSheets/nvcg.scss');
