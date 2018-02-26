@@ -1,12 +1,9 @@
-import 'core-js/fn/array/includes';
 import { CTSBaseFormSetup } from './cts-base-form-setup';
 import { DiseaseResult } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
 import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
-import "select2";
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
-import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 
 /**
  * Class to be used as a base for all CTS forms with disease selection menus

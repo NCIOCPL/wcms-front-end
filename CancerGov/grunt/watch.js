@@ -4,12 +4,18 @@
 module.exports = function (grunt, options) {
     var dirs = options.dirs;
     return {
-        css: {
-            files: [dirs.src.styles + '**/*.scss',dirs.src.scripts + '/NCI/Modules/**/*.scss'],
-            tasks: ['build-styles:' + 'dev']
-        },
+        // css: {
+        //     files: [dirs.src.styles + '**/*.scss',dirs.src.scripts + '/NCI/Modules/**/*.scss'],
+        //     tasks: ['build-styles:' + 'dev']
+        // },
         js: {
-            files: [dirs.src.scripts + '**/*.js', dirs.src.scripts + '**/*.ts', dirs.src.scripts + '**/*.hbs'],
+            files: [
+                dirs.src.scripts + '**/*.js',
+                dirs.src.scripts + '**/*.ts',
+                dirs.src.scripts + '**/*.hbs',
+                dirs.src.scripts + '**/*.scss',
+                dirs.src.styles + '**/*.scss'
+            ],
             tasks: ["webpack:dev"],
             options: {
                 spawn: false

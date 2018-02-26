@@ -5,6 +5,7 @@
 @import "functions";
 @import "fonts";
 @import 'breakpoints';
+@import "placeholders";
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 /***  BEGIN RESET STYLES ***/
@@ -22,7 +23,7 @@
 @import "foundation_overrides";
 /***  END FOUNDATION OVERRIDE STYLES ***/
 /***  BEGIN SLICK STYLES ***/
-@import "slick";
+@import "../Scripts/NCI/Modules/carousel/slick";
 /***  BEGIN SLICK STYLES ***/
 /***  BEGIN JQUERY UI STYLES ***/
 @import "jqueryui";
@@ -30,9 +31,6 @@
 /***  BEGIN JQUERY UI OVERRIDE STYLES ***/
 @import "jqueryui_overrides";
 /***  END JQUERY UI OVERRIDE STYLES ***/
-/***  BEGIN SELECT2 JQUERY PLUG-IN STYLES ***/
-@import "vendor/select2/core";
-/***  END SELECT2 JQUERY PLUG-IN STYLES ***/
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
 
@@ -51,60 +49,47 @@
 @import "language_bar";
 @import "utilitynav";
 
-@import "search";
+@import "../Scripts/NCI/Modules/search/search";
 @import "footer";
 
 @import "mainContent";
 @import "images";
 @import "banners";
-@import "home";
-@import "accordion";
+@import "../Scripts/NCI/Modules/accordion/accordion";
 @import "tables";
-@import "cthp";
 @import "pageOptions";
 @import "font_resizer";
-@import "carousel";
-@import "backToTop";
+@import "../Scripts/NCI/Modules/carousel/carousel";
+@import "../Scripts/NCI/Modules/backToTop/backToTop";
 @import "contentTemplate";
-@import "pdq";
-@import "blogs";
 @import "news";
 @import "onthispage";
 @import "institutions";
 @import "ebookButtons";
 @import "materials_to_share";
-@import "searchresults";
-@import "bestBets";
 @import "lists";
 @import "videos";
-@import "popups";
-@import "referenceTooltip";
+@import "../Scripts/NCI/Modules/tooltips/referenceTooltip";
 @import "errorPage";
-@import "topicPages";
-@import "nokia-maps";
 @import "contact";
 @import "nav";
 @import "pagination";
 @import "image-video-carousel";
+@import "flexVideoPreview";
+@import "arrowLinks";
 
+@import "checkbox";
+@import "popups";
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
-@import "NCI.ProactiveLiveHelp";
+@import "../Scripts/NCI/Modules/liveHelpPopup/popupPartial";
 @import "AppModuleSpecific/cts/NCI.Delighters";
-@import "AppModuleSpecific/cts/cts.basic";
-@import "AppModuleSpecific/cts/cts.advanced";
-@import "AppModuleSpecific/cts/cts.modal";
 /****************** END NCI ENHANCEMENTS SECTION ********************/
-
-/****************** Blue Ribbon Panel ********************/
-//Temporary home since this is a page specific style
-@import "brp";
-
 
 
 /* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
-@import "megamenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
+@import "../Scripts/NCI/Modules/megamenu/megamenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
 
 /* PRINT STYLES --------------------------------- */
 @import "print";
@@ -113,3 +98,72 @@
 /* HACK STYLES */
 @import "hacks";
 /* END HACK STYLES */
+
+// This is a partial waiting to be made, it comes from the PDQ page, but at least 
+// some of the styles (.brand-fda) are being used in InnerPages 
+// (https://www.cancer.gov/about-cancer/treatment/drugs/raloxifenehydrochloride for
+// example). I'm moving it here to fix issues for QA and make sure it's not easily ignored.
+// Nothing in this file should remain as floating code for long. Partials only. (BB - 2/2018)
+
+/* new styles */
+.trial-sites h4 {
+	background: #E6E6E2;
+	padding: 3px 0;
+	/* font-size: 16px; */
+}
+.trial-sites h5 {
+	color: #993333;
+	font-size: 15px;
+	margin: 10px 0;
+}
+.trial-sites h6 {
+	/* font-size: 14px; */
+	font-style: normal;
+	margin: 5px 0 10px;
+}
+.trial-sites .two-columns {
+	margin: 0 30px;
+}
+.definition-term {
+	line-height: 1em;
+}
+.definition-term-image {
+	display: inline-block;
+	vertical-align: middle;
+}
+figure.definition-image {
+	width: 25%;
+	display: block;
+}
+table.drug-combination {
+	margin-left: 0px; //removed 20px per OCEPROJECT-2527
+	width: 100%;
+
+	td {
+		padding: 5px;
+
+		&.drug-combo-letter {
+			text-align: right;
+			font-weight: bold;
+		}
+	}
+}
+.two-columns.brand-fda {
+	width: 60%;
+}
+.brand-fda .column1 {
+	font-weight: bold;
+}
+table.table-default tfoot td {
+	border: none;
+	font-style: normal;
+	margin: 0;
+	padding: 8px 10px;
+	background: $caption-background;
+	font-size: 14px;
+	line-height: 1.5em;
+	font-family: $montserrat-font-stack;
+}
+.dis-disclaimer {
+}
+/* end new styles */

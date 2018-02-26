@@ -1,6 +1,15 @@
 define(function(require) {
-    var $script = require('scriptjs');
+	require('es6-promise/auto');
+    require('core-js/fn/array/from');
+    require('core-js/fn/array/includes');
+    require('core-js/fn/object/assign');
+    require('core-js/fn/object/entries');
+    require('core-js/fn/string/includes');
+    require('core-js/fn/string/starts-with');
+
     require('Common/Enhancements/analytics');
+    require('StyleSheets/nvcg.scss');
+
 
     var SiteWideSearch = require('Common/Enhancements/sitewidesearch');
     var megaMenuModule = require('Modules/megamenu/megamenu');
@@ -40,27 +49,13 @@ define(function(require) {
         }
     });
 
-    /*** BEGIN deeplinking fix
-     * This script fixes the scroll position for deeplinking.
-     ***/
     (function() {
         DeepLinkPatch.init();
     })();
-    /*** END deeplinking fix ***/
 
-    jQuery(document).ready(function(jQuery) {
+    // DOM Ready
+    $(function() {
         /*** BEGIN header component ***/
-
-        $script('//cdnjs.cloudflare.com/ajax/libs/ScrollToFixed/1.0.8/jquery-scrolltofixed-min.js', function () {
-            // initialize scrollToFixed plugin
-            var headerHeight = $('.fixedtotop').outerHeight();
-            $('.fixedtotop').scrollToFixed({
-                spacerClass: 'fixedtotop-spacer',
-                fixed: function () {
-                    $('.fixedtotop-spacer').height(headerHeight);
-                }
-            });
-        });
 
         megaMenuModule.init();
 

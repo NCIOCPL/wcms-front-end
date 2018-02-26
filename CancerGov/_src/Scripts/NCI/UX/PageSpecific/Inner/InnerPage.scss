@@ -1,0 +1,65 @@
+@import "../../../../../StyleSheets/environments/percussion";
+@import "../../../../../StyleSheets/variables";
+@import "../../../../../StyleSheets/mixins";
+@import "../../../../../StyleSheets/fonts";
+@import '../../../../../StyleSheets/breakpoints';
+@import "../../../../../StyleSheets/placeholders";
+@import "../../../../../StyleSheets/sprites/svg-sprite";
+@import "../../../../../StyleSheets/nci-foundation_mixins";
+@import "../../../../../StyleSheets/nci-foundation_variables";
+
+@import "../../../../../StyleSheets/topicFeature";
+@import "../../../../../StyleSheets/landing-thumb";
+@import "../../../../../StyleSheets/searchresults";
+@import "../../../../../StyleSheets/bodybanner";
+@import "../../../../NCI/Modules/bestBets/bestBets";
+@import "../../../../../StyleSheets/nokia-maps";
+@import "../../../../../StyleSheets/cts-listing";
+
+// This was implemented by Sarina to match CTS Results pages on CTS
+// listing pages. [OCECTS-465].
+@include bp(large-up) {
+    .ct-listing-util-top {
+      .pager-between-hr {
+        display: none;
+      }
+    }
+  }
+
+// controls spacing of images on the nci organization page. Mark Cramer [OCEPROJECT-3322]
+.nci-organization {
+  .large-5 figure {
+    margin: 1.25em auto;
+  }
+  
+  .nci-organization__pattern {
+    display: flex;
+    height: 230px;
+
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+    
+    span {
+      margin: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      line-height: 1.3em;
+      color: #fff;
+      font-family: Montserrat,Avant Garde,Arial,sans-serif;
+    }
+
+    @include bp(small) {
+      span {
+        font-size: 2.1em;
+      }
+    }
+
+    @include bp(xtra-small) {
+
+      span {
+        font-size: 8vw;
+      }
+    }
+  }
+}

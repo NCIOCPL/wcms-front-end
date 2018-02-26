@@ -27,7 +27,7 @@
 	display: block;
 	height: 32px !important;
 	overflow: hidden;
-	background: image-url($buttons + 'addthis_buttons_32.png') no-repeat left 50%;
+	background: url($buttons + 'addthis_buttons_32.png') no-repeat left 50%;
 	margin-right: 5px;
 }
 
@@ -61,7 +61,7 @@
   width: 32px;
   height: 32px;
   margin: 0 7px 0 2px;
-  background-image: image-url($buttons + 'download-button.png');
+  background-image: url($buttons + 'download-button.png');
   display: block;
   float: left;
 }

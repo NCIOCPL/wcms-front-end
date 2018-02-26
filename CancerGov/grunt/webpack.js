@@ -6,6 +6,7 @@
 module.exports = function (grunt,options) {
     var webpackConfig = require("../webpack.config.js");
     var webpack = require("webpack");
+    var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
     var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
     var dirs = options.dirs;
     var dist_scripts = dirs.dist.scripts;
@@ -16,17 +17,17 @@ module.exports = function (grunt,options) {
     return {
         options: webpackConfig,
         dev: {
-            devtool: "source-map",
+            devtool: "eval-source-map",
             output: {
                 filename: '[name].js',
                 path: dist_scripts
             }
         },
         prod: {
-        output: {
-            filename: '[name].js',
-            path: dist_scripts
-        },
+            output: {
+                filename: '[name].js',
+                path: dist_scripts
+            },
             plugins: webpackConfig.plugins.concat(
                 new webpack.DefinePlugin({
                     "process.env": {
@@ -38,35 +39,37 @@ module.exports = function (grunt,options) {
                     minimize: true,
                     debug: false
                 }),
-                new webpack.optimize.UglifyJsPlugin({
-                    compress: {
-                        warnings: false,
-                        screw_ie8: true,
-                        conditionals: true,
-                        unused: true,
-                        comparisons: true,
-                        sequences: true,
-                        dead_code: true,
-                        evaluate: true,
-                        if_return: true,
-                        join_vars: true
-                    },
-                    output: {
-                        comments: false
-                    },
-                    exclude: [/\.min\.js$/gi], // skip pre-minified libs
+                new UglifyJsPlugin({
+                    parallel: true,
+                    // exclude: [/\.min\.js$/gi,'wa_wcms_pre','s_code','NCIAnalyticsFunctions'] // skip pre-minified libs
+                    exclude: [/\.min\.js$/gi] // skip pre-minified libs
                 })
-                // new webpack.LoaderOptionsPlugin({
-                //     minimize: true,
-                //     debug: false
-                // })
-
             )
         },
-        analyse: {
-            plugins: webpackConfig.plugins.concat(
-                new BundleAnalyzerPlugin({analyzerMode: 'static'})
-            )
+        analyze: {
+	        output: {
+		        filename: '[name].js',
+		        path: dist_scripts
+	        },
+	        plugins: webpackConfig.plugins.concat(
+		        new webpack.DefinePlugin({
+			        "process.env": {
+				        // This has effect on the react lib size
+				        "NODE_ENV": JSON.stringify("production")
+			        }
+		        }),
+		        new webpack.LoaderOptionsPlugin({
+			        minimize: true,
+			        debug: false
+		        }),
+		        new UglifyJsPlugin({
+			        parallel: true,
+			        uglifyOptions: {
+				        exclude: [/\.min\.js$/gi], // skip pre-minified libs
+			        }
+		        }),
+		        new BundleAnalyzerPlugin({analyzerMode: 'static'})
+	        )
         }
     }
 };

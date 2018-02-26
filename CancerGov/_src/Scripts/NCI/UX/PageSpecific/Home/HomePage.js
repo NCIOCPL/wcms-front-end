@@ -1,8 +1,15 @@
-define(function(require) {
-    require('Modules/carousel/carousel');
+import 'Modules/carousel/carousel';
+import espanolHome from 'Home/Enhancements/espanolHome';
+import FloatingDelighter from 'Modules/floatingDelighter';
+import patternInjector from 'Modules/patternInjector';
+import carouselSettings from './carouselSettings';
+import './HomePage.scss';
 
-    $(function() {
-        require('Home/Enhancements/espanolHome').init();
-        require('Common/Enhancements/clinicalTrialsDelighter').init();
-    });
-});
+
+const onDOMContentLoaded = () => {
+    espanolHome.init();
+    FloatingDelighter();
+    patternInjector(carouselSettings);
+}
+
+window.addEventListener('DOMContentLoaded', onDOMContentLoaded);

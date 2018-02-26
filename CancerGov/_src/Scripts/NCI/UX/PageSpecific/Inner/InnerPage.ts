@@ -1,17 +1,18 @@
 import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-service';
 import { NCIBasePage } from 'UX/core';
-import 'core-js/fn/object/assign';
-import 'core-js/fn/promise';
-import 'core-js/fn/string/includes';
 import 'UX/Common/Enhancements/sharecomponent';
 import 'UX/PageSpecific/Inner/Enhancements/showHideListingBodyField';
 import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';
 import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
-import * as ClinicalTrialsDelighter from 'UX/Common/Enhancements/clinicalTrialsDelighter';
+import FloatingDelighter from 'Modules/floatingDelighter';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import * as BestBets from 'Modules/bestBets/bestBets';
+import patternInjector from 'Modules/patternInjector';
+import nciOrgPatternSettings from './nciOrgPatternSettings';
+
+import './InnerPage.scss';
 
 /**
  * Class representing CancerGov inner pages.
@@ -45,7 +46,6 @@ class InnerPage extends NCIBasePage {
 	 * @memberof InnerPage
 	 */
 	onReady():void {
-
         // Build image carousels
         (<any>ImageCarousel).init();
 
@@ -53,9 +53,11 @@ class InnerPage extends NCIBasePage {
         (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);
 
         // Run delighter and analytics 'after' init() functions
-        (<any>ClinicalTrialsDelighter).init(); 
+        (<any>FloatingDelighter)(); 
         (<any>AnalyticsAfter).init();
         (<any>BestBets).init();
+
+
 	}
     
 }
@@ -65,5 +67,6 @@ class InnerPage extends NCIBasePage {
  */
 (function() { //encapsulation
 	let innerPage:InnerPage = new InnerPage();
-	innerPage.init();
+    innerPage.init();
+    patternInjector(nciOrgPatternSettings, '.nci-organization__pattern');
 })();

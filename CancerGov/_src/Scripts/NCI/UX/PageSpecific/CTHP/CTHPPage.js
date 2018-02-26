@@ -1,4 +1,7 @@
-define(function(require) {
-	// I'm an empty file
+import patternInjector from 'Modules/patternInjector';
+import accordionSettings from './accordionSettings';
+import './CTHPPage.scss';
 
-});
+const onDOMContentLoaded = () => patternInjector(accordionSettings);
+
+window.addEventListener("DOMContentLoaded", onDOMContentLoaded);

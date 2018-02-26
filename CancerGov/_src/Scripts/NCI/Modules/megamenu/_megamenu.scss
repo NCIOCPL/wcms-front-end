@@ -1,7 +1,84 @@
+.nav-menu .nav-item {
+	$nav-max-lines: 1;
+	@mixin nav-item-spacing($nav-item-list, $nav-item-width-add) {
+		// calculate maximum number of lines
+		@for $i from 1 through length($nav-item-list) {
+			$nav-lines-tmp: map-get(nth($nav-item-list, $i), lines);
+			@if ($nav-lines-tmp > $nav-max-lines) {
+				$nav-max-lines: $nav-lines-tmp;
+			}
+		}
+
+		$nav-desktop-breakpoints: ('large', 'xtra-large');
+		@for $i from 1 through length($nav-item-list) {
+			&.item-#{$i} {
+				$nav-item: nth($nav-item-list, $i);
+
+				@for $bp from 1 through length($nav-desktop-breakpoints) {
+					@include bp(nth($nav-desktop-breakpoints, $bp)) {
+						width: nth(map-get($nav-item, width), $bp) + nth($nav-item-width-add, $bp);
+					};
+				}
+				line-height: $nav-max-lines / map-get($nav-item, lines) + 0em;
+			}
+		}
+	}
+
+	html[lang="es"] & {
+		$nav-item-list: (
+			//(width:(bp1  , bp2  ), lines: # )
+			( width: (102px, 124px), lines: 1 ),
+			( width: (154px, 174px), lines: 1 ),
+			( width: (136px, 157px), lines: 1 ),
+			( width: (137px, 158px), lines: 2 ),
+			( width: (89px,  111px), lines: 1 ),
+			( width: (96px,  118px), lines: 2 )
+		);
+		$nav-item-width-add: (5.5px, 9px);
+
+		@include nav-item-spacing($nav-item-list, $nav-item-width-add);
+	}
+
+	line-height: $nav-max-lines + 0em;
+}
+
+.nav-item > .nav-item-title > a {
+	color: #fff;
+	padding: 14px 1.39em 8px;
+}
+
+
 @include bp(large-up) {
+	#nvcgSlMainNav {
+		display: flex;
+
+		.slot-item:first-of-type {
+			width: 75%;
+		}
+
+		// All the weirdness from here down is to accomodate the different DOM structure on 404 pages
+		// where the search is not a separate slot-item, unlike the rest of the site.
+		.slot-item:not(:only-child):last-child {
+			width: 25%;
+		}
+
+		.slot-item:only-child {
+			display: flex;
+			width: 100%;
+
+			>div:first-child {
+				width: 75%;
+			}
+
+			>div:nth-of-type(2) {
+				width: 25%;
+			}
+		}
+		// End weirdness
+	}
 	/* mega menu list */
 	.nav-menu {
-		display: block;
+		display: flex;
 		/* removing style to allow for full screen width mega menu
 		position: relative; */
 		list-style: none;
@@ -12,10 +89,15 @@
 
 	/* a top level navigation item in the mega menu */
 	.nav-menu .nav-item {
+		flex-grow: 1;
 		list-style: none;
-		float: left;
 		padding: 0;
 		margin: 0;
+	}
+
+	.search {
+		float: none;
+		width: auto;
 	}
 
 	/* first descendant link within a top level navigation item */
@@ -23,25 +105,25 @@
 		position: relative;
 		width: 100%;
 		display: inline-block;
-		padding: 14px 7.5px 7.5px;
+		padding: 14px 7px 7.5px;
 		margin: 0;
 		border-bottom: 7px solid transparent;
 		font-size: 14px;
-		color: #fff;
 		font-family: $montserrat-font-stack;
 		text-transform: uppercase;
 		text-align: center;
-		@include transition(all linear 150ms);
+		-ms-transition: background-color .15s linear;
+		transition: background-color .15s linear;
 	}
 
 	/* nav item spacing for breakpoints, decreasing spacing as screen gets smaller (desktop) */
 	.nav-menu .level-1 {
 		display: block;
 	}
-	.nav-search-bar nav {
-		width: 75%;
-		float: left;
-	}
+	// .nav-search-bar nav {
+	// 	width: 75%;
+	// 	float: left;
+	// }
 	.nav-menu .level-1 {
 		display: none;
 	}
@@ -212,10 +294,7 @@
 	}
 }
 
-@include bp(xtra-large) {
-	.nav-item > .nav-item-title > a {
-		padding: 14px 20px 8px;
-	}
+@include bp(xtra-large) {	
 	.row, nav .sub-nav-group-wrapper {
 		max-width: 1200px;
 	}
@@ -229,50 +308,6 @@
 	}
 }
 
-.nav-menu .nav-item {
-	$nav-max-lines: 1;
-	@mixin nav-item-spacing($nav-item-list, $nav-item-width-add) {
-		// calculate maximum number of lines
-		@for $i from 1 through length($nav-item-list) {
-			$nav-lines-tmp: map-get(nth($nav-item-list, $i), lines);
-			@if ($nav-lines-tmp > $nav-max-lines) {
-				$nav-max-lines: $nav-lines-tmp;
-			}
-		}
-
-		$nav-desktop-breakpoints: ('large', 'xtra-large');
-		@for $i from 1 through length($nav-item-list) {
-			&.item-#{$i} {
-				$nav-item: nth($nav-item-list, $i);
-
-				@for $bp from 1 through length($nav-desktop-breakpoints) {
-					@include bp(nth($nav-desktop-breakpoints, $bp)) {
-						width: nth(map-get($nav-item, width), $bp) + nth($nav-item-width-add, $bp);
-					};
-				}
-				line-height: $nav-max-lines / map-get($nav-item, lines) + 0em;
-			}
-		}
-	}
-
-	html[lang="es"] & {
-		$nav-item-list: (
-			//(width:(bp1  , bp2  ), lines: # )
-			( width: (102px, 124px), lines: 1 ),
-			( width: (154px, 174px), lines: 1 ),
-			( width: (136px, 157px), lines: 1 ),
-			( width: (137px, 158px), lines: 2 ),
-			( width: (89px,  111px), lines: 1 ),
-			( width: (96px,  118px), lines: 2 )
-		);
-		$nav-item-width-add: (5.5px, 9px);
-
-		@include nav-item-spacing($nav-item-list, $nav-item-width-add);
-	}
-
-	line-height: $nav-max-lines + 0em;
-}
-
 @include bp(medium-down) {
 	.nav-menu {
 		/* clicked link state */
@@ -280,10 +315,5 @@
 			color: $white !important;
 			background-color: $lcranberry;
 		}
-		//.current-page > div {
-		//	> a, > a:active {
-		//		background-color: transparent !important;
-		//	}
-		//}
 	}
 }

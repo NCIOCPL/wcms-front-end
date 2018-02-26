@@ -157,6 +157,7 @@ module.exports = function(grunt) {
 
 
     // ----------------------------------------------------------------
+    // This is deprecated in favor of using webpack to handle sass as of January 2018
     grunt.registerTask('build-styles', 'Build the CSS.', function(env) {
         env = (env === 'prod' ? 'prod' : 'dev');
         grunt.config('env', env);
@@ -172,8 +173,8 @@ module.exports = function(grunt) {
         grunt.config('env', env);
 
         var tasks = [
-            'sprite:carousel',
-            'sprite:accordion',
+            // 'sprite:carousel',
+            // 'sprite:accordion',
             'svg_sprite',
             'svgmin'];
         grunt.task.run(tasks);
@@ -241,8 +242,11 @@ module.exports = function(grunt) {
         var tasks = [
             'generate-config:' + env,
             'build-sprites:' + env,
-            'build-styles:' + env,
+            // This is deprecated in favor of using webpack to handle sass as of January 2018
+            // 'build-styles:' + env,
             'uglify:' + env,
+            'uglify:analytics',
+            'uglify:dictionaryWidget',
             'copy:scripts',
             'copy:widget_styles',
             'clean:tmp',

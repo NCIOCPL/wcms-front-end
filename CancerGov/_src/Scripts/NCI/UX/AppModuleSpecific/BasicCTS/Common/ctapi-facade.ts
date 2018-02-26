@@ -1,4 +1,3 @@
-import 'core-js/fn/array/includes';
 import { ClinicalTrialsService, TermResults, TermResult, InterventionResults, InterventionResult, DiseaseResults, DiseaseResult} from 'Services/clinical-trials';
 
 //Statuses of what Cancer.gov trials should be shown

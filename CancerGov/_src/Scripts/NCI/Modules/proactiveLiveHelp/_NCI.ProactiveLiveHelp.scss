@@ -10,7 +10,7 @@
 	transform: translateY(-50%) translateX(-50%);
 	font:normal .875em $montserrat-font-stack;
 	color:#606060;
-	background: #fff image-url($backgrounds + 'proactive-chat-woman.jpg') no-repeat bottom right;
+	background: #fff url($backgrounds + 'proactive-chat-woman.jpg') no-repeat bottom right;
 
 	input {
 		background: #086F89;

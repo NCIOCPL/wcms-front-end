@@ -1,7 +1,7 @@
 # Dockerfile for building the CancerGov front-end files.
 # Assumes the context directory to be the top-level CancerGov directory.
 
-FROM node:6
+FROM node:8
 
 
 # Install ZIP and the github-release tool, storing it in /usr/local/bin

@@ -1,5 +1,5 @@
 @mixin sprite($x-coordinate: 0, $y-coordinate: 0, $width: 0, $height: 0) {
-	background: image-url($icons + "nci-sprite.png") no-repeat $x-coordinate $y-coordinate;
+	background: url($icons + "nci-sprite.png") no-repeat $x-coordinate $y-coordinate;
 	width: $width;
 	height: $height;
 }
@@ -53,4 +53,31 @@
 @mixin vCenter {
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+@mixin call-to-action-corner() {
+	text-transform: uppercase;
+	position: absolute;
+	z-index: 88;
+	padding: 0.62em;
+	color: #FFFFFF;
+	background-color: #403f3f;
+
+	// rotate the call to action:
+	right: 0;
+	@include transform-origin(top right);
+	@include transform(
+		rotate(90deg)
+		translate(100%, -1px)); // -1px to fix rendering issues
+}
+
+@mixin card-clickable {
+	// the following classes are to remove padding from the card and give it to the anchor tag so that the whole card is clickable
+	.columns {
+		padding: 0;
+		a {
+			padding: em-calc(30px);
+			display: block;
+		}
+	}
 }

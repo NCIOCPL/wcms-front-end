@@ -1,3 +1,4 @@
+//NOTE: THIS IS DEPRECATED IN FAVOR OF liveHelpPopup. Schedule for termination. BB 2/2018
 define(function(require){
 
     var $ = require('jquery');
@@ -198,7 +199,7 @@ define(function(require){
         var itemCount = urls.length;
 
         // so we don't have to worry about casing.
-        url = location.pathname.toLowerCase();
+        var url = location.pathname.toLowerCase();
         for (var i = 0; i < itemCount; ++i) {
 			if(typeof urls[i] === "string") {
 				if (url === urls[i].toLowerCase()) {

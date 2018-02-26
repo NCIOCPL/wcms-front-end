@@ -134,7 +134,7 @@
     border-color: #bdbdc2;
 
     &:hover {
-      background: #e6e6e6 image-url($jqueryui + "ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
+      background: #e6e6e6 url($jqueryui + "ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50%;
     }
 
     &[aria-expanded=true] {
@@ -368,14 +368,6 @@ _::-webkit-full-page-media, _:future, :root input[type="checkbox"]:focus + label
   }
 }
 
-/* Counter / pager styles above listing body*/
-.ct-listing-util-top  {
-  hr {
-    margin-top: 32px;
-    margin-bottom: 0px;
-  }
-}
-
 a.listing-chat-button {
   display: block;
   float: left;
@@ -447,37 +439,7 @@ a.listing-chat-button {
       padding: 1em 0;
     }
   }
-
-  .ct-listing-util-top {
-    .ct-listing-pager {
-      float: left !important;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    hr {
-      margin-bottom: 5px;
-    }
-  }
-
-  .ct-listing-util-bottom {
-    .ct-listing-pager {
-      float: left !important;
-    }
-  }
 }
-
-/* Custom styles for pager breakpoint
-@media only screen and (max-width: px) {
-  .ct-listing-util-top {
-    .ct-listing-pager {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    hr {
-      margin-bottom: 5px;
-    }
-  }
-}*/
 
 /* mobile only */
 @include bp(small) {
@@ -523,12 +485,6 @@ a.listing-chat-button {
   .cts-results-lower-control {
     .selections-area {
       float: left;
-    }
-  }
-
-  .ct-listing-util-top {
-    .pager-between-hr {
-      display: none;
     }
   }
 }

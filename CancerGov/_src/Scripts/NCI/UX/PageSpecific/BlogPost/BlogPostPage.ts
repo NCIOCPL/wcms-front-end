@@ -5,6 +5,7 @@ import * as NCIAccordion from 'Modules/accordion/accordion';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
+import './BlogPostPage.scss';
 
 /**
  * Class representing CancerGov blog post pages.
