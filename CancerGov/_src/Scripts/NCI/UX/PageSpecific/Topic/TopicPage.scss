@@ -7,39 +7,7 @@
 @import "../../../../../StyleSheets/sprites/svg-sprite";
 @import "../../../../../StyleSheets/nci-foundation_variables";
 @import "../../../../../StyleSheets/thumbnailcards";
-
-// Hot fix to add Equal heights support in for Topic Page feature cards. In a future 
-// release cycle, the EH rules should be pulled into a generic partial and the type-specific 
-// (such as feature-card, guide-card, etc.) can stay with the module specific rules
-// as conditional overrides.
-
-.flex-columns {
-    display: flex;
-	float: none;
-
-    @include bp(small) {
-        &:not(.multimedia) {
-            display: inherit;
-        }
-    }
-}
-
-@include bp(large-up){
-	.row .gutter {
-		width: 32%;
-		margin-left: 2%;
-	}
-	.row .large-6.gutter {
-		width: 48.5%;
-		margin-left: 2%;
-	}
-	.row .gutter:first-child {
-		margin-left: 0;
-	}
-}
-
-
-
+@import "../../../../../StyleSheets/equalheights";
 @import "../../../../../StyleSheets/topicFeature";
 @import "../../../../../StyleSheets/landing-thumb";
 
