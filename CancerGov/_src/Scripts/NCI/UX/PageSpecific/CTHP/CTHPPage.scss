@@ -171,6 +171,19 @@
 .cthpCard .cardBody br + ul li {
 	padding-left: 0;
 }
+.cthp-overview .cardBody {
+	p {
+		margin-top: 2px;
+	}
+}
+.cthpCard .rawHtml .cardBody {
+	p {
+		margin-top: 2px;
+	}
+	a.arrow-link {
+		margin-top: 8px;
+	}
+}
 .cthp-research .cardBody {
 	p {
 		margin-top: 2px;
