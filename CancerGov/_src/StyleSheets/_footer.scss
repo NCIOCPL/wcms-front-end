@@ -12,13 +12,12 @@
 
     h2 {
         font-size: 1.2em;
-        font-weight: normal;
         text-transform: uppercase;
         margin-bottom: 1em;
     }
 
     a {
-      font-weight: 700;
+      font-weight: 400;
 
       &:hover, &:focus {
         color: $white;
@@ -223,7 +222,7 @@
     max-width: 100%;
 
     li {
-      margin: 6px 12px 6px 0;
+      margin: 6px 11px 6px 0;
     }
   }
 
