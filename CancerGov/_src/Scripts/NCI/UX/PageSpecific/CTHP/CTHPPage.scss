@@ -99,7 +99,14 @@
 
 	@include bp(small) {
 		color: $header-font-color;
+	}	
+	@include bp(large-up) {
+		margin-bottom: 24px;
+		width: 58%;
 	}
+	@include bp(xtra-large) {
+		width: 65%;
+	}	
 }
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
@@ -274,6 +281,22 @@
 		}
 	}
 
+	/** CTHP new toggle styles **/
+	/** TODO: replace temporary colors when we get spec **/
+	@include bp(large-up) {
+		position: absolute;
+		margin: 0px;
+		right: 16px;
+		top: 20px;
+
+		a {
+			background-color: #82368C;
+			color: white;
+			&:hover, &:focus {
+				color: #dde7f5;
+			}
+		}
+	}
 
 	@include bp(small) {
 		float: none;
