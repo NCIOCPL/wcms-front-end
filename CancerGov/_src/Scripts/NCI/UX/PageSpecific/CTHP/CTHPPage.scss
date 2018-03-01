@@ -97,10 +97,12 @@
 .cthp-content h1 {
 	color: white;
 	
-	@include bp(large-up) {
-		width: 70%;
+	@include bp(xtra-large) {
+		width: 65%;
+	}	
+	@include bp(large) {
+		width: 58%;
 	}
-
 	@include bp(small) {
 		color: $header-font-color;
 	}
