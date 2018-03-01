@@ -8,6 +8,9 @@
 .social-media-row {
 	display: flex;
 	margin-bottom: 2em;
+	&:before, &after {
+		display:none;
+	}
 }
 .social-media-card {
 	flex-grow: 1;
