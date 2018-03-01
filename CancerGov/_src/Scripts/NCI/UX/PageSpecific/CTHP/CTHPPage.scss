@@ -281,9 +281,11 @@
 	/** CTHP new toggle styles **/
 	/** TODO: replace temporary colors when we get spec **/
 	@include bp(large-up) {
-		background-color: #dbf2f8;		
-		float: right;
-		margin: -48px 0px 0px 0px;
+		position: absolute;
+		margin: 0px;
+		right: 16px;
+		top: 20px;
+
 		a {
 			background-color: #82368C;
 			color: white;
