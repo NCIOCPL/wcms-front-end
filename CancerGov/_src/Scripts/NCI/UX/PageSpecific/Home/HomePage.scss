@@ -21,6 +21,10 @@
 	margin-right: 2%;
 	background: white;
 
+	.social-media-text h3 {
+		text-align: center;
+	}
+
 }
 .social-media-card:last-child {
 	margin-right: 0;
@@ -156,7 +160,6 @@
 	}
 	.social-media-card .social-media-text h3 {
 		margin-top: 20px;
-		text-align: center;
 	}
 	.social-media-card .social-media-text p {
 		display: none;
@@ -170,5 +173,12 @@
 		margin: 0;
 	}
 
+}
+
+@media only screen and (min-width: 461px) and (max-width: 900px) {
+	.social-media-card .social-media-text h3 {
+		margin-top: 20px;
+		text-align: left;
+	}
 }
 /* END Social Media section */
