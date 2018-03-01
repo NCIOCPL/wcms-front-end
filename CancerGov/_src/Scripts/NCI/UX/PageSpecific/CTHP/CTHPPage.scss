@@ -96,6 +96,10 @@
 }
 .cthp-content h1 {
 	color: white;
+	
+	@include bp(large-up) {
+		width: 70%;
+	}
 
 	@include bp(small) {
 		color: $header-font-color;
@@ -274,6 +278,20 @@
 		}
 	}
 
+	/** CTHP new toggle styles **/
+	/** TODO: replace temporary colors when we get spec **/
+	@include bp(large-up) {
+		background-color: #dbf2f8;		
+		float: right;
+		margin: -48px 0px 0px 0px;
+		a {
+			background-color: #82368C;
+			color: white;
+			&:hover, &:focus {
+				color: #dde7f5;
+			}
+		}
+	}
 
 	@include bp(small) {
 		float: none;
