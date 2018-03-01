@@ -96,16 +96,17 @@
 }
 .cthp-content h1 {
 	color: white;
-	
+
+	@include bp(small) {
+		color: $header-font-color;
+	}	
+	@include bp(large-up) {
+		margin-bottom: 24px;
+		width: 58%;
+	}
 	@include bp(xtra-large) {
 		width: 65%;
 	}	
-	@include bp(large) {
-		width: 58%;
-	}
-	@include bp(small) {
-		color: $header-font-color;
-	}
 }
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
