@@ -7,6 +7,7 @@
 @import "../../../../../StyleSheets/sprites/svg-sprite";
 @import "../../../../../StyleSheets/nci-foundation_mixins";
 @import "../../../../../StyleSheets/nci-foundation_variables";
+@import "../../../../../StyleSheets/equalheights";
 
 /*** BEGIN PDQ Styles ***/
 
@@ -224,42 +225,6 @@ table tfoot {
       & a:hover, & a:focus {
           color: $lcranberry;
       }
-}
-
-
-// These styles are for the PDQ summary list by topic pages
-.contentzone ul.PDQ-list {
-	padding-left: 0;
-}
-.contentzone ul.PDQ-list li:before {
-	content: none;
-}
-.contentzone ul.PDQ-list li {
-	background-image: none;
-	margin-left: 0;
-	padding-left: 0;
-}
-.contentzone ul.PDQ-list ul {
-	margin-top: 3px;
-	padding-left: 20px !important;
-}
-.contentzone .PDQ-list ul > li {
-	display: inline;
-}
-.contentzone ul.PDQ-list ul {
-	margin-left: 0;
-	padding-left: 0;
-}
-.contentzone .PDQ-list ul > li:first-child:before {
-	content: none;
-	display: none;
-}
-.contentzone .PDQ-list ul > li:before {
-	content: "|";
-	padding-left: 20px;
-	padding-right: 5px;
-	float: none;
-	top: 0;
 }
 
 
