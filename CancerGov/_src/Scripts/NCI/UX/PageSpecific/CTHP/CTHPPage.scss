@@ -298,14 +298,15 @@
 	@include bp(large-up) {
 		position: absolute;
 		margin: 0px;
-		right: 16px;
+		right: 16px; 
 		top: 20px;
 
 		a {
 			background-color: #82368C;
 			color: white;
 			&:hover, &:focus {
-				color: #dde7f5;
+				background-color: #75307e;
+				color: white;
 			}
 		}
 	}
