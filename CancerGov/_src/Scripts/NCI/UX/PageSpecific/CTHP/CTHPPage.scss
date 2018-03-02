@@ -16,9 +16,10 @@
 }
 .cthp-content {
 	//background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
-	background: #008eb0 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
+	background: #DDE7F5 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
   &.cthp-patient-content {
-		background-color: #6254A3;
+		//background-color: #6254A3;
+		background-color: #F7F8F3;
 	}
 
 	@include bp(small) {
@@ -95,18 +96,19 @@
 	}
 }
 .cthp-content h1 {
-	color: white;
+	//color: white;
+	color: #606060;
 
 	@include bp(small) {
 		color: $header-font-color;
-	}	
+	}
 	@include bp(large-up) {
 		margin-bottom: 24px;
 		width: 58%;
 	}
 	@include bp(xtra-large) {
 		width: 65%;
-	}	
+	}
 }
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
