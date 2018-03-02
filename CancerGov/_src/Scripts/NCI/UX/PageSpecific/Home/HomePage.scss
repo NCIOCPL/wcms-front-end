@@ -8,6 +8,9 @@
 .social-media-row {
 	display: flex;
 	margin-bottom: 2em;
+	&:before, &after {
+		display:none;
+	}
 }
 .social-media-card {
 	flex-grow: 1;
@@ -17,6 +20,10 @@
 	align-items: center;
 	margin-right: 2%;
 	background: white;
+
+	.social-media-text h3 {
+		text-align: center;
+	}
 
 }
 .social-media-card:last-child {
@@ -153,7 +160,6 @@
 	}
 	.social-media-card .social-media-text h3 {
 		margin-top: 20px;
-		text-align: center;
 	}
 	.social-media-card .social-media-text p {
 		display: none;
@@ -167,5 +173,12 @@
 		margin: 0;
 	}
 
+}
+
+@media only screen and (min-width: 461px) and (max-width: 900px) {
+	.social-media-card .social-media-text h3 {
+		margin-top: 20px;
+		text-align: left;
+	}
 }
 /* END Social Media section */
