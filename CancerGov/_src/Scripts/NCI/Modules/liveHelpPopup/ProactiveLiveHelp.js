@@ -39,7 +39,12 @@ export default class ProactiveLiveHelp {
         document.querySelector('body').appendChild(popupElement);
 
         const popupLiveHelpHandler = () => {
-            LiveChat.openChatWindow();
+            if(this.options.popupID === 'Spanish-CTSPrompt'){
+                LiveChat.openSpanishChatWindow();
+            } else {
+                LiveChat.openChatWindow();
+            }
+
             this.dismissPrompt();
         }
         document.getElementById('chat-button').addEventListener('click', popupLiveHelpHandler);
