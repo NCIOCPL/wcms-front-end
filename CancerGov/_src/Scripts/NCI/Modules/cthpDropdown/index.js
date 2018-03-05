@@ -1,5 +1,6 @@
-import { getNodeArray } from 'Utilities//domManipulation'
+import { getNodeArray } from 'Utilities/domManipulation'
 import './index.scss'
+import {lang} from 'Modules/NCI.config'
 
 const dropdownInjector = () => {
     const allHooks = getNodeArray('.cthp-card-container .cardBody .more-info');
@@ -16,7 +17,8 @@ const dropdownInjector = () => {
 
             const label = document.createElement('label');
             label.htmlFor = `checkbox_toggle${idx}`;
-            label.innerText = 'View More Information';
+
+            label.innerText = lang.CTHPDropdown_Label[document.documentElement.lang];
 
             // container.replaceChild(label, title);
             container.insertBefore(label, title);

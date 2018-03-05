@@ -37,6 +37,10 @@ export const lang = {
     Hide: {
         en: 'Hide',
         es: 'Ocultar'
+    },
+    CTHPDropdown_Label: {
+        en: 'View more information',
+        es: 'Vea más información'
     }
 
 }
