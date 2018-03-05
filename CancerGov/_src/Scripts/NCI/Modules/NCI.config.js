@@ -49,7 +49,10 @@ export const lang = {
     CTS_Search_Hint: {
         en: 'Start your search at any time.',
         es: 'Comienzo su búsqueda en cualquier momento.'
-    }
+    },
+    CTHPDropdown_Label: {
+        en: 'View more information',
+        es: 'Vea más información'    }
 
 }
 

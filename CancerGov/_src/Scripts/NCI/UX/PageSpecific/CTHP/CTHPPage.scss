@@ -14,13 +14,23 @@
 .bgWhite {
 	background-color: #fff;
 }
+
+[data-cde-pagetemplate~="NVCGCancerTypeHomePageTemplateHP"] {
+	.main-content {
+		background: #DDE7F5 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
+	}
+}
+
+//[data-cde-pagetemplate^="NVCGCancerTypeHomePageTemplatePatient"] {
+//	.main-content {
+//		background: #f7f8f3 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;	
+//	}
+//}
+
 .cthp-content {
 	//background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
-	background: #DDE7F5 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
-  &.cthp-patient-content {
-		//background-color: #6254A3;
-		background-color: #F7F8F3;
-	}
+	//background: #008eb0 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
+  
 
 	@include bp(small) {
 		background: white;
