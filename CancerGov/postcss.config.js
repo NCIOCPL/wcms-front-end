@@ -5,7 +5,7 @@ const postcss = require('postcss');
 const cachekiller = postcss.plugin('cachekiller', function cachekiller(options = {}) {
     return function (css) {
         css.replaceValues(/url\(['|"].+\.\w+['|"]\)/, string => {
-            return string.replace(/(url\(['|"])(.+)(\.\w+['|"]\))/, (full, pre, match, post) => `${pre}${match}${'.__v' + Date.now()}${post}`)
+            return string.replace(/(url\(['|"])(.+)(\.\w+['|"]\))/, (full, pre, match, post) => `${pre}${match}${'.__v' + Date.now().toString().slice(0,-5)}${post}`)
         })
     }
 });
