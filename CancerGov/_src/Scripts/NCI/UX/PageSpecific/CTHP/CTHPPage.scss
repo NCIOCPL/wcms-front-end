@@ -247,7 +247,6 @@
 	background-color: #dbf2f8;
 	color: #fff;
 	margin: 0 50% 20px 0;
-
 	/* margin-top: -10px; -->  half the icon height */
 
 	a {
@@ -278,47 +277,49 @@
 
 		&::after {
 			content: "";
-			@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+			@include svg-sprite(chevron-circle-white,$rotate:right);
 			position: absolute;
 			right: 2%;
 		}
-
 		&:hover, &:focus {
 			text-decoration: none;
-			color: #bd153c;
-
-			&::after {
-				@include svg-sprite(chevron-circle-red);
-			}
 		}
 	}
 
 	/** CTHP new toggle styles **/
-	/** TODO: replace temporary colors when we get spec **/
-	@include bp(large-up) {
+	@include bp(medium-up) {
 		position: absolute;
-		margin: 0px;
-		right: 16px;
-		top: 20px;
+		margin: -55px 0px 0px;
+		right: 16px; 
 
 		a {
 			background-color: #82368C;
 			color: white;
 			&:hover, &:focus {
-				color: #dde7f5;
+				background-color: #75307e;
+				color: white;
 			}
 		}
 	}
 
+	@include bp(large-up) {
+		margin: 0px;
+		right: 16px; 
+		top: 20px;
+	}
+
 	@include bp(small) {
-		float: none;
 		background-color: white;
 		display: inline-block;
+		float: none;
 		margin-right: 0;
 
 		a {
 			padding: 0 40px 0 0;
 			white-space: normal;
+			&:hover, &:focus {
+				color: #bd153c;
+			}			
 		}
 	}
 }
