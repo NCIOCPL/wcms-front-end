@@ -38,7 +38,7 @@ div:not(.ui-accordion-content) > .cardBody {
           padding: 15px 20px;
           cursor: pointer;
           text-align: left;
-          //box-shadow: 0 0px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0px 1px rgba(0, 0, 0, 0.4);
           border: 1px solid #ccc;
           user-select: none;
           transition: background-color 150ms ease-in;
@@ -70,7 +70,7 @@ div:not(.ui-accordion-content) > .cardBody {
           z-index: 1;
           margin:0;
           padding:0;
-          //box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
           border: 1px solid #ccc;
           border-top: none;
 
@@ -81,16 +81,15 @@ div:not(.ui-accordion-content) > .cardBody {
               color: #606060;
               cursor: pointer;
 
-              &:hover{
-                  background-color: rgb(238, 237, 237);
+              &:hover {
+                  background-color: #286ea7;
 
-                  // Sad but necessary deep nesting to counteract highly specific generic selectors
-                  // from elsewhere. :(
+
                   a {
-                      color: #606060;
+                      color: #808080;
 
                       &:hover {
-                          color: #606060;
+                         color: #fff;
                       }
                   }
               }
@@ -100,8 +99,13 @@ div:not(.ui-accordion-content) > .cardBody {
               }
 
               a {
-                  color: inherit;
+                  color: #808080;
                   text-decoration: none;
+                  display: inline-block;
+                      margin: -1em;
+                      padding: 1em;
+                      position: relative;
+                      z-index: 1;
               }
           }
       }
