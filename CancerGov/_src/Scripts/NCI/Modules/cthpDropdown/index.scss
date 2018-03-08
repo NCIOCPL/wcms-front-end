@@ -36,6 +36,10 @@ div:not(.ui-accordion-content) > .cardBody {
           background-color: white;
           margin: 0;
           padding: 15px 20px;
+          // This line stole a little bit of Brendan's soul. tee hee.
+          // The dropdown chevron needs to be an absolutely positioned pseudo element.
+          // This padding allows the text to wrap without flowing under the chevron.
+          padding-right: calc(6% + 26.25px);
           cursor: pointer;
           text-align: left;
           box-shadow: 0 0px 1px rgba(0, 0, 0, 0.4);
@@ -56,7 +60,6 @@ div:not(.ui-accordion-content) > .cardBody {
               right: 3%;
               transition: transform 150ms ease-in;
               width: 1.3125em;
-
           }
 
       }
