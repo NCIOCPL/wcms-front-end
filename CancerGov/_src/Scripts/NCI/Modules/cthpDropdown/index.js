@@ -18,7 +18,6 @@ const setLanguage = (lang = 'en', translations) => {
     return translatedText;
 }
 
-
 const dropdownInjector = () => {
     const allHooks = getNodeArray('.cthp-card-container .cardBody .more-info');
     const filteredHooks = allHooks.filter((container, idx) => {
@@ -27,14 +26,19 @@ const dropdownInjector = () => {
         if(links.length > 1) {
             const title = container.querySelector('h5'); // To be used for replaceChild
             container.classList.add('cthp-dropdown'); // Inserting the primary CSS container class hook
-
+            
             const input = document.createElement('input');
             input.type = 'checkbox';
             input.id = `checkbox_toggle${idx}`;
-
+            
             const label = document.createElement('label');
             label.htmlFor = `checkbox_toggle${idx}`;
-            label.innerText = setLanguage(document.documentElement.lang, lang.CTHPDropdown_Label);
+            
+            // If a data-customlabel exists on the container DOM object, override the generic label.
+            const customLabel = container.dataset.customlabel;
+            label.innerText = customLabel 
+                                    ? customLabel 
+                                    : setLanguage(document.documentElement.lang, lang.CTHPDropdown_Label);
 
             // container.replaceChild(label, title);
             container.insertBefore(label, title);
