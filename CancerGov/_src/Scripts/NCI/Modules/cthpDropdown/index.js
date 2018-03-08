@@ -2,6 +2,23 @@ import { getNodeArray } from 'Utilities/domManipulation'
 import './index.scss'
 import {lang} from 'Modules/NCI.config'
 
+
+/**
+ * Given an HTML lang code and an object with translations of a text, return the appropriate
+ * string translation.
+ * NOTE: ONly support English and Spanish, all other cases or no specified language on document head
+ * will return English.
+ * @param {string} lang 
+ * @param {object} translations 
+ * @returns {string}
+ */
+const setLanguage = (lang = 'en', translations) => {
+    const language = lang === 'es' ? 'es' : 'en';
+    const translatedText = translations[language];
+    return translatedText;
+}
+
+
 const dropdownInjector = () => {
     const allHooks = getNodeArray('.cthp-card-container .cardBody .more-info');
     const filteredHooks = allHooks.filter((container, idx) => {
@@ -17,8 +34,7 @@ const dropdownInjector = () => {
 
             const label = document.createElement('label');
             label.htmlFor = `checkbox_toggle${idx}`;
-
-            label.innerText = lang.CTHPDropdown_Label[document.documentElement.lang];
+            label.innerText = setLanguage(document.documentElement.lang, lang.CTHPDropdown_Label);
 
             // container.replaceChild(label, title);
             container.insertBefore(label, title);
