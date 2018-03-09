@@ -13,11 +13,12 @@
     h2 {
         font-size: 1.2em;
         text-transform: uppercase;
+        font-weight: 400;
         margin-bottom: 1em;
     }
 
     a {
-      font-weight: 400;
+      font-weight: 700;
 
       &:hover, &:focus {
         color: $white;
