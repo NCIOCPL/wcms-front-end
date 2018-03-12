@@ -7,6 +7,7 @@
 <!--(bake-end)-->
 <div class="page-options-container">
     <!-- PAGE OPTIONS -->
+
     <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="{{css-class}}" runat="server">
         <PageOptionsButtonLanguages>
             <NCI:PageOptionsButtonLanguageItem Language="en">
@@ -25,24 +26,20 @@
                                         CssClass="po-email"
                                         AlternateContentVersionKey="email"
                                         WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="facebook"
-                                                    Title="Facebook"
-                                                    CssClass="po-facebook"
+                    <NCI:ClientSideButtonItem Title="Facebook"
+                                                    CssClass="social-share--facebook"
                                                     AlternateContentVersionKey="bookmarkshare"
                                                     WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="twitter"
-                                                    Title="Twitter"
-                                                    CssClass="po-twitter"
+                    <NCI:ClientSideButtonItem Title="Twitter"
+                                                    CssClass="social-share--twitter"
                                                     AlternateContentVersionKey="bookmarkshare"
                                                     WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
-                                                    Title="Google+"
-                                                    CssClass="po-googleplus"
+                    <NCI:ClientSideButtonItem Title="Google+"
+                                                    CssClass="social-share--googleplus"
                                                     AlternateContentVersionKey="bookmarkshare"
                                                     WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
-                                                    Title="Pinterest"
-                                                    CssClass="po-pinterest"
+                    <NCI:ClientSideButtonItem Title="Pinterest"
+                                                    CssClass="social-share--pinterest"
                                                     AlternateContentVersionKey="bookmarkshare"
                                                     WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
                 </ButtonsCollection>
