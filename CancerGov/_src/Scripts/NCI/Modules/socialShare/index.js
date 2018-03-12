@@ -1,7 +1,7 @@
 import { newWindow } from 'Utilities/popups';
 import { getNodeArray, getMetaData } from 'Utilities/domManipulation';
 
-const shareButtonHooks = ['facebook', 'twitter', 'gplus', 'pinterest'];
+const shareButtonHooks = ['facebook', 'twitter', 'gplus', 'p'];
 const facebookLink = (url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
 const metaTags = [
     ['property', 'og:url'],
