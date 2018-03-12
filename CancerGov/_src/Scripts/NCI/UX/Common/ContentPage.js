@@ -11,7 +11,10 @@ define(function(require) {
 	var flexVideo = require('Modules/videoPlayer/flexVideo');
 	var formControls = require('Modules/forms/formControls');
 	var tooltips = require('Modules/tooltips/referenceTooltip');
+
+	// Unfortunately AMD doesn't play nice with export default;
 	var proactiveLiveHelp = require('Modules/liveHelpPopup').default;
+	var socialShare = require('Modules/socialShare').default;
 
 
 	//require('Modules/autocomplete/autocomplete');
@@ -66,6 +69,9 @@ define(function(require) {
      // moved to Modules > fontResizer > fontResizer.js
 		(function() {
 			NCI.PageOptions.init();
+		})();
+		(function() {
+			socialShare();
 		})();
 		/*** END Page Options **/
 

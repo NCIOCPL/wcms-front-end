@@ -32,16 +32,16 @@
 	.po-email a::before {
 		@include svg-sprite(mail-envelope-closed-blue);
 	}
-	.po-facebook a::before {
+	.social-share--facebook a::before {
 		@include svg-sprite(facebook-blue);
 	}
-	.po-twitter a::before {
+	.social-share--twitter a::before {
 		@include svg-sprite(twitter-blue);
 	}
-	.po-googleplus a::before {
+	.social-share--googleplus a::before {
 		@include svg-sprite(google-plus-blue);
 	}
-	.po-pinterest a::before {
+	.social-share--pinterest a::before {
 		@include svg-sprite(pinterest-blue);
 	}
 }
@@ -155,19 +155,19 @@
 			@include svg-sprite(mail-envelope-closed-white);
 			//font-size: .95em;
 		}
-		.po-facebook a::before {
+		.social-share--facebook a::before {
 			@include svg-sprite(facebook-white);
 			font-size: 22px;
 		}
-		.po-twitter a::before {
+		.social-share--twitter a::before {
 			@include svg-sprite(twitter-white);
 			font-size: 17px;
 		}
-		.po-googleplus a::before {
+		.social-share--googleplus a::before {
 			@include svg-sprite(google-plus-white);
 			top: 50%;
 		}
-		.po-pinterest a::before {
+		.social-share--pinterest a::before {
 			@include svg-sprite(pinterest-white);
 			font-size: 120%;
 		}
