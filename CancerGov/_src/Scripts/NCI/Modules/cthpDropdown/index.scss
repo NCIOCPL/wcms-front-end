@@ -42,13 +42,16 @@ div:not(.ui-accordion-content) > .cardBody {
           padding-right: calc(6% + 26.25px);
           cursor: pointer;
           text-align: left;
-          box-shadow: 0 0px 1px rgba(0, 0, 0, 0.4);
-          border: 1px solid #ccc;
+          border-top: 1px solid #ccc;
+          border-left: 1px solid #ccc;
+          border-right: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
           user-select: none;
           transition: background-color 150ms ease-in;
 
 
           &::before {
+              border-bottom: none;
               content: '';
               @include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
               height: 1.3125em;
@@ -73,16 +76,26 @@ div:not(.ui-accordion-content) > .cardBody {
           z-index: 1;
           margin:0;
           padding:0;
-          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
-          border: 1px solid #ccc;
-          border-top: none;
+          box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
+          border-left: 1px solid #ccc;
+          border-right: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
 
 
           li {
-              padding: 15px;
+              width: 100%;
               background-color: #fff;
               color: #606060;
               cursor: pointer;
+              padding: 0;
+              margin: 0;
+
+              //&:nth-of-type(even) {
+              //    background: #EEE;
+              //}
+              //:first-child {
+               // border-top: 2px solid #fff;
+            //}
 
               &:hover {
                   background-color: #286ea7;
@@ -93,6 +106,9 @@ div:not(.ui-accordion-content) > .cardBody {
 
                       &:hover {
                          color: #fff;
+                         display: inline-block;
+                         position: relative;
+                         z-index: 1;
                       }
                   }
               }
@@ -105,16 +121,18 @@ div:not(.ui-accordion-content) > .cardBody {
                   color: #808080;
                   text-decoration: none;
                   display: inline-block;
-                      margin: -1em;
-                      padding: 1em;
-                      position: relative;
-                      z-index: 1;
+                  width: 100%;
+                  padding: 15px 15px 15px 0.9375em;
+                  position: relative;
+                  z-index: 1;
               }
           }
       }
 
       input[type=checkbox]:checked ~ label {
           //background-color: rgb(210, 210, 210);
+          border-bottom: none;
+          box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
 
           &::before {
               transform: rotateZ(0deg)
