@@ -76,7 +76,7 @@ div:not(.ui-accordion-content) > .cardBody {
           z-index: 1;
           margin:0;
           padding:0;
-          box-shadow: 2px 6px 6px 0 #b2b2b2;
+          box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
           border-left: 1px solid #ccc;
           border-right: 1px solid #ccc;
           border-bottom: 1px solid #ccc;
@@ -132,7 +132,7 @@ div:not(.ui-accordion-content) > .cardBody {
       input[type=checkbox]:checked ~ label {
           //background-color: rgb(210, 210, 210);
           border-bottom: none;
-          box-shadow: 2px 2px 6px 0 #b2b2b2;
+          box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
 
           &::before {
               transform: rotateZ(0deg)
