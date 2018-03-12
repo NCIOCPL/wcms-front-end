@@ -274,13 +274,6 @@
 		html[lang="es"] &::before {
 			content: 'Vaya a la ';
 		}
-
-		&::after {
-			content: "";
-			@include svg-sprite(chevron-circle-white,$rotate:right);
-			position: absolute;
-			right: 2%;
-		}
 		&:hover, &:focus {
 			text-decoration: none;
 		}
