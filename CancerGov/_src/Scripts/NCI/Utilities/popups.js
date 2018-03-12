@@ -1,12 +1,14 @@
 export const newWindow = (url = '', customOptions = {}) => {
+    const height = customOptions.height || 400;
+    const width = customOptions.width || 500;
     const left = (window.outerWidth / 2) + (window.screenX || window.screenLeft || 0) - (width / 2);
     const top = (window.outerHeight / 2) + (window.screenY || window.screenTop || 0) - (height / 2);
 
     const defaultOptions = {
         left,
         top,
-        height: 400,
-        width: 500,
+        height,
+        width,
         toolbar: 'no',
         status: 'no',
         directories: 'no',

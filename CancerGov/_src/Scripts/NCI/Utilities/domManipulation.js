@@ -37,6 +37,7 @@ export const checkNodeAncestryForClass = (node, className) => {
 export const getNodeArray = (selector, node = document) => {
     const nodeList = node.querySelectorAll(selector);
     return nodeList ? Array.from(nodeList) : []
+<<<<<<< HEAD
 };
 
 
@@ -56,3 +57,38 @@ export const createFragment = html => {
  * @return {node}
  */
 export const appendNodes = (nodes, parent) => nodes.map(node => parent.appendChild(node));
+=======
+}
+
+/**
+ * Given an array of arrays containing meta property attribute names and the corresponding value, will 
+ * return an object with the property names as keys and the metatags content as values
+ * 
+ * Example metaTags = [
+    ['property', 'og:url'],
+    ['property', 'og:title'], 
+    ['property', 'og:description'],
+    ['name', 'twitter:card']
+]
+ * 
+ * @param {array[array]} metaTags Array of arrays of propertyType & propertyName pairs for metatags
+ * @param {object} document Document (or document.documentElement for quicker searching) explicit for testing without DOM
+ * @return {object}
+ */
+export const getMetaData = (metaTags, document) => {
+	try {
+		const metaData = metaTags.reduce((acc, [propType, propName]) => {
+			const metaTag = document.querySelector(`meta[${propType}="${propName}"]`);
+			if(metaTag) {
+				acc[propName] = metaTag.getAttribute('content');
+			}
+			return acc;
+		}, {})
+		return metaData;
+	}
+	catch(err) {
+		// Until we start doing proper error handling, this will serve as a placeholder (BB 3/2018)
+		return console.log(err);
+	}
+}
+>>>>>>> Basic facebook link implemented
