@@ -1,4 +1,7 @@
 export const newWindow = (url = '', customOptions = {}) => {
+    // Type checking to avoid problems with null being passed accidentally
+    customOptions = customOptions !== null ? customOptions : {};
+
     const height = customOptions.height || 400;
     const width = customOptions.width || 500;
     const left = (window.outerWidth / 2) + (window.screenX || window.screenLeft || 0) - (width / 2);
