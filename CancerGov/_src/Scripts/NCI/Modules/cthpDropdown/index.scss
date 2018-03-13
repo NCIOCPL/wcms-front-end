@@ -2,6 +2,7 @@
 @import '../../../../StyleSheets/breakpoints';
 @import '../../../../StyleSheets/sprites/svg-sprite';
 
+
 .cthp-dropdown.more-info {
   input[type=checkbox] {
     display: none;
@@ -12,9 +13,9 @@
   }
 }
 
+div:not(.ui-accordion-content) > .cardBody  {
 
-div:not(.ui-accordion-content) > .cardBody {
-  .cthp-dropdown.more-info{
+  .cthp-dropdown.more-info {
       position: relative;
       display: inline-block;
       font-size: 16px;
@@ -29,14 +30,13 @@ div:not(.ui-accordion-content) > .cardBody {
           display: none;
       }
 
-      label{
+      label {
           box-sizing: border-box;
           display: inline-block;
           width: 100%;
           background-color: white;
           margin: 0;
-          padding: 15px 20px;
-          // This line stole a little bit of Brendan's soul. tee hee.
+          padding: 15px 15px;
           // The dropdown chevron needs to be an absolutely positioned pseudo element.
           // This padding allows the text to wrap without flowing under the chevron.
           padding-right: calc(6% + 26.25px);
@@ -53,7 +53,7 @@ div:not(.ui-accordion-content) > .cardBody {
           &::before {
               border-bottom: none;
               content: '';
-              @include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
+              @include svg-sprite(chevron-circle-lt-blue, $type: all, $rotate:flip);
               height: 1.3125em;
               font-size: 20px;
               margin-top: -8px;
@@ -63,6 +63,7 @@ div:not(.ui-accordion-content) > .cardBody {
               right: 3%;
               transition: transform 150ms ease-in;
               width: 1.3125em;
+              background-size: inherit;
           }
 
       }
@@ -134,8 +135,9 @@ div:not(.ui-accordion-content) > .cardBody {
           border-bottom: none;
           box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
 
+
           &::before {
-              transform: rotateZ(0deg)
+              transform: rotate(0deg);
           }
       }
 
@@ -143,5 +145,4 @@ div:not(.ui-accordion-content) > .cardBody {
           display: block;
       }
   }
-
 }
