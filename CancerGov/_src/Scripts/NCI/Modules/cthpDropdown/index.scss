@@ -13,136 +13,124 @@
   }
 }
 
-div:not(.ui-accordion-content) > .cardBody  {
-
-  .cthp-dropdown.more-info {
+/* Tablet/Mobile styles */
+@include bp('(min-width:1025px)') {
+.cthp-card-container .cthp-dropdown.more-info {
       position: relative;
       display: inline-block;
       font-size: 16px;
       color: rgb(241, 240, 240);
       width: 100%;
-
-      h5 {
+  
+    h5 {
         display: none;
-      }
+    }
+    input[type=checkbox]{
+        display: none;
+    }
 
-      input[type=checkbox]{
-          display: none;
-      }
+    label {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 100%;
+        background-color: white;
+        margin: 0;
+        padding: 15px 15px;
+        // The dropdown chevron needs to be an absolutely positioned pseudo element.
+        // This padding allows the text to wrap without flowing under the chevron.
+        padding-right: calc(6% + 26.25px);
+        cursor: pointer;
+        text-align: left;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        user-select: none;
+        transition: background-color 150ms ease-in;
 
-      label {
-          box-sizing: border-box;
-          display: inline-block;
-          width: 100%;
-          background-color: white;
-          margin: 0;
-          padding: 15px 15px;
-          // The dropdown chevron needs to be an absolutely positioned pseudo element.
-          // This padding allows the text to wrap without flowing under the chevron.
-          padding-right: calc(6% + 26.25px);
-          cursor: pointer;
-          text-align: left;
-          border-top: 1px solid #ccc;
-          border-left: 1px solid #ccc;
-          border-right: 1px solid #ccc;
-          border-bottom: 1px solid #ccc;
-          user-select: none;
-          transition: background-color 150ms ease-in;
+        &::before {
+            border-bottom: none;
+            content: '';
+            //@include svg-sprite(chevron-circle-lt-blue, $type: all, $rotate:flip);
+            background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
+            background-position: 6.09756% 16.13736%;
+            height: 1.3125em;
+            font-size: 20px;
+            margin-top: -8px;
+            position: absolute;
+            top: 39%;
+            transform-origin: center;
+            right: 3%;
+            transition: transform 150ms ease-in;
+            width: 1.3125em;
+            transform: rotate(180deg);
+        }
+    }
 
+    ul {
+        display: none;
+        position: absolute;
+        list-style: circle;
+        text-align: left;
+        width: 100%;
+        z-index: 1;
+        margin:0;
+        padding:0;
+        box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
 
-          &::before {
-              border-bottom: none;
-              content: '';
-              @include svg-sprite(chevron-circle-lt-blue, $type: all, $rotate:flip);
-              height: 1.3125em;
-              font-size: 20px;
-              margin-top: -8px;
-              position: absolute;
-              top: 39%;
-              transform-origin: center;
-              right: 3%;
-              transition: transform 150ms ease-in;
-              width: 1.3125em;
-              background-size: inherit;
-          }
+        li {
+            width: 100%;
+            background-color: #fff;
+            color: #606060;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
 
-      }
+            &:hover {
+                background-color: #286ea7;
 
-      ul {
-          display: none;
-          position: absolute;
-          list-style: circle;
-          text-align: left;
-          width: 100%;
-          z-index: 1;
-          margin:0;
-          padding:0;
-          box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
-          border-left: 1px solid #ccc;
-          border-right: 1px solid #ccc;
-          border-bottom: 1px solid #ccc;
+                a {
+                    color: #808080;
 
+                    &:hover {
+                       color: #fff;
+                       display: inline-block;
+                       position: relative;
+                       z-index: 1;
+                    }
+                }
+            }
 
-          li {
-              width: 100%;
-              background-color: #fff;
-              color: #606060;
-              cursor: pointer;
-              padding: 0;
-              margin: 0;
+            &::before {
+                display: none;
+            }
 
-              //&:nth-of-type(even) {
-              //    background: #EEE;
-              //}
-              //:first-child {
-               // border-top: 2px solid #fff;
-            //}
+            a {
+                color: #808080;
+                text-decoration: none;
+                display: inline-block;
+                width: 100%;
+                padding: 15px 15px 15px 0.9375em;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
 
-              &:hover {
-                  background-color: #286ea7;
+    input[type=checkbox]:checked ~ label {
+        border-bottom: none;
+        box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
 
+        &::before {
+            transform: rotate(0deg);
+        }
+    }
 
-                  a {
-                      color: #808080;
-
-                      &:hover {
-                         color: #fff;
-                         display: inline-block;
-                         position: relative;
-                         z-index: 1;
-                      }
-                  }
-              }
-
-              &::before {
-                  display: none;
-              }
-
-              a {
-                  color: #808080;
-                  text-decoration: none;
-                  display: inline-block;
-                  width: 100%;
-                  padding: 15px 15px 15px 0.9375em;
-                  position: relative;
-                  z-index: 1;
-              }
-          }
-      }
-
-      input[type=checkbox]:checked ~ label {
-          //background-color: rgb(210, 210, 210);
-          border-bottom: none;
-          box-shadow: 2px 3px 2px 0 #c2c2c2, -2px 3px 2px 0 #c2c2c2;
-
-
-          &::before {
-              transform: rotate(0deg);
-          }
-      }
-
-      input[type=checkbox]:checked ~ ul {
-          display: block;
-      }
+    input[type=checkbox]:checked ~ ul {
+        display: block;
+    }
   }
 }
