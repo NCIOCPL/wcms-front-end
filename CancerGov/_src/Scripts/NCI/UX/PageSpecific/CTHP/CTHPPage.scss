@@ -113,20 +113,15 @@
 		color: $header-font-color;
 	}
 	@include bp(large-up) {
-		min-height: 39px;
-		padding-right: 12px;
 		width: 58%;
 	}
 	@include bp(xtra-large) {
+		margin-bottom: 24px;
 		width: 65%;
 	}
 }
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
-	flex: 1 0 auto;
-    display: flex;
-	flex-direction: column;
-	margin-bottom: 0;
 
 	@include bp(small) {
 		padding: 0;
@@ -165,8 +160,6 @@
 
 	.equalheight {
 		height: 100%;
-		display: flex;
-        flex-direction: column;
 	}
 
 	.cthpCard {
@@ -200,9 +193,6 @@
 .cthp-overview .cardBody {
 	p {
 		margin-top: 2px;
-		a:before {
-			content: none;
-		}
 	}
 }
 .cthpCard .rawHtml .cardBody {
@@ -212,12 +202,6 @@
 	a.arrow-link {
 		margin-top: 8px;
 	}
-	a:last-child {
-		margin-bottom: 20px;
-	}
-}
-.cthp-overview .ui-accordion-content .cardBody p:last-child {
-    margin-bottom: 20px;
 }
 .cthp-research .cardBody {
 	p {
@@ -260,8 +244,10 @@
 .cthp-version-toggle {
 	position: relative;
 	float: left;
+	background-color: #dbf2f8;
 	color: #fff;
 	margin: 0 50% 20px 0;
+	/* margin-top: -10px; -->  half the icon height */
 
 	a {
 		display: block;
@@ -281,27 +267,53 @@
 				text-transform: uppercase;
 			}
 		}
+
 		html[lang="en"] &::before {
 			content: 'Go to ';
 		}
 		html[lang="es"] &::before {
 			content: 'Vaya a la ';
 		}
-		/**** Sprite is now drawn in _arrowLinks.scss ****/
-		/**** TODO: get svg-sprite() to work outside of StyleSheets/ folder path ****/
 		&:hover, &:focus {
 			text-decoration: none;
 		}
 	}
-}
-@media only screen and (max-width: 709px) {
-	.cthp-hp-content .cthp-version-toggle {
-		background-color: #dde7f5;
+
+	/** CTHP new toggle styles **/
+    @media only screen and (min-width: 700px) {
+	/** CTHP new toggle styles **/
+	@include bp(medium-up) {
+
+
+
+
+
+
+
+
+
+		position: absolute;
+		margin: -55px 0px 0px;
+		right: 16px; 
+
+		a {
+			background-color: #82368C;
+			color: white;
+			&:hover, &:focus {
+				background-color: #75307e;
+				color: white;
+			}
+		}
 	}
-	.cthp-patient-content .cthp-version-toggle {
-		background-color: #f7f8f3;
+
+	@include bp(large-up) {
+		margin: 0px;
+		right: 16px; 
+		top: 20px;
 	}
-	.cthp-version-toggle {
+
+    @media only screen and (max-width: 699px) {
+		background-color: white;
 		display: inline-block;
 		float: none;
 		margin-right: 0;
@@ -314,36 +326,20 @@
 			}			
 		}
 	}
-}
-@media only screen and (min-width: 710px) {
-	.cthp-version-toggle {
-		position: absolute;
-		margin: -55px 0px 0px;
-		max-width: 57%;
-		right: 16px;
+
+	@include bp(small) {
+		background-color: white;
+		display: inline-block;
+		float: none;
+		margin-right: 0;
 
 		a {
-			background-color: #82368C;
-			color: white;
+			padding: 0 40px 0 0;
+			white-space: normal;
 			&:hover, &:focus {
-				background-color: #75307e;
-				color: white;
-			}
+				color: #bd153c;
+			}			
 		}
-	}
-}
-@include bp(small) {
-	.cthp-hp-content, .cthp-patient-content {
-		.cthp-version-toggle {
-			background-color: white;
-		}
-	}
-}
-@include bp(large-up) {
-	.cthp-version-toggle {
-		margin: 0px;
-		right: 16px; 
-		top: 20px;
 	}
 }
 .bp20 {
@@ -377,15 +373,6 @@
 		margin-bottom: 0;
 	}
 }
-
-// a) This anonymous div wrapping the rawHTML block in certain cards is a big red flag
-//  so we need to hack around it.
-// b) There is a legit bug in ie11 around nested flexboxes and autoscaling of images.
-// This hack references https://github.com/philipwalton/flexbugs/issues/75
-.cthpCard > .equalheight > .clearfix > div, .cthpCard > .equalheight > div {
-	min-height: 1px;
-}
-
 .cthpCard h3  {
 	color: #fff;
 	padding: 0.47em 0.6em;
@@ -463,19 +450,9 @@ h3.cthp-overview-title {
 /* .cthpCard + div:hover li a.arrow-link { */
 .cthpCard + div li a.arrow-link:hover {
 	color: #bb0e3d;
+
 }
-.cthpCard li a span {
-	&.filetype {
-		margin-right: 4px;
-	}
-	&.filesize {
-		@include bp(medium-down)
-		{
-			color: $default-text;
-		}
-	}
-}
-.cthpCard > .cthp-survival > h3 + div:hover {
+.cthpCard > div > h3 + div:hover {
 	background-color: black;
 
 	@include bp(small) {
