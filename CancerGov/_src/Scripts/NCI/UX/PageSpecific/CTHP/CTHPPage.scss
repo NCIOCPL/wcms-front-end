@@ -305,7 +305,6 @@
 		display: inline-block;
 		float: none;
 		margin-right: 0;
-
 		a {
 			padding: 0 40px 0 0;
 			white-space: normal;
@@ -331,16 +330,14 @@
 			}
 		}
 	}
-}
 @include bp(small) {
-	.cthp-hp-content, .cthp-patient-content {
-		.cthp-version-toggle {
-			background-color: white;
-		}
+	.cthp-version-toggle {
+		background-color: white;
 	}
 }
 @include bp(large-up) {
 	.cthp-version-toggle {
+
 		margin: 0px;
 		right: 16px; 
 		top: 20px;
