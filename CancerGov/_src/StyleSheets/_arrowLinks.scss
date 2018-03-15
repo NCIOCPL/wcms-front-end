@@ -46,7 +46,7 @@ a.toggle-arrow-link {
 		right: 2%;					
 		@include svg-sprite(chevron-circle-white,$rotate:right);
 	}
-	@media only screen and (max-width: 699px) {
+	@include bp(small) {
 		&::after {
 			@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
 		}
