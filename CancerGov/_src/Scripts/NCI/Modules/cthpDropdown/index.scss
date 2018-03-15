@@ -1,6 +1,7 @@
 @import '../../../../StyleSheets/variables';
 @import '../../../../StyleSheets/breakpoints';
 @import '../../../../StyleSheets/sprites/svg-sprite';
+@import '../../../../StyleSheets/sprites/mixins';
 
 
 .cthp-dropdown.more-info {
@@ -13,8 +14,16 @@
   }
 }
 
+@mixin svgsprite-mixin { 
+    display: inline-block;
+    background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
+    background-position: 6.09756% 16.13736%;
+}
+
 /* Tablet/Mobile styles */
-@include bp('(min-width:1025px)') {
+@include bp(large-up) {
+%svgsprite { @include svgsprite-mixin; }
+
 .cthp-card-container .cthp-dropdown.more-info {
       position: relative;
       display: inline-block;
@@ -51,11 +60,11 @@
         &::before {
             border-bottom: none;
             content: '';
-            //@include svg-sprite(chevron-circle-lt-blue, $type: all, $rotate:flip);
-            background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
-            background-position: 6.09756% 16.13736%;
+            @extend %svgsprite;
+            //@include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
+            //$svg-sprite: map-get($svg-icons, chevron-circle-lt-blue) !default;
             height: 1.3125em;
-            font-size: 20px;
+            //font-size: 20px;
             margin-top: -8px;
             position: absolute;
             top: 39%;
