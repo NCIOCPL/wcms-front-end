@@ -283,7 +283,8 @@
 	@include bp(medium-up) {
 		position: absolute;
 		margin: -55px 0px 0px;
-		right: 16px; 
+		max-width: 57%;
+		right: 16px;
 
 		a {
 			background-color: #82368C;
