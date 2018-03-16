@@ -4,6 +4,9 @@ import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 import "../../Common/Enhancements/trialCheck";
+import { lang } from "Modules/NCI.config";
+import scrollMonitor from "scrollMonitor";
+import { createFragment, appendNodes } from "Utilities/domManipulation";
 
 /**
  * Concrete (advanced search) implementation of form setup class.
@@ -140,6 +143,9 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 
 		// Add form label to state select2 input
 		$('#lst-multiselect').data('select2').$container.find("input").attr('aria-labelledby', 'lst-label');
+
+		// Float the submit button
+        this.floatSubmitButton();
 	}
 
 	/*
@@ -246,6 +252,55 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		$elem.find('.loc-select2-menu').each((index, element) => {
 			let $element:any = $(element);
 			$element.attr('disabled', 'disabled');
+		});
+	}
+
+	/*
+	 * Floating Submit Button
+	 */
+	private floatSubmitButton() {
+
+		const submitBtn = createFragment(`<div id="submit-button-floating">
+								  <div class="columns medium-9 small-12">
+									<div class="btn-group">
+									  <input class="submit button" value="${lang.Search}" type="submit" />
+									  <div>${lang.CTS_Search_Hint}</div>
+									</div>
+								  </div>
+								</div>`);
+
+		appendNodes(submitBtn, document.getElementById('form--cts-advanced'));
+
+		// submitBtn.map(btn => container.appendChild(btn));
+
+		const floater = document.getElementById('submit-button-floating');
+
+		const sideEffectsLabel = scrollMonitor.create(document.getElementById('fin-label'));
+		const ctsForm = scrollMonitor.create(document.getElementById('cts-advanced'));
+
+        sideEffectsLabel.visibilityChange(function() {
+            if(sideEffectsLabel.isAboveViewport || sideEffectsLabel.isInViewport) {
+                floater.classList.add('active');
+            } else {
+                floater.classList.remove('active');
+            }
+        });
+
+		ctsForm.enterViewport(function(){
+            if(sideEffectsLabel.isAboveViewport || sideEffectsLabel.isInViewport) {
+                floater.classList.add('active');
+            } else {
+                floater.classList.remove('active');
+            }
+
+        });
+        ctsForm.partiallyExitViewport(function(){
+            if(sideEffectsLabel.isAboveViewport) {
+                floater.classList.add('at-bottom');
+            }
+        });
+        ctsForm.fullyEnterViewport(function() {
+            floater.classList.remove('at-bottom');
 		});
 	}
 

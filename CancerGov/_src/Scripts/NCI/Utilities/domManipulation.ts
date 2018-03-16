@@ -35,6 +35,24 @@ export const checkNodeAncestryForClass = (node, className) => {
  * @returns {node[]}
  */
 export const getNodeArray = (selector, node = document) => {
-    const nodeList = node.querySelectorAll(selector)
+    const nodeList = node.querySelectorAll(selector);
     return nodeList ? Array.from(nodeList) : []
-}
+};
+
+
+/**
+ * @param {String} html - represents any number of sibling elements
+ * @return {Array}
+ */
+export const createFragment = html => {
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return Array.from(template.content.childNodes);
+};
+
+/**
+ * @param {Array<node>} nodes - list of elements to append
+ * @param {node} parent - target container
+ * @return {node}
+ */
+export const appendNodes = (nodes, parent) => nodes.map(node => parent.appendChild(node));

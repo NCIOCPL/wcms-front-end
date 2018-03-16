@@ -1,3 +1,7 @@
+@import "../../mixins";
+@import '../../components/_toggle-switch';
+
+
 #fieldset--location {
   section {
     margin: 12px 0 18px;
@@ -165,4 +169,67 @@ Set Styles for Drug Selection
 
 #clinical-trials-print .clinicaltrials-results-criteria-display {
   //left: -1em;
+}
+
+#submit-button-floating {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  @include hCenter;
+  z-index: 2;
+  padding: 0 3.125em;
+  max-width: 1200px;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+
+  .btn-group {
+    margin: 13px 0;
+
+    input{
+      margin: 0;
+    }
+
+    > div {
+      color: #620788;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+  }
+
+  .columns {
+    border: 1px solid #620788;
+    background-color: rgba(256,256,256,.9);
+  }
+
+  &.at-bottom {
+    opacity: 0;
+    position: absolute;
+    bottom:-1px; //for border
+    padding: 0;
+
+    .columns {
+      width: 100%;
+    }
+  }
+}
+
+
+.toggle-field {
+  display: flex;
+  align-items: center;
+  padding: .6em 1.5em;
+  margin-top: 1em;
+}
+
+.toggle-control {
+  width: 80px;
+  margin: 0 10px;
+
+  label {
+    margin: 0;
+  }
 }
