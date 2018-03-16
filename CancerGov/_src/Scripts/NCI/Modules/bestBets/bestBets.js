@@ -36,7 +36,7 @@ define(function (require) {
 
 	// get the full definition from the dictionary service
 	var _getDefinition = function (term) {
-		return DictionaryService.search('term', _fetchTerm(), language);
+		return DictionaryService.search('term', _fetchTerm(), lang);
 	};
 
 	// render the defintion to produce the content and html
