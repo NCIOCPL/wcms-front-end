@@ -152,8 +152,12 @@
 
 					#set($resultSet =  $SearchResults.Results)
 
-					#if($SearchResults.Parameters.IsEmpty() == false)
-					#DrawSearchParamsV2($SearchResults)
+					#set($showingVA = ( $SearchResults.Parameters.IsFieldSet("IsVAOnly") == true && $SearchResults.Parameters.GetFieldAsString("IsVAOnly") == "True" ))
+        	#set($showingHV = ( $SearchResults.Parameters.IsFieldSet("HealthyVolunteers") == true && $SearchResults.Parameters.GetFieldAsString("HealthyVolunteers") != "Accepting All Volunteers" ))
+        	#set($showingCriteria = $SearchResults.Parameters.IsEmpty() != true && ($showingHV || $showingVA))
+
+	        #if($showingCriteria)
+						#DrawSearchParamsV2($SearchResults)
 					#end##
 
 					<p class="printIntroText">Here are the trials you selected from your search on $SearchResults.SearchDate.</p>
