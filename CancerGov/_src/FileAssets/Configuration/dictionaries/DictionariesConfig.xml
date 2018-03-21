@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cde:Module_DictionariesInfo xmlns:cde="http://www.example.org/CDESchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/CDESchema CDESchema.xsd">
+  <Dictionaries>
+    <Dictionary Name="term" Language="English">
+      <DefinitionUrl>/publications/dictionaries/cancer-terms/def</DefinitionUrl>
+	  <FriendlyNameMapping>~/PublishedContent/Files/Configuration/dictionaries/TermDictionaryCDRFriendlyNameMap.txt</FriendlyNameMapping>
+	</Dictionary>
+    <Dictionary Name="term" Language="Spanish">
+      <DefinitionUrl>/espanol/publicaciones/diccionario/def</DefinitionUrl>
+	  <FriendlyNameMapping>~/PublishedContent/Files/Configuration/dictionaries/SpanishTermDictionaryCDRFriendlyNameMap.txt</FriendlyNameMapping>
+	</Dictionary>
+    <Dictionary Name="genetic" Language="English">
+      <DefinitionUrl>/publications/dictionaries/genetics-dictionary/def</DefinitionUrl>
+	  <FriendlyNameMapping>~/PublishedContent/Files/Configuration/dictionaries/GeneticsTermDictionaryCDRFriendlyNameMap.txt</FriendlyNameMapping>
+	</Dictionary>
+    <Dictionary Name="drug" Language="English">
+      <DefinitionUrl>/publications/dictionaries/cancer-drug/def</DefinitionUrl>
+	  <FriendlyNameMapping>~/PublishedContent/Files/Configuration/dictionaries/DrugDictionaryCDRFriendlyNameMap.txt</FriendlyNameMapping>
+	</Dictionary>
+  </Dictionaries>
+  <SitemapStore>~/PublishedContent/Files/Configuration/dictionaries/DictionariesStore.txt</SitemapStore>
+</cde:Module_DictionariesInfo>

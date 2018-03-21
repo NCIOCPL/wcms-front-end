@@ -23,4 +23,5 @@
  <MappingFiles>
  <MappingFile>~/PublishedContent/Files/Configuration/clinical-trials/CTSOverrideMapping.txt</MappingFile>
  </MappingFiles>
+ <SitemapStore>~/PublishedContent/Files/Configuration/clinical-trials/ClinicalTrialsStore.txt</SitemapStore>
 </cde:Module_BasicCTSPageInfo>
