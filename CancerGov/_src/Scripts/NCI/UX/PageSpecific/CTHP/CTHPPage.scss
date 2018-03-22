@@ -123,10 +123,11 @@
 }
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
-	flex: 1 0 auto;
+
+	flex: 1;
     display: flex;
-	flex-direction: column;
-	margin-bottom: 0;
+    flex-direction: column;
+
 
 	@include bp(small) {
 		padding: 0;
