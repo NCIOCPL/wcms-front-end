@@ -177,10 +177,13 @@ Set Styles for Drug Selection
   bottom: 0;
   @include hCenter;
   z-index: 2;
-  padding: 0 3.125em;
   max-width: 1200px;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
+
+  @include break(medium){
+    padding: 0 3.125em;
+  }
 
   .btn-group {
     margin: 13px 0 13px -1px; // -1px to counter 1px border
@@ -209,10 +212,10 @@ Set Styles for Drug Selection
     opacity: 0;
     position: absolute;
     bottom:-1px; //for border
-    padding: 0;
 
     .columns {
       width: 100%;
+      border-color: transparent ;
     }
   }
 }
