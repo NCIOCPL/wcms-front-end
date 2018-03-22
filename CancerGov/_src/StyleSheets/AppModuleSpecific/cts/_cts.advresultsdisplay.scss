@@ -45,7 +45,7 @@
       word-break: break-word;
     }
   }
-  #other-diseases, #fieldset--location section > div:not(.radio) {
+  #other-diseases, #fieldset--location section > div:not(.radio), #fieldset--location section div.radio label {
     opacity: 1;
     transition: opacity .5s ease;
   }

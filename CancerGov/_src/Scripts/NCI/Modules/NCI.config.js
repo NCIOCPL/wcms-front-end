@@ -37,6 +37,14 @@ export const lang = {
     Hide: {
         en: 'Hide',
         es: 'Ocultar'
+    },
+    Search: {
+        en: 'Search',
+        es: 'Buscar'
+    },
+    CTS_Search_Hint: {
+        en: 'Submit your search at any time',
+        es: 'Envíe su búsqueda en cualquier momento'
     }
 
 }

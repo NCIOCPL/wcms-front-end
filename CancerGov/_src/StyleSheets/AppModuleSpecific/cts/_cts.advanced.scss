@@ -17,7 +17,7 @@
         opacity: 1;
       }
     }
-    div.disabled {
+    div.disabled, div.radio label.disabled {
       opacity: .45;
     }
   }
@@ -167,9 +167,9 @@ Set Styles for Drug Selection
 //   display: none;
 // }
 
-#clinical-trials-print .clinicaltrials-results-criteria-display {
-  //left: -1em;
-}
+// #clinical-trials-print .clinicaltrials-results-criteria-display {
+//   //left: -1em;
+// }
 
 #submit-button-floating {
   position: fixed;
@@ -183,7 +183,7 @@ Set Styles for Drug Selection
   transition: opacity 150ms ease-in-out;
 
   .btn-group {
-    margin: 13px 0;
+    margin: 13px 0 13px -1px; // -1px to counter 1px border
 
     input{
       margin: 0;

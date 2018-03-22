@@ -6,7 +6,7 @@ import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/
 import "../../Common/Enhancements/trialCheck";
 import { lang } from "Modules/NCI.config";
 import scrollMonitor from "scrollMonitor";
-import { createFragment, appendNodes } from "Utilities/domManipulation";
+import { createFragment, appendNodes, getNodeArray } from "Utilities/domManipulation";
 
 /**
  * Concrete (advanced search) implementation of form setup class.
@@ -145,7 +145,10 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		$('#lst-multiselect').data('select2').$container.find("input").attr('aria-labelledby', 'lst-label');
 
 		// Float the submit button
-        this.floatSubmitButton();
+		this.floatSubmitButton();
+		
+		// Bind the 'Limit results to Veterans Affairs facilities' toggle control to enable/disable Hospitals/Institutions and At NIH
+		this.org_va_toggle();
 	}
 
 	/*
@@ -260,11 +263,11 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 	 */
 	private floatSubmitButton() {
 
-		const submitBtn = createFragment(`<div id="submit-button-floating">
+		const submitBtn = createFragment(`<div id="submit-button-floating" aria-hidden="true">
 								  <div class="columns medium-9 small-12">
 									<div class="btn-group">
-									  <input class="submit button" value="${lang.Search}" type="submit" />
-									  <div>${lang.CTS_Search_Hint}</div>
+									  <input class="submit button" value="${lang.Search.en}" type="submit" />
+									  <div>${lang.CTS_Search_Hint.en}</div>
 									</div>
 								  </div>
 								</div>`);
@@ -280,28 +283,63 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 
         sideEffectsLabel.visibilityChange(function() {
             if(sideEffectsLabel.isAboveViewport || sideEffectsLabel.isInViewport) {
-                floater.classList.add('active');
+				floater.classList.add('active');
+				floater.setAttribute("aria-hidden", "false");
             } else {
-                floater.classList.remove('active');
+				floater.classList.remove('active');
+				floater.setAttribute("aria-hidden", "true");
             }
         });
 
 		ctsForm.enterViewport(function(){
             if(sideEffectsLabel.isAboveViewport || sideEffectsLabel.isInViewport) {
-                floater.classList.add('active');
+				floater.classList.add('active');
+				floater.setAttribute("aria-hidden", "false");
             } else {
                 floater.classList.remove('active');
+				floater.setAttribute("aria-hidden", "true");
             }
 
         });
         ctsForm.partiallyExitViewport(function(){
             if(sideEffectsLabel.isAboveViewport) {
                 floater.classList.add('at-bottom');
+				floater.setAttribute("aria-hidden", "true");
             }
         });
         ctsForm.fullyEnterViewport(function() {
             floater.classList.remove('at-bottom');
+			floater.setAttribute("aria-hidden", "false");
 		});
+	}
+
+	private org_va_toggle() {
+		const toggleControl = document.getElementById('org_va') as HTMLInputElement;
+
+		toggleControl.addEventListener('change',(e) => {
+			const fields = getNodeArray('#hospital,#nih');
+			const all = document.getElementById('all-locations');
+
+			if(toggleControl.checked) {
+				fields.map(node => {
+					node.setAttribute('disabled','disabled')
+					node.nextElementSibling.classList.add('disabled');
+					// if this field is selected when it becomes disabled then move selection to 'all-locations'
+					if(node.checked) {
+						all.dispatchEvent(new MouseEvent('click'));
+					}
+				});
+			} else {
+				fields.map(node => {
+					node.removeAttribute('disabled')
+					node.nextElementSibling.classList.remove('disabled')
+				});
+			}
+			
+		});
+
+		// this will run once on page load to set the field state
+		toggleControl.dispatchEvent(new Event('change'));
 	}
 
 	/**
