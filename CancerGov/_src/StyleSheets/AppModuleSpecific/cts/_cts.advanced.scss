@@ -177,12 +177,16 @@ Set Styles for Drug Selection
   bottom: 0;
   @include hCenter;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1000px;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
 
-  @include break(medium){
+  @include break(large){
     padding: 0 3.125em;
+  }
+
+  @include break(xlarge) {
+    max-width: 1200px;
   }
 
   .btn-group {
