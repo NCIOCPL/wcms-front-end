@@ -192,6 +192,10 @@ Set Styles for Drug Selection
   .btn-group {
     margin: 13px 0 13px -1px; // -1px to counter 1px border
 
+    @include bp(medium) {
+      margin-top: 20px;
+    }
+
     input{
       margin: 0;
     }
