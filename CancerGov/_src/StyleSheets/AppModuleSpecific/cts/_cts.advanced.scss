@@ -1,3 +1,7 @@
+@import "../../mixins";
+@import '../../components/_toggle-switch';
+
+
 #fieldset--location {
   section {
     margin: 12px 0 18px;
@@ -13,7 +17,7 @@
         opacity: 1;
       }
     }
-    div.disabled {
+    div.disabled, div.radio label.disabled {
       opacity: .45;
     }
   }
@@ -163,6 +167,80 @@ Set Styles for Drug Selection
 //   display: none;
 // }
 
-#clinical-trials-print .clinicaltrials-results-criteria-display {
-  //left: -1em;
+// #clinical-trials-print .clinicaltrials-results-criteria-display {
+//   //left: -1em;
+// }
+
+#submit-button-floating {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  @include hCenter;
+  z-index: 2;
+  max-width: 1000px;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+
+  @include break(large){
+    padding: 0 3.125em;
+  }
+
+  @include break(xlarge) {
+    max-width: 1200px;
+  }
+
+  .btn-group {
+    margin: 13px 0 13px -1px; // -1px to counter 1px border
+
+    @include bp(medium) {
+      margin-top: 20px;
+    }
+
+    input{
+      margin: 0;
+    }
+
+    > div {
+      color: #620788;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+  }
+
+  .columns {
+    border: 1px solid #620788;
+    background-color: rgba(256,256,256,.9);
+  }
+
+  &.at-bottom {
+    opacity: 0;
+    position: absolute;
+    bottom:-1px; //for border
+
+    .columns {
+      width: 100%;
+      border-color: transparent ;
+    }
+  }
+}
+
+
+.toggle-field {
+  display: flex;
+  align-items: center;
+  padding: .6em 1.5em;
+  margin-top: 1em;
+}
+
+.toggle-control {
+  width: 80px;
+  margin: 0 10px;
+
+  label {
+    margin: 0;
+  }
 }

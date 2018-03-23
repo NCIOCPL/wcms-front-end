@@ -95,9 +95,9 @@
   .btn-group {
     margin: 40px 0;
     text-align: center;
-    @include bp(medium-down) {
-      margin-bottom: 0;
-    }
+    // @include bp(medium-down) {
+    //   margin-bottom: 0;
+    // }
     input:last-child {
       margin-right: 0;
     }
