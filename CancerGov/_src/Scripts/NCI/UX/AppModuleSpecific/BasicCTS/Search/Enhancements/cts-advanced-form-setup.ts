@@ -5,7 +5,7 @@ import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 import * as Select2InterventionsInitializer from 'UX/AppModuleSpecific/BasicCTS/Common/select2-intervention-initializer';
 import "../../Common/Enhancements/trialCheck";
 import { lang } from "Modules/NCI.config";
-import scrollMonitor from "scrollMonitor";
+import scrollMonitor from "scrollmonitor";
 import { createFragment, appendNodes, getNodeArray } from "Utilities/domManipulation";
 
 /**
