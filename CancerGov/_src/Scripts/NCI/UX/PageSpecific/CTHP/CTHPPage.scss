@@ -250,7 +250,6 @@
 .cthp-version-toggle {
 	position: relative;
 	float: left;
-	background-color: #dbf2f8;
 	color: #fff;
 	margin: 0 50% 20px 0;
 
@@ -286,8 +285,13 @@
 	}
 }
 @media only screen and (max-width: 709px) {
-	.cthp-version-toggle {
+	.cthp-hp-content .cthp-version-toggle {
+		background-color: #dde7f5;
+	}
+	.cthp-patient-content .cthp-version-toggle {
 		background-color: #f7f8f3;
+	}
+	.cthp-version-toggle {
 		display: inline-block;
 		float: none;
 		margin-right: 0;
@@ -319,8 +323,10 @@
 	}
 }
 @include bp(small) {
-	.cthp-version-toggle {
-		background-color: white;
+	.cthp-hp-content, .cthp-patient-content {
+		.cthp-version-toggle {
+			background-color: white;
+		}
 	}
 }
 @include bp(large-up) {
