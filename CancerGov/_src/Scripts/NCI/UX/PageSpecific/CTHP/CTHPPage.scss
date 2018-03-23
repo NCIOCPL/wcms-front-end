@@ -333,8 +333,10 @@
 		}
 	}
 @include bp(small) {
-	.cthp-version-toggle {
-		background-color: white;
+	.cthp-hp-content, .cthp-patient-content {
+		.cthp-version-toggle {
+			background-color: white;
+		}
 	}
 }
 @include bp(large-up) {
