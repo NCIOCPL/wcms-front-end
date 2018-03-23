@@ -176,6 +176,21 @@
                 <legend>TRIAL TYPE</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#trialtype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
                 <div>Select the type of trial for your search. You may check more than one box or select "All."</div>
+                <div class="panel toggle-field">
+                    <div class="toggle-text">Limit results to trials accepting healthy volunteers:</div>
+                    <div class="toggle-control">
+
+                        <label class="switch-light switch-ios">
+                            <input type="checkbox" id="hv" name="hv" value="1">
+                            <span>
+                                <span>No</span>
+                                <span>Yes</span>
+                                <a></a><!-- slider button -->
+                            </span>
+                        </label>
+
+                    </div>
+                </div>
                 <div id="tt" class="two-columns field-group">
                     <div class="checkbox">
                         <input id="tt_all" name="tt" checked="checked" value="" type="checkbox"><label for="tt_all">All</label>
