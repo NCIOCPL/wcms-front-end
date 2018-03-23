@@ -80,6 +80,9 @@ $usSites.length locations##
       #if($SearchResults.Parameters.IsFieldInvalid("Phrase") == true)
         <li>Keywords / Phrases</li>
       #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("IsVAOnly") == true)
+        <li>Veterans Affairs Facilities</li>
+      #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Location") == true)
         <li>Location</li>
       #end##
@@ -103,6 +106,9 @@ $usSites.length locations##
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("AtNIH") == true)
         <li>At NIH</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("HealthyVolunteers") == true)
+        <li>Healthy Volunteers</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialTypes") == true)
         <li>Trial Type</li>
