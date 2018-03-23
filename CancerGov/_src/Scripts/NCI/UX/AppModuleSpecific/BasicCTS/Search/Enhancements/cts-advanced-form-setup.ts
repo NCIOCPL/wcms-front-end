@@ -148,7 +148,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		this.floatSubmitButton();
 		
 		// Bind the 'Limit results to Veterans Affairs facilities' toggle control to enable/disable Hospitals/Institutions and At NIH
-		this.org_va_toggle();
+		this.orgVaToggle();
 	}
 
 	/*
@@ -313,7 +313,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		});
 	}
 
-	private org_va_toggle() {
+	private orgVaToggle() {
 		const toggleControl = document.getElementById('org_va') as HTMLInputElement;
 
 		toggleControl.addEventListener('change',(e) => {
