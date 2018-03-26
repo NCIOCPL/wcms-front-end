@@ -199,6 +199,9 @@
 .cthp-overview .cardBody {
 	p {
 		margin-top: 2px;
+		a:before {
+			content: none;
+		}
 	}
 }
 .cthpCard .rawHtml .cardBody {
