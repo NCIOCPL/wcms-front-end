@@ -106,14 +106,14 @@
 	}
 }
 .cthp-content h1 {
-	//color: white; 
+	//color: white;
 	color: #606060;
 
 	@include bp(small) {
 		color: $header-font-color;
 	}
 	@include bp(large-up) {
-		margin-bottom: 24px;
+		min-height: 39px;
 		padding-right: 12px;
 		width: 58%;
 	}
