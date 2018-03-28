@@ -113,10 +113,11 @@
 		color: $header-font-color;
 	}
 	@include bp(large-up) {
+		min-height: 39px;
+		padding-right: 12px;
 		width: 58%;
 	}
 	@include bp(xtra-large) {
-		margin-bottom: 24px;
 		width: 65%;
 	}
 }
@@ -199,6 +200,9 @@
 .cthp-overview .cardBody {
 	p {
 		margin-top: 2px;
+		a:before {
+			content: none;
+		}
 	}
 }
 .cthpCard .rawHtml .cardBody {
