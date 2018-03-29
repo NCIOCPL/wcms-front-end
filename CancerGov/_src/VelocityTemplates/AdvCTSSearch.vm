@@ -42,7 +42,7 @@
                     <div class="toggle-control">
 
                         <label class="switch-light switch-ios">
-                            <input type="checkbox" id="org_va" name="org_va" value="1">
+                            <input type="checkbox" id="va" name="va" value="1">
                             <span>
                                 <span>No</span>
                                 <span>Yes</span>

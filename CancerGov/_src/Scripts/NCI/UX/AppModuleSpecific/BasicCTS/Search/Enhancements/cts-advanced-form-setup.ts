@@ -314,7 +314,7 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 	}
 
 	private orgVaToggle() {
-		const toggleControl = document.getElementById('org_va') as HTMLInputElement;
+		const toggleControl = document.getElementById('va') as HTMLInputElement;
 
 		toggleControl.addEventListener('change',(e) => {
 			const fields = getNodeArray('#hospital,#nih');
