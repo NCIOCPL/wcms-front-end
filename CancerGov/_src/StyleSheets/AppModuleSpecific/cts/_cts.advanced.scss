@@ -175,11 +175,16 @@ Set Styles for Drug Selection
   position: fixed;
   width: 100%;
   bottom: 0;
+  padding: 0 0.45em;
   @include hCenter;
   z-index: 2;
   max-width: 1000px;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
+
+  // @include bp(medium) {
+  //   padding: 0 0.47em;
+  // }
 
   @include break(large){
     padding: 0 3.125em;
@@ -238,9 +243,16 @@ Set Styles for Drug Selection
 
 .toggle-control {
   width: 80px;
-  margin: 0 10px;
+  min-width: 80px;
+  margin-left: 10px;
 
   label {
     margin: 0;
+  }
+}
+
+@include bp(medium) {
+  .site-footer .back-to-top {
+    bottom: 7em;
   }
 }

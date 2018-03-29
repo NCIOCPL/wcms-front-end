@@ -43,8 +43,8 @@ export const lang = {
         es: 'Buscar'
     },
     CTS_Search_Hint: {
-        en: 'Submit your search at any time',
-        es: 'Envíe su búsqueda en cualquier momento'
+        en: 'Submit your search at any time.',
+        es: 'Envíe su búsqueda en cualquier momento.'
     }
 
 }
