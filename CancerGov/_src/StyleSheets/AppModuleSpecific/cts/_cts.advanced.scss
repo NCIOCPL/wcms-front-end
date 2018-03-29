@@ -182,6 +182,10 @@ Set Styles for Drug Selection
   opacity: 0;
   transition: opacity 150ms ease-in-out;
 
+  @include bp(medium) {
+    padding: 0;
+  }
+
   @include break(large){
     padding: 0 3.125em;
   }
