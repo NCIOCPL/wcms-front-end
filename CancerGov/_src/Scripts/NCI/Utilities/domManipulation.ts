@@ -45,9 +45,9 @@ export const getNodeArray = (selector, node = document) => {
  * @return {Array}
  */
 export const createFragment = html => {
-    const template = document.createElement('template');
+    const template = document.createElement('div');
     template.innerHTML = html;
-    return Array.from(template.content.childNodes);
+    return Array.from(template.childNodes);
 };
 
 /**
