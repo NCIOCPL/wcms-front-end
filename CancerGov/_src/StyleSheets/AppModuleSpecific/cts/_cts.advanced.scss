@@ -175,6 +175,7 @@ Set Styles for Drug Selection
   position: fixed;
   width: 100%;
   bottom: 0;
+  padding: 0 .9375em;
   @include hCenter;
   z-index: 2;
   max-width: 1000px;
@@ -238,7 +239,8 @@ Set Styles for Drug Selection
 
 .toggle-control {
   width: 80px;
-  margin: 0 10px;
+  min-width: 80px;
+  margin-left: 10px;
 
   label {
     margin: 0;

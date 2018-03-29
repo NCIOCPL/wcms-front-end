@@ -254,6 +254,7 @@ $em-base: 16 !default;
 
         &:last-of-type {
           padding-right: size(30);
+          padding-left: size(5);
         }
       }
 

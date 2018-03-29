@@ -18,7 +18,7 @@
         </div>
         <!--(bake-start _if="findings")-->
         <div class="field-group">
-            <label id="fin-label" for="fin-multiselect">Side Effects / Biomarkers / Participant Attributes</label>
+            <label id="fin-label" for="fin-multiselect">Side Effects/Biomarkers/Participant Attributes</label>
             <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" disabled></select>
         </div>
         <!--(bake-end)-->
