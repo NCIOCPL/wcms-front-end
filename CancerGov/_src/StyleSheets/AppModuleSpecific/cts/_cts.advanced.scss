@@ -256,3 +256,19 @@ Set Styles for Drug Selection
     bottom: 7em;
   }
 }
+
+
+.search-tip {
+  display: flex;
+  align-items: center;
+  border: 1px solid #bdbdc2;
+  padding: 16px;
+
+  > div {
+    padding-left: 1em;
+  }
+}
+.lightbulb-circle-yellow {
+  @include svg-sprite(lightbulb-circle-yellow);
+  min-width: 3.9375em;
+}
