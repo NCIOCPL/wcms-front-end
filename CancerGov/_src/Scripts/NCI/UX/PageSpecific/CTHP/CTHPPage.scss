@@ -212,6 +212,12 @@
 	a.arrow-link {
 		margin-top: 8px;
 	}
+	a:last-child {
+		margin-bottom: 20px;
+	}
+}
+.cthp-overview .ui-accordion-content .cardBody p:last-child {
+    margin-bottom: 20px;
 }
 .cthp-research .cardBody {
 	p {
