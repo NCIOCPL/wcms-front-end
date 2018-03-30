@@ -86,6 +86,7 @@
                 #DrawOneSearchParamWithLblIfEql("Veterans Affairs Facilities" "IsVAOnly" "True" "Results limited to trials at Veterans Affairs facilities")
                 ##We need to add IsFieldSet checks that delve into the location parameters
                 ##in order to handle these.
+                #DrawLocationSearchParam()
                 #DrawOneSearchParamWithLblIfEql("Healthy Volunteers" "HealthyVolunteers" "Only Accepting Healthy Volunteers" "Results limited to trials accepting healthy volunteers")
                 #DrawOneSearchParamWithLblIfEql("Healthy Volunteers" "HealthyVolunteers" "Not Accepting Healthy Volunteers" "Results limited to trials not accepting healthy volunteers")
                 #DrawOneSearchParam("Trial Type" "TrialTypes")
