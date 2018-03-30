@@ -371,6 +371,15 @@
 		margin-bottom: 0;
 	}
 }
+
+// a) This anonymous div wrapping the rawHTML block in certain cards is a big red flag
+//  so we need to hack around it.
+// b) There is a legit bug in ie11 around nested flexboxes and autoscaling of images.
+// This hack references https://github.com/philipwalton/flexbugs/issues/75
+.cthpCard > .equalheight > div {
+	min-height: 1px;
+}
+
 .cthpCard h3  {
 	color: #fff;
 	padding: 0.47em 0.6em;
