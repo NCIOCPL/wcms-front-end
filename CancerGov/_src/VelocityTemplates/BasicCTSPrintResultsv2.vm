@@ -152,11 +152,7 @@
 
 					#set($resultSet =  $SearchResults.Results)
 
-					#set($showingVA = ( $SearchResults.Parameters.IsFieldSet("IsVAOnly") == true && $SearchResults.Parameters.GetFieldAsString("IsVAOnly") == "True" ))
-        	#set($showingHV = ( $SearchResults.Parameters.IsFieldSet("HealthyVolunteers") == true && $SearchResults.Parameters.GetFieldAsString("HealthyVolunteers") != "Accepting All Volunteers" ))
-        	#set($showingCriteria = $SearchResults.Parameters.IsEmpty() != true && ($showingHV || $showingVA))
-
-	        #if($showingCriteria)
+	        		#if($SearchResults.Parameters.IsEmpty() == false)
 						#DrawSearchParamsV2($SearchResults)
 					#end##
 
