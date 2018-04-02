@@ -128,7 +128,6 @@
 	flex-direction: column;
 	margin-bottom: 0;
 
-
 	@include bp(small) {
 		padding: 0;
 	}
@@ -306,6 +305,7 @@
 		display: inline-block;
 		float: none;
 		margin-right: 0;
+
 		a {
 			padding: 0 40px 0 0;
 			white-space: normal;
@@ -331,6 +331,7 @@
 			}
 		}
 	}
+}
 @include bp(small) {
 	.cthp-hp-content, .cthp-patient-content {
 		.cthp-version-toggle {
@@ -340,7 +341,6 @@
 }
 @include bp(large-up) {
 	.cthp-version-toggle {
-
 		margin: 0px;
 		right: 16px; 
 		top: 20px;
@@ -385,6 +385,7 @@
 .cthpCard > .equalheight > .clearfix > div, .cthpCard > .equalheight > div {
 	min-height: 1px;
 }
+
 .cthpCard h3  {
 	color: #fff;
 	padding: 0.47em 0.6em;
