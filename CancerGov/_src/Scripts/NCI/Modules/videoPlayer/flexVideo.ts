@@ -44,6 +44,7 @@ const injectPreviewContents = parent => {
 	const thumbnailSource = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 	const thumbnail = new Image();
 	thumbnail.src = thumbnailSource;
+	thumbnail.alt = videoTitle;
 	thumbnail.classList.add('video-preview--preview-img');
 	container.appendChild(thumbnail);
 	
