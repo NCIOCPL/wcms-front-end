@@ -35,6 +35,13 @@ const dropdownInjector = () => {
             label.htmlFor = `checkbox_toggle${idx}`;
             label.tabIndex = '0';
             
+            // Allow expand / collapse of dropdown on enter key.
+            label.addEventListener('keydown', function(e) {
+                if(e.keyCode == 13) {
+                    input.click();
+                }
+            });
+
             // If a data-customlabel exists on the container DOM object, override the generic label.
             const customLabel = container.dataset.customlabel;
             label.innerText = customLabel 
