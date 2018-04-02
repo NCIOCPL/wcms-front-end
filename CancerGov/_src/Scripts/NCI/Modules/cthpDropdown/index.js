@@ -33,7 +33,29 @@ const dropdownInjector = () => {
             
             const label = document.createElement('label');
             label.htmlFor = `checkbox_toggle${idx}`;
-            
+            label.tabIndex = '0';
+
+            // Collapse dropdown on on esc key
+            container.addEventListener('keydown', function(e) {
+                if(e.keyCode == 27) {
+                    input.checked = false;
+                }
+            });
+
+            // Expand / collapse dropdown on enter key.
+            label.addEventListener('keydown', function(e) {
+                if(e.keyCode == 13) {
+                    input.click();
+                }
+            });
+
+            // Collapse dropdown when tabbing past the last link
+            links[links.length - 1].addEventListener('keydown', function(e) {
+                if(e.keyCode == 9) {
+                    input.checked = false;
+                }
+            });
+
             // If a data-customlabel exists on the container DOM object, override the generic label.
             const customLabel = container.dataset.customlabel;
             label.innerText = customLabel 
