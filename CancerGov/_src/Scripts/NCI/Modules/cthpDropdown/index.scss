@@ -5,27 +5,27 @@
 
 
 .cthp-dropdown.more-info {
-  input[type=checkbox] {
-    display: none;
-  }
-
-  label {
-    display: none;
-  }
-  .list.more-info li::before {
-    color: #2e2e2e;
-    content: "•";
-    display: inline;
-    float: left;
-    font-size: 1.1em;
-    left: -0.5em;
-    line-height: 0.90909em;
-    margin: 0 -0.2em;
-    position: relative;
-    top: 0.25em;
+    input[type=checkbox] {
+        display: none;
+    }
+    label {
+        display: none;
+    }
+    .list.more-info li::before {
+        color: #2e2e2e;
+        content: "•";
+        display: inline;
+        float: left;
+        font-size: 1.1em;
+        left: -0.5em;
+        line-height: 0.90909em;
+        margin: 0 -0.2em;
+        position: relative;
+        top: 0.25em;
+    }
 }
-}
 
+/* TODO: use svg-sprite() if possible */
 @mixin svgsprite-mixin { 
     display: inline-block;
     background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
@@ -99,6 +99,10 @@
             transition: transform 150ms ease-in;
             width: 1.3125em;
             transform: rotate(180deg);
+        }
+
+        &:hover {
+            color: #bb0e3d;
         }
     }
 
