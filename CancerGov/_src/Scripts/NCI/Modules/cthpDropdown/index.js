@@ -33,6 +33,7 @@ const dropdownInjector = () => {
             
             const label = document.createElement('label');
             label.htmlFor = `checkbox_toggle${idx}`;
+            label.tabIndex = '0';
             
             // If a data-customlabel exists on the container DOM object, override the generic label.
             const customLabel = container.dataset.customlabel;
