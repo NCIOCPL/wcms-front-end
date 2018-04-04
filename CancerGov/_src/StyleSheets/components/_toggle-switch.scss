@@ -204,7 +204,9 @@ $em-base: 16 !default;
 */
   .switch-ios {
     $inactive-color: #D8D9DB;
-    $active-color: #2a72a5;
+    // $active-color: #2a72a5;
+    $active-color: #accae1;
+    $switch-color: #2B7BBA;
 
     &.switch-light {
       span span {
@@ -216,7 +218,8 @@ $em-base: 16 !default;
         top: 0;
         width: size(32);
         height: size(32);
-        background-color: #fff;
+        // background-color: #fff;
+        background-color: $switch-color;
         border-radius: 100%;
         border: size(4) solid $inactive-color;
 
@@ -276,7 +279,7 @@ $em-base: 16 !default;
 
           &:last-of-type {
             opacity: 1;
-            color: #fff;
+            // color: #fff;
           }
         }
       }
