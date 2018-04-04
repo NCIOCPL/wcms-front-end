@@ -408,11 +408,10 @@ define(function(require) {
 
                 plotOptions: {
                     pie: {
-                        size: '90%',
                         dataLabels: {
                             enabled: true,
                             distance: 15,
-                            crop: false,
+                            crop: true,
                             overflow: 'none',
                             allowOverlap: true,
                             y: -6,
@@ -506,12 +505,12 @@ define(function(require) {
                 }
             };
 
-            var chartSettings = $.extend(true. presets, module.settings);
+            var chartSettings = $.extend(true, presets, module.settings);
 
             //force the chart type to bar or column
             chartSettings.chart.type = this.settings.chart.type == 'NCI_bar' ? 'bar' : 'column';
 
-            console.log(chartSettings);
+            // console.log('chartSettings',chartSettings);
 
             this.instance = Highcharts.chart(this.settings.target, chartSettings);
         };

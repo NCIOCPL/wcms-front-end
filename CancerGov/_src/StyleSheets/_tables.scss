@@ -159,7 +159,7 @@ table tbody tr td figure a{
 	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
-	min-width: 140px;
+	min-width: 160px;
 	> div {
 		box-sizing: border-box;
 		flex-grow: 1;
@@ -180,5 +180,10 @@ table tbody tr td figure a{
 .highcharts-tooltip .flexTable--2cols {
 	> div:nth-child(odd) {width:60%}
 	> div:nth-child(even) {width:40%}
+}
+// Horray for one-off cases!
+.highcharts-tooltip .flexTable--2cols.cellWidths-45-55 {
+	> div:nth-child(odd) {width:45%}
+	> div:nth-child(even) {width:55%}
 }
 /* END TABLE STYLES */
