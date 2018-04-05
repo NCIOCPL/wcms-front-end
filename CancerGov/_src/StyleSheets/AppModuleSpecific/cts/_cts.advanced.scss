@@ -226,6 +226,7 @@ Set Styles for Drug Selection
     opacity: 0;
     position: absolute;
     bottom:-1px; //for border
+    pointer-events: none;
 
     .columns {
       width: 100%;
