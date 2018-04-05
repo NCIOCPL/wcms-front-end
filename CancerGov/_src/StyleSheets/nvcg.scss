@@ -168,26 +168,3 @@ table.table-default tfoot td {
 .dis-disclaimer {
 }
 /* end new styles */
-
-
-/* Temporary hack to allow blog-intro-text to be used on topic pages until templates are adjusted BB 3/2018 */
-.key-intro {
-	// The following two styles are contextual, they can either be implemented or overriden depending
-	// on whether we keep them here. I prefer implemented which is why they are commented out but not
-	// outright deleted yet.
-	// width: 100%;
-	// margin-bottom: 1em;
-	padding: 1em 1.25em;
-	border-left: 3px solid $purple;
-	background-color: $white03;
-
-	p {
-		margin: 0;
-		padding-bottom: 1em;
-		font-size: 0.8em;
-		font-family: $montserrat-font-stack;
-	}
-	p:last-child {
-		padding: 0;
-	}
-}
