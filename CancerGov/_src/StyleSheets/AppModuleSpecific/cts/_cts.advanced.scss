@@ -1,5 +1,6 @@
 @import "../../mixins";
-@import '../../components/_toggle-switch';
+@import '../../components/toggle-switch';
+@import '../../fonts';
 
 
 #fieldset--location {
@@ -239,6 +240,7 @@ Set Styles for Drug Selection
   align-items: center;
   padding: .6em 1.5em;
   margin-top: 1em;
+  font-family: $montserrat-font-stack;
 }
 
 .toggle-control {
