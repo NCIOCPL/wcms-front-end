@@ -64,11 +64,11 @@
                     </div>
                     <div class="field-cols field-group">
                         <div>
-                            <label for="z">U.S. ZIP Code: </label>
+                            <label for="z">U.S. ZIP Code </label>
                             <input type="text" id="z" name="z" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
                         </div>
                         <div>
-                            <label for="zp">Radius: </label>
+                            <label for="zp">Radius </label>
                             <select id="zp" name="zp" aria-label="Zip Radius" class="fullwidth loc-select-menu">
                                 <option value="20">20 miles</option>
                                 <option value="50">50 miles</option>
@@ -86,12 +86,12 @@
                         <label for="country-city-state">Country, State, City</label>
                     </div>
                     <div class="field-group">
-                        <label for="lcnty">Country: </label>
+                        <label for="lcnty">Country </label>
                         <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu" aria-label="Country"></select>
                     </div>
                     <div class="field-cols field-group">
                         <div>
-                            <label for="lst-multiselect" id="lst-label">State: </label>
+                            <label for="lst-multiselect" id="lst-label">State </label>
                             <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -148,7 +148,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="lcty">City: </label>
+                            <label for="lcty">City </label>
                             <input type="text" id="lcty" name="lcty" maxlength="40">
                         </div>
                     </div>
@@ -299,7 +299,7 @@
             <!-- Hidden input for passing originating search form -->
             <input name="rl" value="2" type="hidden" id="rl">
             <div class="btn-group">
-                <input type="submit" class="submit button" value="Search">
+                <input type="submit" class="submit button" value="Find Trials">
             </div>
         </form>
     </div>

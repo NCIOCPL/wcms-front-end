@@ -1,8 +1,19 @@
+.search-criteria-box {
+  display: none; //start hidden
+}
+
+.ctscb {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .clinicaltrials-results-criteria-display {
     box-shadow: 0 1px 0.2em rgba(0, 0, 0, 0.5);
     position: relative;
     width: 702px;
     padding: 10px 20px;
+
   
     h3 {
       margin: 0;

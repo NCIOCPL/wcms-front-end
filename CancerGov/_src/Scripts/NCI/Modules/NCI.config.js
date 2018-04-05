@@ -42,9 +42,13 @@ export const lang = {
         en: 'Search',
         es: 'Buscar'
     },
+    Find_Trials: {
+        en: 'Find Trials',
+        es: 'Encontrar Pruebas'
+    },
     CTS_Search_Hint: {
-        en: 'Submit your search at any time.',
-        es: 'Envíe su búsqueda en cualquier momento.'
+        en: 'Start your search at any time.',
+        es: 'Comienzo su búsqueda en cualquier momento.'
     }
 
 }

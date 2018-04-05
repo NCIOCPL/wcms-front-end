@@ -266,13 +266,17 @@ export class CTSAdvancedFormSetup extends CTSBaseDiseaseFormSetup{
 		const submitBtn = createFragment(`<div id="submit-button-floating" aria-hidden="true">
 								  <div class="columns medium-9 small-12">
 									<div class="btn-group">
-									  <input class="submit button" value="${lang.Search.en}" type="submit" />
+									  <input id="cts-submit-floater" class="submit button" value="${lang.Find_Trials.en}" type="submit" />
 									  <div>${lang.CTS_Search_Hint.en}</div>
 									</div>
 								  </div>
 								</div>`);
 
 		appendNodes(submitBtn, document.getElementById('form--cts-advanced'));
+
+		document.getElementById('cts-submit-floater').addEventListener('click',(e) => {
+			document.getElementById('form--cts-advanced').setAttribute("data-trigger",'floater');
+		})
 
 		// submitBtn.map(btn => container.appendChild(btn));
 
