@@ -64,8 +64,8 @@
 ## This should only be called by places that are checking if we have criteria to display.
 #macro(DrawSearchParamsV2 $SearchResults)
 
-    <label class="ctscb">Show Search Criteria</label>
-    <div class="search-criteria-box">
+    <a href="#" class="ctscb" id="ctscb">Show Search Criteria</a>
+    <div class="search-criteria-box" aria-expanded="false" aria-labelledby="ctscb">
 
       <div class="clinicaltrials-results-criteria-display">
         <h3>Your Search Criteria</h3>
