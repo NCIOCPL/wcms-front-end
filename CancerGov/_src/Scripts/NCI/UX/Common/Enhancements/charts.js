@@ -23,7 +23,7 @@ define(function(require) {
                 '#f0f0ff'
             ],
             font: {
-                dinConB: 'DIN Condensed Bold, Arial, sans-serif',
+                dinConB: 'DIN Condensed, Arial, sans-serif',
                 dinCon: 'DIN Condensed, Arial, sans-serif',
                 din: 'DIN Regular, Arial, sans-serif',
                 museo: 'Museo, Montserrat, Arial, sans-serif'
