@@ -4,6 +4,7 @@ define(function(require) {
 	function _initialize() {
         $('.ctscb').on('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             var link = $(this);
             link.toggleClass('show');
             link.next().slideToggle('fast', function() {

@@ -271,9 +271,10 @@ _::-webkit-full-page-media, _:future, :root .cts-form .text-icon-help {
   z-index: 1;
   
   // This is a hack to prevent the outline on focus from creating a ring around this 'invisible'
-  // element. (Overring jquery-ui)
+  // element in Chrome. (Overring jquery-ui)
   .ui-helper-hidden-accessible {
-	margin: -9999px;
+    top: 8px;
+    left: -14px;
   }
 }
 
