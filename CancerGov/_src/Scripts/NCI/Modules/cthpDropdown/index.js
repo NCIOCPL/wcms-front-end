@@ -35,6 +35,28 @@ const dropdownInjector = () => {
             label.htmlFor = `checkbox_toggle${idx}`;
             label.tabIndex = '0';
 
+            var i;
+            for (i = 0; i < links.length; i++) {
+                if(links[i].classList.contains('file-list-item'))
+                {
+                    ///TODO: clean this up
+                    var type = links[i].querySelector('span.filetype');
+                    var size = links[i].querySelector('span.filesize');
+                    var linkTitle = links[i].querySelector('a.title');
+                    linkTitle.parentNode.removeChild(type);
+                    linkTitle.parentNode.removeChild(size);
+                    linkTitle.appendChild(type);
+                    linkTitle.appendChild(size);
+                    
+                    //jQuery("#NodesToMove").detach().appendTo('#DestinationContainerNode')                    
+                    // var input = /*...code to get the input element*/;
+                    // input.parentNode.removeChild(input); // Or on modern browsers: `input.remove();`
+                    // later if you want to put it back                    
+                    // someParentElement.appendChild(input);
+                                        
+                }
+            }
+
             // Collapse dropdown on on esc key
             container.addEventListener('keydown', function(e) {
                 if(e.keyCode == 27) {
