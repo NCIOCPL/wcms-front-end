@@ -18,6 +18,19 @@ const setLanguage = (lang = 'en', translations) => {
     return translatedText;
 }
 
+/**
+ * Move an element from one place to another within a given container
+ * @param {object} container
+ * @param {string} selFrom
+ * @param {string} selTo
+ */
+const moveElement = (container, selFrom, selTo) => {
+    const selected = container.querySelector(selFrom);
+    const target = container.querySelector(selTo);
+    selected.parentNode.removeChild(selected);
+    target.appendChild(selected);
+}
+
 const dropdownInjector = () => {
     const allHooks = getNodeArray('.cthp-card-container .cardBody .more-info');
     const filteredHooks = allHooks.filter((container, idx) => {
@@ -34,6 +47,16 @@ const dropdownInjector = () => {
             const label = document.createElement('label');
             label.htmlFor = `checkbox_toggle${idx}`;
             label.tabIndex = '0';
+
+            // For the CTHP dropdowns only, make the file spans a part of the title link
+            var i = 0;
+            for (i = 0; i < links.length; i++) {
+                if(links[i].classList.contains('file-list-item'))
+                {
+                    moveElement(links[i], 'span.filetype', 'a.title');
+                    moveElement(links[i], 'span.filesize', 'a.title');
+                }
+            }
 
             // Collapse dropdown on on esc key
             container.addEventListener('keydown', function(e) {
