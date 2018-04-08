@@ -135,10 +135,15 @@
                     color: #808080;
 
                     &:hover {
-                       color: #fff;
-                       display: inline-block;
-                       position: relative;
-                       z-index: 1;
+                        color: #fff;
+                        display: inline-block;
+                        position: relative;
+                        z-index: 1;
+
+                        // TODO: fix icon position
+                        > span.filetype.pdf {
+                            background-position: 6.09756% 16.13736%;
+                        }
                     }
                 }
             }
