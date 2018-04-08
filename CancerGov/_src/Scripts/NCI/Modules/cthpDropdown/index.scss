@@ -135,10 +135,14 @@
                     color: #808080;
 
                     &:hover {
-                       color: #fff;
-                       display: inline-block;
-                       position: relative;
-                       z-index: 1;
+                        color: #fff;
+                        display: inline-block;
+                        position: relative;
+                        z-index: 1;
+
+                        > span.filetype.pdf {
+                            background-position: 6.09756% 45.715%;
+                        }
                     }
                 }
             }

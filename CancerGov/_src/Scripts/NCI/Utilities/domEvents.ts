@@ -7,19 +7,18 @@
  * one of the specified keys.
  * 
  * Additional paramaters allow you to control the stopPropagation and preventDefault handling of the browser.
- * 
- * @param {function} fn 
- * @param {Array<Number|String>} [keys = []] 
- * @param {boolean} [stopProp = true] 
- * @param {boolean} [prevDef = true]
+ * @param {object} options
+ * @param {function} [options.fn = () => {}]
+ * @param {Array<Number|String>} [options.keys = []] 
+ * @param {boolean} [options.stopProp = false] 
+ * @param {boolean} [options.prevDef = false]
  * @return {function} A wrapped version of your function to pass to use as an eventListener callback
  */
-export const keyHandler = (fn, keys = [], stopProp = true, prevDef = true) => e => {
-
-    stopProp && e.stopPropagation();
-    prevDef && e.preventDefault();
-    
+export const keyHandler = options => e => {
+    const {fn = () => {}, keys = [], stopProp = true, prevDef = true} = options;
     if (keys.includes(e.key)) {
+        stopProp && e.stopPropagation();
+        prevDef && e.preventDefault();
         return fn();
     }
 }
