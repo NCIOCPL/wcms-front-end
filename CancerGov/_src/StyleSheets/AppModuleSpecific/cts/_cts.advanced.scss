@@ -116,7 +116,7 @@ Set Styles for Drug Selection
   overflow: hidden;
   margin: 0;
 
-  &:hover {
+  &:hover, &:active, &:focus {
     text-decoration: none;
   }
 
