@@ -170,7 +170,7 @@ table.table-default tfoot td {
 /* end new styles */
 
 
-/* Temporary hack to allow blog-intro-text to be used on topic pages until templates are adjusted BB 3/2018 */
+// Temporary hack to allow blog-intro-text to be used on topic pages until templates are adjusted BB 3/2018
 .key-intro {
 	// The following two styles are contextual, they can either be implemented or overriden depending
 	// on whether we keep them here. I prefer implemented which is why they are commented out but not
@@ -190,4 +190,17 @@ table.table-default tfoot td {
 	p:last-child {
 		padding: 0;
 	}
+}
+
+// This is a hack to rehide the comment policy on pages that aren't blog post pages with comments.
+// The redundant rule is being left in the blog partial until a final approach is determined (some
+// backend issues may need to be resolved). If you find this comment unchanged in 6 months, just
+// sigh, shake your head, and remove the redundant rule. BB 4/2018.
+
+// NOTE: The comment below about all.js is out of date and possibly predates the encapsulation of the 
+// page specific templates. This feature now only works on BlogPostPages
+.blog-comment-policy {
+	display: none;
+	// made visible by JavaScript if an element matching `#cgvCommentsSl` exists (i.e., if comments are enabled)
+	// @see all.js
 }
