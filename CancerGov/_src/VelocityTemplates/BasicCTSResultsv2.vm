@@ -23,7 +23,7 @@ See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">C
 #end##
 #else##
 $usSites.length locations##
-#if (($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))##
+#if (($SearchResults.Parameters.IsVAOnly && $SearchResults.Parameters.Location != "Hospital") || ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))##
 #set($filteredUSSites = $SearchResults.TrialTools.GetFilteredLocations($usSites, $SearchResults.Parameters))##
 #if($filteredUSSites.length > 0)##
 , including $filteredUSSites.length near you##
