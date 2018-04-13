@@ -28,7 +28,7 @@ const ctsSpanishSettings = {
         '/espanol/cancer/tratamiento/estudios-clinicos/preguntas',
         '/espanol/cancer/tratamiento/estudios-clinicos/patrocinados-por-nci',
     ],
-    popupDelaySeconds: 90, // Number of seconds to delay before displaying the popup.
+    popupDelaySeconds: 30, // Number of seconds to delay before displaying the popup.
     popupID: 'Spanish-CTSPrompt',
     popupBody: `
         <h2 class="title">¿Necesita ayuda en encontrar un estudio clínico?</h2>
