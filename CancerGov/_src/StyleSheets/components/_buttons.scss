@@ -267,6 +267,8 @@ $plusminus-bg-color-accordion-odd: #8fd4db;
 $plusminus-color-accordion-even: white;
 $plusminus-bg-color-accordion-even: #b2dcdf;
 
+$plusminus-bg-color-accordion-focus: darken(#8fd4db, 10%);
+
 // navigation
 $plusminus-color-nav-default: white;
 $plusminus-bg-color-nav-default: #c3c1b4;
@@ -332,6 +334,10 @@ $plusminus-bg-color-nav-current: #12738a;
 	&[aria-expanded="true"]:after {
 		content: "\2212"; /* "2212" is Unicode for the minus sign */
 	}
+}
+
+.ui-accordion-header.ui-state-focus:not(.ui-state-active) .toggle {
+	background-color: $plusminus-bg-color-accordion-focus  !important;
 }
 
 @include bp(medium-down) {

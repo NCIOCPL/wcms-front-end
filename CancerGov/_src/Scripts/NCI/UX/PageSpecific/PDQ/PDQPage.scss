@@ -120,6 +120,10 @@
 	}
 	section.show, div.show {
 		display: block;
+
+		&[tabindex]:focus {
+			outline: none;
+		}
 	}
 	/** END PDQ Styles **/
 }
@@ -190,7 +194,6 @@ table tfoot {
 }
 
 /* removing padding for nested ul elements inside an accordion */
-
 #accordion li > ul,
 .accordion li > ul,
 .key-points li > ul {

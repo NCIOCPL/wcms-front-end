@@ -34,6 +34,11 @@
 		}
 	}
 
+	.ui-state-focus {
+		z-index: 1;
+
+	}
+
 	&.columns .ui-accordion-header {
 		margin: 0;
 	}
@@ -67,9 +72,15 @@
 	&.odd.ui-state-active {
 		background-color: #bcedf2;
 	}
+	&.odd.ui-state-focus {
+		background-color: darken(#bcedf2,10%);
+	}
 	&.even,
 	&.even.ui-state-active {
 		background-color: #dbf4f6;
+	}
+	&.even.ui-state-focus {
+		background-color: darken(#bcedf2,10%);
 	}
 
 	&:first-child {

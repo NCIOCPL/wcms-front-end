@@ -572,10 +572,14 @@ div#cgvSlPagination, div.previous-next-links {
 	}
 }
 /* prevent outlines on tab content */
-div, p, section, h1, h2, h3, h4, h5, h6 {
-	&[tabindex]:focus{
-		outline: none;
-	}
+// div, p, section, h1, h2, h3, h4, h5, h6 {
+// 	&[tabindex]:focus{
+// 		outline: none;
+// 	} 
+// }
+
+.accordion p:focus, #main:focus {
+	outline: none;
 }
 
 /* cgh staff page styles */
