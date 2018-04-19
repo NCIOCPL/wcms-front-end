@@ -159,7 +159,7 @@ table tbody tr td figure a{
 	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
-	min-width: 160px;
+	min-width: 170px;
 	> div {
 		box-sizing: border-box;
 		flex-grow: 1;
@@ -178,12 +178,24 @@ table tbody tr td figure a{
 .flexTable--6cols > div { width: 16.6%; }
 
 .highcharts-tooltip .flexTable--2cols {
-	> div:nth-child(odd) {width:60%}
+	> div:nth-child(odd) {
+		position: relative;
+		width:60%;
+		span {
+			position: absolute;
+			left: 0;
+		}
+	}
 	> div:nth-child(even) {width:40%}
 }
 // Horray for one-off cases!
 .highcharts-tooltip .flexTable--2cols.cellWidths-45-55 {
 	> div:nth-child(odd) {width:45%}
 	> div:nth-child(even) {width:55%}
+}
+
+.highcharts-tooltip .flexTable--2cols.cellWidths-50-50 {
+	> div:nth-child(odd) {width:50%}
+	> div:nth-child(even) {width:50%}
 }
 /* END TABLE STYLES */

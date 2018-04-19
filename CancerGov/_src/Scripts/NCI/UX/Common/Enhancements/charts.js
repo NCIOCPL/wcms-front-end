@@ -198,6 +198,7 @@ define(function(require) {
                 //     }
                 // },
                 tooltip: {
+                    backgroundColor: 'rgba(247,247,247,0.95)',
                     hideDelay: 150,
                     followTouchMove: false,
                     style: {
@@ -498,7 +499,8 @@ define(function(require) {
                 },
                 tooltip: {
                     headerFormat: '<span style="font-size:20px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div style="color:{series.color};">{series.name}: </div><div>{point.y}</div>',
+                    //pointFormat: '<div style="color:{series.color};">{series.name}: </div><div>{point.y}</div>',
+                    pointFormat: '<div><span style="color:{point.color}">\u25CF</span> {series.name}: </div><div>{point.y}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
@@ -628,7 +630,8 @@ define(function(require) {
                 },
                 tooltip: {
                     headerFormat: '<span style="font-size:10px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%">{point.y:,.0f}</div>',
+                    pointFormat: '<div><span style="color:{point.color}">\u25CF</span> {series.name}: </div><div>{point.y:,.0f}</div>',
+                    //pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%">{point.y:,.0f}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
