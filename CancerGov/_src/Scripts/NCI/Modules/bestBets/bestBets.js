@@ -12,6 +12,11 @@ define(function (require) {
 	var _initialized = false;
 	var lang = $('html').attr('lang') || 'en'; // set the language
 
+	// Set the language for finding the dictionary term/definition
+	var longLang = 'English'; 
+	if (lang === 'es') {
+		longLang = 'Spanish';
+	}
 
 	// Intended as a public function
 	var _initialize = function (settings) {
@@ -36,7 +41,7 @@ define(function (require) {
 
 	// get the full definition from the dictionary service
 	var _getDefinition = function (term) {
-		return DictionaryService.search('term', _fetchTerm(), language);
+		return DictionaryService.search('term', _fetchTerm(), longLang);
 	};
 
 	// render the defintion to produce the content and html

@@ -3,6 +3,7 @@
     position: relative;
     width: 702px;
     padding: 10px 20px;
+
   
     h3 {
       margin: 0;
@@ -45,7 +46,7 @@
       word-break: break-word;
     }
   }
-  #other-diseases, #fieldset--location section > div:not(.radio) {
+  #other-diseases, #fieldset--location section > div:not(.radio), #fieldset--location section div.radio label {
     opacity: 1;
     transition: opacity .5s ease;
   }
