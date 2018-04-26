@@ -12,6 +12,7 @@ define(function(require) {
 	var formControls = require('Modules/forms/formControls');
 	var tooltips = require('Modules/tooltips/referenceTooltip');
 	var proactiveLiveHelp = require('Modules/liveHelpPopup').default;
+	var sortablejs = require('Modules/sortableTables').default;
 
 
 	//require('Modules/autocomplete/autocomplete');
@@ -163,10 +164,11 @@ define(function(require) {
             s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
             s.tl(this, 'o', 'GovDeliveryEsp');
         });
-        // END Spanish Analytics Tracking
-
+		// END Spanish Analytics Tracking
+		
+		
 	});
-
+	
 	// BEGIN Table Resizing
 	$(window).on('load', function () {
 		//Table enlarging & scrollbar adding.
@@ -175,6 +177,16 @@ define(function(require) {
 		(function () {
 			$("#content table:not(.no-auto-enlarge)").overflowEnlarge();
 		})();
+		
+		// IMPORTANT: sortabletables-js requires a specific DOM structure for the table it is added to
+		// (consult https://github.com/BtheGit/sortable-js for more documentation). Because of this, it needs
+		// to run AFTER the enlarge function above, which does some rewriting of the DOM to wrap a table in a figure 
+		// element, among other things.
+
+		// NOTE: The custom settings are handled in a local wrapper module
+		(function () {
+			sortablejs();
+		}())
 	});
 	// END Table Resizing
 
