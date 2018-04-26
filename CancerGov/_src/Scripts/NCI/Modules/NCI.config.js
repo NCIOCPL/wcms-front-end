@@ -52,8 +52,8 @@ export const lang = {
     },
     CTHPDropdown_Label: {
         en: 'View more information',
-        es: 'Vea más información'    }
-
+        es: 'Vea más información'
+    }
 }
 
 export const CDN = {

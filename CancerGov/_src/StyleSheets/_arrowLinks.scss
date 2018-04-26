@@ -38,14 +38,6 @@ a.arrow-link-white {
 		}
 	}
 }
-
-/**** Styles for arrow links inside version toggle button ****/
-/** 
-* Moved .cthp-version-toggle sprite mixin to here - it's currently 
-* breaking on CTHPPage.scss. 
-* TODO: move back into CTHPPage.scss
-*/
-.cthp-version-toggle a {
 /**** Styles for arrow links inside version toggle button ****/
 a.toggle-arrow-link {
 	&::after {
@@ -55,10 +47,6 @@ a.toggle-arrow-link {
 		@include svg-sprite(chevron-circle-white,$rotate:right);
 	}
 	@media only screen and (max-width: 709px) {
-
-
-
-
 		&::after {
 			@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
 		}
