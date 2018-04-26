@@ -1,5 +1,4 @@
 const ctsEnglishSettings = {
-    // ASK FRANK WHAT THE REQUIREMENTS ARE REGARDING THE REGEXS SINCE SPANISH SPECIFIES. ARE THERE EXCEPTIONS?
     urls: [
         "/about-cancer/treatment/clinical-trials/search",
         "/about-cancer/treatment/clinical-trials/basic",
@@ -12,7 +11,7 @@ const ctsEnglishSettings = {
         /^\/about-cancer\/treatment\/clinical-trials\/disease\/.*/,
         /^\/about-cancer\/treatment\/clinical-trials\/intervention\/.*/
     ],
-    popupDelaySeconds: 90, // Number of seconds to delay before displaying the popup.
+    popupDelaySeconds: 30, // Number of seconds to delay before displaying the popup.
 
     popupID: 'ProactiveLiveHelpForCTSPrompt',
     popupBody: `

@@ -18,14 +18,14 @@
                 <fieldset id="fieldset--age">
                     <legend>AGE</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#age" class="text-icon-help" target="_blank" aria-label="Help">?</a>
-                    <div class="hint-text">Enter the age of the participant</div>
+                    <div class="hint-text">Enter the age of the participant.</div>
                     <input id="a" name="a" maxlength="3" autocomplete="off" aria-label="Age" placeholder="" type="text" error-msg="Please enter a number between 1 and 120.">
                 </fieldset>
 
                 <fieldset id="fieldset--keyword">
-                    <legend>KEYWORDS / PHRASES</legend>
+                    <legend>KEYWORDS/PHRASES</legend>
                     <a href="/about-cancer/treatment/clinical-trials/search/help#keywords" class="text-icon-help" target="_blank" aria-label="Help">?</a>
-                    <div class="hint-text">Search by word or phrase (use quotation marks with phrases)</div>
+                    <div class="hint-text">Search by word or phrase (use quotation marks with phrases).</div>
                     <input id="q" name="q" aria-label="Keywords/Phrases" placeholder="Examples: PSA, &quot;Paget disease&quot;" type="text">
                 </fieldset>
             </div>
@@ -36,8 +36,22 @@
                 <legend>LOCATION</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#location" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
-                Use these options to search for trials near a specific zip code; in a country, city, and state; at a particular hospital/institution; or at the National Institutes of Health clinical center. The default selection will search for trials in all available locations.
+                Search for trials near a specific zip code; or in a country, state and city; or at a particular institution. The default selection will search for trials in all available locations.
+                <div class="panel toggle-field">
+                    <div class="toggle-text">Limit results to Veterans Affairs facilities:</div>
+                    <div class="toggle-control">
 
+                        <label class="switch-light switch-ios">
+                            <input type="checkbox" id="va" name="va" value="1">
+                            <span>
+                                <span>No</span>
+                                <span>Yes</span>
+                                <a></a><!-- slider button -->
+                            </span>
+                        </label>
+
+                    </div>
+                </div>
                 <section id="section--all-locations">
                     <div class="radio">
                         <input id="all-locations" name="loc" value="0" checked="checked" type="radio"><label for="all-locations">Search all Locations</label>
@@ -50,11 +64,11 @@
                     </div>
                     <div class="field-cols field-group">
                         <div>
-                            <label for="z">U.S. ZIP Code: </label>
+                            <label for="z">U.S. ZIP Code </label>
                             <input type="text" id="z" name="z" maxlength="5" error-msg="Please enter a valid 5 digit ZIP code.">
                         </div>
                         <div>
-                            <label for="zp">Radius: </label>
+                            <label for="zp">Radius </label>
                             <select id="zp" name="zp" aria-label="Zip Radius" class="fullwidth loc-select-menu">
                                 <option value="20">20 miles</option>
                                 <option value="50">50 miles</option>
@@ -69,15 +83,15 @@
                 <section id="section--ccs">
                     <div class="radio">
                         <input id="country-city-state" name="loc" value="2" type="radio">
-                        <label for="country-city-state">Country, City, State</label>
+                        <label for="country-city-state">Country, State, City</label>
                     </div>
                     <div class="field-group">
-                        <label for="lcnty">Country: </label>
+                        <label for="lcnty">Country </label>
                         <select id="lcnty" name="lcnty" class="fullwidth no-auto-jqueryui loc-select-menu" aria-label="Country"></select>
                     </div>
                     <div class="field-cols field-group">
                         <div>
-                            <label for="lst-multiselect" id="lst-label">State: </label>
+                            <label for="lst-multiselect" id="lst-label">State </label>
                             <select id="lst-multiselect" name="lst" multiple class="loc-select2-menu">
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -134,7 +148,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="lcty">City: </label>
+                            <label for="lcty">City </label>
                             <input type="text" id="lcty" name="lcty" maxlength="40">
                         </div>
                     </div>
@@ -162,6 +176,21 @@
                 <legend>TRIAL TYPE</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#trialtype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
                 <div>Select the type of trial for your search. You may check more than one box or select "All."</div>
+                <div class="panel toggle-field">
+                    <div class="toggle-text">Limit results to trials accepting healthy volunteers:</div>
+                    <div class="toggle-control">
+
+                        <label class="switch-light switch-ios">
+                            <input type="checkbox" id="hv" name="hv" value="1">
+                            <span>
+                                <span>No</span>
+                                <span>Yes</span>
+                                <a></a><!-- slider button -->
+                            </span>
+                        </label>
+
+                    </div>
+                </div>
                 <div id="tt" class="two-columns field-group">
                     <div class="checkbox">
                         <input id="tt_all" name="tt" checked="checked" value="" type="checkbox"><label for="tt_all">All</label>
@@ -196,7 +225,7 @@
 
             <!-- BEGIN trial/treatment select2 module -->
             <fieldset id="fieldset--trialtreatment">
-                <legend>DRUG / TREATMENT</legend>
+                <legend>DRUG/TREATMENT</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#drugtreatment" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
                 <div>Search for a specific drug or intervention. You can use the drug's generic or brand name.</div>
@@ -216,7 +245,7 @@
                 <legend>TRIAL PHASE</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#trialphase" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
-                <div>Search by one or more trial phases</div>
+                <div>Search by one or more trial phases.</div>
                 <div id="tp">
                     <div class="checkbox">
                         <input id="tp_all" name="tp" checked="checked" value="" type="checkbox"><label for="tp_all">All</label>
@@ -242,7 +271,7 @@
                 <legend>TRIAL ID</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#trialid" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
-                <div class="hint-text">Separate multiple IDs with commas or semicolons</div>
+                <div class="hint-text">Separate multiple IDs with commas or semicolons.</div>
                 <input id="tid" name="tid" autocomplete="off" aria-label="Trial ID" placeholder="" type="text">
             </fieldset>
             <!-- END trial ID fieldset -->
@@ -252,7 +281,7 @@
                 <legend>TRIAL INVESTIGATORS</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#trialinvestigators" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
-                <div class="hint-text">Search by Trial Investigators</div>
+                <div class="hint-text">Search by Trial Investigators.</div>
                 <input id="in" name="in" autocomplete="off" aria-label="Trial Investigator" type="text">
             </fieldset>
             <!-- END trial investigators fieldset -->
@@ -262,7 +291,7 @@
                 <legend>LEAD ORGANIZATION</legend>
                 <a href="/about-cancer/treatment/clinical-trials/search/help#leadorganization" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
-                <div class="hint-text">Search by Lead Organization</div>
+                <div class="hint-text">Search by Lead Organization.</div>
                 <input id="lo" name="lo" autocomplete="off" aria-label="Lead Organization" type="text">
             </fieldset>
             <!-- END lead organization fieldset -->
@@ -270,7 +299,7 @@
             <!-- Hidden input for passing originating search form -->
             <input name="rl" value="2" type="hidden" id="rl">
             <div class="btn-group">
-                <input type="submit" class="submit button" value="Search">
+                <input type="submit" class="submit button" value="Find Trials">
             </div>
         </form>
     </div>

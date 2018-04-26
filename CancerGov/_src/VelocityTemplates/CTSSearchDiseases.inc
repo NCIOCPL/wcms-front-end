@@ -1,8 +1,8 @@
 <fieldset id="fieldset--type">
-    <legend>CANCER TYPE / CONDITION</legend>
+    <legend>CANCER TYPE/CONDITION</legend>
     <a href="/about-cancer/treatment/clinical-trials/search/help#cancertype" class="text-icon-help" target="_blank" aria-label="Help">?</a>
 
-    <div>You must first select a cancer type or condition. Based on that selection, you will then be able to choose additional options, if applicable, from the subsequent fields.</div>
+    <div>Select a cancer type or condition. Select additional options, if applicable.</div>
     <div class="field-group">
         <label id="ct-label" for="ct-select">Primary Cancer Type/Condition</label>
         <select id="ct-select" class="no-auto-jqueryui" name="t"><option value="">All</option></select>
@@ -18,7 +18,7 @@
         </div>
         <!--(bake-start _if="findings")-->
         <div class="field-group">
-            <label id="fin-label" for="fin-multiselect">Side Effects / Biomarkers / Participant Attributes</label>
+            <label id="fin-label" for="fin-multiselect">Side Effects/Biomarkers/Participant Attributes</label>
             <select id="fin-multiselect" name="fin" multiple data-placeholder="Examples: Nausea, BRCA1" placeholder="Select cancer type or subtype first" disabled></select>
         </div>
         <!--(bake-end)-->

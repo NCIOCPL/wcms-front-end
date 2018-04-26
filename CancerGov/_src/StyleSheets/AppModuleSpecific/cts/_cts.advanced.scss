@@ -1,3 +1,9 @@
+@import "../../mixins";
+@import '../../components/toggle-switch';
+@import '../../fonts';
+@import '../../colors';
+@import 'cts.advresultsdisplay';
+
 #fieldset--location {
   section {
     margin: 12px 0 18px;
@@ -13,7 +19,7 @@
         opacity: 1;
       }
     }
-    div.disabled {
+    div.disabled, div.radio label.disabled {
       opacity: .45;
     }
   }
@@ -59,8 +65,8 @@
 Set Styles for Drug Selection
 *********/
 .trtmnt-select-dropdown .select2-results__option {
-  border-bottom: 1px dashed #bdbdc2;
-  color: #606060;
+  border-bottom: 1px dashed $paleblue02;
+  color: $dgrey00;
 
   &:last-child {
     border-bottom: none;
@@ -81,13 +87,11 @@ Set Styles for Drug Selection
 
 //styling for search criteria table
 .search-criteria-box {
-  display: block;
+  display: none; //start hidden
   position: relative;
   border: none;
   margin: 0;
 }
-
-@import 'cts.advresultsdisplay';
 
 .row .row .medium-9 .status {
   margin-top: 2em;
@@ -96,13 +100,14 @@ Set Styles for Drug Selection
   margin-top: 3em;
 }
 
-.ctscb {
+#ctscb {
   position: relative;
-  background-color: #f2f2f3;
+  background-color: $white04;
   display: block;
   white-space: nowrap;
-  border: 1px solid #777;
-  color: #333;
+  border: 1px solid $dgrey02;
+  color: $dgrey02;
+  font-family: $montserrat-font-stack;
   line-height:2em;
   padding: 0 0 0 5px;
   //background-size: 10%;
@@ -111,13 +116,17 @@ Set Styles for Drug Selection
   overflow: hidden;
   margin: 0;
 
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
+
   &::after {
     content:"";
     position: absolute;
     right: 0;
     @include svg-sprite(plus-box);
     font-size: 88%;
-    background-color: #389cc0;
+    background-color: #277c95;
   }
 
   &.show {
@@ -163,6 +172,111 @@ Set Styles for Drug Selection
 //   display: none;
 // }
 
-#clinical-trials-print .clinicaltrials-results-criteria-display {
-  //left: -1em;
+// #clinical-trials-print .clinicaltrials-results-criteria-display {
+//   //left: -1em;
+// }
+
+#submit-button-floating {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 0 0.45em;
+  @include hCenter;
+  z-index: 2;
+  max-width: 1000px;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+
+  // @include bp(medium) {
+  //   padding: 0 0.47em;
+  // }
+
+  @include break(large){
+    padding: 0 3.125em;
+  }
+
+  @include break(xlarge) {
+    max-width: 1200px;
+  }
+
+  .btn-group {
+    margin: 13px 0 13px -1px; // -1px to counter 1px border
+
+    @include bp(medium) {
+      margin-top: 20px;
+    }
+
+    input{
+      margin: 0;
+    }
+
+    > div {
+      color: $purple;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+  }
+
+  .columns {
+    border: 1px solid $purple;
+    background-color: rgba(256,256,256,.9);
+  }
+
+  &.at-bottom {
+    opacity: 0;
+    position: absolute;
+    bottom:-1px; //for border
+    pointer-events: none;
+
+    .columns {
+      width: 100%;
+      border-color: transparent ;
+    }
+  }
+}
+
+
+.toggle-field {
+  display: flex;
+  align-items: center;
+  padding: .6em 1.5em;
+  margin-top: 1em;
+  font-family: $montserrat-font-stack;
+  color: $dgrey00;
+}
+
+.toggle-control {
+  width: 80px;
+  min-width: 80px;
+  margin-left: 10px;
+
+  label {
+    margin: 0;
+  }
+}
+
+@include bp(medium) {
+  .site-footer .back-to-top {
+    bottom: 7em;
+  }
+}
+
+
+.search-tip {
+  display: flex;
+  align-items: center;
+  border: 1px solid $paleblue02;
+  padding: 16px;
+
+  > div {
+    padding-left: 1em;
+  }
+}
+.lightbulb-circle-yellow {
+  @include svg-sprite(lightbulb-circle-yellow);
+  min-width: 3.9375em;
 }

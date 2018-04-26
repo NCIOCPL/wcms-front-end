@@ -2,22 +2,21 @@ define(function(require) {
     require('jquery');
 
 	function _initialize() {
-        $(".clinicaltrials-results-criteria-display").hide();
-        $('.ctscb').click(function(){
+        $('.ctscb').on('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
             var link = $(this);
-            $('.clinicaltrials-results-criteria-display').slideToggle('fast', function() {
-                if ($(this).is(":visible")) {
+            link.toggleClass('show');
+            link.next().slideToggle('fast', function() {
+                if (this.offsetHeight) {
                     link.text('Hide Search Criteria');
+                    this.setAttribute('aria-expanded','true');
                 } else {
                     link.text('Show Search Criteria');
+                    this.setAttribute('aria-expanded','false');
                 }
             });
 
-        });
-        $(function() {
-          $('.ctscb').click(function() {
-            $(this).toggleClass('show');
-          })
         });
     }
 

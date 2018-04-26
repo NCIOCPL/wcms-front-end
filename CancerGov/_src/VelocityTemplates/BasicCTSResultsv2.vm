@@ -23,7 +23,7 @@ See <a href="https://www.clinicaltrials.gov/show/$trial.NCTID" target="_blank">C
 #end##
 #else##
 $usSites.length locations##
-#if (($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))##
+#if (($SearchResults.Parameters.IsVAOnly && $SearchResults.Parameters.Location != "Hospital") || ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))##
 #set($filteredUSSites = $SearchResults.TrialTools.GetFilteredLocations($usSites, $SearchResults.Parameters))##
 #if($filteredUSSites.length > 0)##
 , including $filteredUSSites.length near you##
@@ -80,6 +80,9 @@ $usSites.length locations##
       #if($SearchResults.Parameters.IsFieldInvalid("Phrase") == true)
         <li>Keywords / Phrases</li>
       #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("IsVAOnly") == true)
+        <li>Veterans Affairs Facilities</li>
+      #end##
       #if($SearchResults.Parameters.IsFieldInvalid("Location") == true)
         <li>Location</li>
       #end##
@@ -103,6 +106,9 @@ $usSites.length locations##
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("AtNIH") == true)
         <li>At NIH</li>
+      #end##
+      #if($SearchResults.Parameters.IsFieldInvalid("HealthyVolunteers") == true)
+        <li>Healthy Volunteers</li>
       #end##
       #if($SearchResults.Parameters.IsFieldInvalid("TrialTypes") == true)
         <li>Trial Type</li>

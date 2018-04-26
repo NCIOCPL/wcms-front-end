@@ -35,7 +35,7 @@
 
             <input name="rl" value="1" type="hidden" id="rl">
             <div class="btn-group">
-                <input type="submit" class="submit button" value="Search">
+                <input type="submit" class="submit button" value="Find Trials">
             </div>
 
         </form>

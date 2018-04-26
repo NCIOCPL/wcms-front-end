@@ -11,7 +11,7 @@
   #set($filteredLocations = $SearchResults.TrialTools.GetFilteredLocations($SearchResults.Trial,$SearchResults.Parameters))
   #if($filteredLocations.Length == 0)
     #DrawNoLocationsV2()
-  #elseif($SearchResults.Control.ShowingAll != true && ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH"))
+  #elseif($SearchResults.Control.ShowingAll != true && (($SearchResults.Parameters.IsVAOnly && $SearchResults.Parameters.Location != "Hospital") || ($SearchResults.Parameters.Location == "CountryCityState" || $SearchResults.Parameters.Location == "Zip" || $SearchResults.Parameters.Location == "AtNIH")))
     #DrawProximityLocationsV2($filteredLocations)
   #else
     #DrawFilterableLocationsV2()
@@ -72,7 +72,6 @@
 
 <div class="row medium-12 cts-results-title">
 #if($SearchResults.Parameters.IsEmpty() == true)
-
   <div class="medium-12 columns collapse">
 
     <span class="cts-results-label">
