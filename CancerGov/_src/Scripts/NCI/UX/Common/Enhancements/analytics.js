@@ -642,7 +642,6 @@ define(function(require) {
                 if(userHasSorted){
                     return
                 }
-                console.log('yo')
                 NCIAnalytics.TableSortHeaderClick(this, pageName);
                 userHasSorted = true;
              });
