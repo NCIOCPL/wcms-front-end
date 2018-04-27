@@ -14,14 +14,10 @@ table[data-sortable] {
     line-height: 15px;
     background-color: #2B7BBA;
     color: #fff;
-    padding-right: 20px;
-    padding-left: 20px;
     position: relative;
     text-align: left !important;
     vertical-align: top !important;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    //padding: 10px 20px 20px;
+    padding: 10px 20px 20px;
   }
   table[data-sortable] th, table[data-sortable] td {
     width: auto !important;
@@ -30,7 +26,7 @@ table[data-sortable] {
   table[data-sortable] td {
     //display: inline-block;
   }
-  
+
   table[data-sortable] th:not([data-sortable="false"]) {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -48,7 +44,6 @@ table[data-sortable] {
     @include svg-sprite(sortable-circle-nosort);
     vertical-align: inherit;
     margin: 10px auto;
-
   }
   table[data-sortable] th[data-sorted="up"]:before, table[data-sortable] th[data-sorted="down"]:before {
     visibility: visible;
@@ -63,7 +58,6 @@ table[data-sortable] {
   table[data-sortable] th[data-sorted="up"]:before {
     @include svg-sprite(sortable-circle-ascending);
   }
-  table[data-sortable] th[data-sortable="false"]:before{
+  table[data-sortable] th[data-fixed]:before{
     background-image: none;
   }
-  table[data-sortable] td[data-sorted="true"]{ background-color: #fafafa; }
