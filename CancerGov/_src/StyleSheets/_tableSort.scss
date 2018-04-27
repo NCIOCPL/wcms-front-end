@@ -61,3 +61,4 @@ table[data-sortable] {
   table[data-sortable] th[data-fixed]:before{
     background-image: none;
   }
+  table[data-sortable] td[data-sorted="true"]{ background-color: #fafafa; }
