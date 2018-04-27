@@ -133,11 +133,11 @@ export class CTSFieldValidator extends NCIBaseEnhancement{
 
 			if(!$this.data('valid')){
 
-				//Fire off analytics for completd event and submit form
+				//Fire off analytics for completed event and submit form
 				function analyticsAndSubmit(hasKeywordMatch:boolean = false) {
 					try {
-						var propVal = $this.attr('data-trigger') === 'floater' ? 'complete_scrolling' : 'completed';
-						(<any>$this).basicctsformtrack(propVal, hasKeywordMatch);
+						var customAction = $this.attr('data-trigger') === 'floater' ? 'complete_scrolling' : undefined;
+						(<any>$this).basicctsformtrack("completed", hasKeywordMatch, customAction);
 					} catch (e) {
 						window.console && console.log(e);
 					}

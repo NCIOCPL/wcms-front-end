@@ -186,6 +186,7 @@ Set Styles for Drug Selection
   max-width: 1000px;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
+  pointer-events: none;
 
   // @include bp(medium) {
   //   padding: 0 0.47em;
@@ -219,6 +220,7 @@ Set Styles for Drug Selection
 
   &.active {
     opacity: 1;
+    pointer-events: auto;
   }
 
   .columns {
