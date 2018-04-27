@@ -88,7 +88,7 @@
          * @param  {[type]} action The event to capture, 'abandon', 'error'
          * @return {[type]}        [description]
          */
-        adobeCall: function(action, args) {
+        adobeCall: function(action, args, customActionName) {
 
             if(typeof(NCIAnalytics) !== 'undefined') {
                 var formPropHolder = this.options.formName + '|' + action;
@@ -101,12 +101,10 @@
 
                 events.push(this.trackingConfig[action]);
 
-                props[this.trackingConfig.formProp] = formPropHolder;
-
                 //s.linkTrackVars = 'events,' + this.trackingConfig.formProp + ',' + this.trackingConfig.formVar;
                 //s.events = s.linkTrackEvents = this.trackingConfig[action];
 
-                props[this.trackingConfig.formProp] = this.options.formName + '|' + action;
+                props[this.trackingConfig.formProp] = formPropHolder;
                 evars[this.trackingConfig.formVar] = this.options.formName;
                 //props[this.trackingConfig.formErrorProp] = '';
 
@@ -121,8 +119,11 @@
                 }
 
                 if (action === 'complete') {
-                    if (args) {
+                    if(args) {
                         events.push(this.trackingConfig["keywordMatch"]);
+                    }
+                    if (customActionName) {
+                        props[this.trackingConfig.formProp] = this.options.formName + '|' + customActionName;
                     }
                 }
 
@@ -137,12 +138,12 @@
          * be successful.
          * @return {[type]} [description]
          */
-        completed: function(hasKeywordMatch) {
+        completed: function(hasKeywordMatch, customActionName) {
             // set canAbandon to false to prevent abandon call
             this.state.canAbandon = false;
             this.state.isComplete = true;
 
-            this.adobeCall('complete', hasKeywordMatch);
+            this.adobeCall('complete', hasKeywordMatch, customActionName);
         },
 
         /**
