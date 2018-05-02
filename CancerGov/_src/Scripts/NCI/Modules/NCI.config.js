@@ -37,6 +37,18 @@ export const lang = {
     Hide: {
         en: 'Hide',
         es: 'Ocultar'
+    },
+    Search: {
+        en: 'Search',
+        es: 'Buscar'
+    },
+    Find_Trials: {
+        en: 'Find Trials',
+        es: 'Encontrar Pruebas'
+    },
+    CTS_Search_Hint: {
+        en: 'Start your search at any time.',
+        es: 'Comienzo su búsqueda en cualquier momento.'
     }
 
 }

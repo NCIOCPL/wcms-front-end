@@ -6,13 +6,27 @@
     #end
 #end
 
+## Draws a single set of criteria
+#macro(DrawOneSearchParamIfEql $label $field $eqlValue)
+    #if($SearchResults.Parameters.IsFieldSet($field) == true && $SearchResults.Parameters.GetFieldAsString($field) == $eqlValue)
+        #set($value = $SearchResults.Parameters.GetFieldAsString($field))
+        #DrawOneSearchParamRow($label $value)
+    #end
+#end
+
+## Draws a single set of criteria
+#macro(DrawOneSearchParamWithLblIfEql $label $field $eqlValue $value)
+    #if($SearchResults.Parameters.IsFieldSet($field) == true && $SearchResults.Parameters.GetFieldAsString($field) == $eqlValue)
+        #DrawOneSearchParamRow($label $value)
+    #end
+#end
+
 #macro(DrawOneSearchParamRow $label $value)
     <tr>
         <td class="hdrlft"><strong>${label}:</strong></td>
         <td>$value</td>
     </tr>
 #end
-
 
 #macro(DrawLocationSearchParam)
     #set($locParam = $SearchResults.Parameters.LocationParams)
@@ -47,12 +61,11 @@
 
 ## Gigantic macro used to draw "you searched for" labels on results page
 ## TODO: clean up, separate into baked .inc file, reuse on view page?
+## This should only be called by places that are checking if we have criteria to display.
 #macro(DrawSearchParamsV2 $SearchResults)
 
-    ## If there is at least one parameter, we need to draw the table
-    #if($SearchResults.Parameters.IsEmpty() != true)
-    <label class="ctscb">Show Search Criteria</label>
-    <div class="search-criteria-box">
+    <a href="#" class="ctscb" id="ctscb">Show Search Criteria</a>
+    <div class="search-criteria-box" aria-expanded="false" aria-labelledby="ctscb">
 
       <div class="clinicaltrials-results-criteria-display">
         <h3>Your Search Criteria</h3>
@@ -70,9 +83,14 @@
                 #DrawOneSearchParam("Side Effects / Biomarkers / Participant Attributes" "Findings")
                 #DrawOneSearchParam("Age" "Age")
                 #DrawOneSearchParam("Keywords/Phrases" "Phrase")
+                #DrawOneSearchParamWithLblIfEql("Veterans Affairs Facilities" "IsVAOnly" "True" "Results limited to trials at Veterans Affairs facilities")
+                #DrawOneSearchParamWithLblIfEql("Veterans Affairs Facilities" "IsVAOnly" "False" "Match all trial sites")
                 ##We need to add IsFieldSet checks that delve into the location parameters
                 ##in order to handle these.
                 #DrawLocationSearchParam()
+                #DrawOneSearchParamWithLblIfEql("Healthy Volunteers" "HealthyVolunteers" "Only Accepting Healthy Volunteers" "Results limited to trials accepting healthy volunteers")
+                #DrawOneSearchParamWithLblIfEql("Healthy Volunteers" "HealthyVolunteers" "Not Accepting Healthy Volunteers" "Results limited to trials not accepting healthy volunteers")
+                #DrawOneSearchParamWithLblIfEql("Healthy Volunteers" "HealthyVolunteers" "Accepting All Volunteers" "Accepting all volunteers")
                 #DrawOneSearchParam("Trial Type" "TrialTypes")
                 #DrawOneSearchParam("Drug/Drug Family" "Drugs")
                 #DrawOneSearchParam("Other Treatments" "OtherTreatments")
@@ -85,6 +103,5 @@
       </div>
 
     </div>
-    #end
 
 #end##
