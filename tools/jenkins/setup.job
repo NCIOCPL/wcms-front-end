@@ -31,7 +31,7 @@ job("${FOLDER_PATH}/Create build job for a branch") {
 
   steps {
     dsl {
-      external("tools/build/create_branch_skeleton.job")
+      external("tools/jenkins/create_branch_skeleton.job")
       lookupStrategy('SEED_JOB')
     }
   }
