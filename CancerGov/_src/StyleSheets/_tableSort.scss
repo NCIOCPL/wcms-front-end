@@ -62,3 +62,11 @@ table[data-sortable] {
     background-image: none;
   }
   table[data-sortable] td[data-sorted="true"]{ background-color: #fafafa; }
+
+  table[data-sortable] th.headcol, table[data-sortable] td.headcol {
+    background-color: #ace;
+    position: relative; 
+    width: 5em; 
+    left: 0;
+    //top: auto;
+}
