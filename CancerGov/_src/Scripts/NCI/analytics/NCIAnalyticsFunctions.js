@@ -1987,7 +1987,19 @@ var NCIAnalytics = {
         }
 
         clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    TableSortHeaderClick: function(sender, pageName) {
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'SortTableHeaderClick');
+
+        clickParams.Props = {
+            05: "table_sort",
+            67: pageName
+        }
+        clickParams.LogToOmniture(); 
     }
+
 };
 
 
