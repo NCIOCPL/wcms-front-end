@@ -143,7 +143,7 @@
 
                         > span.filetype.pdf {
                             // TODO: use svg-sprite() instead of hardcoded background-position.  
-                            // If this is not fixed, the drop down arrows will break every time svg-sprite.svg is updated!!                            
+                            // If this is not fixed, the pdf hover state will break every time svg-sprite.svg is updated!!                            
                             background-position: 6.09756% 43.311%;
                         }
                     }
