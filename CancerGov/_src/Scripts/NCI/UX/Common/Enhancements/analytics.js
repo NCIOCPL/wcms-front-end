@@ -632,7 +632,19 @@ define(function(require) {
 				}
 
 				NCIAnalytics.OlderNewerClick(this, olderNewer, pageName);
-			});
+            });
+            
+            //Sort Table Analytics
+            //so userHasSorted so that analytics fires only on very first instance of sort
+            var userHasSorted = false
+            $('table[data-sortable]').on("click.analytics", "th", function ()  {
+                var pageName = window.location.hostname + window.location.pathname;
+                if(userHasSorted){
+                    return
+                }
+                NCIAnalytics.TableSortHeaderClick(this, pageName);
+                userHasSorted = true;
+             });
 		});
 	})();
 });
