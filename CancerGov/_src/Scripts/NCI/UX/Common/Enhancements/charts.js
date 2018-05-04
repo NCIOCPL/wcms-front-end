@@ -23,7 +23,6 @@ define(function(require) {
                 '#f0f0ff'
             ],
             font: {
-                dinConB: 'DIN Condensed, Arial, sans-serif',
                 dinCon: 'DIN Condensed, Arial, sans-serif',
                 din: 'DIN Regular, Arial, sans-serif',
                 museo: 'Museo, Montserrat, Arial, sans-serif'
@@ -136,7 +135,7 @@ define(function(require) {
                     text: this.settings.title.text,
                     style: {
                         color: this.settings.title.color,
-	                    fontFamily: this.settings.font.dinConB,
+	                    fontFamily: this.settings.font.dinCon,
 	                    fontSize: '32px',
 	                    fontWeight: 'bold'
                     }
@@ -155,7 +154,6 @@ define(function(require) {
 	                    extOutline: false,
 	                    fontSize: '18px',
 	                    fontFamily: this.settings.font.din,
-	                    fontWeight: 'normal',
 	                    color: '#58595b'
                     }
                 },
@@ -172,8 +170,12 @@ define(function(require) {
                     href: 'http://www.cancer.gov',
                     style: {
                         color: '#959595',
-                        fontFamily: this.settings.font.dinConB,
-                        fontSize: '13px'
+                        fontFamily: this.settings.font.dinCon,
+                        fontSize: '13px',
+                        fontWeight: 'bold'
+                    },
+                    position: {
+                        y: -10
                     }
                 },
                 lang: {
@@ -237,7 +239,9 @@ define(function(require) {
 	                        fontFamily: this.settings.font.din,
                             textTransform: 'uppercase'
                         }
-                    }
+                    },
+                    lineWidth: 1,
+                    lineColor: '#e6e6e6'
                 },
                 yAxis: {
                     labels: {
@@ -252,7 +256,9 @@ define(function(require) {
 	                        fontFamily: this.settings.font.din,
 	                        textTransform: 'uppercase'
                         }
-                    }
+                    },
+                    lineWidth: 1,
+                    lineColor: '#e6e6e6'
                 },
                 zAxis: {
                     labels: {
@@ -370,7 +376,7 @@ define(function(require) {
                                     id: 'donutText',
                                     x: left,
                                     y: top,
-                                    style: 'color:#585757;font:22px/30px ' + module.settings.font.dinConB + ';'
+                                    style: 'color:#585757;font:22px/30px;font-weight:bold; ' + module.settings.font.dinCon + ';'
                                 }).add();
                                 // move the budget number down a bit
                                 totalText.element.children[1].setAttribute('dy', 22);
@@ -487,8 +493,6 @@ define(function(require) {
                 },
                 legend: {
                     enabled: true,
-                    itemStyle: 'cursor:default',
-                    itemHoverStyle: 'none'
 
                 },
                 plotOptions: {
@@ -539,7 +543,7 @@ define(function(require) {
                             for (var i = 0; i < awardData.length; i++) {
                                 // if (awardData.length >= i && fundingData.length >= i) {
                                 data[i] = [];
-                                data[i].push(((fundingData[i]) / awardData[i])); //average
+                                data[i].push(Math.round(fundingData[i] / awardData[i])); //average
                                 // }
                             }
                             return data;
@@ -549,6 +553,9 @@ define(function(require) {
                         lineWidth: 2,
                         lineColor: Highcharts.getOptions().colors[3],
                         fillColor: 'white'
+                    },
+                    tooltip: {
+                        pointFormat: '<div><span style="color:{point.color}">\u25CF</span> {series.name}: </div><div>${point.y:,.0f}</div>'
                     }
                 };
 
@@ -559,66 +566,6 @@ define(function(require) {
             module.settings.series.push(calcSpline());
 
             var presets = {
-                yAxis: [{
-                    id: 'awards',
-                    min: 4000,
-                    max: 6000,
-                    tickInterval: 500,
-                    PixelInterval: 100,
-                    labels: {
-                        format: '{value}',
-                        style: {
-                            color: Highcharts.getOptions().colors[0]
-                        }
-                    },
-                    title: {
-                        text: 'Awards',
-                        style: {
-                            color: Highcharts.getOptions().colors[0]
-                        }
-                    },
-                    showEmpty: false,
-                    opposite: false
-                }, {
-                    id: 'funding',
-                    min: 1500000,
-                    max: 2250000,
-                    tickInterval: 250000,
-                    PixelInterval: 100,
-                    gridLineWidth: 0,
-                    title: {
-                        text: 'Funding',
-                        style: {
-                            color: Highcharts.getOptions().colors[1]
-                        }
-                    },
-                    labels: {
-                        format: '${value:,0f}',
-                        style: {
-                            color: Highcharts.getOptions().colors[1]
-                        }
-                    },
-                    showEmpty: false,
-                    opposite: true
-                }, {
-                    id: 'perAward',
-                    gridLineWidth: 0,
-                    title: {
-                        text: 'Average Cost Per Award',
-                        style: {
-                            color: Highcharts.getOptions().colors[2]
-                        }
-                    },
-                    labels: {
-                        format: '${value}',
-                        style: {
-                            color: Highcharts.getOptions().colors[2]
-                        }
-                    },
-                    showEmpty: false,
-                    opposite: true
-                }]
-                ,
                 labels: {
                     items: [{
                         style: {
@@ -630,67 +577,12 @@ define(function(require) {
                 },
                 tooltip: {
                     headerFormat: '<span style="font-size:10px; font-weight:bold">{point.key}</span><div class="flexTable--2cols">',
-                    pointFormat: '<div><span style="color:{point.color}">\u25CF</span> {series.name}: </div><div>{point.y:,.0f}</div>',
-                    //pointFormat: '<div style="color:{series.color};width:40%;">{series.name}: </div><div style="width:60%">{point.y:,.0f}</div>',
+                    pointFormat: '<div><span style="color:{point.color}">\u25CF</span> {series.name}: </div><div>{point.y}</div>',
                     footerFormat: '</div>',
                     shared: true,
                     useHTML: true
-                }
-                // tooltip: {
-                //     shared: false, formatter: function () {
-                //         if (this.series.name == "Funding") {
-                //             return '<b>$' + Highcharts.numberFormat(this.point.y, 0) + '</b>';
-                //         }
-                //         if (this.series.name == "Awards") {
-                //             return "<b>" + Highcharts.numberFormat(this.point.y, 0) + "</b>";
-                //         }
-                //         if (this.series.name == "Average") {
-                //             return "<b>$" + Highcharts.numberFormat(this.point.y, 0) + " per award.</b>";
-                //         }
-                //     }
-                // }
-                ,
-                series: this.settings.series,
-                responsive: {
-                    rules: [{
-                        condition: {
-                            maxWidth: 500
-                        },
-                        chartOptions: {
-                            yAxis: [{
-                                labels: {
-                                    formatter: function () {
-                                        return (this.value / 1000)
-                                    },
-                                    x: -5
-                                },
-                                title: {
-                                    text: 'Awards (thousands)',
-                                    margin: 5
-                                }
-                            }, {
-                                labels: {
-                                    formatter: function () {
-                                        return '$' + (this.value / 1000000)
-                                    },
-                                    x: 5
-                                },
-                                title: {
-                                    text: 'Funding (millions)',
-                                    margin: 0
-                                }
-                            }, {
-                                labels: {
-                                    rotation: -60,
-                                    x: 10
-                                },
-                                title: {
-                                    margin: 0
-                                }
-                            }]
-                        }
-                    }]
-                }
+                },
+                series: this.settings.series
             };
 
             var chartSettings = $.extend(true, presets, module.settings);
