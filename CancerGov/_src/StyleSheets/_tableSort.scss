@@ -70,3 +70,8 @@ table[data-sortable] {
     left: 0;
     //top: auto;
 }
+  .scrollable.has-scroll > div {
+  overflow-x: scroll;
+  background-color: #2B7BBA;
+  border: 5px;
+}
