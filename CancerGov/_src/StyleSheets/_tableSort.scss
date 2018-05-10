@@ -70,17 +70,47 @@ table[data-sortable] {
     left: 0;
     //top: auto;
 }
+@include bp(small) {
+
 table[data-sortable] thead tr th:first-child,
-table[data-sortable] tbody tr td:first-child {
-  background: yellow;
+table[data-sortable] tbody tr td:first-child,
+table[data-sortable] tfoot tr td:first-child {
+  //background: #ace;
   top: auto;
   left: 0.5;
-  position: fixed;
-  width: 6em;
+  position: absolute;
+  width: 160px !important;
+  z-index: 3;
 }
+table[data-sortable] thead tr th:first-child {
+  //background-color: #ace;
+  height: 7.35em;
+  left: -1px;
+  top: 0px;
+}
+table[data-sortable] tbody tr td:first-child {
+  //height: 100%;
+  background-color: #fff;
+  border-right: 2px dotted #333;
+ }
 
+ table[data-sortable] tbody tr td:first-child:after {
+  // border-radius: 10px 0 0 10px / 50% 0 0 50%;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.25);
+  content: "";
+  // height: 100%;
+  // left: 100%;
+  // position: absolute;
+  // top: 0;
+  // width: 50px;
+}
 table[data-sortable] thead tr th:nth-child(2),
 table[data-sortable] tbody tr td:nth-child(2) {
   padding-left: 7em;
   /*to show second column behind the first*/
+}
+ table[data-sortable] tbody tr td[data-sorted="true"]:first-child {
+  //height: 100%;
+  background-color: #fafafa;
+ }
 }
