@@ -1,0 +1,182 @@
+@import '../../../../StyleSheets/variables';
+@import '../../../../StyleSheets/breakpoints';
+@import '../../../../StyleSheets/sprites/svg-sprite';
+@import '../../../../StyleSheets/sprites/mixins';
+
+
+.cthp-dropdown.more-info {
+    input[type=checkbox] {
+        display: none;
+    }
+    label {
+        display: none;
+    }
+    .list.more-info li::before {
+        color: #2e2e2e;
+        content: "•";
+        display: inline;
+        float: left;
+        font-size: 1.1em;
+        left: -0.5em;
+        line-height: 0.90909em;
+        margin: 0 -0.2em;
+        position: relative;
+        top: 0.25em;
+    }
+}
+
+// TODO: use svg-sprite() instead of hardcoded background-position.  
+// If this is not fixed, the drop down arrows will break every time svg-sprite.svg is updated!!
+@mixin svgsprite-mixin { 
+    display: inline-block;
+    background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
+    background-position: 6.09756% 11.47%;
+}
+
+/* Tablet/Mobile styles */
+@include bp(large-up) {
+%svgsprite { @include svgsprite-mixin; }
+
+
+// When the accordion library event fires on resize it rewrites the DOM hierarchy and 
+// injects a clearfix div that wraps the rest of the card content. This is a hack to counteract
+// the effect in pure CSS.
+.clearfix {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cthp-card-container .cthp-dropdown.more-info {
+      position: relative;
+      display: inline-block;
+      font-size: 16px;
+      color: rgb(241, 240, 240);
+      width: 100%;
+      margin-top: auto;
+      margin-bottom: 0;
+  
+    h5 {
+        display: none;
+    }
+    input[type=checkbox]{
+        display: none;
+    }
+
+    label {
+        box-sizing: border-box;
+        display: inline-block;
+        font-weight: 700;
+        width: 100%;
+        background-color: white;
+        line-height: 1.2em;
+        margin: 0;
+        padding: 15px 15px;
+        // The dropdown chevron needs to be an absolutely positioned pseudo element.
+        // This padding allows the text to wrap without flowing under the chevron.
+        padding-right: calc(6% + 26.25px);
+        cursor: pointer;
+        text-align: left;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        user-select: none;
+        transition: background-color 150ms ease-in;
+
+        &::before {
+            border-bottom: none;
+            content: '';
+            @extend %svgsprite;
+            //@include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
+            //$svg-sprite: map-get($svg-icons, chevron-circle-lt-blue) !default;
+            height: 1.3125em;
+            //font-size: 20px;
+            margin-top: -8px;
+            position: absolute;
+            top: 44%;
+            transform-origin: center;
+            right: 3%;
+            transition: transform 150ms ease-in;
+            width: 1.3125em;
+            transform: rotate(180deg);
+        }
+
+        &:hover {
+            color: #bb0e3d;
+        }
+    }
+
+    ul {
+        display: none;
+        position: absolute;
+        list-style: circle;
+        text-align: left;
+        width: 100%;
+        z-index: 1;
+        margin:0;
+        padding:0;
+        box-shadow: 2px 3px 2px 0 rgba(0,0,0,0.3), -2px 3px 2px 0 rgba(0,0,0,0.3);
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+
+        li {
+            width: 100%;
+            background-color: #fff;
+            color: #606060;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+
+            &:hover {
+                background-color: #286ea7;
+
+                a {
+                    color: #808080;
+
+                    &:hover {
+                        color: #fff;
+                        display: inline-block;
+                        position: relative;
+                        z-index: 1;
+
+                        > span.filetype.pdf {
+                            // TODO: use svg-sprite() instead of hardcoded background-position.  
+                            // If this is not fixed, the pdf hover state will break every time svg-sprite.svg is updated!!                            
+                            background-position: 6.09756% 43.311%;
+                        }
+                    }
+                }
+            }
+
+            &::before {
+                display: none;
+            }
+
+            a {
+                color: #2e2e2e;
+                text-decoration: none;
+                display: inline-block;
+                width: 100%;
+                padding: 15px 15px 15px 0.9375em;
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
+
+    input[type=checkbox]:checked ~ label {
+        border-bottom: none;
+        box-shadow: 2px 3px 2px 0 rgba(0,0,0,0.3), -2px 3px 2px 0 rgba(0,0,0,0.3);
+
+        &::before {
+            transform: rotate(0deg);
+        }
+    }
+
+    input[type=checkbox]:checked ~ ul {
+        display: block;
+    }
+  }
+}
