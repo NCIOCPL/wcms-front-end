@@ -118,6 +118,9 @@ define(function(require) {
             console.log("applying base theme");
             // theme settings for NCI
             var theme = {
+                lang: {
+                    thousandsSep: ','
+                },
                 colors: this.settings.colors,
                 chart: {
                     backgroundColor: {
@@ -129,6 +132,13 @@ define(function(require) {
                     },
                     style: {
                         color: '#62559f'
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        dataLabels: {
+                            connectorColor: '#58595b'
+                        }
                     }
                 },
                 title: {
