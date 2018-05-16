@@ -81,6 +81,7 @@ table[data-sortable] {
   position: absolute;
   width: 160px !important;
   z-index: 3;
+
 }
 table[data-sortable] thead tr th:first-child {
   //background-color: #ace;
@@ -100,7 +101,7 @@ table[data-sortable] tbody tr td:first-child {
     border-right: 1px solid #999;
     box-shadow: 1px 11px 12px 3px #999
 }
-table[data-sortable] tbody tr td:first-child {overflow-y: hidden;}
+//table[data-sortable] tbody tr td:first-child {overflow-y: hidden;}
 
 table[data-sortable] thead tr th:nth-child(2),
 table[data-sortable] tbody tr td:nth-child(2) {
