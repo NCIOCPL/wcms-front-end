@@ -22,7 +22,7 @@ var AllSuites =
     /// CancerGov suites
     'nciglobal': {
         live: 'nciglobal',
-        other: 'ncidev'
+        other: 'ncidevelopment'
     },
     'ncienterprise': {
         live: 'ncienterprise',
