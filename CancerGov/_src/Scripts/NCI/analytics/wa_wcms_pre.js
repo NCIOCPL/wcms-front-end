@@ -9,14 +9,13 @@ var wa_lang = '';
 var live_or_other = 'other';
 if (document.URL.indexOf('www.cancer.gov') != -1 ||
     document.URL.indexOf('dceg.cancer.gov') != -1 ||
-    document.URL.indexOf('proteomics.cancer.gov') != -1 ||
     document.URL.indexOf('cancergenome.nih.gov') != -1) {
     live_or_other = 'live';
 };
 
 /*
  * Mapping of all WCMS reporting suites
- * Last update: 2017-02-06
+ * Last update: 2018-05-21
  */
 var AllSuites =
 {
@@ -24,6 +23,10 @@ var AllSuites =
     'nciglobal': {
         live: 'nciglobal',
         other: 'ncidev'
+    },
+    'ncienterprise': {
+        live: 'ncienterprise',
+        other: 'ncienterprise-dev'
     },
     'ncienglish-all': {
         live: 'ncienglish-all',
@@ -96,9 +99,9 @@ var AllSuites =
 
     /// TCGA and Proteomics suites
     'ncicssi-strategicscientificinitiatives': {
-    live: 'ncicssi-strategicscientificinitiatives',
+        live: 'ncicssi-strategicscientificinitiatives',
         other: 'ncicssi-strategicscientificinitiatives-dev'
-    }    
+    }
 };
 
 /*
