@@ -278,6 +278,8 @@ module.exports = function(grunt) {
     grunt.registerTask('build-watch', 'Build all files and watch for changes.', function(env) {
         var proxy = getProxy(env);
 
+        console.log("env is:", grunt.config('env'));
+
         grunt.config.merge({
             develop: {
                 server: {

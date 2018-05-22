@@ -4,7 +4,6 @@
 module.exports = function (grunt, options) {
     var dirs = options.dirs;
     var imgPath = "/publishedcontent/images/images/design-elements/sprites/";
-    console.log("env is:", options.env);
 
     return {
 
