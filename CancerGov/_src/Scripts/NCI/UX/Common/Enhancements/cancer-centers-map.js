@@ -146,7 +146,9 @@ define(function (require) {
       // refresh popup after image has loaded so it can re-calc it's dimensions
       map.on('popupopen', function (e) {
         e.popup._container.querySelector('img').addEventListener("load", function (event) {
-          e.popup.update();
+          setTimeout(function(){
+            e.popup.update();
+          },200)
         });
       });
     };
