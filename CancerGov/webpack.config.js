@@ -45,7 +45,8 @@ module.exports = {
 		DictionaryPage:         './UX/AppModuleSpecific/Dictionary/DictionaryPage',
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
-		Charts:                 './UX/Common/Enhancements/charts'
+		Charts:                 './UX/Common/Enhancements/charts',
+		CancerCentersMap:       './UX/Common/Enhancements/cancer-centers-map'
 	},
 	target: 'web',
 	resolve: {
@@ -140,6 +141,13 @@ module.exports = {
 				use: [{
 					loader: 'expose-loader',
 					options: 'Chart' // global variable name
+				}]
+			},
+			{
+				test: path.resolve(__dirname,'./_src/Scripts/NCI/UX/Common/Enhancements/cancer-centers-map'),
+				use: [{
+					loader: 'expose-loader',
+					options: 'CC_Map' // global variable name
 				}]
 			}
 

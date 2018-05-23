@@ -1,0 +1,98 @@
+#map-container {
+  width: 100%;
+  height: 354px;
+  border: 1px solid #BDBDBD;
+  margin: 15px auto 13px auto;
+}
+
+/* reduce page shift before selectmenu ui is initialized */
+
+.dropDownCCDisplay select {
+  margin: 0;
+  padding: 3px 0;
+}
+
+.selectMenus {
+  display: flex;
+  
+  > div {
+    flex-grow: 1;
+  }
+  
+  label {
+    white-space: nowrap;
+    margin-right: 5px;
+  }
+}
+
+.leaflet-popup-content {
+  table {
+    border: none;
+  }
+  td {
+    font-size: 1.2em;
+    img {
+      min-width: 100px;
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+  h3 {
+    margin: 0;
+  }
+  .map-details {
+    display: flex;
+    img {
+      min-width: 100px;
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+  .map-details--address {
+    padding-left: 5px;
+    white-space: nowrap;
+  }
+}
+
+/* z-index overrides for leaflet */
+
+.leaflet-map-pane canvas  { z-index: 1; }
+.leaflet-tile-pane,
+.leaflet-map-pane svg     { z-index: 2; }
+.leaflet-overlay-pane,
+.leaflet-pane             { z-index: 4; }
+.leaflet-shadow-pane      { z-index: 5; }
+.leaflet-marker-pane      { z-index: 6; }
+.leaflet-tooltip-pane     { z-index: 7; }
+.leaflet-popup-pane       { z-index: 8; }
+.leaflet-zoom-box,
+.leaflet-control          { z-index: 9; }
+.leaflet-top,
+.leaflet-bottom           { z-index: 10; }
+
+/* for toggling Location list types */
+#institution-listing1,
+#institution-listing2,
+#institution-listing3 {
+  display: none;
+}
+
+#listing-region #institution-listing1,
+#listing-state #institution-listing2,
+#listing-name #institution-listing3 {
+  display: block !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .selectMenus {
+    flex-direction: column;
+
+    > div:first-child {
+      margin-bottom: 5px
+    }
+
+    label {
+      width: 20%;
+    }
+  }
+}
