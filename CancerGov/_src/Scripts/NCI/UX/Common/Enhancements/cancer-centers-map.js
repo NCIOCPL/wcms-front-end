@@ -148,7 +148,7 @@ define(function (require) {
         e.popup._container.querySelector('img').addEventListener("load", function (event) {
           setTimeout(function(){
             e.popup.update();
-          },200)
+          },225)
         });
       });
     };
