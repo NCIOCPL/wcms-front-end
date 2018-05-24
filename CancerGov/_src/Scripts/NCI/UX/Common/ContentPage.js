@@ -190,4 +190,33 @@ define(function(require) {
 	});
 	// END Table Resizing
 
+	// BEGIN 404 page redesign, NCISEO-280
+	// I have put in the jQuery docoment load instead of 'window.onload = function () {' due to an issue with loading this when hitting the back button.
+	$( document ).ready(function() {
+    const englishbutton = document.getElementById('englishl');
+    const spanishbutton = document.getElementById('spanishl');
+    const siteSearchForm2 = document.getElementById('siteSearchForm2')
+    const sitesearch2 = document.getElementById('sitesearch2');
+    const legendlanguageenglish = document.getElementById('try-search-header-english');
+	const legendlanguagespanish = document.getElementById('try-search-header-spanish');
+	englishbutton.checked = true;
+    spanishbutton.addEventListener("focus", function (e) {
+        siteSearchForm2.action = "/espanol/buscar/resultados";
+        sitesearch2.textContent = "Buscar";
+        spanishbutton.checked = true;
+        englishbutton.checked = false;
+        legendlanguageenglish.classList.add("hide");
+        legendlanguagespanish.classList.remove("hide");
+    });
+    englishbutton.addEventListener("focus", function (e) {
+        siteSearchForm2.action = "/search/results";
+        sitesearch2.textContent = "Search";
+        spanishbutton.checked = false;
+        englishbutton.checked = true;
+        legendlanguagespanish.classList.add("hide");
+        legendlanguageenglish.classList.remove("hide");
+    });
+});
+ // END 404 page redesign, NCISEO-280
+
 });
