@@ -37,7 +37,6 @@ export const checkNodeAncestryForClass = (node, className) => {
 export const getNodeArray = (selector, node = document) => {
     const nodeList = node.querySelectorAll(selector);
     return nodeList ? Array.from(nodeList) : []
-<<<<<<< HEAD
 };
 
 
@@ -57,8 +56,6 @@ export const createFragment = html => {
  * @return {node}
  */
 export const appendNodes = (nodes, parent) => nodes.map(node => parent.appendChild(node));
-=======
-}
 
 /**
  * Given an array of arrays containing meta property attribute names and the corresponding value, will 
@@ -91,4 +88,3 @@ export const getMetaData = (metaTags, document) => {
 		return console.log(err);
 	}
 }
->>>>>>> Basic facebook link implemented
