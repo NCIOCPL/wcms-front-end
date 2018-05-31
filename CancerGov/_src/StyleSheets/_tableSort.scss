@@ -63,52 +63,49 @@ table[data-sortable] {
   }
   table[data-sortable] td[data-sorted="true"]{ background-color: #fafafa; }
 
-  table[data-sortable] th.headcol, table[data-sortable] td.headcol {
-    background-color: #ace;
-    position: relative; 
-    width: 5em; 
-    left: 0;
-    //top: auto;
-}
-@include bp(small) {
 
-  table[data-sortable] thead tr th:first-child,
-  table[data-sortable] tbody tr td:first-child,
-  table[data-sortable] tfoot tr td:first-child {
-  //background: #ace;
-  top: auto;
-  left: 0.5;
-  position: absolute;
-  width: 160px !important;
-  z-index: 3;
+  @include bp(small) {
 
-}
-table[data-sortable] thead tr th:first-child {
-  //background-color: #ace;
-  height: 7.35em;
-  //left: -1px;
-  top: 0px;
-}
-table[data-sortable] tbody tr td:first-child {
-  //height: 100%;
-  background-color: #fff;
-  //left: -1px;
- }
+    table[data-sortable] tfoot tr td:last-child {
+      padding-bottom: 20px;
+      //background-color: #ace;
+    }
 
- table[data-sortable] thead tr th:first-child, 
- table[data-sortable] tbody tr td:first-child, 
- table[data-sortable] tfoot tr td:first-child {
-    border-right: 1px solid #999;
-    box-shadow: 1px 11px 12px 3px #999
-}
-//table[data-sortable] tbody tr td:first-child {overflow-y: hidden;}
+    table[data-sortable] thead tr th:first-child,
+    table[data-sortable] tbody tr td:first-child,
+    table[data-sortable] tfoot tr td:first-child {
+    //background: #ace;
+    top: auto;
+    left: 0.5;
+    position: absolute;
+    width: 160px !important;
+    z-index: 3;
 
-table[data-sortable] thead tr th:nth-child(2),
-table[data-sortable] tbody tr td:nth-child(2) {
-  padding-left: 175px;
-  /*to show second column behind the first*/
-}
- table[data-sortable] tbody tr td[data-sorted="true"]:first-child {
-  background-color: #fafafa;
- }
-}
+    }
+    table[data-sortable] thead tr th:first-child {
+      //background-color: #ace;
+      height: 7.35em;
+    }
+    table[data-sortable] tbody tr td:first-child {
+      //height: 100%;
+      background-color: #fff;
+      //left: -1px;
+    }
+
+    table[data-sortable] thead tr th:first-child, 
+    table[data-sortable] tbody tr td:first-child, 
+    table[data-sortable] tfoot tr td:first-child {
+        border-right: 1px solid #ccc;
+        box-shadow: 0px 11px 12px 3px rgba(0, 0, 0, 0.5);
+    }
+    //table[data-sortable] tbody tr td:first-child {overflow-y: hidden;}
+
+    table[data-sortable] thead tr th:nth-child(2),
+    table[data-sortable] tbody tr td:nth-child(2) {
+      padding-left: 175px;
+      /*to show second column behind the first*/
+    }
+    table[data-sortable] tbody tr td[data-sorted="true"]:first-child {
+      background-color: #fafafa;
+    }
+  }
