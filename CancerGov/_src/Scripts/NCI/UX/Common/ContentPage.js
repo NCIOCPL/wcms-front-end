@@ -15,7 +15,7 @@ define(function(require) {
 	// Unfortunately AMD doesn't play nice with export default;
 	var proactiveLiveHelp = require('Modules/liveHelpPopup').default;
 	var sortablejs = require('Modules/sortableTables').default;
-	var socialShare = require('Modules/socialShare').default;
+	var pageOptions = require('Modules/pageOptions').default;
 
 
 	//require('Modules/autocomplete/autocomplete');
@@ -64,15 +64,9 @@ define(function(require) {
 		/*** END Exit Disclaimer ***/
 
 		/*** BEGIN Page Options
-		 * This functions the font resizer.
-		 ***/
-		 // MOVED TO NCI.PageOptions.FontResizer.js
-     // moved to Modules > fontResizer > fontResizer.js
+
 		(function() {
-			NCI.PageOptions.init();
-		})();
-		(function() {
-			socialShare();
+			pageOptions();
 		})();
 		/*** END Page Options **/
 

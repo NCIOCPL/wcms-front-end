@@ -26,10 +26,10 @@
 		}
 	}
 
-	.po-print a::before {
+	.page-options--print a::before {
 		@include svg-sprite(printer-blue);
 	}
-	.po-email a::before {
+	.page-options--email a::before {
 		@include svg-sprite(mail-envelope-closed-blue);
 	}
 	.social-share--facebook a::before {
@@ -148,12 +148,11 @@
 		.po-font-resize {
 			display: none;
 		}
-		.po-print {
+		.page-options--print {
 			display: none;
 		}
-		.po-email a::before {
+		.page-options--email a::before {
 			@include svg-sprite(mail-envelope-closed-white);
-			//font-size: .95em;
 		}
 		.social-share--facebook a::before {
 			@include svg-sprite(facebook-white);

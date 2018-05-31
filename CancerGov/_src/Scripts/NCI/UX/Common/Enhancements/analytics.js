@@ -284,6 +284,22 @@ define(function(require) {
                 });
             });
 
+            // window.addEventListener('NCI.page_option.clicked', ({
+            //     target = '<a/>',
+            //     type = 'print',
+            //     title = 'imprimar',
+            //     ...args = {'font-size': 34},
+            // }) => {
+            //     switch(type){
+            //         case 'email':
+            //         case 'print':
+            //             NCIAnalytics.PrintLink(target)
+            //             break;
+            //         case 'resizer':
+            //             break;
+            //     }
+            // })
+
             // Track accordion expand/collapse
             /// Note: this will only work for accordion items that have an ID set.
             /// We will need to update published HTML for other accordion items to include an 'id' attribute and to verify

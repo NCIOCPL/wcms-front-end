@@ -67,10 +67,11 @@ export const appendNodes = (nodes, parent) => nodes.map(node => parent.appendChi
     ['property', 'og:description'],
     ['name', 'twitter:card']
 ]
- * 
- * @param {array[array]} metaTags Array of arrays of propertyType & propertyName pairs for metatags
- * @param {object} document Document (or document.documentElement for quicker searching) explicit for testing without DOM
- * @return {object}
+ *returns { 'og:url': 'XXXX', 'og:description': 'XXXX'}
+ *  
+ * @param {Array[]} metaTags Array of arrays of propertyType & propertyName pairs for metatags
+ * @param {Object} document Document (or document.documentElement for quicker searching) explicit for testing without DOM
+ * @return {Object}
  */
 export const getMetaData = (metaTags, document) => {
 	try {
