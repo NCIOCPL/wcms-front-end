@@ -63,7 +63,7 @@ define(function(require) {
 		})();
 		/*** END Exit Disclaimer ***/
 
-		/*** BEGIN Page Options
+		/*** BEGIN Page Options */
 
 		(function() {
 			pageOptions();

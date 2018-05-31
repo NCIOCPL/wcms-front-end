@@ -1,10 +1,6 @@
 import { newWindow } from 'Utilities/popups';
 import { getNodeArray, getMetaData } from 'Utilities/domManipulation';
 
-// This is to reuse the previous functionality. TODO: Refactor!!!
-import fontResizer from 'Modules/fontResizer/fontResizer'; 
-fontResizer.init();
-
 // Currently we aren't using most of these tags since the services themselves are scraping the info they
 // need. But I'm leaving this here as a point of reference ('og:title' is the only one being used
 // at the moment, by Twitter) BB 3/2018
@@ -17,6 +13,7 @@ const metaTags = [
     ['name', 'twitter:card']
 ]
 
+// These aren't being reused as of now, so this seems unnecessary of course
 const FACEBOOK = 'facebook';
 const TWITTER = 'twitter';
 const GOOGLEPLUS = 'googleplus';
@@ -35,11 +32,11 @@ const shareButtonsData = {
         hook: '.social-share--facebook a',
         link: facebookLink,
         windowSettings: {},
-        analytics: 'I AM A FUNC TO ATTACH TO THE ELEMENT',
         initialize: settings => node => {
             node.addEventListener('click', onClickShareButton(settings));
             return node;
         },
+        initializeAnalytics: () => {},
     },
     TWITTER: {
         hook: '.social-share--twitter a',
@@ -49,6 +46,7 @@ const shareButtonsData = {
             node.addEventListener('click', onClickShareButton(settings));
             return node;
         },
+        initializeAnalytics: () => {},
     },
     GOOGLEPLUS: {
         hook: '.social-share--googleplus a',
@@ -58,6 +56,7 @@ const shareButtonsData = {
             node.addEventListener('click', onClickShareButton(settings));
             return node;
         },
+        initializeAnalytics: () => {},
     },
     PINTEREST: {
         hook: '.social-share--pinterest a',
@@ -69,6 +68,7 @@ const shareButtonsData = {
             node.addEventListener('click', onClickShareButton(settings));
             return node;
         },
+        initializeAnalytics: () => {},
     },
     EMAIL: {
         hook: '.page-options--email a',
@@ -95,10 +95,36 @@ const shareButtonsData = {
             })
             return node;
         },
+        initializeAnalytics: () => {},
     },
     RESIZE: {
         hook: '.page-options--resize a',
-        initialize: settings => node => node,
+        initialize: settings => node => {
+            
+            const clickHandler = resizeableElements => {
+                const multiplier = 1.2;
+                let originalSize = parseFloat(window.getComputedStyle(document.body).getPropertyValue('font-size'), 10);
+                let currentSize = 0;
+                
+                return e => {
+                    e.preventDefault();
+                    currentSize = parseFloat(window.getComputedStyle(resizeableElements[0]).getPropertyValue('font-size'), 10);
+                    let newSize = currentSize * multiplier;
+                    newSize = newSize > 30 ? originalSize : newSize;
+                    resizeableElements.forEach(el => {
+                        el.style.fontSize = newSize + "px";
+                    })
+                };
+            }
+            
+            const resizeableElements = getNodeArray(".resize-content");
+            if(resizeableElements.length){
+                node.addEventListener('click', clickHandler(resizeableElements));
+            }
+            
+            return node;
+        },
+        initializeAnalytics: () => {},
     }
 };
 
@@ -126,13 +152,10 @@ const getShareButtonNodes = (shareButtonsData) => {
     // Creating a new copy of the object. Why not use For...in instead of this more complicated
     // array reduction pattern? Because we don't want to iterate over any potential enumerables on the prototype.
     const shareButtons = Object.entries(shareButtonsData).reduce((acc, [type, settings]) => {
-        const { hook, link, windowSettings, initialize } = settings;
+        const { hook, link, windowSettings, initialize, initializeAnalytics } = settings;
         const nodes = getNodeArray(hook)
-            // .map(node => {
-            //     node.addEventListener('click', onClickShareButton(settings));
-            //     return node;
-            // });
             .map(initialize(settings))
+            .map(initializeAnalytics)
         acc[type] = { hook, link, nodes, windowSettings };
         return acc;
     }, {})
@@ -145,9 +168,3 @@ const initialize = () => {
 }
 
 export default initialize;
-
-// TODO: Add in dynamic attribute creation (link and otherwise)
-
-// 1) Get buttons by attribute
-// 2) Map over buttons and apply logic (eg, add a mailto href or add a clickhandler)
-// 3) Map over buttons and apply analytics clickhandlers (raising custom event with custom properties)
