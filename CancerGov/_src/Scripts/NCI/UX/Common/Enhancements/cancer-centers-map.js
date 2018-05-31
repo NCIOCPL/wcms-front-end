@@ -66,8 +66,11 @@ define(function (require) {
 
     var generateMap = function () {
 
-      // create a new map object
+      // create a new map object with default view of USA
       var map = L.map('map-container').setView([38.8, -95.14], 4);
+
+      // get user location
+      map.locate({setView: true, maxZoom: 8});
       this.map = map;
 
       // load tiles from open street map api - Open Street Map
@@ -91,7 +94,8 @@ define(function (require) {
         app_id: 'LwhO0PgtFaQWvmSKfagq',
         app_code: '5AywnMXHSs-Tv2qqtFcx7g',
         base: 'base',
-        maxZoom: 18,
+        maxZoom: 16,
+        minZoom: 4,
         type: 'maptile',
         language: 'eng',
         format: 'png8',
