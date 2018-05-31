@@ -16,6 +16,13 @@
 @import "../../../../../StyleSheets/nokia-maps";
 @import "../../../../../StyleSheets/cts-listing";
 
+// DIN Regular is currently only used in charts.js (a.k.a: Highcharts) where the font style is included in a JSON config object.
+// SASS did not see this font style being used in .scss styles so it was shaken out
+.forceFontsStylesToBeIncluded-1 {
+  font-family: $din-regular-stack;
+}
+
+
 // This was implemented by Sarina to match CTS Results pages on CTS
 // listing pages. [OCECTS-465].
 @include bp(large-up) {

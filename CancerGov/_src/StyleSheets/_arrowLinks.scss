@@ -38,3 +38,22 @@ a.arrow-link-white {
 		}
 	}
 }
+/**** Styles for arrow links inside version toggle button ****/
+a.toggle-arrow-link {
+	&::after {
+		content: "";
+		position: absolute;
+		right: 2%;					
+		@include svg-sprite(chevron-circle-white,$rotate:right);
+	}
+	@media only screen and (max-width: 709px) {
+		&::after {
+			@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+		}
+		&:hover, &:focus {
+			&::after {
+				@include svg-sprite(chevron-circle-red);
+			}
+		}
+	}
+}
