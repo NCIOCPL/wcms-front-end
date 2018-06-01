@@ -1,0 +1,67 @@
+import {
+    onClickAnalytics,
+} from '../utilities';
+import {
+    getNodeArray,
+} from 'Utilities/domManipulation'
+
+const getCurrentFontSize = () => {
+    const testElement = document.querySelector('.resize-content') || document.getElementById('cgvBody');
+    const size = parseFloat(window.getComputedStyle(testElement).getPropertyValue('font-size'), 10);
+    const fontSize = 
+        size < 19 
+        ? 'Normal'
+        : size < 23
+        ? 'Medium'
+        : size < 27
+        ? 'Large'
+        : 'Extra Large';
+    return fontSize;
+}
+
+const resize = {
+    hook: '.page-options--resize a',
+    initialize: () => node => {
+        
+        const clickHandler = resizeableElements => {
+            const multiplier = 1.2;
+            let originalSize = parseFloat(window.getComputedStyle(document.body).getPropertyValue('font-size'), 10);
+            let currentSize = 0;
+            
+            return e => {
+                e.preventDefault();
+                currentSize = parseFloat(window.getComputedStyle(resizeableElements[0]).getPropertyValue('font-size'), 10);
+                let newSize = currentSize * multiplier;
+                newSize = newSize > 30 ? originalSize : newSize;
+                resizeableElements.forEach(el => {
+                    el.style.fontSize = newSize + "px";
+                })
+            };
+        }
+        
+        const resizeableElements = getNodeArray(".resize-content");
+        if(resizeableElements.length){
+            node.addEventListener('click', clickHandler(resizeableElements));
+        }
+        
+        return node;
+    },
+    initializeAnalytics: node => {
+        const mouseleaveHandler = () => {            
+            const fontSize = getCurrentFontSize();
+            const detail = {
+                type: 'fontResizer',
+                args: [fontSize],
+            };
+            onClickAnalytics({ node, detail })();
+            node.removeEventListener('mouseleave', mouseleaveHandler);
+        }
+
+        node.addEventListener('click', () => {
+            node.addEventListener('mouseleave', mouseleaveHandler)
+        })
+        return node;
+    },
+};
+
+export default resize;

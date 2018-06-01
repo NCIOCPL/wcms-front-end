@@ -1,0 +1,23 @@
+import {
+    onClickShareButton,
+    onClickAnalytics,
+} from '../utilities';
+
+const twitter = {
+    hook: '.social-share--twitter a',
+    link: (url, {'og:title': text}) => `https://twitter.com/share?url=${encodeURIComponent(url)}&text=${text}`, 
+    windowSettings: {},
+    initialize: settings => node => {
+        node.addEventListener('click', onClickShareButton(settings));
+        return node;
+    },
+    initializeAnalytics: node => {
+        const detail = {
+            type: 'BookmarkShareClick',
+        };
+        node.addEventListener('click', onClickAnalytics({ node, detail }))
+        return node;
+    },
+};
+
+export default twitter;
