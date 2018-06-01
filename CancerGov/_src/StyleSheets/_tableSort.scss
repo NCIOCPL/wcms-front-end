@@ -66,9 +66,13 @@ table[data-sortable] {
 
   @include bp(small) {
 
+    table[data-sortable] {
+      height: 100% !important;
+    }
+    
     table[data-sortable] tfoot tr td:last-child {
       padding-bottom: 20px;
-      //background-color: #ace;
+      background-color: #ace;
     }
 
     table[data-sortable] thead tr th:first-child,
@@ -78,7 +82,7 @@ table[data-sortable] {
     top: auto;
     left: 0.5;
     position: absolute;
-    width: 160px !important;
+    width: 145px !important;
     z-index: 3;
 
     }
@@ -87,9 +91,16 @@ table[data-sortable] {
       height: 7.35em;
     }
     table[data-sortable] tbody tr td:first-child {
-      //height: 100%;
       background-color: #fff;
       //left: -1px;
+    }
+
+    table[data-sortable] tbody tr td, table[data-sortable] tfoot tr td, 
+    table[data-sortable] tr td {
+      height: 200px !important;
+      padding: 5px;
+      //height: 100% !important;
+
     }
 
     table[data-sortable] thead tr th:first-child, 
