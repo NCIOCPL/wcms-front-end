@@ -3,7 +3,6 @@
 	font-size: 1.125em;
 	padding: 0 20px;
 	.error-content {
-		max-width: 1200px;
 		margin: 0 auto;
 		div {
 			padding: 0 0 10px;
@@ -89,17 +88,18 @@
 	.error-searchbar {
 		display: block;
 	}
-	
 }
 
 @media screen and (min-width: 768px) {
-	.error-content {
-		display: flex;
-	}
-	.error-content-english {
-		padding-right: 10px !important;
-	}
-	.error-content-spanish {
-		padding-left: 10px !important;
+	.error-page {
+		.error-content {
+			display: flex;
+			.error-content-english {
+				padding-right: 10px;
+			}
+			.error-content-spanish {
+				padding-left: 10px;
+			}
+		}
 	}
 }

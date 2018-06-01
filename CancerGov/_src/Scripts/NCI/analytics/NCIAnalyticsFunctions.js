@@ -251,6 +251,30 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
 
+    PageNotFound: function(sender){
+        var language = sender.dataset.language;
+        var searchType = 'pagenotfoundsearch';
+        var keyword = document.getElementById('nfKeyword').value;
+
+        if (language === 'es'){
+            searchType += '_spanish';
+        }
+
+        clickParams = new NCIAnalytics.ClickParams(sender,
+            'nciglobal', 'o', 'PageNotFound');
+        clickParams.Props = {
+            11: searchType,
+            14: keyword
+        };
+        clickParams.Evars = {
+            11: searchType,
+            13: '+1',
+            14: keyword
+        };
+        clickParams.Events = [2];
+        clickParams.LogToOmniture();
+    },
+
     //******************************************************************************************************
     SiteWideSearchResultsSearch: function(sender, keyWordTextBoxID, searchRadioButtonsID) {
         var keyword = document.getElementById(keyWordTextBoxID).value;
