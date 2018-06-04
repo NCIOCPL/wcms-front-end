@@ -7,7 +7,7 @@
 <!--(bake-end)-->
 <div class="page-options-container">
     <!-- PAGE OPTIONS -->
-    <div id="PageOptionsControl1" class="page-options no-resize">
+    <div id="PageOptionsControl1" class="page-options no-resize {{css-class}}">
         <ul>
             <!--(bake-start _if="resize=='true'")-->
                 <li class="page-options--resize">

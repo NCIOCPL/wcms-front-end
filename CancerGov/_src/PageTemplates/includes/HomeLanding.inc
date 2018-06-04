@@ -26,7 +26,7 @@
     <!-- END PAGE TITLE -->
     <!--(bake-end)-->
 
-    <!--(bake PageOptions.inc css-class="large-5 columns page-options")-->
+    <!--(bake PageOptions.inc css-class="large-5 columns")-->
 </div>
 
 <!-- CARD CONTAINER -->
