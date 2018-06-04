@@ -32,6 +32,11 @@ export const getURL = (document, metaData) => {
  * @return {function}
  */
 export const getContent = (dict, language = 'en') => {
+    if(!dict){
+        console.warn('No i18n dictionary provided');
+        return () => '';
+    }
+    
     if(!Object.keys(dict).length){
         console.warn('Empty dictionary')
         return () => '';
