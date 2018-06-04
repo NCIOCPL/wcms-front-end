@@ -92,7 +92,25 @@ export const getMetaData = (metaTags, document) => {
 
 /**
  * TODO: Extend with extra checks, this is very specific to CGOV.
+ * @param {HTMLElement} [document=window.document]
+ * @return {string}
  */
 export const getDocumentLanguage = (document = window.document) => {
 	return document.querySelector('meta[name="content-language"]').getAttribute('content');
 }
+
+/**
+ * Retrieve the canonical URL from the document head
+ * 
+ * @param {HTMLElement} [document=window.document]
+ * @return {string}
+ */
+export const getCanonicalURL = (document = window.document) => document.querySelector("link[rel='canonical']").href;
+
+/**
+ * Retrieve the URL from the document metadata og:url property
+ * 
+ * @param {HTMLElement} [document=window.document]
+ * @return {string}
+ */
+export const getMetaURL = document => document.querySelector("meta[property='og:url']").getAttribute('content');
