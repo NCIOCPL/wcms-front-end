@@ -26,9 +26,6 @@ export const getURL = (document, metaData) => {
 
 // We don't want to take the metadata until the share link has been activated (so that if some
 // of it was changed dynamically, we can capture the new data)
-// NOTE: If you're confused by the () => () => pattern, it's just currying with arrow functions.
-// This function returns a function seeded with the 'type' data (which means we can pass variables
-// in the eventlistener without a problem)
 export const onClickShareButton = ({ 
     link, 
     windowSettings 
