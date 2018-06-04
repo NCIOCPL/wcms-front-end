@@ -26,22 +26,22 @@
             <!--(bake-end)-->
             <!--(bake-start _if="facebook")-->
                 <li class="social-share social-share--facebook">
-                    <a class="" title="Facebook" href="#"></a>
+                    <a title="Facebook" href="#"></a>
                 </li>
             <!--(bake-end)-->
             <!--(bake-start _if="twitter")-->
                 <li class="social-share social-share--twitter">
-                    <a class="" title="Twitter" href="#"></a>
+                    <a title="Twitter" href="#"></a>
                 </li>
             <!--(bake-end)-->
             <!--(bake-start _if="googleplus")-->
                 <li class="social-share social-share--googleplus">
-                    <a class="" title="Google+" href="#"></a>
+                    <a title="Google+" href="#"></a>
                 </li>
             <!--(bake-end)-->
             <!--(bake-start _if="pinterest")-->
                 <li class="social-share social-share--pinterest">
-                    <a class="" title="Pinterest" href="#"></a>
+                    <a title="Pinterest" href="#"></a>
                 </li>
             <!--(bake-end)-->
         </ul>
