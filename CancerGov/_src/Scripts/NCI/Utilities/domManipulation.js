@@ -89,3 +89,10 @@ export const getMetaData = (metaTags, document) => {
 		return console.log(err);
 	}
 }
+
+/**
+ * TODO: Extend with extra checks, this is very specific to CGOV.
+ */
+export const getDocumentLanguage = (document = window.document) => {
+	return document.querySelector('meta[name="content-language"]').getAttribute('content');
+}
