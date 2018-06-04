@@ -7,84 +7,32 @@
 <!--(bake-end)-->
 <div class="page-options-container">
     <!-- PAGE OPTIONS -->
-
-    <NCI:PageOptionsControl ID="PageOptionsControl1" CssClass="{{css-class}}" runat="server">
-        <PageOptionsButtonLanguages>
-            <NCI:PageOptionsButtonLanguageItem Language="en">
-                <ButtonsCollection>
-                    <!--(bake-start _if="resize")-->
-                    <NCI:ClientSideButtonItem
-                        Title="Resize font"
-                        CssClass="po-font-resize"
-                        AlternateContentVersionKey="fontResize" />
-                    <!--(bake-end)-->
-                    <NCI:ClientSideButtonItem Title="Print"
-                                        CssClass="po-print"
-                                        AlternateContentVersionKey="print"
-                                        WebAnalytics="NCIAnalytics.PrintLink(this);" />
-                    <NCI:EmailButtonItem Title="Email"
-                                        CssClass="po-email"
-                                        AlternateContentVersionKey="email"
-                                        WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                    <NCI:ClientSideButtonItem Title="Facebook"
-                                                    CssClass="social-share--facebook"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:ClientSideButtonItem Title="Twitter"
-                                                    CssClass="social-share--twitter"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:ClientSideButtonItem Title="Google+"
-                                                    CssClass="social-share--googleplus"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:ClientSideButtonItem Title="Pinterest"
-                                                    CssClass="social-share--pinterest"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                </ButtonsCollection>
-            </NCI:PageOptionsButtonLanguageItem>
-            <NCI:PageOptionsButtonLanguageItem Language="es">
-                <ButtonsCollection>
-                    <!--(bake-start _if="resize")-->
-                    <NCI:ClientSideButtonItem
-                        Title="Control de tama&ntilde;o de fuente"
-                        CssClass="po-font-resize"
-                        AlternateContentVersionKey="fontResize" />
-                    <!--(bake-end)-->
-                    <NCI:ClientSideButtonItem
-                        Title="Imprimir"
-                        CssClass="po-print"
-                        AlternateContentVersionKey="print"
-                        WebAnalytics="NCIAnalytics.PrintLink(this);" />
-                    <NCI:EmailButtonItem
-                        Title="Enviar por correo electr&oacute;nico"
-                        CssClass="po-email"
-                        AlternateContentVersionKey="email"
-                        WebAnalytics="NCIAnalytics.eMailLink(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="facebook"
-                                                    Title="Facebook"
-                                                    CssClass="po-facebook"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="twitter"
-                                                    Title="Twitter"
-                                                    CssClass="po-twitter"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="google_plusone_share"
-                                                    Title="Google+"
-                                                    CssClass="po-googleplus"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                    <NCI:PageOptionsAddThisButtonItem Service="pinterest_share"
-                                                    Title="Pinterest"
-                                                    CssClass="po-pinterest"
-                                                    AlternateContentVersionKey="bookmarkshare"
-                                                    WebAnalytics="NCIAnalytics.BookmarkShareClick(this);" />
-                </ButtonsCollection>
-            </NCI:PageOptionsButtonLanguageItem>
-        </PageOptionsButtonLanguages>
-    </NCI:PageOptionsControl>
+    <div id="PageOptionsControl1" class="page-options no-resize">
+        <ul>
+            <!--(bake-start _if="resize=='true'")-->
+                <li class="page-options--resize">
+                    <a title="Resize font" href="#"></a>
+                </li>
+            <!--(bake-end)-->
+            <li class="page-options--print">
+                <a title="Print" href="#"></a>
+            </li>
+            <li class="page-options--email">
+                <a title="Email" href="#"></a>
+            </li>
+            <li class="social-share social-share--facebook">
+                <a class="" title="Facebook" href="#"></a>
+            </li>
+            <li class="social-share social-share--twitter">
+                <a class="" title="Twitter" href="#"></a>
+            </li>
+            <li class="social-share social-share--googleplus">
+                <a class="" title="Google+" href="#"></a>
+            </li>
+            <li class="social-share social-share--pinterest">
+                <a class="" title="Pinterest" href="#"></a>
+            </li>
+        </ul>
+    </div>
     <!-- END PAGE OPTIONS -->
 </div>
