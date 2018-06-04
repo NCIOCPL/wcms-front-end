@@ -26,7 +26,7 @@
     <!-- END PAGE TITLE -->
     <!--(bake-end)-->
 
-    <!--(bake PageOptions.inc css-class="large-5 columns")-->
+    <!--(bake PageOptions.inc css-class="large-5 columns" print email facebook twitter googleplus pinterest)-->
 </div>
 
 <!-- CARD CONTAINER -->
