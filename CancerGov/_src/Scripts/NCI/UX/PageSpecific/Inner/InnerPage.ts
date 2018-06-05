@@ -61,6 +61,7 @@ class InnerPage extends NCIBasePage {
 	}
     
 }
+
 /**
  * Initialize InnerPage
  */

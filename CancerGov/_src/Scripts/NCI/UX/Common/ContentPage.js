@@ -189,4 +189,5 @@ define(function(require) {
 		}())
 	});
 	// END Table Resizing
+
 });
