@@ -1,5 +1,6 @@
 import {
     onClickAnalytics,
+    getContent,
 } from '../utilities';
 import {
     getNodeArray,
@@ -21,7 +22,15 @@ const getCurrentFontSize = () => {
 
 const resize = {
     hook: '.page-options--resize a',
-    initialize: () => node => {
+    textContent: {
+        title: {
+            'en': () => 'Font Resizer',
+            'es': () => 'Control de tamaño de fuente',
+        },
+    },
+    initialize: language => settings => node => {
+        const title = getContent(settings.textContent.title, language)();
+        node.title = title;
         
         const clickHandler = resizeableElements => {
             const multiplier = 1.2;

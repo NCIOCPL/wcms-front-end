@@ -4,9 +4,6 @@ import {
     onClickAnalytics,
     getContent,
 } from '../utilities';
-import {
-    getDocumentLanguage,
-} from 'Utilities/domManipulation';
 
 const email = {
     hook: '.page-options--email a',
@@ -20,13 +17,12 @@ const email = {
             'es': url => `mailto:?subject=Donde Esta La Bibliotheca&body=I found this information on www.cancer.gov and I'd like to share it with you: ${ url } \n\n La arana discoteca`,
         }
     },
-    initialize: settings => node => {
-        const lang = getDocumentLanguage(window.document);
-        const title = getContent(settings.textContent.title, lang)();
+    initialize: language => settings => node => {
+        const title = getContent(settings.textContent.title, language)();
         node.title = title;
         node.addEventListener('click', () => {
             const url = getURL(document);
-            const href = getContent(settings.textContent.href, lang)(url);
+            const href = getContent(settings.textContent.href, language)(url);
             const encodedHref = encodeURI(href);
             node.href = encodedHref;
             node.click();

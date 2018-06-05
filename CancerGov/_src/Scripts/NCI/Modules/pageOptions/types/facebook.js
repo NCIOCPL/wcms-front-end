@@ -1,13 +1,21 @@
 import {
     onClickShareButton,
     onClickAnalytics,
+    getContent,
 } from '../utilities';
 
 const facebook =  {
     hook: '.social-share--facebook a',
     link: url => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
     windowSettings: {},
-    initialize: settings => node => {
+    textContent: {
+        title: {
+            'en': () => 'Facebook',
+        },
+    },
+    initialize: language => settings => node => {
+        const title = getContent(settings.textContent.title, language)();
+        node.title = title;
         node.addEventListener('click', onClickShareButton(settings));
         return node;
     },

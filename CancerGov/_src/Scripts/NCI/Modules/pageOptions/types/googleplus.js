@@ -1,13 +1,21 @@
 import {
     onClickShareButton,
     onClickAnalytics,
+    getContent,
 } from '../utilities';
 
 const googleplus = {
     hook: '.social-share--googleplus a',
     link: url => `https://plus.google.com/share?url=${encodeURIComponent(url)}`,
     windowSettings: {},
-    initialize: settings => node => {
+    textContent: {
+        title: {
+            'en': () => 'Google+',
+        },
+    },
+    initialize: language => settings => node => {
+        const title = getContent(settings.textContent.title, language)();
+        node.title = title;
         node.addEventListener('click', onClickShareButton(settings));
         return node;
     },

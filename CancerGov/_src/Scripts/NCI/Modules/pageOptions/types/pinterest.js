@@ -1,6 +1,7 @@
 import {
     onClickShareButton,
     onClickAnalytics,
+    getContent,
 } from '../utilities';
 
 const pinterest = {
@@ -9,7 +10,14 @@ const pinterest = {
     windowSettings: {
         width: 700
     },
-    initialize: settings => node => {
+    textContent: {
+        title: {
+            'en': () => 'Pinterest',
+        },
+    },
+    initialize: language => settings => node => {
+        const title = getContent(settings.textContent.title, language)();
+        node.title = title;
         node.addEventListener('click', onClickShareButton(settings));
         return node;
     },

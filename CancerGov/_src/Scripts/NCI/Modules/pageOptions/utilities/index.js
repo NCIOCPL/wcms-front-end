@@ -60,7 +60,7 @@ export const getContent = (dict, language = 'en') => {
 export const onClickShareButton = ({ 
     link, 
     windowSettings 
-}) => () => {
+}) => event => {
     const metaData = getMetaData(metaTags, document)
     const url = getURL(document, metaData);
     newWindow(link(url, metaData), windowSettings);

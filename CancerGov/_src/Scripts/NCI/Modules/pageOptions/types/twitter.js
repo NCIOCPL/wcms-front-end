@@ -1,13 +1,19 @@
 import {
     onClickShareButton,
     onClickAnalytics,
+    getContent,
 } from '../utilities';
 
 const twitter = {
     hook: '.social-share--twitter a',
     link: (url, {'og:title': text}) => `https://twitter.com/share?url=${encodeURIComponent(url)}&text=${text}`, 
     windowSettings: {},
-    initialize: settings => node => {
+    textContent: {
+        title: {
+            'en': () => 'Twitter',
+        },
+    },
+    initialize: language => settings => node => {
         node.addEventListener('click', onClickShareButton(settings));
         return node;
     },

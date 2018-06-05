@@ -1,8 +1,19 @@
-import { onClickAnalytics } from '../utilities';
+import { 
+    onClickAnalytics,
+    getContent,
+} from '../utilities';
 
 const print = {
     hook: '.page-options--print a',
-    initialize: () => node => {
+    textContent: {
+        title: {
+            'en': () => 'Print',
+            'es': () => 'Imprimir',
+        },
+    },
+    initialize: language => settings => node => {
+        const title = getContent(settings.textContent.title, language)();
+        node.title = title;
         node.addEventListener('click', e => {
             e.preventDefault();
             window.print();
