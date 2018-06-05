@@ -73,12 +73,12 @@ define(function (require) {
       map.locate({setView: true, maxZoom: 8});
       this.map = map;
 
-      // load tiles from open street map api - Open Street Map
+      // load tiles from api - Open Street Map
       // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       // }).addTo(map);
 
-      // load tiles from mapbox api - Map Box
+      // load tiles from api - Map Box
       // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       //   attribution: 'Map data &copy; <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a target="_blank" href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a target="_blank" href="https://www.mapbox.com/">Mapbox</a>',
       //   maxZoom: 18,
@@ -86,7 +86,7 @@ define(function (require) {
       //   accessToken: 'pk.eyJ1IjoiYWxpZnIiLCJhIjoiY2poN29rbDllMDJ2cjJ5bWNvbnUwZWVodyJ9.WsTYlUYI80NkoqUTk5iVGA' //alifr's dev token!
       // }).addTo(map);
 
-      // load tiles from mapbox api - HERE maps
+      // load tiles from api - HERE maps
       L.tileLayer('https://{s}.{base}.maps.cit.api.here.com/maptile/2.1/{type}/{mapID}/normal.day/{z}/{x}/{y}/{size}/{format}?app_id={app_id}&app_code={app_code}&lg={language}', {
         attribution: 'Map Imagery &copy; 1987-2018 <a href="http://developer.here.com">HERE</a>',
         subdomains: '1234',
