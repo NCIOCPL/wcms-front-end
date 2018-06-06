@@ -645,6 +645,189 @@ define(function(require) {
                 NCIAnalytics.TableSortHeaderClick(this, pageName);
                 userHasSorted = true;
              });
-		});
-	})();
+        });
+        
+
+
+        /** 
+        * Engagement plugin 
+        */
+        var engagementObject = 'NCIEngagement';
+        window[engagementObject] = {
+        // constants
+        loggingEnabled: false, // set to true to view console logs / messages
+        pollingInterval: 10000, // ms - check for signs of engagement every 10 seconds
+        scorePerInterval: 10, // whole number, typically 1 point per second in pollingInterval
+        hasScrolled: false, // default to false
+        hasMoused: false, // default to false
+        hasClicked: false, //default to false
+        defaultEngagementScore: 0, // default engagement score to 0
+        engagementScore: 0, // default engagement score to 0
+        minimumEngagementScore: 1, // minimum score required to send analytics call
+        cookieName: 'engagementTracking', // default name for deferred engagement tracking cookie
+
+        /**
+         * logging method
+         * @param msg {string} message to log to console
+         * @param type {string} type of console message to post eg// log, info, etc
+         */
+        logger: function (msg, type) {
+            var type = type || "log";
+            if (this.loggingEnabled) {
+            console[type](engagementObject.toUpperCase() + " LOGGER:", msg);
+            }
+        },
+
+        /**
+         * set up initial watchers
+         * @param {object} pv_object
+         */
+        initialize: function (pv_object) {
+            window[engagementObject].logger('initialize');
+            var that = pv_object;
+            window[engagementObject].startTime = new Date().getTime();
+
+            this.isFocused = document.hasFocus(); // current focus state (Boolean)
+        },
+
+        /**
+         * what to do when the page is scrolled
+         */
+        doScroll: function () {
+            this.isFocused = document.hasFocus();
+            if (this.isFocused) {
+            window[engagementObject].logger('doScroll');
+            this.hasScrolled = true;
+            }
+        },
+
+        /**
+         * what to do when the mouse is moving/engaging with content
+         */
+        doMouse: function () {
+            this.isFocused = document.hasFocus();
+            window[engagementObject].logger('doMouse');
+            if (this.isFocused) {
+            this.hasMoused = true;
+            }
+        },
+
+        /**
+         * what to do when a click occurs
+         */
+        doClick: function () {
+            this.isFocused = document.hasFocus();
+            window[engagementObject].logger('doClick');
+            if (this.isFocused) {
+            this.hasClicked = true;
+            }
+        },
+
+        /**
+         *
+         */
+        getEngagementScore: function (payload) {
+            var action = payload.action,
+            status = payload.status,
+            score = payload.score,
+            retVal = (status) ? score + 10 : score;
+
+            // remove flags after each check
+            this[action] = false;
+            return (retVal);
+        },
+
+        /**
+         * 
+         */
+        getEngagementStatus: function (payload) {
+            this.engagementScore = this.getEngagementScore({
+            action: 'hasScrolled',
+            status: this.hasScrolled,
+            score: this.engagementScore
+            });
+            this.engagementScore = this.getEngagementScore({
+            action: 'hasMoused',
+            status: this.hasMoused,
+            score: this.engagementScore
+            });
+            this.engagementScore = this.getEngagementScore({
+            action: 'hasClicked',
+            status: this.hasClicked,
+            score: this.engagementScore
+            });
+
+            // update status
+            this.status = {
+            engagementScore: this.engagementScore
+            }
+            return (this.status);
+        },
+
+        /** 
+         * collect incremental engagement score from engagement cookie and reset cookie value
+         * @returns {string} current engagement score value => 20
+         */
+        getAndResetEngagementCookie: function () {
+            var cookieName = this.cookieName,
+            etScore = NCIAnalytics.cookieRead(cookieName) || '';
+
+            NCIAnalytics.cookieWrite(cookieName, '0');
+            return(etScore);
+        }
+        }
+
+        // set up helper variables and methods
+        window[engagementObject].initialize(window[engagementObject]);
+
+        var engagement_timer = setInterval(function () { // check for engagement in specified intervals
+        window[engagementObject].getEngagementStatus();
+
+        var isEngaged = (window[engagementObject].engagementScore >= window[engagementObject].minimumEngagementScore) ? true : false,
+            currentCookieValue = NCIAnalytics.cookieRead(window[engagementObject].cookieName) || 0,
+            engagementType = (isEngaged) ? 'engaged' : 'not engaged';
+
+        if (engagementType === 'engaged') {
+            // update cookie for delayed tracking (picked up on existing s.tl() calls and/or initial page load)
+            var updatedCookieScore = parseInt(currentCookieValue) + window[engagementObject].scorePerInterval;
+            NCIAnalytics.cookieWrite(window[engagementObject].cookieName, updatedCookieScore);
+
+            // log the current/cumulative score
+            window[engagementObject].logger("engagement-score_" + updatedCookieScore);
+
+            //reset engagement score
+            window[engagementObject].engagementScore = window[engagementObject].defaultEngagementScore;
+        } else { // if not engaged
+            window[engagementObject].logger("engagement-score: " + engagementType.toUpperCase());
+        }
+        }, window[engagementObject].pollingInterval);
+
+        // monitor scrolling events for engagemnet tracking
+        attachEvents({
+        element: window,
+        event: 'scroll',
+        action: function () {
+            window[engagementObject].doScroll();
+        }
+        });
+
+        // monitor mouse events for engagemnet tracking
+        attachEvents({
+        element: window,
+        event: 'mouseover',
+        action: function () {
+            window[engagementObject].doMouse();
+        }
+        });
+
+        // monitor click events for engagemnet tracking
+        attachEvents({
+        element: window,
+        event: 'click',
+        action: function () {
+            window[engagementObject].doClick();
+        }
+        });
+    })();
+    
 });
