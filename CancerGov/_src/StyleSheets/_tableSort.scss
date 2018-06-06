@@ -93,12 +93,14 @@ table[data-sortable] {
     table[data-sortable] tbody tr td:first-child {
       background-color: #fff;
       //left: -1px;
+      height: 200px !important;
+      line-height: 1.25em;
     }
 
     table[data-sortable] tbody tr td, table[data-sortable] tfoot tr td, 
     table[data-sortable] tr td {
       height: 200px !important;
-      padding: 5px;
+      //padding: 20px;
       //height: 100% !important;
 
     }
