@@ -5,4 +5,4 @@
     life easier if the CSS Classes for the page options needs to change for inner pages.
 -->
 <!--(bake-end)-->
-<!--(bake PageOptions.inc print email facebook twitter googleplus pinterest)-->
+<!--(bake PageOptions.inc print="true" email="true" facebook="true" twitter="true" googleplus="true" pinterest="true")-->
