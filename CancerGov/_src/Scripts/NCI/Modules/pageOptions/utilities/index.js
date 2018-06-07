@@ -1,6 +1,5 @@
 import { newWindow } from 'Utilities/popups';
 import { 
-    getNodeArray, 
     getMetaData,
     getMetaURL,
     getCanonicalURL,
