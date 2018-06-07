@@ -6,7 +6,13 @@ import {
 
 const twitter = {
     hook: '.social-share--twitter a',
-    link: (url, {'og:title': text}) => `https://twitter.com/share?url=${encodeURIComponent(url)}&text=${text}`, 
+    link: (url, {'og:title': text}) => {
+        // Check for global config object with custom overrides from content creator
+        if(window.pageOptionsContentOverride && window.pageOptionsContentOverride.title){
+            text = window.pageOptionsContentOverride.title;
+        }
+        return `https://twitter.com/share?url=${encodeURIComponent(url)}&text=${text}`
+    }, 
     windowSettings: {},
     textContent: {
         title: {
