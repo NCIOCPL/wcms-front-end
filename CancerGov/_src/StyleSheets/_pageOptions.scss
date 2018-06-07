@@ -44,8 +44,23 @@
 	.social-share--pinterest a::before {
 		@include svg-sprite(pinterest-blue);
 	}
+
 }
 
+// Custom tweet button (not in the page options container - anywhere on the page)
+a.social-share--custom-tweet {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 32px;
+	width: 32px;
+	background: #2ba8d2;
+	
+	&::after {
+		content: '';
+		@include svg-sprite(twitter-white);
+	}
+}
 
 #blogPageOptionsInnerContainer {
 	margin: 1em 0;

@@ -1,5 +1,6 @@
 import facebook from './facebook';
 import twitter from './twitter';
+import customTweet from './customTweet';
 import pinterest from './pinterest';
 import googleplus from './googleplus';
 import email from './email';
@@ -14,4 +15,5 @@ export default {
     email,
     print,
     resize,
+    customTweet,
 };

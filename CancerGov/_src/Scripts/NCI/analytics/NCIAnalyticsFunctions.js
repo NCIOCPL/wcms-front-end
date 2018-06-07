@@ -1135,6 +1135,12 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    CustomTweetClick: function(sender, eventCode){
+        clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', eventCode);
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     MegaMenuClick: function(sender, tree) {
         clickParams = new NCIAnalytics.ClickParams(sender,
             'nciglobal', 'o', 'MegaMenuClick');
