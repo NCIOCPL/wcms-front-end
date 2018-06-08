@@ -23,8 +23,7 @@ const customTweet = {
         // Extract attributes added by content owner to build a custom tweet window event
         const customTitle = node.dataset.title || '';
         const url = node.dataset.url || '';
-        const content = `${ customTitle }`;
-        const link = `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURI(content) }`;
+        const link = `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURI(customTitle) }`;
 
         const customTweetClickHandler = event => {
             newWindow(link);
