@@ -11,7 +11,7 @@ const twitter = {
         if(window.pageOptionsContentOverride && window.pageOptionsContentOverride.title){
             text = window.pageOptionsContentOverride.title;
         }
-        return `https://twitter.com/share?url=${encodeURIComponent(url)}&text=${text}`
+        return `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURIComponent(text) }`
     }, 
     windowSettings: {},
     textContent: {

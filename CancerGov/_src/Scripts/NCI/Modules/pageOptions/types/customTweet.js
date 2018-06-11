@@ -25,7 +25,7 @@ const customTweet = {
             // Extract attributes added by content owner to build a custom tweet window event
             const customTitle = event.target.dataset.title || '';
             const url = event.target.dataset.url || '';
-            const link = `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURI(customTitle) }`;
+            const link = `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURIComponent(customTitle) }`;
             newWindow(link);
         }
 
