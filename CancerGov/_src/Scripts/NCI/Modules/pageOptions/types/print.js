@@ -14,8 +14,8 @@ const print = {
     initialize: language => settings => node => {
         const title = getContent(settings.textContent.title, language)();
         node.title = title;
-        node.addEventListener('click', e => {
-            e.preventDefault();
+        node.addEventListener('click', event => {
+            event.preventDefault();
             window.print();
         })
         return node;

@@ -60,6 +60,7 @@ export const onClickShareButton = ({
     link, 
     windowSettings 
 }) => event => {
+    event.preventDefault();
     const metaData = getMetaData(metaTags, document)
     const url = getURL(document, metaData);
     newWindow(link(url, metaData), windowSettings);

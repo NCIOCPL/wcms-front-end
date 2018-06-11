@@ -37,8 +37,8 @@ const resize = {
             let originalSize = parseFloat(window.getComputedStyle(document.body).getPropertyValue('font-size'), 10);
             let currentSize = 0;
             
-            return e => {
-                e.preventDefault();
+            return event => {
+                event.preventDefault();
                 currentSize = parseFloat(window.getComputedStyle(resizeableElements[0]).getPropertyValue('font-size'), 10);
                 let newSize = currentSize * multiplier;
                 newSize = newSize > 30 ? originalSize : newSize;

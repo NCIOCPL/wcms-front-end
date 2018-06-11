@@ -20,12 +20,12 @@ const customTweet = {
         settings.classList.forEach(className => node.classList.add(className));
         node.href = "#";
 
-        // Extract attributes added by content owner to build a custom tweet window event
-        const customTitle = node.dataset.title || '';
-        const url = node.dataset.url || '';
-        const link = `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURI(customTitle) }`;
-
         const customTweetClickHandler = event => {
+            event.preventDefault();
+            // Extract attributes added by content owner to build a custom tweet window event
+            const customTitle = event.target.dataset.title || '';
+            const url = event.target.dataset.url || '';
+            const link = `https://twitter.com/share?url=${ encodeURIComponent(url) }&text=${ encodeURI(customTitle) }`;
             newWindow(link);
         }
 
