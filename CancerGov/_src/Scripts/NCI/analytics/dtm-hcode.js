@@ -4,7 +4,7 @@ s = new AppMeasurement();
 if(s_account)
 	s.account = s_account;
 else 
-	s.account = s_account = "ncidev";
+	s.account = s_account = "ncidevelopment";
 
 /*
  Start ActivityMap Module
