@@ -1,41 +1,23 @@
-// Add logic to look for this variable first
-waData = document.getElementById('wa-data-element');
+// Get our custom s object from the analytics data element
+waData = waData || document.getElementById('wa-data-element');
+var MAX_CUSTOMVAR_LEN = 100;
 
+// Set s object pageload values and global variables based on the data element
 s.channel = waData.dataset.channel;
 s.events = waData.dataset.events;
-propsArr = waData.dataset.props.split(';');
-evarsArr = waData.dataset.evars.split(';');
+s.prop10 = document.title;
 
+// TODO: set other params
+// TODO: build our array out of available events, not a fixed length
 // Dynamically add eVars and values to the 's' object
-for(var i = 0; i < propsArr.length; i++) {
-	myProp = propsArr[i].split('=');
-	this.s[myProp[0]] = myProp[1].replace(/(^'+|'+$)/mg, '');
+for(var i = 1; i <= MAX_CUSTOMVAR_LEN; i++) {
+	if(waData.dataset['prop' + i]) {
+		s['prop' + i] = waData.dataset['prop' + i].replace(/(^'+|'+$)/mg, '');
+	}
 }
 
-
-
-
-/*
-<!-- ***** NCI Web Analytics - DO NOT ALTER ***** -->
-<div id="wa-data-element" data-suites="nciglobal,ncienterprise" data-channel="NCI Homepage" data-pagename="" data-pagetype="" data-events="event1" data-props="prop3='/';prop6='Comprehensive Cancer Information';prop8='english';prop10=document.title;prop25='01/01/1980';prop44='NCI Homepage';" data-evars="evar44='NCI Homepage';" style="display:none;" />
-*/
-
-
-
-/*
-
-var waData = document.getElementById('wa-data-element');
-
-propsArr = waData.dataset.props.split(';');
-evarsArr = waData.dataset.evars.split(';');
-// TODO: add logic to set events, props, evars
-
-
-// Dynamically add eVars and values to the 's' object
-for(var i = 0; i < propsArr.length; i++) {
-	myProp = propsArr[i].split('=');
-	console.log("debug");
-	console.log(myProp[1].replace(/(^'+|'+$)/mg, ''));
-
+for(var i = 1; i <= MAX_CUSTOMVAR_LEN; i++) {
+	if(waData.dataset['evar' + i]) {
+		s['eVar' + i] = waData.dataset['evar' + i].replace(/(^'+|'+$)/mg, '');
+	}
 }
-*/
