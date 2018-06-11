@@ -1,3 +1,13 @@
+/**
+  This is the code block used under the "CUstomize Page Code" header in Adobe DTM. 
+  To update:
+	1. Login to dtm.adobe.com and go to the machine
+	2. Click on the gear for the "Adobe Analytics" tool
+	3. Expand "Customize Page Code" 
+	4. Click "Open Editor" and paste this code into the body
+	5. Check the "After UI settings" radio button
+ */
+
 // *** Original DTM test snippet ***// 
 // Get our custom s object from the analytics data element
 waData = waData || document.getElementById('wa-data-element');

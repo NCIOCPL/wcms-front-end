@@ -1,3 +1,18 @@
+/**
+  This is the code block used under the "CUstomize Page Code" header in Adobe DTM. 
+  To update:
+	1. Login to dtm.adobe.com and go to the machine
+	2. Click on the gear for the "Adobe Analytics" tool
+	3. Expand "Library Management" 
+	4. Set the following fields:
+		- "Page code is already present": unchecked
+		- "Page Top" radio button selected
+		- "Custom" radio button selected
+		- "Set resport suites using custom code": checked
+		- "Code Hosted" dropdown: in DTM
+	5. Click "Open Editor" and paste this code into the body
+ */
+
 // Shim for DTM global 's' object
 // See https://www.digitaldatatactics.com/index.php/2016/01/15/how-to-get-a-global-s-object-in-dtm/
 s = new AppMeasurement();
