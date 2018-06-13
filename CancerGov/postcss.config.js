@@ -15,6 +15,8 @@ module.exports = {
         require('autoprefixer'),
         cachekiller(),
         // require('css-mqpacker')(), // Ideal in a world where cascades don't cascade onto cascade
+
+        // Note this has a bug (fixed when 4 releases) that recalculates zIndex by default. Try to deprecate until then.
         require('cssnano')({
             preset: [
                 'default', {

@@ -7,21 +7,41 @@
 
 /* reduce page shift before selectmenu ui is initialized */
 
-.dropDownCCDisplay select {
-  margin: 0;
-  padding: 3px 0;
-}
 
 .selectMenus {
   display: flex;
   
-  > div {
+  .dropDownCCDisplay {
+    width: 320px;
+    display: flex;
+    align-items: center;
     flex-grow: 1;
+
+    &:last-of-type {
+      justify-content: flex-end;
+    }
+
+    label {
+      white-space: nowrap;
+      margin-right: 15px;
+    }
   }
-  
-  label {
-    white-space: nowrap;
-    margin-right: 5px;
+
+  .menu-header__filler {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .1875em;
+    font-family: $montserrat-font-stack;
+    font-size: 16px;
+    color: #606060;
+    width: 60px;
+  }
+
+  // Something (jQuery-ui?) is inlining the width of this element inconsistently (170 on chrome vs 75px on ie11)
+  .ui-button.ui-selectmenu-button {
+    width: 170px !important;
   }
 }
 
@@ -54,13 +74,24 @@
   }
 }
 
+// Don't underline zoom controls on map (Override Cgov defaults)
+.general-page-body-container {
+  a.leaflet-control-zoom-in:hover, a.leaflet-control-zoom-out:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+
+
 /* z-index overrides for leaflet */
 
 .leaflet-map-pane canvas  { z-index: 1; }
 .leaflet-tile-pane,
 .leaflet-map-pane svg     { z-index: 2; }
 .leaflet-overlay-pane,
-.leaflet-pane             { z-index: 4; }
+.leaflet-pane             { z-index: 4 !important; } //For ie because of how CSSNano bug screws with zindex in 3.1
 .leaflet-shadow-pane      { z-index: 5; }
 .leaflet-marker-pane      { z-index: 6; }
 .leaflet-tooltip-pane     { z-index: 7; }
@@ -83,16 +114,37 @@
   display: block !important;
 }
 
+
+
 @media only screen and (max-width: 768px) {
   .selectMenus {
     flex-direction: column;
 
-    > div:first-child {
-      margin-bottom: 5px
+    .dropDownCCDisplay {
+      justify-content: space-between;
+      &:last-of-type {
+        justify-content: space-between;
+      }
     }
 
-    label {
-      min-width: 20%;
+    .menu-header__filler {
+      height: 40px;
+      justify-content: flex-start;
+    }
+
+  }
+}
+
+@include bp(xtra-small){
+  .selectMenus {
+    .dropDownCCDisplay {
+      width: 100%;
+      flex-direction: column;
+    }
+    .menu-header__filler {
+      height: 60px;
+      width: 100%;
+      justify-content: center;
     }
   }
 }

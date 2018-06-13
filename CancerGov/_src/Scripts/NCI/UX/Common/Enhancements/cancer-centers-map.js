@@ -69,8 +69,6 @@ define(function (require) {
       // create a new map object with default view of USA
       var map = L.map('map-container').setView([38.8, -95.14], 4);
 
-      // get user location
-      map.locate({setView: true, maxZoom: 8});
       this.map = map;
 
       // load tiles from api - Open Street Map
@@ -261,7 +259,6 @@ define(function (require) {
           }
           // move the map on a valid value selection
           if (ui.item.value) {
-            console.log(this.map);
             module.map.fitBounds(bounds[ui.item.value]);
           }
         });
