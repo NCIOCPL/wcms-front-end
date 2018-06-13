@@ -25,7 +25,7 @@ const email = {
             const href = getContent(settings.textContent.href, language)(url);
             const encodedHref = encodeURI(href);
             node.href = encodedHref;
-            node.click();
+            return true;
         })
         return node;
     },
