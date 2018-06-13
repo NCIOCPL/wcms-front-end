@@ -388,7 +388,6 @@ waData = waData || document.getElementById('wa-data-element');
 s.channel = waData.dataset.channel;
 s.events = waData.dataset.events;
 s.prop10 = document.title;
-s.prop98 = 'test value';
 
 // Dynamically props/eVars and values to the 's' object
 function setPropsAndEvars () {
