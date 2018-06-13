@@ -6,7 +6,7 @@
 	3. Expand "Library Management" 
 	4. Set the following fields:
 		- "Page code is already present": unchecked
-		- "Page Top" radio button selected
+		- "Page Bottom" radio button selected
 		- "Custom" radio button selected
 		- "Set resport suites using custom code": checked
 		- "Code Hosted" dropdown: in DTM
