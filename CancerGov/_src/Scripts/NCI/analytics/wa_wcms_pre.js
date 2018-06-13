@@ -129,3 +129,7 @@ var AnalyticsMapping =
         return filteredSuites;
     }
 };
+
+var waData = document.getElementById('wa-data-element');
+var waDataSuites = waData.dataset.suites;
+var s_account =  AnalyticsMapping.GetSuites(waDataSuites);
