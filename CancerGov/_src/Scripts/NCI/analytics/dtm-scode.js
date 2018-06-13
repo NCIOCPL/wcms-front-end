@@ -393,6 +393,28 @@ function getViewPort() {
     return screen;
 }
 
+// Get our custom s object from the analytics data element
+waData = waData || document.getElementById('wa-data-element');
+
+// Set s object pageload values and global variables based on the data element
+s.channel = waData.dataset.channel;
+s.events = waData.dataset.events;
+s.prop10 = document.title;
+s.prop98 = 'test value';
+
+// Dynamically props/eVars and values to the 's' object
+function setPropsAndEvars () {
+    for(dataAttr in waData.dataset) {
+        if(dataAttr.includes('prop') || dataAttr.includes('evar'))
+        {
+            var pevKey = dataAttr.replace('v', 'V'); 
+            var pevValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, '');
+            s[pevKey] = pevValue;
+        }
+    }
+}
+setPropsAndEvars();
+
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
