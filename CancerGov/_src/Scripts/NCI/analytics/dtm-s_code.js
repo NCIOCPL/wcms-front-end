@@ -1,19 +1,3 @@
-/**
-This is the code block used under the "CUstomize Page Code" header in Adobe DTM. 
-To update:
-  1. Login to dtm.adobe.com and go to the desired machine.
-  2. Click on the gear for the "Adobe Analytics" tool.
-  3. Expand "Library Management".
-  4. Set the following fields:
-    - "Page code is already present" = unchecked
-    - "Page Bottom" radio button selected
-    - "Custom" radio button selected
-    - "Set report suites using custom code = checked
-    - "Code Hosted" dropdown: in DTM
-    - "Tracker Variable Name" = 's'
-  5. Click "Open Editor", paste this code into the body, and save.
-*/
-
 /* SiteCatalyst code version: H.26.2
 Copyright 1996-2015 Adobe, Inc. All Rights Reserved
 More info available at http://www.omniture.com */
