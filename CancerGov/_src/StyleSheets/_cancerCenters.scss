@@ -45,6 +45,11 @@
   }
 }
 
+.button-group--maps .ui-button.ui-state-active {
+  color: white;
+  background: #2a72a5;
+}
+
 .leaflet-popup-content {
   table {
     border: none;
