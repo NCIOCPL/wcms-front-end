@@ -45,7 +45,8 @@ module.exports = {
 		DictionaryPage:         './UX/AppModuleSpecific/Dictionary/DictionaryPage',
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
-		Charts:                 './UX/Common/Enhancements/charts'
+		Charts:                 './UX/Common/Enhancements/charts',
+		R4R:					'./UX/PageSpecific/R4R/R4R',
 	},
 	target: 'web',
 	resolve: {
