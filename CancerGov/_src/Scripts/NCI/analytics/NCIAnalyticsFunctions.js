@@ -121,24 +121,25 @@ var NCIAnalytics = {
             }
 
             // add engagement score (event92) to all link tracking calls
-            try {
-              var engagementScore = '';
-			  var engagementObject = 'NCIEngagement';
+            if(s.isMainCancerGov) {            
+                try {
+                    var engagementScore = '';
+                    var engagementObject = 'NCIEngagement';
 
-              // depends on engagement plugin
-              engagementScore = window[engagementObject].getAndResetEngagementCookie() || 0;
+                    // depends on engagement plugin
+                    engagementScore = window[engagementObject].getAndResetEngagementCookie() || 0;
 
-              if (engagementScore && parseInt(engagementScore) > 0) {
-                // add the engagement event, but check to see if EventsWithIncrementors is an array before doing so
-                if (this.EventsWithIncrementors && this.EventsWithIncrementors.hasOwnProperty('push')) {
-                  this.EventsWithIncrementors.push('92=' + engagementScore); // add to existing events
-                } else {
-                  this.EventsWithIncrementors = ['92=' + engagementScore]; // it's the only event
+                    if (engagementScore && parseInt(engagementScore) > 0) {
+                        // add the engagement event, but check to see if EventsWithIncrementors is an array before doing so
+                        if (this.EventsWithIncrementors && this.EventsWithIncrementors.hasOwnProperty('push')) {
+                            this.EventsWithIncrementors.push('92=' + engagementScore); // add to existing events
+                        } else {
+                            this.EventsWithIncrementors = ['92=' + engagementScore]; // it's the only event
+                        }
+                    }
+                } catch (err) {
+                    /** console.log(err); */
                 }
-
-              }
-            } catch (err) {
-              /** console.log(err); */
             }
             
             // add link.href value (prop4) to all link tracking calls when not already present; existing values are given preference
