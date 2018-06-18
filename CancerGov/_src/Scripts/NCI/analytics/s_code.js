@@ -136,9 +136,7 @@ if (pageNum)
 if(addToLocalPageName.length > 0)
     localPageName += " - " + addToLocalPageName;
 s.pageName=s.eVar1=localPageName;
-s.isMainCancerGov = false;
-if(s.pageName.indexOf('www.cancer.gov' > 0))
-    s.isMainCancerGov = true;
+s.mainCGovIndex = s.pageName.indexOf('www.cancer.gov');
 
 var fullURL = document.URL;
 if(fullURL.length > 100)
@@ -276,7 +274,7 @@ function s_doPlugins(s) {
     s.events += ["event47=" +  loadTime];
         
     // engagementTracking >> requires EvoEngagementPlugin() 
-    if(s.isMainCancerGov) {
+    if(s.mainCGovIndex >= 0) {
         try {
             if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
 

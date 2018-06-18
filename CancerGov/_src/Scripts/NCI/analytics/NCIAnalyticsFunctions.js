@@ -121,7 +121,7 @@ var NCIAnalytics = {
             }
 
             // add engagement score (event92) to all link tracking calls
-            if(s.isMainCancerGov) {            
+            if(s.mainCGovIndex >= 0) {
                 try {
                     var engagementScore = '';
                     var engagementObject = 'NCIEngagement';
