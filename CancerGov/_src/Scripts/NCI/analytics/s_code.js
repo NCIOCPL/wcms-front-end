@@ -136,6 +136,7 @@ if (pageNum)
 if(addToLocalPageName.length > 0)
     localPageName += " - " + addToLocalPageName;
 s.pageName=s.eVar1=localPageName;
+s.mainCGovIndex = s.pageName.indexOf('www.cancer.gov');
 
 var fullURL = document.URL;
 if(fullURL.length > 100)
@@ -271,25 +272,28 @@ function s_doPlugins(s) {
     if(s.events == null)
         s.events = '';
     s.events += ["event47=" +  loadTime];
+        
+    // engagementTracking >> requires EvoEngagementPlugin() 
+    if(s.mainCGovIndex >= 0) {
+        try {
+            if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
 
-    // engagementTracking >> requires NCIEngagement plugin in NCIAnalyticsFunctions.js
-    try {
-      if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
+                // check the cookie
+                var engagementScore = window.NCIEngagement.getAndResetEngagementCookie();
 
-        // check the cookie
-        var engagementScore = NCIEngagement.getAndResetEngagementCookie();
+                // add engagement metrics to the page load call, if needed
+                if (engagementScore && parseInt(engagementScore) > 0) {
+                s.events += (s.events) ? [",event92=" + engagementScore] : ["event92=" + engagementScore];
+                }
 
-        // add engagement metrics to the page load call, if needed
-        if (engagementScore && parseInt(engagementScore) > 0) {
-          s.events += (s.events) ? [",event92=" + engagementScore] : ["event92=" + engagementScore];
+                // flag to prevent firing this logic more than once per page load
+                window.NCIEngagementPageLoadComplete = true;
+            }
+        } catch (err) {
+            /** console.log(err) */
         }
-
-        // flag to prevent firing this logic more than once per page load
-        window.NCIEngagementPageLoadComplete = true;
-      }
-    } catch (err) {
-      /** ignore */
     }
+
 }
 s.doPlugins=s_doPlugins 
 
