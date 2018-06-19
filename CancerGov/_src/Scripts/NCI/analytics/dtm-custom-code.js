@@ -1,13 +1,3 @@
-/**
-This is the code block used under the "CUstomize Page Code" header in Adobe DTM. 
-To update:
-  1. Login to dtm.adobe.com and go to the desired machine.
-  2. Click on the gear for the "Adobe Analytics" tool.
-  3. Expand "Customize Page Code".
-  4. Select the "After UI Settings..." radio button.
-  5. Click "Open Editor", paste this code into the body, and save.
-*/
-
 /* Custom NCI Web Analytics values & plugins - for information or support email: NCIOCEWebAnalytics@mail.nih.gov */
 
 /************************** CONFIG SECTION **************************/

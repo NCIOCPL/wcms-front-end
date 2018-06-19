@@ -24,7 +24,9 @@
 
 	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
 
+    <%-- DTM tag and custom analytics data element. These MUST be present in all templates or Analytics and the site will break. --%>
     <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
+    <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 
     <!--(bake Favicons.inc)-->
 </head>
