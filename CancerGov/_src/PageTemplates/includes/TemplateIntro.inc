@@ -27,7 +27,7 @@
     <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
 
     <!--(bake Favicons.inc)-->
-    <%-- Custom analytics data element. This MUST be present in all templates or Analytics and the site will break. --%>
+    <%-- TO INSERT WEB ANALYTICS CODE. Every template should have this control else Web analytics scripts will not show up in the HTML. --%>
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 </head>
 
