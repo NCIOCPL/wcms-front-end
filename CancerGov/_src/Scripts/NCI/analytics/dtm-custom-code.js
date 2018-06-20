@@ -142,12 +142,13 @@ else
 // Set prop8 and eVar3 to "english" unless "espanol" is in the url 
 // or "lang=spanish" or "language=spanish" query parameters exist
 var language = "english";
-if(localPageName.indexOf("espanol") >= 0) 
-    language = "spanish";
-if(caseInsensitiveGetQueryParm('lang')=='spanish')
-    language = "spanish";
-if(caseInsensitiveGetQueryParm('language')=='spanish')
-    language = "spanish";
+var metaLang = getMetaTagContent('[name="content-language"]'); 
+if (localPageName.indexOf("espanol") >= 0 ||
+    caseInsensitiveGetQueryParm('lang') == 'spanish' ||
+    caseInsensitiveGetQueryParm('language') == 'spanish' ||
+    metaLang == 'es') {
+        language = "spanish";
+    }
 s.prop8=s.eVar2=language;
 
 // Set prop26 to Time Stamp format: <year>|<month>|<day>|<hour>
@@ -371,13 +372,30 @@ function getViewPort() {
     return screen;
 }
 
+// Set prop6 to short title
+s.prop6 = getMetaTagContent('[property="og:title"]');
+
+// Set prop10 to document title
+s.prop10 = document.title;
+
+// Set prop25 to date published
+s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
+
 // Get our custom s object from the analytics data element
 waData = waData || document.getElementById('wa-data-element');
 
 // Set s object pageload values and global variables based on the data element
 s.channel = waData.dataset.channel;
 s.events = waData.dataset.events;
-s.prop10 = document.title;
+
+// Check for meta attribute and get content if exists
+function getMetaTagContent (selector) {
+    if(document.head.querySelector(selector) != null) {
+        return document.head.querySelector(selector).content;
+    } else {
+        return "";
+    }
+}
 
 // Dynamically props/eVars and values to the 's' object
 function setPropsAndEvars () {
