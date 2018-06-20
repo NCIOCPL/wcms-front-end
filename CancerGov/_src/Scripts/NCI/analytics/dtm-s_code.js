@@ -3,10 +3,7 @@ Copyright 1996-2015 Adobe, Inc. All Rights Reserved
 More info available at http://www.omniture.com */
 /* NCI Web Analytics Program - for information or support email: NCIOCEWebAnalytics@mail.nih.gov */
 
-// s_account (report suites) is defined and set before this file is loaded
-var waData = document.getElementById('wa-data-element');
-var waDataSuites = waData.dataset.suites;
-var s_account =  AnalyticsMapping.GetSuites(waDataSuites);
+// s_account (report suites) should be defined and set before this file is loaded
 var s = s_gi(s_account);
 
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
