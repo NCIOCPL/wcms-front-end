@@ -29,7 +29,7 @@
     "js-cookie": "^2.1.3",
     "modernizr": "^3.5.0",
     "morgan": "^1.8.0",
-    "r4r-app": "git+https://github.com/BrendanBeltzNIH/r4r-app.git",
+    "r4r-app": "git+https://github.com/NCIOCPL/r4r-app.git",
     "scriptjs": "^2.5.8",
     "scrollmonitor": "^1.2.4",
     "slick-carousel": "^1.8.1",
