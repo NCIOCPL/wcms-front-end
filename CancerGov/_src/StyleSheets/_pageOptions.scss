@@ -26,26 +26,41 @@
 		}
 	}
 
-	.po-print a::before {
+	.page-options--print a::before {
 		@include svg-sprite(printer-blue);
 	}
-	.po-email a::before {
+	.page-options--email a::before {
 		@include svg-sprite(mail-envelope-closed-blue);
 	}
-	.po-facebook a::before {
+	.social-share--facebook a::before {
 		@include svg-sprite(facebook-blue);
 	}
-	.po-twitter a::before {
+	.social-share--twitter a::before {
 		@include svg-sprite(twitter-blue);
 	}
-	.po-googleplus a::before {
+	.social-share--googleplus a::before {
 		@include svg-sprite(google-plus-blue);
 	}
-	.po-pinterest a::before {
+	.social-share--pinterest a::before {
 		@include svg-sprite(pinterest-blue);
 	}
+
 }
 
+// Custom tweet button (not in the page options container - anywhere on the page)
+a.social-share--custom-tweet {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 32px;
+	width: 32px;
+	background: #2ba8d2;
+	
+	&::after {
+		content: '';
+		@include svg-sprite(twitter-white);
+	}
+}
 
 #blogPageOptionsInnerContainer {
 	margin: 1em 0;
@@ -88,7 +103,7 @@
 			margin: 0 0 0 0.675em;
 		}
 
-		.po-font-resize a::before {
+		.page-options--resize a::before {
 			@include svg-sprite(font-size-blue);
 		}
 	}
@@ -145,29 +160,28 @@
 		.po-view-entire-document {
 			display: none;
 		}
-		.po-font-resize {
+		.page-options--resize {
 			display: none;
 		}
-		.po-print {
+		.page-options--print {
 			display: none;
 		}
-		.po-email a::before {
+		.page-options--email a::before {
 			@include svg-sprite(mail-envelope-closed-white);
-			//font-size: .95em;
 		}
-		.po-facebook a::before {
+		.social-share--facebook a::before {
 			@include svg-sprite(facebook-white);
 			font-size: 22px;
 		}
-		.po-twitter a::before {
+		.social-share--twitter a::before {
 			@include svg-sprite(twitter-white);
 			font-size: 17px;
 		}
-		.po-googleplus a::before {
+		.social-share--googleplus a::before {
 			@include svg-sprite(google-plus-white);
 			top: 50%;
 		}
-		.po-pinterest a::before {
+		.social-share--pinterest a::before {
 			@include svg-sprite(pinterest-white);
 			font-size: 120%;
 		}

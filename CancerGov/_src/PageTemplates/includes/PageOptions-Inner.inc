@@ -4,4 +4,4 @@
     life easier if the CSS Classes for the page options needs to change for inner pages.
 -->
 <!--(bake-end)-->
-<!--(bake PageOptions.inc  resize="true" css-class="page-options no-resize")-->
+<!--(bake PageOptions.inc  resize="true" print="true" email="true" facebook="true" twitter="true" googleplus="true" pinterest="true")-->
