@@ -24,7 +24,9 @@
                             
 							<div class="resize-content">
 
-                            <NCI:TemplateSlot ID="cgvBody" runat="server" />
+                                <NCI:TemplateSlot ID="cgvBody" runat="server" />
+
+                                <!--(bake includes/PageOptions-JSAppModule.inc)-->
 							</div>
                             <!--(bake includes/ArticleFooter.inc citations="true" related_resources="true" pagination="true" comments="true")-->
                         </article>
