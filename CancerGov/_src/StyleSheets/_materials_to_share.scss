@@ -21,6 +21,14 @@
     margin:  0 auto;
 }
 
+// This is to accomodate the removal of addthis twitter links in favor of a vanilla implementation.
+// Some or most of the rules below are probably deprecated. Dear future you, please do the painful work of figuring out what!
+.materials-to-share .social-share--custom-tweet {
+    margin-right: 5px;
+    float: left;
+    padding: 0 2px;
+}
+
 .materials-to-share .addthis_32x32_style .at300bs {
     line-height: 32px !important;
 	width: 32px !important;

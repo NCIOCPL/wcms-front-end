@@ -1,4 +1,5 @@
 define(function(require) {
+    require('./polyfills/custom_event');
 	require('es6-promise/auto');
     require('core-js/fn/array/from');
     require('core-js/fn/array/includes');
