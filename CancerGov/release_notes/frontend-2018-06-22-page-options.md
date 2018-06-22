@@ -25,6 +25,6 @@ to:
 <a class="social-share--custom-tweet" href="#" data-tl-code="ARN2016-1-TW" data-title="#ScreentoSave aims to increase #colorectalcancer screening rates in racially/ethnically diverse &amp; rural communities" data-url="http://go.usa.gov/x9yfF">  </a>
 
 (remove span and all classes and add social-share--custom-tweet)
-(There are two instances of the custom social share that need to be changed in the same fashion)
+(There are two more instances of the custom social share that need to be changed in the same fashion)
 
 All pages with addthis_share override blocks and pulling in addthis need to be edited to remove addthis and rename global addthis config object to pageOptionsContentOverride
