@@ -11,8 +11,11 @@ define(function(require) {
 	var flexVideo = require('Modules/videoPlayer/flexVideo');
 	var formControls = require('Modules/forms/formControls');
 	var tooltips = require('Modules/tooltips/referenceTooltip');
+
+	// Unfortunately AMD doesn't play nice with export default;
 	var proactiveLiveHelp = require('Modules/liveHelpPopup').default;
 	var sortablejs = require('Modules/sortableTables').default;
+	var pageOptions = require('Modules/pageOptions').default;
 
 
 	//require('Modules/autocomplete/autocomplete');
@@ -60,13 +63,10 @@ define(function(require) {
 		})();
 		/*** END Exit Disclaimer ***/
 
-		/*** BEGIN Page Options
-		 * This functions the font resizer.
-		 ***/
-		 // MOVED TO NCI.PageOptions.FontResizer.js
-     // moved to Modules > fontResizer > fontResizer.js
+		/*** BEGIN Page Options */
+
 		(function() {
-			NCI.PageOptions.init();
+			pageOptions();
 		})();
 		/*** END Page Options **/
 
