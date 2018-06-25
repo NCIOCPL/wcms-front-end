@@ -1,6 +1,6 @@
 import r4r from 'r4r-app';
 import 'r4r-app/build/static/css/main.css';
-import initializeCancerGov from './custom_configs/cancerGov'
+import initializeCancerGov from './config'
 
 const onDOMContentLoaded = () => {
     initializeCancerGov(r4r);

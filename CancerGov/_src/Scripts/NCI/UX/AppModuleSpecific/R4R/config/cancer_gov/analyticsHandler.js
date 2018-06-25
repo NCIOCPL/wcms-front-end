@@ -133,6 +133,14 @@ const loadErrorPage = event => ({
     Events: [41]
 })
 
+const load404Page = event => ({
+    Props: {
+        39: "r4r_error|view",
+        40: "Error Page: ERROR_PAGE404",
+    },
+    Events: [41]
+})
+
 const clickEvent = event => {
     switch(event.meta.clickType){
         case 'r4r_home_viewall':
@@ -206,7 +214,6 @@ const clickEvent = event => {
                 Events: [2, 39],               
             }
         // TODO: Possibly need to delay page transition explicitly here by passing true as the sender
-        // TODO: TODO: Create pattern for explicating sender value
         case 'r4r_resource|resource_click':
             return {
                 Props: {
@@ -215,6 +222,16 @@ const clickEvent = event => {
                 },
                 Events: [67],
                 config_delay: true,
+            }
+        case 'r4r_results_viewall':
+            return {
+                Props: {
+                    11: event.meta.clickType,
+                    14: 'View All Resources',
+                    39: 'r4r_results|viewall',
+                    40: 'Results View',
+                },
+                Events: [2, 39],
             }
         default:
             return {};
@@ -237,6 +254,10 @@ const analyticsEvents = {
         processor: loadResourcePage,
         linkName: "R4R Data Load"
     },
+    'PAGE NOT FOUND': {
+        processor: load404Page,
+        linkName: "R4R Error",
+    },
     'REGISTER ERROR': {
         processor: loadErrorPage,
         linkName: "R4R Error"
@@ -252,7 +273,6 @@ const analyticsEventsMap = new Map(Object.entries(analyticsEvents));
 // Here is where we do the heavy lifting of processing events and passing them to
 // the analytics library
 export const createCancerGovAnalyticsHandler = analytics => events => {
-    // TODO: FINISH THE REST OF THE FUCKING OWL
     events.map(event => {
         if(analyticsEventsMap.has(event.type)){
             try{
@@ -273,15 +293,9 @@ export const createCancerGovAnalyticsHandler = analytics => events => {
             catch(err){
                 console.log(err)
             }
-
-            // One way of doing it if an analytics handler gets directly passed
-            // analytics(report); // This could be an event broadcaster or the analytics library itself
         }
         return event;
     })
-    // analytics(event); // this won't work as is since window.s is not actually a function on the site
-
-
 }
 
 // Once the analytics library is available, we want to first curry the analytics event listener (which does the heavy lifting
@@ -299,26 +313,22 @@ export const subscribeToAnalyticsEvents = (analytics, eventHandler) => {
 // We want to make sure the analytics library is available before we subscribe it
 // to the event handler proxy.
 export const awaitAnalyticsLibraryAvailability = (eventHandler) => {
-    const listener = () => {
-        subscribeToAnalyticsEvents(window.s, eventHandler);
+    if(process.env.NODE_ENV !== 'development'){
+        if(window.NCIAnalytics){
+            subscribeToAnalyticsEvents({}, eventHandler);
+        }
+        else{
+            const interval = setInterval(() => {
+                if(window.NCIAnalytics){
+                    subscribeToAnalyticsEvents({}, eventHandler);
+                    clearInterval(interval);
+                }
+            }, 250)
+        }
     }
-
-    // if(process.env.NODE_ENV !== 'development'){
-    //     window.addEventListener('analytics_ready', listener);
-
-    //     if(window.s){
-    //         window.removeEventListener('analytics_ready', listener);
-    //         subscribeToAnalyticsEvents(window.s, eventHandler);
-    //     }
-    // }
-    // else {
-    //     subscribeToAnalyticsEvents((report) => { console.log('Analytics', report)}, eventHandler);
-    // }
-
-    setTimeout(()=> {
-        subscribeToAnalyticsEvents({}, eventHandler)
-    }, 1000)
-    
-    //This is only for dev
-    // subscribeToAnalyticsEvents((report) => { console.log('Analytics', report)}, eventHandler);
+    else {
+        setTimeout(()=> {
+            subscribeToAnalyticsEvents({}, eventHandler)
+        }, 1000)
+    }
 }
