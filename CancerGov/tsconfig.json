@@ -30,8 +30,5 @@
     //Where might we find TS and JS files?
     "include": [
         "./_src/Scripts/NCI/**/*"
-    ],
-    "exclude": [
-        "node_modules"
     ]
 }
