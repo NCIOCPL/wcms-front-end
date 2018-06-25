@@ -213,7 +213,7 @@ const clickEvent = event => {
                 },
                 Events: [2, 39],               
             }
-        // TODO: Possibly need to delay page transition explicitly here by passing true as the sender
+        // Passing true here should delay page transition. Should. In theory. 
         case 'r4r_resource|resource_click':
             return {
                 Props: {
@@ -240,7 +240,7 @@ const clickEvent = event => {
 
 
 const analyticsEvents = {
-    // The app initialization is not being used at the moment.
+    // The app initialization event is not being used by CGOV at the moment.
     // '@@event/APP_INITIALIZATION': () => ({}),
     'LOAD NEW SEARCH RESULTS': {
         processor: loadSearchPage,
