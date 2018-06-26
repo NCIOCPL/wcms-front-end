@@ -6,26 +6,6 @@ More info available at http://www.omniture.com */
 // s_account (report suites) should be defined and set before this file is loaded
 var s = s_gi(s_account);
 
-/*
-* Plugin: custom engagement tracking 
-*/
-s.EvoEngagementPlugin=new Function("",""
-+"var engagementObject='NCIEngagement';window[engagementObject]={loggingEnabled:!1,pollingInterval:1e4,scorePerInterval:10,hasScrolled:!1,hasMoused:!1,hasClicked:!1,defaultEngagementScore:0,engagemen"
-+"tScore:0,minimumEngagementScore:1,cookieName:'engagementTracking',logger:function(e,n){var n=n||'log';this.loggingEnabled&&console[n](engagementObject.toUpperCase()+' LOGGER:',e)},initialize:functi"
-+"on(e){window[engagementObject].logger('initialize');var n=e;window[engagementObject].startTime=(new Date).getTime(),this.isFocused=document.hasFocus()},doScroll:function(){this.isFocused=document.h"
-+"asFocus(),this.isFocused&&(window[engagementObject].logger('doScroll'),this.hasScrolled=!0)},doMouse:function(){this.isFocused=document.hasFocus(),window[engagementObject].logger('doMouse'),this.is"
-+"Focused&&(this.hasMoused=!0)},doClick:function(){this.isFocused=document.hasFocus(),window[engagementObject].logger('doClick'),this.isFocused&&(this.hasClicked=!0)},getEngagementScore:function(e){v"
-+"ar n=e.action,t=e.status,o=e.score,g=t?o+10:o;return this[n]=!1,g},getEngagementStatus:function(e){return this.engagementScore=this.getEngagementScore({action:'hasScrolled',status:this.hasScrolled,"
-+"score:this.engagementScore}),this.engagementScore=this.getEngagementScore({action:'hasMoused',status:this.hasMoused,score:this.engagementScore}),this.engagementScore=this.getEngagementScore({action"
-+":'hasClicked',status:this.hasClicked,score:this.engagementScore}),this.status={engagementScore:this.engagementScore},this.status},getAndResetEngagementCookie:function(){var e=this.cookieName,n=NCIA"
-+"nalytics.cookieRead(e)||'';return NCIAnalytics.cookieWrite(e,'0'),n}},window[engagementObject].initialize(window[engagementObject]);var engagement_timer=setInterval(function(){window[engagementObje"
-+"ct].getEngagementStatus();var e=window[engagementObject].engagementScore>=window[engagementObject].minimumEngagementScore,n=NCIAnalytics.cookieRead(window[engagementObject].cookieName)||0,t=e?'enga"
-+"ged':'not engaged';if('engaged'===t){var o=parseInt(n)+window[engagementObject].scorePerInterval;NCIAnalytics.cookieWrite(window[engagementObject].cookieName,o),window[engagementObject].logger('eng"
-+"agement-score_'+o),window[engagementObject].engagementScore=window[engagementObject].defaultEngagementScore}else window[engagementObject].logger('engagement-score: '+t.toUpperCase())},window[engage"
-+"mentObject].pollingInterval);attachEvents({element:window,event:'scroll',action:function(){window[engagementObject].doScroll()}}),attachEvents({element:window,event:'mouseover',action:function(){wi"
-+"ndow[engagementObject].doMouse()}}),attachEvents({element:window,event:'click',action:function(){window[engagementObject].doClick()}});");
-s.EvoEngagementPlugin();
-
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
 var s_code = '', s_objectID; function s_gi(un, pg, ss) {
     var c = "s.version='H.26.2';s.an=s_an;s.logDebug=function(m){var s=this,tcf=new Function('var e;try{console.log(\"'+s.rep(s.rep(s.rep(m,\"\\\\\",\"\\\\"
