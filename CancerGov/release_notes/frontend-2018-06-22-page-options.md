@@ -9,7 +9,7 @@ In addition, the system for including page options has been updated to allow mor
 The only notable difference on the site for this release will be in using an email system through cgov vs a mailto link in the vanilla implementation.
 
 ## Deployment
-Upload all templates, js, and css. Republish CDE config.
+Upload all templates, js, css, new cdeConfig, and sprite sheet. Republish CDE config.
 NCIAnalytics changed, upload to static (handled pre-release)
 
 ## Content Changes
