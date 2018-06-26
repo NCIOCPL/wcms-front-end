@@ -25,7 +25,7 @@ however the history is hidden.
 7. Update the nci-analytics-functions rule:
    1. Click the Edit link.
    2. Expand **Conditions**.
-      - Set **Trigger rule** dropdown to "Bottom of Page".
+      - Set **Trigger rule** dropdown to "Top of Page".
    3. Expand **Javascript / Third Party Tags**.
    4. Under the **Non-Sequential** tab, click **NCIAnalyticsFunctions.js**.
    5. Set the following fields:
@@ -38,7 +38,7 @@ however the history is hidden.
    1. Click the Edit link.
    2. Expand **Conditions**.
       - Set **Trigger rule** dropdown to "Top of Page".
-   3. Expand **Javascript / Third Party Tags.
+   3. Expand **Javascript / Third Party Tags**.
    4. Under the **Non-Sequential** tab, click **wa_wcms_pre.js**.
    5. Set the following fields:
       - **Tag name:** wa_wcms_pre.js

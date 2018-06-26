@@ -19,7 +19,7 @@
 <script src="/scripts/508player.js" type="text/javascript"></script>
 -->
 <!-- CancerGov placeholder - replace when TCGA-specific tag is set up -->
-<script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
+<NCI:AdobeDTMControl ID="DTMTop" runat="server" />
 <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 <script src="/JS/popEvents.js" type="text/javascript"></script>
 <script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NCI" async></script>
@@ -81,6 +81,6 @@ $("#news-slider").tabs("rotate", 15000, true);
 );
 });
 </script>
-<script type="text/javascript">_satellite.pageBottom();</script>
+<NCI:AdobeDTMControl ID="DTMBottom" runat="server" />
 </body>
 </html>

@@ -21,14 +21,10 @@
 	<link rel="preconnect" crossorigin href="https://ajax.googleapis.com"/>
 	<link rel="preconnect" crossorigin href="https://fonts.gstatic.com"/>
 	<link rel="preconnect" href="https://static.cancer.gov"/>
-
 	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
-
-    <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
-
-    <!--(bake Favicons.inc)-->
-    <%-- TO INSERT WEB ANALYTICS CODE. Every template should have this control else Web analytics scripts will not show up in the HTML. --%>
+    <NCI:AdobeDTMControl ID="DTMTop" runat="server" />
     <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
+    <!--(bake Favicons.inc)-->
 </head>
 
 <body id="Body1" runat="server">
