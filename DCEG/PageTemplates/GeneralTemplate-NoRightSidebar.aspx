@@ -5,8 +5,9 @@
 <html runat="server">
 <head runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <NCI:AdobeDTMControl ID="DTMTop" runat="server" />
+	<NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 	<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NCI" async></script>
-	<script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-e2d4238892e44723cb52bc27724200218ab96baf.js"></script>
 </head>
 <body class="genGeneral">
 	<div class="genSiteSkipToContent"><a title="Skip to content" href="#skiptocontent">Skip to Content</a></div>
@@ -55,9 +56,6 @@
 		<NCI:TemplateSlot ID="genSlotSiteFooter" runat="server"  />
 		<!-- END Site Footer Slot (#genSlotSiteFooter) -->
 	</div><!-- END Site Container (#genSiteContainer) -->
-    <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this
-    control else Web analytics scripts will not show up in the HTML-->
-	<NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
-	<script type="text/javascript">_satellite.pageBottom();</script>
+	<NCI:AdobeDTMControl ID="DTMBottom" runat="server" />
 </body>
 </html>
