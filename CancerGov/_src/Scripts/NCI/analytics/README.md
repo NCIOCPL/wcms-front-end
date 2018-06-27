@@ -6,7 +6,7 @@ however the history is hidden.
 ## Steps for DTM deployment
 1. Login to dtm.adobe.com and go to the desired machine.
 2. Click on the gear for the **Adobe Analytics** tool.
-3. Update s_code:
+3. Update AppMeasurement core:
    1. Expand **Library Management**.
    2. Set the following fields:
       - **Page code:** unchecked
@@ -15,11 +15,12 @@ however the history is hidden.
       - **Set report suites using custom code:** checked
       - **Code Hosted** dropdown: in DTM
       - **Tracker Variable Name:** 's'
-   3. Click **Open Editor**, paste the contents of **_s_code.js_** into the body, and save.
-4. Update custom code:
+   3. Click **Open Editor**, paste the contents of **_AppMeasurement.js_** into the body, and save.
+      - _Note: this still contains the shim for creating a global 's' variable_
+4. Update AppMeasurement customized code:
    1. Expand **Customize Page Code**.
    2. Select the **After UI Settings...** radio button.
-   3. Click **Open Editor**, paste the contents of **_dtm-custom-code.js_** into the body, and save.
+   3. Click **Open Editor**, paste the contents of **_AppMeasurement.custom.js_** into the body, and save.
 5. Click on the machine name, then select the **Rules** tab.
 6. Select **Page Load Rules** in the left nav.
 7. Update the nci-analytics-functions rule:
