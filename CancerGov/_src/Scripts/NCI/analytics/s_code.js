@@ -1,11 +1,10 @@
-/* SiteCatalyst code version: H.26.2
-Copyright 1996-2015 Adobe, Inc. All Rights Reserved
-More info available at http://www.omniture.com */
 /* NCI Web Analytics Program - for information or support email: NCIOCEWebAnalytics@mail.nih.gov */
-
 // s_account (report suites) should be defined and set before this file is loaded
 var s = s_gi(s_account);
 
+/* SiteCatalyst code version: H.26.2
+Copyright 1996-2015 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com */
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
 var s_code = '', s_objectID; function s_gi(un, pg, ss) {
     var c = "s.version='H.26.2';s.an=s_an;s.logDebug=function(m){var s=this,tcf=new Function('var e;try{console.log(\"'+s.rep(s.rep(s.rep(m,\"\\\\\",\"\\\\"
