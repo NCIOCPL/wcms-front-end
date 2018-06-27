@@ -44,6 +44,13 @@ define(function(require) {
 
         $(function() {
 
+            // PAGE OPTIONS MODULE
+            window.addEventListener('NCI.page_option.clicked', event => {
+                const { target } = event;
+                const { type, args } = event.detail;
+                NCIAnalytics[type](target, ...args);
+            })
+
             // If the screen is resized past a different breakpoint, track the variable and event
             function trackViewPortResize() {
                 var viewPortResized = getWidthForAnalytics();
@@ -309,43 +316,6 @@ define(function(require) {
                         NCIAnalytics.AccordionClick($this, accordionId, sectionId, displayedName, action);
                     }
                 });
-            });
-
-            $('.add_this_btn').each(function () {
-                var $this = $(this);
-                $this.on('click.analytics', $this, function (e) {
-                    NCIAnalytics.BookmarkShareClick(this);
-                });
-            });
-
-            $('.po-font-resize a').on('click.analytics', function (e) {
-                var $this = $(this);
-                //reset the mouseleave event on each click so it only reports once
-                $this.off('mouseleave.analytics');
-
-                //report the final font size on mouse leave of the icon
-                $this.on('mouseleave.analytics', function () {
-                    //report font size after clicking is completed
-                    var target = $(".resize-content:first")[0] ? $(".resize-content:first") : $("#cgvBody"),
-                        fontSize = parseInt(target.css("font-size")),
-                        fontStyle
-                        ;
-
-                    if (fontSize < 19) {
-                        fontStyle = 'Normal';
-                    } else if (fontSize < 23) {
-                        fontStyle = 'Medium';
-                    } else if (fontSize < 27) {
-                        fontStyle = 'Large';
-                    } else {
-                        fontStyle = 'Extra Large';
-                    }
-                    NCIAnalytics.fontResizer(this, fontStyle);
-
-                    //unbind the mouseleave event to prevent reporting on casual mouseovers
-                    $this.off('mouseleave.analytics');
-                });
-
             });
 
             // Analytics Pilot - track all links under the following pages : headings:
