@@ -489,12 +489,13 @@ s.getPPVCalc=new Function("",""
 +"ath.round(vph/dh*100);s.c_w('s_ppv',pv+'|'+ps);}}else{s.c_w('s_ppv'"
 +",'');}");
 s.getPPVSetup=new Function("",""
-+"var s=this;if(s.wd.addEventListener){s.wd.addEventListener('load',s"
-+".getPPVCalc,false);s.wd.addEventListener('scroll',s.getPPVCalc,fals"
-+"e);s.wd.addEventListener('resize',s.getPPVCalc,false);}else if(s.wd"
-+".attachEvent){s.wd.attachEvent('onload',s.getPPVCalc);s.wd.attachEv"
-+"ent('onscroll',s.getPPVCalc);s.wd.attachEvent('onresize',s.getPPVCa"
-+"lc);}");
++"var s=this;if(typeof(s.wd)=='undefined')s.wd=window;if(s.wd.addEven"
++"tListener){s.wd.addEventListener('load',s.getPPVCalc,false);s.wd.ad"
++"dEventListener('scroll',s.getPPVCalc,false);s.wd.addEventListener('"
++"resize',s.getPPVCalc,false);}else if(s.wd.attachEvent){s.wd.attachE"
++"vent('onload',s.getPPVCalc);s.wd.attachEvent('onscroll',s.getPPVCal"
++"c);s.wd.attachEvent('onresize',s.getPPVCalc);}");
+s.getPPVSetup();
 
 /******************************
  * Plugin: socialPlatforms v1.0
