@@ -165,7 +165,7 @@ function s_doPlugins(s) {
     /* Set prop15 to either 'protoclsearchid' or 'PrintID' (depends on the page being loaded) */
 	if(s.prop15 == null && s.eVar15 == null) 
     {
-        s.prop15=s.eVar15= s.getQueryParam('protocolsearchid') ? s.getQueryParam('protocolsearchid') : s.getQueryParam('PrintID');
+        s.prop15=s.eVar15= s.Util.getQueryParam('protocolsearchid') ? s.Util.getQueryParam('protocolsearchid') : s.Util.getQueryParam('PrintID');
     }
 
     /* Set the campagin value if there are any matching queries in the URL*/
@@ -173,12 +173,12 @@ function s_doPlugins(s) {
     var hasUtm = false;
     var utmArr = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
     var utmJoin  = [];
-    sCampaign = s.getQueryParam('cid');
+    sCampaign = s.Util.getQueryParam('cid');
     if (!sCampaign) {
-        sCampaign = s.getQueryParam('gclid');
+        sCampaign = s.Util.getQueryParam('gclid');
         if (!sCampaign) {
             for (i = 0; i < utmArr.length; i++) {
-                val = s.getQueryParam(utmArr[i]); 
+                val = s.Util.getQueryParam(utmArr[i]); 
                 if(val) {
                     hasUtm = true;
                 }
@@ -431,22 +431,7 @@ setPropsAndEvars();
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
-/*
- * Plugin: getQueryParam 2.3
- */
-s.getQueryParam=new Function("p","d","u",""
-+"var s=this,v='',i,t;d=d?d:'';u=u?u:(s.pageURL?s.pageURL:s.wd.locati"
-+"on);if(u=='f')u=s.gtfs().location;while(p){i=p.indexOf(',');i=i<0?p"
-+".length:i;t=s.p_gpv(p.substring(0,i),u+'');if(t){t=t.indexOf('#')>-"
-+"1?t.substring(0,t.indexOf('#')):t;}if(t)v+=v?d+t:t;p=p.substring(i="
-+"=p.length?i:i+1)}return v");
-s.p_gpv=new Function("k","u",""
-+"var s=this,v='',i=u.indexOf('?'),q;if(k&&i>-1){q=u.substring(i+1);v"
-+"=s.pt(q,'&','p_gvf',k)}return v");
-s.p_gvf=new Function("t","k",""
-+"if(t){var s=this,i=t.indexOf('='),p=i<0?t:t.substring(0,i),v=i<0?'T"
-+"rue':t.substring(i+1);if(p.toLowerCase()==k.toLowerCase())return s."
-+"epa(v)}return ''");
+/********************************************************************/
 /*
  * Plugin: getValOnce_v1.0
  */
