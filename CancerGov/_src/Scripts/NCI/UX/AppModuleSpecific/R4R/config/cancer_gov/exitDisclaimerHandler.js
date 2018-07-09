@@ -8,7 +8,8 @@
 export const exitDisclaimerInjector = () => {
     // Cleanup all old disclaimers (simple approach)
     const extantDisclaimers = document.querySelectorAll('.r4r-container .icon-exit-notification');
-    extantDisclaimers.forEach(node => {
+    // NOTE: IE11 does not support forEach on nodelists
+    Array.from(extantDisclaimers).forEach(node => {
         node.parentNode.removeChild(node);
     });
 
@@ -38,17 +39,17 @@ export const exitDisclaimerInjector = () => {
     return externalLinks;
 }
 
-const triggerActions = new Set([
+const triggerActions = [
     'LOAD NEW SEARCH RESULTS',
     'LOAD NEW FACET RESULTS',
     'LOAD RESOURCE',
     'PAGE NOT FOUND',
     'REGISTER ERROR',
-])
+]
 
 // Listen for changes to the location and rerun the exitDisclaimerInjector
-export const exitDisclaimerEventHandler = (events) => {    
-    if(events.some(({ type }) => triggerActions.has(type))){
+export const exitDisclaimerEventHandler = (events) => {
+    if(events.some(({ type }) => triggerActions.includes(type))){
         setTimeout(() => {
             exitDisclaimerInjector();
         }, 100)
