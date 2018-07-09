@@ -33,5 +33,5 @@ export class CDEDefaultConfiguration implements CDEConfiguration {
      * @type {string}
      * @memberof CDEDefaultConfiguration
      */
-    R4RAPIServer : string = 'webapis.cancer.gov/r4r/v1';
+    R4RAPIServer : string = 'https://webapis.cancer.gov/r4r/v1';
 }
