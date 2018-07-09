@@ -1,3 +1,6 @@
+@import '../../../../../../../StyleSheets/sprites/svg-sprite';
+@import '../../../../../../../StyleSheets/colors';
+
 .r4r-results .facet__title {
     margin-top: 0;
 }
@@ -100,8 +103,75 @@ a.arrow-link-white:before, a.arrow-link:before {
     color: #2b7bba;
 }
 
+
 @media only screen and (max-width: 1024px){
     .r4r-container header {
         padding: 0;
+    }
+}
+
+/* PAGE OPTIONS CUSTOMIZATION */
+
+.general-page-body-container {
+    padding-bottom: 0;
+}
+
+.page-options {
+    li {
+        margin: 0 0.875em 0 0;
+        width: 35px;
+        height: 35px;
+        background-color: $color-link;
+        border-radius: 50%;
+
+        a {
+            position: relative;
+            display: block;
+            height: 100%;
+            font-size: 91%;
+            min-width: 35px;
+
+            &::before {
+                position: absolute;
+                left: 50%;
+                top: calc(50% + 1px);
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+
+
+        &:hover {
+            background-color: $lcranberry;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    ul {
+        justify-content: center;
+    }
+
+    .social-share--twitter a:before {
+        @include svg-sprite(twitter-white);
+        font-size: 17px;
+    }
+
+    .page-options--email a::before {
+        @include svg-sprite(mail-envelope-closed-white);
+    }
+}
+
+
+@media only screen and (min-width: 1025px){
+    /* Override default page options behavior to keep them at the bottom of the screen */
+    /* NOTE: This may be moved to App module template specific file */
+    .page-options {
+        position: inherit;
+        float: none;
+    }
+
+    .page-options ul {
+        float: none;
     }
 }

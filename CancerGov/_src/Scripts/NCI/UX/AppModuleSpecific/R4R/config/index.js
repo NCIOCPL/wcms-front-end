@@ -2,7 +2,7 @@ import createEventHandler from './cancer_gov/eventHandler';
 import { awaitAnalyticsLibraryAvailability } from './cancer_gov/analyticsHandler';
 import { exitDisclaimerEventHandler } from './cancer_gov/exitDisclaimerHandler';
 import { CDERuntimeConfig } from 'Services/cde-configuration-service';
-import './cancer_gov/r4r_cgov_glue.css';
+import './cancer_gov/r4r_cgov_glue.scss';
 
 // #########################################################################################
 // #######¯\_(ツ)_/¯##### INTEGRATION / SHIM / PROXY / MIDDLEWARE ######¯\_(ツ)_/¯###########
