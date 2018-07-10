@@ -227,6 +227,7 @@
 		li {
 			margin-top: 0.5em;
 			margin-bottom: 0.5em;
+			
 		}
 
         ul.cancer-types li {
@@ -278,7 +279,7 @@ a.learn-more {
 /* Class used to target homepage only with blue tint on 'Resources for' */
 .guide-card--home {
 	div:first-child {
-		background: $lightblue;
+		//background: $lightblue;
 
 		h3, a, a.arrow-link-white {
 			color: $dgrey02;
@@ -286,6 +287,28 @@ a.learn-more {
 
 		a.arrow-link-white:hover {
 			@extend %card-link-hover;
+		}
+		a.arrow-link-white:last-child {
+			color: $jellybean;
+		}
+	}
+}
+
+.guide-card--home {
+	display: relative;
+	//margin-top: auto;
+	//margin-bottom: auto;
+	.card li:last-child {
+		background: #306;
+		//margin-top: 3em;
+		bottom: 0;
+		position: absolute;
+		//display: flex;
+		//align-items: flex-end;
+  		//justify-content: space-between;
+		
+		a.arrow-link-white {
+			color: $jellybean;
 		}
 	}
 }

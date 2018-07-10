@@ -23,7 +23,11 @@ a.arrow-link {
 
 	&:hover::before {
 		@include svg-sprite(chevron-circle-red, $rotate:right);
-  	}
+	  }
+	
+	&:first-child {
+		color: $purple;
+	  }
 }
 
 a.arrow-link-white {
