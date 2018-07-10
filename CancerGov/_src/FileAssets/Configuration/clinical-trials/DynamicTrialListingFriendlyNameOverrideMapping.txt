@@ -1,1 +1,4 @@
 C2955|colorectal-cancer
+supportive_care|supportive-care
+basic_science|basic-science
+health_services_research|health-services-research

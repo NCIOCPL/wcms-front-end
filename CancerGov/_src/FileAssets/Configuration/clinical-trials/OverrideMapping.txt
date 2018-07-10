@@ -1,1 +1,9 @@
 C2955|Colorectal Cancer
+treatment|Treatment
+other|Other
+supportive_care|Supportive Care
+diagnostic|Diagnostic
+prevention|Prevention
+basic_science|Basic Science
+health_services_research|Health Services Research
+screening|Screening
