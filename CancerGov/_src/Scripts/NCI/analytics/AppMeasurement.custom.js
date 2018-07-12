@@ -399,13 +399,6 @@ s.prop10 = document.title;
 // Set prop25 to date published
 s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
 
-// Get our custom s object from the analytics data element
-waData = waData || document.getElementById('wa-data-element');
-
-// Set s object pageload values and global variables based on the data element
-s.channel = waData.dataset.channel;
-s.events = waData.dataset.events;
-
 // Check for meta attribute and get content if exists
 function getMetaTagContent (selector) {
     if(document.head.querySelector(selector) != null) {
@@ -415,18 +408,18 @@ function getMetaTagContent (selector) {
     }
 }
 
-// Dynamically props/eVars and values to the 's' object
-function setPropsAndEvars () {
-    for(dataAttr in waData.dataset) {
-        if(dataAttr.includes('prop') || dataAttr.includes('evar'))
-        {
-            var pevKey = dataAttr.replace('v', 'V'); 
-            var pevValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, '');
-            s[pevKey] = pevValue;
-        }
-    }
+
+// Get the rest of our s variables from the analytics data element
+var waBlob = getMetaTagContent('[name="entity"]');
+
+function setEverything(blob) {
+	var all = blob.split(';');
+	all.forEach(function(entry) {
+		var kvp = entry.split('=');
+		s[kvp[0]] = kvp[1];
+	});
 }
-setPropsAndEvars();
+setEverything(waBlob);
 
 
 /************************** PLUGINS SECTION *************************/

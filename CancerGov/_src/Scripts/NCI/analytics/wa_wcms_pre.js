@@ -130,6 +130,8 @@ var AnalyticsMapping =
     }
 };
 
-var waData = document.getElementById('wa-data-element');
-var waDataSuites = waData.dataset.suites;
-var s_account =  AnalyticsMapping.GetSuites(waDataSuites);
+// Get reporting suits(s) from the 'entity' meta tag
+// TODO: ugh
+var waData = document.head.querySelector('[name="entity"]').content;
+var waDataSuites = waData.split(';')[0];
+var s_account =  AnalyticsMapping.GetSuites(waDataSuites.split('=')[1]);
