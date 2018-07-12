@@ -26,7 +26,7 @@ s.linkLeaveQueryString=false;
 s.linkTrackVars="None";
 s.linkTrackEvents="None";
 s.useForcedLinkTracking=true
-s.forcedLinkTrackingTimeout=750
+s.forcedLinkTrackingTimeout=625
 
 //time parting configuration 
 //US
