@@ -291,14 +291,9 @@ a.learn-more {
 			@extend %card-link-hover;
 		}
 
-		li a.arrow-link-white::before, li a.arrow-link::before {
-			background-color: #ace;
-		}
 		li:last-child {
-			//bottom: 0;
-			//position: absolute;
 			margin-top: auto;
-			background-color: #306;
+			margin-bottom: .5em;
 		}
 	}
 }
@@ -364,6 +359,14 @@ a.learn-more {
 	}
 	.equalheight .push-to-bottom-desktop {
 		height: 100%;
+	}
+
+	// Pushing the last element to the bottom of the card using margin-top: auto in a flex container
+	// had a bug in Firefox only when overflow was hidden. This fixes it.
+	.guide-card--home {
+		.equalheight {
+			overflow: inherit;
+		}
 	}
 }
 
