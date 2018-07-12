@@ -15,7 +15,7 @@
   "dependencies": {
     "@types/select2": "^4.0.38",
     "axios": "^0.16.2",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.5",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
@@ -102,7 +102,7 @@
     "phantomcss": "^1.1.4",
     "phantomjs-prebuilt": "^2.1.14",
     "postcss": "^6.0.16",
-    "postcss-loader": "^2.1.0",
+    "postcss-loader": "^2.1.6",
     "request": "^2.81.0",
     "sass-loader": "^6.0.6",
     "sinon": "^2.4.1",
