@@ -16,8 +16,8 @@ export const censorWord = string => string.replace(/cancer/gi, '******');
 
 /**
  * Mutate an array of DOM nodes to censor the innertext according to censorWord()
- * @param {Node[]} headers
- * @param {Node[]}
+ * @param {HTMLElement[]} headers
+ * @param {HTMLElement[]}
  */
 export const censorText = (headers) => {
     const censored = headers.map(header => {
