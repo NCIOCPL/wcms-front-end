@@ -15,13 +15,13 @@ import { getNodeArray } from 'Utilities';
 export const censorWord = string => string.replace(/cancer/gi, '******');
 
 /**
- * Mutate an array of DOM nodes to censor the innertext according to censorWord()
+ * Mutate an array of DOM nodes to censor the textContent according to censorWord()
  * @param {HTMLElement[]} headers
  * @param {HTMLElement[]}
  */
 export const censorText = (headers) => {
     const censored = headers.map(header => {
-        header.innerText = censorWord(header.innerText);
+        header.textContent = censorWord(header.textContent);
         return header;
     })
     return censored;
