@@ -28,7 +28,6 @@ module.exports = {
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
 		//"Babel-Polyfill":       'babel-polyfill',
 		Common:             ['modernizr','./UX/Common/Common'],
-		ContentPage:            './UX/Common/ContentPage',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
 		InnerPage:              './UX/PageSpecific/Inner/InnerPage',
@@ -158,7 +157,7 @@ module.exports = {
 
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'shared',
-			chunks: ['BlogPostPage', 'BlogSeriesPage', 'ContentPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
+			chunks: ['BlogPostPage', 'BlogSeriesPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
 			minChunks: 3
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
@@ -168,7 +167,7 @@ module.exports = {
 		}),
 
 
-
+		// This makes sure when styles are extracted into stylesheets nvcg, which is piped through common, retains it's original name.
 		new ExtractTextPlugin({
 			filename: getPath => {
 				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')
