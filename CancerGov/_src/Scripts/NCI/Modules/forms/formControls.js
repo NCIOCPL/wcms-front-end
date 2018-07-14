@@ -159,6 +159,16 @@ define(function (require) {
 					width: $this.hasClass('fullwidth') ? '100%' : null
 				}).selectmenu('menuWidget').addClass('scrollable-y');
 			});
+
+			$.widget("ui.selectmenu", $.ui.selectmenu, {
+				_drawButton: function(){
+					this._super();
+					// This bizarre selector is how we access the 'for' attribute of the label
+					// on a reconstructed dropdown so that we can ensure it points at the original select
+					// element not the the stand-in span created by selectmenu
+					this.labels[0].attributes[0].value = this.labels[0].attributes[0].value.replace(/\-button$/, '')
+				}
+			})
 	}
 
 	/**
