@@ -115,7 +115,7 @@ define(function (require) {
 
 
 
-		if (jQuery.jPlayer && !Modernizr.touch) {
+		if (jQuery.jPlayer) {
 
 			var my_jPlayer = $("#dictionary_jPlayer");
 

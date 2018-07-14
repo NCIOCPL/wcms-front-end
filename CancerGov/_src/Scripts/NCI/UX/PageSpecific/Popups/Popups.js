@@ -20,7 +20,7 @@ define(function(require) {
 	$script([CONFIG.CDN.jquery, CONFIG.CDN.jplayer], function(){
         	require('Common/Enhancements/popup_functions');
 
-        	if (jQuery.jPlayer && !Modernizr.touch) {
+        	if (jQuery.jPlayer) {
 
                 var my_jPlayer = $("#dictionary_jPlayer");
 
