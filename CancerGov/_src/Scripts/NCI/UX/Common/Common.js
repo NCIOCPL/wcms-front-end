@@ -74,23 +74,17 @@ define(function(require) {
     (function() {
         DeepLinkPatch.init();
     })();
-
-    // DOM Ready
-    $(function() {
-        /*** BEGIN header component ***/
-
-        megaMenuModule.init();
-
-        headroomPlugin.init();
-
-        // This initializes jQuery UI Autocomplete on the site-wide search widget.
-        SiteWideSearch.init();
-
-    })
-
+	
 	//DOM Ready event
 	$(function() {
-
+		/*** BEGIN header component ***/
+		megaMenuModule.init();
+	
+		headroomPlugin.init();
+	
+		// This initializes jQuery UI Autocomplete on the site-wide search widget.
+		SiteWideSearch.init();
+		
 		/*** BEGIN dictionary toggle ***/
 		(function() {
 			var dictionaryToggle = function() {
