@@ -287,15 +287,27 @@ a.learn-more {
 		height: 100%;
 		justify-content: flex-start;
 
-		a.arrow-link-white:hover {
-			@extend %card-link-hover;
+		a.arrow-link-white {
+		&::before {
+			@include svg-sprite(chevron-circle-lt-blue, $rotate:right);
 		}
+		&:hover::before {
+			@include svg-sprite(chevron-circle-red, $rotate:right);
+		  }
+	}
 
 		li:last-child {
 			margin-top: auto;
 			margin-bottom: .5em;
+
+			@include bp(small) {
+				margin-top: 3em;
+			}
 		}
 	}
+}
+.guide-card--home .clearfix {
+	height: 100%;
 }
 /* END GUIDE CARDS ROW */
 
