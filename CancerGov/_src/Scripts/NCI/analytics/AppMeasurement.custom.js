@@ -19,7 +19,7 @@ s.linkLeaveQueryString=false;
 s.linkTrackVars="None";
 s.linkTrackEvents="None";
 s.useForcedLinkTracking=true
-s.forcedLinkTrackingTimeout=750
+s.forcedLinkTrackingTimeout=625
 
 //time parting configuration 
 //US
@@ -398,6 +398,9 @@ s.prop10 = document.title;
 
 // Set prop25 to date published
 s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
+
+// Set prop44 & eVar44 to 'group'
+s.prop44 = s.eVar44 = getMetaTagContent('[name="dcterms.isPartOf"]');
 
 // Check for meta attribute and get content if exists
 function getMetaTagContent (selector) {

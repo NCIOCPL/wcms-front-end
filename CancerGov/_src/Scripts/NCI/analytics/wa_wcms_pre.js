@@ -130,8 +130,10 @@ var AnalyticsMapping =
     }
 };
 
-// Get reporting suits(s) from the 'entity' meta tag
-// TODO: ugh
-var waData = document.head.querySelector('[name="entity"]').content;
-var waDataSuites = waData.split(';')[0];
-var s_account =  AnalyticsMapping.GetSuites(waDataSuites.split('=')[1]);
+/** 
+* Get reporting suits(s) from the 'dcterms.coverage' meta tag.
+* The s_account variable is required to use Adobe analytics.
+*/
+var suiteMeta = document.head.querySelector('[name="dcterms.coverage"]');
+var suites = (suiteMeta ? suiteMeta.content : 'nciglobal,ncienterprise');
+var s_account = AnalyticsMapping.GetSuites(suites);
