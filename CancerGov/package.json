@@ -7,8 +7,8 @@
     "node": "8.9.4"
   },
   "scripts": {
-    "test": "jest --config ./jest-config.json",
-    "coverage": "jest --config ./jest-config.json --coverage",
+    "test": "jest --config ./jest-config.json && npm run karma-test",
+    "coverage": "jest --config ./jest-config.json --coverage && npm run karma-coverage",
     "karma-test": "karma start karma.unit.js",
     "karma-coverage": "karma start karma.coverage.js",
     "build-release": "tools/build/build-release.sh"
