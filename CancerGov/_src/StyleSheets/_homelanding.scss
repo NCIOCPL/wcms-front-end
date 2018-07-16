@@ -276,37 +276,45 @@ a.learn-more {
 	/* adding padding per #OCECREATIV-783 --sjc */
 }
 
-/* Class used to target homepage only with blue tint on 'Resources for' */
+/* Class previously used to target homepage only with blue tint on 'Resources for' */
 .guide-card--home {
 	position: relative;
 	.card:not(:last-child) ul {
-		//background: $lightblue;
 		margin-bottom: 0;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		height: calc(100% - 30px); /* accounts for the H2 spacing in parent div */
 		justify-content: flex-start;
 
-		a.arrow-link-white {
+		a.arrow-link-white { /* targets 'Resources For' guide card to match 'About Cancer' li styling */
 		&::before {
 			@include svg-sprite(chevron-circle-lt-blue, $rotate:right);
-		}
+			}
 		&:hover::before {
 			@include svg-sprite(chevron-circle-red, $rotate:right);
-		  }
-	}
+			  }
+		}
+		li:last-child { /* targets last li to separate list from 'learn/view more' links  */
+			margin-top: 3em;
 
-		li:last-child {
-			margin-top: auto;
-			margin-bottom: .5em;
-
-			@include bp(small) {
-				margin-top: 3em;
+			a.arrow-link-white, a.arrow-link { /* targets last li item and adds dk blue chevron */
+				&::before {
+					@include svg-sprite(chevron-circle-dk-blue, $rotate:right);
+					}
+				&:hover::before {
+					@include svg-sprite(chevron-circle-red, $rotate:right);
+					  }
 			}
+			@include break(tablet-ls) {
+				margin-top: auto;
+				margin-bottom: .5em;
+				padding-top: 2em; 
+			}
+		
 		}
 	}
 }
-.guide-card--home .clearfix {
+.guide-card--home .clearfix { /* forces clearfix div to be same height as parent accordion in all breakpoints  */
 	height: 100%;
 }
 /* END GUIDE CARDS ROW */
