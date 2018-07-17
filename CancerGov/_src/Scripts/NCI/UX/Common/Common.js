@@ -216,14 +216,7 @@ define(function(require) {
     // removed on 6.7.17 by MTN require to NCI.Video.js, pages/fuctionality no longer used
 		// require("Common/Enhancements/NCI.Video").init();
 
-        // BEGIN Spanish Analytics tracking
-        $('html[lang="es"]').find('a.news-govdelivery, a.blogRSS').on('click', function() {
-            s.linkTrackVars = 'prop4,prop5';
-            s.prop4 = 'GovDeliveryEsp';
-            s.prop5 = 'www.cancer.gov' + location.pathname.toLowerCase();
-            s.tl(this, 'o', 'GovDeliveryEsp');
-        });
-		// END Spanish Analytics Tracking
+
 		
 		
 	});
