@@ -27,9 +27,13 @@ Small CSS only tweak.
 
 The now-unnecessary Modernizr library adds a small amount of weight and build complexity. Removing it required JS, CSS, and build changes.
 
+## [WCMSFEQ-659] Move analytics code out of Common.js
+
+The last remaining block of analytics code remaining in Common.js was refactored to analytics.js with it's brothers in arms.
 ## [WCMSFEQ-982] Fix video thumbnail not showing in accordions on CTHP
 
 Images were disabled to save space before we started using videos in CTHP cards. The video preview image was also being disabled of course, but to ill effect. CSS change to CTHP.scss.
+
 ## [WCMSFEQ-1029] CTHP Dropdown obstructed by Video Thumbnail
 
 Issues with CSS Nano minifying z-indexes (which is a known issue with the library and targetted for a bugfix in the next release) means when z-indexes exist in two different stylesheets they are unpredictable. For now, it means overrides will have to be in a common file to both rules (so moving the z-index rule from CTHP to nvcg where the video thumbnail rules are fixes it).
