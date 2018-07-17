@@ -367,6 +367,13 @@ a.learn-more {
 			h3 { color: $lcranberry; }
 		}
 	}
+
+	// The last of the feature guide cards needs to right align to the edge of the container, mirroring the
+	// left side.
+	.card:last-of-type {
+		padding-right: 0;
+	}
+	
 	h3 a {
 		@extend %card-link-hover;
 	}
