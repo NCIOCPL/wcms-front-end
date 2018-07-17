@@ -31,7 +31,8 @@ const resize = {
     initialize: language => settings => node => {
         const title = getContent(settings.textContent.title, language)();
         node.title = title;
-        
+        node.setAttribute('aria-label', title);       
+
         const clickHandler = resizeableElements => {
             const multiplier = 1.2;
             let originalSize = parseFloat(window.getComputedStyle(document.body).getPropertyValue('font-size'), 10);
