@@ -26,3 +26,7 @@ Small CSS only tweak.
 ## [WCMSFEQ-1040] Remove Modernizr dependency
 
 The now-unnecessary Modernizr library adds a small amount of weight and build complexity. Removing it required JS, CSS, and build changes.
+
+## [WCMSFEQ-982] Fix video thumbnail not showing in accordions on CTHP
+
+Images were disabled to save space before we started using videos in CTHP cards. The video preview image was also being disabled of course, but to ill effect. CSS change to CTHP.scss.
