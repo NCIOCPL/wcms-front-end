@@ -18,3 +18,7 @@ The title attribute was felt to be insignificant for 508 purposes on the empty a
 ## [WCMSFEQ-1055] jquery-ui.selectmenu 508 fix
 
 Jquery UI's selectmenu module does not properly add in 508 compliance. Using the built in _super() method, we are able to extend the drawbutton method to add in aria labels after seletmenu draws an element to the page.
+
+## [WCMSFEQ-940] Remove Right Padding on Last Feature Guide Card
+
+Small CSS only tweak.
