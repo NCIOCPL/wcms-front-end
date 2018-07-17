@@ -278,8 +278,7 @@ a.learn-more {
 
 /* Class previously used to target homepage only with blue tint on 'Resources for' */
 .guide-card--home {
-	position: relative;
-	.card:not(:last-child) ul {
+	.card ul {
 		margin-bottom: 0;
 		display: flex;
 		flex-direction: column;
