@@ -26,3 +26,7 @@ Small CSS only tweak.
 ## [WCMSFEQ-1040] Remove Modernizr dependency
 
 The now-unnecessary Modernizr library adds a small amount of weight and build complexity. Removing it required JS, CSS, and build changes.
+
+## [WCMSFEQ-1029] CTHP Dropdown obstructed by Video Thumbnail
+
+Issues with CSS Nano minifying z-indexes (which is a known issue with the library and targetted for a bugfix in the next release) means when z-indexes exist in two different stylesheets they are unpredictable. For now, it means overrides will have to be in a common file to both rules (so moving the z-index rule from CTHP to nvcg where the video thumbnail rules are fixes it).
