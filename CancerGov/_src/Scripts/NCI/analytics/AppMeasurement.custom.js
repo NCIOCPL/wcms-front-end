@@ -403,15 +403,6 @@ s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
 s.prop44 = s.eVar44 = getMetaTagContent('[name="dcterms.isPartOf"]');
 
 // Check for meta attribute and get content if exists
-function getMetaTagContent (selector) {
-    if(document.head.querySelector(selector) != null) {
-        return document.head.querySelector(selector).content;
-    } else {
-        return "";
-    }
-}
-
-// Check for meta attribute and get content if exists
 function getMetaTagContent (selector, isJson) {
     if(document.head.querySelector(selector) != null) {
         return document.head.querySelector(selector).content;
