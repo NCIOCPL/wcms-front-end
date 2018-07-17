@@ -16,7 +16,8 @@ const customTweet = {
     initialize: language => settings => node => {
         // Set up the node attributes that a content owner doesn't need to be responsible for
         const title = getContent(settings.textContent.title, language)();
-        node.title = title;        
+        node.title = title;
+        node.setAttribute('aria-label', title);       
         settings.classList.forEach(className => node.classList.add(className));
         node.href = "#";
 
