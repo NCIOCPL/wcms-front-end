@@ -26,3 +26,7 @@ Small CSS only tweak.
 ## [WCMSFEQ-1040] Remove Modernizr dependency
 
 The now-unnecessary Modernizr library adds a small amount of weight and build complexity. Removing it required JS, CSS, and build changes.
+
+## [WCMSFEQ-659] Move analytics code out of Common.js
+
+The last remaining block of analytics code remaining in Common.js was refactored to analytics.js with it's brothers in arms.
