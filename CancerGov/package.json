@@ -7,8 +7,10 @@
     "node": "8.9.4"
   },
   "scripts": {
-    "test": "karma start karma.unit.js",
-    "coverage": "karma start karma.coverage.js",
+    "test": "jest --config ./jest-config.json && npm run karma-test",
+    "coverage": "jest --config ./jest-config.json --coverage && npm run karma-coverage",
+    "karma-test": "karma start karma.unit.js",
+    "karma-coverage": "karma start karma.coverage.js",
     "build-release": "tools/build/build-release.sh"
   },
   "engineStrict": "true",
@@ -44,6 +46,7 @@
     "autoprefixer": "^7.2.5",
     "awesome-typescript-loader": "~3.4.1",
     "babel-core": "^6.25.0",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
@@ -84,6 +87,7 @@
     "hard-source-webpack-plugin": "^0.5.16",
     "imports-loader": "^0.7.0",
     "istanbul-instrumenter-loader": "^2.0.0",
+    "jest": "^23.4.0",
     "json-loader": "^0.5.4",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
