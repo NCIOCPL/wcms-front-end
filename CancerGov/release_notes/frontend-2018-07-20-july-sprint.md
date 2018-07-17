@@ -11,3 +11,7 @@ Content changes are required to make sure all the Percussion templates are no lo
 ## [WCMSFEQ-1052] Add Aria-Label to pageoptions for 508 compliance
 
 The title attribute was felt to be insignificant for 508 purposes on the empty anchor tags used in the page options (as click handler targets). This change sets the title content as the aria-label as well, both in english and in spanish as a part of the template and of the pageOptions module.
+
+## [WCMSFEQ-1055] jquery-ui.selectmenu 508 fix
+
+Jquery UI's selectmenu module does not properly add in 508 compliance. Using the built in _super() method, we are able to extend the drawbutton method to add in aria labels after seletmenu draws an element to the page.
