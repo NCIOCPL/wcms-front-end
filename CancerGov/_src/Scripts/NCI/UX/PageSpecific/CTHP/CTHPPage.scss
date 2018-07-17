@@ -184,6 +184,12 @@
 	.cthp-card-container img {
 		display: none;
 	}
+
+	// Override so that youtube preview images are still visible in CTHP accordion
+	.cthp-card-container .video-preview--container img {
+		display: inherit;
+	}
+
 	.cthp-intro-multimedia h3 {
 		text-transform: uppercase;
 	}
