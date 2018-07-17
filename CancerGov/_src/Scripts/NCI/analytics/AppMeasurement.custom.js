@@ -411,19 +411,27 @@ function getMetaTagContent (selector) {
     }
 }
 
+// Check for meta attribute and get content if exists
+function getMetaTagContent (selector, isJson) {
+    if(document.head.querySelector(selector) != null) {
+        return document.head.querySelector(selector).content;
+    } else {
+		if(isJson) { return '[]'; }
+		else { return ''; }
+    }
+}
 
 // Get the rest of our s variables from the analytics data element
-var waBlob = getMetaTagContent('[name="entity"]');
+var waBlob = getMetaTagContent('[name="entity"]', true),
+	waJson = JSON.parse(waBlob);
 
-function setEverything(blob) {
-	var all = blob.split(';');
-	all.forEach(function(entry) {
-		var kvp = entry.split('=');
-		s[kvp[0]] = kvp[1];
-	});
+// Change object into map and run forEach function 
+new Map(Object.entries(waJson)).forEach(trackEntityContent);
+
+// Set 's' values
+function trackEntityContent(value, key, map) {
+    s[key] = value;
 }
-setEverything(waBlob);
-
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
