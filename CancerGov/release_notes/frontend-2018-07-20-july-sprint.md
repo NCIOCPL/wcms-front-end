@@ -22,3 +22,7 @@ Jquery UI's selectmenu module does not properly add in 508 compliance. Using the
 ## [WCMSFEQ-940] Remove Right Padding on Last Feature Guide Card
 
 Small CSS only tweak.
+
+## [WCMSFEQ-1040] Remove Modernizr dependency
+
+The now-unnecessary Modernizr library adds a small amount of weight and build complexity. Removing it required JS, CSS, and build changes.
