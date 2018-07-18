@@ -11,6 +11,7 @@ import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import * as BestBets from 'Modules/bestBets/bestBets';
 import patternInjector from 'Modules/patternInjector';
 import nciOrgPatternSettings from './nciOrgPatternSettings';
+import { default as bindDirectoryFormSearch } from './Enhancements/directory-search-results';
 
 import './InnerPage.scss';
 
@@ -69,4 +70,6 @@ class InnerPage extends NCIBasePage {
 	let innerPage:InnerPage = new InnerPage();
     innerPage.init();
     patternInjector(nciOrgPatternSettings, '.nci-organization__pattern');
+    console.log("track changes");
+    bindDirectoryFormSearch();
 })();
