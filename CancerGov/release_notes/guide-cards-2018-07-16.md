@@ -13,6 +13,8 @@ Minor release that changes the appearance of the first two guide cards on the ho
 3. Updated color of the arrow for the "view more" links to use the dark blue chevron.
 
 #### Note: 
+Added '.card__view-more' class to CSS in order to target the last (find/view/learn more) item for scalability, rather than use the pseudo class ':last-child' 
+
 Upon resizing the browser window up from the mobile (accordion) view, a div with a clearfix class is added that wraps around the ul of each card. A height of 100% is added to force this clearfix div to be same height as parent accordion in all breakpoints.
 
 <a name="deploy"></a>
@@ -22,8 +24,10 @@ No NCIAnalytics changes requested.
 
 <a name="content-changes"></a>
 ## Content Changes
-1. Go to Homepage/Homepage Guide Cards and switch to the CancerGov community. 
-2. Edit the Home Page Guide Cards (Card Container) Content Type, and change name of "Resources For" guide card to "Cancer Research Resources".
-3. Add the link "Find more research resources" and corresponding url to the last item of the list in new "Cancer Research Resources" guide card, and "Learn more about cancer" to the last item of the "About Cancer".
+1. In Percussion, go to Homepage/Homepage Guide Cards and switch to the CancerGov community. 
+2. Go the appropriate guide card content type (Content Block), revise, select Tools > Source Mode add the following to the last item of the list: 
+    <li class="card__view-more"><a class="arrow-link" href="relative path here">link name here</a></li>
+in order to add the "view/find/learn more" link to the bottom of the list.
+
 
 

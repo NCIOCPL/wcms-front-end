@@ -301,6 +301,7 @@ a.learn-more {
 			
 			padding: 3em 0 .5em; 
 			margin-bottom: 0;
+			margin-top: auto; /* align links to bottom on all breakpoints */
 
 			a.arrow-link-white, a.arrow-link { /* targets last li item and adds dk blue chevron */
 				&::before {
