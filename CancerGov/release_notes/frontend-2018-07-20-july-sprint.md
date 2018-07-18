@@ -41,3 +41,7 @@ Issues with CSS Nano minifying z-indexes (which is a known issue with the librar
 ## [WCMSFEQ-665] NCI Cancer Genetics Services Directory is not showing the details of professionals when they are selected from more than one page
 
 There are multiple problems with this form. New CSS (_directory-search.scss) and JS (directory-search-results.js) have been added to correct the form behavior and to add the new feature of preserving checkbox selections between page results. This is done in a similar manner to CTS search results where the checked items are store in Session Storage. Accessibility of this form has also been addressed as best we can without CDE changes.
+
+## [WCMSFEQ-740] Page Options on Blog Page - replace media query with matchMedia
+
+The manual moving around of the page options on Blog Pages was not syncing between the JS and CSS ways of reading window width. Changing the code to use matchMedia instead solves this. I also refactored the changed code into a utility function as it was being replicated across Blog Post and Blog Series Page types.
