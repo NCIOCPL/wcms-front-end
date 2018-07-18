@@ -131,7 +131,10 @@ export const pageOptionsTransporter = () => {
 		}
 	}
 	mediaQueryListener.addListener(mqEventHandler)
-	// Initialize page options block in correct page location
+	// Initialize page options block in correct page location on load 
+	// mediaQueryListeners don't automatically handle load events (they are for resizes primarily)
+	// so we need to manually invoke the handler. mediaQueryListener has a property .matches
+	// at all times which matches the event.matches property as well, so the callback works the same.
 	mqEventHandler(mediaQueryListener)
 
 }
