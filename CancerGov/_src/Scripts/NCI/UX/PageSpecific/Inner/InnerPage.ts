@@ -70,6 +70,5 @@ class InnerPage extends NCIBasePage {
 	let innerPage:InnerPage = new InnerPage();
     innerPage.init();
     patternInjector(nciOrgPatternSettings, '.nci-organization__pattern');
-    console.log("track changes");
     bindDirectoryFormSearch();
 })();

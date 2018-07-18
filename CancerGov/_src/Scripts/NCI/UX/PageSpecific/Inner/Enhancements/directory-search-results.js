@@ -1,9 +1,11 @@
+import { getNodeArray } from "../../../../Utilities/domManipulation";
+
 const checkedItems = JSON.parse(sessionStorage.getItem('directorySearchList')) || [];
 
 const trackCheckboxes = () => {
-  const checkboxes = document.querySelectorAll(".directory-search-terms ~ div .checkbox input");
+  const checkboxes = getNodeArray(".directory-search-terms ~ div .checkbox input");
   if (checkboxes.length > 1) {
-    checkboxes.forEach(checkbox => {
+    checkboxes.map(checkbox => {
       // if the checkbox value is in session storage then mark it as checked
       checkbox.checked = checkedItems.indexOf(checkbox.value) > -1?'checked':'';
       // add click event to checkbox
@@ -13,14 +15,14 @@ const trackCheckboxes = () => {
 }
 
 const updateChecklist = (checkbox) => {
-  let item = checkbox.value;
-  let isChecked = checkbox.checked;
+  const item = checkbox.value;
+  const isChecked = checkbox.checked;
   if (!isChecked) { // Uncheck it
     if (checkedItems.indexOf(item) > -1) {
       var index = checkedItems.indexOf(item);
       checkedItems.splice(index, 1);
     }
-  } else if ($.inArray(item, checkedItems) == -1) {
+  } else if (!checkedItems.includes(item)) {
     checkedItems.push(item);
   }
   // update the session storage
@@ -33,7 +35,7 @@ const updateChecklist = (checkbox) => {
 
 const bindFormSubmit = () => {
   // zero out old form submit method added by CDE
-  if(typeof doSubmit == "function") {
+  if(typeof doSubmit === "function") {
     doSubmit = null;
   }
 
@@ -64,8 +66,8 @@ const handleFormSubmit = (form, e) => {
 }
 
 const removeLinks = () => {
-  const linkedLabels = document.querySelectorAll("[for^=personid]");
-  linkedLabels.forEach(link => {
+  const linkedLabels = getNodeArray("[for^=personid]");
+  linkedLabels.map(link => {
     link.firstElementChild.replaceWith(link.firstElementChild.textContent.trim());
   })
 }
@@ -84,7 +86,6 @@ const clearSession = () => {
 
 let isInitialized = false;
 
-
 // PUBLIC API
 const initialize = () => {
   if(isInitialized) {
@@ -92,11 +93,11 @@ const initialize = () => {
   }
   else {
     isInitialized = true;
-    if (location.pathname.toLowerCase() == '/about-cancer/causes-prevention/genetics/directory/results') {
+    if (location.pathname.toLowerCase() === '/about-cancer/causes-prevention/genetics/directory/results') {
       bindFormSubmit();
       removeLinks();
       trackCheckboxes();
-    } else if (location.pathname.toLowerCase() == '/about-cancer/causes-prevention/genetics/directory'){
+    } else if (location.pathname.toLowerCase() === '/about-cancer/causes-prevention/genetics/directory'){
       clearSession();
     }
   }
