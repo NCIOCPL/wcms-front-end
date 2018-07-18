@@ -37,3 +37,7 @@ Images were disabled to save space before we started using videos in CTHP cards.
 ## [WCMSFEQ-1029] CTHP Dropdown obstructed by Video Thumbnail
 
 Issues with CSS Nano minifying z-indexes (which is a known issue with the library and targetted for a bugfix in the next release) means when z-indexes exist in two different stylesheets they are unpredictable. For now, it means overrides will have to be in a common file to both rules (so moving the z-index rule from CTHP to nvcg where the video thumbnail rules are fixes it).
+
+## [WCMSFEQ-740] Page Options on Blog Page - replace media query with matchMedia
+
+The manual moving around of the page options on Blog Pages was not syncing between the JS and CSS ways of reading window width. Changing the code to use matchMedia instead solves this. I also refactored the changed code into a utility function as it was being replicated across Blog Post and Blog Series Page types.
