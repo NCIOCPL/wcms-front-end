@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NCI.Web.CDE.UI.SnippetControls.SubLayoutControl" %>
 <!-- BEGIN Row Title -->
-<div class="row collapse">
+<div class="row">
     <div class="large-12 columns guide-title">
         <NCI:CDEField
             Scope="Snippet"
