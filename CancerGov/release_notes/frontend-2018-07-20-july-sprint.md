@@ -45,3 +45,7 @@ There are multiple problems with this form. New CSS (_directory-search.scss) and
 ## [WCMSFEQ-740] Page Options on Blog Page - replace media query with matchMedia
 
 The manual moving around of the page options on Blog Pages was not syncing between the JS and CSS ways of reading window width. Changing the code to use matchMedia instead solves this. I also refactored the changed code into a utility function as it was being replicated across Blog Post and Blog Series Page types.
+
+## [WCMSFEQ-1071] Problem with "Print this page"
+
+Font size for DCEG print pages was reported to be too small, 12px. Upped the font size to 16px. Change was made to file \DCEG\Stylesheets\layout.print.css.
