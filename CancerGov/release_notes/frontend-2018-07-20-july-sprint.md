@@ -46,6 +46,9 @@ There are multiple problems with this form. New CSS (_directory-search.scss) and
 
 The manual moving around of the page options on Blog Pages was not syncing between the JS and CSS ways of reading window width. Changing the code to use matchMedia instead solves this. I also refactored the changed code into a utility function as it was being replicated across Blog Post and Blog Series Page types.
 
+## [WCMSFEQ-1071] Problem with "Print this page"
+
+Font size for DCEG print pages was reported to be too small, 12px. Upped the font size to 16px. Change was made to file \DCEG\Stylesheets\layout.print.css.
 ## [WCMSFEQ-939] Remove Collapse class from Guide Card title in Sublayout template
 
 For whatever reason, .collapse was added to the container div for Guide Card titles. I say whatever because it seems to have no effect except to remove the desired padding at all breakpoints. There is still a CSS rule manually hiding the title itself. So removing this class had no apparent, deleterious effect except to restore the padding. This change requires uploading all the templates again and republishing CDE (but we do that anyway on every release).
