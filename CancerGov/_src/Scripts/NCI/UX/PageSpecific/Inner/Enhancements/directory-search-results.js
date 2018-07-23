@@ -58,8 +58,8 @@ const handleFormSubmit = (form, e) => {
 
   if (checkedItems.length > 0) {
     // if there are items in our list then update the form.action and submit the form
-    form.action = '/about-cancer/causes-prevention/genetics/directory/view?personid=' + checkedItems.join(",");
-    form.submit();
+    // do not submit form since it cannot submit checked items from another page. Must use window.location
+    window.location = '/about-cancer/causes-prevention/genetics/directory/view?personid=' + checkedItems.join(",");
   } else {
     alert("Please check the professionals you would like to view.");
   }
