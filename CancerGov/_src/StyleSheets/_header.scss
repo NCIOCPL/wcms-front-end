@@ -23,23 +23,15 @@ header {
 	$logo-width-mobile: 90%;
 	$logo-padding-mobile: 13px;
 
-	html.svg & img {
+	img[src*='.svg'] {
 		// Fix for Firefox subpixel height rendering -- if >= .5, then move up to next pixel
 		transform: translate(0px, 0.5px);
 	}
 
-	html.no-svg & img[class^="nci-logo-IE"] {
-		display: none;
-	}
-
 	// default; should NOT be in a media query to allow the logo to print properly in IE8
 	//@include bp(xtra-large) {
-	html.svg & img {
+	img {
 		width: 60%;
-	}
-
-	html.no-svg & img.nci-logo-IE-xl {
-		display: block;
 	}
 
 	a {
@@ -49,12 +41,8 @@ header {
 	//}
 
 	@include bp(large) {
-		html.svg & img {
+		img {
 			width: $logo-width-desktop;
-		}
-
-		html.no-svg & img.nci-logo-IE-desk {
-			display: block;
 		}
 
 		a {
@@ -63,21 +51,11 @@ header {
 		}
 	}
 
-	@include bp(large-down) {
-		html.no-svg & img.nci-logo-IE-xl {
-			display: none;
-		}
-	}
-
 	@include bp(medium) {
-		html.svg & img {
+		img {
 			width: 70%;
 			min-width: ($logo-width-mobile / 100%) * (640px - $logo-padding-mobile); // this calculates the width that the logo would be at largest point in the mobile breakpoint, IF there were no scrollbar (should be 640px - $padding-mobile - <scrollbar width>)
 			max-width: ($logo-width-desktop / 100%) * (strip-unit($row-width)*$em-base - $logo-padding-desktop); // this calculates the width that the logo is at the smallest point in the desktop breakpoint
-		}
-
-		html.no-svg & img.nci-logo-IE-tab {
-			display: block;
 		}
 
 		a {
@@ -87,12 +65,8 @@ header {
 	}
 
 	@include bp(small) {
-		html.svg & img {
+		img {
 			width: $logo-width-mobile;
-		}
-
-		html.no-svg & img.nci-logo-IE-phon {
-			display: block;
 		}
 
 		a {
