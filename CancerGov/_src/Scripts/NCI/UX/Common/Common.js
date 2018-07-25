@@ -3,6 +3,7 @@ define(function(require) {
     require('./polyfills/replaceWith');
 	require('es6-promise/auto');
     require('core-js/fn/array/from');
+    require('core-js/fn/array/find');
     require('core-js/fn/array/includes');
     require('core-js/fn/object/assign');
     require('core-js/fn/object/entries');
