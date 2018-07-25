@@ -56,6 +56,6 @@
 <!-- END Footer -->
     <!-- TO INSERT WEB ANALYTICS CODE. Every template should have this 
     control else Web analytics scripts will not show up in the HTML-->
-    <NCI:WebAnalyticsControl ID="WebAnalyticsLegacy" runat="server" />
+    <NCI:WebAnalyticsControl ID="WebAnalyticsControl1" runat="server" />
 </body>
 </html>
