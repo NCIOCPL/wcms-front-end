@@ -60,9 +60,9 @@ const extractProp39ForResultsResult = event => {
     const params = queryString.parse(event.meta.location.search);
     const searchTerm = params.q || 'none';
     const filterSummary = extractFilterSummary(params);
-    const page = `${ Math.ceil((event.meta.clickInfo.startFrom + 1) / event.meta.clickInfo.pageSize) }:${ event.meta.clickInfo.localIndex }`;
+    const page = `${ Math.ceil((event.meta.clickInfo.startFrom + 1) / event.meta.clickInfo.pageSize) }:${ event.meta.clickInfo.localIndex + 1 }`;
     const numberOfResults = event.meta.clickInfo.totalResults;
-    const resultNumber = event.meta.clickInfo.localIndex + event.meta.clickInfo.startFrom;
+    const resultNumber = event.meta.clickInfo.localIndex + event.meta.clickInfo.startFrom + 1;
 
     const composed = [base, searchTerm, filterSummary, page, numberOfResults, resultNumber].join('|');
     return composed;
