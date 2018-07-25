@@ -396,17 +396,12 @@ function getViewPort() {
     return screen;
 }
 
-// Set prop6 to short title
+/** TODO: set these for AppMeasurement.custom on DTM:
 s.prop6 = getMetaTagContent('[property="og:title"]');
-
-// Set prop10 to document title
 s.prop10 = document.title;
-
-// Set prop25 to date published
 s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
-
-// Set prop44 & eVar44 to 'group'
 s.prop44 = s.eVar44 = getMetaTagContent('[name="dcterms.isPartOf"]');
+*/
 
 // Check for meta attribute and get content if exists
 function getMetaTagContent (selector) {

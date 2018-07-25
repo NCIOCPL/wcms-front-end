@@ -124,15 +124,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="robots" content="noindex">
-    <title>Clinical Trial Search Results</title>
-    <script src="https://assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script>
-	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
-	<link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" />
-	<link href="/PublishedContent/Styles/BasicCTSPrintPage.css" rel="stylesheet" />
+<head> 
+	 <meta name="robots" content="noindex">
+	 <title>Clinical Trial Search Results</title>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	 <script src="/PublishedContent/js/BasicCTSPrintPage.js" type="text/javascript"></script>
+	 
+	 <link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
+	 <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" />
+	 <link href="/PublishedContent/Styles/BasicCTSPrintPage.css" rel="stylesheet" />
 </head>
 <body>
 	<div id="cgovContainer">
@@ -214,7 +214,5 @@
 	</script>
 	<!-- ***** End NCI Web Analytics ***** -->
 
-	<!-- DTM PAGEBOTTOM TAG - DO NOT MODIFY -->
-	<script type="text/javascript">_satellite.pageBottom();</script>
 </body>
 </html>
