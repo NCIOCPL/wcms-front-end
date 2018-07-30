@@ -286,7 +286,7 @@ a.learn-more {
 		margin-bottom: 0;
 		display: flex;
 		flex-direction: column;
-		flex-grow: 2;
+		flex-grow: 1;
 		justify-content: flex-start;
 
 		a.arrow-link-white { /* targets 'Resources For' guide card to match 'About Cancer' li styling */
@@ -305,10 +305,10 @@ a.learn-more {
 			a.arrow-link-white, a.arrow-link { /* targets last li item and adds dk blue chevron */
 				&::before {
 					@include svg-sprite(chevron-circle-dk-blue, $rotate:right);
-					}
+				}
 				&:hover::before {
 					@include svg-sprite(chevron-circle-red, $rotate:right);
-					  }
+				}
 			}
 			@include break(medium) {
 				padding: 2em 0 0;
@@ -322,7 +322,7 @@ a.learn-more {
 	}
 }
 .guide-card--home .clearfix { 
-	flex-grow: 2;
+	flex-grow: 1;
 	height: 100%; /* forces entire clearfix div to be 100%  */
 	ul {
 		height: 100%;/* forces ul to be same height as parent clearfix inserted by jquery-ui accordion  */
