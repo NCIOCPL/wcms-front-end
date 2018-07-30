@@ -7,7 +7,7 @@ const onDOMContentLoaded = () => {
     // issue. This code adds it only to the elements we want to control manually to avoid that issue.
     const elementSelectors = [
         ['name', 'description'],
-        ['property', 'twitter:title'],
+        ['property', 'og:title'],
         ['property', 'og:description'],
         ['property', 'og:url'],
     ];
