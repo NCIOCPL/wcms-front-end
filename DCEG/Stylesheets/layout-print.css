@@ -10,6 +10,15 @@
 	====
 */
 
+@media print {
+	/* Content was being split between pages. This prevents that (at the cost of additional whitespace) */
+	p {
+		page-break-before: auto;
+		page-break-after: auto;
+		page-break-inside: avoid;
+	}
+}
+
 body {
 	font-size: 16px;
 }
