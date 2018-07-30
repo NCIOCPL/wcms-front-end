@@ -26,7 +26,9 @@ No NCIAnalytics changes requested.
 ## Content Changes
 1. In Percussion, go to Homepage/Homepage Guide Cards and switch to the CancerGov community. 
 2. Go the appropriate guide card content type (Content Block), revise, select Tools > Source Mode add the following to the last item of the list: 
-    <li class="card__view-more"><a class="arrow-link" href="relative path here">link name here</a></li>
+ ```html   
+ <li class="card__view-more"><a class="arrow-link" href="relative path here">link name here</a></li> 
+ ```
 in order to add the "view/find/learn more" link to the bottom of the list.
 
 
