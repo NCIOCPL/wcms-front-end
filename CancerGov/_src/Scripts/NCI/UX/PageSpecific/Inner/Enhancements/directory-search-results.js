@@ -53,9 +53,6 @@ const bindFormSubmit = () => {
 const handleFormSubmit = (form, e) => {
   e.preventDefault();
 
-  // Note: pressing enter key when name text is focused will trigger a hyperlink to that individual, not a form submission. Why is this...because our form labels are also hyperlinks ¯\_(ツ)_/¯
-  // Note: added removeLinks() function to improve form interactions and accessibility.
-
   if (checkedItems.length > 0) {
     // if there are items in our list then update the form.action and submit the form
     // do not submit form since it cannot submit checked items from another page. Must use window.location
@@ -63,13 +60,6 @@ const handleFormSubmit = (form, e) => {
   } else {
     alert("Please check the professionals you would like to view.");
   }
-}
-
-const removeLinks = () => {
-  const linkedLabels = getNodeArray("[for^=personid]");
-  linkedLabels.map(link => {
-    link.firstElementChild.replaceWith(link.firstElementChild.textContent.trim());
-  })
 }
 
 // Clear session on new search
@@ -95,7 +85,6 @@ const initialize = () => {
     isInitialized = true;
     if (location.pathname.toLowerCase() === '/about-cancer/causes-prevention/genetics/directory/results') {
       bindFormSubmit();
-      removeLinks();
       trackCheckboxes();
     } else if (location.pathname.toLowerCase() === '/about-cancer/causes-prevention/genetics/directory'){
       clearSession();
