@@ -1,4 +1,17 @@
 C2955|Colorectal Cancer
+C27031|Pancreatic Islet Cell Tumors
+C7510|Thyroid Cancer
+C114812|Childhood Pineoblastoma
+C3168|Childhood Acute Lymphoblastic Leukemia
+C3997|Childhood Medulloblastoma
+C4967|Adult Acute Lymphoblastic Leukemia
+C68634|Childhood Atypical Teratoid/Rhabdoid Tumor
+C7816|Childhood Craniopharyngioma
+C8578|Childhood Ependymoma
+C9154|Adult Acute Myeloid Leukemia
+C9160|Childhood Acute Myeloid Leukemia
+C7707|Adult Soft Tissue Sarcoma
+C7884|Recurrent Adult Brain Tumors
 treatment|Treatment
 other|Other
 supportive_care|Supportive Care
