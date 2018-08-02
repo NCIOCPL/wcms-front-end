@@ -20,7 +20,7 @@ C8578|child-ependymoma
 C9154|adult-aml
 C9160|child-aml
 C7707|adult-soft-tissue-sarcoma
-C7884|reccurent-adult-brain-tumors
+C7884|reccurent-adult-brain
 C4699|gestational-trophoblastic-disease
 C3918|extragonadal-germ-cell-tumors
 supportive_care|supportive-care
