@@ -321,6 +321,11 @@ a.learn-more {
 		}
 	}
 }
+
+// Upon resizing the browser window up from the mobile (accordion) view, 
+// a div with a clearfix class is added that wraps around the ul of each card. 
+// A height of 100% is added to force this clearfix div to be same height as 
+// parent accordion in all breakpoints.
 .guide-card--home .clearfix { 
 	flex-grow: 1;
 	height: 100%; /* forces entire clearfix div to be 100%  */
