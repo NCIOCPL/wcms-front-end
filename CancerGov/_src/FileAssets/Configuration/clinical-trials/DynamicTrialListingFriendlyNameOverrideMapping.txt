@@ -23,6 +23,7 @@ C7707|adult-soft-tissue-sarcoma
 C7884|reccurent-adult-brain
 C4699|gestational-trophoblastic-disease
 C3918|extragonadal-germ-cell-tumors
+C4345|myloproliferative-neoplasm
 supportive_care|supportive-care
 basic_science|basic-science
 health_services_research|health-services-research
