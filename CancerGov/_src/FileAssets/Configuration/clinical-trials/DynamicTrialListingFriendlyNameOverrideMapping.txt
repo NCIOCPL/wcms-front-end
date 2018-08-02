@@ -21,6 +21,7 @@ C9154|adult-aml
 C9160|child-aml
 C7707|adult-soft-tissue-sarcoma
 C7884|reccurent-adult-brain-tumors
+C4699|gestational-trophoblastic-disease
 supportive_care|supportive-care
 basic_science|basic-science
 health_services_research|health-services-research
