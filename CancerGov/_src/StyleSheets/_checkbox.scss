@@ -1,4 +1,4 @@
-html.borderradius.generatedcontent .checkbox input[type="checkbox"]:checked + label::before {
+.checkbox input[type="checkbox"]:checked + label::before {
     @include svg-sprite(checkmark-small-blue);
     color: #2a72a5;
     content:"";
