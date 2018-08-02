@@ -35,7 +35,7 @@ const initializeCancerGovTheme = initializeR4R => {
         appId: 'r4r-browser-cache',
         customTheme,
         historyProps: {
-            basename: '/research/r4r',
+            basename: '/research/resources',
         },
         eventHandler: eventHandler.onEvent,
         apiEndpoint,
