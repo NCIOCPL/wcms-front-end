@@ -114,3 +114,27 @@ export const getCanonicalURL = (document = window.document) => document.querySel
  * @return {string}
  */
 export const getMetaURL = document => document.querySelector("meta[property='og:url']").getAttribute('content');
+
+/**
+ * On Some pages, the Page Options block is manually moved around the DOM based on the window width.
+ * Using matchMedia keeps the JS in sync with the CSS in a way that window.width does not.
+ */
+export const pageOptionsTransporter = () => {
+	// Page Options is manually moved on resize. Ugh.
+	const mediaQueryListener = window.matchMedia('(max-width: 1024px)');
+	const mqEventHandler = e => {
+		if(e.matches){
+			$("#PageOptionsControl1").appendTo("#blogPageOptionsInnerContainer");
+		}
+		else {
+			$("#PageOptionsControl1").appendTo("#blogPageOptionsOuterContainer");
+		}
+	}
+	mediaQueryListener.addListener(mqEventHandler)
+	// Initialize page options block in correct page location on load 
+	// mediaQueryListeners don't automatically handle load events (they are for resizes primarily)
+	// so we need to manually invoke the handler. mediaQueryListener has a property .matches
+	// at all times which matches the event.matches property as well, so the callback works the same.
+	mqEventHandler(mediaQueryListener)
+
+}

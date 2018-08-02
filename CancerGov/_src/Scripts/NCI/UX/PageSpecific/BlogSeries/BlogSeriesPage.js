@@ -1,29 +1,18 @@
 define(function(require) {
 	require('./BlogSeriesPage.scss');
 	require('Common/Enhancements/sharecomponent');
+	const {pageOptionsTransporter} = require('Utilities/domManipulation');
 	var NCIAccordion = require('Modules/accordion/accordion');
 	$(function() {
 		require('Common/Enhancements/analytics.After').init();
 	});
 
-	// Ensure the .contentzone is given a width of 75% making room for the right rail when present
-	var setPageOptions = function(){
-		if ($(window).width() >= 1025){;
-            $("#PageOptionsControl1").appendTo("#blogPageOptionsOuterContainer");
-		}
-		else{
-            $("#PageOptionsControl1").appendTo("#blogPageOptionsInnerContainer");
-		}
-        
-	};
-	$(window).resize(function(){
-		setPageOptions();
-	});
+
+
 
 	$( document ).ready(function() {
 		// Place page options
-		setPageOptions();
-
+		pageOptionsTransporter();
 		// Make accordions work
 		var $target = $("#blog-archive-accordion");
 		NCIAccordion.doAccordion($target, 

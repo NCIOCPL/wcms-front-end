@@ -9,13 +9,6 @@ define(function (require) {
 		 ***/
 		(function($) {
 
-			Modernizr.addTest('windows', navigator.platform.indexOf("Win")!=-1);
-			Modernizr.addTest('mac', navigator.platform.indexOf("Mac")!=-1);
-			Modernizr.addTest('linux', navigator.platform.indexOf("Linux")!=-1);
-			Modernizr.addTest('iphone', navigator.platform.indexOf("iPhone")!=-1);
-			Modernizr.addTest('ipad', navigator.platform.indexOf("iPad")!=-1);
-			Modernizr.addTest('android', navigator.platform.indexOf("Android")!=-1);
-
 			var megaNav = $("#mega-nav");
 
 			megaNav.accessibleMegaMenu({
