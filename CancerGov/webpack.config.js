@@ -16,7 +16,6 @@ module.exports = {
 	// TODO: Add CDN paths
 	entry: {
 		// Vendor:                   [
-		//                             'modernizr'
 		//                             // 'jquery-ui/ui/widgets/accordion',
 		//                             // 'jquery-ui/ui/widgets/autocomplete',
 		//                             // 'jquery-ui/ui/widgets/dialog',
@@ -27,8 +26,7 @@ module.exports = {
 		//                           ],
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
 		//"Babel-Polyfill":       'babel-polyfill',
-		Common:             ['modernizr','./UX/Common/Common'],
-		ContentPage:            './UX/Common/ContentPage',
+		Common:             	'./UX/Common/Common',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
 		InnerPage:              './UX/PageSpecific/Inner/InnerPage',
@@ -72,7 +70,6 @@ module.exports = {
 			// vendor scripts
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
 			// 'jquery-ui': '//code.jquery.com/ui/1.12.1/jquery-ui.min.js',
-			modernizr$: path.resolve(__dirname, "./.modernizrrc"),
 			Headroom$: 'headroom.js/dist/headroom.min',
 
 			// vendor jQuery plugins
@@ -120,7 +117,6 @@ module.exports = {
 			// this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
-			{ test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" },
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
@@ -151,14 +147,13 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.ProvidePlugin({
-			Modernizr: "modernizr",
 			Chart: 'Charts',
 			Headroom: 'Headroom'
 		}),
 
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'shared',
-			chunks: ['BlogPostPage', 'BlogSeriesPage', 'ContentPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
+			chunks: ['BlogPostPage', 'BlogSeriesPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
 			minChunks: 3
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
@@ -168,7 +163,7 @@ module.exports = {
 		}),
 
 
-
+		// This makes sure when styles are extracted into stylesheets nvcg, which is piped through common, retains it's original name.
 		new ExtractTextPlugin({
 			filename: getPath => {
 				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')

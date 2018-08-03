@@ -22,7 +22,6 @@ module.exports = function(grunt) {
             options: {
                 outfile: 'test/_SpecRunner_zepto.html',
                 vendor: [
-                    'js/vendor/custom.modernizr.js',
                     'js/vendor/zepto.js'
                 ],
             }
@@ -33,7 +32,6 @@ module.exports = function(grunt) {
             options: {
                 outfile: 'test/_SpecRunner_jquery.html',
                 vendor: [
-                    'js/vendor/custom.modernizr.js',
                     'js/vendor/jquery.js'
                 ]
             }

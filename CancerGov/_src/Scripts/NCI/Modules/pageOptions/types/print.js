@@ -14,6 +14,7 @@ const print = {
     initialize: language => settings => node => {
         const title = getContent(settings.textContent.title, language)();
         node.title = title;
+        node.setAttribute('aria-label', title);
         node.addEventListener('click', event => {
             event.preventDefault();
             window.print();
