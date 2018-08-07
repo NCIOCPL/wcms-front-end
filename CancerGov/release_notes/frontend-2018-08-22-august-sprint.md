@@ -4,6 +4,10 @@
 
 Description
 
+## [WCMSFEQ-1087] Stricter Dependency Management
+### (NO CONTENT CHANGES)
+
+Begin tracking package-lock.json for better out of the box dependency locking.
 
 # Content Changes
 
