@@ -4,6 +4,11 @@
 
 Description
 
+## [WCMSFEQ-1096] Stop PDQ navigation from updating og:url meta tag
+
+In order to meet the current requirement for social sharing via page options, we need to stop updating the og:url with hash paths. 
+In addition, deprecated code related to the old page options email sharing link was removed as cleanup.
+NO CONTENT CHANGES.
 
 # Content Changes
 
