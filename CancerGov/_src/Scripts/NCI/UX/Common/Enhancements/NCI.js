@@ -84,8 +84,6 @@ define(function (require) {
 
 		Nav: require('Common/Enhancements/NCI.Nav'),
 
-		Search: require('Common/Enhancements/NCI.Search'),
-
 		dictionary: require('Data/DictionaryService'),
 
 		page: require('Common/Enhancements/NCI.page'),

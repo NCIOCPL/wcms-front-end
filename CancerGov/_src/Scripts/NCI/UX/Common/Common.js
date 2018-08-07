@@ -21,7 +21,7 @@ define(function(require) {
     //require('fork-placeholders.js');
     
 	var NCI = require('Common/Enhancements/NCI');
-	//var search = require('Modules/search/search.js');
+	var search = require('Modules/search/search').default;
 	var exitDisclaimer = require('Common/Enhancements/exitDisclaimer');
 	var backToTop = require('Modules/backToTop/backToTop');
 	var NCIAccordion = require('Modules/accordion/accordion');
@@ -112,7 +112,7 @@ define(function(require) {
 
 			NCI.Nav.init();
 
-			NCI.Search.init();
+			search.init();
 		})();
 		/*** END mobile nav ***/
 

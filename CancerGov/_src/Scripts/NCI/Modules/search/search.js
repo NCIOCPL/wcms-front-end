@@ -1,7 +1,9 @@
-define(function(require) {
-	require('./WCMSFEQ-410');
-	var $ = require('jquery');
-	var nav = require('Common/Enhancements/NCI.Nav');
+import $ from 'jquery';
+import patch from './WCMSFEQ-410';
+import * as Nav from 'Common/Enhancements/NCI.Nav';
+//import './search.scss'; //styles are imported into nvcg.scss currently
+
+// This search module is for click events in the mobile and tablet top level navigation menu
 
 	var Search = {
 		classname: "searching",
@@ -11,25 +13,29 @@ define(function(require) {
 		$searchBtn: $(),
 
 		init: function() {
+			patch();
 			this.$form = $('#siteSearchForm');
 			this.$input = $('#swKeyword');
 			this.$searchBtn = $('.' + this.searchBtnClass);
 
-			this.$searchBtn.on('click.NCI.Search',this.mobile.show);
+			this.$searchBtn.on('click.NCI.Search',$.proxy(this.mobile.show, this));
 		},
 		mobile: {
 			clear: function() {
 				this.$input.val("");
 			},
 			show: function(e) {
-				var n = nav;
+				var n = Nav;
+				var self = this;
 				// console.log(this);
 				$("#nvcgSlMainNav").addClass(this.classname);
 				this.$input.focus();
 				if ($("#searchclear").length === 0) {
-					$("#sitesearch").after("<button id='searchclear' onclick='NCI.Search.mobile.clear();' type='reset'></button>");
+					$("#sitesearch").after("<button id='searchclear' type='reset'></button>");
+					
+					$("#searchclear").on('click',$.proxy(this.mobile.clear, this));
 				}
-				n.$openPanelBtn.off("click").on('click',this.mobile.hide);
+				n.$openPanelBtn.off("click").on('click',$.proxy(this.mobile.hide, this));
 
 				// set tabindex=-1 to items that should be removed from the tab order
 				$('.mobile-menu-bar').children().not(n.$openPanelBtn).each(function(i, el) {
@@ -39,12 +45,12 @@ define(function(require) {
 				});
 
 				// Enable focusing out to close
-				this.$form.add(n.$openPanelBtn).on('keydown.NCI.Search', function(event) {
+				this.$form.add(n.$openPanelBtn).on('keydown.NCI.Search', $.proxy(function(event) {
 					this.mobile.keyDownHandler(event);
-				});
+				}, this));
 			},
 			hide: function(e) {
-				var n = nav;
+				var n = Nav;
 				// Disable focusing out to close, before changing the focus
 				this.$form.add(n.$openPanelBtn).off('keydown.NCI.Search');
 
@@ -60,7 +66,8 @@ define(function(require) {
 				n.$openPanelBtn.off("click").on('click',n.toggleMobileMenu);
 			},
 			keyDownHandler: function(event) {
-				var n = nav;
+				var n = Nav;
+				var self = this;
 
 				if(event.keyCode === $.ui.keyCode.ESCAPE || (event.keyCode === $.ui.keyCode.TAB && ( // if the user pressed the ESC or TAB key
 					(n.$openPanelBtn.is(event.target) && event.shiftKey) || // if the user pressed SHIFT-TAB on the first tabbable item
@@ -71,12 +78,12 @@ define(function(require) {
 
 					setTimeout(function() {
 						// focus the search button
-						this.$searchBtn.focus();
+						self.$searchBtn.focus();
 					}, 0);
 				}
 			}
 		}
 	};
 
-	return Search;
-});
+	export default Search;
+
