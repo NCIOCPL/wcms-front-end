@@ -13,6 +13,7 @@ const pinterest = {
     textContent: {
         title: {
             'en': () => 'Pinterest',
+            'es': () => 'Pinterest',
         },
     },
     initialize: language => settings => node => {
