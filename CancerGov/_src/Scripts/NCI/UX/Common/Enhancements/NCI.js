@@ -80,8 +80,6 @@ define(function (require) {
 			return $nav;
 		},
 
-		Breakpoints: require('Modules/NCI.config'),
-
 		Buttons: require('Common/Enhancements/NCI.Buttons'),
 
 		Nav: require('Common/Enhancements/NCI.Nav'),
