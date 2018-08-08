@@ -23,6 +23,7 @@ define(function(require) {
 	var NCI = require('Common/Enhancements/NCI');
 	var search = require('Modules/search/search').default;
 	var mobilemenu = require('Modules/nav/mobilemenu').default;
+	var sectionmenu = require('Modules/nav/sectionmenu').default;
 	var exitDisclaimer = require('Common/Enhancements/exitDisclaimer');
 	var backToTop = require('Modules/backToTop/backToTop');
 	var NCIAccordion = require('Modules/accordion/accordion');
@@ -112,6 +113,8 @@ define(function(require) {
 			}
 
 			mobilemenu();
+
+			sectionmenu();
 
 			search.init();
 		})();

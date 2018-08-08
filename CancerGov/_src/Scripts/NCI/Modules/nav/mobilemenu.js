@@ -31,7 +31,7 @@ const initialize = () => {
 
 
   // insert the +/- buttons into the menu and wire up +/- button click events
-  var button = createButton()
+  var button = createSectionToggleButton()
   $megaChildren.append(button);
 
   // expand all children of the current page or contains-current
@@ -62,7 +62,7 @@ const initialize = () => {
   }
 };
 
-const createButton = () => {
+const createSectionToggleButton = () => {
   return $('<button>').addClass('toggle')
       .attr({
         'aria-expanded': 'false',
@@ -98,19 +98,16 @@ const toggleSection = (e) => {
   } else { // EXPANDING
       // collapse all the expanded siblings
       var siblings = li.siblings(".has-children");
-      var sib_btns = siblings.children(".nav-item-title").find("button[aria-expanded='true']");
+      var sib_btns = siblings.children("div:first-of-type").find("button[aria-expanded='true']");
       var sib_uls = siblings.children("ul");
     
-
+      // close any open siblings and their children
       sib_btns.attr('aria-expanded', 'false').children('span').text(text.Expand[lang]);
       sib_uls.slideUp("slow");
 
       // expand the one we clicked
       $this.attr('aria-expanded', 'true').children('span').text(text.Collapse[lang]);
-      // the various level <li>s themselves are hidden with CSS...
-      // toggling the .show() method here causes the list items to be revealed immediatly.
 
-      //li.find(".lvl-" + lvl + ", .level-" + lvl).show();
       ul.slideDown("slow");
   }
 };
