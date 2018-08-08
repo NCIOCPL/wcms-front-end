@@ -6,12 +6,11 @@ const lang = $('html').attr('lang') || 'en'; // set the language
 
 const movingClass = "nav-moving";
 const openClass = "nav-open";
-const openPanelClass = "open-panel";
 
 const $mega = $("#mega-nav");
 /* visible only on mobile, this is the menu bar itself, with hamburger & search buttons */
 const $mobile = $("#mega-nav > .nav-menu");
-const $openPanelBtn = $("." + openPanelClass);
+export const $openPanelBtn = $(".open-panel");
 /* Mega Nav is the huge RawHTML content block on desktop, but becomes the menu tree on mobile */
 const $megaChildren = $("#mega-nav .has-children > div");
 
@@ -207,7 +206,7 @@ const keyDownHandler = (event) => {
   }
 };
 
-const toggleMobileMenu = () => {
+export const toggleMobileMenu = () => {
   if (isOpen()) {
     close();
   } else {
