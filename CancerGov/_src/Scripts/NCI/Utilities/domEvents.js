@@ -22,3 +22,19 @@ export const keyHandler = options => e => {
         return fn();
     }
 }
+
+/**
+ * Dispatch custom events on a DOM node on execution... ADD MORE NOTES LATER
+ * 
+ * @param {HTMLElement} DOMNode 
+ * @param {string} [eventName = 'DEFAULT_CUSTOM_EVENT'] 
+ * @param {Object} [detail = {}] 
+ */
+export const emitCustomEvent = (DOMNode, eventName = 'DEFAULT_CUSTOM_EVENT', detail = {}) => {
+    const event = new CustomEvent(eventName, {
+        bubbles: true,
+        cancelable: true,
+        detail,
+    });
+    DOMNode.dispatchEvent(event);
+}
