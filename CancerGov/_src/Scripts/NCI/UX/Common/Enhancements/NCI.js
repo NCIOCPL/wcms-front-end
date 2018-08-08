@@ -80,10 +80,6 @@ define(function (require) {
 			return $nav;
 		},
 
-		Buttons: require('Common/Enhancements/NCI.Buttons'),
-
-		Nav: require('Common/Enhancements/NCI.Nav'),
-
 		dictionary: require('Data/DictionaryService'),
 
 		page: require('Common/Enhancements/NCI.page'),
