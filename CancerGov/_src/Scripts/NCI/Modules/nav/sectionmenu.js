@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import 'jquery-touchswipe';
-import {lang as text} from '../NCI.config';
+import {
+    lang as text
+} from '../NCI.config';
 
 const lang = $('html').attr('lang') || 'en'; // set the language
 
@@ -9,7 +11,7 @@ const $sectionMenuChildren = $('.section-nav .has-children > div').not('.level-0
 
 
 const initialize = () => {
-    if($sectionMenu.length > 0) {
+    if ($sectionMenu.length > 0) {
         // make the button to open the section nav
 
         var button = createSectionMenuButton();
@@ -28,7 +30,7 @@ const initialize = () => {
         // $sectionMenuChildren.parent('li').find("div.current-page > " + toggle.sel + ", .contains-current > div > " + toggle.sel)
         //     .attr("aria-expanded", "true").children('span').text(toggle._innerText[toggle.lang]['true']);
 
-        $(window).on('resize',resizeHandler);
+        $(window).on('resize', resizeHandler);
     }
 };
 
@@ -37,7 +39,7 @@ const createSectionMenuButton = () => {
         .attr('id', 'section-menu-button')
         .attr('href', '#')
         .text(text.Section_Menu[lang])
-        .on('click',toggleMenu)
+        .on('click', toggleMenu)
 };
 
 const toggleMenu = (e) => {
@@ -48,13 +50,13 @@ const toggleMenu = (e) => {
     var self = this;
 
     // slide up section nav
-    $sectionMenu.slideToggle(200, function() {
+    $sectionMenu.slideToggle(200, function () {
         // remove open class from button
         $("#section-menu-button").toggleClass('open', $(this).is(':visible'));
         $sectionMenu.toggleClass('open', $(this).is(':visible'));
         // TODO: fade effect on overlay?
         // TODO: overlay is over main nav, but under it once it's fixed - z-index inconsistency
-        if($sectionMenu.is(':visible')) {
+        if ($sectionMenu.is(':visible')) {
             /* section nav is OPEN */
             // append overlay div to content area for grey page overlay
             $('#content').append('<div id="overlay"></div>');
@@ -80,14 +82,18 @@ const createSectionToggleButton = () => {
 };
 
 const toggleSection = (e) => {
-    
+
     var $this = $(e.target),
         li = $this.closest(".has-children"), // parent LI of the clicked button
         ul = li.children("ul"), // UL menu item we are hiding / showing
         lvl = 0;
 
-    if (li.hasClass("lvl-1") || li.hasClass("level-1")) { lvl = 2; }
-    if (li.hasClass("lvl-2") || li.hasClass("level-2")) { lvl = 3; }
+    if (li.hasClass("lvl-1") || li.hasClass("level-1")) {
+        lvl = 2;
+    }
+    if (li.hasClass("lvl-2") || li.hasClass("level-2")) {
+        lvl = 3;
+    }
 
     if ($this.attr('aria-expanded') == 'true') { // CLOSING
         $this
@@ -123,11 +129,11 @@ const toggleSection = (e) => {
 const resizeHandler = () => {
 
     if (window.matchMedia("(min-width: 1024px)").matches) {
-        if($sectionMenu.is(':hidden')) {
+        if ($sectionMenu.is(':hidden')) {
             $sectionMenu.show();
         }
     } else {
-        if(!$sectionMenu.hasClass("open")) {
+        if (!$sectionMenu.hasClass("open")) {
             $sectionMenu.hide();
         }
     }
