@@ -25,17 +25,18 @@
     }
 }
 
-// TODO: use svg-sprite() instead of hardcoded background-position.  
-// If this is not fixed, the drop down arrows will break every time svg-sprite.svg is updated!!
-@mixin svgsprite-mixin { 
-    display: inline-block;
-    background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
-    background-position: 6.09756% 11.47%;
+// assign svg-sprite outside of media query
+.cthp-card-container .cthp-dropdown.more-info {
+    label {
+        &::before {
+            @include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
+        }
+    }
 }
+
 
 /* Tablet/Mobile styles */
 @include bp(large-up) {
-%svgsprite { @include svgsprite-mixin; }
 
 
 // When the accordion library event fires on resize it rewrites the DOM hierarchy and 
@@ -62,7 +63,7 @@
     // the youtube thumbnail in the current case) the rule for the z-index on this element has to be in the
     // same stylesheet as the elements we want it to sit above. 
     // See nvcg.scss for the z-index on this element.
-  
+
     h5 {
         display: none;
     }
@@ -84,29 +85,21 @@
         padding-right: calc(6% + 26.25px);
         cursor: pointer;
         text-align: left;
-        border-top: 1px solid #ccc;
-        border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
+        border: 1px solid #ccc;
         user-select: none;
         transition: background-color 150ms ease-in;
 
         &::before {
-            border-bottom: none;
             content: '';
-            @extend %svgsprite;
-            //@include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
-            //$svg-sprite: map-get($svg-icons, chevron-circle-lt-blue) !default;
-            height: 1.3125em;
-            //font-size: 20px;
-            margin-top: -8px;
             position: absolute;
             top: 44%;
-            transform-origin: center;
             right: 3%;
-            transition: transform 150ms ease-in;
             width: 1.3125em;
-            transform: rotate(180deg);
+            height: 1.3125em;
+            border-bottom: none;
+            margin-top: -8px;
+            transform-origin: center;
+            transition: transform 150ms ease-in;
         }
 
         &:hover {
@@ -185,5 +178,5 @@
     input[type=checkbox]:checked ~ ul {
         display: block;
     }
-  }
+}
 }
