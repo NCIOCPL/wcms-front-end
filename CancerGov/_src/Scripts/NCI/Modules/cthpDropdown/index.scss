@@ -36,6 +36,8 @@
 
 
 /* Tablet/Mobile styles */
+// Media query created for WCMSFEQ-950, so that when more than one link is manually inserted into the overview, 
+// they display as a dropdown menu on the tablet breakpoint or larger.
 @include bp(large-up) {
 
 
