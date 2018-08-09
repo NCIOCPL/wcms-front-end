@@ -13,7 +13,8 @@ const initialize = () => {
         // make the button to open the section nav
 
         var button = createSectionMenuButton();
-        button.insertAfter('.fixedtotop-spacer');
+        // button.insertAfter('.fixedtotop-spacer');
+        button.insertBefore('#nvcgSlSectionNav');
 
         // add margin to prevent the button from overlaying the page header
         $('.contentzone').addClass('has-section-nav');
@@ -51,6 +52,8 @@ const toggleMenu = (e) => {
         // remove open class from button
         $("#section-menu-button").toggleClass('open', $(this).is(':visible'));
         $sectionMenu.toggleClass('open', $(this).is(':visible'));
+        // TODO: fade effect on overlay?
+        // TODO: overlay is over main nav, but under it once it's fixed - z-index inconsistency
         if($sectionMenu.is(':visible')) {
             /* section nav is OPEN */
             // append overlay div to content area for grey page overlay
