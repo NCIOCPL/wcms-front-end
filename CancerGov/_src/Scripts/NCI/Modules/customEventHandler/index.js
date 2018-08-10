@@ -48,23 +48,21 @@ export const attachCustomEventHandler = () => {
 export const broadcastCustomEvent = createCustomEventBroadcaster(eventNamespace);
 
 
-export const registerCustomEventListener = listener => {
-    if(typeof listener !== 'function'){
+export const registerCustomEventListener = (eventType, listener) => {
+    if(typeof eventType !== 'string' && typeof listener !== 'function'){
         throw new Error('Expected custom event listener to be a function')
     }
     
-    //TODO: Use real hash (or use a MAP with the function as the key)
-    const hash = Date.now();
     registeredEventListeners = { 
         ...registeredEventListeners, 
-        hash: listener 
+        eventType: listener 
     };
-    return hash;
+    return eventType;
 }
 
-export const unregisterCustomEventListener = listenerId => {
+export const unregisterCustomEventListener = eventType => {
     const { 
-        listenerId: listener, 
+        eventType: listener, 
         ...otherListeners 
     } = registeredEventListeners;
     registeredEventListeners = otherListeners;
