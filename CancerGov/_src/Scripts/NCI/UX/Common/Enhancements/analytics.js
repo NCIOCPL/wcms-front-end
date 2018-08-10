@@ -52,8 +52,6 @@ define(function(require) {
                 NCIAnalytics[type](target, ...args);
             });
 
-            
-
             // If the screen is resized past a different breakpoint, track the variable and event
             function trackViewPortResize() {
                 var viewPortResized = getWidthForAnalytics();
