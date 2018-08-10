@@ -24,17 +24,22 @@ export const keyHandler = options => e => {
 }
 
 /**
- * Dispatch custom events on a DOM node on execution... ADD MORE NOTES LATER
+ * Return a customEventBroadcaster scoped to a given namespace.
  * 
- * @param {HTMLElement} DOMNode 
- * @param {string} [eventName = 'DEFAULT_CUSTOM_EVENT'] 
- * @param {Object} [detail = {}] 
+ * @param {string} eventNamespace
+ * @return {function} customEventHandler
  */
-export const emitCustomEvent = (DOMNode, eventName = 'DEFAULT_CUSTOM_EVENT', detail = {}) => {
-    const event = new CustomEvent(eventName, {
+export const createCustomEventBroadcaster = eventNamespace => (eventType, { 
+    node, 
+    data = {},
+}) => _event => {
+    const customEvent = new CustomEvent(eventNamespace, {
         bubbles: true,
         cancelable: true,
-        detail,
+        detail: {
+			eventType,
+			data
+        },
     });
-    DOMNode.dispatchEvent(event);
-}
+    node.dispatchEvent(customEvent);
+};
