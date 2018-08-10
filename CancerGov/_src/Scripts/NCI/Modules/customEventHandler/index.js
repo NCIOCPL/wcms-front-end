@@ -55,7 +55,7 @@ export const registerCustomEventListener = (eventType, listener) => {
     
     registeredEventListeners = { 
         ...registeredEventListeners, 
-        eventType: listener 
+        [eventType]: listener 
     };
     return eventType;
 }
