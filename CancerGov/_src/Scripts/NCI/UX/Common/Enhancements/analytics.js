@@ -46,9 +46,8 @@ define(function(require) {
         $(function() {
 
             // PAGE OPTIONS MODULE
-            registerCustomEventListener('NCI.page_option.clicked', event => {
-                const { target } = event;
-                const { type, args } = event.detail;
+            registerCustomEventListener('NCI.page_option.clicked', (target, data) => {
+                const { type, args } = data;
                 NCIAnalytics[type](target, ...args);
             });
 

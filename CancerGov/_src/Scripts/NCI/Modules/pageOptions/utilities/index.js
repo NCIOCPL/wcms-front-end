@@ -26,7 +26,7 @@ export const getURL = (document, metaData) => {
 }
 
 /**
- * TODO: Improve!!!!
+ * 
  * @param {Object} dict 
  * @param {string} language
  * @return {function}
@@ -70,9 +70,7 @@ export const onClickShareButton = ({
 export const onClickAnalytics = ({ 
     node, 
     detail = {},
-}) => {
-    return broadcastCustomEvent('NCI.page_option.clicked', {
-        node,
-        data: detail
-    })
-};
+}) => broadcastCustomEvent('NCI.page_option.clicked', {
+    node,
+    data: detail
+})
