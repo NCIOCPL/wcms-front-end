@@ -21,6 +21,7 @@ define(function (require) {
 	//require('fork-placeholders.js');
 
 	var NCI = require('Common/Enhancements/NCI');
+	var Page = require('Common/Enhancements/NCI.page');
 	var search = require('Modules/search/search').default;
 	var mobilemenu = require('Modules/nav/mobilemenu').default;
 	var sectionmenu = require('Modules/nav/sectionmenu').default;
@@ -179,12 +180,12 @@ define(function (require) {
 				}
 
 				// otherwise, build and set the outline
-				var outline = NCI.page.makeOutline(this);
+				var outline = Page.makeOutline(this);
 				$this.data('nci-outline', outline);
 			});
 
 			if ($('article').length > 0) {
-				NCI.buildOTP();
+				Page.buildOTP();
 			}
 		})();
 		/*** END page outlining ***/
