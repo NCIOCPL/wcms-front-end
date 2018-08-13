@@ -57,7 +57,7 @@ export const __attachCustomEventHandler__ = () => {
  * @return {function} Event Handler
  */
 export const broadcastCustomEvent = createCustomEventBroadcaster(customEventGlobalNamespace);
-console.log(broadcastCustomEvent)
+
 /**
  * Register an event listener to the customEventHandler listener store.
  * 
