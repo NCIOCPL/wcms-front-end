@@ -157,7 +157,7 @@
   }
 }
 
-//[WCMSFEQ-932] Basic CTS Print Pages oddities - add background border, align icons, remove floating "find trials" search button 
+//[WCMSFEQ-932] Basic CTS Print Pages oddities - add background border and align help icons for printing
 @media print {
   //adding background border to fieldset header
 	.cts-form fieldset legend {
@@ -170,10 +170,6 @@
   //align help icon
   .cts-form fieldset .text-icon-help {
     top: 8px;
-  }
-  //remove floating "find trials" search button
-  #submit-button-floating .columns {
-    display: none;
   }
 }
 
