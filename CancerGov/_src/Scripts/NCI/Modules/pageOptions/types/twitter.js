@@ -17,6 +17,7 @@ const twitter = {
     textContent: {
         title: {
             'en': () => 'Twitter',
+            'es': () => 'Twitter',
         },
     },
     initialize: language => settings => node => {

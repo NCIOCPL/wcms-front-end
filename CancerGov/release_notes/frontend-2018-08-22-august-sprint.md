@@ -6,12 +6,10 @@ Some App Module pages only receive the InnerPage template and provide no simple 
 NO CONTENT CHANGES.
 
 ## [WCMSFEQ-1091] jQuery UI Selectmenu Accessibility Fix
-### (NO CONTENT CHANGES)
 
 The crux of the problem was that the extension that was created to obviate the accessibility issues was loading after the first pass of the selectmenu plugin. Fixing the issue only required flipping the order of execution.
-
 However, to avoid similar issues in the future as well as to continue our efforts towards cleaning up Common.js, I have moved all the jquery UI extension scripts into their own file, which can be pulled in right after jquery itself and before any other modules (which may utilize jQuery UI) have a chance to execute.
-
+NO CONTENT CHANGES.
 
 ## [WCMSFEQ-1087] Stricter Dependency Management
 
@@ -27,6 +25,11 @@ NO CONTENT CHANGES.
 ## [WCMSFEQ-1088] Page Options Email Mailto Link - Fix URI Encoding
 
 Links with query params were not embedding correcting in pageOptions mailto href links. This fix corrects that by encoding the links with encodeURIComponent and the surrounding text with encodeURI.
+
+## [WCMSFEQ-1081] Hide Missing Language Warnings on Page Options
+
+The page options getContent utility function logs a warning when a piece of content does not have a translation in the desired language and is falling back to the English default. In the case of trademarked names like Google and Facebook, no translation is necessary so the fall.back works. However, to alleviate concerns about seeing warnings on Spanish pages in the console, I'm provided redundant spanish translations to stop the warning from appearing.
+NO CONTENT CHANGES.
 
 # Content Changes
 
