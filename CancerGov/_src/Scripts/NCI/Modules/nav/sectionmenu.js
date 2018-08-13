@@ -24,11 +24,23 @@ const initialize = () => {
 
         // add +/- buttons to section nav
         //toggle.createFor($sectionMenuChildren.not('.level-0 > div')).on('click', toggle.clickSection);
-        var button = createSectionToggleButton()
+
+        var button = createSectionToggleButton();
+
         $sectionMenuChildren.append(button);
 
-        // $sectionMenuChildren.parent('li').find("div.current-page > " + toggle.sel + ", .contains-current > div > " + toggle.sel)
-        //     .attr("aria-expanded", "true").children('span').text(toggle._innerText[toggle.lang]['true']);
+        // expand all children of the current page or contains-current
+        $sectionMenu.find("div.current-page > .toggle, .contains-current > div > .toggle")
+            .attr("aria-expanded", "true")
+            .children('span')
+            .text(text.Section_Menu[lang]);
+
+
+        // enable clicking outside the section-menu to close
+        var $overlay = $('<div id="overlay" style="display:none"></div>').click(toggleMenu);
+    
+        // append overlay div to content area for grey page overlay
+        $('#content').append($overlay);
 
         $(window).on('resize', resizeHandler);
     }
@@ -39,35 +51,31 @@ const createSectionMenuButton = () => {
         .attr('id', 'section-menu-button')
         .attr('href', '#')
         .text(text.Section_Menu[lang])
-        .on('click', toggleMenu)
+        .on('click', toggleMenu);
 };
 
 const toggleMenu = (e) => {
-    //Why is event propagation prevented?
-    //e.stopPropagation();
     e.preventDefault();
+    e.stopPropagation(); //stopPropagation is needed for the scrollToggle effect to work in Firefox. No idea why.
 
-    var self = this;
+    $("#overlay").fadeIn(200);
 
-    // slide up section nav
-    $sectionMenu.slideToggle(200, function () {
-        // remove open class from button
-        $("#section-menu-button").toggleClass('open', $(this).is(':visible'));
-        $sectionMenu.toggleClass('open', $(this).is(':visible'));
-        // TODO: fade effect on overlay?
-        // TODO: overlay is over main nav, but under it once it's fixed - z-index inconsistency
-        if ($sectionMenu.is(':visible')) {
-            /* section nav is OPEN */
-            // append overlay div to content area for grey page overlay
-            $('#content').append('<div id="overlay"></div>');
-            // enable clicking outside the section-menu to close
-            $('#overlay').click(toggleMenu);
-        } else {
-            /* section nav is CLOSED */
-            // remove grey overlay div
-            $('#overlay').remove();
+    $sectionMenu.slideToggle({
+        duration: 200,
+        start: function() {
+            if ($sectionMenu.is('.open')) {
+                // remove grey overlay div when slideToggle effect starts
+                $("#overlay").fadeOut(200);
+            }
+        },
+        complete: function () {
+            var isVisible = $sectionMenu.is(':visible');
+            //remove open class from button
+            $("#section-menu-button").toggleClass('open', isVisible);
+            $sectionMenu.toggleClass('open', isVisible);
         }
     });
+
 }
 
 const createSectionToggleButton = () => {
