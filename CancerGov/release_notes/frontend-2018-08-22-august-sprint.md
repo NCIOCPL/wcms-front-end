@@ -4,6 +4,12 @@
 
 Description
 
+
+## [WCMSFEQ-1087] Stricter Dependency Management
+
+Begin tracking package-lock.json for better out of the box dependency locking.
+NO CONTENT CHANGES.
+
 ## [WCMSFEQ-1096] Stop PDQ navigation from updating og:url meta tag
 
 In order to meet the current requirement for social sharing via page options, we need to stop updating the og:url with hash paths. 
@@ -13,7 +19,6 @@ NO CONTENT CHANGES.
 ## [WCMSFEQ-1088] Page Options Email Mailto Link - Fix URI Encoding
 
 Links with query params were not embedding correcting in pageOptions mailto href links. This fix corrects that by encoding the links with encodeURIComponent and the surrounding text with encodeURI.
-
 
 # Content Changes
 
