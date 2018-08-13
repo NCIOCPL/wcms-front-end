@@ -1,6 +1,6 @@
 import { createCustomEventBroadcaster } from 'Utilities/domEvents';
 
-const eventNamespace = 'NCI.UX.Action';
+export const customEventGlobalNamespace = 'NCI.UX.Action';
 let registeredEventListeners = {};
 let isCustomEventHandlerAttached = false;
 
@@ -42,7 +42,7 @@ export const __attachCustomEventHandler__ = () => {
             }
         };
     
-        window.addEventListener(eventNamespace, eventHandler);
+        window.addEventListener(customEventGlobalNamespace, eventHandler);
     }
 };
 
@@ -56,8 +56,8 @@ export const __attachCustomEventHandler__ = () => {
  * @param {object} [settings.data = {}] Any custom user data to be passed through the CustomEvent detail object
  * @return {function} Event Handler
  */
-export const broadcastCustomEvent = createCustomEventBroadcaster(eventNamespace);
-
+export const broadcastCustomEvent = createCustomEventBroadcaster(customEventGlobalNamespace);
+console.log(broadcastCustomEvent)
 /**
  * Register an event listener to the customEventHandler listener store.
  * 
