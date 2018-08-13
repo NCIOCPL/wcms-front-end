@@ -1,0 +1,4 @@
+{
+    "verbose": true,
+    "moduleDirectories": ["_src/Scripts/NCI", "node_modules"]
+}

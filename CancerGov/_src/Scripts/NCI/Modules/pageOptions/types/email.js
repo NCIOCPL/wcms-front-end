@@ -20,6 +20,7 @@ const email = {
     initialize: language => settings => node => {
         const title = getContent(settings.textContent.title, language)();
         node.title = title;
+        node.setAttribute('aria-label', title);       
         node.addEventListener('click', event => {
             const url = getURL(document);
             const href = getContent(settings.textContent.href, language)(url);
