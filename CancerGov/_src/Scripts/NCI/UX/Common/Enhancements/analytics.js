@@ -1,5 +1,6 @@
 define(function(require) {
-	var $ = require('jquery');
+    var $ = require('jquery');
+    const { registerCustomEventListener } = require('Modules/customEventHandler');
 
 	(function() {
 
@@ -45,11 +46,10 @@ define(function(require) {
         $(function() {
 
             // PAGE OPTIONS MODULE
-            window.addEventListener('NCI.page_option.clicked', event => {
-                const { target } = event;
-                const { type, args } = event.detail;
+            registerCustomEventListener('NCI.page_option.clicked', (target, data) => {
+                const { type, args } = data;
                 NCIAnalytics[type](target, ...args);
-            })
+            });
 
             // If the screen is resized past a different breakpoint, track the variable and event
             function trackViewPortResize() {

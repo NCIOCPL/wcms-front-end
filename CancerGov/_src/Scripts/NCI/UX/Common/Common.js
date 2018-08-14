@@ -10,6 +10,9 @@ define(function(require) {
     require('core-js/fn/string/includes');
     require('core-js/fn/string/starts-with');
 
+	var initializeCustomEventHandler = require('Modules/customEventHandler').default;
+	initializeCustomEventHandler();
+
     require('Common/Enhancements/analytics');
     require('StyleSheets/nvcg.scss');
 
