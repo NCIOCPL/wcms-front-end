@@ -1,5 +1,10 @@
 # Frontend-2018-08-22: FEQ August Release
 
+## [WCMSFEQ-980] A White Line Appears at the Bottom (below the footer) of different pages on IE-11
+
+On some spanish pages in IE only, a white line is appearing at the very bottom of the page (below the footer).  It seems to be an issue with the <sup>®</sup> and it having a CSS reset style of vertical-align: baseline. Added vertical-align: text-top the <sup> element to overwrite this and remove white line at the bottom of the page. NO CONTENT CHANGES.
+
+
 ## [WCMSFEQ-1086] Hide Font Resizer on App Module Pages
 
 Some App Module pages only receive the InnerPage template and provide no simple way to disable features that are required on other Inner Pages (such as those used for content). Because an appmodule specific class is added to the body element, we can use that to implement a hack to hide the font resizer using CSS.
