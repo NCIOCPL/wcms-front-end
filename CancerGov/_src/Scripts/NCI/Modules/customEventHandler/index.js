@@ -63,7 +63,6 @@ export const broadcastCustomEvent = createCustomEventBroadcaster(customEventGlob
  * 
  * @param {string} eventType the key used to reference the listener
  * @param {function} listener
- * @return {object} { eventType: string, listener: function }
  */
 export const registerCustomEventListener = (eventType, listener) => {
     if(typeof eventType !== 'string' && typeof listener !== 'function'){
@@ -75,27 +74,23 @@ export const registerCustomEventListener = (eventType, listener) => {
         ...registeredEventListeners, 
         [eventType]: registeredEventListeners.hasOwnProperty(eventType) ? [ ...registeredEventListeners[eventType], listener ] : [ listener ]
     };
-    return { eventType, listener };
 }
 
 /**
  * Remove a custom listener from the customEventHandler listener store.
  * 
  * @param {string} eventType
- * @return {object} { eventType: string, listener: function }
  */
 export const unregisterCustomEventListener = (eventType, listenerToUnregister) => {
     if(!registeredEventListeners.hasOwnProperty(eventType)){
-        // Can't unregister for an eventType that has no registered listeners
-        return;
+        throw new Error(`Can't unregister event of type ${ eventType }. No registered listeners exist for that type.`);
     }
 
     const listeners = registeredEventListeners[eventType];
     const filteredListeners = listeners.filter(listener => listener !== listenerToUnregister);
 
     if(listeners.length === filteredListeners.length){
-        // Specific listener could not be found in event type array to deregister
-        return;
+        throw new Error(`Cannot unregister a listener that is not previously registered.`);
     }
 
     if(filteredListeners.length){
@@ -112,6 +107,4 @@ export const unregisterCustomEventListener = (eventType, listenerToUnregister) =
         } = registeredEventListeners;
         registeredEventListeners = otherListeners;
     }
-    
-    return { eventType, listener: listenerToUnregister };
 }
