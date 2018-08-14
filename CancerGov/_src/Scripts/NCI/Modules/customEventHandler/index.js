@@ -86,11 +86,18 @@ export const registerCustomEventListener = (eventType, listener) => {
  */
 export const unregisterCustomEventListener = (eventType, listenerToUnregister) => {
     if(!registeredEventListeners.hasOwnProperty(eventType)){
+        // Can't unregister for an eventType that has no registered listeners
         return;
     }
 
     const listeners = registeredEventListeners[eventType];
     const filteredListeners = listeners.filter(listener => listener !== listenerToUnregister);
+
+    if(listeners.length === filteredListeners.length){
+        // Specific listener could not be found in event type array to deregister
+        return;
+    }
+
     if(filteredListeners.length){
         registeredEventListeners = {
             ...otherListeners,
