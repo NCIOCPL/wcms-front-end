@@ -36,7 +36,6 @@ export const __attachCustomEventHandler__ = () => {
             if(
                 typeof eventType === 'string' 
                 && registeredEventListeners.hasOwnProperty(eventType) 
-                && Array.isArray(registeredEventListeners[eventType])
             ){
                 const listeners = registeredEventListeners[eventType];
                 listeners.forEach(listener => listener(target, data));
@@ -91,8 +90,8 @@ export const unregisterCustomEventListener = (eventType, listenerToUnregister) =
     }
 
     const listeners = registeredEventListeners[eventType];
-    if(Array.isArray(listeners) && listeners.length){
-        const filteredListeners = listeners.filter(listener => listener !== listenerToUnregister);
+    const filteredListeners = listeners.filter(listener => listener !== listenerToUnregister);
+    if(filteredListeners.length){
         registeredEventListeners = {
             ...otherListeners,
             [eventType]: filteredListeners,
