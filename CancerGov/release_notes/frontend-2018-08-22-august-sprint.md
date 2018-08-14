@@ -1,5 +1,10 @@
 # Frontend-2018-08-22: FEQ August Release
 
+## [WCMSFEQ-1020] Use Sprite Mixin for CTHP dropdown styling
+
+The CTHP dropdown arrows were set up to use the svgsprite-mixin, but the background positioning was hardcoded.  This needed to be fixed because the dropdown arrows could potentially break whenever the svg-sprite.svg file was updated.  Instead of using the svg-sprite mixin within the Table/Mobile styles media query, the hardcoded positioning elements were removed and it was reassigned to outside the media query.
+
+
 ## [WCMSFEQ-1086] Hide Font Resizer on App Module Pages
 
 Some App Module pages only receive the InnerPage template and provide no simple way to disable features that are required on other Inner Pages (such as those used for content). Because an appmodule specific class is added to the body element, we can use that to implement a hack to hide the font resizer using CSS.
