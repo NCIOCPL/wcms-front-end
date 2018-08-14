@@ -86,7 +86,7 @@ export const registerCustomEventListener = (eventType, listener) => {
  */
 export const unregisterCustomEventListener = (eventType, listenerToUnregister) => {
     if(!registeredEventListeners.hasOwnProperty(eventType)){
-        return;
+        throw new Error(`Event type, ${ eventType } has no registered listenters.`)
     }
 
     const listeners = registeredEventListeners[eventType];
