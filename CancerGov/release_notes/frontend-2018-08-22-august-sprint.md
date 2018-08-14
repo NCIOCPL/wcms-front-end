@@ -31,6 +31,11 @@ Links with query params were not embedding correcting in pageOptions mailto href
 The page options getContent utility function logs a warning when a piece of content does not have a translation in the desired language and is falling back to the English default. In the case of trademarked names like Google and Facebook, no translation is necessary so the fall.back works. However, to alleviate concerns about seeing warnings on Spanish pages in the console, I'm provided redundant spanish translations to stop the warning from appearing.
 NO CONTENT CHANGES.
 
+## [WCMSFEQ-1099] Updates to s_code
+###(Requires updating static.cancer.gov)
+
+Changes in concert with a CDE release. See Dion for deployment step. (He will be handling it). This was a working CDE branch that got merged into FEQ.
+
 # Content Changes
 
 ## [WCMSFEQ-###] Ticket Title
