@@ -1,7 +1,6 @@
 import { CTSBaseFormSetup } from './cts-base-form-setup';
 import { DiseaseResult } from 'Services/clinical-trials';
 import { CTAPIFacade } from 'UX/AppModuleSpecific/BasicCTS/Common/ctapi-facade';
-import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect"; 
 import "UX/Common/Plugins/Widgets/jquery.ui.highlighterautocomplete";
 

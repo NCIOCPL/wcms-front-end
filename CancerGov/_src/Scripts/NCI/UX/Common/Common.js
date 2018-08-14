@@ -20,7 +20,6 @@ define(function (require) {
 	require('Plugins/jquery.nci.prevent_enter');
 	//require('fork-placeholders.js');
 
-	var NCI = require('Common/Enhancements/NCI');
 	var Page = require('Common/Enhancements/NCI.page');
 	var search = require('Modules/search/search').default;
 	var mobilemenu = require('Modules/nav/mobilemenu').default;
@@ -218,12 +217,6 @@ define(function (require) {
 		(function () {
 			proactiveLiveHelp();
 		})();
-
-		// Blue Ribbon Panel - Page Specific
-		// removed on 6.7.17 by MTN require to NCI.Video.js, pages/fuctionality no longer used
-		// require("Common/Enhancements/NCI.Video").init();
-
-
 
 
 	});
