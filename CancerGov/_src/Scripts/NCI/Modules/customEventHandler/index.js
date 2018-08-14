@@ -36,9 +36,10 @@ export const __attachCustomEventHandler__ = () => {
             if(
                 typeof eventType === 'string' 
                 && registeredEventListeners.hasOwnProperty(eventType) 
-                && typeof registeredEventListeners[eventType] === 'function'
+                && Array.isArray(registeredEventListeners[eventType])
             ){
-                registeredEventListeners[eventType](target, data);
+                const listeners = registeredEventListeners[eventType];
+                listeners.forEach(listener => listener(target, data));
             }
         };
     
@@ -62,31 +63,49 @@ export const broadcastCustomEvent = createCustomEventBroadcaster(customEventGlob
  * Register an event listener to the customEventHandler listener store.
  * 
  * @param {string} eventType the key used to reference the listener
- * @param {function} listener 
+ * @param {function} listener
+ * @return {object} { eventType: string, listener: function }
  */
 export const registerCustomEventListener = (eventType, listener) => {
     if(typeof eventType !== 'string' && typeof listener !== 'function'){
         throw new Error('Expected custom event listener to be a function')
     }
     
+    // If the eventType is already registered we want to add to the array, otherwise create a new array of listeners
     registeredEventListeners = { 
         ...registeredEventListeners, 
-        [eventType]: listener 
+        [eventType]: registeredEventListeners.hasOwnProperty(eventType) ? [ ...registeredEventListeners[eventType], listener ] : [ listener ]
     };
-    return eventType;
+    return { eventType, listener };
 }
 
 /**
  * Remove a custom listener from the customEventHandler listener store.
  * 
  * @param {string} eventType
- * @return {function} listener
+ * @return {object} { eventType: string, listener: function }
  */
-export const unregisterCustomEventListener = eventType => {
-    const { 
-        [eventType]: listener, 
-        ...otherListeners 
-    } = registeredEventListeners;
-    registeredEventListeners = otherListeners;
-    return listener;
+export const unregisterCustomEventListener = (eventType, listenerToUnregister) => {
+    if(!registeredEventListeners.hasOwnProperty(eventType)){
+        return;
+    }
+
+    const listeners = registeredEventListeners[eventType];
+    if(Array.isArray(listeners) && listeners.length){
+        const filteredListeners = listeners.filter(listener => listener !== listenerToUnregister);
+        registeredEventListeners = {
+            ...otherListeners,
+            [eventType]: filteredListeners,
+        };
+    }
+    else{
+        // Delete the property if the array is empty
+        const { 
+            [eventType]: listener, 
+            ...otherListeners 
+        } = registeredEventListeners;
+        registeredEventListeners = otherListeners;
+    }
+    
+    return { eventType, listener: listenerToUnregister };
 }
