@@ -11,6 +11,7 @@ const googleplus = {
     textContent: {
         title: {
             'en': () => 'Google+',
+            'es': () => 'Google+',
         },
     },
     initialize: language => settings => node => {
