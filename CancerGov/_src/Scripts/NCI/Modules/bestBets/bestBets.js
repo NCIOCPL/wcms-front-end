@@ -41,7 +41,7 @@ define(function (require) {
 
 	// get the full definition from the dictionary service
 	var _getDefinition = function (term) {
-		return DictionaryService.search('term', _fetchTerm(), longLang);
+		return DictionaryService.search('term', _fetchTerm(), longLang, 'exact');
 	};
 
 	// render the defintion to produce the content and html
