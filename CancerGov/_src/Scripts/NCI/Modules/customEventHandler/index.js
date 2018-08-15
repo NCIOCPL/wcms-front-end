@@ -23,27 +23,29 @@ export default initialize;
  * It is only being exported for testing purposes.
  */
 export const __attachCustomEventHandler__ = () => {
-    if(typeof window !== undefined){
-        const eventHandler = event => {
-            const { 
-                target, 
-                detail = {}
-            } = event;
-            const { 
-                eventType, 
-                data
-            } = detail;
-            if(
-                typeof eventType === 'string' 
-                && registeredEventListeners.hasOwnProperty(eventType) 
-            ){
-                const listeners = registeredEventListeners[eventType];
-                listeners.forEach(listener => listener(target, data));
-            }
-        };
-    
-        window.addEventListener(customEventGlobalNamespace, eventHandler);
+    if(typeof window == undefined){
+        throw new Error('No global window present, cannot initialize customEventHandler');
     }
+
+    const eventHandler = event => {
+        const { 
+            target, 
+            detail = {}
+        } = event;
+        const { 
+            eventType, 
+            data
+        } = detail;
+        if(
+            typeof eventType === 'string' 
+            && registeredEventListeners.hasOwnProperty(eventType) 
+        ){
+            const listeners = registeredEventListeners[eventType];
+            listeners.forEach(listener => listener(target, data));
+        }
+    };
+
+    window.addEventListener(customEventGlobalNamespace, eventHandler);
 };
 
 /**
@@ -65,8 +67,8 @@ export const broadcastCustomEvent = createCustomEventBroadcaster(customEventGlob
  * @param {function} listener
  */
 export const registerCustomEventListener = (eventType, listener) => {
-    if(typeof eventType !== 'string' && typeof listener !== 'function'){
-        throw new Error('Expected custom event listener to be a function')
+    if(typeof eventType !== 'string' || typeof listener !== 'function'){
+        throw new Error('Expected eventType to be a string and listener to be a function')
     }
     
     // If the eventType is already registered we want to add to the array, otherwise create a new array of listeners
@@ -82,6 +84,10 @@ export const registerCustomEventListener = (eventType, listener) => {
  * @param {string} eventType
  */
 export const unregisterCustomEventListener = (eventType, listenerToUnregister) => {
+    if(typeof eventType !== 'string' || typeof listenerToUnregister !== 'function'){
+        throw new Error('Expected eventType to be a string and listener to unregister to be a function')
+    }
+
     if(!registeredEventListeners.hasOwnProperty(eventType)){
         throw new Error(`Can't unregister event of type ${ eventType }. No registered listeners exist for that type.`);
     }
@@ -95,7 +101,7 @@ export const unregisterCustomEventListener = (eventType, listenerToUnregister) =
 
     if(filteredListeners.length){
         registeredEventListeners = {
-            ...otherListeners,
+            ...registeredEventListeners,
             [eventType]: filteredListeners,
         };
     }
