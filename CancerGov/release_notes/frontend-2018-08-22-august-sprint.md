@@ -92,6 +92,11 @@ registerCustomEventListener('NCI.animated-button.click', animatedButtonClickAnal
 ...
 ```
 
+## [WCMSFEQ-1098] Hotfix to NCI Logo analytics
+### (NO CONTENT CHANGES)
+
+A few years ago the class being attached to the main NCI logo and the analytics function hooking into it got out of sync. This change is just pointing the existing analytics function at the correct selector.
+
 # Content Changes
 
 ## [WCMSFEQ-###] Ticket Title
