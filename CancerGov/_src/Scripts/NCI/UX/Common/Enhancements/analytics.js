@@ -149,7 +149,7 @@ define(function(require) {
                 });
             });
 
-            $('.nci-logo')
+            $('.nci-logo-pages')
                 .on('click.analytics', function (event) {
                     NCIAnalytics.LogoClick(this)
                 });
