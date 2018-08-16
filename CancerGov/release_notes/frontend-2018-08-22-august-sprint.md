@@ -32,7 +32,7 @@ The page options getContent utility function logs a warning when a piece of cont
 NO CONTENT CHANGES.
 
 ## [WCMSFEQ-1099] Updates to s_code
-###(Requires updating static.cancer.gov)
+### (Requires updating static.cancer.gov)
 
 Changes in concert with a CDE release. See Dion for deployment step. (He will be handling it). This was a working CDE branch that got merged into FEQ.
 
@@ -96,6 +96,11 @@ registerCustomEventListener('NCI.animated-button.click', animatedButtonClickAnal
 ### (NO CONTENT CHANGES)
 
 A few years ago the class being attached to the main NCI logo and the analytics function hooking into it got out of sync. This change is just pointing the existing analytics function at the correct selector.
+
+## [WCMSFEQ-932] All Basic CTS pages (Search Form, Search Results Page and Trial Description Page) looks weird when printed
+### (NO CONTENT CHANGES)
+
+When printed, the basic CTS pages were missing a border around the fieldset headers (for Cancer Type/Keyword, Age, and U.S. Zip Code) due to the fieldsets using a background color on the page  - background colors do not get printed.  The help icons appeared to be off-center due to the missing background color.  Added a print media query to _cts.basic.scss with a background border for the fieldset legends, and aligned the help icon to the vertical center of the fieldset.
 
 # Content Changes
 
