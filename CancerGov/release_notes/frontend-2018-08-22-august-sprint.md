@@ -97,6 +97,11 @@ registerCustomEventListener('NCI.animated-button.click', animatedButtonClickAnal
 
 A few years ago the class being attached to the main NCI logo and the analytics function hooking into it got out of sync. This change is just pointing the existing analytics function at the correct selector.
 
+## [WCMSFEQ-1062] Port CTS Tests from Karma/Mocha/Chai/Sinon to Jest
+### (NO CONTENT CHANGES)
+
+Now that we have Jest in place as the FEQ test framework of choice. Tests previously supported by a Karma suite needed to be ported over.
+
 # Content Changes
 
 ## [WCMSFEQ-###] Ticket Title
