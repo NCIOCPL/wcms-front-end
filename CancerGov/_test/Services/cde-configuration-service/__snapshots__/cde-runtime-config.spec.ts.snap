@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Services.CDEConfigurationService.CDERuntimeConfig should override defaults 1`] = `
+CDEDefaultConfiguration {
+  "ClinicalTrialsAPIServer": "clinicaltrialsapi.cancer.gov",
+  "GoogleAPIKey": "AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg",
+}
+`;
+
+exports[`Services.CDEConfigurationService.CDERuntimeConfig should return defaults when no config loaded 1`] = `
+CDEDefaultConfiguration {
+  "ClinicalTrialsAPIServer": "clinicaltrialsapi.cancer.gov",
+  "GoogleAPIKey": "AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg",
+}
+`;

@@ -1,4 +1,3 @@
-import { expect, assert } from 'chai';
 import { CDERuntimeConfig, CDEConfiguration } from '../../../_src/Scripts/NCI/Services/cde-configuration-service';
 
 describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
@@ -10,7 +9,7 @@ describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
       ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov"
     };
 
-    expect(actual).to.eql(expected);
+    expect(actual).toMatchSnapshot();
   });
 
   it('should override defaults', () => {
@@ -31,7 +30,7 @@ describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
       ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov"
     };
 
-    expect(actual).to.eql(expected);
+    expect(actual).toMatchSnapshot();
   });
 
 });
