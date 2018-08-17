@@ -1,4 +1,21 @@
 {
     "verbose": true,
-    "moduleDirectories": ["_src/Scripts/NCI", "node_modules"]
+    "moduleDirectories": ["_src/Scripts/NCI", "node_modules"],
+    "transform": {
+        "^.+\\.js$": "babel-jest",
+        "^.+\\.(ts|tsx)$": "ts-jest"
+      },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json"
+    ],
+    "globals": {
+        "ts-jest": {
+            "useBabelrc": true
+        }
+    }
 }
