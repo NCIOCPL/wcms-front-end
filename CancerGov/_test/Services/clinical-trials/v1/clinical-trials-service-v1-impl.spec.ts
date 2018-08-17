@@ -1,4 +1,3 @@
-import { expect, assert } from 'chai';
 import * as TypeMoq from 'typemoq';
 
 import { CTAPIConnection, TermResults } from '../../../../_src/Scripts/NCI/Services/clinical-trials';
@@ -51,9 +50,9 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
 
-                    expect(path).to.be.eq('/terms');
+                    expect(path).toBe('/terms');
 
-                    expect(params).to.be.deep.eq({
+                    expect(params).toEqual({
                         term_type: "term_type",
                         size: 10,
                         from: 0
@@ -69,9 +68,9 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
-                    expect(path).to.be.eq('/terms');
+                    expect(path).toBe('/terms');
 
-                    expect(params).to.be.deep.eq({
+                    expect(params).toEqual({
                         term_type: "term_type",
                         term: "begin",
                         size: 10,
@@ -90,9 +89,9 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
-                    expect(path).to.be.eq('/terms');
+                    expect(path).toBe('/terms');
 
-                    expect(params).to.be.deep.eq({
+                    expect(params).toEqual({
                         term_type: "term_type",
                         term: "begin",
                         size: 20,
@@ -114,13 +113,13 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
 
         it('should handle JSON response', () => {
 
-            expect(true).to.be.true;            
+            expect(true).toBe(true);            
         })
     });
 
     describe('getInterventions', () => {
         it('should have unit tests', () => {
-           expect(true).to.be.true;
+           expect(true).toBe(true);
         });
     });
 });
