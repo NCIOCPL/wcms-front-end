@@ -1,4 +1,3 @@
-import { expect, assert } from 'chai';
 import * as TypeMoq from 'typemoq';
 
 import { ClinicalTrialsService, TermResults, DiseaseResult, DiseaseResults, TermResult, InterventionResults, InterventionResult } from '../../../../../_src/Scripts/NCI/Services/clinical-trials';
@@ -187,13 +186,13 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq(COUNTRY_KEY);
-                    expect(size).to.be.eq(100);
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(termType).toBe(COUNTRY_KEY);
+                    expect(size).toBe(100);
+                    expect(additionalParams).toEqual({
                         sort: 'term',
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
@@ -228,13 +227,13 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq("sites.org_country");
-                    expect(size).to.be.eq(100);
-                    expect(additionalParams).to.eql({
+                    expect(termType).toBe("sites.org_country");
+                    expect(size).toBe(100);
+                    expect(additionalParams).toEqual({
                         sort: "term",
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
@@ -245,7 +244,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.getCountries()
                     .then((actual:string[]) => {
-                        expect(actual).to.eql(["Argentina", "Australia"]);
+                        expect(actual).toEqual(["Argentina", "Australia"]);
                     });
         });
 
@@ -262,14 +261,14 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq(HOSPITAL_KEY);
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(termType).toBe(HOSPITAL_KEY);
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         term: 'mayo',
                         sort: 'term',
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
@@ -295,14 +294,14 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq("sites.org_name");
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.eql({
+                    expect(termType).toBe("sites.org_name");
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         sort: "term",
                         term: "mayo clinic in arizona",
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
@@ -313,7 +312,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.searchHospital('mayo clinic in arizona')
                     .then((actual:TermResult[]) => {
-                        expect(actual).to.eql(res.terms);
+                        expect(actual).toEqual(res.terms);
                     });
         });
     });
@@ -327,10 +326,10 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
                 (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
                     //Callback for assetions.
-                    expect(category).to.eql(['Agent', 'Agent Category']);
-                    expect(name).to.be.eq('bev');
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(category).toEqual(['Agent', 'Agent Category']);
+                    expect(name).toBe('bev');
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         current_trial_status: VIEWABLE_TRIALS
                     });
                 },
@@ -359,10 +358,10 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
                 (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
                     //Callback for assetions.
-                    expect(category).to.eql(['Agent', 'Agent Category']);
-                    expect(name).to.be.eq('Trastuzumab');
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.eql({
+                    expect(category).toEqual(['Agent', 'Agent Category']);
+                    expect(name).toBe('Trastuzumab');
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         current_trial_status: VIEWABLE_TRIALS
                     });
                 },
@@ -375,7 +374,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.searchDrugs('Trastuzumab')
                     .then((actual:InterventionResult[]) => {
-                        expect(actual).to.eql(res.terms);
+                        expect(actual).toEqual(res.terms);
                     });
         });
 
@@ -390,10 +389,10 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
                 (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
                     //Callback for assetions.
-                    expect(category).to.be.eq("Other");
-                    expect(name).to.be.eq('therapy');
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(category).toBe("Other");
+                    expect(name).toBe('therapy');
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         //name: 'therapy',
                         //sort: 'name',
                         current_trial_status: VIEWABLE_TRIALS
@@ -427,10 +426,10 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getInterventionsParameterTestMock(
                 (category?: string | string[], name?: string, size?: number, additionalParams?:any, sort?: string, order?: string) => {
                     //Callback for assetions.
-                    expect(category).to.be.eq("Other");
-                    expect(name).to.be.eq('Ablation Therapy');
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.eql({
+                    expect(category).toBe("Other");
+                    expect(name).toBe('Ablation Therapy');
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         current_trial_status: VIEWABLE_TRIALS
                     });
                 },
@@ -443,7 +442,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.searchOtherInterventions('Ablation Therapy')
                     .then((actual:InterventionResult[]) => {
-                        expect(actual).to.eql(res.terms);
+                        expect(actual).toEqual(res.terms);
                     });
         });
     });
@@ -457,9 +456,9 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getDiseaseParameterTestMock(
                 (menuType: string | string[], diseaseAncestorIDs?: string | string[], additionalParams?:any) => {
                     //Callback for assetions.
-                    expect(menuType).to.eql(["maintype", "subtype", "stage"],);
-                    expect(diseaseAncestorIDs).to.be.undefined;
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(menuType).toEqual(["maintype", "subtype", "stage"]);
+                    expect(diseaseAncestorIDs).toBeUndefined();
+                    expect(additionalParams).toEqual({
                         name: "breast",
                         size: 10,
                         sort: "cancergov",
@@ -488,9 +487,9 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getDiseaseParameterTestMock(
                 (menuType: string | string[], diseaseAncestorIDs?: string | string[], additionalParams?:any) => {
                     //Callback for assetions.
-                    expect(menuType).to.eql(["maintype", "subtype", "stage"])
-                    expect(diseaseAncestorIDs).to.be.undefined;
-                    expect(additionalParams).to.eql({
+                    expect(menuType).toEqual(["maintype", "subtype", "stage"])
+                    expect(diseaseAncestorIDs).toBeUndefined();
+                    expect(additionalParams).toEqual({
                         name: "Bilateral Breast Cancer",
                         size: 10,
                         sort: "cancergov",
@@ -506,7 +505,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.getDiseasesForSimpleTypeAhead('Bilateral Breast Cancer')
                     .then((actual:DiseaseResult[]) => {
-                        expect(actual).to.eql(res.terms);
+                        expect(actual).toEqual(res.terms);
                     });
         });
     }); 
@@ -522,14 +521,14 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq(TRIAL_INVESTIGATORS_KEY);
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(termType).toBe(TRIAL_INVESTIGATORS_KEY);
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         term: 'david',
                         sort: 'term',
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
@@ -563,14 +562,14 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq("principal_investigator");
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.eql({
+                    expect(termType).toBe("principal_investigator");
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         sort: "term",
                         term: "david",
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
@@ -581,7 +580,7 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             //run the assertions in a then.
             return facade.searchTrialInvestigators('david')
                     .then((actual:TermResult[]) => {
-                        expect(actual).to.eql(res.terms);
+                        expect(actual).toEqual(res.terms);
                     });
         });
 
@@ -598,14 +597,14 @@ describe('UX.AppModuleSpecific.BasicCTS.Common.CTAPIFacade', () => {
             let svcMock:TypeMoq.IMock<ClinicalTrialsService> = getTermsParameterTestMock(
                 (termType: string, additionalParams?:any, size?:number, from?:number) => {
                     //Callback for assetions.
-                    expect(termType).to.be.eq(LEAD_ORG_KEY);
-                    expect(size).to.be.eq(10);
-                    expect(additionalParams).to.be.deep.eq({
+                    expect(termType).toBe(LEAD_ORG_KEY);
+                    expect(size).toBe(10);
+                    expect(additionalParams).toEqual({
                         term: 'mayo',
                         sort: 'term',
                         current_trial_statuses: VIEWABLE_TRIALS
                     });
-                    expect(from).to.be.undefined;
+                    expect(from).toBeUndefined();
                 },
                 res
             );
