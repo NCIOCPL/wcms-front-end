@@ -1,5 +1,3 @@
-import { expect, assert } from 'chai';
-
 import { TermResult } from '../../../../_src/Scripts/NCI/Services/clinical-trials';
 
 describe('Services.ClinicalTrials.Model.TermResult', () => {
@@ -29,7 +27,7 @@ describe('Services.ClinicalTrials.Model.TermResult', () => {
             let actual: TermResult = TermResult.fromJSON(s);
 
             //Deep Equal because they are class instances
-            expect(actual).to.deep.eq(expected);
+            expect(actual).toEqual(expected);
         });
 
         /**
@@ -64,7 +62,7 @@ describe('Services.ClinicalTrials.Model.TermResult', () => {
             let actual: TermResult = TermResult.fromJSON(s);
 
             //Deep Equal because they are class instances
-            expect(actual).to.deep.eq(expected);
+            expect(actual).toEqual(expected);
         });
         
         /**
@@ -91,7 +89,7 @@ describe('Services.ClinicalTrials.Model.TermResult', () => {
             let actual: TermResult = TermResult.fromJSON(obj);
 
             //Deep Equal because they are class instances
-            expect(actual).to.deep.eq(expected);
+            expect(actual).toEqual(expected);
 
         });
         
@@ -125,7 +123,7 @@ describe('Services.ClinicalTrials.Model.TermResult', () => {
             let actual: TermResult = TermResult.fromJSON(obj);
 
             //Deep Equal because they are class instances
-            expect(actual).to.deep.eq(expected);
+            expect(actual).toEqual(expected);
         });
 
     });
