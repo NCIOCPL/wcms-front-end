@@ -1,4 +1,3 @@
-import { expect, assert } from 'chai';
 import * as TypeMoq from 'typemoq';
 
 import { ClinicalTrialsServiceFactory, ClinicalTrialsService } from '../../../_src/Scripts/NCI/Services/clinical-trials';
@@ -12,7 +11,7 @@ describe('Services.ClinicalTrials.ClinicalTrialsServiceFactory', () => {
             let svc:ClinicalTrialsService = ClinicalTrialsServiceFactory.create('myhostname');
 
             //Make sure it returned a v1 impl
-            expect(svc instanceof ClinicalTrialsServiceV1Impl).to.be.true;
+            expect(svc instanceof ClinicalTrialsServiceV1Impl).toBe(true);
             
             //TODO: Figure out if we can get to the CTAPIConnectionV1Impl object, or inspect the constructor params.
         });
@@ -20,7 +19,7 @@ describe('Services.ClinicalTrials.ClinicalTrialsServiceFactory', () => {
         it('should return error for unsupported version', () => {
             expect(()=> {
                 let svc:ClinicalTrialsService = ClinicalTrialsServiceFactory.create('myhostname', 'vX');
-            }).to.throw('You must specify a valid Clinical Trials Service version');            
+            }).toThrow('You must specify a valid Clinical Trials Service version');            
         });
         
     });
