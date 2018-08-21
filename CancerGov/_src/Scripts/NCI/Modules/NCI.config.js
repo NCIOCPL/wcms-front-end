@@ -38,6 +38,10 @@ export const lang = {
         en: 'Hide',
         es: 'Ocultar'
     },
+    OnThisPage: {
+        en: 'On This Page',
+        es: 'En Esta Página'
+    },
     Search: {
         en: 'Search',
         es: 'Buscar'

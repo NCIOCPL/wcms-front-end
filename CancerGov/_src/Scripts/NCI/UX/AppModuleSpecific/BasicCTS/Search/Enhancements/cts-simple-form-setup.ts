@@ -1,6 +1,5 @@
 import { CTSBaseFormSetup } from './cts-base-form-setup';
 import { DiseaseResult} from 'Services/clinical-trials';
-import * as NCI from "UX/Common/Enhancements/NCI"; 
 import "../../Common/Plugins/Widgets/jquery.ui.ctssimpletermbox";
 
 /**

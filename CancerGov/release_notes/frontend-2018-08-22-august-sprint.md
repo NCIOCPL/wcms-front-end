@@ -1,5 +1,13 @@
 # Frontend-2018-08-22: FEQ August Release
 
+## [WCMSFEQ-646] Modularize the NCI Global Object
+
+NCI.js has been removed as a module that assigns several other modules to a global variable. Instead, modules are now imported where they are required to better enable dependency management and tree shaking.
+Other changes coming through with this update include:
+  * Fix for the black line that appears under the megamenu items due to pixel rounding
+  * Fixing the broken mobile menu section animations
+  * Fixing tab order of Section Menu button
+
 ## [WCMSFEQ-980] A White Line Appears at the Bottom (below the footer) of different pages on IE-11
 
 On some spanish pages in IE only, a white line is appearing at the very bottom of the page (below the footer).  It seems to be an issue with the <sup>®</sup> and it having a CSS reset style of vertical-align: baseline. Added vertical-align: text-top the <sup> element to overwrite this and remove white line at the bottom of the page. NO CONTENT CHANGES.

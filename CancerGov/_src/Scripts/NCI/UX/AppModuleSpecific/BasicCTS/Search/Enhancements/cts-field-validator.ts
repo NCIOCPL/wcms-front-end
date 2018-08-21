@@ -1,5 +1,4 @@
 import { NCIBaseEnhancement } from 'UX/core';
-import * as NCI from "UX/Common/Enhancements/NCI";
 import "../../Common/Plugins/Widgets/jquery.ui.ctsautoselect";
 import "../../Search/Plugins/jquery.basicctsformtrack";
 import "../../../../../Patches/AdobeAnalytics";

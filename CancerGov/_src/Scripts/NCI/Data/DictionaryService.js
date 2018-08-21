@@ -40,7 +40,7 @@ define(function(require) {
 
 		/**
 		 * Performs a search for terms with names that start with or contain certain text.
-		 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
+		 * @param {dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
 		 * @param {string} searchText - The text to search for.
 		 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
 		 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains'.
@@ -81,7 +81,7 @@ define(function(require) {
 
 		/**
 		 * Lightweight method to search for terms matching searchText. This method is intended for use with autosuggest and returns a maximum of 10 results.
-		 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
+		 * @param {dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
 		 * @param {string} searchText - The text to search for.
 		 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
 		 * @param {string} [searchType='begins'] - What kind of search to perform. Valid values are: 'begins', 'contains', 'magic'.
@@ -116,7 +116,7 @@ define(function(require) {
 
 		/**
 		 * Performs a search for a single specific term given the term's CDR ID.
-		 * @param {NCI.dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
+		 * @param {dictionary.dictionaries} dictionary - The dictionary to use for search and results. Valid values are: 'term', 'drug', 'genetic'.
 		 * @param {string} termID - ID of the term to retrieve.
 		 * @param {string} [language='English'] - The language to use for search and results. Valid values are: 'English', 'Spanish'. For the genetic and drug dictionaries, only 'English' is valid.
 		 * @return {external:jqXHR} - The jQuery XHR object returned by the AJAX call to the dictionary service.

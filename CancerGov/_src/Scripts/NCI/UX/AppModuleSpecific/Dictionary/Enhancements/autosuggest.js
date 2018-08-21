@@ -1,5 +1,7 @@
 define(function(require) {
     var $ = require('jquery');
+    var dictionaryService = require('Data/DictionaryService');
+    var NCIAutocomplete = require('Modules/autocomplete/autocomplete');
 
 	/***
 	* Main function
@@ -42,9 +44,9 @@ define(function(require) {
         // Do autocomplete
         var isContains = IsContains();        
         (function(factory) {
-            factory(NCI, NCI.dictionary);
-            } (function(NCI, DictionaryService) {
-                NCI.doAutocomplete("input[data-autosuggest='" + ids.autoComplete + "']", function(term) {
+            factory(NCIAutocomplete, dictionaryService);
+            } (function(autocomplete, DictionaryService) {
+                autocomplete.doAutocomplete("input[data-autosuggest='" + ids.autoComplete + "']", function(term) {
                     return DictionaryService.searchSuggest(dictionary, term, language, isContains ? 'contains' : 'begins');
                 }, isContains);
             })

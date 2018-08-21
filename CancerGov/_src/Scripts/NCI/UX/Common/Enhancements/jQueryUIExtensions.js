@@ -23,7 +23,7 @@ $.widget( "ui.autocomplete", $.ui.autocomplete, {
     _renderItem: function(ul,item){
         var lterm = this.term.replace(/[-[\]{}()*+?.,\^$|#\s]/g, '\$&');
 
-        regexBold = new RegExp('(' + lterm + ')', 'i');
+        var regexBold = new RegExp('(' + lterm + ')', 'i');
         var word = (item.value || item.term).replace(regexBold, "<strong>$&</strong>");
 
         return $("<li>")
