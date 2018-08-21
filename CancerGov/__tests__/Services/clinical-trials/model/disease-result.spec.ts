@@ -1,5 +1,3 @@
-import { expect, assert } from 'chai';
-
 import { DiseaseResult } from '../../../../_src/Scripts/NCI/Services/clinical-trials';
 
 describe('Services.ClinicalTrials.Model.DiseaseResult', () => {
@@ -25,7 +23,7 @@ describe('Services.ClinicalTrials.Model.DiseaseResult', () => {
             let actual: DiseaseResult = DiseaseResult.fromJSON(s);
             
             //Deep Equal because they are class instances
-            expect(actual).to.deep.eq(expected);
+            expect(actual).toEqual(expected);
         });
 
         it('Should deserialize an object', () => {
@@ -46,7 +44,7 @@ describe('Services.ClinicalTrials.Model.DiseaseResult', () => {
             let actual: DiseaseResult = DiseaseResult.fromJSON(obj);
 
             //Deep Equal because they are class instances
-            expect(actual).to.deep.eq(expected);
+            expect(actual).toEqual(expected);
         });
         
     });
