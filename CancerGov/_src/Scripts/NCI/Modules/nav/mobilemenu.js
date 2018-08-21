@@ -12,7 +12,7 @@ const openClass = "nav-open";
 const $mega = $("#mega-nav");
 /* visible only on mobile, this is the menu bar itself, with hamburger & search buttons */
 const $mobile = $("#mega-nav > .nav-menu");
-export const $openPanelBtn = $(".open-panel");
+const $openPanelBtn = $(".open-panel");
 /* Mega Nav is the huge RawHTML content block on desktop, but becomes the menu tree on mobile */
 const $megaChildren = $("#mega-nav .has-children > div");
 
@@ -204,7 +204,7 @@ const keyDownHandler = (event) => {
   }
 };
 
-export const toggleMobileMenu = () => {
+const toggleMobileMenu = () => {
   if (isOpen()) {
     close();
   } else {
@@ -219,5 +219,5 @@ const resizeHandler = () => {
     $('html').removeClass(openClass);
   }
 }
-
+export {$openPanelBtn, toggleMobileMenu};
 export default initialize;
