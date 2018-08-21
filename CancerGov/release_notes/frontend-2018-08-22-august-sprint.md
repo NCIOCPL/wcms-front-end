@@ -1,5 +1,10 @@
 # Frontend-2018-08-22: FEQ August Release
 
+## [WCMSFEQ-980] A White Line Appears at the Bottom (below the footer) of different pages on IE-11
+
+On some spanish pages in IE only, a white line is appearing at the very bottom of the page (below the footer).  It seems to be an issue with the <sup>®</sup> and it having a CSS reset style of vertical-align: baseline. Added vertical-align: text-top the <sup> element to overwrite this and remove white line at the bottom of the page. NO CONTENT CHANGES.
+
+
 ## [WCMSFEQ-1086] Hide Font Resizer on App Module Pages
 
 Some App Module pages only receive the InnerPage template and provide no simple way to disable features that are required on other Inner Pages (such as those used for content). Because an appmodule specific class is added to the body element, we can use that to implement a hack to hide the font resizer using CSS.
@@ -32,7 +37,7 @@ The page options getContent utility function logs a warning when a piece of cont
 NO CONTENT CHANGES.
 
 ## [WCMSFEQ-1099] Updates to s_code
-###(Requires updating static.cancer.gov)
+### (Requires updating static.cancer.gov)
 
 Changes in concert with a CDE release. See Dion for deployment step. (He will be handling it). This was a working CDE branch that got merged into FEQ.
 
@@ -101,6 +106,11 @@ A few years ago the class being attached to the main NCI logo and the analytics 
 ### (NO CONTENT CHANGES)
 
 Now that we have Jest in place as the FEQ test framework of choice. Tests previously supported by a Karma suite needed to be ported over. To do so the Jest setup was extended to support Typescript tests.
+
+## [WCMSFEQ-932] All Basic CTS pages (Search Form, Search Results Page and Trial Description Page) looks weird when printed
+### (NO CONTENT CHANGES)
+
+When printed, the basic CTS pages were missing a border around the fieldset headers (for Cancer Type/Keyword, Age, and U.S. Zip Code) due to the fieldsets using a background color on the page  - background colors do not get printed.  The help icons appeared to be off-center due to the missing background color.  Added a print media query to _cts.basic.scss with a background border for the fieldset legends, and aligned the help icon to the vertical center of the fieldset.
 
 # Content Changes
 
