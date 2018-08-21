@@ -120,6 +120,12 @@ Now that we have Jest in place as the FEQ test framework of choice. Tests previo
 
 When printed, the basic CTS pages were missing a border around the fieldset headers (for Cancer Type/Keyword, Age, and U.S. Zip Code) due to the fieldsets using a background color on the page  - background colors do not get printed.  The help icons appeared to be off-center due to the missing background color.  Added a print media query to _cts.basic.scss with a background border for the fieldset legends, and aligned the help icon to the vertical center of the fieldset.
 
+## [WCMSFEQ-1020] Use Sprite Mixin for CTHP dropdown styling
+### (NO CONTENT CHANGES)
+
+The CTHP dropdown arrows were set up to use the svgsprite-mixin, but the background positioning was hardcoded.  This needed to be fixed because the dropdown arrows could potentially break whenever the svg-sprite.svg file was updated.  Instead of using the svg-sprite mixin within the Table/Mobile styles media query, the hardcoded positioned elements were removed and the mixin was reassigned to outside the media query.
+
+
 # Content Changes
 
 ## [WCMSFEQ-###] Ticket Title
