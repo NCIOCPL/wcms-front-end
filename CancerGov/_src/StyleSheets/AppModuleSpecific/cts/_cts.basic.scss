@@ -157,6 +157,22 @@
   }
 }
 
+//[WCMSFEQ-932] Basic CTS Print Pages oddities - add background border and align help icons for printing
+@media print {
+  //adding background border to fieldset header
+  .cts-form fieldset legend {
+    border: 1px solid #bdbdc2;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  //align help icon
+  .cts-form fieldset .text-icon-help {
+    top: 8px;
+  }
+}
+
 // Safari hack for icons over legend elements
 _::-webkit-full-page-media, _:future, :root .cts-form .text-icon-help {
   top: -34px;

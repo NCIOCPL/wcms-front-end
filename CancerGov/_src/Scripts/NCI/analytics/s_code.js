@@ -26,7 +26,7 @@ s.linkLeaveQueryString=false;
 s.linkTrackVars="None";
 s.linkTrackEvents="None";
 s.useForcedLinkTracking=true
-s.forcedLinkTrackingTimeout=750
+s.forcedLinkTrackingTimeout=625
 
 //time parting configuration 
 //US
@@ -150,12 +150,12 @@ else
 // Set prop8 and eVar3 to "english" unless "espanol" is in the url 
 // or "lang=spanish" or "language=spanish" query parameters exist
 var language = "english";
-if(localPageName.indexOf("espanol") >= 0) 
-    language = "spanish";
-if(caseInsensitiveGetQueryParm('lang')=='spanish')
-    language = "spanish";
-if(caseInsensitiveGetQueryParm('language')=='spanish')
-    language = "spanish";
+if (localPageName.indexOf("espanol") >= 0 ||
+    caseInsensitiveGetQueryParm('lang') == 'spanish' ||
+    caseInsensitiveGetQueryParm('language') == 'spanish' ||
+    getMetaTagContent('[name="content-language"]') == 'es') {
+        language = "spanish";
+    }
 s.prop8=s.eVar2=language;
 
 // Set prop26 to Time Stamp format: <year>|<month>|<day>|<hour>
@@ -245,11 +245,6 @@ function s_doPlugins(s) {
     s.socialPlatforms('eVar74');
 
     s.maxDelay='1000';  //max time to wait for 3rd party api response in milliseconds
-    s.loadModule("Integrate")
-    s.Integrate.onLoad=function(s,m){
-        s.socialAuthors();
-        //add other integration module dependent functions here
-    };
 
     /* Previous Page */
     s.prop61 = s.getPreviousValue(s.pageName, 'gpv_pn', "");
@@ -401,6 +396,21 @@ function getViewPort() {
     return screen;
 }
 
+/** TODO: set these for AppMeasurement.custom on DTM:
+s.prop6 = getMetaTagContent('[property="og:title"]');
+s.prop10 = document.title;
+s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
+s.prop44 = s.eVar44 = getMetaTagContent('[name="dcterms.isPartOf"]');
+*/
+
+// Check for meta attribute and get content if exists
+function getMetaTagContent (selector) {
+    if(document.head.querySelector(selector) != null) {
+        return document.head.querySelector(selector).content;
+    } else {
+        return "";
+    }
+}
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
@@ -494,24 +504,6 @@ s.socialPlatforms=new Function("a",""
 +"D=s.split(K[i],'>');if(g.indexOf(D[0])!=-1){if(a){s[a]=D[1];}}}");
 
 s.socPlatList="facebook.com>Facebook|twitter.com>Twitter|t.co/>Twitter|youtube.com>Youtube|clipmarks.com>Clipmarks|dailymotion.com>Dailymotion|delicious.com>Delicious|digg.com>Digg|diigo.com>Diigo|flickr.com>Flickr|flixster.com>Flixster|fotolog.com>Fotolog|friendfeed.com>FriendFeed|google.com/buzz>Google Buzz|buzz.googleapis.com>Google Buzz|plus.google.com>Google+|hulu.com>Hulu|identi.ca>identi.ca|ilike.com>iLike|intensedebate.com>IntenseDebate|myspace.com>MySpace|newsgator.com>Newsgator|photobucket.com>Photobucket|plurk.com>Plurk|slideshare.net>SlideShare|smugmug.com>SmugMug|stumbleupon.com>StumbleUpon|tumblr.com>Tumblr|vimeo.com>Vimeo|wordpress.com>WordPress|xanga.com>Xanga|metacafe.com>Metacafe|";
-
-/********************  
- * socialAuthors v1.3
- ********************/
-s.socialAuthors=new Function("",""
-+"var s=this,g,tco;g=s.referrer?s.referrer:document.referrer;if(g.ind"
-+"exOf('t.co/')!=-1){s.tco=escape(s.split(g,'/')[3]);s.Integrate.add("
-+"'SocialAuthor');s.Integrate.SocialAuthor.tEvar='eVar75';s.Integrate"
-+".SocialAuthor.get('search.twitter.com/search.json?var=[VAR]&"
-+"callback=s.twitterSearch&q=http%3A%2F%2Ft.co%2F'+s.tco);s.Integrate"
-+".SocialAuthor.delay();s.Integrate.SocialAuthor.setVars=function(s,p"
-+"){s[p.tEvar]=s.user;}}");
-s.twitterSearch=new Function("obj",""
-+"var s=this,txt,txtRT,txtEnd,txtAuthor;txt=obj.results[0].text;txtRT"
-+"=txt.indexOf('RT @');if(txtRT!=-1){txtEnd=txt.indexOf(' ',txtRT+4);"
-+"txtAuthor=txt.substring(txtRT+4,txtEnd);s.user=txtAuthor.replace(':"
-+"','');}else{s.user=obj.results[0].from_user;}s.Integrate.SocialAuth"
-+"or.ready();");
 
 /********************
 /* Module: Integrate 

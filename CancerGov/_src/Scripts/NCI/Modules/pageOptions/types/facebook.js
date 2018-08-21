@@ -11,6 +11,7 @@ const facebook =  {
     textContent: {
         title: {
             'en': () => 'Facebook',
+            'es': () => 'Facebook',
         },
     },
     initialize: language => settings => node => {

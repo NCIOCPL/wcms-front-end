@@ -1,11 +1,58 @@
-import { expect, assert } from 'chai';
 import * as TypeMoq from 'typemoq';
 
-import { CTAPIConnection, TermResults } from '../../../../_src/Scripts/NCI/Services/clinical-trials';
+import { CTAPIConnection, TermResults, TermResult } from '../../../../_src/Scripts/NCI/Services/clinical-trials';
 import { ClinicalTrialsServiceV1Impl } from '../../../../_src/Scripts/NCI/Services/clinical-trials/v1';
 
-import { ServiceTermTest_TypeOnly } from '../data';
+interface MockServiceTermTest {
+    getExpected():TermResults;
+    getJSON():any;
+}
+class ServiceTermTest_TypeOnly implements MockServiceTermTest {
+    getExpected():TermResults {
+        let rtn = new TermResults();
 
+        rtn.total = 2;
+
+        let term1 = new TermResult();
+        term1.termKey = "ii";
+        term1.term = "II";
+        term1.termType = "phase.phase";
+        term1.count = 2464
+        rtn.terms.push(term1);
+
+        let term2 = new TermResult();
+        term2.termKey = "i";
+        term2.term = "I";
+        term2.termType = "phase.phase";
+        term2.count = 1831
+        rtn.terms.push(term2);
+
+        return rtn;
+    }
+
+    getJSON():any {
+        return {
+            "total": 2,
+            "terms": [{
+                "term_key": "ii",
+                "term": "II",
+                "term_type": "phase.phase",
+                "current_trial_statuses": ["ACTIVE", "APPROVED", "CLOSED TO ACCRUAL", "COMPLETE", "ADMINISTRATIVELY COMPLETE", "TEMPORARILY CLOSED TO ACCRUAL", "CLOSED TO ACCRUAL AND INTERVENTION", "IN REVIEW", "TEMPORARILY CLOSED TO ACCRUAL AND INTERVENTION", "WITHDRAWN", "ENROLLING BY INVITATION"],
+                "count": 2464,
+                "count_normalized": 1,
+                "score": 0
+            }, {
+                "term_key": "i",
+                "term": "I",
+                "term_type": "phase.phase",
+                "current_trial_statuses": ["ACTIVE", "CLOSED TO ACCRUAL", "IN REVIEW", "COMPLETE", "TEMPORARILY CLOSED TO ACCRUAL", "APPROVED", "ADMINISTRATIVELY COMPLETE", "TEMPORARILY CLOSED TO ACCRUAL AND INTERVENTION", "WITHDRAWN", "CLOSED TO ACCRUAL AND INTERVENTION", "ENROLLING BY INVITATION"],
+                "count": 1831,
+                "count_normalized": 0.8016558753309245,
+                "score": 0
+            }]
+        };
+    }
+}
 class MockCTAPIConnection implements CTAPIConnection {
 
     constructor() {}
@@ -51,9 +98,9 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
 
-                    expect(path).to.be.eq('/terms');
+                    expect(path).toBe('/terms');
 
-                    expect(params).to.be.deep.eq({
+                    expect(params).toEqual({
                         term_type: "term_type",
                         size: 10,
                         from: 0
@@ -69,9 +116,9 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
-                    expect(path).to.be.eq('/terms');
+                    expect(path).toBe('/terms');
 
-                    expect(params).to.be.deep.eq({
+                    expect(params).toEqual({
                         term_type: "term_type",
                         term: "begin",
                         size: 10,
@@ -90,9 +137,9 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
             
             let mock: TypeMoq.IMock<CTAPIConnection> = getParameterTestMock(
                 (path: string, params:any) => {
-                    expect(path).to.be.eq('/terms');
+                    expect(path).toBe('/terms');
 
-                    expect(params).to.be.deep.eq({
+                    expect(params).toEqual({
                         term_type: "term_type",
                         term: "begin",
                         size: 20,
@@ -114,13 +161,13 @@ describe('Services.ClinicalTrials.ClinicalTrialsService', () => {
 
         it('should handle JSON response', () => {
 
-            expect(true).to.be.true;            
+            expect(true).toBe(true);            
         })
     });
 
     describe('getInterventions', () => {
         it('should have unit tests', () => {
-           expect(true).to.be.true;
+           expect(true).toBe(true);
         });
     });
 });

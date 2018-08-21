@@ -205,11 +205,6 @@ define(function(require) {
 				sectionIdx = -1;
 			}
 
-			// initialize variables for setting metatags and email URL
-			var urlSuffix = (resetURL ? '' : '#section/' + sectionIdentifier),
-				ogUrl = $('link[rel="canonical"]').attr('href') + urlSuffix,
-				$emailPage = $('.po-email > a');
-
 			// *** This only works for top-level sections *** //
 			if ($allSections.filter($section).length > 0) {
 				// hide/show the proper section
@@ -246,18 +241,6 @@ define(function(require) {
 					$('#pdq-toc-article .on-this-page')
 						.removeClass('show').addClass('hide');
 				}
-			}
-
-			/* When we're routing to a new section, we're setting the meta-tag for 'og:url' to the
-			 * current section so that the social media share buttons - retrieving the URL from this
-			 * tag - will grab and display the correct section instead of displaying the default section one
-			 */
-			$('meta[property="og:url"]').attr('content', ogUrl);
-
-			// Also update the email URL
-			if ($emailPage.length > 0) {
-				$emailPage.attr('href', $emailPage.attr('href').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'));
-                  //.attr('onclick', $emailPage.attr('onclick').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'));
 			}
 
 			// We're running this trigger to ensure that all

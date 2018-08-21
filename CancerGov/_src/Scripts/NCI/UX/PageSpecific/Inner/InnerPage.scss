@@ -23,6 +23,13 @@
   font-family: $din-regular-stack;
 }
 
+// DISABLE FONT RESIZER [WCMSFEQ-1086]
+// The font resizer page option needs to be disabled on App Module pages. Because there is no template that distinguishes between
+// content inner pages and App Module inner pages, this rule is the hack we use to hide the feature.
+body.nciappmodulepage li.page-options--resize {
+  display: none;
+}
+
 
 // This was implemented by Sarina to match CTS Results pages on CTS
 // listing pages. [OCECTS-465].
