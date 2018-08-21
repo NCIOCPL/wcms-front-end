@@ -109,7 +109,7 @@ module.exports = function(grunt) {
             case 'production':
             case 'prod':
                 proxy = 'www';
-                //env = 'prod';
+                env = 'prod';
                 break;
             default:
                 proxy = 'www-blue-dev';
