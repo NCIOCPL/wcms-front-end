@@ -25,18 +25,17 @@
     }
 }
 
-// TODO: use svg-sprite() instead of hardcoded background-position.  
-// If this is not fixed, the drop down arrows will break every time svg-sprite.svg is updated!!
-@mixin svgsprite-mixin { 
-    display: inline-block;
-    background-image: url(/publishedcontent/images/images/design-elements/sprites/svg-sprite.svg);
-    background-position: 6.09756% 11.47%;
+// assign svg-sprite outside of media query
+.cthp-card-container .cthp-dropdown.more-info {
+    label {
+        &::before {
+            @include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
+        }
+    }
 }
 
 /* Tablet/Mobile styles */
 @include bp(large-up) {
-%svgsprite { @include svgsprite-mixin; }
-
 
 // When the accordion library event fires on resize it rewrites the DOM hierarchy and 
 // injects a clearfix div that wraps the rest of the card content. This is a hack to counteract
