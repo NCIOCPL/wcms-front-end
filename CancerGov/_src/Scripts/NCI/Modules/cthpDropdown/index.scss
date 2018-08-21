@@ -92,11 +92,7 @@
         &::before {
             border-bottom: none;
             content: '';
-            @extend %svgsprite;
-            //@include svg-sprite(chevron-circle-lt-blue, $rotate:flip);
-            //$svg-sprite: map-get($svg-icons, chevron-circle-lt-blue) !default;
             height: 1.3125em;
-            //font-size: 20px;
             margin-top: -8px;
             position: absolute;
             top: 44%;
@@ -104,7 +100,6 @@
             right: 3%;
             transition: transform 150ms ease-in;
             width: 1.3125em;
-            transform: rotate(180deg);
         }
 
         &:hover {
