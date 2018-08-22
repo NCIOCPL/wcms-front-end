@@ -3,17 +3,24 @@ import {
     socialMedia,
 } from './types';
 
-// NB: Base rules need to be encoded as a string because RegExps cannot serve as object keys and IE11 doesn't support new Map([iterable]).
-const rules = {
-    "^\/$": {
+/**
+ * A rule is an object required to have a rule and delighter property. The third property exclude is optional. Exclude is an array of regular expressions and/or
+ * objects containing a rule (regex) and whitelist (array) property.
+ * 
+ * NOTE: The function that tests rules is lazy and will only return the first match, so make sure a previous rule doesn't conflict with yours if it's not working.
+ */
+const rules = [
+    {
+        rule: /^\/$/,
         delighter: cts,
     },
-    "^\/about-cancer\/treatment\/clinical-trials": {
+    {
+        rule: /^\/about-cancer\/treatment\/clinical-trials/i,
         delighter: cts,
         exclude: [
-            /\/advanced-search$/,
+            /\/advanced-search$/i,
             {
-                rule: /^\/about-cancer\/treatment\/clinical-trials\/search/,
+                rule: /^\/about-cancer\/treatment\/clinical-trials\/search/i,
                 whitelist: [
                     '/about-cancer/treatment/clinical-trials/search/help',
                     '/about-cancer/treatment/clinical-trials/search/trial-guide'
@@ -21,9 +28,10 @@ const rules = {
             },
         ]
     },
-    "^\/social-media": {
+    {
+        rule: /^\/social-media/i,
         delighter: socialMedia,
-    }
-};
+    },
+];
 
 export default rules;

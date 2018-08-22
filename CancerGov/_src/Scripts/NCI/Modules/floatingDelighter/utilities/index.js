@@ -1,17 +1,16 @@
 import AdobeAnalytics from 'Patches/AdobeAnalytics';
 
-export const checkExclusions = (pathName, basePartial, rules) => {
-    const exclusionRules = rules[basePartial].exclude;
+export const checkExclusions = (pathName, exclusions) => {
 
-    const exclusionMatches = exclusionRules.map(rule => {
-        if (rule instanceof RegExp) {
-            const isOnExclusionList = pathName.match(rule) ? true : false;
+    const exclusionMatches = exclusions.map(exclusion => {
+        // Exclusions can either be a simple RegExp or an object with the shape { rule: RegExp, whitelist: Array }
+        if (exclusion instanceof RegExp) {
+            const isOnExclusionList = pathName.match(exclusion) ? true : false;
             return isOnExclusionList;
         }
-        // Rule is an object with a whitelist
         else {
-            const isOnExclusionList = pathName.match(rule.rule) ? true : false;
-            const isOnWhiteList = rule.whitelist.includes(pathName);
+            const isOnExclusionList = pathName.match(exclusion.rule) ? true : false;
+            const isOnWhiteList = exclusion.whitelist.includes(pathName);
             return isOnExclusionList ? !isOnWhiteList : false;
         }
     })
@@ -20,26 +19,23 @@ export const checkExclusions = (pathName, basePartial, rules) => {
     return isOnExclusionList;
 }
 
-export const getDelighterSettings = (pathName, pages) => {
+export const getDelighterSettings = (pathName, rules) => {
     // Test for path partial match in Map, if a perfect match is found or a partial map with no exclusion rules
     // return the appropriate delighter settings immediately. Otherwise we need to map through the exclusion list rules
     // and their possible associated whitelist paths.
-    const basePathRules = Object.keys(pages);
-    for(let i = 0; i < basePathRules.length; i++) {
+    for(let i = 0; i < rules.length; i++) {
         try {
-            // Base path rules have to be converted because JS objects can't take regexs as keys, 
-            // and Map is not fully supported by IE11 ('new' keyword + iterable particularly)
-            // This library will assume all paths are case insensitve for efficiency's sake.
-            const basePathKey = basePathRules[i];
-            const basePathRule = new RegExp(basePathKey, 'i');
+            const config = rules[i]
+            const basePathRule = config.rule;
 
             if(pathName.match(basePathRule)) {
-                if(!pages[basePathKey].exclude) {
-                    return pages[basePathKey].delighter
+                const exclusions = config.exclude;
+                if(!exclusions) {
+                    return config.delighter
                 }
-    
-                const isOnExclusionList = checkExclusions(pathName, basePathKey, pages);
-                return isOnExclusionList ? undefined : pages[basePathKey].delighter;
+
+                const isOnExclusionList = checkExclusions(pathName, exclusions);
+                return isOnExclusionList ? undefined : config.delighter;
             }
         }
         catch(err){
