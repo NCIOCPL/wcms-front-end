@@ -7,7 +7,7 @@ import './index.scss';
 
 let isInitialized = false;
 
-const init = () => {
+const init = (containerSelector = '.page-options-container') => {
     if(isInitialized) {
         return;
     }
@@ -20,7 +20,7 @@ const init = () => {
 
     if(delighterSettings) {
         const delighterElement = buildDelighter(delighterSettings);
-        const delighterParent = document.querySelector('.page-options-container');
+        const delighterParent = document.querySelector(containerSelector);
 
         // Just in case this ends up running on a page without the container (it shouldn't)
         if(delighterParent) {
