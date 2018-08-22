@@ -42,15 +42,13 @@ export const getDelighterSettings = (pathName, pages) => {
                 }
     
                 const isOnExclusionList = checkExclusions(pathName, basePathKey, pages);
-                return isOnExclusionList ? null : pages[basePathKey].delighter;
+                return isOnExclusionList ? undefined : pages[basePathKey].delighter;
             }
         }
         catch(err){
             throw err;
         }
     }
-
-    return null;
 };
 
 export const buildDelighter = ({ href, innerHTML, classList }) => {
