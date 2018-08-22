@@ -1,21 +1,20 @@
 import AdobeAnalytics from 'Patches/AdobeAnalytics';
 
-export const getStringTail = (head, string) => string.split(head)[1];
+// export const getStringTail = (head, string) => string.split(head)[1];
 
 export const checkExclusions = (pathName, basePartial, basePaths) => {
-    const pathTail = getStringTail(basePartial, pathName);
+    // const pathTail = getStringTail(basePartial, pathName);
     const exclusionRules = basePaths[basePartial].exclude;
 
     const exclusionMatches = exclusionRules.map(rule => {
         if (rule instanceof RegExp) {
-            const isOnExclusionList = pathTail.match(rule) ? true : false;
+            const isOnExclusionList = pathName.match(rule) ? true : false;
             return isOnExclusionList;
         }
         // Rule is an object with a whitelist
         else {
-            const isOnExclusionList = pathTail.match(rule.rule) ? true : false;
+            const isOnExclusionList = pathName.match(rule.rule) ? true : false;
             const isOnWhiteList = rule.whitelist.includes(pathName);
-
             return isOnExclusionList ? !isOnWhiteList : false;
         }
     })
@@ -25,28 +24,29 @@ export const checkExclusions = (pathName, basePartial, basePaths) => {
 }
 
 export const getDelighterSettings = (pathName, pages) => {
-    // This is not the most elegant way to deal with the more exceptional root path
-    // Remove or change this block to handle root matches
-    if(pathName === '/') {
-        return pages['__default__'];
-    }
-
     // Test for path partial match in Map, if a perfect match is found or a partial map with no exclusion rules
     // return the appropriate delighter settings immediately. Otherwise we need to map through the exclusion list rules
     // and their possible associated whitelist paths.
-    const pageBaseMatches = Object.keys(pages);
-    for(let i = 0; i < pageBaseMatches.length; i++) {
-        const basePartial = pageBaseMatches[i];
-        if(pathName === basePartial) {
-            return pages[basePartial].delighter;
-        }
-        else if(pathName.startsWith(basePartial)) {
-            if(!pages[basePartial].exclude) {
-                return pages[basePartial].delighter
-            }
+    const basePathRules = Object.keys(pages);
+    for(let i = 0; i < basePathRules.length; i++) {
+        try {
+            // Base path rules have to be converted because JS objects can't take regexs as keys, 
+            // and Map is not fully supported by IE11 ('new' keyword + iterable particularly)
+            // This library will assume all paths are case insensitve for efficiency's sake.
+            const basePathKey = basePathRules[i];
+            const basePathRule = new RegExp(basePathKey, 'i');
 
-            const isOnExclusionList = checkExclusions(pathName, basePartial, pages);
-            return isOnExclusionList ? null : pages[basePartial].delighter;
+            if(pathName.match(basePathRule)) {
+                if(!pages[basePathKey].exclude) {
+                    return pages[basePathKey].delighter
+                }
+    
+                const isOnExclusionList = checkExclusions(pathName, basePathKey, pages);
+                return isOnExclusionList ? null : pages[basePathKey].delighter;
+            }
+        }
+        catch(err){
+            throw err;
         }
     }
 
