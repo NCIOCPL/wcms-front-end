@@ -1,7 +1,7 @@
 import {
     cts,
     socialMedia,
-} from './types';
+} from './delighters';
 
 /**
  * A rule is an object required to have a rule and delighter property. The third property exclude is optional. Exclude is an array of regular expressions and/or
