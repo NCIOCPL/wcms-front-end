@@ -13,7 +13,7 @@ New delighters should be defined in their own sub-directory in the delighters di
 {
     href: String,
     innerHTML: String,
-    classList: String[]
+    ?classList: String[]
 }
 
 The href will be used to generate an anchor tag wrapping the innerHTML. The innerHTML should represent a string containing valid HTML that will be injected inside the anchor. The classList is an array of class names that will be added to the delighter container which will be inserted onto the page. 

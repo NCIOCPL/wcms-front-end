@@ -44,13 +44,15 @@ export const getDelighterSettings = (pathName, rules) => {
     }
 };
 
-export const buildDelighter = ({ href, innerHTML, classList }) => {
+export const buildDelighter = ({ href, innerHTML, classList = [] }) => {
     const delighter = document.createElement('div');
     delighter.classList.add('floating-delighter');
     classList.map(className => delighter.classList.add(className))
+
     const link = document.createElement('a');
     link.href = href;
     link.classList.add('floating-delighter__link');
+    link.innerHTML = innerHTML;
 
     // This is a stopgap, hardcoded until Analytics is brought in line. Needs to be changed this release.
     const analyticsClickEvent = e => {
@@ -59,7 +61,6 @@ export const buildDelighter = ({ href, innerHTML, classList }) => {
     }
     link.addEventListener('click', analyticsClickEvent)
 
-    link.innerHTML = innerHTML;
     delighter.appendChild(link);
 
     return delighter;
