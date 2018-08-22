@@ -3,8 +3,8 @@ import {
     socialMedia,
 } from './types';
 
-// NB: Base paths need to be encoded as a string because RegExps cannot serve as object keys and IE11 doesn't support new Map([iterable]).
-const basePaths = {
+// NB: Base rules need to be encoded as a string because RegExps cannot serve as object keys and IE11 doesn't support new Map([iterable]).
+const rules = {
     "^\/$": {
         delighter: cts,
     },
@@ -26,4 +26,4 @@ const basePaths = {
     }
 };
 
-export default basePaths;
+export default rules;

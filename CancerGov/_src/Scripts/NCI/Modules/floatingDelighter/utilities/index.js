@@ -1,10 +1,7 @@
 import AdobeAnalytics from 'Patches/AdobeAnalytics';
 
-// export const getStringTail = (head, string) => string.split(head)[1];
-
-export const checkExclusions = (pathName, basePartial, basePaths) => {
-    // const pathTail = getStringTail(basePartial, pathName);
-    const exclusionRules = basePaths[basePartial].exclude;
+export const checkExclusions = (pathName, basePartial, rules) => {
+    const exclusionRules = rules[basePartial].exclude;
 
     const exclusionMatches = exclusionRules.map(rule => {
         if (rule instanceof RegExp) {

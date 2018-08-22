@@ -2,7 +2,7 @@ import {
     getDelighterSettings,
     buildDelighter,
 } from './utilities';
-import basePaths from './basePaths';
+import rules from './rules';
 import './index.scss';
 
 let isInitialized = false;
@@ -16,7 +16,7 @@ const init = () => {
     }
 
     const pathName = location.pathname.toLowerCase();
-    const delighterSettings = getDelighterSettings(pathName, basePaths);
+    const delighterSettings = getDelighterSettings(pathName, rules);
 
     if(delighterSettings) {
         const delighterElement = buildDelighter(delighterSettings);
