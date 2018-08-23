@@ -39,22 +39,17 @@ export const getDelighterSettings = (pathName, rules) => {
     // return the appropriate delighter settings immediately. Otherwise we need to map through the exclusion list rules
     // and their possible associated whitelist paths.
     for(let i = 0; i < rules.length; i++) {
-        try {
-            const config = rules[i]
-            const basePathRule = config.rule;
+        const config = rules[i]
+        const basePathRule = config.rule;
 
-            if(pathName.match(basePathRule)) {
-                const exclusions = config.exclude;
-                if(!exclusions) {
-                    return config.delighter
-                }
-
-                const isOnExclusionList = checkExclusions(pathName, exclusions);
-                return isOnExclusionList ? undefined : config.delighter;
+        if(pathName.match(basePathRule)) {
+            const exclusions = config.exclude;
+            if(!exclusions) {
+                return config.delighter
             }
-        }
-        catch(err){
-            throw err;
+
+            const isOnExclusionList = checkExclusions(pathName, exclusions);
+            return isOnExclusionList ? undefined : config.delighter;
         }
     }
 };
