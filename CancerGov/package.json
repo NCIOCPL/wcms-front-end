@@ -92,6 +92,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "load-grunt-config": "^0.19.2",
+    "mini-css-extract-plugin": "^0.4.2",
     "node-sass-asset-functions": "^0.1.0",
     "phantomcss": "^1.1.4",
     "phantomjs-prebuilt": "^2.1.14",
