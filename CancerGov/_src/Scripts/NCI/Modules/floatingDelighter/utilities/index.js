@@ -1,5 +1,12 @@
 import AdobeAnalytics from 'Patches/AdobeAnalytics';
 
+/**
+ * Ascertain whether a path that matches the current base rule should be excluded based on sub rules.
+ * 
+ * @param {String} pathName Path of current page.
+ * @param {Array<RegeExp|Object>} exclusions Exclusion rules for paths to be excluded by base rule match.
+ * @returns {boolean} true if current path should be excluded, else false.
+ */
 export const checkExclusions = (pathName, exclusions) => {
 
     const exclusionMatches = exclusions.map(exclusion => {
@@ -19,6 +26,14 @@ export const checkExclusions = (pathName, exclusions) => {
     return isOnExclusionList;
 }
 
+/**
+ * Test whether a rule exists that matches a given pathname. Return the appropriate delighter config object in the case
+ * of a match, otherwise undefined.
+ * 
+ * @param {String} pathName 
+ * @param {Object[]} rules
+ * @returns {Object} If rule found matching current path return delighter config, else undefined.
+ */
 export const getDelighterSettings = (pathName, rules) => {
     // Test for path partial match in Map, if a perfect match is found or a partial map with no exclusion rules
     // return the appropriate delighter settings immediately. Otherwise we need to map through the exclusion list rules
@@ -44,6 +59,15 @@ export const getDelighterSettings = (pathName, rules) => {
     }
 };
 
+/**
+ * Create a delighter element and attach analytics
+ * 
+ * @param {Object} param0
+ * @param {String} param0.href
+ * @param {String} param0.innerHTML
+ * @param {String[]} [param0.classList = []]
+ * @return {HTMLElement} Detached delighter to be appended to DOM
+ */
 export const buildDelighter = ({ href, innerHTML, classList = [] }) => {
     const delighter = document.createElement('div');
     delighter.classList.add('floating-delighter');

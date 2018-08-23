@@ -7,6 +7,12 @@ import './index.scss';
 
 let isInitialized = false;
 
+/**
+ * Add a floating delighter anchor element to the DOM in the event that the current path matches
+ * a rule specifying a specific delighter element.
+ * 
+ * @param {String} [containerSelector = '.page-options-container'] Valid DOM selector.
+ */
 const init = (containerSelector = '.page-options-container') => {
     if(isInitialized) {
         return;
@@ -19,15 +25,15 @@ const init = (containerSelector = '.page-options-container') => {
     const delighterSettings = getDelighterSettings(pathName, rules);
 
     if(delighterSettings) {
-        const delighterElement = buildDelighter(delighterSettings);
         const delighterParent = document.querySelector(containerSelector);
-
-        // Just in case this ends up running on a page without the container (it shouldn't)
-        if(delighterParent) {
-            delighterParent.appendChild(delighterElement);
+        // Don't try and attach the delighter if no valid injection point was found.
+        if(!delighterParent){
+            return;
         }
+        const delighterElement = buildDelighter(delighterSettings);
+        delighterParent.appendChild(delighterElement);
 
-        // This allows us to add more custom CSS rules to siblings when delighter isn't present
+        // TODO: This allows us to add more custom CSS rules to siblings when delighter isn't present
         // At the moment it is not being used so I'm leaving it here just in case.
         // delighterParent.classList.append('floating-delighter--active');
 
