@@ -51,6 +51,13 @@ define(function(require) {
                 NCIAnalytics[type](target, ...args);
             });
 
+            // FLOATING DELIGHTER MODULE
+            registerCustomEventListener('NCI.floating-delighter.click', target => {
+                // To mimic s.pageName
+                const value = location.hostname + location.pathname;
+                NCIAnalytics.HomePageDelighterClick(target, 'hp_find', value);
+            });
+
             // If the screen is resized past a different breakpoint, track the variable and event
             function trackViewPortResize() {
                 var viewPortResized = getWidthForAnalytics();

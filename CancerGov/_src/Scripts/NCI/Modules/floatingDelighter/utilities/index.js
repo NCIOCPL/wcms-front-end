@@ -1,4 +1,4 @@
-import AdobeAnalytics from 'Patches/AdobeAnalytics';
+import { broadcastCustomEvent } from 'Modules/customEventHandler';
 
 /**
  * Ascertain whether a path that matches the current base rule should be excluded based on sub rules.
@@ -78,12 +78,10 @@ export const buildDelighter = ({ href, innerHTML, classList = [] }) => {
     link.classList.add('floating-delighter__link');
     link.innerHTML = innerHTML;
 
-    // This is a stopgap, hardcoded until Analytics is brought in line. Needs to be changed this release.
-    const analyticsClickEvent = e => {
-        var s = AdobeAnalytics.getSObject();
-        NCIAnalytics.HomePageDelighterClick(e.currentTarget, 'hp_find', s.pageName);        
-    }
-    link.addEventListener('click', analyticsClickEvent)
+    const broadcastClickEvent = broadcastCustomEvent('NCI.floating-delighter.click', {
+        node: link, 
+    });
+    link.addEventListener('click', broadcastClickEvent);
 
     delighter.appendChild(link);
 
