@@ -1,6 +1,7 @@
 import {
     cts,
     socialMedia,
+    nciConnect,
 } from './delighters';
 
 /**
@@ -31,6 +32,10 @@ const rules = [
     {
         rule: /^\/social-media/i,
         delighter: socialMedia,
+    },
+    {
+        rule: /^\/nci\/rare-brain-spine-tumor/i,
+        delighter: nciConnect,
     },
 ];
 
