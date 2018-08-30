@@ -1,14 +1,14 @@
 @import '../../../../../../StyleSheets/variables';
 @import '../../../../../../StyleSheets/breakpoints';
-@import '../../../../../../StyleSheets/sprites/svg-sprite';
+
 
 .floating-delighter--nci-connect {
     .floating-delighter__link {
-      background-color: #0D95A1;
+      background-color: #951b81;
       font-size: .9em;
   
       &:hover, &:focus, &:active {
-        background-color:#0b8590;
+        background-color:#951b81;
         text-decoration: none;
       }
     }
@@ -17,7 +17,6 @@
       
       &::after {
         content: '';
-        @include svg-sprite(social-calendar);
         
         @include bp(small) {
           font-size: .7em;
@@ -26,8 +25,11 @@
     }
   
     .floating-delighter__label {
+      padding-top: 26px;
+
       @include bp(xtra-small) {
         font-size: 14px;
+        padding-top: 0;
       }
     }
   }

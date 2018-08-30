@@ -36,6 +36,14 @@ const rules = [
     {
         rule: /^\/nci\/rare-brain-spine-tumor/i,
         delighter: nciConnect,
+        exclude: [
+            /\/refer-participate/i,
+            /\/blog/i,
+            /^\/nci\/rare-brain-spine-tumor\/about/i,
+            /\/living\/questions/i,
+            /\/living\/coping/i,
+            /\/living\/stories/i
+        ]
     },
 ];
 
