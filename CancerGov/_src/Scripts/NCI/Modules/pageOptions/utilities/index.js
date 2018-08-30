@@ -4,6 +4,7 @@ import {
     getMetaURL,
     getCanonicalURL,
 } from 'Utilities/domManipulation';
+import { broadcastCustomEvent } from 'Modules/customEventHandler';
 
 // Currently we aren't using most of these tags since the services themselves are scraping the info they
 // need. But I'm leaving this here as a point of reference ('og:title' is the only one being used
@@ -25,7 +26,7 @@ export const getURL = (document, metaData) => {
 }
 
 /**
- * TODO: Improve!!!!
+ * 
  * @param {Object} dict 
  * @param {string} language
  * @return {function}
@@ -69,11 +70,7 @@ export const onClickShareButton = ({
 export const onClickAnalytics = ({ 
     node, 
     detail = {},
-}) => event => {
-    const analyticsEvent = new CustomEvent('NCI.page_option.clicked', {
-        bubbles: true,
-        cancelable: true,
-        detail,
-    });
-    node.dispatchEvent(analyticsEvent);
-};
+}) => broadcastCustomEvent('NCI.page_option.clicked', {
+    node,
+    data: detail
+})
