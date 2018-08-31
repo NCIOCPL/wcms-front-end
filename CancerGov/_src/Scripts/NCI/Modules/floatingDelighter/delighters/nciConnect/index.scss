@@ -29,6 +29,8 @@
 
       @include bp(xtra-small) {
         font-size: 14px;
+      }
+      @include bp(small) {
         padding-top: 0;
       }
     }

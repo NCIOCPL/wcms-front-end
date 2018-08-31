@@ -40,7 +40,7 @@ const rules = [
             /\/refer-participate/i,
             /\/blog/i,
             /^\/nci\/rare-brain-spine-tumor\/about/i,
-            /\/living\/questions/i,
+            /\/living\/finished-treatment/i,
             /\/living\/coping/i,
             /\/living\/stories/i
         ]
