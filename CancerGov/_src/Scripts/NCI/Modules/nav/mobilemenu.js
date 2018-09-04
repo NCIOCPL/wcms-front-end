@@ -44,7 +44,7 @@ const initialize = () => {
     .text(text.Collapse[lang])
     .end()
     .end()
-    .find(".mobile-item").show();
+    .find(" > .mobile-item").show();
 
   // TODO: fix this equalHeights hack with flexbox layout
   // old equal heights implementation
