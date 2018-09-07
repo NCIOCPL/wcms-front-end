@@ -141,10 +141,6 @@ module.exports = {
 
 
 		// This makes sure when styles are extracted into stylesheets nvcg, which is piped through common, retains it's original name.
-		new MiniCssExtractPlugin({
-			filename: getPath => {
-				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')
-			}
-		}),
+		new MiniCssExtractPlugin(),
 	]
 };
