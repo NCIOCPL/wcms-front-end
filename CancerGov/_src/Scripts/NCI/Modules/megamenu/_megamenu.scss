@@ -180,7 +180,7 @@
 
 		/* sub-navigation panel open state */
 		&.open {
-			max-height:300px;
+			max-height:450px;
 			opacity: 1;
 			visibility: visible;
 			transition-delay: 500ms;
@@ -272,7 +272,7 @@
 
 	/* decrease height of mega menu and add scroll bar */
 	.mega-menu-scroll {
-		overflow-y: scroll;
+		//overflow-y: scroll;
 	}
 	html.windows .mega-menu-scroll .sub-nav-group-subwrapper {
 		position:relative;
