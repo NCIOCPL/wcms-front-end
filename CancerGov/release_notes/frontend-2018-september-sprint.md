@@ -23,6 +23,11 @@ At 1024px breakpoint, the Section Menu was defaulting to an open state and showi
 
 The text in the inline feature cards was too large for the space, which caused most lines to break to one word. The H3 and p font sizes were reduced, along with a slight line-height and color change. 
 
+## [WCMSFEQ-639] Set up proper event delegation for analytics.after.js
+### (NO CONTENT CHANGES)
+
+Added "On This Page" analytics to the analytics.js "load" event. Click events will be bound after the OTP element has been rendered to the DOM in the document.ready event
+
 
 # Notes
 

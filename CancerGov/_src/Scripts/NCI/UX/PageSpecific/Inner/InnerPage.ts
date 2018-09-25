@@ -7,7 +7,6 @@ import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import FloatingDelighter from 'Modules/floatingDelighter';
-import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import * as BestBets from 'Modules/bestBets/bestBets';
 import patternInjector from 'Modules/patternInjector';
 import nciOrgPatternSettings from './nciOrgPatternSettings';
@@ -54,8 +53,7 @@ class InnerPage extends NCIBasePage {
         (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);
 
         // Run delighter and analytics 'after' init() functions
-        (<any>FloatingDelighter)(); 
-        (<any>AnalyticsAfter).init();
+        (<any>FloatingDelighter)();
         (<any>BestBets).init();
 
 
