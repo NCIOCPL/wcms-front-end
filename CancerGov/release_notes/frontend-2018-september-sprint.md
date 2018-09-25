@@ -1,5 +1,6 @@
 # Frontend-2018: FEQ September Release
 
+
 ## [WCMSFEQ-1128] Remove Scrollbar from Megamenu
 ### (NO CONTENT CHANGES)
 
@@ -8,21 +9,30 @@ The goal of this ticket is to enhance the usability of the megamenu by removing 
   * Updated font size and line height for submenu list items and titles
   * Re-adjusted subnav max open height to 460px and line height of sub-nav-mega class to 1.1em to accomodate largest spanish mega menu list items
 
-
-## [WCMSFEQ-###] Ticket Title
+## [WCMSFEQ-914] Email for providers appears next to phone number under Location Contacts
 ### (NO CONTENT CHANGES)
 
-Description:
-  * Bullet 1
-  * Bullet 2
+Provider emails were appearing next to the phone number (rather than on the following line) under Locations and Contacts accordion:
+  * added <br> to Email line in CTSDrawLocations include file
 
-```javascript
-// analytics.js
-let codeExample = this
-```
+## [WCMSFEQ-909] The Help-link is overlapping the blue heading label Type/Condition...
+## (NO CONTENT CHANGES)
 
-# Content Changes
+The help-icon was overlapping the Type/Condition heading label at the 326px breakpoint and lower.
+  * Changed padding-right of fieldset legend to 43px to prevent icon overlapping text 
+  
+## [WCMSFEQ-1079] Seeing the blue bar with the text "Cancer Currents Blog"...
+### (NO CONTENT CHANGES)
 
-## [WCMSFEQ-###] Updates to {percussion asset}
+At 1024px breakpoint, the Section Menu was defaulting to an open state and showing the submenu that it contains.  This was occurring on every page that invokes the Section Menu Nav button, not just the Cancer Currents Blog page.
+  * Set min-width for the section menu resizeHandler to 1025px to prevent the section menu navigation from defaulting to open at the 1024px breakpoint
 
-Requires update to...
+## [WCMSFEQ-1119] Change font style attributes on inline feature cards
+### (NO CONTENT CHANGES)
+
+The text in the inline feature cards was too large for the space, which caused most lines to break to one word. The H3 and p font sizes were reduced, along with a slight line-height and color change. 
+
+
+# Notes
+
+Template files have been updated in **WCMSFEQ-914** and they should be uploaded to Percussion as part of this FEQ release

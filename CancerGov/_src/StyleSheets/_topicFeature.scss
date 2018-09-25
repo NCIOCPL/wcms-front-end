@@ -72,11 +72,13 @@
 		}
 		h3 {
 			margin-top: 0;
-			font-size: 1.5625em;
+			font-size: 1.2em;
 			line-height: 1.2;
 		}
 		p {
 			line-height: 1.375;
+			font-size: 0.9em;
+			color: #757575;
 		}
 		
 		@include bp(small) {
