@@ -180,7 +180,7 @@
 
 		/* sub-navigation panel open state */
 		&.open {
-			max-height:450px;
+			max-height:460px;
 			opacity: 1;
 			visibility: visible;
 			transition-delay: 500ms;
@@ -217,7 +217,7 @@
 		vertical-align: top;
 		margin: 0 2% 0 0;
 		padding: 0;
-		line-height: 1.3em;
+		line-height: 1.1em;
 	}
 
 	/* make columns out of sub nav groups */
