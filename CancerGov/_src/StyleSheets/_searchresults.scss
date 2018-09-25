@@ -16,6 +16,13 @@
 	dd {
 		margin-bottom: 1em;
 	}
+	.dictionary-list {
+		dfn {
+			a {
+				font-weight: 400;
+			}
+		}
+	}
 
 	h2, h3, h4 {
 		font-size: em-calc(20px);
