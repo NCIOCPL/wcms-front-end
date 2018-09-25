@@ -1,5 +1,11 @@
 # Frontend-2018: FEQ September Release
 
+## [WCMSFEQ-909] The Help-link is overlapping the blue heading label Type/Condition...
+## (NO CONTENT CHANGES)
+
+The help-icon was overlapping the Type/Condition heading label at the 326px breakpoint and lower.
+  * Changed padding-right of fieldset legend to 43px to prevent icon overlapping text 
+  
 ## [WCMSFEQ-1079] Seeing the blue bar with the text "Cancer Currents Blog"...
 ### (NO CONTENT CHANGES)
 
