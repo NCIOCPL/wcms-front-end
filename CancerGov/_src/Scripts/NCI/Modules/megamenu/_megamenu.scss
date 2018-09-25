@@ -272,10 +272,11 @@
 		text-decoration: underline;
 	}
 
-	/* decrease height of mega menu and add scroll bar */
+	/* remove scroll bar from megamenu 
 	.mega-menu-scroll {
-		//overflow-y: scroll;
+		overflow-y: scroll;
 	}
+	*/
 	html.windows .mega-menu-scroll .sub-nav-group-subwrapper {
 		position:relative;
 		left:10px;
