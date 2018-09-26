@@ -336,11 +336,17 @@ parent accordion in all breakpoints. */
 /* END GUIDE CARDS ROW */
 
 /* BEGIN MULTIMEDIA ROW */
+
+//removes spacing at the end of the card row (the color from card row should flow directly into the color of the footer), but keeps spacing between card rows
+//targets multimedia row when there is no thumbnail content
+.nvcgSlBodyLayout > div:last-of-type .multimedia-slot:last-child, 
+.nvcgSlBodyLayout > div:last-of-type .guide-card //targets same issue on nci connect guide card row
+{margin-bottom:0;}
+
 .multimedia-slot {
 	background: #099;
-	/*margin-bottom: 1em;*/
-	padding: 1em 0;
 	margin-bottom: 1em;
+	padding: 1em 0;
 
 	a {
 			&:hover, &:focus {
@@ -364,7 +370,7 @@ parent accordion in all breakpoints. */
 
 		@extend %card-link-hover;
 		}
-
+	
 }
 @include bp(small) {
 	.multimedia-slot {
