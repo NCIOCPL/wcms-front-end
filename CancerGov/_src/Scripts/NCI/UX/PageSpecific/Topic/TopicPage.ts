@@ -47,7 +47,5 @@ class TopicPage extends NCIBasePage {
 /**
  * Initialize TopicPage
  */
-(function() { //encapsulation
-	let topicPage:TopicPage = new TopicPage();
-	topicPage.init();
-})();
+let topicPage:TopicPage = new TopicPage();
+topicPage.init();

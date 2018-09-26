@@ -2,8 +2,6 @@ import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-s
 import { NCIBasePage } from 'UX/core';
 import 'UX/Common/Enhancements/sharecomponent';
 import 'UX/PageSpecific/Inner/Enhancements/showHideListingBodyField';
-import * as NCIAutocomplete from 'Modules/autocomplete/autocomplete';
-import * as DictionaryService from 'Data/DictionaryService';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import FloatingDelighter from 'Modules/floatingDelighter';
@@ -64,9 +62,7 @@ class InnerPage extends NCIBasePage {
 /**
  * Initialize InnerPage
  */
-(function() { //encapsulation
-	let innerPage:InnerPage = new InnerPage();
-    innerPage.init();
-    patternInjector(nciOrgPatternSettings, '.nci-organization__pattern');
-    bindDirectoryFormSearch();
-})();
+let innerPage:InnerPage = new InnerPage();
+innerPage.init();
+patternInjector(nciOrgPatternSettings, '.nci-organization__pattern');
+bindDirectoryFormSearch();
