@@ -1,8 +1,8 @@
 # Frontend-2018: FEQ September Release
 
 ## [WCMSFEQ-464] Resolve jQuery ready and load events.
-Sorting out document.ready and window.load events. Updating a few modules for more steamlined execution order.
 ### (NO CONTENT CHANGES)
+Sorting out document.ready and window.load events. Updating a few modules for more streamlined execution order.
 
 ## [WCMSFEQ-914] Email for providers appears next to phone number under Location Contacts
 ### (NO CONTENT CHANGES)
