@@ -99,7 +99,7 @@ module.exports = {
 				test: /\.s?css$/,
 				use: [
 					{
-						loader: MiniCssExtractPlugin.loader,
+						loader: MiniCssExtractPlugin.loader
 					},
 					'css-loader', 
 					'postcss-loader', 
@@ -128,19 +128,10 @@ module.exports = {
 			Headroom: 'Headroom'
 		}),
 
-		// new webpack.optimize.CommonsChunkPlugin({
-		// 	name: 'shared',
-		// 	chunks: ['BlogPostPage', 'BlogSeriesPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
-		// 	minChunks: 3
-		// }),
-		// new webpack.optimize.CommonsChunkPlugin({
-		// 	name: 'Common',
-		// 	chunks: ['shared'],
-		// 	minChunks: 1
-		// }),
-
 
 		// This makes sure when styles are extracted into stylesheets nvcg, which is piped through common, retains it's original name.
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin({
+			filename: "../Styles/[name].css"
+		}),
 	]
 };
