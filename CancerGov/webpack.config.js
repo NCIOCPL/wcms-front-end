@@ -1,12 +1,10 @@
 var webpack = require("webpack");
 var path = require("path");
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
 
-console.log("__dirname is:" + __dirname);
+//console.log("__dirname is:" + __dirname);
 module.exports = {
 	context: path.resolve(__dirname, "_src/Scripts/NCI"),
 	// devtool: debug ? "inline-sourcemap" : null,

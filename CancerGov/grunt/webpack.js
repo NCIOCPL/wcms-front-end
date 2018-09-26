@@ -1,5 +1,5 @@
 /*****************************************
- * Webpack 2
+ * Webpack 4
  * Compile the JavaScript modules into packages.
  ****************************************/
 
@@ -17,6 +17,7 @@ module.exports = function (grunt,options) {
     return {
         options: webpackConfig,
         dev: {
+            mode:"development",
             devtool: "eval-source-map",
             output: {
                 filename: '[name].js',
@@ -24,6 +25,7 @@ module.exports = function (grunt,options) {
             }
         },
         prod: {
+            mode: "production",
             output: {
                 filename: '[name].js',
                 path: dist_scripts
@@ -47,6 +49,7 @@ module.exports = function (grunt,options) {
             )
         },
         analyze: {
+            mode: "production",
 	        output: {
 		        filename: '[name].js',
 		        path: dist_scripts
