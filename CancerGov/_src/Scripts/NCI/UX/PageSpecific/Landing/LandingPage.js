@@ -1,8 +1,9 @@
 import './LandingPage.scss';
-import 'Modules/carousel/carousel';
+import Carousel from 'Modules/carousel/carousel';
 import FloatingDelighter from 'Modules/floatingDelighter';
 
 const onDOMContentLoaded = () => {
+	Carousel();
 	FloatingDelighter();
 }
 

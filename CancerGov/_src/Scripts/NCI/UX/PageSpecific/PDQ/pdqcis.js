@@ -6,7 +6,7 @@ define(function(require) {
 	var NCIAccordion = require('Modules/accordion/accordion');
 
 	// This file is for the PDQ Cancer Information Summary UX functionality
-	$(function() {
+	$(document).ready(function() {
 		// set up outlines
 		$('article').each(function() {
 			var $this = $(this);

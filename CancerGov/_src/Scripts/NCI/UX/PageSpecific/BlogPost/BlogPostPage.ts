@@ -93,14 +93,11 @@ class BlogPostPage extends NCIBasePage {
 			(<any>NCIAccordion).doAccordion($('#blog-archive-accordion-year'), {header: "h4"});
 
 			/*** BEGIN blog comment policy ***/
-			(function() {
-				if ($('#cgvCommentsSl').length) {
-					if( $('.intense-debate-comments').length < 1) {
-						$('.blog-comment-policy').show();
-					}
+			if ($('#cgvCommentsSl').length) {
+				if( $('.intense-debate-comments').length < 1) {
+					$('.blog-comment-policy').show();
 				}
-			})();
-			/*** END blog comment policy ***/
+			}
 
 			// This little blurb is searching for the parent accordion elements of the currently selected archive link and expanding the 
 			// accordion to that element. This keeps the accordion collapsed on the elements not currently being viewed.
@@ -119,8 +116,6 @@ class BlogPostPage extends NCIBasePage {
 
 /**
  * Initialize BlogPostPage
- */
-(function() { //encapsulation
+*/
 	let blogPostPage:BlogPostPage = new BlogPostPage();
 	blogPostPage.init();
-})();

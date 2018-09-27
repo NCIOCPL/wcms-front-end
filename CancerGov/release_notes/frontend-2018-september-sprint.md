@@ -1,5 +1,10 @@
 # Frontend-2018: FEQ September Release
 
+## [WCMSFEQ-464] Resolve jQuery ready and load events.
+### (NO CONTENT CHANGES)
+
+Sorting out document.ready and window.load events. Updating a few modules for more streamlined execution order.
+
 ## [WCMSFEQ-639] Set up proper event delegation for analytics.after.js
 ### (NO CONTENT CHANGES)
 
@@ -38,6 +43,7 @@ Since there is no content in the multimedia slot of the About Cancer, El Cancer,
 ### (NO CONTENT CHANGES)
 
 The text in the inline feature cards was too large for the space, which caused most lines to break to one word. The H3 and p font sizes were reduced, along with a slight line-height and color change. 
+
 
 ## [WCMSFEQ-1128] Remove Scrollbar from Megamenu
 ### (NO CONTENT CHANGES)
