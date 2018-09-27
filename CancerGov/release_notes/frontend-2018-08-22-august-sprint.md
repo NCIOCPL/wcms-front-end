@@ -129,6 +129,11 @@ When printed, the basic CTS pages were missing a border around the fieldset head
 The CTHP dropdown arrows were set up to use the svgsprite-mixin, but the background positioning was hardcoded.  This needed to be fixed because the dropdown arrows could potentially break whenever the svg-sprite.svg file was updated.  Instead of using the svg-sprite mixin within the Table/Mobile styles media query, the hardcoded positioned elements were removed and the mixin was reassigned to outside the media query.
 
 
+## [WCMSFEQ-1100] Update bestBets.js to Use 'exact' Dictionary Search Type
+### (NO CONTENT CHANGES)
+
+Nuff said.
+
 # Content Changes
 
 ## [WCMSFEQ-1099] Updates to s_code
