@@ -12,6 +12,10 @@ The help-icon was overlapping the Type/Condition heading label at the 326px brea
 Provider emails were appearing next to the phone number (rather than on the following line) under Locations and Contacts accordion:
   * added <br> to Email line in CTSDrawLocations include file
   
+## [WCMSFEQ-1043] Adding support for Highmaps
+### (NO CONTENT CHANGES)
+This update will allow lazy loading of Highmaps when the necessary chart type is defined in Fact Book pages. This is needed to support development on `about-nci/budget/fact-book/extramural-programs/grant-contract-awards`
+
 ## [WCMSFEQ-1079] Seeing the blue bar with the text "Cancer Currents Blog"...
 ### (NO CONTENT CHANGES)
 
