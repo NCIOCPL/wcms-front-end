@@ -53,6 +53,14 @@ The goal of this ticket is to enhance the usability of the megamenu by removing 
   * Updated font size and line height for submenu list items and titles
   * Re-adjusted subnav max open height to 460px and line height of sub-nav-mega class to 1.1em to accomodate largest spanish mega menu list items
 
+## [WCMSFEQ-1153] Update Dictionary Widget Search Button contrast for 508
+### (NO CONTENT CHANGES)
+
+Button color for the dictionary widget that is used on other sites was reported to have 508 color contrast issues. This widget can be seen on /syndication/widgets.
+  * Changed Search button background color to #62539D
+  * Changed Search button hover background color to #4B3F78
+  * Changed top border of the widget to #62539D
+
 
 # Notes
 
