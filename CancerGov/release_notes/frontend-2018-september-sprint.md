@@ -1,5 +1,10 @@
 # Frontend-2018: FEQ September Release
 
+## [WCMSFEQ-639] Set up proper event delegation for analytics.after.js
+### (NO CONTENT CHANGES)
+
+Added "On This Page" analytics to the analytics.js "load" event. Click events will be bound after the OTP element has been rendered to the DOM in the document.ready event
+
 ## [WCMSFEQ-909] The Help-link is overlapping the blue heading label Type/Condition...
 ## (NO CONTENT CHANGES)
 
@@ -37,6 +42,7 @@ The goal of this ticket is to enhance the usability of the megamenu by removing 
   * Removed the mega-menu-scroll class and set subnav max open height to 450px
   * Updated font size and line height for submenu list items and titles
   * Re-adjusted subnav max open height to 460px and line height of sub-nav-mega class to 1.1em to accomodate largest spanish mega menu list items
+
 
 # Notes
 

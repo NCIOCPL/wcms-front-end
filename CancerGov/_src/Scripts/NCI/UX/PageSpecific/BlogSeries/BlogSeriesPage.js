@@ -3,12 +3,6 @@ define(function(require) {
 	require('Common/Enhancements/sharecomponent');
 	const {pageOptionsTransporter} = require('Utilities/domManipulation');
 	var NCIAccordion = require('Modules/accordion/accordion');
-	$(function() {
-		require('Common/Enhancements/analytics.After').init();
-	});
-
-
-
 
 	$( document ).ready(function() {
 		// Place page options

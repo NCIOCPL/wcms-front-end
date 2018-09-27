@@ -4,7 +4,6 @@ import 'UX/Common/Enhancements/sharecomponent';
 import * as NCIAccordion from 'Modules/accordion/accordion';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
-import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import { pageOptionsTransporter } from 'Utilities/domManipulation';
 import './BlogPostPage.scss';
 
@@ -43,7 +42,6 @@ class BlogPostPage extends NCIBasePage {
 		(<any>ImageCarousel).init();
 
 		(<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
-		(<any>AnalyticsAfter).init();
 
 		$( document ).ready(function() {
 			// Place page options

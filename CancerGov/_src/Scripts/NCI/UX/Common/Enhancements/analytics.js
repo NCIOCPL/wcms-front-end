@@ -631,7 +631,19 @@ define(function(require) {
                 }
                 NCIAnalytics.TableSortHeaderClick(this, pageName);
                 userHasSorted = true;
-             });
+            });
+
+            $('.on-this-page a').on('click', function() {
+                var pageName = 'www.cancer.gov/';
+                if(typeof(s) !== 'undefined') {
+                    if(s.pageName) {
+                        pageName = s.pageName;
+                    }
+                }
+                var $this = $(this);
+                var linkText = $this.text();
+                NCIAnalytics.OnThisPageClick($this, linkText, pageName);
+            });
 		});
 	})();
 });
