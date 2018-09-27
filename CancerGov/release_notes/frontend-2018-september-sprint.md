@@ -2,7 +2,13 @@
 
 ## [WCMSFEQ-464] Resolve jQuery ready and load events.
 ### (NO CONTENT CHANGES)
+
 Sorting out document.ready and window.load events. Updating a few modules for more streamlined execution order.
+
+## [WCMSFEQ-639] Set up proper event delegation for analytics.after.js
+### (NO CONTENT CHANGES)
+
+Added "On This Page" analytics to the analytics.js "load" event. Click events will be bound after the OTP element has been rendered to the DOM in the document.ready event
 
 ## [WCMSFEQ-909] The Help-link is overlapping the blue heading label Type/Condition...
 ## (NO CONTENT CHANGES)

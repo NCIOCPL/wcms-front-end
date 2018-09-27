@@ -642,4 +642,5 @@ define(function(require) {
             NCIAnalytics.OnThisPageClick($this, linkText, pageName);
         });
     });
+
 });
