@@ -1,5 +1,12 @@
 # Frontend-2018: FEQ September Release
 
+## [WCMSFEQ-192] Please Make Dictionary Search Results font styles Consistent with Sitewide Search Results
+### (NO CONTENT CHANGES)
+
+Description:
+  * The dictionary results titles (Dictionary of Cancer Tersms, Drug Dictionary, Dictionary of Genetics Terms) need to be regular text instead of bold, however when you click to the page that shows the term page, it needs to be bold.
+  * Targeted links that are in the definition of dictionary lists.
+
 ## [WCMSFEQ-464] Resolve jQuery ready and load events.
 ### (NO CONTENT CHANGES)
 
@@ -59,6 +66,14 @@ The goal of this ticket is to enhance the usability of the megamenu by removing 
   * Removed the mega-menu-scroll class and set subnav max open height to 450px
   * Updated font size and line height for submenu list items and titles
   * Re-adjusted subnav max open height to 460px and line height of sub-nav-mega class to 1.1em to accomodate largest spanish mega menu list items
+
+## [WCMSFEQ-1153] Update Dictionary Widget Search Button contrast for 508
+### (NO CONTENT CHANGES)
+
+Button color for the dictionary widget that is used on other sites was reported to have 508 color contrast issues. This widget can be seen on /syndication/widgets.
+  * Changed Search button background color to #62539D
+  * Changed Search button hover background color to #4B3F78
+  * Changed top border of the widget to #62539D
 
 
 # Notes
