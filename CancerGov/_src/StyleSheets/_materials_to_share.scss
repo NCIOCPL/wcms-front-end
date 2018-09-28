@@ -29,7 +29,7 @@
     font-size: 0.9375em;
     font-family: $montserrat-font-stack;
 
-    @include bp(small){
+    @include bp(small) {
         margin-left: 0;
     }
 }
@@ -61,7 +61,7 @@
     float: left;
     padding: 0 2px;
 
-    @include bp(small){
+    @include bp(small) {
         float: none;
         position: relative;
         left: 34%;
