@@ -53,6 +53,21 @@ The goal of this ticket is to enhance the usability of the megamenu by removing 
   * Updated font size and line height for submenu list items and titles
   * Re-adjusted subnav max open height to 460px and line height of sub-nav-mega class to 1.1em to accomodate largest spanish mega menu list items
 
+## [WCMSFEQ-1136] Webpack 4 Update
+### Content Changes
+  1. Add new Style Sheet Info item to /Configuration/css/ folder
+  2. Name the new Style Sheet Info item `Common.css` and upload `Styles\Common.css` to it
+  3. Update CDE templates to use Common.css and remove nvcg.css
+    1. Navigate to /Configuration/cde/
+    2. Put all `Page Template Info` items into edit mode
+    3. For each item:
+      1. add the Common.css style sheet to the Style Sheet Info Slot
+      2. remove the nvcg.css item
+      3. Move Common.css to the top of the list
+
+This ticket updates Webpack from our current version 3 to 4. We've restructured the packages a bit so the Common.js file is smaller and page specific files are a little larger. This will mean less JavaScript parsing overall for most pages, and hopefully a minor page speed boost to most pages as well.
+
+
 ## [WCMSFEQ-1153] Update Dictionary Widget Search Button contrast for 508
 ### (NO CONTENT CHANGES)
 
