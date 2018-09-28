@@ -136,7 +136,7 @@ const toggleSection = (e) => {
 
 const resizeHandler = () => {
 
-    if (window.matchMedia("(min-width: 1024px)").matches) {
+    if (window.matchMedia("(min-width: 1025px)").matches) { //setting min-width: 1025px removes the blue bar (which defaults to open on the section menu at 1024px 
         if ($sectionMenu.is(':hidden')) {
             $sectionMenu.show();
         }
