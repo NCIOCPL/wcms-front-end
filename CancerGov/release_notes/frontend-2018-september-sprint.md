@@ -1,5 +1,12 @@
 # Frontend-2018: FEQ September Release
 
+## [WCMSFEQ-192] Please Make Dictionary Search Results font styles Consistent with Sitewide Search Results
+### (NO CONTENT CHANGES)
+
+Description:
+  * The dictionary results titles (Dictionary of Cancer Tersms, Drug Dictionary, Dictionary of Genetics Terms) need to be regular text instead of bold, however when you click to the page that shows the term page, it needs to be bold.
+  * Targeted links that are in the definition of dictionary lists.
+
 ## [WCMSFEQ-464] Resolve jQuery ready and load events.
 ### (NO CONTENT CHANGES)
 
