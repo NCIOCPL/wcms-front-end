@@ -29,6 +29,13 @@ The help-icon was overlapping the Type/Condition heading label at the 326px brea
 Provider emails were appearing next to the phone number (rather than on the following line) under Locations and Contacts accordion:
   * added <br> to Email line in CTSDrawLocations include file
   
+## [WCMSFEQ-1037] Update Tweet This graphic
+### (NO CONTENT CHANGES)
+
+The Tweet This feature as seen on /about-nci/organization/crchd/inp/screen-to-save/connect is being updated with a new SVG and modified CSS rules
+  * Upload updated svg-sprite.svg from /images/design-elements/sprites in the build to /images/design-elements/sprites folder in Percussion
+  * Updates to CSS to add brackets around the text, change SVG background positioning, change font color, size and family.
+
 ## [WCMSFEQ-1043] Adding support for Highmaps
 ### (NO CONTENT CHANGES)
 This update will allow lazy loading of Highmaps when the necessary chart type is defined in Fact Book pages. This is needed to support development on `about-nci/budget/fact-book/extramural-programs/grant-contract-awards`
