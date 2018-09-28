@@ -21,12 +21,52 @@
     margin:  0 auto;
 }
 
+.materials-to-share p {
+    padding: 10px 25px;
+    margin-left: 180px;
+    position: relative;
+    color: $grey05;
+    font-size: 0.9375em;
+    font-family: $montserrat-font-stack;
+
+    @include bp(small) {
+        margin-left: 0;
+    }
+}
+.materials-to-share p:after,
+.materials-to-share p:before {
+    border: 3px solid $grey00; 
+    bottom: 0;    
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 15px;
+}
+.materials-to-share p:after {
+    border-left: none;
+    right: 0;
+}
+.materials-to-share p:before {
+    border-right: none;
+    left: 0;
+}
+.materials-to-share p:empty {
+    display: none;
+ }
+
 // This is to accomodate the removal of addthis twitter links in favor of a vanilla implementation.
 // Some or most of the rules below are probably deprecated. Dear future you, please do the painful work of figuring out what!
 .materials-to-share .social-share--custom-tweet {
     margin-right: 5px;
     float: left;
     padding: 0 2px;
+
+    @include bp(small) {
+        float: none;
+        position: relative;
+        left: 34%;
+        padding-top: 30px;
+    }
 }
 
 .materials-to-share .addthis_32x32_style .at300bs {
