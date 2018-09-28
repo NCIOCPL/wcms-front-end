@@ -24,7 +24,7 @@
 <br>Phone: $loc.ContactPhone
 #end
 #if (!$Tools.IsNullOrWhitespace($loc.ContactEmail))
-Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
+<br>Email: <a href="mailto:$loc.ContactEmail">$loc.ContactEmail</a>
 #end
   </span>
 </div>
