@@ -3,6 +3,7 @@
 .main-content {
 	padding: 0;
 	background: #f7f8f3 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
+	position: relative; // #section-menu-button in nav partial is positioned relative to this container for proper alignment
 }
 
 .main-content a {

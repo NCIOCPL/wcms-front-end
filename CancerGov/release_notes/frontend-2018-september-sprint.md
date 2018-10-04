@@ -90,6 +90,10 @@ Button color for the dictionary widget that is used on other sites was reported 
   * Changed Search button hover background color to #4B3F78
   * Changed top border of the widget to #62539D
 
+## [WCMSFEQ-1163] Blog section menu drop-down positioning bug in Safari
+### (NO CONTENT CHANGES)
+
+The absolutely positioned section nav was behaving differently in Safari. This change adds a position relative rule to the main-content container and realigns the section nav relatie to that, for a more standardized approach.
 
 # Notes
 
