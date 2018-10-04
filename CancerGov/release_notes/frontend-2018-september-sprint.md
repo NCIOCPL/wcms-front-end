@@ -28,6 +28,7 @@ The help-icon was overlapping the Type/Condition heading label at the 326px brea
 
 Provider emails were appearing next to the phone number (rather than on the following line) under Locations and Contacts accordion:
   * added <br> to Email line in CTSDrawLocations include file
+  * added word-wrap: break-word to prevent email addresses from being cut off (and not visible) at 511px bp and lower
   
 ## [WCMSFEQ-1037] Update Tweet This graphic
 ### (NO CONTENT CHANGES)
