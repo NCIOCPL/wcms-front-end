@@ -66,6 +66,7 @@ The goal of this ticket is to enhance the usability of the megamenu by removing 
   * Removed the mega-menu-scroll class and set subnav max open height to 450px
   * Updated font size and line height for submenu list items and titles
   * Re-adjusted subnav max open height to 460px and line height of sub-nav-mega class to 1.1em to accomodate largest spanish mega menu list items
+  * updated right margin of sub-nav-mega ul to 3% to increase space between columns in the megamenu list
 
 ## [WCMSFEQ-1136] Webpack 4 Update
 ### Content Changes
