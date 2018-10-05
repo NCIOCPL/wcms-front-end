@@ -1,6 +1,5 @@
 import { NCIBasePage } from 'UX/core';
 import AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest';
-import PlayAudio from 'UX/AppModuleSpecific/Dictionary/Enhancements/playaudio';
 import Analytics from 'UX/AppModuleSpecific/Dictionary/Enhancements/analytics';
 
 /**
@@ -24,8 +23,6 @@ class DictionaryPage extends NCIBasePage {
 	 * @memberof DictionaryPage
 	 */
 	onReady():void {
-        // Do autosuggest and dictionary click audio
-		(<any>PlayAudio).init(); 
 		(<any>AutoSuggest).init();
 		(<any>Analytics).init();
 	}
