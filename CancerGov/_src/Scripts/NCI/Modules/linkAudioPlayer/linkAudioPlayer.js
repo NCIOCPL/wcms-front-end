@@ -1,5 +1,12 @@
 import { getNodeArray } from 'Utilities/domManipulation';
 
+/**
+ * LINK AUDIO PLAYER
+ * Audio files are currently included by the CDE as anchor tags with an MP3 as the source. In the past we 
+ * used a library, jPlayer, to extend the anchor tags functionality and have Flash as a fallback for older browsers.
+ * No longer needing to support pre audio element browsers, we can do this natively, but there are a few hoops to jump through.
+ */
+
 // TODO: Add in a check to avoid links getting more than one click handler if this library is called multiple times
 // Event listeners are not easily found, so adding a data attribute identifying an audiolink as such might be a better workaround
 
