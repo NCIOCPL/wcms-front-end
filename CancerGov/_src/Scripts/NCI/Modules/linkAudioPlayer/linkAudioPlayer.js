@@ -6,28 +6,6 @@ import { getNodeArray } from 'Utilities/domManipulation';
 // Safari only supports webkitAudioContext
 const AudioContext = window.AudioContext || window.webkitAudioContext || false;
 
-const xhrRequest = url => {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-
-        xhr.onload = () => {
-            const body = 'response' in xhr ? xhr.response : xhr.responseText;
-            resolve(body)
-        }
-
-        xhr.onerror = () => {
-            reject(new TypeError("Network request failed."))
-        }
-
-        xhr.ontimeout = () => {
-            reject(new TypeError("Network request failed."))
-        }
-
-        xhr.open('GET', url, true);
-        xhr.send();
-    })
-}
-
 class AudioPlayer {
     constructor(){
         this.player = document.createElement("audio");
@@ -46,14 +24,19 @@ class AudioPlayer {
                 // First fallback workaround is to use an audio buffer.
                 if(AudioContext){
                     const context = new AudioContext();
-                    // TODO: either fetch polyfill for ie11 or vanilla XHR (axios is too heavy)
+                    
+                    // We don't need to polyfill fetch (thank goodness) because IE11 does support HTML5 audio without
+                    // permissions issues, unlike Safari.
                     fetch(url)
                         .then(response => response.arrayBuffer())
                         .then(arrayBuffer => context.decodeAudioData(
                             arrayBuffer, 
                             audioBuffer => {
                                 console.log('Playing buffered audio') //TODO: Remove
-                                this.playBufferedAudio(audioBuffer, context);
+                                const playSound = context.createBufferSource();
+                                playSound.buffer = audioBuffer;
+                                playSound.connect(context.destination);
+                                playSound.start(0);
                             }, 
                             err => {
                                 console.log(err);
@@ -61,22 +44,13 @@ class AudioPlayer {
                         ))
                 }
                 else{
-                    // FML: Permission denied and no audio context
-                    // TODO: trigger underlying anchor link which should open
-                    // file in a new window or download it depending on
-                    // browser's native behavior.
+                    // FML: Permission denied and no audio context, but promises are supported -- what kind of browser are you in?
+                    // If we need to support browsers (mobile?) that will reach this sad path, we can
+                    // manually trigger the original anchor link (there are a variety of ways to work around the preventDefault).
                 }
             })
         }
     }
-
-    playBufferedAudio(buffer, context){
-        const playSound = context.createBufferSource();
-        playSound.buffer = buffer;
-        playSound.connect(context.destination);
-        playSound.start(0);
-    }
-
 }
 
 const handler = player => e => {
