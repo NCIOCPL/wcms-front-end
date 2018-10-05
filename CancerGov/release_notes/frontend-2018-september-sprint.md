@@ -96,6 +96,8 @@ Button color for the dictionary widget that is used on other sites was reported 
 ### (NO CONTENT CHANGES)
 
 The absolutely positioned section nav was behaving differently in Safari. This change adds a position relative rule to the main-content container and realigns the section nav relatie to that, for a more standardized approach.
+  * Moved the relative positioning from main-content div to general-page-body-container to correctly target the section-menu-button and underlying overlay div.
+
 
 # Notes
 
