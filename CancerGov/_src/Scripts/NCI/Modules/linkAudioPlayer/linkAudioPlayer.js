@@ -1,9 +1,32 @@
 import { getNodeArray } from 'Utilities/domManipulation';
 
 // TODO: Add in a check to avoid links getting more than one click handler if this library is called multiple times
+// Event listeners are not easily found, so adding a data attribute identifying an audiolink as such might be a better workaround
 
 // Safari only supports webkitAudioContext
 const AudioContext = window.AudioContext || window.webkitAudioContext || false;
+
+const xhrRequest = url => {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+
+        xhr.onload = () => {
+            const body = 'response' in xhr ? xhr.response : xhr.responseText;
+            resolve(body)
+        }
+
+        xhr.onerror = () => {
+            reject(new TypeError("Network request failed."))
+        }
+
+        xhr.ontimeout = () => {
+            reject(new TypeError("Network request failed."))
+        }
+
+        xhr.open('GET', url, true);
+        xhr.send();
+    })
+}
 
 class AudioPlayer {
     constructor(){
@@ -80,7 +103,8 @@ const initialize = (selector = '.CDR_audiofile') => {
     // If another audiolink needs to be set up subsequent to page loads by the same module this audio player can be reused. 
     return player; 
 
-    //TODO: OR Could attach a global listener at this point that subsequent library could broadcast to
+    // TODO: OR Could attach a global listener at this point that subsequent library could broadcast to
+    // TODO: OR set up a mutation listener instead of needing to be called manually when new elements are added. Future changes.
 }
 
 export default initialize;
