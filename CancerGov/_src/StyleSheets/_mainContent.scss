@@ -3,7 +3,6 @@
 .main-content {
 	padding: 0;
 	background: #f7f8f3 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
-	position: relative; // #section-menu-button in nav partial is positioned relative to this container for proper alignment
 }
 
 .main-content a {
@@ -40,6 +39,7 @@ a.definition:hover, a.definition:focus {
 .general-page-body-container {
 	background: #fffffb;
 	padding-bottom: 1.5em;
+	position: relative; // #section-menu-button in nav partial is positioned relative to this container for proper alignment
 	@include box-shadow(10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5));
 	.no-boxshadow & {
 		/* Border used here because IE8 doesn't support box-shadow */
