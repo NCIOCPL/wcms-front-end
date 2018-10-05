@@ -19,7 +19,7 @@ window.WebFontConfig = {
 
 
 $script([CONFIG.CDN.jquery, CONFIG.CDN.jplayer], function(){
-    popupFunctions(jQuery);
+    popupFunctions();
 
     // TODO: OCT 2018: State of the Union
     // Currently, Popups do not get jquery loaded up in advance of Common.js, so the audioLinkPlayer initialization fails (along with most calls

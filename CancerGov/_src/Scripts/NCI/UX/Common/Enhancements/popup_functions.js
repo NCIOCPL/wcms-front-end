@@ -1,7 +1,4 @@
-const popupFunctions = ($) => {
-	//window.load polyfill for jQuery 3.0
-	$.fn.load = function(callback){ $(window).on("load", callback) };
-
+const popupFunctions = () => {
 	//creates appropriate pop-up window
 	function popWindow(type, urlargs){
 		if (type == "privacy") {
