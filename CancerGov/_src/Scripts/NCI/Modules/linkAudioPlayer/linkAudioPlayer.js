@@ -1,5 +1,7 @@
 import { getNodeArray } from 'Utilities/domManipulation';
 
+// TODO: Add in a check to avoid links getting more than one click handler if this library is called multiple times
+
 // Safari only supports webkitAudioContext
 const AudioContext = window.AudioContext || window.webkitAudioContext || false;
 
@@ -11,6 +13,7 @@ class AudioPlayer {
     play(url){
         this.player.src = url;
         const playPromise = this.player.play();
+        playPromise.then(() => console.log('Playing audio')) // TODO: Remove
         playPromise.catch(_ => {
             // Play was rejected (likely because of a permissions error in Safari or Mobile Chrome,
             // that does not allow autoplaying of audio/video elements (ie dynamically triggered))
@@ -22,7 +25,8 @@ class AudioPlayer {
                     .then(response => response.arrayBuffer())
                     .then(arrayBuffer => context.decodeAudioData(
                         arrayBuffer, 
-                        audioBuffer => { 
+                        audioBuffer => {
+                            console.log('Playing buffered audio') //TODO: Remove
                             this.playBufferedAudio(audioBuffer, context);
                         }, 
                         err => {
@@ -60,20 +64,23 @@ export const attachHandler = (element, player) => {
     element.addEventListener('click', handler(player));
 }
 
-const attachHandlers = player => {
+const attachHandlers = (selector, player) => {
     // Audiofiles are generated on the backend as anchor tags with an mp3 file as a source
-    const audiofiles = getNodeArray('.CDR_audiofile');
+    const audiofiles = getNodeArray(selector);
     audiofiles.forEach(audiofile => {
-        attachHandler(audioFile, player);
+        attachHandler(audiofile, player);
     })
 }
 
-const initialize = () => {
+const initialize = (selector = '.CDR_audiofile') => {
+    console.log('Initializing AudioPlayer') // TODO: Remove 
     const player = new AudioPlayer();
-    attachHandlers(player);
+    attachHandlers(selector, player);
 
-    // If another audiolink needs to be set up subsequent to page loads
+    // If another audiolink needs to be set up subsequent to page loads by the same module this audio player can be reused. 
     return player; 
+
+    //TODO: OR Could attach a global listener at this point that subsequent library could broadcast to
 }
 
 export default initialize;
