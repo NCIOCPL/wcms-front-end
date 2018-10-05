@@ -36,34 +36,38 @@ class AudioPlayer {
     play(url){
         this.player.src = url;
         const playPromise = this.player.play();
-        playPromise.then(() => console.log('Playing audio')) // TODO: Remove
-        playPromise.catch(_ => {
-            // Play was rejected (likely because of a permissions error in Safari or Mobile Chrome,
-            // that does not allow autoplaying of audio/video elements (ie dynamically triggered))
-            // First fallback workaround is to use an audio buffer.
-            if(AudioContext){
-                const context = new AudioContext();
-                // TODO: either fetch polyfill for ie11 or vanilla XHR (axios is too heavy)
-                fetch(url)
-                    .then(response => response.arrayBuffer())
-                    .then(arrayBuffer => context.decodeAudioData(
-                        arrayBuffer, 
-                        audioBuffer => {
-                            console.log('Playing buffered audio') //TODO: Remove
-                            this.playBufferedAudio(audioBuffer, context);
-                        }, 
-                        err => {
-                            console.log(err);
-                        }
-                    ))
-            }
-            else{
-                // FML: Permission denied and no audio context
-                // TODO: trigger underlying anchor link which should open
-                // file in a new window or download it depending on
-                // browser's native behavior.
-            }
-        })
+
+        // IE11 supports HTML5 audio but does not return a promise, unlike other browsers.
+        if(playPromise !== undefined){
+            playPromise.then(() => console.log('Playing audio')) // TODO: Remove
+            playPromise.catch(_ => {
+                // Play was rejected (likely because of a permissions error in Safari or Mobile Chrome,
+                // that does not allow autoplaying of audio/video elements (ie dynamically triggered))
+                // First fallback workaround is to use an audio buffer.
+                if(AudioContext){
+                    const context = new AudioContext();
+                    // TODO: either fetch polyfill for ie11 or vanilla XHR (axios is too heavy)
+                    fetch(url)
+                        .then(response => response.arrayBuffer())
+                        .then(arrayBuffer => context.decodeAudioData(
+                            arrayBuffer, 
+                            audioBuffer => {
+                                console.log('Playing buffered audio') //TODO: Remove
+                                this.playBufferedAudio(audioBuffer, context);
+                            }, 
+                            err => {
+                                console.log(err);
+                            }
+                        ))
+                }
+                else{
+                    // FML: Permission denied and no audio context
+                    // TODO: trigger underlying anchor link which should open
+                    // file in a new window or download it depending on
+                    // browser's native behavior.
+                }
+            })
+        }
     }
 
     playBufferedAudio(buffer, context){
