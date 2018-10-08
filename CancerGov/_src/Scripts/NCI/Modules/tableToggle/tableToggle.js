@@ -51,7 +51,7 @@ function _initialize() {
 let _initialized = false;
 export default function() {
     if (!_initialized) {
-        _initialize();
         _initialized = true;
+        _initialize();
     }
 }

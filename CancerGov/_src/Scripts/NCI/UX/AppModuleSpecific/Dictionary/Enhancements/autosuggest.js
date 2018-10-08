@@ -66,7 +66,7 @@ export default {
         if (initialized) {
             return;
         }
-        _initialize();
         initialized = true;
+        _initialize();
     }
 };

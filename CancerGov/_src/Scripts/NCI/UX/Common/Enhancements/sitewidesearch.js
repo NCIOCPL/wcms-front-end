@@ -64,10 +64,11 @@ function _initialize() {
 
 let initialized = false;
 export default function() {
-    if(initialized)
+    if(initialized){
         return;
-
-    _initialize();
+    }
+        
     initialized = true;
+    _initialize();
 }
 /*** END Site-Wide Search ***/

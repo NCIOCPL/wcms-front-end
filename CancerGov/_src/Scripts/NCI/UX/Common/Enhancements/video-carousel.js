@@ -454,8 +454,8 @@ export default {
             return;
         }
 
-        _initialize();
         initialized = true;
+        _initialize();
     },
     apiInit: function(key) {
         if (initialized) {
