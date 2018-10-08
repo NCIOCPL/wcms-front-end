@@ -1,5 +1,4 @@
-import 'Modules/carousel/carousel';
-import espanolHome from 'Home/Enhancements/espanolHome';
+import Carousel from 'Modules/carousel/carousel';
 import FloatingDelighter from 'Modules/floatingDelighter';
 import patternInjector from 'Modules/patternInjector';
 import carouselSettings from './carouselSettings';
@@ -7,7 +6,10 @@ import './HomePage.scss';
 
 
 const onDOMContentLoaded = () => {
-    espanolHome.init();
+    if(location.pathname.match('espanol')){
+        document.querySelector('.ncilandingpage').classList.add('espanol-home');
+    }
+    Carousel();
     FloatingDelighter();
     patternInjector(carouselSettings);
 }

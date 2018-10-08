@@ -4,7 +4,6 @@ import 'UX/Common/Enhancements/sharecomponent';
 import FloatingDelighter from 'Modules/floatingDelighter';
 import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
-import * as AnalyticsAfter from 'UX/Common/Enhancements/analytics.After';
 import './TopicPage.scss';
 
 /**
@@ -40,8 +39,7 @@ class TopicPage extends NCIBasePage {
 	onReady():void {
 		(<any>FloatingDelighter)();
 		(<any>ImageCarousel).init();
-        (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
-		(<any>AnalyticsAfter).init();
+		(<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 	}
 
 }
@@ -49,7 +47,5 @@ class TopicPage extends NCIBasePage {
 /**
  * Initialize TopicPage
  */
-(function() { //encapsulation
-	let topicPage:TopicPage = new TopicPage();
-	topicPage.init();
-})();
+let topicPage:TopicPage = new TopicPage();
+topicPage.init();

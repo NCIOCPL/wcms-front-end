@@ -52,7 +52,7 @@ p {
 
 #container {
 	background: white;
-	border-top: 3px solid #00b1b9;
+	border-top: 3px solid #62539D;
 	border-left: 1px solid #ebebea;
 	border-right: 1px solid #ebebea;
 	border-bottom: 1px solid #ebebea;
@@ -121,7 +121,7 @@ a:focus {
 	height: 16px; 
 	background: url("/publishedcontent/images/images/design-elements/icons/nci-sprite.png") no-repeat -172px -261px;
 	margin: -8px 0 0; 
-	cursor: pointer;'
+	cursor: pointer;
 }
 /* button for search */
 
@@ -215,8 +215,8 @@ form button[type=submit],
 form button.submit,
 .button[type=submit],
 .button.submit {
-	background-color: #0eb5bb;
-	border-color: #0a878c;
+	background-color: #62539D;
+	border-color: #4B3F78;
 	color: #fff;
 }
 
@@ -228,7 +228,7 @@ form button.submit:focus,
 .button[type=submit]:focus,
 .button.submit:hover,
 .button.submit:focus {
-	background-color: #0a878c;
+	background-color: #4B3F78;
 }
 
 form button[type=submit]:hover,
