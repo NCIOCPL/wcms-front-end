@@ -77,23 +77,14 @@ function _initialize() {
 	});
 }
 
-
+/**
+ * Exposed functions of this module.
+ */
 let _initialized = false;
 export default function() {
 	if (!_initialized) {
 		_initialized = true;
 		_initialize();
 	}
-
-	/**
-	 * Exposed functions of this module.
-	 */
-	return {
-		init: function () {
-			if (!_initialized) {
-				_initialize();
-			}
-		}
-	};
-	/*** END Mega Menu init ***/
-});
+}
+/*** END Mega Menu init ***/
