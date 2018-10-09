@@ -1,15 +1,10 @@
 var webpack = require("webpack");
 var path = require("path");
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-// var HappyPack = require('happypack');
-// var happyPackThreadPool = HappyPack.ThreadPool({ size: 4 })
-var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
 
-console.log("__dirname is:" + __dirname);
+//console.log("__dirname is:" + __dirname);
 module.exports = {
 	context: path.resolve(__dirname, "_src/Scripts/NCI"),
 	// devtool: debug ? "inline-sourcemap" : null,
@@ -90,30 +85,6 @@ module.exports = {
 
 	module: {
 		rules: [
-			// JavaScript Linter
-			// {
-			//     test: /\.js$/,
-			//     enforce: 'pre',
-			//     exclude: /node_modules/,
-			//     loader: "eslint-loader",
-			//     options: {
-			//         failOnWarning: false,
-			//         failOnError: false,
-			//         emitWarning: true
-			//     }
-			// },
-			// TypeScript Linter
-			// {
-			//     test: /\.tsx?$/,
-			//     enforce: 'pre',
-			//     loader: 'tslint-loader',
-			//     options: {
-			//         configFile: 'tslint.json',
-			//         failOnHint: false, // stop the build on fail
-			//         fix: false // do you dare make this true?
-			//     }
-			// },
-
 			// The loader below passes off any required/imported .ts files off to the the typescript loader,
 			// this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
@@ -125,10 +96,14 @@ module.exports = {
 			},
 			{
 				test: /\.s?css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'postcss-loader', 'sass-loader']
-				})
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader
+					},
+					'css-loader', 
+					'postcss-loader', 
+					'sass-loader'
+				],
 			},
 
 			// expose the charts module to a global variable
@@ -152,38 +127,10 @@ module.exports = {
 			Headroom: 'Headroom'
 		}),
 
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'shared',
-			chunks: ['BlogPostPage', 'BlogSeriesPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
-			minChunks: 3
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'Common',
-			chunks: ['shared'],
-			minChunks: 1
-		}),
-
 
 		// This makes sure when styles are extracted into stylesheets nvcg, which is piped through common, retains it's original name.
-		new ExtractTextPlugin({
-			filename: getPath => {
-				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')
-			}
-		}),
-		// new HappyPack({
-		// 	id: 'js',
-		// 	threadPool: happyPackThreadPool,
-		// 	loaders: ['babel-loader']
-		// }),
-		// new HappyPack({
-		// 	id: 'styles',
-		// 	threadPool: happyPackThreadPool,
-		// 	loaders: ['css-loader', 'postcss-loader', 'sass-loader']
-		// }),
-		new HardSourceWebpackPlugin({
-			cacheDirectory: path.resolve(__dirname, 'node_modules', '.cache', 'hard-source', '[confighash]'),
-			recordsPath: path.resolve(__dirname, 'node_modules', '.cache', 'hard-source', '[confighash]', 'records.json'),
-			configHash: (webpackConfig) => require('node-object-hash')().hash(webpackConfig)
+		new MiniCssExtractPlugin({
+			filename: "../Styles/[name].css"
 		}),
 	]
 };

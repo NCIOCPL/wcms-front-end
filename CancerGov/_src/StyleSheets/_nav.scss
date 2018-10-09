@@ -292,6 +292,7 @@
 		line-height: 1.6;
 		min-height: 1.5em;
 		padding: 0.75em 2.5em 0.75em 0.75em;
+		top: 0;
 		right: 5%;
 		background: #1c5e86 95% 50% no-repeat;
 		font-family: $montserrat-font-stack;
@@ -329,8 +330,12 @@
 		left: 0;
 		@include transition(left 500ms ease);
 	}
-	html.nav-open #page {
-		left: 80%;
+	html.nav-open {
+		overflow: hidden;
+		
+		#page {
+			left: 80%;
+		}
 	}
 	.fixedtotop {
 		@include transition(left 500ms ease);
@@ -539,6 +544,10 @@
 				font-family: $montserrat-font-stack;
 			}
 		}
+
+		.mobile-item {
+			display: none;
+		}
 			/* list item spacing through the hierarchy */
 		.lvl-1 { // level 0 in the mocks
 			display: block;
@@ -555,7 +564,7 @@
 			}
 		}
 		.lvl-2 { // level 1 in the mocks
-			display: none;
+			//display: none;
 			text-transform: uppercase;
 
 			a {
@@ -569,7 +578,7 @@
 			}
 		}
 		.lvl-3 { // level 2 in the mocks
-			display: none;
+			//display: none;
 			// text-transform: none;
 
 			a {
