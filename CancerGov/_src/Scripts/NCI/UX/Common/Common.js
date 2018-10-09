@@ -50,7 +50,8 @@ import DeepLinkPatch from 'Modules/utility/deepLinkPatch';
 DeepLinkPatch();
 
 //DOM Ready event
-$(document).ready(function() {
+const onDOMContentLoaded = () => {
+	
 	/*** BEGIN header component ***/
 	megaMenuModule();
 
@@ -152,7 +153,9 @@ $(document).ready(function() {
 	// Proactive Live Help for CTS
 	proactiveLiveHelp();
 
-});// END: DOM Ready event
+};// END: DOM Ready event
+
+document.addEventListener('DOMContentLoaded',onDOMContentLoaded);
 
 $(window).on('load', function () {
 	// BEGIN Table Resizing
