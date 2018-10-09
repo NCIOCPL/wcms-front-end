@@ -46,7 +46,7 @@ function _initialize() {
     ;
 
     // cache the checkboxes for later
-    $checkboxes = $('.cts-checkbox input');
+    var $checkboxes = $('.cts-checkbox input');
 
     // duplicate footer pagination
     var $topPager = $(".ct-listing-pager").clone();

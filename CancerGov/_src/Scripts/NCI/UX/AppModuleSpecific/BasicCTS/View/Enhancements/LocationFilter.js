@@ -13,12 +13,12 @@ function _getCountryStates($locationsContainer) {
 	$locationsContainer
 		.find('div[data-basiccts-countrygroup]')
 		.each(function(index, element) {
-			$el = $(element);
+			var $el = $(element);
 			var country = $el.data("basiccts-countrygroup");
 			var states = []
 			$el.find('div[data-basiccts-psunitgroup]')
 				.each(function(stindex, stelement){
-					$stel = $(stelement);
+					var $stel = $(stelement);
 					states.push({
 						name: $stel.data("basiccts-psunitgroup"),
 						$el: $stel
