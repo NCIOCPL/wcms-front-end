@@ -299,8 +299,8 @@ $(document).ready(function() {
     $('.accordion section').each(function (i, el) {
         $(el).on('click', 'h2', function (event) {
             var $this = $(this);
-            accordionId = $this.closest('.accordion').attr('id')
-            sectionId = $this.closest('section').attr('id');
+            var accordionId = $this.closest('.accordion').attr('id')
+            var sectionId = $this.closest('section').attr('id');
             // Track only if the accordion wrapper has an ID
             if (accordionId) {
                 if (!sectionId) {
