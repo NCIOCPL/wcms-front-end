@@ -1,6 +1,5 @@
-import $ from 'jquery';
 import CookieManager from 'js-cookie';
-import DateUtility from 'Modules/utility/dateUtility';
+import * as DateUtility from 'Modules/utility/dateUtility';
 import basePaths from './settings';
 import ProactiveLiveHelp from './ProactiveLiveHelp';
 

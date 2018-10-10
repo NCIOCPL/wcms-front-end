@@ -1,47 +1,38 @@
-define(function(require) {
-    var $ = require('jquery');
+import $ from 'jquery';
 
-	/***
-	* Main function
-	*/
-	function _initialize() {
+/***
+* Main function
+*/
+function _initialize() {
 
-        //Hookup JPlayer for Audio
-        if (jQuery.jPlayer) {
-            var my_jPlayer = $("#dictionary_jPlayer");
+	//Hookup JPlayer for Audio
+	if (jQuery.jPlayer) {
+		var my_jPlayer = $("#dictionary_jPlayer");
 
-            my_jPlayer.jPlayer({
-                supplied: "mp3" //The types of files which will be used.
-            });
+		my_jPlayer.jPlayer({
+			supplied: "mp3" //The types of files which will be used.
+		});
 
-            //Attach a click event to the audio link
-            $(".CDR_audiofile").click(function() {
-                my_jPlayer.jPlayer("setMedia", {
-                    mp3: $(this).attr("href") // Defines the m4v url
-                }).jPlayer("play");
+		//Attach a click event to the audio link
+		$(".CDR_audiofile").click(function() {
+			my_jPlayer.jPlayer("setMedia", {
+				mp3: $(this).attr("href") // Defines the m4v url
+			}).jPlayer("play");
 
-                return false;
-            });
-        }
+			return false;
+		});
+	}
 
-    } 
+} 
 
-	/**
-	 * Identifies if this enhancement has been initialized or not.
-	 * @type {Boolean}
-	 */
-	var initialized = false;
-
-	/**
-	 * Exposed functions available to this module.
-	 */
-	return {
-		init: function() {
-			if (initialized) {
-				return;
-			}
-			_initialize();
-			initialized = true;
+let initialized = false;
+export default {
+	init: function() {
+		if (initialized) {
+			return;
 		}
-	};
-});
+		
+		initialized = true;
+		_initialize();
+	}
+}
