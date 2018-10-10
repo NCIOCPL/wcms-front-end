@@ -1,30 +1,28 @@
-define(function(require) {
-	require('headroom.js/dist/headroom.min');
-    var oldHeadroom = Headroom;
+import 'headroom.js/dist/headroom.min';
 
-    var HeadroomExtensions = {
-        options: {
-            classes: {
-                isFrozen: 'frozen'
-            }
+var oldHeadroom = Headroom;
+var HeadroomExtensions = {
+    options: {
+        classes: {
+            isFrozen: 'frozen'
+        }
+    },
+    prototype: {
+        shouldPin: function (currentScrollY, toleranceExceeded) {
+            var scrollingUp  = currentScrollY < this.lastKnownScrollY,
+                pastOffset = currentScrollY <= this.offset,
+            isFrozen = this.elem.classList.contains(this.classes.isFrozen);
+
+            return !isFrozen && ((scrollingUp && toleranceExceeded) || pastOffset);
         },
-        prototype: {
-            shouldPin: function (currentScrollY, toleranceExceeded) {
-                var scrollingUp  = currentScrollY < this.lastKnownScrollY,
-                    pastOffset = currentScrollY <= this.offset,
+        shouldUnpin: function (currentScrollY, toleranceExceeded) {
+            var scrollingDown = currentScrollY > this.lastKnownScrollY,
+                pastOffset = currentScrollY >= this.offset,
                 isFrozen = this.elem.classList.contains(this.classes.isFrozen);
 
-                return !isFrozen && ((scrollingUp && toleranceExceeded) || pastOffset);
-            },
-            shouldUnpin: function (currentScrollY, toleranceExceeded) {
-                var scrollingDown = currentScrollY > this.lastKnownScrollY,
-                    pastOffset = currentScrollY >= this.offset,
-                    isFrozen = this.elem.classList.contains(this.classes.isFrozen);
-
-                return !isFrozen && (scrollingDown && pastOffset && toleranceExceeded);
-            }
+            return !isFrozen && (scrollingDown && pastOffset && toleranceExceeded);
         }
-    };
-    window.Headroom = $.extend(true, oldHeadroom, HeadroomExtensions);
+    }
+};
 
-});
+window.Headroom = $.extend(true, oldHeadroom, HeadroomExtensions);

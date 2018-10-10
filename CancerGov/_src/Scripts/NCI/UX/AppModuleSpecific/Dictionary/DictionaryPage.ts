@@ -1,8 +1,7 @@
 import { NCIBasePage } from 'UX/core';
-import * as DictionaryService from 'Data/DictionaryService';
-import * as AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest';
-import * as PlayAudio from 'UX/AppModuleSpecific/Dictionary/Enhancements/playaudio';
-import * as Analytics from 'UX/AppModuleSpecific/Dictionary/Enhancements/analytics';
+import AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest';
+import PlayAudio from 'UX/AppModuleSpecific/Dictionary/Enhancements/playaudio';
+import Analytics from 'UX/AppModuleSpecific/Dictionary/Enhancements/analytics';
 
 /**
  * Class representing CancerGov Dictionary pages.
