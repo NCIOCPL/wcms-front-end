@@ -306,11 +306,11 @@ $(document).ready(function() {
                 if (!sectionId) {
                     sectionId = 'none';
                 }
-                displayedName = $this.text();
+                var displayedName = $this.text();
                 if (!displayedName) {
                     displayedName = 'none';
                 }
-                action = 'expand';
+                var action = 'expand';
                 if ($this.attr('aria-expanded') === 'false') {
                     action = "collapse";
                 }
