@@ -1,13 +1,17 @@
-define(function(require) {
-	var $ = require('jquery');
-	require('StyleSheets/AppModuleSpecific/cts/index.scss')
-	require('StyleSheets/vendor/select2/core.scss')
+import 'StyleSheets/AppModuleSpecific/cts/index.scss';
+import 'StyleSheets/vendor/select2/core.scss';
+import Delighters from 'BasicCTSCommon/Enhancements/Delighters';
+import Print from 'BasicCTS/Results/Enhancements/Print';
+import ctsCommonAnalytics from 'BasicCTSCommon/Enhancements/ctsCommonAnalytics';
+import ctsResultsAnalytics from 'BasicCTS/Results/Enhancements/ctsResultsAnalytics';
+import criteriaToggle from 'BasicCTS/Results/Enhancements/criteriaToggle';
 
-	$(document).ready(function($){
-		require('BasicCTSCommon/Enhancements/Delighters').init();
-		require('BasicCTS/Results/Enhancements/Print').init();
-		require('BasicCTSCommon/Enhancements/ctsCommonAnalytics').init();
-		require('BasicCTS/Results/Enhancements/ctsResultsAnalytics').init();
-		require('BasicCTS/Results/Enhancements/criteriaToggle').init();
-	});
-});
+const onDOMContentLoaded = () => {
+	Delighters.init();
+	Print.init();
+	ctsCommonAnalytics.init();
+	ctsResultsAnalytics.init();
+	criteriaToggle.init();
+}
+
+document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
