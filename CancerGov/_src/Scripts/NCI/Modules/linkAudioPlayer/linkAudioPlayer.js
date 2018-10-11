@@ -34,9 +34,9 @@ class AudioPlayer {
                         playSound.buffer = audioBuffer;
                         playSound.connect(context.destination);
                         playSound.start(0);
-                    }
+                    };
 
-                    const handleDecodeAudioDataFailure = err => console.log(err)
+                    const handleDecodeAudioDataFailure = err => console.log(err);
                     
                     // We don't need to polyfill fetch (thank goodness) because IE11 does support HTML5 audio without
                     // permissions issues, unlike Safari.
@@ -54,6 +54,9 @@ class AudioPlayer {
     }
 }
 
+const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
+const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = '.CDR_audiofile';
+
 const handler = player => e => {
     // Disable the underlying anchor tag and retrieve it's stored reference to the mp3 file
     e.preventDefault();
@@ -65,14 +68,12 @@ const handler = player => e => {
     }
 }
 
-const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
-
 // Event listeners are not a simple matter to catalog, so we use a data-attribute to self-identify audiolinks that have already received player callbacks
-export const checkForAudioHandlerFlag = element => {
+const checkForAudioHandlerFlag = element => {
     return element.hasAttribute(AUDIO_FILE_DATA_ATTRIBUTE);
 }
 
-export const attachHandlerFlag = element => {
+const attachHandlerFlag = element => {
     element.setAttribute(AUDIO_FILE_DATA_ATTRIBUTE, "");
 }
 
@@ -87,13 +88,13 @@ const attachHandlers = (selector, player) => {
     audiofiles.forEach(audiofile => {
         const hasHandlerAlready = checkForAudioHandlerFlag(audiofile);
         if(!hasHandlerAlready){
-            attachHandlerFlag(audiofile)
+            attachHandlerFlag(audiofile);
             attachHandler(audiofile, player);
         }
     })
 }
 
-const initialize = (selector = '.CDR_audiofile') => {
+const initialize = (selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR) => {
     const player = new AudioPlayer();
     attachHandlers(selector, player);
 
