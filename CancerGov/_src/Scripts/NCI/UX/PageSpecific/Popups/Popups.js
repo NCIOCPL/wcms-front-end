@@ -1,5 +1,3 @@
-import * as CONFIG from 'Modules/NCI.config';
-import $script from 'scriptjs';
 import popupFunctions from 'Common/Enhancements/popup_functions';
 import linkAudioPlayer from 'Modules/linkAudioPlayer/linkAudioPlayer'; // TODO: This will be redundant once jQuery is added back into popups.
 
@@ -17,12 +15,13 @@ window.WebFontConfig = {
     s.parentNode.insertBefore(wf, s);
 })(document);
 
-
-$script([CONFIG.CDN.jquery, CONFIG.CDN.jplayer], function(){
+const onDOMContentLoaded = () => {
     popupFunctions();
 
     // TODO: OCT 2018: State of the Union
     // Currently, Popups do not get jquery loaded up in advance of Common.js, so the audioLinkPlayer initialization fails (along with most calls
     // in Common.js). Until jquery is added into the head of Popups, a second call will be made here.
     linkAudioPlayer();
-});
+}
+
+document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
