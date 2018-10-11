@@ -17,6 +17,11 @@ Since it's inception, there has been a bug in the megamenu that caused certain p
 
 In addition, the throttle-debounce dependency was used and as such updated, so the package-lock is updated as well.
 
+## [WCMSFEQ-699] Fix sitewide search behavior when developing on local environments
+### (NO CONTENT CHANGES)
+
+At some point SWS stopped working on localhost. Turns out, recent (annoyingly undocumented) updates to the proxy library dependency version we were already using (express-http-proxy) fix this issue without any other code changes being necessary. (Under the hood, they improved their handling of non-GET http requests: SWS uses a POST). 
+
 ## [WCMSFEQ-1105] Refactor AMD and UMD Modules into ES6 modules
 ### (NO CONTENT CHANGES)
 
