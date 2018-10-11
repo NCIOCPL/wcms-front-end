@@ -38,7 +38,8 @@ module.exports = {
 		DictionaryPage:         './UX/AppModuleSpecific/Dictionary/DictionaryPage',
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
-		Charts:                 './UX/Common/Enhancements/charts'
+		Charts:                 './UX/Common/Enhancements/charts',
+		BiographyPage:          './UX/PageSpecific/Biography/BiographyPage'
 	},
 	target: 'web',
 	resolve: {
