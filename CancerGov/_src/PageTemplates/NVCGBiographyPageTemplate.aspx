@@ -29,6 +29,11 @@
                             <!-- TODO Biography Content (Profile Panel) Slot-->
        
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
+                            <NCI:TemplateSlot 
+                                id="nvcgSlLayoutFeatureA" 
+                                CssClass="row feature-secondary flex-columns" 
+                                AdditionalSnippetClasses="equalheight large-4 topic-feature columns card gutter" 
+                                runat="server" />
                            
 							</div>
                             <!--(bake includes/ArticleFooter.inc citations="true" related_resources="true" pagination="true" comments="true")-->
