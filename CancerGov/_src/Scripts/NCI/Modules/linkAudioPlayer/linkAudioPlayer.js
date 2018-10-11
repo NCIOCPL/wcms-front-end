@@ -60,7 +60,11 @@ const handler = player => e => {
     // Disable the underlying anchor tag and retrieve it's stored reference to the mp3 file
     e.preventDefault();
     const audiolink = e.target.pathname;
-    player.play(audiolink);
+
+    // Basic check that underlying href to mp3 file exists
+    if(audiolink){
+        player.play(audiolink);
+    }
 }
 
 const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
