@@ -7,8 +7,6 @@ import { getNodeArray } from 'Utilities/domManipulation';
  * No longer needing to support pre audio element browsers, we can do this natively, but there are a few hoops to jump through.
  */
 
-// TODO: Add in a check to avoid links getting more than one click handler if this library is called multiple times
-// Event listeners are not easily found, so adding a data attribute identifying an audiolink as such might be a better workaround
 
 class AudioPlayer {
     constructor(){
@@ -66,6 +64,12 @@ const handler = player => e => {
     player.play(audiolink);
 }
 
+// TODO: Add in a check to avoid links getting more than one click handler if this library is called multiple times
+// Event listeners are not easily found, so adding a data attribute identifying an audiolink as such might be a better workaround
+export const checkForPreexistingAudioHandler = element => {
+    return false
+}
+
 // This will allow an audiolink to be dynamically set up after the initial page load
 export const attachHandler = (element, player) => {
     element.addEventListener('click', handler(player));
@@ -75,7 +79,10 @@ const attachHandlers = (selector, player) => {
     // Audiofiles are generated on the backend as anchor tags with an mp3 file as a source
     const audiofiles = getNodeArray(selector);
     audiofiles.forEach(audiofile => {
-        attachHandler(audiofile, player);
+        const hasHandlerAlready = checkForPreexistingAudioHandler(audiofile);
+        if(!hasHandlerAlready){
+            attachHandler(audiofile, player);
+        }
     })
 }
 
