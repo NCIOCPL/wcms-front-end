@@ -32,24 +32,22 @@ class AudioPlayer {
                 
                 if(AudioContext){
                     const context = new AudioContext();
+
+                    const playAudioBuffer = audioBuffer => {
+                        console.log('Playing buffered audio') //TODO: Remove
+                        const playSound = context.createBufferSource();
+                        playSound.buffer = audioBuffer;
+                        playSound.connect(context.destination);
+                        playSound.start(0);
+                    }
+
+                    const handleDecodeAudioDataFailure = err => console.log(err)
                     
                     // We don't need to polyfill fetch (thank goodness) because IE11 does support HTML5 audio without
                     // permissions issues, unlike Safari.
                     fetch(url)
                         .then(response => response.arrayBuffer())
-                        .then(arrayBuffer => context.decodeAudioData(
-                            arrayBuffer, 
-                            audioBuffer => {
-                                console.log('Playing buffered audio') //TODO: Remove
-                                const playSound = context.createBufferSource();
-                                playSound.buffer = audioBuffer;
-                                playSound.connect(context.destination);
-                                playSound.start(0);
-                            }, 
-                            err => {
-                                console.log(err);
-                            }
-                        ))
+                        .then(arrayBuffer => context.decodeAudioData(arrayBuffer, playAudioBuffer, handleDecodeAudioDataFailure))
                 }
                 else{
                     // FML: Permission denied and no audio context, but promises are supported -- what kind of browser are you in?
