@@ -18,7 +18,6 @@ class AudioPlayer {
 
         // IE11 supports HTML5 audio but does not return a promise, unlike other browsers.
         if(playPromise !== undefined){
-            playPromise.then(() => console.log('Playing audio')) // TODO: Remove
             playPromise.catch(_ => {
                 // Play was rejected (likely because of a permissions error in Safari or Mobile Chrome,
                 // that does not allow autoplaying of audio/video elements (ie dynamically triggered))
@@ -31,7 +30,6 @@ class AudioPlayer {
                     const context = new AudioContext();
 
                     const playAudioBuffer = audioBuffer => {
-                        console.log('Playing buffered audio') //TODO: Remove
                         const playSound = context.createBufferSource();
                         playSound.buffer = audioBuffer;
                         playSound.connect(context.destination);
@@ -96,7 +94,6 @@ const attachHandlers = (selector, player) => {
 }
 
 const initialize = (selector = '.CDR_audiofile') => {
-    console.log('Initializing AudioPlayer') // TODO: Remove 
     const player = new AudioPlayer();
     attachHandlers(selector, player);
 
