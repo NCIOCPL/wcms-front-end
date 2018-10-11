@@ -10,9 +10,6 @@ import { getNodeArray } from 'Utilities/domManipulation';
 // TODO: Add in a check to avoid links getting more than one click handler if this library is called multiple times
 // Event listeners are not easily found, so adding a data attribute identifying an audiolink as such might be a better workaround
 
-// Safari only supports webkitAudioContext
-const AudioContext = window.AudioContext || window.webkitAudioContext || false;
-
 class AudioPlayer {
     constructor(){
         this.player = document.createElement("audio");
@@ -29,6 +26,10 @@ class AudioPlayer {
                 // Play was rejected (likely because of a permissions error in Safari or Mobile Chrome,
                 // that does not allow autoplaying of audio/video elements (ie dynamically triggered))
                 // First fallback workaround is to use an audio buffer.
+
+                // Safari only supports webkitAudioContext, so we need to 'polyfill'
+                const AudioContext = window.AudioContext || window.webkitAudioContext || false;
+                
                 if(AudioContext){
                     const context = new AudioContext();
                     
