@@ -23,6 +23,10 @@
                             <!-- END BANNER SLOT -->
                             
 							<div class="resize-content">
+
+                            <!--(bake includes/PageOptions-CTHP.inc)-->
+
+                            <!-- TODO Biography Content (Profile Panel) Slot-->
        
                             <NCI:TemplateSlot ID="cgvBody" runat="server" />
                            
