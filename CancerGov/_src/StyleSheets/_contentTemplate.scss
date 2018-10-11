@@ -14,15 +14,5 @@
 		width: 100%;
 	}
 }
-.shareComponent {
-    float: left;
-    width: 20%;
-}
-@include bp(medium-down){
-	.shareComponent {
-		float: right;
-		width: initial;
-	}
-}
 
 /******* END CONTENT-TEMPLATE STYLES ***************************************/
