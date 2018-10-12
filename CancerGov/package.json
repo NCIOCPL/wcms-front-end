@@ -11,7 +11,7 @@
     "coverage": "jest --config ./jest-config.json --coverage",
     "build-release": "tools/build/build-release.sh"
   },
-  "engineStrict": "true",
+  "engineStrict": true,
   "dependencies": {
     "@types/select2": "^4.0.38",
     "axios": "^0.16.2",
