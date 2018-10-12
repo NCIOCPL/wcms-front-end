@@ -11,7 +11,7 @@ import { getNodeArray } from 'Utilities/domManipulation';
  */
 
 const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
-const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = '.CDR_audiofile';
+const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = 'a.CDR_audiofile';
 
 /**
  * @param {function} player
