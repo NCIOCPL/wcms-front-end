@@ -78,7 +78,7 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 }
 
 %sprite {
- @include spriteBG;
+  @include spriteBG;
 }
 
 // generic transform
@@ -128,6 +128,8 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
   @if $type == all {
     // Shares the backgrounds
     @extend %sprite;
+  } @else {
+    @include spriteBG;
   }
 
   $iconMap: icon-attr($icon);
@@ -139,7 +141,7 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
   }
 
   // Outputs background position in em
-  @if $type == all or $type == bg {
+  @if $type == all or $type == bg or $type == mq {
     //background-position: mq-px2em(map-get($iconMap, x) - 5) mq-px2em(map-get($iconMap, y) - 5);
     //background-position: map-get($iconMap, x) map-get($iconMap, y);
     //-100 * (position + padding) / (sprite height - icon height - 1)  * -1 is for 1px padding within the original svg assest

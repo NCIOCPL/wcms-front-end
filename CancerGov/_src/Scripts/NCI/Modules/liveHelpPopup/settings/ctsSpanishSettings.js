@@ -1,4 +1,4 @@
-import { CTSSimpleFormSetup } from "UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-simple-form-setup";
+//import { CTSSimpleFormSetup } from "UX/AppModuleSpecific/BasicCTS/Search/Enhancements/cts-simple-form-setup";
 
 const ctsSpanishSettings = {
     urls: [

@@ -15,11 +15,19 @@
 @import "../../../../NCI/Modules/bestBets/bestBets";
 @import "../../../../../StyleSheets/nokia-maps";
 @import "../../../../../StyleSheets/cts-listing";
+@import "../../../../../StyleSheets/directory-search";
 
 // DIN Regular is currently only used in charts.js (a.k.a: Highcharts) where the font style is included in a JSON config object.
 // SASS did not see this font style being used in .scss styles so it was shaken out
 .forceFontsStylesToBeIncluded-1 {
   font-family: $din-regular-stack;
+}
+
+// DISABLE FONT RESIZER [WCMSFEQ-1086]
+// The font resizer page option needs to be disabled on App Module pages. Because there is no template that distinguishes between
+// content inner pages and App Module inner pages, this rule is the hack we use to hide the feature.
+body.nciappmodulepage li.page-options--resize {
+  display: none;
 }
 
 

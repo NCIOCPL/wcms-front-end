@@ -1,22 +1,16 @@
 var webpack = require("webpack");
 var path = require("path");
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-// var HappyPack = require('happypack');
-// var happyPackThreadPool = HappyPack.ThreadPool({ size: 4 })
-var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // var debug = process.env.ENV !== "production";
 // config: path.join(__dirname, './config/' + process.env.ENV + '.js')
 
-console.log("__dirname is:" + __dirname);
+//console.log("__dirname is:" + __dirname);
 module.exports = {
 	context: path.resolve(__dirname, "_src/Scripts/NCI"),
 	// devtool: debug ? "inline-sourcemap" : null,
 	// TODO: Add CDN paths
 	entry: {
 		// Vendor:                   [
-		//                             'modernizr'
 		//                             // 'jquery-ui/ui/widgets/accordion',
 		//                             // 'jquery-ui/ui/widgets/autocomplete',
 		//                             // 'jquery-ui/ui/widgets/dialog',
@@ -27,8 +21,7 @@ module.exports = {
 		//                           ],
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
 		//"Babel-Polyfill":       'babel-polyfill',
-		Common:             ['modernizr','./UX/Common/Common'],
-		ContentPage:            './UX/Common/ContentPage',
+		Common:             	'./UX/Common/Common',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
 		InnerPage:              './UX/PageSpecific/Inner/InnerPage',
@@ -72,7 +65,6 @@ module.exports = {
 			// vendor scripts
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
 			// 'jquery-ui': '//code.jquery.com/ui/1.12.1/jquery-ui.min.js',
-			modernizr$: path.resolve(__dirname, "./.modernizrrc"),
 			Headroom$: 'headroom.js/dist/headroom.min',
 
 			// vendor jQuery plugins
@@ -92,35 +84,10 @@ module.exports = {
 
 	module: {
 		rules: [
-			// JavaScript Linter
-			// {
-			//     test: /\.js$/,
-			//     enforce: 'pre',
-			//     exclude: /node_modules/,
-			//     loader: "eslint-loader",
-			//     options: {
-			//         failOnWarning: false,
-			//         failOnError: false,
-			//         emitWarning: true
-			//     }
-			// },
-			// TypeScript Linter
-			// {
-			//     test: /\.tsx?$/,
-			//     enforce: 'pre',
-			//     loader: 'tslint-loader',
-			//     options: {
-			//         configFile: 'tslint.json',
-			//         failOnHint: false, // stop the build on fail
-			//         fix: false // do you dare make this true?
-			//     }
-			// },
-
 			// The loader below passes off any required/imported .ts files off to the the typescript loader,
 			// this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
-			{ test: /\.modernizrrc$/, loader: "expose-loader?Modernizr!modernizr-loader!json-loader" },
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
@@ -128,10 +95,14 @@ module.exports = {
 			},
 			{
 				test: /\.s?css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'postcss-loader', 'sass-loader']
-				})
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader
+					},
+					'css-loader', 
+					'postcss-loader', 
+					'sass-loader'
+				],
 			},
 
 			// expose the charts module to a global variable
@@ -151,43 +122,14 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.ProvidePlugin({
-			Modernizr: "modernizr",
 			Chart: 'Charts',
 			Headroom: 'Headroom'
 		}),
 
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'shared',
-			chunks: ['BlogPostPage', 'BlogSeriesPage', 'ContentPage', 'CTHPPage', 'CTListingPage', 'HomePage', 'InnerPage', 'LandingPage', 'PDQPage', 'TopicPage', 'Popups'],
-			minChunks: 3
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'Common',
-			chunks: ['shared'],
-			minChunks: 1
-		}),
 
-
-
-		new ExtractTextPlugin({
-			filename: getPath => {
-				return getPath('[name]') === 'Common' ? getPath('../Styles/nvcg.css') : getPath('../Styles/[name].css')
-			}
-		}),
-		// new HappyPack({
-		// 	id: 'js',
-		// 	threadPool: happyPackThreadPool,
-		// 	loaders: ['babel-loader']
-		// }),
-		// new HappyPack({
-		// 	id: 'styles',
-		// 	threadPool: happyPackThreadPool,
-		// 	loaders: ['css-loader', 'postcss-loader', 'sass-loader']
-		// }),
-		new HardSourceWebpackPlugin({
-			cacheDirectory: path.resolve(__dirname, 'node_modules', '.cache', 'hard-source', '[confighash]'),
-			recordsPath: path.resolve(__dirname, 'node_modules', '.cache', 'hard-source', '[confighash]', 'records.json'),
-			configHash: (webpackConfig) => require('node-object-hash')().hash(webpackConfig)
+		// This makes sure when styles are extracted into stylesheets nvcg, which is piped through common, retains it's original name.
+		new MiniCssExtractPlugin({
+			filename: "../Styles/[name].css"
 		}),
 	]
 };

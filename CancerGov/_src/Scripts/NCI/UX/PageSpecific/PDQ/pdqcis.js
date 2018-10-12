@@ -2,11 +2,11 @@ define(function(require) {
 	var $ = require('jquery');
 	var routie = require('Vendor/routie');
 
-	var NCI = require('Common/Enhancements/NCI');
+	var Page = require('Common/Enhancements/NCI.page');
 	var NCIAccordion = require('Modules/accordion/accordion');
 
 	// This file is for the PDQ Cancer Information Summary UX functionality
-	$(function() {
+	$(document).ready(function() {
 		// set up outlines
 		$('article').each(function() {
 			var $this = $(this);
@@ -17,11 +17,9 @@ define(function(require) {
 			}
 
 			// otherwise, build and set the outline
-			var outline = NCI.page.makeOutline(this);
+			var outline = Page.makeOutline(this);
 			$this.data('nci-outline', outline);
 		});
-
-		var lang = $('html').attr('lang') || 'en';
 
 		// Navigation state variable for handling in page nav events
 		var navigationState = 'UNINITIALIZED';
@@ -95,14 +93,14 @@ define(function(require) {
 				},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', 'navigation').attr('id', 'pdq-toptoc')
-					.append($('<h3>').text(options.i18n.title[NCI.page.lang || 'en'])),
+					.append($('<h3>').text(options.i18n.title[Page.lang])),
 				articleRoot = $('article').data('nci-outline').sections[0];
 
-			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
+			$nav.append(Page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
 			// append "View All" item
 			$nav.children('ul').append(
-				$('<li class="viewall"><a href="#all">' + (options.i18n.viewAll[NCI.page.lang || 'en']) + '</a></li>')
+				$('<li class="viewall"><a href="#all">' + (options.i18n.viewAll[Page.lang]) + '</a></li>')
 			);
 
 			// update item hrefs, fix slash word-breaking
@@ -140,10 +138,10 @@ define(function(require) {
 				},
 
 				$nav = $('<nav>').addClass(options.class).attr('role', 'navigation')
-					.append($('<h6>').text(options.i18n.title[NCI.page.lang || 'en'])),
+					.append($('<h6>').text(options.i18n.title[Page.lang])),
 				articleRoot = $('article').data('nci-outline').sections[0];
 
-			$nav.append(NCI.page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
+			$nav.append(Page.parseOutline(articleRoot, 1, options.maxLevel, options.ignore));
 
 			// update item hrefs
 			$nav.find('a').each(updateLinkHref);
@@ -181,7 +179,7 @@ define(function(require) {
 				// $nav is instantiated inside the loop to avoid changing the previous nav
 				var $nav = $('<nav>').addClass(options.class).attr('role', 'navigation');
 
-				$nav.append(NCI.page.parseOutline(newRoot, options.startLevel, options.maxLevel, options.ignore));
+				$nav.append(Page.parseOutline(newRoot, options.startLevel, options.maxLevel, options.ignore));
 
 				// update item hrefs
 				$nav.find('a').each(updateLinkHref);
@@ -206,11 +204,6 @@ define(function(require) {
 				sectionIdentifier = 'all';
 				sectionIdx = -1;
 			}
-
-			// initialize variables for setting metatags and email URL
-			var urlSuffix = (resetURL ? '' : '#section/' + sectionIdentifier),
-				ogUrl = $('link[rel="canonical"]').attr('href') + urlSuffix,
-				$emailPage = $('.po-email > a');
 
 			// *** This only works for top-level sections *** //
 			if ($allSections.filter($section).length > 0) {
@@ -248,18 +241,6 @@ define(function(require) {
 					$('#pdq-toc-article .on-this-page')
 						.removeClass('show').addClass('hide');
 				}
-			}
-
-			/* When we're routing to a new section, we're setting the meta-tag for 'og:url' to the
-			 * current section so that the social media share buttons - retrieving the URL from this
-			 * tag - will grab and display the correct section instead of displaying the default section one
-			 */
-			$('meta[property="og:url"]').attr('content', ogUrl);
-
-			// Also update the email URL
-			if ($emailPage.length > 0) {
-				$emailPage.attr('href', $emailPage.attr('href').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'));
-                  //.attr('onclick', $emailPage.attr('onclick').replace(/docurl=[^&]+(&?)/, 'docurl=' + encodeURIComponent('/' + location.pathname.replace(/^\//, '') + urlSuffix) + '$1'));
 			}
 
 			// We're running this trigger to ensure that all
@@ -324,7 +305,7 @@ define(function(require) {
 						$prevLink = $('<div>')
 							.append($('<a>')
 								.attr('href', '#section/' + prevSection.node.id)
-								.text(options.i18n.prev[NCI.page.lang || 'en'])
+								.text(options.i18n.prev[Page.lang])
 							)
 							.append($('<br><em>' + prevSection.heading.innerHTML + '</em>'))
 							.appendTo($prevContainer);
@@ -342,7 +323,7 @@ define(function(require) {
 						$nextLink = $('<div>')
 							.append($('<a>')
 								.attr('href', '#section/' + nextSection.node.id)
-								.text(options.i18n.next[NCI.page.lang || 'en'])
+								.text(options.i18n.next[Page.lang])
 							)
 							.append($('<br><em>' + nextSection.heading.innerHTML + '</em>'))
 							.appendTo($nextContainer);

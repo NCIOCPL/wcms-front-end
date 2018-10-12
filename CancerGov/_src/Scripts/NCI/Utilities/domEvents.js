@@ -22,3 +22,24 @@ export const keyHandler = options => e => {
         return fn();
     }
 }
+
+/**
+ * Return a customEventBroadcaster scoped to a given namespace.
+ * 
+ * @param {string} eventNamespace
+ * @return {function} customEventHandler
+ */
+export const createCustomEventBroadcaster = eventNamespace => (eventType, { 
+    node, 
+    data = {},
+}) => _event => {
+    const customEvent = new CustomEvent(eventNamespace, {
+        bubbles: true,
+        cancelable: true,
+        detail: {
+			eventType,
+			data
+        },
+    });
+    node.dispatchEvent(customEvent);
+};

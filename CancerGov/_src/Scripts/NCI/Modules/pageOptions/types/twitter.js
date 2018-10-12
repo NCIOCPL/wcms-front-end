@@ -17,11 +17,14 @@ const twitter = {
     textContent: {
         title: {
             'en': () => 'Twitter',
+            'es': () => 'Twitter',
         },
     },
     initialize: language => settings => node => {
         const title = getContent(settings.textContent.title, language)();
         node.title = title;
+        node.setAttribute('aria-label', title);       
+
         node.addEventListener('click', onClickShareButton(settings));
         return node;
     },

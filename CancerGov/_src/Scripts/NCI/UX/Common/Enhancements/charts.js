@@ -107,8 +107,28 @@ define(function(require) {
                     console.log("rendering custom chart:", module.settings.chart.type);
                     module[module.settings.chart.type].call(module);
                 } else {
-                    console.log("rendering default chart:", module.settings.chart.type);
-                    module.instance = Highcharts.chart(module.settings.target, module.settings)
+                    
+                    if(module.settings.chart.type == 'map'){
+                        console.log("rendering highmap:", module.settings.chart.type);
+                        console.time("Highmaps Load Time");
+                        // this is starting to look like a callback pyramid of doom
+                        $.when(
+                            $.getScript('https://code.highcharts.com/maps/modules/map.js'),
+                            $.getScript('https://code.highcharts.com/mapdata/countries/us/us-all.js')
+                        ).done(function () {
+                            console.timeEnd("Highmaps Load Time");
+                            Highcharts.setOptions({
+                                lang: {
+                                    numericSymbols: [ "k" , "M" , "B" , "T" , "P" , "E"],
+                                    thousandsSep: ","
+                                }
+                            });
+                            module.instance = Highcharts.mapChart(module.settings.target, module.settings)
+                        });
+                    } else {
+                        console.log("rendering default chart:", module.settings.chart.type);
+                        module.instance = Highcharts.chart(module.settings.target, module.settings)
+                    }
                 }
             });
 

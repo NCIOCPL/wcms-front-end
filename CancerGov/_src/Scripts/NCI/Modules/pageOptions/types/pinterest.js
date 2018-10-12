@@ -13,11 +13,13 @@ const pinterest = {
     textContent: {
         title: {
             'en': () => 'Pinterest',
+            'es': () => 'Pinterest',
         },
     },
     initialize: language => settings => node => {
         const title = getContent(settings.textContent.title, language)();
         node.title = title;
+        node.setAttribute('aria-label', title);
         node.addEventListener('click', onClickShareButton(settings));
         return node;
     },

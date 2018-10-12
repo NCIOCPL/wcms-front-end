@@ -5,7 +5,6 @@ define(function(require) {
 	var $ = require('jquery');
 	require('Common/Plugins/Widgets/jquery.ui.autocompleteselector');
 	require('BasicCTSSearch/Plugins/jquery.basicctsformtrack');
-	var NCI = require('Common/Enhancements/NCI');
 	var AdobeAnalytics = require('Patches/AdobeAnalytics');
 
 	//Move this to a utility file.

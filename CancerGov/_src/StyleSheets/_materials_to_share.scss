@@ -1,11 +1,14 @@
 /****************** BEGIN materials-to-share ********************/
 /* these styles are for adding social (twitter) share links as seen on https://www.cancer.gov/about-nci/organization/crchd/inp/screen-to-save/connect. */
 
+.materials-to-share {
+    clear: both;
+}
+
 .materials-to-share .column1 {
     width: 25%;
 	padding-top: 15px;
 }
-
 
 .materials-to-share .column2 {
     font-size: 0.875em;
@@ -21,12 +24,54 @@
     margin:  0 auto;
 }
 
+.materials-to-share p {
+    padding: 10px 25px;
+    margin-left: 180px;
+    position: relative;
+    color: $dovegray;
+    font-size: 0.9375em;
+    font-family: $montserrat-font-stack;
+    line-height: 1.4;
+
+    @include bp(small) {
+        margin-left: 0;
+    }
+}
+.materials-to-share p:after,
+.materials-to-share p:before {
+    border: 3px solid $grey00; 
+    bottom: 0;    
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 15px;
+}
+.materials-to-share p:after {
+    border-left: none;
+    right: 0;
+}
+.materials-to-share p:before {
+    border-right: none;
+    left: 0;
+}
+.materials-to-share p:empty {
+    display: none;
+ }
+
 // This is to accomodate the removal of addthis twitter links in favor of a vanilla implementation.
 // Some or most of the rules below are probably deprecated. Dear future you, please do the painful work of figuring out what!
 .materials-to-share .social-share--custom-tweet {
     margin-right: 5px;
+    margin-top: 4px;
     float: left;
     padding: 0 2px;
+
+    @include bp(small) {
+        float: none;
+        padding-top: 30px;
+        width: 100%;
+        height: 40px;
+    }
 }
 
 .materials-to-share .addthis_32x32_style .at300bs {
