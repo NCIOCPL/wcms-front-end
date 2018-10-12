@@ -21,7 +21,6 @@
 	<link rel="preconnect" crossorigin href="https://ajax.googleapis.com"/>
 	<link rel="preconnect" crossorigin href="https://fonts.gstatic.com"/>
 	<link rel="preconnect" href="https://static.cancer.gov"/>
-
 	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
 
     <NCI:AdobeDTMControl ID="DTMTop" runat="server" />
