@@ -3,14 +3,20 @@ import { getNodeArray } from 'Utilities/domManipulation';
 
 /**
  * LINK AUDIO PLAYER
+ * -----------------------
  * Audio files are currently included by the CDE as anchor tags with an MP3 as the source. In the past we 
  * used a library, jPlayer, to extend the anchor tags functionality and have Flash as a fallback for older browsers.
  * No longer needing to support pre audio element browsers, we can do this natively, but there are a few hoops to jump through.
+ * In particular, Safari does not allow programmatic autoplaying of media elements, so a workaround has to be used.
  */
 
 const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
 const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = '.CDR_audiofile';
 
+/**
+ * @param {function} player
+ * @return {function} Event Handler Callback
+ */
 const handler = player => e => {
     // Disable the underlying anchor tag and retrieve it's stored reference to the mp3 file
     e.preventDefault();
@@ -22,20 +28,37 @@ const handler = player => e => {
     }
 }
 
-// Event listeners are not a simple matter to catalog, so we use a data-attribute to self-identify audiolinks that have already received player callbacks
+/**
+ * Event listeners are not a simple matter to catalog, so we use a data-attribute to self-identify audiolinks
+ * that have already received player callbacks.
+ * @param {HTMLElement} element
+ * @return {boolean}
+ */
 const checkForAudioHandlerFlag = element => {
     return element.hasAttribute(AUDIO_FILE_DATA_ATTRIBUTE);
 }
 
+/**
+ * @param {HTMLElement} element
+ */
 const attachHandlerFlag = element => {
     element.setAttribute(AUDIO_FILE_DATA_ATTRIBUTE, "");
 }
 
-// This will allow an audiolink to be dynamically set up after the initial page load
+/**
+ * This is exposed as it will allow an audiolink to be dynamically set up after 
+ * the initial page load using the same instance of an AudioPlayer
+ * @param {HTMLElement} element
+ * @param {function} player
+ */
 export const attachHandler = (element, player) => {
     element.addEventListener('click', handler(player));
 }
 
+/**
+ * @param {string} selector
+ * @param {function} player
+ */
 const attachHandlers = (selector, player) => {
     // Audiofiles are generated on the backend as anchor tags with an mp3 file as a source
     const audiofiles = getNodeArray(selector);
@@ -48,6 +71,10 @@ const attachHandlers = (selector, player) => {
     })
 }
 
+/**
+ * @param {string} [selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR]
+ * @return {AudioPlayer} Instance of Audio Player
+ */
 const initialize = (selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR) => {
     const player = new AudioPlayer();
     attachHandlers(selector, player);

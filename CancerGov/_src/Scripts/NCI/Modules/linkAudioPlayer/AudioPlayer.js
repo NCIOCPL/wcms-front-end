@@ -1,8 +1,19 @@
+/**
+ * AUDIO PLAYER
+ * 
+ * Creating a detached audio element, changing the url to match a desired mp3 file, and then triggering it to play audio sounds
+ * relatively straightforward. Sadly, there are issues with browser support/browser permissions. This class is an attempt to handle
+ * all paths necessary for our currently supported browsers.
+ */
 class AudioPlayer {
+
     constructor(){
         this.player = document.createElement("audio");
     }
 
+    /**
+     * @param {string} url
+     */
     play(url){
         this.player.src = url;
         const playPromise = this.player.play();
