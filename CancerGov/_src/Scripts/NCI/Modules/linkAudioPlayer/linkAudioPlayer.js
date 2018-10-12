@@ -10,8 +10,8 @@ import { getNodeArray } from 'Utilities/domManipulation';
  * In particular, Safari does not allow programmatic autoplaying of media elements, so a workaround has to be used.
  */
 
-const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
-const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = 'a.CDR_audiofile';
+export const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
+export const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = 'a.CDR_audiofile';
 
 /**
  * @param {function} player
@@ -59,7 +59,7 @@ export const attachHandler = (element, player) => {
  * @param {string} selector
  * @param {function} player
  */
-const attachHandlers = (selector, player) => {
+export const attachHandlers = (selector, player) => {
     // Audiofiles are generated on the backend as anchor tags with an mp3 file as a source
     const audiofiles = getNodeArray(selector);
     audiofiles.forEach(audiofile => {
@@ -75,7 +75,7 @@ const attachHandlers = (selector, player) => {
  * @param {string} [selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR]
  * @return {AudioPlayer} Instance of Audio Player
  */
-const initialize = (selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR) => {
+export const initialize = (selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR) => {
     const player = new AudioPlayer();
     attachHandlers(selector, player);
 
