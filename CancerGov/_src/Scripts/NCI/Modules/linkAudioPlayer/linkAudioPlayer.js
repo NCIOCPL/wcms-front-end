@@ -1,15 +1,6 @@
 import AudioPlayer from './AudioPlayer';
 import { getNodeArray } from 'Utilities/domManipulation';
 
-/**
- * LINK AUDIO PLAYER
- * -----------------------
- * Audio files are currently included by the CDE as anchor tags with an MP3 as the source. In the past we 
- * used a library, jPlayer, to extend the anchor tags functionality and have Flash as a fallback for older browsers.
- * No longer needing to support pre audio element browsers, we can do this natively, but there are a few hoops to jump through.
- * In particular, Safari does not allow programmatic autoplaying of media elements, so a workaround has to be used.
- */
-
 export const AUDIO_FILE_DATA_ATTRIBUTE = "data-NCI-link-audio-file";
 export const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = 'a.CDR_audiofile';
 
@@ -72,6 +63,13 @@ export const attachHandlers = (selector, player) => {
 }
 
 /**
+ *  * LINK AUDIO PLAYER
+ * -----------------------
+ * Audio files are currently included by the CDE as anchor tags with an MP3 as the source. In the past we 
+ * used a library, jPlayer, to extend the anchor tags functionality and have Flash as a fallback for older browsers.
+ * No longer needing to support pre audio element browsers, we can do this natively, but there are a few hoops to jump through.
+ * In particular, Safari does not allow programmatic autoplaying of media elements, so a workaround has to be used.
+ * 
  * @param {string} [selector = DEFAULT_AUDIO_FILE_TARGET_SELECTOR]
  * @return {AudioPlayer} Instance of Audio Player
  */
