@@ -16,7 +16,6 @@
     "@types/select2": "^4.0.38",
     "axios": "^0.16.2",
     "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.5.0",
