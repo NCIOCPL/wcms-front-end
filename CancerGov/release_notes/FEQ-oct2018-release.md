@@ -27,8 +27,22 @@ At some point SWS stopped working on localhost. Turns out, recent (annoyingly un
 
 This represents a massive refactor of some 75 js files. The idea is to deprecate the use of require.js/AMD style modules (and UMD where unnecessary) in favor of ES6 modules (import/export). This is not a full refactor, but many singletons needed to be fixed and in a few other cases (eg a lingering global assignment) code was cleaned up minorly. In addition, the API for some imports changed and this is reflected in the changes to Common.js most clearly. A few files have not been converted, either because they are already deprecated and awaiting deletion or because they are jquery-ui extensions and would be a more substantial undertaking for less obvious gains. 
 
+## [WCMSFEQ-1167] Remove Google+ support
+### CONTENT CHANGES REQUIRED!
+
+Bye bye Google+, we hardly knew thee. Enjoy your time in the great halls of valhalla amongst your brethern like Geocities, Orkut, and Hi5!
+
+Because our footer is hardcoded in a content block, manual changes in percussion to that block will be required, the full changes are detailed below.
+
 # Content Changes
 
 ## [WCMSFEQ-###] Updates to {percussion asset}
 
 Requires update to...
+
+## [WCMSFEQ-1167] Remove Google+ support
+
+Remove the following block from 'CancerGov/SharedItems/SiteFooter/NVCG Site Footer - English' and 'CancerGov/SharedItems/SiteFooter/NVCG Site Footer - Spanish':
+
+<li><a class="googleplus icon" onclick="NCIAnalytics.FooterLink(this, 'Google+');" href="/social-media#google+"> <span class="hidden">Google+</span> </a></li>
+
