@@ -129,3 +129,11 @@ var AnalyticsMapping =
         return filteredSuites;
     }
 };
+
+/** 
+* Get reporting suits(s) from the 'dcterms.coverage' meta tag.
+* The s_account variable is required to use Adobe analytics.
+*/
+var suiteMeta = document.head.querySelector('[name="dcterms.coverage"]');
+var suites = (suiteMeta ? suiteMeta.content : 'nciglobal,ncienterprise');
+var s_account = AnalyticsMapping.GetSuites(suites);
