@@ -1104,7 +1104,7 @@ var NCIAnalytics = {
      * @param {string} payload.label - text of link clicked
      * @param {string} payload.eventList - used to specify adobe success events
      * @param {string} payload.timeToClickLink - time (in seconds) elapsed from page load to first link clicked
-     * @example NCIAnalytics.GlobalLinkTrack({sender:this, label:jQuery(this).text(), siteSection: 'oga', eventList: 'ogapreaward'});
+     * @example NCIAnalytics.GlobalLinkTrack({sender:this, label:this.textContent, siteSection: 'oga', eventList: 'ogapreaward'});
      */
     GlobalLinkTrack: function(payload) {
       var events = '', eventsWithIncrementors = '', // placeholder for success events, if needed
@@ -1145,7 +1145,7 @@ var NCIAnalytics = {
         clickParams = new NCIAnalytics.ClickParams(sender,
             'nciglobal', 'o', 'BookmarkShareClick');
 
-        var linkText = (sender.title) ? sender.title : jQuery(sender).find("a").attr("title");
+        var linkText = (sender.title) ? sender.title : sender[0].title;
 
         clickParams.Props = {
             43: sender.title,
@@ -1581,7 +1581,7 @@ var NCIAnalytics = {
     OnThisPageClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
         linkText = "OnThisPage_" + linkText;
-        href = sender.getAttribute ? sender.getAttribute("href") : jQuery(sender).attr("href");
+        href = sender.getAttribute ? sender.getAttribute('href') : sender[0].getAttribute('href');
         clickParams.Props = {
             4: href,
             66: linkText,
@@ -2086,10 +2086,13 @@ NCIAnalytics.buildPageDetail = function() {
 
     // find name of current pdq section
     hash = hash.replace(/#?(section|link)\//g, '');
-    hash = hash.replace(/#/g, '');
+    hash = hash.replace(/#/g, '');		
     if (hash) {
-        return_val = jQuery("#" + hash + " h2").text().toLowerCase();
-    }
+        selector = document.querySelector('#' + hash + ' h2');
+        if(selector) {
+            return_val = selector.textContent.toLowerCase();
+        }
+	}
 
     // add '/' as prefix, if return_val exists and '/' not already present
     if (return_val && return_val.indexOf('/') != 0) {
@@ -2099,13 +2102,21 @@ NCIAnalytics.buildPageDetail = function() {
 };
 
 /**
- * start page load timer for use with custom link tracking
- * @author Evolytics <nci@evolytics.com>
- * @since 2016-08-12
+ * Start page load timer for use with custom link tracking
  */
-jQuery().ready(function() {
+NCIAnalytics.startPageLoadTimer = function () {
     window.pageLoadedAtTime = new Date().getTime();
-});
+}
+
+/**
+ * Start the pageLoadTimer if the DOM is loaded or document.readyState == complete
+ */
+if (document.readyState === "complete" ||
+   (document.readyState !== "loading" && !document.documentElement.doScroll)) { 
+    NCIAnalytics.startPageLoadTimer(); 
+} else {
+    document.addEventListener('DOMContentLoaded', NCIAnalytics.startPageLoadTimer);
+}
 
 /**
  * dynamic link tracking for http://www.cancer.gov/grants-training
@@ -2114,11 +2125,18 @@ jQuery().ready(function() {
  * @since 2016-08-12
  */
 if (trimmedPathname === '/grants-training') {
-    jQuery("#content").on('click', "a[href*='grants-training']", function() {
-        var href = jQuery(this).attr('href'),
-            linkText = jQuery(this).text().toLowerCase().substring(0, 89).trim(),
-            linkClickedAtTime = new Date().getTime(),
-            destinationSiteSection = '';
+    var grantsTrainingLinks = document.querySelectorAll("#content a[href*='grants-training']");
+    var linksArray = [].slice.call(grantsTrainingLinks);
+
+    // Add the 'click' event listener to each link containting 'grants-training'
+    linksArray.forEach(function(element) {
+        element.addEventListener('click', setTimeToClick)
+    });
+
+    // Set the "timetoclick" event (106) for specified grants-training links
+    function setTimeToClick(e) {	
+        var href = e.target.href;
+        destinationSiteSection = '';
 
         // identify destination site section; used to determine whether or not to send a call
         if (oga_pattern.test(href)) {
@@ -2126,8 +2144,11 @@ if (trimmedPathname === '/grants-training') {
         } else if (cct_pattern.test(href)) {
             destinationSiteSection = 'cct'
         }
-
+		
         if (destinationSiteSection && window.pageLoadedAtTime) {
+            var linkText = e.target.textContent.toLowerCase().substring(0, 89).trim();
+            var linkClickedAtTime = new Date().getTime();    
+
             NCIAnalytics.GlobalLinkTrack({
                 sender: this,
                 label: (destinationSiteSection) ? destinationSiteSection + '_' + linkText : linkText,
@@ -2135,7 +2156,8 @@ if (trimmedPathname === '/grants-training') {
                 eventList: 'timetoclick' // specify success event (event106)
             });
         }
-    });
+    };
+
 }
 
 /***********************************************************************************************************
@@ -2199,12 +2221,12 @@ NCIAnalytics.cookieRead = function(c_name) {
  * @param {Boolean} payload.reset - Simulates a true page load/broswer referesh on SPA pages
  * @param {string} payload.source - Identifies location where call to getScrollDetails occurred 
  * @param {string} payload.pageOverride - Override value for last element of TrackingString properties
- * @requires jQuery
  * @requires s
  */
 NCIAnalytics.getScrollDetails = function(payload) {
     var previousPageScroll = NCIAnalytics.previousPageMaxVerticalTrackingString || '',
-        pageSection = '';//jQuery(".accordion").find("section.show h2").text(); // pdq page section (same as right rail menu links)
+        pageSection = '';
+		
     page = s.pageName + ((pageSection) ? '/' + pageSection : '');
 
     if (payload) {
