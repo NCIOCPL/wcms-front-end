@@ -252,15 +252,18 @@ function s_doPlugins(s) {
     s.prop64=s.getPercentPageViewed();
     s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
 
+    // Set event1 
+    // TODO: get the events array, then assemble the events before the AppMeasurement() block
+    if(s.events && s.events.length > 0) {
+        s.events += ",event1,";
+    } else {
+        s.events = 'event1,';
+    }
+
     // Set prop65 to get the initial load time of the page (for use in the page load speed plugin)
     var loadTime = s_getLoadTime();
-    s.prop65 = loadTime;
-    if(s.events && s.events.length > 0){
-        s.events += ",";
-    }
-    if(s.events == null)
-        s.events = '';
     s.events += ["event47=" +  loadTime];
+    s.prop65 = loadTime;
         
     // engagementTracking >> requires EvoEngagementPlugin() 
     if(s.mainCGovIndex >= 0) {
@@ -405,27 +408,30 @@ s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
 // Set prop44 & eVar44 to 'group'
 s.prop44 = s.eVar44 = getMetaTagContent('[name="dcterms.isPartOf"]');
 
+// Get our custom s object from the analytics data element
+var waData = document.querySelector('.wa-data-element');
+
 // Check for meta attribute and get content if exists
-function getMetaTagContent (selector, isJson) {
+function getMetaTagContent (selector) {
     if(document.head.querySelector(selector) != null) {
         return document.head.querySelector(selector).content;
     } else {
-		if(isJson) { return '[]'; }
-		else { return ''; }
+        return '';
     }
 }
 
-// Get the rest of our s variables from the analytics data element
-var waBlob = getMetaTagContent('[name="entity"]', true),
-	waJson = JSON.parse(waBlob);
-
-// Change object into map and run forEach function 
-new Map(Object.entries(waJson)).forEach(trackEntityContent);
-
-// Set 's' values
-function trackEntityContent(value, key, map) {
-    s[key] = value;
+// Dynamically props/eVars and values to the 's' object
+function setPropsAndEvars () {
+    for(dataAttr in waData.dataset) {
+        if(dataAttr.includes('prop') || dataAttr.includes('evar'))
+        {
+            var pevKey = dataAttr.replace('v', 'V'); 
+            var pevValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, '');
+            s[pevKey] = pevValue;
+        }
+    }
 }
+setPropsAndEvars();
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
