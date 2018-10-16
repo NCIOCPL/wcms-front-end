@@ -30,7 +30,7 @@ var NCIAnalytics = {
 
     SelectedOptionList: function(listId, delimiter) {
         // get all selected options under the given id
-        var selected = document.querySelectorAll('#' + listId + ' option\\:selected');
+        var selected = document.getElementById(listId).selectedOptions;
 
         if (selected.length > 0) {
             var selArray = [].slice.call(selected);
@@ -334,10 +334,10 @@ var NCIAnalytics = {
 
     //******************************************************************************************************
     TermsDictionarySearch: function(sender, isSpanish) {
-        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
-
+        var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
+        
         NCIAnalytics.TermsDictionarySearchCore(sender,
-            $("#AutoComplete1").val(),
+            document.getElementById('AutoComplete1').value,
             prop24Contents,
             'TermsDictionarySearch',
             isSpanish);
@@ -368,13 +368,13 @@ var NCIAnalytics = {
     //the original function GeneticsDictionarySearch alone.
     //******************************************************************************************************
     GeneticsDictionarySearchNew: function(sender) {
-        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
+        var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
 
         clickParams = new NCIAnalytics.ClickParams(sender,
             '', 'o', 'GeneticsDictionarySearch');
         clickParams.Props = {
             11: 'dictionary_genetics',
-            22: $("#AutoComplete1").val(),
+            22: document.getElementById('AutoComplete1').value,
             24: prop24Contents
         };
         clickParams.Evars = {
@@ -474,10 +474,10 @@ var NCIAnalytics = {
 
     //******************************************************************************************************
     DrugDictionarySearch: function(sender) {
-        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
+        var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
 
         NCIAnalytics.DrugDictionarySearchCore(sender,
-            $("#AutoComplete1").val(),
+            document.getElementById('AutoComplete1').value,
             prop24Contents,
             'DrugDictionarySearch');
     },
@@ -557,10 +557,10 @@ var NCIAnalytics = {
         var searchType = 'genetics';
         var typeOfCancer = '';
         var familyCancerSyndrome = '';
-        var city = $("#" + ids.txtCity).val();
+        var city = document.getElementById(ids.txtCity).value;
         var state = '';
         var country = '';
-        var lastName = $("#" + ids.txtLastName).val();
+        var lastName = document.getElementById(ids.txtLastName).value;
         var searchCriteria = '';
         var specialty = '';
         var selected = '';
@@ -1731,7 +1731,7 @@ var NCIAnalytics = {
     BlogArchiveLinkClick: function(sender, pageName){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogArchiveDateClick');
 
-        $.urlParam = function(name){
+        urlParam = function(name){
             var results = new RegExp("[\?&].*\[" + name + "\]=([^&#]*)").exec(sender.href);
             if (results==null){
                 return "";
@@ -1740,12 +1740,13 @@ var NCIAnalytics = {
                 return results[1] || 0;
             }
         }
-        var year = $.urlParam('[year]');
-        var month = $.urlParam('[month]');
+        
+        var year = urlParam('[year]');
+        var month = urlParam('[month]');
         clickParams.Props = {
             66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_Archive",
             67: pageName,
-            50: $.urlParam('[year]') + (month ? (":" + month) : "")
+            50: year + (month ? (":" + month) : "")
         };
         clickParams.Events = [55];
         clickParams.LogToOmniture();
