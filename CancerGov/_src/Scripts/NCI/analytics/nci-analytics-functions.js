@@ -28,21 +28,6 @@ var NCIAnalytics = {
 
     })(),
 
-    SelectedTextList: function(listId, delimiter) {
-        // get labels for all checked inputs under the given id
-        var checked = document.querySelectorAll('#' + listId + ' input:checked + label');
-
-        if (checked.length > 0) {
-            var checkArray = [].slice.call(checked);
-            return (
-                checkArray.map(function(label) {
-                    return label.textContent; // return the text of each label
-                })
-                .join(delimiter)); // joint array with delimiter
-        }
-        return '';
-    },
-
     SelectedOptionList: function(listId, delimiter) {
         // get all selected options under the given id
         var selected = document.querySelectorAll('#' + listId + ' option\\:selected');
@@ -55,22 +40,6 @@ var NCIAnalytics = {
                 })
                 .join(delimiter));  // join array with delimiter
         }
-        return '';
-    },
-
-    SelectedDeleteList: function(listId, delimiter) {
-		// find all visible buttons under the given id
-        var buttons = document.querySelectorAll('#' + listId + ' li\\:visible button'); 
-
-        if (buttons.length > 0) {
-			var btnArray = [].slice.call(buttons);
-            return (
-                buttons.map(function(button) {
-					return button.nextSibling.nodeValue;  // the following node should be the text; return it
-                })
-                .join(delimiter));  // join array with delimiter
-        }
-
         return '';
     },
 
@@ -353,110 +322,6 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
-    CTSearch: function(webAnalyticsOptions) {
-        var searchType = 'clinicaltrials';
-        var location = '';
-        var treatmentType = '';
-        var statusPhase = '';
-        var trialIdSponsor = '';
-        var trialType = '';
-        var phaseList = '';
-        var sponsor = '';
-        var keyword = '';
-
-        var cancerTypeCondition = $('#' + ids.cancerType + " option:selected").text();
-
-        //Location
-        switch($("#" + ids.locationSelector).val()) {
-            case "all": location = "all locations"; break;
-
-            case "zip": location = "Near Zip Code"; break;
-
-            case "city": location = "In City/State/Country"; break;
-
-            case "hospital": location = "At Hospital/Institution"; break;
-
-            case "nih": // - At NIH
-                if ($("#" + ids.nihOnly)[0].checked)
-                    location = 'At NIH Only Bethesda, Md';
-                else
-                    location = 'At NIH';
-                break;
-        }
-
-        // Trial Phase
-        // - Phase
-        if ($("#" + ids.trialPhase_1)[0].checked || $("#" + ids.trialPhase_2)[0].checked || $("#" + ids.trialPhase_3)[0].checked || $("#" + ids.trialPhase_4)[0].checked) {
-            phaseList = 'Trial Phase';
-        }
-
-        statusPhase += phaseList + NCIAnalytics.fieldDelimiter;
-        // - New Trial
-        if ($("#" + ids.newOnly)[0].checked) {
-            item = $('trialStatusTable').select("label[for=newOnly]");
-            statusPhase += 'New Trials';
-        }
-
-        // Trial / Treatment Type
-        trialType = NCIAnalytics.SelectedTextList(
-            webAnalyticsOptions.typeOfTrialControlID,
-            NCIAnalytics.stringDelimiter);
-        if ((trialType != '') && (trialType != 'All'))
-            treatmentType += 'Type of Trial';
-        treatmentType += NCIAnalytics.fieldDelimiter;
-        if (NCIAnalytics.SelectedDeleteList(
-                webAnalyticsOptions.drugControlID,
-                NCIAnalytics.stringDelimiter) != '')
-            treatmentType += 'Drug';
-        treatmentType += NCIAnalytics.fieldDelimiter;
-        if (NCIAnalytics.SelectedDeleteList(
-                webAnalyticsOptions.treatnentInterventionControlID,
-                NCIAnalytics.stringDelimiter) != '')
-            treatmentType += 'Treatment/Intervention';
-
-        // Trial ID
-        if ($("#" + ids.protocolID).val() != '')
-            trialIdSponsor += 'Protocol ID';
-        trialIdSponsor += NCIAnalytics.fieldDelimiter;
-        if (NCIAnalytics.SelectedDeleteList(
-                webAnalyticsOptions.trialInvestigatorsControlID,
-                NCIAnalytics.stringDelimiter) != '')
-            trialIdSponsor += 'Trial Investigators';
-        trialIdSponsor += NCIAnalytics.fieldDelimiter;
-        if (NCIAnalytics.SelectedDeleteList(
-                webAnalyticsOptions.leadOrganizationCooperativeGroupControlID,
-                NCIAnalytics.stringDelimiter) != '')
-            trialIdSponsor += 'Lead Organization';
-
-        //if ($("#" + ids.txtKeywords_state).val() == 'valid')
-        if ($("#" + ids.txtKeywords).val())
-            keyword = $("#" + ids.txtKeywords).val();
-
-        clickParams = new NCIAnalytics.ClickParams(this,
-            'nciglobal,nciclinicaltrials', 'o', 'CTSearch');
-        clickParams.Props = {
-            11: searchType,
-            17: cancerTypeCondition,
-            18: location,
-            19: treatmentType,
-            20: statusPhase,
-            21: trialIdSponsor,
-            22: keyword
-        };
-        clickParams.Evars = {
-            11: searchType,
-            13: '+1',
-            17: cancerTypeCondition,
-            18: location,
-            19: treatmentType,
-            20: statusPhase,
-            21: trialIdSponsor
-        };
-        clickParams.Events = [2];
-        clickParams.LogToOmniture();
-    },
-
-    //******************************************************************************************************
     CTSearchResults: function(sender, resultIndex) {
 
         clickParams = new NCIAnalytics.ClickParams(sender,
@@ -674,34 +539,6 @@ var NCIAnalytics = {
         };
         clickParams.Events = [2];
         clickParams.LogToOmniture();
-    },
-
-    //******************************************************************************************************
-    BulletinSearch: function(sender, bulletinSearchType) {
-        var keyword = document.getElementById('cbkeyword').value;
-        var searchType = 'bulletin';
-
-        if (bulletinSearchType == 1) { // Search by keyword and date range
-            var startDate = document.getElementById('startMonth').options[document.getElementById('startMonth').selectedIndex].text.replace(/^\s+|\s+$/g, '') + ' '
-                + document.getElementById('startYear').value;
-            var endDate = document.getElementById('endMonth').options[document.getElementById('endMonth').selectedIndex].text + ' '
-                + document.getElementById('endYear').value;
-            NCIAnalytics.KeywordDateRangeSearch(sender, searchType, keyword, startDate, endDate);
-        }
-        else {  // Search by Keyword
-            clickParams = new NCIAnalytics.ClickParams(sender,
-                'nciglobal', 'o', 'KeywordSearch');
-            clickParams.Props = {
-                11: searchType,
-                22: keyword
-            };
-            clickParams.Evars = {
-                11: searchType,
-                13: '+1'
-            };
-            clickParams.Events = [2];
-            clickParams.LogToOmniture();
-        }
     },
 
     //******************************************************************************************************
