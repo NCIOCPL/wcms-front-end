@@ -29,49 +29,49 @@ var NCIAnalytics = {
     })(),
 
     SelectedTextList: function(listId, delimiter) {
-        var checked = $("#" + listId + " input:checked"); // get all checked inputs under the given id
+        // get labels for all checked inputs under the given id
+        var checked = document.querySelectorAll('#' + listId + ' input:checked + label');
 
         if (checked.length > 0) {
+            var checkArray = [].slice.call(checked);
             return (
-                checked.siblings("label")  // find all adjacent labels
-                    .map(function() {
-                        return $(this).text();  // return the text of each label
-                    })
-                    .get()  // get as JS array
-                    .join(delimiter));  // join array with delimiter
+                checkArray.map(function(label) {
+                    return label.textContent; // return the text of each label
+                })
+                .join(delimiter)); // joint array with delimiter
         }
-
-        return "";
+        return '';
     },
 
     SelectedOptionList: function(listId, delimiter) {
-        var selected = $("#" + listId + " option:selected"); // get all selected options under the given id
+        // get all selected options under the given id
+        var selected = document.querySelectorAll('#' + listId + ' option\\:selected');
 
         if (selected.length > 0) {
+            var selArray = [].slice.call(selected);
             return (
-                selected.map(function() {
-                        return this.text;  // return the text of each option
-                    })
-                    .get()  // get as JS array
-                    .join(delimiter));  // join array with delimiter
+                selArray.map(function(option) {
+                    return option.textContent;  // return the text of each option
+                })
+                .join(delimiter));  // join array with delimiter
         }
-
-        return "";
+        return '';
     },
 
     SelectedDeleteList: function(listId, delimiter) {
-        var buttons = $("#" + listId + " li:visible button"); // find all visible buttons under the given id
+		// find all visible buttons under the given id
+        var buttons = document.querySelectorAll('#' + listId + ' li\\:visible button'); 
 
         if (buttons.length > 0) {
+			var btnArray = [].slice.call(buttons);
             return (
-                buttons.map(function() {
-                        return this.nextSibling.nodeValue;  // the following node should be the text; return it
-                    })
-                    .get()  // get as JS array
-                    .join(delimiter));  // join array with delimiter
+                buttons.map(function(button) {
+					return button.nextSibling.nodeValue;  // the following node should be the text; return it
+                })
+                .join(delimiter));  // join array with delimiter
         }
 
-        return "";
+        return '';
     },
 
     ClickParams: function(sender, reportSuites, linkType, linkName) {
@@ -2061,17 +2061,14 @@ var NCIAnalytics = {
 /* ********************************************************************** */
 /* ********************************************************************** */
 
-NCIAnalytics.blogLocation = function()
-{
-    if( $("body").hasClass('cgvblogpost')) {
-        return "Post";
-    }
-    else if ( $("body").hasClass('cgvblogseries')) {
-        return "Series";
-    }
-    else if ( $("body").hasClass('cgvtopicpage')) {
-        return "Category";
-    }
+NCIAnalytics.blogLocation = function() {
+    if (document.querySelector('body.cgvblogpost')) {
+        return 'Post';
+    } else if (document.querySelector('body.cgvblogseries')) {
+        return 'Series';
+    } else if (document.querySelector('body.cgvtopicpage')) {
+        return 'Category';
+    } else return '';
 }
 
 /**

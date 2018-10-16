@@ -423,7 +423,7 @@ function getMetaTagContent (selector) {
 // Dynamically props/eVars and values to the 's' object
 function setPropsAndEvars () {
     for(dataAttr in waData.dataset) {
-        if(dataAttr.includes('prop') || dataAttr.includes('evar'))
+        if(dataAttr.indexOf('prop') > -1 || dataAttr.indexOf('evar') > -1)
         {
             var pevKey = dataAttr.replace('v', 'V'); 
             var pevValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, '');
