@@ -34,11 +34,6 @@
                     <a title="Twitter" aria-label="Twitter" href="#"></a>
                 </li>
             <!--(bake-end)-->
-            <!--(bake-start _if="googleplus")-->
-                <li class="social-share social-share--googleplus">
-                    <a title="Google+" aria-label="Google+" href="#"></a>
-                </li>
-            <!--(bake-end)-->
             <!--(bake-start _if="pinterest")-->
                 <li class="social-share social-share--pinterest">
                     <a title="Pinterest" aria-label="Pinterest" href="#"></a>
