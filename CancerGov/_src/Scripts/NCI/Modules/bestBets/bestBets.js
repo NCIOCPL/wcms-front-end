@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import DictionaryService from 'Data/DictionaryService';
 import * as config from 'Modules/NCI.config';
+import linkAudioPlayer from 'Modules/linkAudioPlayer/linkAudioPlayer';
 
 var lang = $('html').attr('lang') || 'en';
 // Set the language for finding the dictionary term/definition
@@ -94,24 +95,10 @@ var _render = function (obj) {
 			$('#definitionShowHide').text(config.lang.Hide[lang]);
 		}
 	});
-
-	if (jQuery.jPlayer) {
-
-		var my_jPlayer = $("#dictionary_jPlayer");
-
-		my_jPlayer.jPlayer({
-			swfPath: "/PublishedContent/files/global/flash/", //Path to SWF File Used by jPlayer
-			supplied: "mp3" //The types of files which will be used.
-		});
-
-		//Attach a click event to the audio link
-		$("#best-bet-definition .CDR_audiofile").click(function (e) {
-			e.preventDefault();
-			my_jPlayer.jPlayer("setMedia", {
-				mp3: $(this).attr("href") // Defines the m4v url
-			}).jPlayer("play");
-		});
-	}
+	// The audioplayer setup is called only once on page load, so we need to
+	// initialize it again for audiolinks added dynamically, but scoped to only the
+	// new element to avoid potential duplication on existing elements.
+	linkAudioPlayer("#best-bet-definition .CDR_audiofile");
 
 	function moreInfo() {
 		// issue, some objects don't exist for some definitons, produces an error. I answered by checking for existance and then length
