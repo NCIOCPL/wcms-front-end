@@ -408,9 +408,6 @@ s.prop25 = getMetaTagContent('[name="dcterms.issued"]');
 // Set prop44 & eVar44 to 'group'
 s.prop44 = s.eVar44 = getMetaTagContent('[name="dcterms.isPartOf"]');
 
-// Get our custom s object from the analytics data element
-var waData = document.querySelector('.wa-data-element');
-
 // Check for meta attribute and get content if exists
 function getMetaTagContent (selector) {
     if(document.head.querySelector(selector) != null) {
@@ -420,18 +417,31 @@ function getMetaTagContent (selector) {
     }
 }
 
-// Dynamically props/eVars and values to the 's' object
-function setPropsAndEvars () {
-    for(dataAttr in waData.dataset) {
-        if(dataAttr.indexOf('prop') > -1 || dataAttr.indexOf('evar') > -1)
-        {
-            var pevKey = dataAttr.replace('v', 'V'); 
-            var pevValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, '');
-            s[pevKey] = pevValue;
+// Dynamically add numbered variables (e.g. prop1, eVar8) and values to the 's' object
+function setNumberedVars(varName, selector) {
+
+    // Get the data element; '.wa-data-element' is the default
+    selector = selector || '.wa-data-element';
+    var waData = document.querySelector(selector);
+
+    if(varName && waData) {
+        for(dataAttr in waData.dataset) {
+            if(dataAttr.indexOf(varName) > -1)
+            {
+                var nvKey = dataAttr.replace('evar', 'eVar'); // 'eVar' must be specified on s object
+                var nvValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, ''); // strip out single quotes
+                s[nvKey] = nvValue;
+            }
         }
     }
 }
-setPropsAndEvars();
+
+// Set props
+setNumberedVars("prop");
+
+// Set eVars
+setNumberedVars("evar");
+
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
