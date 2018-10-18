@@ -159,6 +159,8 @@ s.prop26 = now.getFullYear() + "|" + (now.getMonth() + 1) + "|" + now.getDate() 
 /* Plugin Config */
 s.usePlugins=true
 
+var sCampaign = '';
+
 /* Add calls to plugins here */
 function s_doPlugins(s) {
 
@@ -169,7 +171,6 @@ function s_doPlugins(s) {
     }
 
     /* Set the campagin value if there are any matching queries in the URL*/
-    var sCampaign;
     var hasUtm = false;
     var utmArr = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
     var utmJoin  = [];
@@ -191,23 +192,6 @@ function s_doPlugins(s) {
                 sCampaign = utmJoin.join('|');
             }
         }
-    }
-
-    // retrieve urs values
-    if(typeof NCIAnalytics !== 'undefined') {
-    	if(typeof NCIAnalytics.urs !== 'undefined') {
-			window.urs = NCIAnalytics.urs.get({
-				campaign: sCampaign,
-				referrer: document.referrer
-			});
-			// console.info('urs', JSON.stringify(window.urs, null, 2));    
-
-			s.eVar54 = urs.value;
-			s.prop51 = (s.eVar54) ? 'D=v54' : '';
-			s.eVar55 = urs.seoKeyword;
-			s.eVar56 = urs.ppcKeyword;
-			s.eVar57 = urs.stacked;
-		}
     }
 
     s.eVar35 = sCampaign;
@@ -264,28 +248,6 @@ function s_doPlugins(s) {
     var loadTime = s_getLoadTime();
     s.events += ["event47=" +  loadTime];
     s.prop65 = loadTime;
-        
-    // engagementTracking >> requires EvoEngagementPlugin() 
-    if(s.mainCGovIndex >= 0) {
-        try {
-            if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
-
-                // check the cookie
-                var engagementScore = window.NCIEngagement.getAndResetEngagementCookie();
-
-                // add engagement metrics to the page load call, if needed
-                if (engagementScore && parseInt(engagementScore) > 0) {
-                s.events += (s.events) ? [",event92=" + engagementScore] : ["event92=" + engagementScore];
-                }
-
-                // flag to prevent firing this logic more than once per page load
-                window.NCIEngagementPageLoadComplete = true;
-            }
-        } catch (err) {
-            /** console.log(err) */
-        }
-    }
-
 }
 s.doPlugins=s_doPlugins 
 
@@ -370,13 +332,6 @@ function set_hier1() {
 /* Dynamically Capture Hierarchy Variable via Custom Plugin */
 s.hier1 = set_hier1();
 
-/* Track scroll percentage of previous page / percent visible on current page */
-if(typeof NCIAnalytics !== 'undefined') {
-    if(typeof NCIAnalytics.cookieRead === 'function') {
-        s.prop48=NCIAnalytics.cookieRead("nci_scroll");
-    }
-}
-
 /* Set eVar for browser width on page load */
 s.eVar5 = getViewPort(); 
  
@@ -442,6 +397,53 @@ setNumberedVars("prop");
 // Set eVars
 setNumberedVars("evar");
 
+/** PageLoad values requiring the NCIAnalyticsFunctions library */
+// TODO: remove NCIAnalytics dependencies 
+if(typeof NCIAnalytics !== 'undefined') {
+
+    // retrieve urs values
+    if(typeof NCIAnalytics.urs !== 'undefined') {
+        window.urs = NCIAnalytics.urs.get({
+            campaign: sCampaign,
+            referrer: document.referrer
+        });
+        // console.info('urs', JSON.stringify(window.urs, null, 2));    
+        s.eVar54 = urs.value;
+        s.prop51 = (s.eVar54) ? 'D=v54' : '';
+        s.eVar55 = urs.seoKeyword;
+        s.eVar56 = urs.ppcKeyword;
+        s.eVar57 = urs.stacked;
+    }
+
+
+    // Track scroll percentage of previous page / percent visible on current page
+    if(typeof NCIAnalytics.cookieRead === 'function') {
+        s.prop48=NCIAnalytics.cookieRead("nci_scroll");
+    }
+
+
+    // engagementTracking >> requires EvoEngagementPlugin() 
+    if(s.mainCGovIndex >= 0) {
+        try {
+            if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
+
+                // check the cookie
+                var engagementScore = window.NCIEngagement.getAndResetEngagementCookie();
+
+                // add engagement metrics to the page load call, if needed
+                if (engagementScore && parseInt(engagementScore) > 0) {
+                s.events += (s.events) ? [",event92=" + engagementScore] : ["event92=" + engagementScore];
+                }
+
+                // flag to prevent firing this logic more than once per page load
+                window.NCIEngagementPageLoadComplete = true;
+            }
+        } catch (err) {
+            /** console.log(err) */
+        }
+    }
+
+}
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
