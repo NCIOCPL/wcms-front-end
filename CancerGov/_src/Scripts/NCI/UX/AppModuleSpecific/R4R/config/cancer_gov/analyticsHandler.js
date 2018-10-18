@@ -46,7 +46,7 @@ const extractFilterSummary = params => {
 }
 
 const extractProp40 = pathname => {
-    if(pathname.match(/resource/i)){
+    if(pathname.match(/resources\/resource/i)){
         return 'Resource View';
     }
     if(pathname.match(/search$/i)){
