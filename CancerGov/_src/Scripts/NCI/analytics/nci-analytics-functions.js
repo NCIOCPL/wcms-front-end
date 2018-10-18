@@ -61,6 +61,11 @@ var NCIAnalytics = {
         this.EventsWithIncrementors = {};
 
         this.LogToOmniture = function() {
+            if(typeof(s_gi) !== 'function') {
+                // console.log('AppMeasurement not found');
+                return;
+            }
+
             var local_s = s_gi(this.ReportSuites);
             local_s.linkTrackVars = '';
 
