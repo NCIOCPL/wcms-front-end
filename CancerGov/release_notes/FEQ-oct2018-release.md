@@ -1,14 +1,14 @@
 # FEQ October 2018 Release
 
-## [WCMSFEQ-###] Ticket Title
+## [WCMSFEQ-1179] Scroll events are not throttled, generating too many events
 ### (NO CONTENT CHANGES)
 
-Include: reason for changes, description of changes, any relevant code examples, and  any manual/content changes required as part of this commit.
+Imported the 'throttle-debounce' library into `jquery-scrolltofixed.js` and `backToTop.js` in order to apply throttle and debounce methods. Also replaced jQuery event handlers with passive event handlers that improve scroll and resize performance. Applied some minor code optimizations and cleanup to jquery-scrolltofixed.js
 
-```javascript
-// path/to/file/<filename>.js
-let codeExample = this
-```
+## [WCMSFEQ-1178] When resizing the browser window the page scrolls downward to the footer
+### (NO CONTENT CHANGES)
+
+Fixed the issue where element calculations were being triggered on every resize event. Also fixed another issue where the fixed element placeholder dimensions were not being recalculated properly between breakpoints.
 
 ## [WCMSFEQ-1159] Fix issue with megamenu functionality when initializes at tablet breakpoints
 ### (NO CONTENT CHANGES)
