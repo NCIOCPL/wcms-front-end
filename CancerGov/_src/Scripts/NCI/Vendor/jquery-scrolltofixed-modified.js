@@ -5,8 +5,8 @@
  * Copyright (c) 2011 Joseph Cava-Lynch
  * MIT license
  */
-import { throttle, debounce } from 'throttle-debounce';
-(function($, throttle, debounce) {
+// import { debounce } from 'throttle-debounce';
+(function($) {
     $.isScrollToFixed = function(el) {
         return !!$(el).data('ScrollToFixed');
     };
@@ -15,7 +15,6 @@ import { throttle, debounce } from 'throttle-debounce';
         // To avoid scope issues, use 'base' instead of 'this' to reference this
         // class from internal events and functions.
         var base = this;
-        var $window = $(window);
 
         // Access to jQuery and DOM versions of element.
         base.$el = $(el);
@@ -200,7 +199,7 @@ import { throttle, debounce } from 'throttle-debounce';
 
                 // Hide the spacer now that the target element will fill the
                 // space.
-                spacer.hide();
+                spacer.css('display', 'none');
 
                 // Remove the style attributes that were added to the target.
                 // This will reverse the target back to the its original style.
@@ -211,7 +210,9 @@ import { throttle, debounce } from 'throttle-debounce';
                     'left' : '',
                     'top' : originalOffsetTop,
                     'margin-left' : ''
-                }).removeClass('scroll-to-fixed-fixed');
+                });
+
+                target.removeClass('scroll-to-fixed-fixed');
 
                 if (base.options.className) {
                     target.removeClass(base.options.className);
@@ -268,10 +269,10 @@ import { throttle, debounce } from 'throttle-debounce';
             }
 
             // Grab the current horizontal scroll position.
-            var x = $window.scrollLeft();
+            var x = $(window).scrollLeft();
 
             // Grab the current vertical scroll position.
-            var y = $window.scrollTop();
+            var y = $(window).scrollTop();
 
             // Get the limit, if there is one.
             var limit = getLimit();
@@ -279,14 +280,14 @@ import { throttle, debounce } from 'throttle-debounce';
             // If the vertical scroll position, plus the optional margin, would
             // put the target element at the specified limit, set the target
             // element to absolute.
-            if (base.options.minWidth && $window.width() < base.options.minWidth) {
+            if (base.options.minWidth && $(window).width() < base.options.minWidth) {
                 if (!isUnfixed() || !wasReset) {
                     postPosition();
                     target.trigger('preUnfixed.ScrollToFixed');
                     setUnfixed();
                     target.trigger('unfixed.ScrollToFixed');
                 }
-            } else if (base.options.maxWidth && $window.width() > base.options.maxWidth) {
+            } else if (base.options.maxWidth && $(window).width() > base.options.maxWidth) {
                 if (!isUnfixed() || !wasReset) {
                     postPosition();
                     target.trigger('preUnfixed.ScrollToFixed');
@@ -335,7 +336,7 @@ import { throttle, debounce } from 'throttle-debounce';
                 }
             } else {
                 if (limit > 0) {
-                    if (y + $window.height() - target.outerHeight(true) >= limit - (getMarginTop() || -getBottom())) {
+                    if (y + $(window).height() - target.outerHeight(true) >= limit - (getMarginTop() || -getBottom())) {
                         if (isFixed()) {
                             postPosition();
                             target.trigger('preUnfixed.ScrollToFixed');
@@ -387,18 +388,14 @@ import { throttle, debounce } from 'throttle-debounce';
                 isReset = false;
                 checkScroll();
             } else {
-                // Ensure the spacer is hidden
-                setUnfixed();
+              // Ensure the spacer is hidden
+              setUnfixed();
             }
         }
-
-        var debouncedWindowResize = debounce(250,true,windowResize);
 
         var windowScroll = function(event) {
             (!!window.requestAnimationFrame) ? requestAnimationFrame(checkScroll) : checkScroll();
         }
-
-        var throttledWindowScroll = throttle(50,checkScroll);
 
         // From: http://kangax.github.com/cft/#IS_POSITION_FIXED_SUPPORTED
         var isPositionFixedSupported = function() {
@@ -440,6 +437,22 @@ import { throttle, debounce } from 'throttle-debounce';
             e.returnValue = false;
         }
 
+        // var debounce = function (func, wait, immediate) {
+        //     var timeout;
+        //     console.log("debouncing!");
+        //     return function() {
+        //         var context = this, args = arguments;
+        //         var later = function() {
+        //             timeout = null;
+        //             if (!immediate) func.apply(context, args);
+        //         };
+        //         var callNow = immediate && !timeout;
+        //         clearTimeout(timeout);
+        //         timeout = setTimeout(later, wait);
+        //         if (callNow) func.apply(context, args);
+        //     };
+        // };
+
         // Initializes this plugin. Captures the options passed in, turns this
         // off for devices that do not support fixed position, adds the spacer,
         // and binds to the window scroll and resize events.
@@ -474,31 +487,17 @@ import { throttle, debounce } from 'throttle-debounce';
 
             // Reset the target element offsets when the window is resized, then
             // check to see if we need to fix or unfix the target element.
-            //$window.on('resize.ScrollToFixed', debounce(250,windowResize));
-            window.addEventListener('resize', debouncedWindowResize, {
-                capture: true,
-                passive: true
-            });
+            $(window).on('resize.ScrollToFixed', windowResize);
 
             // When the window scrolls, check to see if we need to fix or unfix
             // the target element.
-            //$window.on('scroll.ScrollToFixed', windowScroll);
-
-            window.addEventListener('scroll', throttledWindowScroll, {
-                capture: true,
-                passive: true
-            });
+            $(window).on('scroll.ScrollToFixed', windowScroll);
 
             // For touch devices, call checkScroll directlly rather than
             // rAF wrapped windowScroll to animate the element
-            // if ('ontouchmove' in window) {
-            //     $window.on('touchmove.ScrollToFixed', checkScroll);
-            // }
-            // converting touch event to a passive event listener
-            window.addEventListener('touchmove', throttledWindowScroll, {
-                capture: true,
-                passive: true
-            });
+            if ('ontouchmove' in window) {
+                $(window).on('touchmove.ScrollToFixed', checkScroll);
+            }
 
             if (base.options.preFixed) {
                 target.on('preFixed.ScrollToFixed', base.options.preFixed);
@@ -529,11 +528,28 @@ import { throttle, debounce } from 'throttle-debounce';
                 spacer.addClass(base.options.spacerClass);
             }
 
-            $window.on('resize.ScrollToFixed', debounce(250,function() {
+            var setSpacerHeight = function(){
+                    console.log("setting spacer height");
+                    spacer.height(target.height());
+                };
+
+            // var debouncedSetSpacerHeight = debounce(300, function(){
+            //     console.log("poop");
+            // });
+
+            //console.log(debounce);
+
+            console.log(target);
+
+
+
+            // this block causes scroll jacking, needs to be debounced
+            target.on('resize.ScrollToFixed', function(){
                 spacer.height(target.height());
-            }));
+            });
 
             target.on('scroll.ScrollToFixed', function() {
+                console.log("poop");
                 target.trigger('preUnfixed.ScrollToFixed');
                 setUnfixed();
                 target.trigger('unfixed.ScrollToFixed');
@@ -547,17 +563,8 @@ import { throttle, debounce } from 'throttle-debounce';
                 setUnfixed();
                 target.trigger('unfixed.ScrollToFixed');
 
-                // $window.off('resize.ScrollToFixed', windowResize);
-                // $window.off('scroll.ScrollToFixed', windowScroll);
-
-                window.removeEventListener('resize', debouncedWindowResize, {
-                    capture: true,
-                    passive: true
-                });
-                window.removeEventListener('scroll', throttledWindowScroll, {
-                    capture: true,
-                    passive: true
-                });
+                $(window).off('resize.ScrollToFixed', windowResize);
+                $(window).off('scroll.ScrollToFixed', windowScroll);
 
                 target.off('.ScrollToFixed');
 
@@ -591,4 +598,4 @@ import { throttle, debounce } from 'throttle-debounce';
             (new $.ScrollToFixed(this, options));
         });
     };
-})(jQuery, throttle, debounce);
+})(jQuery);

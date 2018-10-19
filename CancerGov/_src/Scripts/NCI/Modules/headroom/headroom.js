@@ -9,12 +9,12 @@ function _initialize() {
 	 ***/
 
 	// initialize scrollToFixed plugin
-	var headerHeight = $('.fixedtotop').outerHeight();
 	$('.fixedtotop').scrollToFixed({
 		spacerClass: 'fixedtotop-spacer',
 		fixed: function () {
-			$('.fixedtotop-spacer').height(headerHeight);
-		}
+			$('.fixedtotop-spacer').height($('.fixedtotop').outerHeight());
+		},
+		dontSetWidth: true
 	});
 
 	$('.headroom-area').headroom({
