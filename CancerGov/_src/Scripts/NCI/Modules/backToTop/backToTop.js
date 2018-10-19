@@ -1,11 +1,13 @@
 import $ from 'jquery';
+import { throttle } from 'throttle-debounce';
 
 function _initialize() {
 	// set the pixel value (from the top of the page) of where the arrow should begin to appear
 	var offset = 600;
 	// set the duration of the fade in effect of the back to top arrow and text
 	var duration = 500;
-	$(window).scroll(function () {
+	
+	var handleScroll = function(){
 		if ($(this).scrollTop() > offset) {
 			$('.back-to-top').fadeIn(duration, function () {
 				$(this).trigger("reveal");
@@ -13,6 +15,13 @@ function _initialize() {
 		} else {
 			$('.back-to-top').fadeOut(duration);
 		}
+	};
+
+	var throttledHandleScroll = throttle(100,handleScroll);
+
+	window.addEventListener('scroll', throttledHandleScroll, { 
+		capture: true,
+		passive: true
 	});
 
 	$('.back-to-top').click(function (e) {

@@ -5,7 +5,8 @@
  * Copyright (c) 2011 Joseph Cava-Lynch
  * MIT license
  */
-(function($) {
+import { throttle, debounce } from 'throttle-debounce';
+(function($, throttle, debounce) {
     $.isScrollToFixed = function(el) {
         return !!$(el).data('ScrollToFixed');
     };
@@ -14,6 +15,7 @@
         // To avoid scope issues, use 'base' instead of 'this' to reference this
         // class from internal events and functions.
         var base = this;
+        var $window = $(window);
 
         // Access to jQuery and DOM versions of element.
         base.$el = $(el);
@@ -145,7 +147,7 @@
                 // not fill the rest of the page horizontally. Also, set its top
                 // to the margin top specified in the options.
 
-                cssOptions={
+                var cssOptions = {
                     'z-index' : base.options.zIndex,
                     'position' : 'fixed',
                     'top' : base.options.bottom == -1?getMarginTop():'',
@@ -176,12 +178,12 @@
                 top = top - offsetTop;
             }
 
-            cssOptions={
-              'position' : 'absolute',
-              'top' : top,
-              'left' : left,
-              'margin-left' : '0px',
-              'bottom' : ''
+            var cssOptions = {
+                'position' : 'absolute',
+                'top' : top,
+                'left' : left,
+                'margin-left' : '0px',
+                'bottom' : ''
             }
             if (!base.options.dontSetWidth){ cssOptions['width']=target.css('width'); };
 
@@ -198,7 +200,7 @@
 
                 // Hide the spacer now that the target element will fill the
                 // space.
-                spacer.css('display', 'none');
+                spacer.hide();
 
                 // Remove the style attributes that were added to the target.
                 // This will reverse the target back to the its original style.
@@ -209,9 +211,7 @@
                     'left' : '',
                     'top' : originalOffsetTop,
                     'margin-left' : ''
-                });
-
-                target.removeClass('scroll-to-fixed-fixed');
+                }).removeClass('scroll-to-fixed-fixed');
 
                 if (base.options.className) {
                     target.removeClass(base.options.className);
@@ -268,10 +268,10 @@
             }
 
             // Grab the current horizontal scroll position.
-            var x = $(window).scrollLeft();
+            var x = $window.scrollLeft();
 
             // Grab the current vertical scroll position.
-            var y = $(window).scrollTop();
+            var y = $window.scrollTop();
 
             // Get the limit, if there is one.
             var limit = getLimit();
@@ -279,14 +279,14 @@
             // If the vertical scroll position, plus the optional margin, would
             // put the target element at the specified limit, set the target
             // element to absolute.
-            if (base.options.minWidth && $(window).width() < base.options.minWidth) {
+            if (base.options.minWidth && $window.width() < base.options.minWidth) {
                 if (!isUnfixed() || !wasReset) {
                     postPosition();
                     target.trigger('preUnfixed.ScrollToFixed');
                     setUnfixed();
                     target.trigger('unfixed.ScrollToFixed');
                 }
-            } else if (base.options.maxWidth && $(window).width() > base.options.maxWidth) {
+            } else if (base.options.maxWidth && $window.width() > base.options.maxWidth) {
                 if (!isUnfixed() || !wasReset) {
                     postPosition();
                     target.trigger('preUnfixed.ScrollToFixed');
@@ -335,7 +335,7 @@
                 }
             } else {
                 if (limit > 0) {
-                    if (y + $(window).height() - target.outerHeight(true) >= limit - (getMarginTop() || -getBottom())) {
+                    if (y + $window.height() - target.outerHeight(true) >= limit - (getMarginTop() || -getBottom())) {
                         if (isFixed()) {
                             postPosition();
                             target.trigger('preUnfixed.ScrollToFixed');
@@ -387,14 +387,18 @@
                 isReset = false;
                 checkScroll();
             } else {
-              // Ensure the spacer is hidden
-              setUnfixed();
+                // Ensure the spacer is hidden
+                setUnfixed();
             }
         }
+
+        var debouncedWindowResize = debounce(250,true,windowResize);
 
         var windowScroll = function(event) {
             (!!window.requestAnimationFrame) ? requestAnimationFrame(checkScroll) : checkScroll();
         }
+
+        var throttledWindowScroll = throttle(50,checkScroll);
 
         // From: http://kangax.github.com/cft/#IS_POSITION_FIXED_SUPPORTED
         var isPositionFixedSupported = function() {
@@ -470,67 +474,90 @@
 
             // Reset the target element offsets when the window is resized, then
             // check to see if we need to fix or unfix the target element.
-            $(window).bind('resize.ScrollToFixed', windowResize);
+            //$window.on('resize.ScrollToFixed', debounce(250,windowResize));
+            window.addEventListener('resize', debouncedWindowResize, {
+                capture: true,
+                passive: true
+            });
 
             // When the window scrolls, check to see if we need to fix or unfix
             // the target element.
-            $(window).bind('scroll.ScrollToFixed', windowScroll);
+            //$window.on('scroll.ScrollToFixed', windowScroll);
+
+            window.addEventListener('scroll', throttledWindowScroll, {
+                capture: true,
+                passive: true
+            });
 
             // For touch devices, call checkScroll directlly rather than
             // rAF wrapped windowScroll to animate the element
-            if ('ontouchmove' in window) {
-              $(window).bind('touchmove.ScrollToFixed', checkScroll);
-            }
+            // if ('ontouchmove' in window) {
+            //     $window.on('touchmove.ScrollToFixed', checkScroll);
+            // }
+            // converting touch event to a passive event listener
+            window.addEventListener('touchmove', throttledWindowScroll, {
+                capture: true,
+                passive: true
+            });
 
             if (base.options.preFixed) {
-                target.bind('preFixed.ScrollToFixed', base.options.preFixed);
+                target.on('preFixed.ScrollToFixed', base.options.preFixed);
             }
             if (base.options.postFixed) {
-                target.bind('postFixed.ScrollToFixed', base.options.postFixed);
+                target.on('postFixed.ScrollToFixed', base.options.postFixed);
             }
             if (base.options.preUnfixed) {
-                target.bind('preUnfixed.ScrollToFixed', base.options.preUnfixed);
+                target.on('preUnfixed.ScrollToFixed', base.options.preUnfixed);
             }
             if (base.options.postUnfixed) {
-                target.bind('postUnfixed.ScrollToFixed', base.options.postUnfixed);
+                target.on('postUnfixed.ScrollToFixed', base.options.postUnfixed);
             }
             if (base.options.preAbsolute) {
-                target.bind('preAbsolute.ScrollToFixed', base.options.preAbsolute);
+                target.on('preAbsolute.ScrollToFixed', base.options.preAbsolute);
             }
             if (base.options.postAbsolute) {
-                target.bind('postAbsolute.ScrollToFixed', base.options.postAbsolute);
+                target.on('postAbsolute.ScrollToFixed', base.options.postAbsolute);
             }
             if (base.options.fixed) {
-                target.bind('fixed.ScrollToFixed', base.options.fixed);
+                target.on('fixed.ScrollToFixed', base.options.fixed);
             }
             if (base.options.unfixed) {
-                target.bind('unfixed.ScrollToFixed', base.options.unfixed);
+                target.on('unfixed.ScrollToFixed', base.options.unfixed);
             }
 
             if (base.options.spacerClass) {
                 spacer.addClass(base.options.spacerClass);
             }
 
-            target.bind('resize.ScrollToFixed', function() {
+            $window.on('resize.ScrollToFixed', debounce(250,function() {
                 spacer.height(target.height());
-            });
+            }));
 
-            target.bind('scroll.ScrollToFixed', function() {
+            target.on('scroll.ScrollToFixed', function() {
                 target.trigger('preUnfixed.ScrollToFixed');
                 setUnfixed();
                 target.trigger('unfixed.ScrollToFixed');
                 checkScroll();
             });
 
-            target.bind('detach.ScrollToFixed', function(ev) {
+            target.on('detach.ScrollToFixed', function(ev) {
                 preventDefault(ev);
 
                 target.trigger('preUnfixed.ScrollToFixed');
                 setUnfixed();
                 target.trigger('unfixed.ScrollToFixed');
 
-                $(window).off('resize.ScrollToFixed', windowResize);
-                $(window).off('scroll.ScrollToFixed', windowScroll);
+                // $window.off('resize.ScrollToFixed', windowResize);
+                // $window.off('scroll.ScrollToFixed', windowScroll);
+
+                window.removeEventListener('resize', debouncedWindowResize, {
+                    capture: true,
+                    passive: true
+                });
+                window.removeEventListener('scroll', throttledWindowScroll, {
+                    capture: true,
+                    passive: true
+                });
 
                 target.off('.ScrollToFixed');
 
@@ -564,4 +591,4 @@
             (new $.ScrollToFixed(this, options));
         });
     };
-})(jQuery);
+})(jQuery, throttle, debounce);
