@@ -11,7 +11,8 @@ function _initialize() {
 	const $headroom = $('.headroom-area');
 	
 	var handleScroll = function(){
-		if (window.scrollY > offset) {
+		// using pageYOffset for IE11 - https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY
+		if (window.pageYOffset > offset) {
 				$element.fadeIn(duration, function () {
 					$element.trigger("reveal");
 				});
