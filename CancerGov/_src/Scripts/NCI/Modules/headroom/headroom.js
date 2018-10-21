@@ -11,9 +11,6 @@ function _initialize() {
 	// initialize scrollToFixed plugin
 	$('.fixedtotop').scrollToFixed({
 		spacerClass: 'fixedtotop-spacer',
-		fixed: function () {
-			$('.fixedtotop-spacer').height($('.fixedtotop').outerHeight());
-		},
 		dontSetWidth: true
 	});
 
