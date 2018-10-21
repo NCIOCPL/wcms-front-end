@@ -19,10 +19,20 @@
 
 .fixedtotop {
 	width: 100%;
+	position: relative;
+	z-index: 1000;
+	top: 0;
 }
 
-.fixedtotop-spacer {
-	display: none;
+header {
+	margin-bottom: 103px;
+	@include break(large){
+		margin-bottom: 116px;
+	}
+}
+
+header.noMargin {
+	margin-bottom: 0;
 }
 
 
