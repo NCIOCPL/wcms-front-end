@@ -1,14 +1,15 @@
 # FEQ October 2018 Release
 
-## [WCMSFEQ-###] Ticket Title
+## [WCMSFEQ-1179] Scroll events are not throttled, generating too many events
 ### (NO CONTENT CHANGES)
 
-Include: reason for changes, description of changes, any relevant code examples, and  any manual/content changes required as part of this commit.
+Jettisoned `jquery-scrolltofixed.js` in favor of `scrollMonitor`. Hooked up passive event listeners for `headroom.js` and `backToTop.js`. Applied event throttling, debouncing and requestAnimationFrame to improve performance on scroll and resize events as well as to reduce the amount of layout thrashing (particularly in Firefox). Applied some minor code optimizations to `backToTop.js` as well. `jquery-scrolltofixed.js` is now depricated.
 
-```javascript
-// path/to/file/<filename>.js
-let codeExample = this
-```
+
+## [WCMSFEQ-1178] When resizing the browser window the page scrolls downward to the footer
+### (NO CONTENT CHANGES)
+
+Fixed the issue where element calculations were being triggered on every resize event. Also fixed another issue where the fixed element placeholder dimensions were not being recalculated properly between breakpoints.
 
 ## [WCMSFEQ-1159] Fix issue with megamenu functionality when initializes at tablet breakpoints
 ### (NO CONTENT CHANGES)
