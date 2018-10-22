@@ -51,8 +51,7 @@ var NCIAnalytics = {
          has been retained in case the requirements change.
          */
         this.sender = sender;
-        //this.ReportSuites = reportSuites;
-        this.ReportSuites = s_account;
+        this.ReportSuites = s_account; // Formerly the reportSuites argument
         this.LinkType = linkType;
         this.LinkName = linkName;
         this.Props = {};
@@ -62,7 +61,13 @@ var NCIAnalytics = {
 
         this.LogToOmniture = function() {
 
-            var local_s = s_gi(this.ReportSuites);
+            // Only fire off click events if the s_gi() function is found
+            var local_s;
+            if (typeof(s_gi) === 'function' && this.ReportSuites) {
+                local_s = s_gi(this.ReportSuites);
+            } else {
+                return;
+            }
             local_s.linkTrackVars = '';
 
             // add language prop8 - Warning: adding prop8 to individual onclick functions will cause duplication
