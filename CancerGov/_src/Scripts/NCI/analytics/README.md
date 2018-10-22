@@ -10,7 +10,7 @@ however the history is hidden.
    1. Expand **Library Management**.
    2. Set the following fields:
       - **Page code is already present** checkbox: unchecked
-      - **Page Bottom** radio button: selected
+      - **Page Top** radio button: selected
       - **Custom** radio button: selected
       - **Set report suites using custom code** checkbox: checked
       - **Code Hosted** dropdown: in DTM
@@ -23,29 +23,21 @@ however the history is hidden.
    3. Click **Open Editor**, paste the contents of **_AppMeasurement.custom.js_** into the body, and save.
 5. Click on the machine name, then select the **Rules** tab.
 6. Select **Page Load Rules** in the left nav.
-7. Update the NCIAnalyticsFunctions rule:
-   1. Click the Edit link.
-   2. Expand **Conditions**.
+7. Click the Edit link for **Web Analytics Library**.
+   1. Expand **Conditions**.
       - Set **Trigger rule** dropdown to "Top of Page".
-   3. Expand **Javascript / Third Party Tags**.
-   4. Under the **Non-Sequential** tab, click **NCIAnalyticsFunctions.js**.
-   5. Set the following fields:
-      - **Tag name:** NCIAnalyticsFunctions.js
-      - **Type:** Non-Sequential Javacript
-      - **Execute Globally:** checked
-   6. Copy and paste the contents of **_NCIAnalyticsFunctions.js_** into the body and save.
-8. Select **Page Load Rules** in the left nav.   
-9. Update the wa_wcms_pre rule:
-   1. Click the Edit link.
-   2. Expand **Conditions**.
-      - Set **Trigger rule** dropdown to "Top of Page".
-   3. Expand **Javascript / Third Party Tags**.
-   4. Under the **Non-Sequential** tab, click **wa_wcms_pre.js**.
+   2. Expand **Javascript / Third Party Tags**.
+   3. Find and edit **NCIAnalyticsFunctions.js**.
+      1. Set the following fields:
+         - **Tag name:** NCIAnalyticsFunctions.js
+         - **Type:** Sequential HTML
+      2. Copy and paste the contents of **_NCIAnalyticsFunctions.js_** into the body and save.
+   4. Find and edit **wa_wcms_pre.js**.
    5. Set the following fields:
       - **Tag name:** wa_wcms_pre.js
       - **Type:** Non-Sequential Javacript
-      - **Execute Globally:** checked
-   6. Copy and paste the contents of **_wa_wcms_pre.js_** into the body and save. 
+   6. Copy and paste the contents of **_wa_wcms_pre.js_** into the body and save.
+8. Approve and publish the content.
 
 ## Getting the latest version of AppMeasurement
 AppMeasurmeent for JavaScript is a new library that provides the same core functionality of s_code.js. The latest version can be downloaded from the Adobe Marketing dashboard or retrieved directly from the Adobe DTM UI.
