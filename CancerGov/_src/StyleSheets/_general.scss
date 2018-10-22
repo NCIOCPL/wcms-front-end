@@ -122,6 +122,10 @@ table caption {
 	/* using padding instead of margin due to problem in Safari */
 }
 
+.noMargin {
+	margin: 0;
+}
+
 .row .header	{
 	font-weight: bold;
 	font-family: $montserrat-font-stack;
