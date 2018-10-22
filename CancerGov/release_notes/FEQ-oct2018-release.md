@@ -3,7 +3,8 @@
 ## [WCMSFEQ-1179] Scroll events are not throttled, generating too many events
 ### (NO CONTENT CHANGES)
 
-Imported the 'throttle-debounce' library into `jquery-scrolltofixed.js` and `backToTop.js` in order to apply throttle and debounce methods. Also replaced jQuery event handlers with passive event handlers that improve scroll and resize performance. Applied some minor code optimizations and cleanup to jquery-scrolltofixed.js
+Jettisoned `jquery-scrolltofixed.js` in favor of `scrollMonitor`. Hooked up passive event listeners for `headroom.js` and `backToTop.js`. Applied event throttling, debouncing and requestAnimationFrame to improve performance on scroll and resize events as well as to reduce the amount of layout thrashing (particularly in Firefox). Applied some minor code optimizations to `backToTop.js` as well. `jquery-scrolltofixed.js` is now depricated.
+
 
 ## [WCMSFEQ-1178] When resizing the browser window the page scrolls downward to the footer
 ### (NO CONTENT CHANGES)
