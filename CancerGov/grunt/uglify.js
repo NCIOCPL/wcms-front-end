@@ -9,12 +9,22 @@ module.exports = function (grunt, options) {
         dest: dirs.tmp.scripts + 'NCI_OLD',
         src: [dirs.src.scripts + 'NCI_OLD/*.js']
     };
-    var analyticsFiles = {
+    var analyticsJsFiles = {
 	    expand: true,
 	    flatten: true,
 	    dest: dirs.dist.scripts + 'analytics',
-	    src: [dirs.src.scripts + 'NCI/analytics/*.js']
-    }
+	    src: [dirs.src.scripts + 'NCI/analytics/AppMeasurement*.js']
+    };
+    var analyticsHtmlFiles = {
+	    expand: true,
+	    flatten: true,
+	    dest: dirs.dist.scripts + 'analytics',
+	    src: [dirs.src.scripts + 'NCI/analytics/!(AppMeasurement)*.js'],
+        rename: function(dest, src) {
+           return dest + '/' + src.replace(/\.js$/, ".html");
+        }
+    };
+
     return {
         options: {
             preserveComments: 'some',
@@ -61,7 +71,7 @@ module.exports = function (grunt, options) {
                 },
 			    mangle: true
 		    },
-		    files: [analyticsFiles]
+		    files: [analyticsJsFiles, analyticsHtmlFiles]
 	    }
     }
 };
