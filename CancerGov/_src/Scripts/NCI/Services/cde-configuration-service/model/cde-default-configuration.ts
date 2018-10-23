@@ -26,5 +26,12 @@ export class CDEDefaultConfiguration implements CDEConfiguration {
     
     // This is Brendan's key for testing on localhost
     // GoogleAPIKey : string = 'AIzaSyASmav6-lTS2G7xb-7fL146lsvtK9_oJgs';
-    
+ 
+        /**
+     * Identifies the hostname of the clinicaltrials API server
+     * 
+     * @type {string}
+     * @memberof CDEDefaultConfiguration
+     */
+    R4RAPIServer : string = 'https://webapis.cancer.gov/r4r/v1';
 }
