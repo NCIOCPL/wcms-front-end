@@ -349,7 +349,7 @@ function getViewPort() {
 }
 
 // Set channel 
-s.channel = getMetaTagContent('[property="dcterms.subject"]');
+s.channel = getMetaTagContent('[name="dcterms.subject"]');
 
 // Set prop6 to short title
 s.prop6 = getMetaTagContent('[property="og:title"]');

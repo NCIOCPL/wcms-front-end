@@ -22,16 +22,18 @@
    1. Expand **Conditions**.
       - Set **Trigger rule** dropdown to "Top of Page".
    2. Expand **Javascript / Third Party Tags**.
-   3. Find and edit **NCIAnalyticsFunctions.js**.
+   3. Find and edit **nci-analytics-functions.html**.
       1. Set the following fields:
-         - **Tag name:** NCIAnalyticsFunctions.js
+         - **Tag name:** nci-analytics-functions.html
          - **Type:** Sequential HTML
-      2. Copy and paste the contents of **_NCIAnalyticsFunctions.js_** into the body and save.
-   4. Find and edit **wa_wcms_pre.js**.
-   5. Set the following fields:
-      - **Tag name:** wa_wcms_pre.js
-      - **Type:** Non-Sequential Javacript
-   6. Copy and paste the contents of **_wa_wcms_pre.js_** into the body and save.
+      2. Copy and paste the contents of **_nci-analytics-functions.js_** into the body and save.
+         - _Note_: verify that the JavaScript is surrounded by opening and closing <script> tags.
+   4. Find and edit **wa-cancergov-pre.html**.
+      1. Set the following fields:
+         - **Tag name:** wa-cancergov-pre.html
+         - **Type:** Sequential HTML
+      2. Copy and paste the contents of **_wa-cancergov-pre.js_** into the body and save.
+         - _Note_: verify that the JavaScript is surrounded by opening and closing <script> tags.
 8. Approve and publish the content.
 
 ## Getting the latest version of AppMeasurement
