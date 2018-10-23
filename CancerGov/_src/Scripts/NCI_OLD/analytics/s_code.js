@@ -1,3 +1,4 @@
+/*! LEGACY WCMS ANALYTICS CODE; DO NOT MODIFY! This is being kept in place for any web applications that still point to the shared "static.cancer.gov/wcms" JavaScript (e.g. cancergenome.nih.gov, cancer.gov/colorectalcancerrisk). As of 11/1/2018, the www.cancer.gov AppMeasurement code is hosted by Adobe DTM. **/
 /* SiteCatalyst code version: H.26.2
 Copyright 1996-2015 Adobe, Inc. All Rights Reserved
 More info available at http://www.omniture.com */

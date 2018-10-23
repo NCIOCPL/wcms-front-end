@@ -1,3 +1,4 @@
+/*! LEGACY WCMS ANALYTICS CODE; DO NOT MODIFY! This is being kept in place for any web applications that still point to the shared "static.cancer.gov/wcms" JavaScript (e.g. cancergenome.nih.gov, cancer.gov/colorectalcancerrisk). As of 11/1/2018, the www.cancer.gov AppMeasurement code is hosted by Adobe DTM. **/
 // global
 var oga_pattern = /grants\-training\/grants/gi,
     cct_pattern = /grants\-training\/training/gi,
@@ -28,19 +29,50 @@ var NCIAnalytics = {
 
     })(),
 
+    SelectedTextList: function(listId, delimiter) {
+        var checked = $("#" + listId + " input:checked"); // get all checked inputs under the given id
+
+        if (checked.length > 0) {
+            return (
+                checked.siblings("label")  // find all adjacent labels
+                    .map(function() {
+                        return $(this).text();  // return the text of each label
+                    })
+                    .get()  // get as JS array
+                    .join(delimiter));  // join array with delimiter
+        }
+
+        return "";
+    },
+
     SelectedOptionList: function(listId, delimiter) {
-        // get all selected options under the given id
-        var selected = document.getElementById(listId).selectedOptions;
+        var selected = $("#" + listId + " option:selected"); // get all selected options under the given id
 
         if (selected.length > 0) {
-            var selArray = [].slice.call(selected);
             return (
-                selArray.map(function(option) {
-                    return option.textContent;  // return the text of each option
-                })
-                .join(delimiter));  // join array with delimiter
+                selected.map(function() {
+                        return this.text;  // return the text of each option
+                    })
+                    .get()  // get as JS array
+                    .join(delimiter));  // join array with delimiter
         }
-        return '';
+
+        return "";
+    },
+
+    SelectedDeleteList: function(listId, delimiter) {
+        var buttons = $("#" + listId + " li:visible button"); // find all visible buttons under the given id
+
+        if (buttons.length > 0) {
+            return (
+                buttons.map(function() {
+                        return this.nextSibling.nodeValue;  // the following node should be the text; return it
+                    })
+                    .get()  // get as JS array
+                    .join(delimiter));  // join array with delimiter
+        }
+
+        return "";
     },
 
     ClickParams: function(sender, reportSuites, linkType, linkName) {
@@ -51,7 +83,8 @@ var NCIAnalytics = {
          has been retained in case the requirements change.
          */
         this.sender = sender;
-        this.ReportSuites = s_account; // Formerly the reportSuites argument
+        //this.ReportSuites = reportSuites;
+        this.ReportSuites = s_account;
         this.LinkType = linkType;
         this.LinkName = linkName;
         this.Props = {};
@@ -60,14 +93,7 @@ var NCIAnalytics = {
         this.EventsWithIncrementors = {};
 
         this.LogToOmniture = function() {
-
-            // Only fire off click events if the s_gi() function is found
-            var local_s;
-            if (typeof(s_gi) === 'function' && this.ReportSuites) {
-                local_s = s_gi(this.ReportSuites);
-            } else {
-                return;
-            }
+            var local_s = s_gi(this.ReportSuites);
             local_s.linkTrackVars = '';
 
             // add language prop8 - Warning: adding prop8 to individual onclick functions will cause duplication
@@ -328,6 +354,110 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    CTSearch: function(webAnalyticsOptions) {
+        var searchType = 'clinicaltrials';
+        var location = '';
+        var treatmentType = '';
+        var statusPhase = '';
+        var trialIdSponsor = '';
+        var trialType = '';
+        var phaseList = '';
+        var sponsor = '';
+        var keyword = '';
+
+        var cancerTypeCondition = $('#' + ids.cancerType + " option:selected").text();
+
+        //Location
+        switch($("#" + ids.locationSelector).val()) {
+            case "all": location = "all locations"; break;
+
+            case "zip": location = "Near Zip Code"; break;
+
+            case "city": location = "In City/State/Country"; break;
+
+            case "hospital": location = "At Hospital/Institution"; break;
+
+            case "nih": // - At NIH
+                if ($("#" + ids.nihOnly)[0].checked)
+                    location = 'At NIH Only Bethesda, Md';
+                else
+                    location = 'At NIH';
+                break;
+        }
+
+        // Trial Phase
+        // - Phase
+        if ($("#" + ids.trialPhase_1)[0].checked || $("#" + ids.trialPhase_2)[0].checked || $("#" + ids.trialPhase_3)[0].checked || $("#" + ids.trialPhase_4)[0].checked) {
+            phaseList = 'Trial Phase';
+        }
+
+        statusPhase += phaseList + NCIAnalytics.fieldDelimiter;
+        // - New Trial
+        if ($("#" + ids.newOnly)[0].checked) {
+            item = $('trialStatusTable').select("label[for=newOnly]");
+            statusPhase += 'New Trials';
+        }
+
+        // Trial / Treatment Type
+        trialType = NCIAnalytics.SelectedTextList(
+            webAnalyticsOptions.typeOfTrialControlID,
+            NCIAnalytics.stringDelimiter);
+        if ((trialType != '') && (trialType != 'All'))
+            treatmentType += 'Type of Trial';
+        treatmentType += NCIAnalytics.fieldDelimiter;
+        if (NCIAnalytics.SelectedDeleteList(
+                webAnalyticsOptions.drugControlID,
+                NCIAnalytics.stringDelimiter) != '')
+            treatmentType += 'Drug';
+        treatmentType += NCIAnalytics.fieldDelimiter;
+        if (NCIAnalytics.SelectedDeleteList(
+                webAnalyticsOptions.treatnentInterventionControlID,
+                NCIAnalytics.stringDelimiter) != '')
+            treatmentType += 'Treatment/Intervention';
+
+        // Trial ID
+        if ($("#" + ids.protocolID).val() != '')
+            trialIdSponsor += 'Protocol ID';
+        trialIdSponsor += NCIAnalytics.fieldDelimiter;
+        if (NCIAnalytics.SelectedDeleteList(
+                webAnalyticsOptions.trialInvestigatorsControlID,
+                NCIAnalytics.stringDelimiter) != '')
+            trialIdSponsor += 'Trial Investigators';
+        trialIdSponsor += NCIAnalytics.fieldDelimiter;
+        if (NCIAnalytics.SelectedDeleteList(
+                webAnalyticsOptions.leadOrganizationCooperativeGroupControlID,
+                NCIAnalytics.stringDelimiter) != '')
+            trialIdSponsor += 'Lead Organization';
+
+        //if ($("#" + ids.txtKeywords_state).val() == 'valid')
+        if ($("#" + ids.txtKeywords).val())
+            keyword = $("#" + ids.txtKeywords).val();
+
+        clickParams = new NCIAnalytics.ClickParams(this,
+            'nciglobal,nciclinicaltrials', 'o', 'CTSearch');
+        clickParams.Props = {
+            11: searchType,
+            17: cancerTypeCondition,
+            18: location,
+            19: treatmentType,
+            20: statusPhase,
+            21: trialIdSponsor,
+            22: keyword
+        };
+        clickParams.Evars = {
+            11: searchType,
+            13: '+1',
+            17: cancerTypeCondition,
+            18: location,
+            19: treatmentType,
+            20: statusPhase,
+            21: trialIdSponsor
+        };
+        clickParams.Events = [2];
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     CTSearchResults: function(sender, resultIndex) {
 
         clickParams = new NCIAnalytics.ClickParams(sender,
@@ -340,10 +470,10 @@ var NCIAnalytics = {
 
     //******************************************************************************************************
     TermsDictionarySearch: function(sender, isSpanish) {
-        var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
-        
+        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
+
         NCIAnalytics.TermsDictionarySearchCore(sender,
-            document.getElementById('AutoComplete1').value,
+            $("#AutoComplete1").val(),
             prop24Contents,
             'TermsDictionarySearch',
             isSpanish);
@@ -374,13 +504,13 @@ var NCIAnalytics = {
     //the original function GeneticsDictionarySearch alone.
     //******************************************************************************************************
     GeneticsDictionarySearchNew: function(sender) {
-        var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
+        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
 
         clickParams = new NCIAnalytics.ClickParams(sender,
             '', 'o', 'GeneticsDictionarySearch');
         clickParams.Props = {
             11: 'dictionary_genetics',
-            22: document.getElementById('AutoComplete1').value,
+            22: $("#AutoComplete1").val(),
             24: prop24Contents
         };
         clickParams.Evars = {
@@ -480,10 +610,10 @@ var NCIAnalytics = {
 
     //******************************************************************************************************
     DrugDictionarySearch: function(sender) {
-        var prop24Contents = (document.getElementById('radioStarts').checked) ? 'starts with' : 'contains';
+        var prop24Contents = ($("#radioStarts").prop('checked')) ? 'starts with' : 'contains';
 
         NCIAnalytics.DrugDictionarySearchCore(sender,
-            document.getElementById('AutoComplete1').value,
+            $("#AutoComplete1").val(),
             prop24Contents,
             'DrugDictionarySearch');
     },
@@ -548,6 +678,34 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    BulletinSearch: function(sender, bulletinSearchType) {
+        var keyword = document.getElementById('cbkeyword').value;
+        var searchType = 'bulletin';
+
+        if (bulletinSearchType == 1) { // Search by keyword and date range
+            var startDate = document.getElementById('startMonth').options[document.getElementById('startMonth').selectedIndex].text.replace(/^\s+|\s+$/g, '') + ' '
+                + document.getElementById('startYear').value;
+            var endDate = document.getElementById('endMonth').options[document.getElementById('endMonth').selectedIndex].text + ' '
+                + document.getElementById('endYear').value;
+            NCIAnalytics.KeywordDateRangeSearch(sender, searchType, keyword, startDate, endDate);
+        }
+        else {  // Search by Keyword
+            clickParams = new NCIAnalytics.ClickParams(sender,
+                'nciglobal', 'o', 'KeywordSearch');
+            clickParams.Props = {
+                11: searchType,
+                22: keyword
+            };
+            clickParams.Evars = {
+                11: searchType,
+                13: '+1'
+            };
+            clickParams.Events = [2];
+            clickParams.LogToOmniture();
+        }
+    },
+
+    //******************************************************************************************************
     NewsSearch: function(sender, searchType) {
         var keyword = document.getElementById('keyword').value;
         var startDate = document.getElementById('startMonth').options[document.getElementById('startMonth').selectedIndex].text.replace(/^\s+|\s+$/g, '') + ' '
@@ -563,10 +721,10 @@ var NCIAnalytics = {
         var searchType = 'genetics';
         var typeOfCancer = '';
         var familyCancerSyndrome = '';
-        var city = document.getElementById(ids.txtCity).value;
+        var city = $("#" + ids.txtCity).val();
         var state = '';
         var country = '';
-        var lastName = document.getElementById(ids.txtLastName).value;
+        var lastName = $("#" + ids.txtLastName).val();
         var searchCriteria = '';
         var specialty = '';
         var selected = '';
@@ -947,7 +1105,7 @@ var NCIAnalytics = {
      * @param {string} payload.label - text of link clicked
      * @param {string} payload.eventList - used to specify adobe success events
      * @param {string} payload.timeToClickLink - time (in seconds) elapsed from page load to first link clicked
-     * @example NCIAnalytics.GlobalLinkTrack({sender:this, label:this.textContent, siteSection: 'oga', eventList: 'ogapreaward'});
+     * @example NCIAnalytics.GlobalLinkTrack({sender:this, label:jQuery(this).text(), siteSection: 'oga', eventList: 'ogapreaward'});
      */
     GlobalLinkTrack: function(payload) {
       var events = '', eventsWithIncrementors = '', // placeholder for success events, if needed
@@ -988,7 +1146,7 @@ var NCIAnalytics = {
         clickParams = new NCIAnalytics.ClickParams(sender,
             'nciglobal', 'o', 'BookmarkShareClick');
 
-        var linkText = (sender.title) ? sender.title : sender[0].title;
+        var linkText = (sender.title) ? sender.title : jQuery(sender).find("a").attr("title");
 
         clickParams.Props = {
             43: sender.title,
@@ -1424,7 +1582,7 @@ var NCIAnalytics = {
     OnThisPageClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'OnThisPageClick');
         linkText = "OnThisPage_" + linkText;
-        href = sender.getAttribute ? sender.getAttribute('href') : sender[0].getAttribute('href');
+        href = sender.getAttribute ? sender.getAttribute("href") : jQuery(sender).attr("href");
         clickParams.Props = {
             4: href,
             66: linkText,
@@ -1737,7 +1895,7 @@ var NCIAnalytics = {
     BlogArchiveLinkClick: function(sender, pageName){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogArchiveDateClick');
 
-        urlParam = function(name){
+        $.urlParam = function(name){
             var results = new RegExp("[\?&].*\[" + name + "\]=([^&#]*)").exec(sender.href);
             if (results==null){
                 return "";
@@ -1746,13 +1904,12 @@ var NCIAnalytics = {
                 return results[1] || 0;
             }
         }
-        
-        var year = urlParam('[year]');
-        var month = urlParam('[month]');
+        var year = $.urlParam('[year]');
+        var month = $.urlParam('[month]');
         clickParams.Props = {
             66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + "_Archive",
             67: pageName,
-            50: year + (month ? (":" + month) : "")
+            50: $.urlParam('[year]') + (month ? (":" + month) : "")
         };
         clickParams.Events = [55];
         clickParams.LogToOmniture();
@@ -1905,14 +2062,17 @@ var NCIAnalytics = {
 /* ********************************************************************** */
 /* ********************************************************************** */
 
-NCIAnalytics.blogLocation = function() {
-    if (document.querySelector('body.cgvblogpost')) {
-        return 'Post';
-    } else if (document.querySelector('body.cgvblogseries')) {
-        return 'Series';
-    } else if (document.querySelector('body.cgvtopicpage')) {
-        return 'Category';
-    } else return '';
+NCIAnalytics.blogLocation = function()
+{
+    if( $("body").hasClass('cgvblogpost')) {
+        return "Post";
+    }
+    else if ( $("body").hasClass('cgvblogseries')) {
+        return "Series";
+    }
+    else if ( $("body").hasClass('cgvtopicpage')) {
+        return "Category";
+    }
 }
 
 /**
@@ -1927,13 +2087,10 @@ NCIAnalytics.buildPageDetail = function() {
 
     // find name of current pdq section
     hash = hash.replace(/#?(section|link)\//g, '');
-    hash = hash.replace(/#/g, '');		
+    hash = hash.replace(/#/g, '');
     if (hash) {
-        selector = document.querySelector('#' + hash + ' h2');
-        if(selector) {
-            return_val = selector.textContent.toLowerCase();
-        }
-	}
+        return_val = jQuery("#" + hash + " h2").text().toLowerCase();
+    }
 
     // add '/' as prefix, if return_val exists and '/' not already present
     if (return_val && return_val.indexOf('/') != 0) {
@@ -1943,21 +2100,13 @@ NCIAnalytics.buildPageDetail = function() {
 };
 
 /**
- * Start page load timer for use with custom link tracking
+ * start page load timer for use with custom link tracking
+ * @author Evolytics <nci@evolytics.com>
+ * @since 2016-08-12
  */
-NCIAnalytics.startPageLoadTimer = function () {
+jQuery().ready(function() {
     window.pageLoadedAtTime = new Date().getTime();
-}
-
-/**
- * Start the pageLoadTimer if the DOM is loaded or document.readyState == complete
- */
-if (document.readyState === "complete" ||
-   (document.readyState !== "loading" && !document.documentElement.doScroll)) { 
-    NCIAnalytics.startPageLoadTimer(); 
-} else {
-    document.addEventListener('DOMContentLoaded', NCIAnalytics.startPageLoadTimer);
-}
+});
 
 /**
  * dynamic link tracking for http://www.cancer.gov/grants-training
@@ -1966,18 +2115,11 @@ if (document.readyState === "complete" ||
  * @since 2016-08-12
  */
 if (trimmedPathname === '/grants-training') {
-    var grantsTrainingLinks = document.querySelectorAll("#content a[href*='grants-training']");
-    var linksArray = [].slice.call(grantsTrainingLinks);
-
-    // Add the 'click' event listener to each link containting 'grants-training'
-    linksArray.forEach(function(element) {
-        element.addEventListener('click', setTimeToClick)
-    });
-
-    // Set the "timetoclick" event (106) for specified grants-training links
-    function setTimeToClick(e) {	
-        var href = e.target.href;
-        destinationSiteSection = '';
+    jQuery("#content").on('click', "a[href*='grants-training']", function() {
+        var href = jQuery(this).attr('href'),
+            linkText = jQuery(this).text().toLowerCase().substring(0, 89).trim(),
+            linkClickedAtTime = new Date().getTime(),
+            destinationSiteSection = '';
 
         // identify destination site section; used to determine whether or not to send a call
         if (oga_pattern.test(href)) {
@@ -1985,11 +2127,8 @@ if (trimmedPathname === '/grants-training') {
         } else if (cct_pattern.test(href)) {
             destinationSiteSection = 'cct'
         }
-		
-        if (destinationSiteSection && window.pageLoadedAtTime) {
-            var linkText = e.target.textContent.toLowerCase().substring(0, 89).trim();
-            var linkClickedAtTime = new Date().getTime();    
 
+        if (destinationSiteSection && window.pageLoadedAtTime) {
             NCIAnalytics.GlobalLinkTrack({
                 sender: this,
                 label: (destinationSiteSection) ? destinationSiteSection + '_' + linkText : linkText,
@@ -1997,8 +2136,7 @@ if (trimmedPathname === '/grants-training') {
                 eventList: 'timetoclick' // specify success event (event106)
             });
         }
-    };
-
+    });
 }
 
 /***********************************************************************************************************
@@ -2062,12 +2200,12 @@ NCIAnalytics.cookieRead = function(c_name) {
  * @param {Boolean} payload.reset - Simulates a true page load/broswer referesh on SPA pages
  * @param {string} payload.source - Identifies location where call to getScrollDetails occurred 
  * @param {string} payload.pageOverride - Override value for last element of TrackingString properties
+ * @requires jQuery
  * @requires s
  */
 NCIAnalytics.getScrollDetails = function(payload) {
     var previousPageScroll = NCIAnalytics.previousPageMaxVerticalTrackingString || '',
-        pageSection = '';
-		
+        pageSection = '';//jQuery(".accordion").find("section.show h2").text(); // pdq page section (same as right rail menu links)
     page = s.pageName + ((pageSection) ? '/' + pageSection : '');
 
     if (payload) {
