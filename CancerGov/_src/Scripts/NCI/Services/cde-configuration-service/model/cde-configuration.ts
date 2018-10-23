@@ -21,4 +21,12 @@ export interface CDEConfiguration {
      */
     GoogleAPIKey : string;    
 
+    /**
+     * Identifies the hostname of the R4R API server
+     * 
+     * @type {string}
+     * @memberof CDEConfiguration
+     */
+    R4RAPIServer : string;    
+
 }

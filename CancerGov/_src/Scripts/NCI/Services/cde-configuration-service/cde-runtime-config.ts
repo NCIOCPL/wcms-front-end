@@ -1,6 +1,4 @@
 import { CDEConfigurationService, CDEConfiguration, CDEDefaultConfiguration } from './';
-import * as jquery from 'jquery';
-
 export class CDERuntimeConfig implements CDEConfigurationService {
 
     private defaultConfiguration : CDEConfiguration;
@@ -27,7 +25,7 @@ export class CDERuntimeConfig implements CDEConfigurationService {
             if( hostname in CDEConfig.environmentConfig ) {
                 console.log( 'Loading overrides for \'' + hostname + '\'');
                 let overrides:CDEConfiguration = <CDEConfiguration>CDEConfig.environmentConfig[hostname];
-                configuration = jquery.extend({}, this.defaultConfiguration, overrides);
+                configuration = { ...this.defaultConfiguration, ...overrides };
             }
 
         }
