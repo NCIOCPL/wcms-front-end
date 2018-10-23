@@ -6,7 +6,9 @@ describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
     let config:CDERuntimeConfig = new CDERuntimeConfig();
     let actual:CDEConfiguration = config.getConfiguration();
     let expected:CDEConfiguration = <CDEConfiguration> {
-      ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov"
+      ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov",
+      GoogleAPIKey : 'AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg',
+      R4RAPIServer : 'https://webapis.cancer.gov/r4r/v1'
     };
 
     expect(actual).toMatchSnapshot();
@@ -27,7 +29,9 @@ describe('Services.CDEConfigurationService.CDERuntimeConfig', () => {
 
     // Set value to compare against
     let expected:CDEConfiguration = <CDEConfiguration> {
-      ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov"
+      ClinicalTrialsAPIServer: "clinicaltrialsapi.cancer.gov",
+      GoogleAPIKey : 'AIzaSyB0DtmqLHmCLjAMjGfNh9myktZYz2-yIfg',
+      R4RAPIServer : 'https://webapis.cancer.gov/r4r/v1'
     };
 
     expect(actual).toMatchSnapshot();
