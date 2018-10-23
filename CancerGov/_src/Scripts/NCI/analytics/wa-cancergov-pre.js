@@ -1,17 +1,11 @@
-var wa_hier1 = '';
-var wa_hier2 = '';
-var wa_lang = '';
-
 /* 
  * Check to see if this is a Prod site, if so set the 'live_or_other' flag to map to the Live
  * site report suites
  */
-var live_or_other = 'other';
-if (document.URL.indexOf('www.cancer.gov') != -1 ||
-    document.URL.indexOf('dceg.cancer.gov') != -1 ||
-    document.URL.indexOf('cancergenome.nih.gov') != -1) {
-    live_or_other = 'live';
-};
+var live_or_other = (document.URL.indexOf('www.cancer.gov') > -1) ? 'live' : 'other';
+var wa_hier1 = '';
+var wa_hier2 = '';
+var wa_lang = '';
 
 /*
  * Mapping of all WCMS reporting suites
@@ -83,24 +77,6 @@ var AllSuites =
     'nciogcr-governmentcongressionalrelations': {
         live: 'nciogcr-governmentcongressionalrelations',
         other: 'nciogcr-govcongressionalrelations-dev', 
-    },
-	
-    /// CCOP suites
-    'ncidcp-cancerprevention': {
-        live: 'ncidcp-cancerprevention',
-        other: 'ncidcp-cancerprevention-dev'
-    },
-        
-    /// DCEG suites
-    'ncidceg-cancerepidemiologyandgenetics': {
-        live: 'ncidceg-cancerepidemiologyandgenetics',
-        other: 'ncidceg-cancerepidemiologyandgenetics-dev'
-    },
-
-    /// TCGA and Proteomics suites
-    'ncicssi-strategicscientificinitiatives': {
-        live: 'ncicssi-strategicscientificinitiatives',
-        other: 'ncicssi-strategicscientificinitiatives-dev'
     }
 };
 
