@@ -539,12 +539,8 @@ made when instructed to do so by your account manager.*/
 s.visitorNamespace="nci";
 
 // Send tagging requests to correct server based on protocol
-if(document.URL.indexOf("https://") >= 0)
-    s.trackingServer="nci.122.2o7.net";
-else
-    s.trackingServer="metrics.cancer.gov";
-    s.dc="122";
-
+s.trackingServer="nci.122.2o7.net";
+s.dc="122";
 
 /*
 * Plugin: getPreviousValue_v1.0 - return previous value of designated
