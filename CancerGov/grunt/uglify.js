@@ -18,11 +18,9 @@ module.exports = function (grunt, options) {
     var analyticsHtmlFiles = {
 	    expand: true,
 	    flatten: true,
-	    dest: dirs.dist.scripts + 'analytics',
-	    src: [dirs.src.scripts + 'NCI/analytics/!(AppMeasurement)*.js'],
-        rename: function(dest, src) {
-           return dest + '/' + src.replace(/\.js$/, ".html");
-        }
+        dest: dirs.dist.files + 'analytics',
+        src: [dirs.src.scripts + 'NCI/analytics/!(AppMeasurement)*.js'],
+        ext: '.inc'
     };
 
     return {
