@@ -1,19 +1,155 @@
-
+@import "../../../../../StyleSheets/environments/percussion";
+@import '../../../../../StyleSheets/variables';
+@import '../../../../../StyleSheets/mixins';
+@import '../../../../../StyleSheets/fonts';
+@import '../../../../../StyleSheets/breakpoints';
+@import '../../../../../StyleSheets/nci-foundation_variables';
+@import "../../../../../StyleSheets/sprites/svg-sprite";
+@import "../../../../../StyleSheets/equalheights";
 
 /*** BEGIN Biography Page Styles ***/
 
-.bio {
-    background-color: #306;
-    margin-left: 100px;
-}
-
-div.institution-sidebar {
+div.profile-panel {
     background: #ffffff;
     overflow: hidden;
-    //float: right;
-    //width: 30%;
-    //margin: 0 0 12px 12px;
+    float: none;
+    width: 100%;
+    margin: 0;
     position: relative;
+    border: 1px solid #d3d3d3;
 }
+div.profile-panel img {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    @include bp('(max-width: 640px)') {
+        left: 25px;
+    }
+}
+div.profile-panel-content {
+    color: #606060;
+    padding-left: 197px;
+    font-family: Montserrat,Avant Garde,Arial,sans-serif;
+    line-height: 23px;
+    font-size: 16px;
+    @include bp('(max-width: 640px)') {
+            padding-left: 25px;
+            padding-top: 231px;
+        }
+    p {
+        line-height: 1em;
+    }
+    h1 {
+        margin-top: 0.75em;
+    }
+    .profile-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    div.profile-tel-email, div.profile-social, div.profile-pubs {
+        align-self: left;
+    }
+    .profile-tel-email ul, div.profile-social ul, .profile-pubs ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: left;
+        @include bp('(max-width: 640px)') {
+            display: inline-grid;
+            //background-color: #306;
+        }
+    }
+    .profile-tel-email ul li, div.profile-social ul li, .profile-pubs ul li {
+        display: inline-flex;
+        margin: 0px;
+    }
+    .profile-tel-email ul li::before, .profile-social ul li::before, .profile-pubs ul li::before {
+        content: "";
+        margin: 0;
+    }
+    .profile-tel-email ul li:not(:last-child):after {
+        content: "|";
+        display: block;
+        margin: 0px 10px 0px 10px;
+        font-weight: 100;
+        color: #2e2e2e;
+        @include bp('(max-width: 640px)') {
+            content: "";
+        }
+    }
+    .profile-social ul li  {
+        padding: 0px 50px 0px 0px;
+    }
+    .profile-social ul li::before {
+        display: block;
+        position: relative;
+        background-color: #2b7bba;
+        border-radius: 50%;
+        top: 0;
+        margin: -3px 10px 10px auto;
+        left: 0;
+        @include bp('(max-width: 640px)') {
+            margin: -3px 10px 10px 0;
+        }  
+    }
+    .profile-social ul li.twitter::before {
+        content: "";
+        @include svg-sprite(twitter-white);
+        width: 30px;
+        height: 30px;
+        background-position: 3.1% 95.8%;
+        font-size: 0.975em;
+    }
+    .profile-social ul li.linkedin::before {
+        content: "";
+        @include svg-sprite(linkedin-white);
+        width: 30px;
+        height: 30px;
+        background-position: 3.0% 56.55%;
+        font-size: 1.2em;
+    }
+    .profile-pubs ul li::before {
+        content: "";
+        display: block;
+        position: relative;
+        @include svg-sprite(file-icon);
+        margin: -10px 10px 10px 0;
+        left: 0;
+    }
+}
+#profile-feature {
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: flex-start;
 
+    @include bp('(max-width: 640px)') {
+        display: block;
+        flex-direction: unset;
+        justify-content: unset;
+    }
+    .topic-feature {
+        border: 1px solid #ccc;
+        background-color: #fff;
+    }
+    .topic-feature:not(:first-child) {
+        margin-left: 2%;
+        @include bp('(max-width: 640px)') {
+            margin-left: 0px;
+        }
+    }
+    .topic-feature a {
+        padding: 1em 0.5em 1em .5em;
+        word-wrap: break-word;
+    }
+    .topic-feature p {
+        margin-bottom: inherit;
+    }
+    .topic-feature .feature-card h3 {
+        margin-top: 15px;
+        @include bp('(max-width: 640px)') {
+            margin-top: 15px;
+            float: none;
+            width: unset;
+        }
+    }
+}
 /*** END Biography Page Styles ***/
