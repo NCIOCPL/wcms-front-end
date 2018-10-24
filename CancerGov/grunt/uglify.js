@@ -59,7 +59,7 @@ module.exports = function (grunt, options) {
                 src: [dirs.src.base + 'Widgets/**/*.js']                
             }]
         },
-	    analytics: {
+	    analyticsJs: {
 		    options: {
 		        compress: {
 			        collapse_vars: false,
@@ -67,9 +67,24 @@ module.exports = function (grunt, options) {
 			        unused: false,
 
                 },
-			    mangle: true
+                mangle: true
 		    },
-		    files: [analyticsJsFiles, analyticsHtmlFiles]
-	    }
+		    files: [analyticsJsFiles]
+        },
+        analyticsHtml: {
+		    options: {
+		        compress: {
+			        collapse_vars: false,
+			        keep_fnames: true,
+			        unused: false,
+
+                },
+                mangle: true,
+                banner: '<script>',
+                footer: '</script>'
+		    },
+		    files: [analyticsHtmlFiles]
+        }
+        
     }
 };
