@@ -18,9 +18,9 @@ module.exports = function (grunt, options) {
     var analyticsHtmlFiles = {
         expand: true,
         flatten: true,
-        dest: dirs.dist.files + 'analytics',
+        dest: dirs.dist.scripts + 'analytics',
         src: [dirs.src.scripts + 'NCI/analytics/!(AppMeasurement)*.js'],
-        ext: '.inc'
+        ext: '.html'
     };
 
     return {
@@ -44,19 +44,19 @@ module.exports = function (grunt, options) {
         },
         dictionaryWidget: {
             options: {
-		        compress: {
-			        collapse_vars: false,
-			        keep_fnames: true,
-			        unused: false,
+                compress: {
+                    collapse_vars: false,
+                    keep_fnames: true,
+                    unused: false,
 
                 },
-			    mangle: true
+                mangle: true
             },
             files: [{
                 expand: true,
                 flatten: true,
                 dest: dirs.dist.scripts + 'dictionaryWidget',
-                src: [dirs.src.base + 'Widgets/**/*.js']                
+                src: [dirs.src.base + 'Widgets/**/*.js']
             }]
         },
         analyticsJs: {
