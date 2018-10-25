@@ -22,12 +22,14 @@ Added JavaScript files for Adobe DTM Analytics implementation and moved legacy W
 - Moved legacy analytics files into /NCI_OLD/analytics folder (wa_wcms_pre.js, NCIAnalyticsFunctions.js, s_code.js, README.md)
 - Updated Readmes, comments, deployment instructions
 - Post-merge cleanup
+- Updated uglify outputs for DTM analytics files
 
 ## Affected components
 - s_code.js, NCIAnalyticsFunctions.js, wa_wcms_pre.js
 - CDE Templates 
 - CTS Print Velocity Template
-  
+- Gruntifle.js, uglify.js 
+
 ## Deployment
-- Uploaded templates:
 - Added Tool and Rules to Adobe DTM (see [analytics readme](CancerGov/_src/Scripts/NCI/analytics/README.md))
+- Deployment steps: _see DTM Analytics Deployment Steps_ in Collaborate wiki
