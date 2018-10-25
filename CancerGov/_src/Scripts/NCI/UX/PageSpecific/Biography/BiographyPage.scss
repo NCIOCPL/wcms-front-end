@@ -132,12 +132,9 @@ div.profile-panel-content {
     }
     .topic-feature:not(:first-child) {
         margin-left: 2%;
-        @include bp('(max-width: 640px)') {
-            margin-left: 0px;
-        }
     }
     .topic-feature a {
-        padding: 1em 0.5em 1em .5em;
+        padding: 1em 0;
         word-wrap: break-word;
     }
     .topic-feature p {
@@ -145,7 +142,29 @@ div.profile-panel-content {
     }
     .topic-feature .feature-card h3 {
         margin-top: 15px;
-        @include bp('(max-width: 640px)') {
+    }
+
+    @include bp('(max-width: 640px)') {
+        .topic-feature .feature-card div {
+            margin-right: 1em;
+            margin-top: 15px;
+        }
+        .topic-feature:not(:first-child) {
+            margin-left: 0px;
+        }
+        .topic-feature a {
+            float: none;
+            padding: 15px 15px 15px 0;
+        }
+        .topic-feature p {
+            float: none;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .topic-feature p a:hover {
+            color: #bb0e3d;
+        }
+        .topic-feature .feature-card h3 {
             margin-top: 15px;
             float: none;
             width: unset;
