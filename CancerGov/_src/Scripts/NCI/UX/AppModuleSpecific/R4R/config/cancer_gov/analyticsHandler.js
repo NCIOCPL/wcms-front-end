@@ -181,7 +181,7 @@ const clickEvent = event => {
                     11: event.meta.clickType,
                     14: event.meta.clickInfo.keyword,
                     39: 'r4r_resource|search',
-                    40: extractProp40(event.meta.location.pathname),                    
+                    40: event.meta.clickInfo.title,
                 },
                 Events: [2, 39]
             }
