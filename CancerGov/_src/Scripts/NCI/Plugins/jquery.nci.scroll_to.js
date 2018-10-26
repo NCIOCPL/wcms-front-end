@@ -64,6 +64,10 @@
             // if the anchor is a PDQ section and we're >=desktop
             if(hasPreviousState) {
                 console.log("restoring previous scroll state");
+                // unfreeze the header set in deepLinkPatch.js
+                setTimeout(function() {
+                    $('.headroom-area').removeClass('frozen');
+                },150);
                 // returning true does not prevent standard anchors from working on page load
                 return;
             } else if(width > config.breakpoints.large && anchor == '#all') {

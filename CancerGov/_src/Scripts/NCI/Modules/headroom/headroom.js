@@ -19,13 +19,15 @@ function _initialize() {
 	const handleScrollIn = () => {
 		requestAnimationFrame(function() {
 			menu.setAttribute("style", `position:relative`);
-			header.classList.add('noMargin');
+			//header.classList.add('noMargin');
+			header.classList.remove('header--fixedToTop');
 		});
 	}
 	const handleScrollOut = () => {
 		requestAnimationFrame(function() {
 			menu.setAttribute("style", `position:fixed`);
-			header.classList.remove('noMargin');
+			//header.classList.remove('noMargin');
+			header.classList.add('header--fixedToTop');
 		});
 	}
 
