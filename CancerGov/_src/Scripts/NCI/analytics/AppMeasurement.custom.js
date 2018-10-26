@@ -385,7 +385,7 @@ function getPrintID(){
 }
 
 /** Set prop15 to the Prind ID if this is a CTS print page */
-if(fullURL.toLowerCase.indexOf('cts.print/display') > -1) {
+if(fullURL.toLowerCase().indexOf('cts.print/display') > -1) {
     s.prop15 = getPrintID();
 }
 
