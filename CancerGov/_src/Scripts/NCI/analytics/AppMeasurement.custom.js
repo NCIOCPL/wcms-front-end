@@ -3,6 +3,9 @@
 /************************** CONFIG SECTION **************************/
 /* Config Section Version - Last updated 10/23/2018 */
 
+/* Set Suites */
+s.account = (s_account) ? s_account : s.account;
+
 /* Conversion Config */
 s.currencyCode="USD";
 /* Language Config */
