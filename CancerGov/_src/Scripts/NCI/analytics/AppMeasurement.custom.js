@@ -374,6 +374,21 @@ if(typeof NCIAnalytics !== 'undefined') {
     }
 }
 
+/* Get the Trial Print ID from a URL */
+function getPrintID(){
+    var url = window.location.href;
+    var regex = new RegExp("[?&]" + "PrintID" + "(=([^&#]*)|&|#|$)", "i");
+    var results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+/** Set prop15 to the Prind ID if this is a CTS print page */
+if(fullURL.toLowerCase.indexOf('cts.print/display') > -1) {
+    s.prop15 = getPrintID();
+}
+
 /* Set eVar for browser width on page load */
 s.eVar5 = getViewPort(); 
  

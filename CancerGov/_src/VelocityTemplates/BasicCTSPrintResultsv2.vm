@@ -134,9 +134,10 @@
 	 <link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
 	 <link href="/PublishedContent/Styles/nvcg.css" rel="stylesheet" />
 	 <link href="/PublishedContent/Styles/BasicCTSPrintPage.css" rel="stylesheet" />
+	 <meta name="dcterms.subject" content="Clinical Trials Print Results Page" />
 </head>
 <body>
-	<div class="wa-data-element hide" data-events="event1" data-prop3="/CTS.Print/Display" data-prop6="Comprehensive Cancer Information" data-prop16="Comprehensive Cancer Information" data-prop44="Clinical Trials" data-prop62="Clinical Trials: Print Results Page" data-evar44="Clinical Trials" data-evar62="Clinical Trials: Print Results Page" ></div>
+	<div class="wa-data-element hide" data-events="event1" data-prop3="/CTS.Print/Display" data-prop6="Comprehensive Cancer Information" data-prop16="Comprehensive Cancer Information" data-prop25="01/01/1980" data-prop44="Clinical Trials" data-prop62="Clinical Trials: Print Results Page" data-evar44="Clinical Trials" data-evar62="Clinical Trials: Print Results Page" ></div>
 	<div id="cgovContainer">
 		<div id="CT-results-print-banner"><img id="NCILogo" src="/publishedcontent/images/images/design-elements/logos/nci-logo-full.svg" alt="NCI Logo"/></div>
 		<div id="cgvBody">
