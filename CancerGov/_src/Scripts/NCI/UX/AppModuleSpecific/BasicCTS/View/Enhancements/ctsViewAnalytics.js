@@ -11,8 +11,8 @@ function _initialize() {
 	/* Snippet to track clicks on accordion controls */
 	$('.accordion-controls').on('click.analytics', 'a', function (e) {
 		var $this = $(this);
-		id = $this.closest('.accordion-controls').attr('id')
-		action = $this.attr('class');
+		var id = $this.closest('.accordion-controls').attr('id')
+		var action = $this.attr('class');
 		NCIAnalytics.AccordionClick($this, id, 'none', 'none', action);
 	});
 

@@ -17,8 +17,8 @@ function _initialize() {
 	$('.ct-list-item').each(function(i, el) {
 		$(el).on('click', 'a', function(event) {
 			var $this = $(this);
-				rank = $this.index('.ct-list-item a') + 1;
-				rank += ('|page ' + pn);
+			var rank = $this.index('.ct-list-item a') + 1;
+			rank += ('|page ' + pn);
 				
 				var formName = "clinicaltrials_custom";
 				NCIAnalytics.CTSResultsWithFormClick($this, rank, formName);
