@@ -10,8 +10,8 @@ export const DEFAULT_AUDIO_FILE_TARGET_SELECTOR = 'a.CDR_audiofile';
  */
 const handler = player => e => {
     // Disable the underlying anchor tag and retrieve it's stored reference to the mp3 file
-    e.preventDefault();
-    const audiolink = e.target.pathname;
+    // e.preventDefault();
+    const audiolink = e.target.dataset.pathname || e.target.pathname;
 
     // Basic check that underlying href to mp3 file exists
     if(audiolink){
@@ -57,6 +57,12 @@ export const attachHandlers = (selector, player) => {
         const hasHandlerAlready = checkForAudioHandlerFlag(audiofile);
         if(!hasHandlerAlready){
             attachHandlerFlag(audiofile);
+            // We don't want to prevent the default event on the <a> element because doing so would 
+            // cancel the user interaction event on mobile and prevent the sound from playing,
+            // so we need to stash the url and use JavaScript to return undefined
+            audiofile.setAttribute('data-pathname',audiofile.pathname);
+            audiofile.setAttribute('href','javascript:void(0)');
+
             attachHandler(audiofile, player);
         }
     })
