@@ -20,9 +20,12 @@
 // setting fixed heights for header elements to avoid pixel rounding in IE
 
 .nav-search-bar {
-	min-height: 61px;
-	@include bp(medium-down) {
+	min-height: 68px;
+	@include break(small){
 		min-height: 76px;
+	}
+	@include break(large){
+		min-height: 61px;
 	}
 }
 
@@ -34,7 +37,10 @@
 }
 
 .header--fixedToTop {
-	margin-bottom: 104px;
+		margin-bottom: 97px;
+	@include break(small){
+		margin-bottom: 104px;
+	}
 	@include break(large){
 		margin-bottom: 118px;
 	}

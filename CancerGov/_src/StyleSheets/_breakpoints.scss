@@ -48,6 +48,10 @@ $breakpoints: (
 
 /* Mobile First */
 @mixin break($breakpoint) {
+  @if $breakpoint == small {
+    @media only screen and (min-width: 391px) { @content; }
+  }
+
   @if $breakpoint == medium {
     @media only screen and (min-width: 641px) { @content; }
   }
@@ -65,6 +69,6 @@ $breakpoints: (
   }
 
   @else {
-		@media only screen and (#{$point}) { @content; }
+		@media only screen and (#{$breakpoint}) { @content; }
 	}
 }
