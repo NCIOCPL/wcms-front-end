@@ -1,0 +1,82 @@
+@import "../../../../../StyleSheets/environments/percussion";
+@import '../../../../../StyleSheets/variables';
+@import '../../../../../StyleSheets/mixins';
+@import '../../../../../StyleSheets/fonts';
+@import '../../../../../StyleSheets/breakpoints';
+@import '../../../../../StyleSheets/nci-foundation_variables';
+@import "../../../../../StyleSheets/sprites/svg-sprite";
+@import "../../../../../StyleSheets/equalheights";
+
+/*** BEGIN Profile Page Styles ***/
+
+div.profile-panel {
+    background: #ffffff;
+    overflow: hidden;
+    float: none;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    border: 1px solid #d3d3d3;
+}
+div.profile-panel img {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    @include bp('(max-width: 640px)') {
+        left: 25px;
+    }
+}
+div.profile-panel-content {
+    color: #606060;
+    padding-left: 250px;
+    font-family: Montserrat,Avant Garde,Arial,sans-serif;
+    line-height: 23px;
+    font-size: 16px;
+    @include bp('(max-width: 640px)') {
+            padding-left: 25px;
+            padding-top: 231px;
+        }
+    p {
+        line-height: 1em;
+    }
+    h1 {
+        margin-top: 0.75em;
+    }
+    .profile-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    div.profile-tel-email, div.profile-social, div.profile-pubs {
+        align-self: left;
+    }
+    .profile-tel-email ul, div.profile-social ul, .profile-pubs ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: left;
+        @include bp('(max-width: 640px)') {
+            display: inline-grid;
+            //background-color: #306;
+        }
+    }
+    .profile-tel-email ul li, div.profile-social ul li, .profile-pubs ul li {
+        display: inline-flex;
+        margin: 0px;
+    }
+    .profile-tel-email ul li::before, .profile-social ul li::before, .profile-pubs ul li::before {
+        content: "";
+        margin: 0;
+    }
+    .profile-tel-email ul li:not(:last-child):after {
+        content: "|";
+        display: block;
+        margin: 0px 10px 0px 10px;
+        font-weight: 100;
+        color: #2e2e2e;
+        @include bp('(max-width: 640px)') {
+            content: "";
+        }
+    }
+    
+}
+
+/*** END Profile Page Styles ***/

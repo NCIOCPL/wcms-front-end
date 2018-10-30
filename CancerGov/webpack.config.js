@@ -39,6 +39,7 @@ module.exports = {
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
 		Charts:                 './UX/Common/Enhancements/charts',
+		R4R:					'./UX/AppModuleSpecific/R4R/R4R',
 		ProfilePage:			'./UX/PageSpecific/Profile/ProfilePage',
 	},
 	target: 'web',
