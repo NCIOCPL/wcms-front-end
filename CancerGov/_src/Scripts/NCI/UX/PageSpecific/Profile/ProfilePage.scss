@@ -28,7 +28,7 @@ div.profile-panel img {
 }
 div.profile-panel-content {
     color: #606060;
-    padding-left: 250px;
+    padding-left: 270px;
     font-family: Montserrat,Avant Garde,Arial,sans-serif;
     line-height: 23px;
     font-size: 16px;
@@ -37,14 +37,15 @@ div.profile-panel-content {
             padding-top: 231px;
         }
     p {
-        line-height: 1em;
+        font-size: 16px;
+        line-height: 24px;
     }
     h1 {
         margin-top: 0.75em;
     }
     .profile-title {
         font-size: 18px;
-        line-height: 28px;
+        line-height: 24px;
     }
     div.profile-tel-email, div.profile-social, div.profile-pubs {
         align-self: left;
