@@ -19,7 +19,7 @@
 			margin: 1em 0 2em;	
 		}
 	
-		p:first-child, h3:first-child {
+		p:first-child, h2:first-child {
 			margin-top: 0;
 		}
 		p:last-child {
@@ -33,7 +33,7 @@
   #content { // ID specificity is needed to override jQuery UI styles
 	  .cthp-intro-multimedia,
 	  .cthpCard {
-		  h3 {
+		  h2 {
 			  background-color: transparent;
 			  // background-image sprite is set in _chtp.scss.
 			  // No need to set it again even though I already did all this work making an awesome iterator
@@ -95,7 +95,7 @@
 		  //@debug($sprite);
 
 		  #{$selector} {
-		  	h3 {
+		  	h2 {
 		  		//@include img-sprite-position($sprite);
 		  		span {
 		  			background-color: $activeColor;
