@@ -392,7 +392,7 @@
 	min-height: 1px;
 }
 
-.cthpCard h2  {
+.cthpCard h3  {
 	color: #fff;
 	padding: 0.47em 0.6em;
 	margin: 0;
@@ -481,14 +481,14 @@ h3.cthp-overview-title {
 		}
 	}
 }
-.cthpCard > .cthp-survival > h2 + div:hover {
+.cthpCard > .cthp-survival > h3 + div:hover {
 	background-color: black;
 
 	@include bp(small) {
 		background-color: white;
 	}
 }
-.cthpCard > div > h2 + div:hover img {
+.cthpCard > div > h3 + div:hover img {
 	opacity: 0.8;
 }
 /* Don't change color below multimedia figures on hover */
