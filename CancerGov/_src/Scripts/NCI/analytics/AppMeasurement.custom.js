@@ -251,6 +251,7 @@ function s_doPlugins(s) {
     s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
 
     // Set event1
+    // TODO: build events as an array, then join later
     if(s.events && s.events.length > 0) {
         s.events += ",event1,";
     } else {
@@ -263,7 +264,7 @@ function s_doPlugins(s) {
     s.prop65 = loadTime;
         
     // engagementTracking >> requires EvoEngagementPlugin() 
-    if(s.mainCGovIndex >= 0) {
+    if(s.events && s.mainCGovIndex >= 0) {
         try {
             if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
 
@@ -272,7 +273,8 @@ function s_doPlugins(s) {
 
                 // add engagement metrics to the page load call, if needed
                 if (engagementScore && parseInt(engagementScore) > 0) {
-                s.events += (s.events) ? [",event92=" + engagementScore] : ["event92=" + engagementScore];
+                    event92 = 'event92=' + engagementScore;
+                    s.events += (',' + event92);
                 }
 
                 // flag to prevent firing this logic more than once per page load
@@ -386,7 +388,7 @@ function getPrintID(){
 
 /** Set prop15 to the Prind ID if this is a CTS print page */
 if(fullURL.toLowerCase().indexOf('cts.print/display') > -1) {
-    s.prop15 = getPrintID();
+    s.prop15 = s.eVar15 = getPrintID();
 }
 
 /* Set eVar for browser width on page load */
