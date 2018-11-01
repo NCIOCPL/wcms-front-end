@@ -23,7 +23,7 @@
                             <!-- END BANNER SLOT -->
                             
 							<div class="resize-content">
-                                <!--(bake includes/PageOptions-CTHP.inc)-->
+                                <!--(bake includes/PageOptions-Inner.inc)-->
                                 <!-- Profile Panel Slot -->
                                 <NCI:TemplateSlot id="nvcgSlProfilePanel" CssClass="profile-panel" runat="server" />
                                 <!-- END Profile Panel slot -->
