@@ -91,7 +91,7 @@ const renderPreviewThumbnails = () => {
 
 let isRendered = false;
 
-export const init = () => {
+export default function () {
 	if (!isRendered) {
 		renderPreviewThumbnails();
 		isRendered = true;

@@ -114,10 +114,6 @@
       font-size: 1.2em;
     }
 
-    &.googleplus {
-      @include svg-sprite(google-plus-blue);
-    }
-
     &.pinterest {
       @include svg-sprite(pinterest-blue);
     }

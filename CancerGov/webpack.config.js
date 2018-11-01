@@ -71,7 +71,6 @@ module.exports = {
 			// vendor jQuery plugins
 			'jquery/megamenu$': 'Vendor/jquery-accessibleMegaMenu',
 			'jquery/scrollToFixed$': 'Vendor/jquery-scrolltofixed'
-			// throttle: 'throttle-debounce/throttle'
 
 		},
 		extensions: [".ts", ".tsx", ".js"]
