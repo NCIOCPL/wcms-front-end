@@ -17,6 +17,35 @@
 	}
 }
 
+// setting fixed heights for header elements to avoid pixel rounding in IE
+
+.nav-search-bar {
+	min-height: 68px;
+	@include break(small){
+		min-height: 76px;
+	}
+	@include break(large){
+		min-height: 61px;
+	}
+}
+
+.fixedtotop {
+	width: 100%;
+	position: relative;
+	z-index: 1000;
+	top: 0;
+}
+
+.header--fixedToTop {
+		margin-bottom: 97px;
+	@include break(small){
+		margin-bottom: 104px;
+	}
+	@include break(large){
+		margin-bottom: 118px;
+	}
+}
+
 
 /* *************************************************************************/
 /* LARGE AND UP */

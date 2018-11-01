@@ -2,13 +2,13 @@ import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-s
 import { NCIBasePage } from 'UX/core';
 import 'UX/Common/Enhancements/sharecomponent';
 import 'UX/PageSpecific/Inner/Enhancements/showHideListingBodyField';
-import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
-import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
+import ImageCarousel from 'UX/Common/Enhancements/image-carousel';
+import VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import FloatingDelighter from 'Modules/floatingDelighter';
-import * as BestBets from 'Modules/bestBets/bestBets';
+import BestBets from 'Modules/bestBets/bestBets';
 import patternInjector from 'Modules/patternInjector';
 import nciOrgPatternSettings from './nciOrgPatternSettings';
-import { default as bindDirectoryFormSearch } from './Enhancements/directory-search-results';
+import bindDirectoryFormSearch from './Enhancements/directory-search-results';
 
 import './InnerPage.scss';
 
@@ -45,7 +45,7 @@ class InnerPage extends NCIBasePage {
 	 */
 	onReady():void {
         // Build image carousels
-        (<any>ImageCarousel).init();
+        (<any>ImageCarousel)();
 
         // Build video carousels
         (<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);

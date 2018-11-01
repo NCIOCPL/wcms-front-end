@@ -62,6 +62,5 @@ export const lang = {
 
 export const CDN = {
     jquery: 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js',
-    jplayer: 'https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js',
     select2: 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js'
 }

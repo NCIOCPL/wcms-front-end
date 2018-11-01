@@ -31,6 +31,8 @@ const customTheme = {
 const initializeCancerGovTheme = initializeR4R => {
     const eventHandler = createEventHandler();
 
+    eventHandler.subscribe(exitDisclaimerEventHandler);    
+
     initializeR4R({
         appId: 'r4r-browser-cache',
         customTheme,
@@ -41,7 +43,7 @@ const initializeCancerGovTheme = initializeR4R => {
         apiEndpoint,
     });
 
-    eventHandler.subscribe(exitDisclaimerEventHandler);
+
 
     awaitAnalyticsLibraryAvailability(eventHandler);
 }

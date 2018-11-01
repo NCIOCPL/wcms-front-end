@@ -1,50 +1,74 @@
-define(function (require) {
-	require('./headroom-patch');
-	// we still need the jQuery wrapper
-	require('headroom.js/dist/jQuery.headroom.min');
-	require('jquery/scrollToFixed');
+import './headroom-patch';
+// we still need the jQuery wrapper
+import 'headroom.js/dist/jQuery.headroom.min';
+import scrollMonitor from "scrollmonitor";
+import { debounce } from 'throttle-debounce';
 
-    var _initialized = false;
+function _initialize() {
+	/*** BEGIN Headroom initializer
+	 * (use this if we do the scroll off/on for the blue bar)
+	 ***/
 
-	function _initialize() {
-        /*** BEGIN Headroom initializer
-		 * (use this if we do the scroll off/on for the blue bar)
-		 ***/
+	const banner = document.getElementById("nvcgSlSiteBanner");
+	const header = banner.parentElement;
 
-		// initialize scrollToFixed plugin
-		var headerHeight = $('.fixedtotop').outerHeight();
-		$('.fixedtotop').scrollToFixed({
-			spacerClass: 'fixedtotop-spacer',
-			fixed: function () {
-				$('.fixedtotop-spacer').height(headerHeight);
-			}
+	// set up scroll monitor listener on the header - this will trigger the fixed and unfixed positioning of the main navigation as the header enters and exits the viewport
+	const headerMonitor = scrollMonitor.create(header);
+	const menu = document.querySelector(".fixedtotop");
+
+	const handleScrollIn = () => {
+		requestAnimationFrame(function() {
+			menu.setAttribute("style", `position:relative`);
+			header.classList.remove('header--fixedToTop');
 		});
-
-		$('.headroom-area').headroom({
-			offset: 205,
-			classes: {
-				initial: "slide",
-				pinned: "slide--reset",
-				unpinned: "slide--up"
-			}
+	}
+	const handleScrollOut = () => {
+		requestAnimationFrame(function() {
+			menu.setAttribute("style", `position:fixed`);
+			header.classList.add('header--fixedToTop');
 		});
-
-
-        _initialized = true;
 	}
 
-	/**
-	 * Exposed functions of this module.
-	 */
-	return {
-		init: function () {
-			if (_initialized) {
-				return;
-			}
-			_initialize();
-
-			_initialized = true;
+	const debouncedResize = debounce(100,function(){
+		if(menu.style.position === 'fixed'){
+			handleScrollOut();
 		}
-	};
-	/*** END Headroom initializer ***/
-});
+	});
+
+	headerMonitor.enterViewport(() => {
+		handleScrollIn();
+	});
+
+	headerMonitor.exitViewport(() => {
+		handleScrollOut();
+	});
+
+
+	window.addEventListener('resize', debouncedResize, {
+		capture: true,
+		passive: true
+	});
+
+	$('.headroom-area').headroom({
+		offset: 205,
+		classes: {
+			initial: "slide",
+			pinned: "slide--reset",
+			unpinned: "slide--up"
+		}
+	});
+}
+
+/**
+ * Exposed functions of this module.
+ */
+let _initialized = false;
+export default function() {
+	if (_initialized) {
+		return;
+	}
+
+	_initialized = true;
+	_initialize();
+}
+/*** END Headroom initializer ***/
