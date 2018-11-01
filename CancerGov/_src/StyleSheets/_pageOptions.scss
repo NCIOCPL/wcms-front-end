@@ -38,9 +38,6 @@
 	.social-share--twitter a::before {
 		@include svg-sprite(twitter-blue);
 	}
-	.social-share--googleplus a::before {
-		@include svg-sprite(google-plus-blue);
-	}
 	.social-share--pinterest a::before {
 		@include svg-sprite(pinterest-blue);
 	}
@@ -175,10 +172,6 @@ a.social-share--custom-tweet {
 		.social-share--twitter a::before {
 			@include svg-sprite(twitter-white);
 			font-size: 17px;
-		}
-		.social-share--googleplus a::before {
-			@include svg-sprite(google-plus-white);
-			top: 50%;
 		}
 		.social-share--pinterest a::before {
 			@include svg-sprite(pinterest-white);

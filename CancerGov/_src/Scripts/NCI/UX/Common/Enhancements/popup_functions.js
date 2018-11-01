@@ -1,6 +1,4 @@
-define(function(require) {
-	var $ = require('jquery');
-	
+const popupFunctions = () => {
 	//creates appropriate pop-up window
 	function popWindow(type, urlargs){
 		if (type == "privacy") {
@@ -16,17 +14,13 @@ define(function(require) {
 			window.open(urlargs, '', 'scrollbars=yes,resizable=yes,width=550,height=550');
 		} else if (type == "fullbrowser") {
 			window.open(urlargs, '', 'menubar=yes,location=yes,status=yes,toolbar=yes,titlebar=yes,scrollbars=yes,resizable=yes,width=675,height=510');
-	    } else if (type == "small") {
+		} else if (type == "small") {
 			window.open(urlargs, '', 'scrollbars=no,resizable=no,menubar=no,status=no,toolbar=no,titlebar=no,width=200,height=100,left=400,screenX=400,top=300,screenY=300');
 		}
 	} 
 	window.popWindow = popWindow;
 
-	//window.load polyfill for jQuery 3.0
-    jQuery.fn.load = function(callback){ $(window).on("load", callback) };
-
-	function dynPopWindow(url, name, windowAttributes)
-	{
+	function dynPopWindow(url, name, windowAttributes){
 		options = '';
 		optWidth = 'width=500';
 		optHeight = 'height=500';
@@ -39,8 +33,7 @@ define(function(require) {
 
 		windowOptions = windowAttributes.split(',');
 
-		for(i = 0; i < windowOptions.length; i++)
-		{
+		for(i = 0; i < windowOptions.length; i++){
 			attribute = windowOptions[i].substring(0, windowOptions[i].indexOf('=')).toLowerCase();
 
 			if(attribute == 'width'){
@@ -68,4 +61,6 @@ define(function(require) {
 
 	}
 	window.dynPopWindow = dynPopWindow;
-});
+}
+
+export default popupFunctions;

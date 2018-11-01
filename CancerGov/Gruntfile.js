@@ -152,7 +152,7 @@ module.exports = function(grunt) {
         config['clinicaltrialsearch']['apiServer'] = grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.name.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>');
         config['clinicaltrialsearch']['apiPort'] = grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.port.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>');
         config['clinicaltrialsearch']['apiBasePath'] = grunt.template.process('<%= runtime.clinicaltrialsearch.apiserver.basePath.' + (env === 'prod' ? 'prod' : 'dev')  + ' %>');
-        grunt.file.write(configPath, "define(" + JSON.stringify(config) + ");");
+        grunt.file.write(configPath, "export default " + JSON.stringify(config) + ";");
     });
 
 

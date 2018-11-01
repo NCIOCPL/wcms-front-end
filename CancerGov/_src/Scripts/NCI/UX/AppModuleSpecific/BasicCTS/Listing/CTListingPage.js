@@ -1,8 +1,9 @@
-define(function(require) {
-	var $ = require('jquery');
+import ctsCommonAnalytics from 'BasicCTSCommon/Enhancements/ctsCommonAnalytics';
+import ctListingAnalytics from 'BasicCTS/Listing/Enhancements/ctListingAnalytics';
 
-	$(document).ready(function($){
-		require('BasicCTSCommon/Enhancements/ctsCommonAnalytics').init();
-		require('BasicCTS/Listing/Enhancements/ctListingAnalytics').init();
-	});
-});
+const onDOMContentLoaded = () => {
+	ctsCommonAnalytics.init();
+	ctListingAnalytics.init();
+}
+
+document.addEventListener("DOMContentLoaded", onDOMContentLoaded);

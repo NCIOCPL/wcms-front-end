@@ -1,8 +1,6 @@
 import { NCIBasePage } from 'UX/core';
-import * as DictionaryService from 'Data/DictionaryService';
-import * as AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest';
-import * as PlayAudio from 'UX/AppModuleSpecific/Dictionary/Enhancements/playaudio';
-import * as Analytics from 'UX/AppModuleSpecific/Dictionary/Enhancements/analytics';
+import AutoSuggest from 'UX/AppModuleSpecific/Dictionary/Enhancements/autosuggest';
+import Analytics from 'UX/AppModuleSpecific/Dictionary/Enhancements/analytics';
 
 /**
  * Class representing CancerGov Dictionary pages.
@@ -25,8 +23,6 @@ class DictionaryPage extends NCIBasePage {
 	 * @memberof DictionaryPage
 	 */
 	onReady():void {
-        // Do autosuggest and dictionary click audio
-		(<any>PlayAudio).init(); 
 		(<any>AutoSuggest).init();
 		(<any>Analytics).init();
 	}

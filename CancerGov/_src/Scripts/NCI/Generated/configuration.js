@@ -1,1 +1,1 @@
-define({"clinicaltrialsearch":{"apiServer":"clinicaltrialsapi.cancer.gov","apiPort":"443","apiBasePath":"v1"}});
+export default {"clinicaltrialsearch":{"apiServer":"clinicaltrialsapi.cancer.gov","apiPort":"443","apiBasePath":"v1"}};

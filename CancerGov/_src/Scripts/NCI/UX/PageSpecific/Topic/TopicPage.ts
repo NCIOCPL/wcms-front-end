@@ -2,8 +2,8 @@ import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-s
 import { NCIBasePage } from 'UX/core';
 import 'UX/Common/Enhancements/sharecomponent';
 import FloatingDelighter from 'Modules/floatingDelighter';
-import * as ImageCarousel from 'UX/Common/Enhancements/image-carousel';
-import * as VideoCarousel from 'UX/Common/Enhancements/video-carousel';
+import ImageCarousel from 'UX/Common/Enhancements/image-carousel';
+import VideoCarousel from 'UX/Common/Enhancements/video-carousel';
 import './TopicPage.scss';
 
 /**
@@ -38,7 +38,7 @@ class TopicPage extends NCIBasePage {
 	 */
 	onReady():void {
 		(<any>FloatingDelighter)();
-		(<any>ImageCarousel).init();
+		(<any>ImageCarousel)();
 		(<any>VideoCarousel).apiInit(this.Config.GoogleAPIKey);		
 	}
 
