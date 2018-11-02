@@ -2,18 +2,10 @@ import initializeR4R from 'r4r-app';
 import 'r4r-app/build/static/css/main.css';
 import initializeCancerGov from './config';
 
-const terminologyRedirects = ["/research/resources/terminology/fmt",  "/research/resources/terminology/fmt/",
-                       "/research/resources/terminology/ncidictionaries",  "/research/resources/terminology/ncidictionaries/"];
-
 const path = window.location.pathname;
 
 function needsRedirect() {
     let redirect = false;
-
-    if(terminologyRedirects.indexOf(path) > -1)
-    {
-        redirect = redirectUrl("/research/resources/search?from=0&toolTypes=terminology");
-    }
 
     switch (path) {
         // Redirect to home
@@ -57,7 +49,6 @@ function needsRedirect() {
 
 function redirectUrl(url)
 {
-    console.log("In redirectUrl() with " + url);
     window.location.replace(url);
     return true;
 }
