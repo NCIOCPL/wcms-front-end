@@ -638,4 +638,12 @@ $(window).on('load',function(){
         var linkText = $this.text();
         NCIAnalytics.OnThisPageClick($this, linkText, pageName);
     });
+    // Track clicks on website url of profile panel pages.
+    $('div.profile-panel-content a').on("click", function() {
+        var $this = $(this);
+        var linkText = $this.text();
+        //var pageName = window.location.hostname + window.location.pathname;
+
+        NCIAnalytics.ProfilePanelLinkClick(this, linkText, pageName);
+    });    
 });
