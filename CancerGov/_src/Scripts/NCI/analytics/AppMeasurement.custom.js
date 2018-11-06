@@ -255,10 +255,8 @@ function s_doPlugins(s) {
     s.prop65 = loadTime;
 
     // Start building event data from existing values on the "s" object
-    var eventSel = '.wa-data-element';
-    var waData = document.querySelector(eventSel);
-    var eventsArr = [];
-    if(s.events && s.events.length > 0) eventsArr = s.events.split(',');
+    var eventsArr = (s.events && s.events.length > 0) ? s.events.split(',') : [];
+    var waData = document.querySelector('[class*="wa-data"][data-events]');
 
     // Add any events from the metadata
     if(waData) {
