@@ -250,21 +250,37 @@ function s_doPlugins(s) {
     s.prop64=s.getPercentPageViewed();
     s.prop64=(s.prop64=="0") ? "zero" : s.prop64;
 
-    // Set event1
-    // TODO: build events as an array, then join later
-    if(s.events && s.events.length > 0) {
-        s.events += ",event1,";
-    } else {
-        s.events = 'event1,';
-    }
-
     // Set prop65 to get the initial load time of the page (for use in the page load speed plugin)
     var loadTime = s_getLoadTime();
-    s.events += ["event47=" +  loadTime];
     s.prop65 = loadTime;
-        
+
+    // Start building the event data    
+    var eventSel = '.wa-data-element';
+    var waData = document.querySelector(eventSel);
+    var eventsArr = [];
+
+    // Start with any pre-existing event values on the "s" object
+    if(s.events && s.events.length > 0) eventsArr = s.events.split(',');
+    console.log('== Debug preexisting ==');
+    console.log(eventsArr);
+
+    // Add any events from the metadata
+    if(waData) {
+        var eventData = waData.getAttribute('data-events');
+        if(eventData) eventsArr = eventsArr.concat(eventData.split(','));
+    }
+    console.log('== Debug metadata ==');
+    console.log(eventsArr);
+
+    // Add the standard load events
+    eventsArr.push('event1');
+    eventsArr.push('event47=' + s_getLoadTime());
+    console.log('== Debug common ==');
+    console.log(eventsArr);
+
+    // Add engagement tracking (event92)
     // engagementTracking >> requires EvoEngagementPlugin() 
-    if(s.events && s.mainCGovIndex >= 0) {
+    if(s.mainCGovIndex >= 0) {
         try {
             if (typeof (window.NCIEngagementPageLoadComplete) === 'undefined' || !window.NCIEngagementPageLoadComplete) {
 
@@ -273,8 +289,7 @@ function s_doPlugins(s) {
 
                 // add engagement metrics to the page load call, if needed
                 if (engagementScore && parseInt(engagementScore) > 0) {
-                    event92 = 'event92=' + engagementScore;
-                    s.events += (',' + event92);
+                    eventsArr.push('event92=' + engagementScore);
                 }
 
                 // flag to prevent firing this logic more than once per page load
@@ -284,6 +299,11 @@ function s_doPlugins(s) {
             /** console.log(err) */
         }
     }
+    console.log('== Engagement ==');
+    console.log(eventsArr);
+    
+    // Join everything
+    s.events = eventsArr.join(',');
 
 }
 s.doPlugins=s_doPlugins 
@@ -428,7 +448,7 @@ function getMetaTagContent (selector) {
     }
 }
 
-// Dynamically add numbered variables (e.g. prop1, eVar8) and values to the 's' object
+/** Dynamically add numbered variables (e.g. prop1, eVar8) and values to the 's' object */
 function setNumberedVars(varName, selector) {
 
     // Get the data element; '.wa-data-element' is the default
@@ -441,20 +461,11 @@ function setNumberedVars(varName, selector) {
             {
                 var nvKey = dataAttr.replace('evar', 'eVar'); // 'eVar' must be specified on s object
                 var nvValue = waData.dataset[dataAttr].replace(/(^'+|'+$)/mg, ''); // strip out single quotes
-
-                // If this s.variable already exists, append
-                if(varName === 'events') {
-                    s.events += (',' + nvValue);
-                } else {
-                    s[nvKey] = nvValue;
-                }
+                s[nvKey] = nvValue;
             }
         }
     }
 }
-
-// Set events
-setNumberedVars("events");
 
 // Set props
 setNumberedVars("prop");
@@ -465,7 +476,6 @@ setNumberedVars("evar");
 // Set prop10 to document title
 s.prop10 = document.title;
     
-
 
 /************************** PLUGINS SECTION *************************/
 /* You may insert any plugins you wish to use here.                 */
