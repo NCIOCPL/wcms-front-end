@@ -254,29 +254,21 @@ function s_doPlugins(s) {
     var loadTime = s_getLoadTime();
     s.prop65 = loadTime;
 
-    // Start building the event data    
+    // Start building event data from existing values on the "s" object
     var eventSel = '.wa-data-element';
     var waData = document.querySelector(eventSel);
     var eventsArr = [];
-
-    // Start with any pre-existing event values on the "s" object
     if(s.events && s.events.length > 0) eventsArr = s.events.split(',');
-    console.log('== Debug preexisting ==');
-    console.log(eventsArr);
 
     // Add any events from the metadata
     if(waData) {
         var eventData = waData.getAttribute('data-events');
         if(eventData) eventsArr = eventsArr.concat(eventData.split(','));
     }
-    console.log('== Debug metadata ==');
-    console.log(eventsArr);
 
     // Add the standard load events
     eventsArr.push('event1');
     eventsArr.push('event47=' + s_getLoadTime());
-    console.log('== Debug common ==');
-    console.log(eventsArr);
 
     // Add engagement tracking (event92)
     // engagementTracking >> requires EvoEngagementPlugin() 
@@ -298,17 +290,19 @@ function s_doPlugins(s) {
         } catch (err) {
             /** console.log(err) */
         }
-    }
-    console.log('== Engagement ==');
-    console.log(eventsArr);
-    
-    // Join everything
-    s.events = eventsArr.join(',');
+    }    
 
+    // Remove duplicates and join everything
+    eventsArr = eventsArr.filter(onlyUnique);
+    s.events = eventsArr.join(',');
 }
 s.doPlugins=s_doPlugins 
 
 /* Functions */
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
+
 function CommaList(commaList, addValue)
 {
     if (commaList.length > 0)
