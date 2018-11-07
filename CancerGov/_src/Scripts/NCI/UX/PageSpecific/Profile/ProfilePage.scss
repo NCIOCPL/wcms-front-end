@@ -23,6 +23,7 @@ div.profile-panel img {
     top: 25px;
     left: 25px;
     max-height: 260px;
+    max-width: 230px;
     @include bp('(max-width: 640px)') {
         left: 25px;
         max-height: 215px;
