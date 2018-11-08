@@ -1,5 +1,7 @@
 # DTM Analytics Relase
-Deployed 2018-11-01
+
+Deployed 2018-11-07
+
 Added JavaScript files for Adobe DTM Analytics implementation and moved legacy WCMS static.cancer.gov analytics files.
 
 ## Summary
@@ -24,12 +26,23 @@ Added JavaScript files for Adobe DTM Analytics implementation and moved legacy W
 - Post-merge cleanup
 - Updated uglify outputs for DTM analytics files
 
-## Affected components
-- s_code.js, NCIAnalyticsFunctions.js, wa_wcms_pre.js
-- CDE Templates 
-- CTS Print Velocity Template
-- Gruntifle.js, uglify.js 
+### [WCMSFEQ-1209]
+- Added DTM rule to fire off s.tl() for Basic CTS search form display
+
+### [WCMSFEQ-1210], [WCMSFEQ-1211]
+- Fixed logic for creating the s.events String value
+
+## New components
+- **AppMeasurement.js & AppMeasurement.custom.js** - DTM equivalent of s_code.js
+- **nci-analytics-functions.js** - DTM equivalent of NCIAnalyticsFunctions.js
+- **wa-cancergov-pre.js** - DTM equivalent of wa_wcms_pre.js
+
+## Changed components
+- **TemplateEnding.inc, TemplateIntro.inc** - Added DTM and new Analytics Data controls - affects CDE Templates 
+- **s_code.js, NCIAnalyticsFunctions.js, wa_wcms_pre.js** - Moved into NCI_OLD folder
+- **BasicCTSPrintResultsv2.vm** - Removed hardcoded JS; added DTM tag and metadata
+- **Gruntifle.js, uglify.js** - Added task to convert AppMeasurement*.js files to HTMLs 
+- Added release notes
 
 ## Deployment
-- Added Tool and Rules to Adobe DTM (see [analytics readme](CancerGov/_src/Scripts/NCI/analytics/README.md))
 - Deployment steps: _see DTM Analytics Deployment Steps_ in Collaborate wiki
