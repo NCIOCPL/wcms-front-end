@@ -9,37 +9,31 @@
 
 /*** BEGIN Profile Page Styles ***/
 
-div.profile-panel {
+div.profile-panel .slot-item {
     background: #ffffff;
     overflow: hidden;
-    float: none;
     width: 100%;
     margin: 0;
-    position: relative;
     border: 1px solid #d3d3d3;
-}
-div.profile-panel img {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    max-height: 260px;
-    max-width: 230px;
-    @include bp('(max-width: 640px)') {
-        left: 25px;
-        max-height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @include break(medium) {
+        flex-direction: row;
     }
 }
-div.profile-panel-content {
+div.inst-profile-image {
+    margin: 25px 25px 0px 25px;
+    @include break(medium) {
+        margin: 25px 0px 25px 25px;
+    }
+}
+div.profile-panel-content {    
     color: #606060;
-    padding-left: 270px;
+    padding-left: 25px;
     font-family: Montserrat,Avant Garde,Arial,sans-serif;
     line-height: 23px;
     font-size: 16px;
-    padding-bottom: 25px;
-    @include bp('(max-width: 640px)') {
-            padding-left: 25px;
-            padding-top: 231px;
-        }
     p {
         font-size: 16px;
         line-height: 24px;
@@ -51,37 +45,6 @@ div.profile-panel-content {
         font-size: 18px;
         line-height: 24px;
     }
-    div.profile-tel-email, div.profile-social, div.profile-pubs {
-        align-self: left;
-    }
-    .profile-tel-email ul, div.profile-social ul, .profile-pubs ul {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: left;
-        @include bp('(max-width: 640px)') {
-            display: inline-grid;
-            //background-color: #306;
-        }
-    }
-    .profile-tel-email ul li, div.profile-social ul li, .profile-pubs ul li {
-        display: inline-flex;
-        margin: 0px;
-    }
-    .profile-tel-email ul li::before, .profile-social ul li::before, .profile-pubs ul li::before {
-        content: "";
-        margin: 0;
-    }
-    .profile-tel-email ul li:not(:last-child):after {
-        content: "|";
-        display: block;
-        margin: 0px 10px 0px 10px;
-        font-weight: 100;
-        color: #2e2e2e;
-        @include bp('(max-width: 640px)') {
-            content: "";
-        }
-    }
-    
 }
 
 /*** END Profile Page Styles ***/
