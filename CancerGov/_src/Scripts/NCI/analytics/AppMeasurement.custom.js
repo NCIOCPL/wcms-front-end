@@ -216,7 +216,6 @@ function s_doPlugins(s) {
     //s.prop6 = makeLowerCase(s.prop6);
     s.prop7 = makeLowerCase(s.prop7);
     s.eVar7= makeLowerCase(s.eVar7);
-    //s.prop10 = makeLowerCase(s.prop10);
     s.prop14 = makeLowerCase(s.prop14);
     s.eVar14= makeLowerCase(s.eVar14);
     s.prop17 = makeLowerCase(s.prop17);
@@ -468,8 +467,16 @@ setNumberedVars("prop");
 // Set eVars
 setNumberedVars("evar");
 
-// Set prop10 to document title
-s.prop10 = document.title;
+// Return prop10 value
+function setProp10() {
+    // If this  is an R4R page, set the generic title 
+    if(document.querySelector('#r4r-root')) {
+        return "Resources for Researchers - National Cancer Institute";
+    } else {
+        return document.title;
+    }
+}
+s.prop10 = setProp10();
     
 
 /************************** PLUGINS SECTION *************************/
