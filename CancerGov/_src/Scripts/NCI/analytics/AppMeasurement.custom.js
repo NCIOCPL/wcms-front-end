@@ -469,12 +469,17 @@ setNumberedVars("evar");
 
 // Return prop10 value
 function setProp10() {
+    var p10 = document.title;
+
     // If this  is an R4R page, set the generic title 
-    if(document.querySelector('#r4r-root')) {
-        return "Resources for Researchers - National Cancer Institute";
+    if(document.querySelector('#r4r-root .r4r-resource')) {
+        var start = p10.indexOf(':');
+        var end = p10.lastIndexOf(' - ');
+        return p10.replace(p10.substring(start, end), '');
     } else {
-        return document.title;
+        return p10;
     }
+
 }
 s.prop10 = setProp10();
     
