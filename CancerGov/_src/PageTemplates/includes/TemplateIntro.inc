@@ -21,16 +21,16 @@
 	<link rel="preconnect" crossorigin href="https://ajax.googleapis.com"/>
 	<link rel="preconnect" crossorigin href="https://fonts.gstatic.com"/>
 	<link rel="preconnect" href="https://static.cancer.gov"/>
-
 	<link rel="stylesheet" id="gFonts" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i" />
 
-    <script src="//assets.adobedtm.com/f1bfa9f7170c81b1a9a9ecdcc6c5215ee0b03c84/satelliteLib-5b3dcf1f2676c378b518a1583ef5355acd83cd3d.js"></script>
+    <NCI:AdobeDTMControl ID="DTMTop" runat="server" />
 
     <!--(bake Favicons.inc)-->
 </head>
 
 <body id="Body1" runat="server">
 <div class="skip"><a title="Skip to content" href="#<!--(bake-start _if="skipto_id")-->{{skipto_id}}<!--(bake-end)--><!--(bake-start _if="!skipto_id")-->content<!--(bake-end)-->">Skip to content</a></div>
+<NCI:WebAnalyticsControl ID="WebAnalyticsData" runat="server" />
 <!-- NOTIFICATION AREA -->
 <NCI:TemplateSlot ID="nvcgSlNotificationArea" runat="server" CssClass="notification-banner" />
 <NCI:TemplateSlot ID="nvcgColo" runat="server"  CssClass="notification-banner" />
