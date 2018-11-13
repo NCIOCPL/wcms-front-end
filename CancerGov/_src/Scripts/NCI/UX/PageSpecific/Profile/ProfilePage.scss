@@ -31,9 +31,11 @@ div.inst-profile-image {
 div.profile-panel-content {    
     color: #606060;
     padding-left: 25px;
+    padding-right: 25px;
     font-family: Montserrat,Avant Garde,Arial,sans-serif;
     line-height: 23px;
     font-size: 16px;
+    word-wrap: break-word;
     p {
         font-size: 16px;
         line-height: 24px;
