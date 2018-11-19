@@ -24,6 +24,7 @@ div.profile-panel .slot-item {
 }
 div.inst-profile-image {
     margin: 25px 25px 0px 25px;
+    max-width: 230px;
     @include break(medium) {
         margin: 25px 0px 25px 25px;
     }
