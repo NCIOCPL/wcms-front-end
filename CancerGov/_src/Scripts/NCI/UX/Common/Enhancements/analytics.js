@@ -639,11 +639,13 @@ $(window).on('load',function(){
         NCIAnalytics.OnThisPageClick($this, linkText, pageName);
     });
     // Track clicks on website url of profile panel pages.
-    $('div.profile-panel-content a').on("click", function() {
+    $('div.profile-panel-content a').on("click", function(e) {
         var $this = $(this);
-        var linkText = $this.text();
-        //var pageName = window.location.hostname + window.location.pathname;
+        var href =  e.target.href;
+        var isPhoneNumber = href.match(/^tel\:./i);
+        var linkText = isPhoneNumber ? 'phone' : 'website';
+        var pageName = pathname.match(/([^\/]*)\/*$/)[1];
 
-        NCIAnalytics.ProfilePanelLinkClick(this, linkText, pageName);
+        NCIAnalytics.ProfilePanelLinkClick($this, linkText, pageName);
     });    
 });
