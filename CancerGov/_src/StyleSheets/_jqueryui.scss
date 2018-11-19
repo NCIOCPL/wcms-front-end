@@ -580,6 +580,14 @@ button.ui-button::-moz-focus-inner {
 	left: 0;
 	padding: .2em;
 	outline: 0;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+
+	/* fix for resize events on dialog windows */
+	* {
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+	}
 }
 .ui-dialog .ui-dialog-titlebar {
 	padding: .4em 1em;

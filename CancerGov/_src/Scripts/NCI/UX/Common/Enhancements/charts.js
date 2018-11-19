@@ -23,7 +23,7 @@ define(function(require) {
                 '#f0f0ff'
             ],
             font: {
-                dinCon: 'DIN Condensed, Arial, sans-serif',
+                dinCon: 'DIN Condensed, Arial Narrow, Arial, sans-serif',
                 din: 'DIN Regular, Arial, sans-serif',
                 museo: 'Museo, Montserrat, Arial, sans-serif'
             },
@@ -64,6 +64,7 @@ define(function(require) {
                     console.log("loading Highchart plug-ins");
                     return $.when(
                         $.getScript('https://code.highcharts.com/modules/exporting.js'),
+                        $.getScript('https://code.highcharts.com/modules/offline-exporting.js'),
                         $.getScript('https://code.highcharts.com/modules/accessibility.js'),
                         $.getScript('https://code.highcharts.com/modules/drilldown.js')
                     ).done(function () {
