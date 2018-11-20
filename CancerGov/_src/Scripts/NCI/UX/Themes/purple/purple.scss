@@ -1,0 +1,334 @@
+@import '../../../../../StyleSheets/breakpoints';
+@import './images/sprites/svg-sprite-purple';
+
+
+$purple: #6b35a6;
+
+.main-content a,
+.main-content .feature-card a,
+.feature-card.cgvArticle a h3,
+ul.breadcrumbs>* a,
+.topic-feature .cgvBlogPost a h3,
+.pullquote {
+  color: $purple;
+}
+
+.pullquote {
+  border-left-color: $purple;
+}
+
+.main-content p a:hover,
+a .feature-card.cgvArticle a:hover h3,
+.main-content a.title:hover,
+.card-thumbnail h3 a:focus,
+.card-thumbnail h3 a:hover,
+.topic-feature a:focus,
+.topic-feature a:hover,
+.list .title a.title:focus,
+.list .title a.title:hover,
+.list .title a:focus,
+.list .title a:hover {
+  color: #951b81;
+}
+
+.feature-primary .feature-card.cgvArticle a h3,
+.feature-primary .feature-card.cgvArticle a:hover h3 {
+  color: #fff;
+}
+
+.main-content .feature-card a {
+  color: #fff;
+}
+
+.feature-card.cgvArticle a:hover h3,
+.topic-feature .cgvBlogPost a:hover h3 {
+  color: #951b81;
+}
+
+.main-content .guide-card a.arrow-link,
+.main-content .guide-card a.arrow-link-white {
+  color: #2e2e2e;
+}
+
+.main-content a.definition {
+  color: #2e2e2e;
+}
+
+.desktop #blog-archive-accordion .ui-accordion-header .toggle {
+  color: $purple;
+}
+
+.desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle {
+  color: $purple;
+}
+
+.columns.utility {
+  display: none;
+}
+
+.site-footer__icons .icon.twitter {
+  @include svg-sprite(twitter-purple);
+}
+
+.site-footer__icons .icon.govdelivery {
+  @include svg-sprite(gov-delivery-purple);
+}
+
+.nci-logo-pages img {
+  width: 42%;
+}
+
+.nci-logo-pages a {
+  padding-left: 16px !important;
+}
+
+.nsdb-title {
+  font-family: Montserrat, Avant Garde, Arial, sans-serif;
+  font-size: 20px;
+}
+
+.micro-a.feature-primary .feature-card,
+.micro-a.feature-primary .card {
+  background-color: $purple;
+}
+
+#sitesearch {
+  @include svg-sprite(search-purple);
+}
+
+a.arrow-link-white:hover:before,
+a.arrow-link:hover:before {
+  @include svg-sprite(chevron-circle-purple);
+}
+
+.icon-exit-notification {
+  @include svg-sprite(external-link-purple);
+}
+
+.multimedia .feature-card a {
+  color: #2e2e2e;
+}
+
+.multimedia .feature-card a h3 {
+  color: $purple;
+}
+
+.micro-a.multimedia-slot {
+  background-color: #6c81e8;
+}
+
+#swKeyword,
+.search {
+  background-color: #fff;
+  color: #2e2e2e;
+}
+
+.site-footer {
+  background-color: #4d226d;
+}
+
+.micro-a {
+  margin-top: 20px;
+}
+
+.nav-search-bar {
+  background: #6254a3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6254a3), to(#6264b4));
+  background: linear-gradient(180deg, #6254a3, #6264b4);
+}
+
+.language-bar {
+  height: 0;
+}
+
+#microsite-a {
+  padding: 10px 0;
+}
+
+.language-bar {
+  display: none;
+}
+
+.utility {
+  text-align: left;
+  color: #000;
+}
+
+.utility-background {
+  background-color: #77bcff;
+  color: #2e2e2e;
+}
+
+.utility-background.micro-a {
+  display: block !important;
+}
+
+@include break(medium) {
+  .nci-logo-pages img {
+    width: 70%;
+  }
+
+  .mobile-menu-bar>a,
+  .mobile-menu-bar>button {
+    width: 13% !important;
+  }
+
+  #microsite-a .utility {
+    text-align: left;
+  }
+
+  #microsite-a .nsdb-title span {
+    margin-left: 0;
+  }
+
+  #microsite-a .utility span {
+    margin-right: 0;
+    padding-left: 40px;
+  }
+}
+
+@include bp(medium) {
+  .nci-logo-pages img {
+    width: 47%;
+    min-width: initial;
+    max-width: initial;
+  }
+}
+
+@include bp(medium-down) {
+  #mega-nav .current-page {
+    background-color: $purple;
+  }
+
+  #mega-nav .current-page>div .toggle[aria-expanded=true],
+  #mega-nav .current-page>div[aria-expanded=true] .toggle {
+    background-color: #fff;
+    color: #6254a3;
+  }
+
+  #mega-nav .current-page>div .toggle[aria-expanded=false],
+  #mega-nav .current-page>div[aria-expanded=false] .toggle {
+    background-color: #6254a3;
+    color: #fff;
+  }
+
+  .page-options li {
+    background-color: #6c81e8;
+  }
+
+  .page-options li:hover {
+    background-color: #951b81;
+  }
+
+  #nvcgSlMainNav.searching #siteSearchForm:before {
+    width: 75% !important;
+    left: 19% !important;
+  }
+
+  #nvcgSlMainNav.searching #swKeyword {
+    left: 20% !important;
+    width: 75% !important;
+  }
+
+  #nvcgSlMainNav.searching #searchclear {
+    z-index: 80;
+  }
+
+  #microsite-a .nsdb-title {
+    width: 100%;
+    text-align: left;
+  }
+
+  #microsite-a .nsdb-title span {
+    padding-left: 18px;
+  }
+
+  .mobile-menu-bar>a,
+  .mobile-menu-bar>button {
+    margin: 1em 10% !important;
+  }
+}
+
+@include break(large) {
+  .section-nav .level-0>div {
+    background-color: $purple;
+  }
+
+  #mega-nav .nav-item.contains-current>.nav-item-title>a,
+  #mega-nav .nav-item.current-page>.nav-item-title>a {
+    border-bottom-color: $purple;
+  }
+
+  .section-nav div.current-page {
+    background-color: $purple !important;
+  }
+
+  .sub-nav-group-header {
+    color: #6b35ab;
+  }
+
+  .sub-nav-group-header:focus,
+  .sub-nav-group-header:hover {
+    color: #951b81;
+  }
+
+  .section-nav .current-page:after {
+    border-left-color: $purple;
+  }
+
+  .section-nav .level-0>div {
+    background-color: #6254a3;
+  }
+
+  .section-nav .level-1.contains-current {
+    background-color: #e9e7f7;
+  }
+
+    .page-options .page-options--resize a:before {
+    @include svg-sprite(font-size-purple,mq);
+  }
+  
+  .page-options .page-options--print a:before {
+    @include svg-sprite(printer-purple,mq);
+  }
+  
+  .page-options .page-options--email a:before {
+    @include svg-sprite(mail-envelope-closed-purple,mq);
+  }
+  
+  .page-options .social-share--facebook a:before {
+    @include svg-sprite(facebook-purple,mq);
+  }
+  
+  .page-options .social-share--twitter a:before {
+    @include svg-sprite(twitter-purple,mq);
+  }
+  
+  .page-options .social-share--pinterest a:before {
+    @include svg-sprite(pinterest-purple,mq);
+  }
+
+  #nvcgSlMainNav.searching #siteSearchForm:before {
+    width: 75% !important;
+    left: 19% !important;
+  }
+
+  #nvcgSlMainNav.searching #swKeyword {
+    left: 20% !important;
+    width: 75% !important;
+    color: #2e2e2e;
+  }
+
+  #nvcgSlMainNav.searching #searchclear {
+    z-index: 80;
+  }
+
+  #PageOptionsControl1 {
+    display: block;
+    height: 35px;
+  }
+
+  #microsite-a .utility span {
+    display: none;
+  }
+}

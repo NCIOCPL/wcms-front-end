@@ -21,7 +21,7 @@ module.exports = {
 		//                           ],
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
 		//"Babel-Polyfill":       'babel-polyfill',
-		Common:             	'./UX/Common/Common',
+		Common:             		'./UX/Common/Common',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
 		InnerPage:              './UX/PageSpecific/Inner/InnerPage',
@@ -30,7 +30,7 @@ module.exports = {
 		TopicPage:              './UX/PageSpecific/Topic/TopicPage',
 		Popups:                 './UX/PageSpecific/Popups/Popups',
 		AdvancedCTSSearchPage:  './UX/AppModuleSpecific/BasicCTS/Search/AdvancedCTSSearchPage',
-		SimpleCTSSearchPage:	'./UX/AppModuleSpecific/BasicCTS/Search/SimpleCTSSearchPage',
+		SimpleCTSSearchPage:		'./UX/AppModuleSpecific/BasicCTS/Search/SimpleCTSSearchPage',
 		BasicCTSResultsPage:    './UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
 		BasicCTSViewPage:       './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
 		BasicCTSPrintPage:      './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
@@ -39,7 +39,8 @@ module.exports = {
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
 		Charts:                 './UX/Common/Enhancements/charts',
-		R4R:					'./UX/AppModuleSpecific/R4R/R4R',
+		R4R:										'./UX/AppModuleSpecific/R4R/R4R',
+		Purple:									'./UX/Themes/purple/purple'
 	},
 	target: 'web',
 	resolve: {
