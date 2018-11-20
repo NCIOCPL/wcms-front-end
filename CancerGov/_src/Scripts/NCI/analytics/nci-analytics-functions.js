@@ -1902,7 +1902,7 @@ var NCIAnalytics = {
         
         clickParams.Props = {
             66: "InstitutionCard_" + pageName + "_" + linkText,
-            67: pageName
+            67: 'D=pageName'
         }
         clickParams.LogToOmniture();
     }
