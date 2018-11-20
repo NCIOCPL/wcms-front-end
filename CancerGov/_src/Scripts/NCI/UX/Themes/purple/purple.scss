@@ -1,4 +1,5 @@
 @import '../../../../../StyleSheets/breakpoints';
+@import '../../../../../StyleSheets/fonts';
 @import './images/sprites/svg-sprite-purple';
 
 
@@ -9,7 +10,10 @@ $purple: #6b35a6;
 .feature-card.cgvArticle a h3,
 ul.breadcrumbs>* a,
 .topic-feature .cgvBlogPost a h3,
-.pullquote {
+.pullquote,
+.desktop #blog-archive-accordion .ui-accordion-header .toggle,
+.desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle,
+.multimedia .feature-card a h3 {
   color: $purple;
 }
 
@@ -27,42 +31,30 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a.title:focus,
 .list .title a.title:hover,
 .list .title a:focus,
-.list .title a:hover {
-  color: #951b81;
-}
-
-.feature-primary .feature-card.cgvArticle a h3,
-.feature-primary .feature-card.cgvArticle a:hover h3 {
-  color: #fff;
-}
-
-.main-content .feature-card a {
-  color: #fff;
-}
-
+.list .title a:hover,
 .feature-card.cgvArticle a:hover h3,
 .topic-feature .cgvBlogPost a:hover h3 {
   color: #951b81;
 }
 
+.feature-primary .feature-card.cgvArticle a h3,
+.feature-primary .feature-card.cgvArticle a:hover h3,
+.main-content .feature-card a {
+  color: #fff;
+}
+
 .main-content .guide-card a.arrow-link,
-.main-content .guide-card a.arrow-link-white {
+.main-content .guide-card a.arrow-link-white,
+.main-content a.definition,
+.multimedia .feature-card a,
+#swKeyword,
+.search,
+.utility-background {
   color: #2e2e2e;
 }
 
-.main-content a.definition {
-  color: #2e2e2e;
-}
-
-.desktop #blog-archive-accordion .ui-accordion-header .toggle {
-  color: $purple;
-}
-
-.desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle {
-  color: $purple;
-}
-
-.columns.utility {
+.columns.utility,
+.language-bar {
   display: none;
 }
 
@@ -83,7 +75,7 @@ a .feature-card.cgvArticle a:hover h3,
 }
 
 .nsdb-title {
-  font-family: Montserrat, Avant Garde, Arial, sans-serif;
+  font-family: $montserrat-font-stack;
   font-size: 20px;
 }
 
@@ -105,14 +97,6 @@ a.arrow-link:hover:before {
   @include svg-sprite(external-link-purple);
 }
 
-.multimedia .feature-card a {
-  color: #2e2e2e;
-}
-
-.multimedia .feature-card a h3 {
-  color: $purple;
-}
-
 .micro-a.multimedia-slot {
   background-color: #6c81e8;
 }
@@ -120,7 +104,6 @@ a.arrow-link:hover:before {
 #swKeyword,
 .search {
   background-color: #fff;
-  color: #2e2e2e;
 }
 
 .site-footer {
@@ -145,10 +128,6 @@ a.arrow-link:hover:before {
   padding: 10px 0;
 }
 
-.language-bar {
-  display: none;
-}
-
 .utility {
   text-align: left;
   color: #000;
@@ -156,7 +135,6 @@ a.arrow-link:hover:before {
 
 .utility-background {
   background-color: #77bcff;
-  color: #2e2e2e;
 }
 
 .utility-background.micro-a {
