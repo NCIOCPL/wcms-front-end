@@ -38,7 +38,8 @@ module.exports = {
 		DictionaryPage:         './UX/AppModuleSpecific/Dictionary/DictionaryPage',
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
-		Charts:                 './UX/Common/Enhancements/charts'
+		Charts:                 './UX/Common/Enhancements/charts',
+		R4R:					'./UX/AppModuleSpecific/R4R/R4R',
 	},
 	target: 'web',
 	resolve: {
@@ -70,7 +71,6 @@ module.exports = {
 			// vendor jQuery plugins
 			'jquery/megamenu$': 'Vendor/jquery-accessibleMegaMenu',
 			'jquery/scrollToFixed$': 'Vendor/jquery-scrolltofixed'
-			// throttle: 'throttle-debounce/throttle'
 
 		},
 		extensions: [".ts", ".tsx", ".js"]

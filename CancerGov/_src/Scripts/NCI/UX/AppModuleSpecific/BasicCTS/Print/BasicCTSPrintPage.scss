@@ -269,7 +269,6 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
-  line-height: em-calc(3);
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 60%;
@@ -293,7 +292,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 ***************************************/
 table {
   background: #fff;
-  margin-bottom: em-calc(20);
+  margin-bottom: 20px;
   border: solid 1px #ddd;
 }
 table thead,
@@ -309,7 +308,7 @@ table tfoot tr td {
   padding-right: 0.625em;
   padding-bottom: 0.5625em;
   padding-left: 0.625em;
-  font-size: em-calc(14);
+  font-size: 14px;
   color: #222;
   text-align: left;
 }
@@ -331,5 +330,5 @@ table tbody tr td,
 table tr td,
 table tfoot tr td {
   display: table-cell;
-  line-height: em-calc(18);
+  line-height: 18px;
 }

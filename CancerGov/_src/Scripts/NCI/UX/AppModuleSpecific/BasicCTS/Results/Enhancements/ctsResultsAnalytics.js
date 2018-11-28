@@ -36,9 +36,9 @@ function _initialize() {
 	$('.clinical-trial-individual-result').each(function(i, el) {
 		$(el).on('click', 'a', function(event) {
 			var $this = $(this);
-				var rank = $this.index('.clinical-trial-individual-result a') + 1;
-				rank += ('|page ' + pn);
-				NCIAnalytics.CTSResultsWithFormClick($this, rank, searchForm);
+			var rank = $this.index('.clinical-trial-individual-result a') + 1;
+			rank += ('|page ' + pn);
+			NCIAnalytics.CTSResultsWithFormClick($this, rank, searchForm);
 		});
 	});
 	

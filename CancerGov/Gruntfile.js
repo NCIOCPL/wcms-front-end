@@ -216,6 +216,16 @@ module.exports = function(grunt) {
         grunt.task.run(tasks);
     });
 
+    // ----------------------------------------------------------------
+    // Uglify and copy analytics files to the _dist folder
+    // ----------------------------------------------------------------
+    grunt.registerTask('uglify:analytics', 'Minify, format, and copy analytics files.', function () {
+        var tasks = [
+            'uglify:analyticsJs',
+            'uglify:analyticsHtml'
+        ];
+        grunt.task.run(tasks);
+    });
 
     // ----------------------------------------------------------------
     grunt.registerTask('build-templates', 'Build the CDE page, sublayout & velocity templates.', function(env) {

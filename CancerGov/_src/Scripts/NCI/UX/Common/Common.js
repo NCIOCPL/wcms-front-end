@@ -45,6 +45,7 @@ import SiteWideSearch from 'Common/Enhancements/sitewidesearch';
 import megaMenuModule from 'Modules/megamenu/megamenu';
 import headroomPlugin from 'Modules/headroom/headroom';
 import DeepLinkPatch from 'Modules/utility/deepLinkPatch';
+import linkAudioPlayer from 'Modules/linkAudioPlayer/linkAudioPlayer';
 
 DeepLinkPatch();
 
@@ -172,4 +173,8 @@ $(window).on('load', function () {
 	// NOTE: The custom settings are handled in a local wrapper module
 
 	sortablejs();
+
+	// Use custom audio player to override mp3 anchor links
+	linkAudioPlayer();
+
 }); // END: Window Load Event
