@@ -39,8 +39,8 @@ module.exports = {
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
 		Charts:                 './UX/Common/Enhancements/charts',
-		R4R:										'./UX/AppModuleSpecific/R4R/R4R',
-		Purple:									'./UX/Themes/purple/purple'
+		R4R:                    './UX/AppModuleSpecific/R4R/R4R',
+		Purple:                 './UX/Themes/purple/purple'
 	},
 	target: 'web',
 	resolve: {
@@ -62,7 +62,7 @@ module.exports = {
 			Patches:        'Patches',
 			Modules:        'Modules',
 			Charts:         'UX/Common/Enhancements/charts',
-			StyleSheets:	path.resolve(__dirname, '_src', 'StyleSheets'),
+			StyleSheets:    path.resolve(__dirname, '_src', 'StyleSheets'),
 
 			// vendor scripts
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
