@@ -19,6 +19,7 @@ div.profile-panel .slot-item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 1.3em;
     @include break(medium) {
         flex-direction: row;
     }
