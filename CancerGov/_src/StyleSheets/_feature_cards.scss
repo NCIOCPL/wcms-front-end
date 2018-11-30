@@ -8,9 +8,9 @@
   justify-content: flex-start;
 
   .topic-feature {
-    border: 1px solid $grey26;
+    border: 1px solid $grey04;
     background-color: $white;
-    box-shadow: 0 0 9px 1px rgba(0,0,0,.15);
+    box-shadow: 0 0 9px 1px rgba($black,.15);
 
     &:not(:first-child) {
       margin-left: 2%;
