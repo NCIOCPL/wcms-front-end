@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import dictionary from 'Data/DictionaryService';
 import queryString from 'query-string';
-import imageCarousel from './image-carousel';
+// import imageCarousel from './image-carousel';
 
 var lang = $('html').attr('lang') || 'en';
 // Set the language for finding the dictionary term/definition
@@ -59,17 +59,20 @@ const popupFunctions = () => {
 			});
 			
 		} else if (type === "defbyid") {
+			// parse querystring so we can get definition id and dictionary
 			let params = queryString.parse(urlargs);
 			// id's are prefixed with "CDR0000" in the html but the backend service errors out if included in request
 			let id = Object.keys(params)[0].replace("CDR0000",''); 
 			console.log("params",params);
+			// Cancer.gov is not defined as a dictionary in DictionaryService so we assign it 'term'
 			let lookup = params.dictionary === 'Cancer.gov' ? 'term' : params.dictionary;
 
+			// fetch the term data from the service using ajax
 			$.when(_getTerm(lookup,id)).done(function (termObject) {
 				//TODO: error returns 404 html page, not an error object
 				if (termObject.term) {
 					console.log("term",termObject.term);
-
+					// if we have a term in our return JSON, trigger the modal which will render the JSON data
 					triggerModal(termObject.term);
 				}
 			});
@@ -90,12 +93,13 @@ const popupFunctions = () => {
 	}
 
 	const triggerModal = (term) => {
-		var modalId = 'definition' + term.id;
 
+		// check if modal exists already, else create it and kick off render
 		if ($("#modal_definition")[0]) {
 			$("#modal_definition").html(renderTerm(term)).dialog("open");
 		} else {
 			// create a new modal window
+			//TODO: spanish language support for hardcoded text
 			$('<div id="modal_definition"></div>')
 				.dialog({
 					title: 'Dictionary',
@@ -114,10 +118,12 @@ const popupFunctions = () => {
 			// Images
 			// Videos
 
+		// render aliases, often seen in drug definitions.
 		const renderAliasesTable = (alias) => {
+			// transform the data into something easier to render
+			// [{alias:'abc',name:1},{alias:'abc',name:2},{alias:'abc',name:3}] => {alias: [1,2,3]}
 			let aliasMap = {};
 			alias.map(item => {
-				//console.log(item)
 				if(aliasMap.hasOwnProperty(item.type) > 0){
 					aliasMap[item.type].push(item.name);
 				} else {
@@ -125,6 +131,7 @@ const popupFunctions = () => {
 				}
 			});
 
+			// create and return the table with all the aliases
 			let table = `<figure class="table"><table width="100%">
 				${Object.keys(aliasMap).map(item => {
 					return `<tr><th scope="row">${item}</th><td>${aliasMap[item].join("<br>")}</td></tr>`
@@ -134,8 +141,9 @@ const popupFunctions = () => {
 			return table;
 		}
 
+		// render and data in the term.related.external object which are external links in a list
 		const renderMoreInfo = (items) => {
-			//TODO: spanish language support for text
+			//TODO: spanish language support for hardcoded text
 			let template = `
 				<div class="related-resources">
 					<h6>More Information</h6>
@@ -147,6 +155,7 @@ const popupFunctions = () => {
 			return template;
 		}
 
+		// render any images
 		const renderImages = (images) => {
 			//TODO: render as a carousel if more than two images?
 			let template = `
@@ -157,6 +166,8 @@ const popupFunctions = () => {
 
 		//TODO: render videos
 
+		// this is the complete template that will be rendered to the dialog popup. It will conditionally check for data values before attempting to render anything. This way we can avoid property undefined errors and empty DOM nodes.
+		//TODO: still no info on what term.related.summary and term.related.term are used for, what their data structure is, and if they're ever populated by the service
 		let template = `
 			<dl>
 				<dt class="term"><dfn>${term.term}</dfn></dt>
