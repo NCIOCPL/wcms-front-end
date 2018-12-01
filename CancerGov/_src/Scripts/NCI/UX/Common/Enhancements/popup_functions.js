@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import dictionary from 'Data/DictionaryService';
 import queryString from 'query-string';
+import * as config from 'Modules/NCI.config';
+import linkAudioPlayer from 'Modules/linkAudioPlayer/linkAudioPlayer';
 // import imageCarousel from './image-carousel';
 
 var lang = $('html').attr('lang') || 'en';
@@ -99,15 +101,15 @@ const popupFunctions = () => {
 			$("#modal_definition").html(renderTerm(term)).dialog("open");
 		} else {
 			// create a new modal window
-			//TODO: spanish language support for hardcoded text
 			$('<div id="modal_definition"></div>')
 				.dialog({
-					title: 'Dictionary',
+					title: config.lang.Definition_Title[lang],
 					minWidth: 620,
 					minHeight: 530
 				})
 				.html(renderTerm(term));
 		}
+		linkAudioPlayer("#modal_definition .CDR_audiofile");
 	}
 
 	const renderTerm = (term) => {
@@ -143,12 +145,11 @@ const popupFunctions = () => {
 
 		// render and data in the term.related.external object which are external links in a list
 		const renderMoreInfo = (items) => {
-			//TODO: spanish language support for hardcoded text
 			let template = `
 				<div class="related-resources">
-					<h6>More Information</h6>
+					<h6>${config.lang.More_Information[lang]}</h6>
 					<ul class="no-bullets">
-						${items.map(item => `<li><a href="${item.url}">${item.text}</a></li>`)}
+						${items.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
 					</ul>
 				</div>
 			`;
@@ -159,7 +160,7 @@ const popupFunctions = () => {
 		const renderImages = (images) => {
 			//TODO: render as a carousel if more than two images?
 			let template = `
-				${images.map(item => `<figure><img src="${item.ref}" alt="${item.alt}" /><figcaption><div class="caption-container">${item.caption}</div></figcaption></figure>`)}
+				${images.map(item => `<figure><img src="${item.ref}" alt="${item.alt}" /><figcaption><div class="caption-container">${item.caption}</div></figcaption></figure>`).join('')}
 			`;
 			return template
 		}
