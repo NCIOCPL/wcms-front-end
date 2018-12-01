@@ -57,6 +57,10 @@ export const lang = {
     CTHPDropdown_Label: {
         en: 'View more information',
         es: 'Vea más información'
+    },
+    More_Information: {
+        en: 'More Information',
+        es: 'Más Información'
     }
 }
 
