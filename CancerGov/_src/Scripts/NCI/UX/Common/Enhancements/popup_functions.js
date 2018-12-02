@@ -3,6 +3,7 @@ import dictionary from 'Data/DictionaryService';
 import queryString from 'query-string';
 import * as config from 'Modules/NCI.config';
 import linkAudioPlayer from 'Modules/linkAudioPlayer/linkAudioPlayer';
+import flexVideo from 'Modules/videoPlayer/flexVideo';
 // import imageCarousel from './image-carousel';
 
 var lang = $('html').attr('lang') || 'en';
@@ -105,11 +106,22 @@ const popupFunctions = () => {
 				.dialog({
 					title: config.lang.Definition_Title[lang],
 					minWidth: 620,
-					minHeight: 530
+					minHeight: 530,
+					maxHeight: 800
 				})
 				.html(renderTerm(term));
 		}
-		linkAudioPlayer("#modal_definition .CDR_audiofile");
+
+		// After the template has been rendered, initialize JS modules
+		// initialize audio player
+		if(!!term.pronunciation) {
+			linkAudioPlayer("#modal_definition .CDR_audiofile");
+		}
+
+		// initialize video player
+		if(!!term.videos && term.videos.length) {
+			flexVideo();
+		}
 	}
 
 	const renderTerm = (term) => {
@@ -147,7 +159,7 @@ const popupFunctions = () => {
 		const renderMoreInfo = (items) => {
 			let template = `
 				<div class="related-resources">
-					<h6>${config.lang.More_Information[lang]}</h6>
+					<h5>${config.lang.More_Information[lang]}</h5>
 					<ul class="no-bullets">
 						${items.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
 					</ul>
@@ -165,25 +177,37 @@ const popupFunctions = () => {
 			return template
 		}
 
-		//TODO: render videos
+		// render any videos
+		const renderVideos = (videos) => {
+			//TODO: render as a carousel if more than two images?
+			//TODO: combine images and videos into a multimedia carousel?
+			let template = `
+				${videos.map(item => `<figure class="video center size75">
+					<div class="flex-video widescreen"
+							data-video-id="${item.unique_id}"
+							data-video-title="${item.title}">
+						<noscript><p><a href="https://www.youtube.com/watch?v=${item.unique_id}" target="_blank">${config.lang.View_On_Youtube[lang]}</a></p></noscript>
+					</div>
+					<figcaption class="caption-container no-resize">${item.caption}</figcaption>
+				</figure>`).join('')}
+			`;
+			return template
+		}
 
 		// this is the complete template that will be rendered to the dialog popup. It will conditionally check for data values before attempting to render anything. This way we can avoid property undefined errors and empty DOM nodes.
 		//TODO: still no info on what term.related.summary and term.related.term are used for, what their data structure is, and if they're ever populated by the service
 		let template = `
 			<dl>
-				<dt class="term"><dfn>${term.term}</dfn></dt>
+				<dt class="term"><dfn><h4>${term.term}</h4></dfn></dt>
 				${term.pronunciation ? `<dd class="pronunciation"><a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a> ${term.pronunciation.key}</dd>` : ''}
 				${!!term.related.drug_summary.length ? `<dd class="info-summary"><a href="${term.related.drug_summary[0].url}"><img src="/images/btn-patient-info.gif" alt="Patient Information" title="Patient Information" width="139" height="20" hspace="12" border="0" align="absmiddle"></a></dd>` : ''}
 				${term.definition.html ? `<dd class="definition">${term.definition.html}</dd>` : ''}
 				${!!term.alias.length ? renderAliasesTable(term.alias) : ''}
 				${!!term.related.external && !!term.related.external.length ? renderMoreInfo(term.related.external) : ''}
 				${!!term.images && !!term.images.length ? renderImages(term.images) : ''}
+				${!!term.videos && term.videos.length ? renderVideos(term.videos) : ''}
 			</dl>
 		`;
-		// this is to pull out newline characters which have been found to interfere with the period + blank space method for identifying end of first sentence, ie in "tumor" definition.
-		//definition = definition.replace(/(\r\n|\n|\r)/gm," ");
-		
-		//linkAudioPlayer("#best-bet-definition .CDR_audiofile");
 
 		return template;
 	}
@@ -236,13 +260,3 @@ const popupFunctions = () => {
 }
 
 export default popupFunctions;
-
-// const carousel = () => {`<div`}
-
-// `
-// ${image.title && `<h1>${thing.title}</h1>`}
-// ${ images && images.length > 1 ? buildCarousel(images) : imageTemplate(image)}
-
-// `
-
-// const imageTemplate = image => `<img src="${ image.src }"/>`
