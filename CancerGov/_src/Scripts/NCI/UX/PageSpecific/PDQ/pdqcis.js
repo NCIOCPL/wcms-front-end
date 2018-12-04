@@ -131,7 +131,7 @@ $(document).ready(function() {
 					heading: ['h6', '[do-not-show="toc"]'],
 					node: ['aside']
 				},
-				maxLevel: 3
+				maxLevel: 1
 			},
 
 			$nav = $('<nav>').addClass(options.class).attr('role', 'navigation')
@@ -218,25 +218,7 @@ $(document).ready(function() {
 				.end().not(':eq(' + sectionIdx + ')').removeClass('selected');
 
 			// show/hide the TOC elements
-			if (section === 'all') {
-				// Hide all the TOCs (section and doc level)
-				$('.on-this-page')
-					// ... and hide the Previous/Next navigation links
-					.add('.previous-link, .next-link')
-					.removeClass('show').addClass('hide');
-				// ... and then just show the doc level TOC
-				$('#pdq-toc-article .on-this-page')
-					.removeClass('hide').addClass('show');
-			} else {
-				// Show all the TOCs (section and doc level)
-				$('.on-this-page')
-					// ... and show the Previous/Next navigation links
-					.add('.previous-link, .next-link')
-					.removeClass('hide').addClass('show');
-				// ... and then just hide the doc level TOC
-				$('#pdq-toc-article .on-this-page')
-					.removeClass('show').addClass('hide');
-			}
+			
 		}
 
 		// We're running this trigger to ensure that all
