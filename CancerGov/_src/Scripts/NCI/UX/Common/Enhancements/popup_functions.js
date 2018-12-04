@@ -106,8 +106,21 @@ const popupFunctions = () => {
 				.dialog({
 					title: config.lang.Definition_Title[lang],
 					minWidth: 620,
-					minHeight: 530,
-					maxHeight: 800
+					maxHeight: 800,
+					modal: true,
+					position: {
+						my: "top",
+						at: "top+10%",
+						of: window
+					},
+					resizable: false,
+					show: { effect: "fade", duration: 250 },
+					hide: { effect: "fade", duration: 250 },
+					open: function(){
+						$('.ui-widget-overlay').addClass('clickable').on('click', function (evt) {
+							$('#modal_definition').dialog("close");
+						});
+					}
 				})
 				.html(renderTerm(term));
 		}
@@ -156,12 +169,16 @@ const popupFunctions = () => {
 		}
 
 		// render and data in the term.related.external object which are external links in a list
+		//TODO: items.term seems to refer to dictionary pages, which will no longer exist post migration. Should these links refresh a definition modal following an api call? Should there be a way to navigate back?
 		const renderMoreInfo = (items) => {
 			let template = `
 				<div class="related-resources">
 					<h5>${config.lang.More_Information[lang]}</h5>
 					<ul class="no-bullets">
-						${items.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
+						${items.external.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
+						${items.summary.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
+						${items.term.map(item => `<li>Definition of: <a href="/Common/PopUps/popDefinition.aspx?id=${item.id}&amp;version=healthprofessional&amp;language=English&amp;dictionary=${item.dictionary.toLowerCase()}"
+						onclick="javascript:popWindow('defbyid','CDR0000${item.id}&amp;version=healthprofessional&amp;language=English&amp;dictionary=${item.dictionary.toLowerCase()}'); return(false);">${item.text}</a></li>`).join('')}
 					</ul>
 				</div>
 			`;
@@ -172,7 +189,7 @@ const popupFunctions = () => {
 		const renderImages = (images) => {
 			//TODO: render as a carousel if more than two images?
 			let template = `
-				${images.map(item => `<figure><img src="${item.ref}" alt="${item.alt}" /><figcaption><div class="caption-container">${item.caption}</div></figcaption></figure>`).join('')}
+				${images.map(item => `<figure style="width: 75%; margin: 0 auto"><img src="${item.ref}" alt="${item.alt}" /><figcaption><div class="caption-container">${item.caption}</div></figcaption></figure>`).join('')}
 			`;
 			return template
 		}
@@ -196,6 +213,9 @@ const popupFunctions = () => {
 
 		// this is the complete template that will be rendered to the dialog popup. It will conditionally check for data values before attempting to render anything. This way we can avoid property undefined errors and empty DOM nodes.
 		//TODO: still no info on what term.related.summary and term.related.term are used for, what their data structure is, and if they're ever populated by the service
+		let hasMoreInfo = !!term.related.external && !!term.related.external.length || !!term.related.summary && !!term.related.summary.length || !!term.related.term && !!term.related.term.length;
+
+		console.log(hasMoreInfo)
 		let template = `
 			<dl>
 				<dt class="term"><dfn><h4>${term.term}</h4></dfn></dt>
@@ -203,7 +223,7 @@ const popupFunctions = () => {
 				${!!term.related.drug_summary.length ? `<dd class="info-summary"><a href="${term.related.drug_summary[0].url}"><img src="/images/btn-patient-info.gif" alt="Patient Information" title="Patient Information" width="139" height="20" hspace="12" border="0" align="absmiddle"></a></dd>` : ''}
 				${term.definition.html ? `<dd class="definition">${term.definition.html}</dd>` : ''}
 				${!!term.alias.length ? renderAliasesTable(term.alias) : ''}
-				${!!term.related.external && !!term.related.external.length ? renderMoreInfo(term.related.external) : ''}
+				${hasMoreInfo ? renderMoreInfo(term.related) : ''}
 				${!!term.images && !!term.images.length ? renderImages(term.images) : ''}
 				${!!term.videos && term.videos.length ? renderVideos(term.videos) : ''}
 			</dl>
