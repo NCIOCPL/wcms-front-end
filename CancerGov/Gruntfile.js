@@ -11,6 +11,7 @@ module.exports = function(grunt) {
                 velocity_templates: "_src/VelocityTemplates/",
                 styles: "_src/StyleSheets/",
                 scripts: "_src/Scripts/",
+                themes: "_src/Scripts/NCI/UX/Themes/",
                 modules: "_src/Scripts/NCI/Modules/",
                 images: "_src/ImageAssets/images/",
                 sprites: "_src/ImageAssets/sprites/",
@@ -263,7 +264,8 @@ module.exports = function(grunt) {
             'build-images',
             'build-files',
             'copy-fonts',
-            'webpack:' + env
+            'webpack:' + env,
+            'copy:common' // duplicate Common.css as nvcg.css until popups and 404 pages are corrected
         ];
 
         grunt.task.run(tasks);
