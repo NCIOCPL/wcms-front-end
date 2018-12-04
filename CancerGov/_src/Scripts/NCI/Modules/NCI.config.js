@@ -61,6 +61,10 @@ export const lang = {
     More_Information: {
         en: 'More Information',
         es: 'Más Información'
+    },
+    View_On_Youtube: {
+        en: 'View this video on YouTube.',
+        es: 'Ver este video en YouTube.'
     }
 }
 
