@@ -88,7 +88,6 @@ module.exports = {
 			// The loader below passes off any required/imported .ts files off to the the typescript loader,
 			// this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,

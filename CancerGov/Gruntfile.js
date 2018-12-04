@@ -173,8 +173,6 @@ module.exports = function(grunt) {
         grunt.config('env', env);
 
         var tasks = [
-            // 'sprite:carousel',
-            // 'sprite:accordion',
             'svg_sprite',
             'svgmin'];
         grunt.task.run(tasks);
