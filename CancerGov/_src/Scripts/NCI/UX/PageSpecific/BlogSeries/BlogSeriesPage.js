@@ -1,5 +1,4 @@
 import './BlogSeriesPage.scss';
-import 'Common/Enhancements/sharecomponent';
 import { pageOptionsTransporter } from 'Utilities/domManipulation';
 import { doAccordion } from 'Modules/accordion/accordion';
 

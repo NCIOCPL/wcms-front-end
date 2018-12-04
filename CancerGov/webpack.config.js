@@ -40,7 +40,8 @@ module.exports = {
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
 		Charts:                 './UX/Common/Enhancements/charts',
 		R4R:                    './UX/AppModuleSpecific/R4R/R4R',
-		Purple:                 './UX/Themes/purple/purple'
+		Purple:                 './UX/Themes/purple/purple',
+		ProfilePage:			      './UX/PageSpecific/Profile/ProfilePage'
 	},
 	target: 'web',
 	resolve: {
@@ -88,7 +89,6 @@ module.exports = {
 			// The loader below passes off any required/imported .ts files off to the the typescript loader,
 			// this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
