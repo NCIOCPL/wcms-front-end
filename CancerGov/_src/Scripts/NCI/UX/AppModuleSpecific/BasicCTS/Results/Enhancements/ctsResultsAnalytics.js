@@ -37,8 +37,8 @@ function _initialize() {
 		$(el).on('click', 'a', function(event) {
 			var $this = $(this);
 			var rank = $this.index('.clinical-trial-individual-result a') + 1;
-				rank += ('|page ' + pn);
-				NCIAnalytics.CTSResultsWithFormClick($this, rank, searchForm);
+			rank += ('|page ' + pn);
+			NCIAnalytics.CTSResultsWithFormClick($this, rank, searchForm);
 		});
 	});
 	

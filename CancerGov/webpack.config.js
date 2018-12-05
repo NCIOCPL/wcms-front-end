@@ -21,7 +21,7 @@ module.exports = {
 		//                           ],
 		//This is the Babel polyfill module that includes all the es2015 polyfills.
 		//"Babel-Polyfill":       'babel-polyfill',
-		Common:             	'./UX/Common/Common',
+		Common:                 './UX/Common/Common',
 		CTHPPage:               './UX/PageSpecific/CTHP/CTHPPage',
 		HomePage:               './UX/PageSpecific/Home/HomePage',
 		InnerPage:              './UX/PageSpecific/Inner/InnerPage',
@@ -30,7 +30,7 @@ module.exports = {
 		TopicPage:              './UX/PageSpecific/Topic/TopicPage',
 		Popups:                 './UX/PageSpecific/Popups/Popups',
 		AdvancedCTSSearchPage:  './UX/AppModuleSpecific/BasicCTS/Search/AdvancedCTSSearchPage',
-		SimpleCTSSearchPage:	'./UX/AppModuleSpecific/BasicCTS/Search/SimpleCTSSearchPage',
+		SimpleCTSSearchPage:    './UX/AppModuleSpecific/BasicCTS/Search/SimpleCTSSearchPage',
 		BasicCTSResultsPage:    './UX/AppModuleSpecific/BasicCTS/Results/BasicCTSResultsPage',
 		BasicCTSViewPage:       './UX/AppModuleSpecific/BasicCTS/View/BasicCTSViewPage',
 		BasicCTSPrintPage:      './UX/AppModuleSpecific/BasicCTS/Print/BasicCTSPrintPage',
@@ -39,7 +39,9 @@ module.exports = {
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
 		Charts:                 './UX/Common/Enhancements/charts',
-		R4R:					'./UX/AppModuleSpecific/R4R/R4R',
+		R4R:                    './UX/AppModuleSpecific/R4R/R4R',
+		Purple:                 './UX/Themes/purple/purple',
+		ProfilePage:			      './UX/PageSpecific/Profile/ProfilePage'
 	},
 	target: 'web',
 	resolve: {
@@ -61,7 +63,7 @@ module.exports = {
 			Patches:        'Patches',
 			Modules:        'Modules',
 			Charts:         'UX/Common/Enhancements/charts',
-			StyleSheets:	path.resolve(__dirname, '_src', 'StyleSheets'),
+			StyleSheets:    path.resolve(__dirname, '_src', 'StyleSheets'),
 
 			// vendor scripts
 			// jquery$: '//code.jquery.com/jquery-3.1.1.min.js',
@@ -87,7 +89,6 @@ module.exports = {
 			// The loader below passes off any required/imported .ts files off to the the typescript loader,
 			// this transpiles the TS to ES2015 Javascri[t, which is then handed off to Babel
 			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-			{ test: /\.h(andle)?b(ar)?s$/i, loader: "handlebars-loader" },
 			{ 
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,

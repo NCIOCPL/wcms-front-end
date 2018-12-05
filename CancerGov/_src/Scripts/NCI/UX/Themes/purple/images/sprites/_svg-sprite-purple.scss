@@ -1,0 +1,10 @@
+@import "svg-sprite-map";
+
+$sprite-path:(
+  svgPath: '/publishedcontent/images/images/design-elements/sprites/svg-sprite-purple.svg'
+);
+
+$svg-sprite: map-merge(map-get($svg-icons, sprite),$sprite-path);
+$baseFontSize: 16px !default;
+
+@import '../../../../../../../StyleSheets/sprites/mixins';

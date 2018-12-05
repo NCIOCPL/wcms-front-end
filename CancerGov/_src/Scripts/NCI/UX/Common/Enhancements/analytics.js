@@ -638,4 +638,14 @@ $(window).on('load',function(){
         var linkText = $this.text();
         NCIAnalytics.OnThisPageClick($this, linkText, pageName);
     });
+    // Track clicks on website url of profile panel pages.
+    $('div.profile-panel-content a').on("click", function(e) {
+        var $this = $(this);
+        var href =  e.target.href;
+        var isPhoneNumber = href.match(/^tel\:./i);
+        var linkText = isPhoneNumber ? 'phone' : 'website';
+        var pageName = pathname.match(/([^\/]*)\/*$/)[1];
+
+        NCIAnalytics.ProfilePanelLinkClick($this, linkText, pageName);
+    });    
 });

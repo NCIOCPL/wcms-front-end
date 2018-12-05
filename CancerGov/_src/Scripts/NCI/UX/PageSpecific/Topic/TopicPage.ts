@@ -1,6 +1,5 @@
 import { CDERuntimeConfig, CDEConfiguration } from 'Services/cde-configuration-service';
 import { NCIBasePage } from 'UX/core';
-import 'UX/Common/Enhancements/sharecomponent';
 import FloatingDelighter from 'Modules/floatingDelighter';
 import ImageCarousel from 'UX/Common/Enhancements/image-carousel';
 import VideoCarousel from 'UX/Common/Enhancements/video-carousel';

@@ -1,0 +1,322 @@
+@import '../../../../../StyleSheets/breakpoints';
+@import '../../../../../StyleSheets/fonts';
+@import './images/sprites/svg-sprite-purple';
+
+// theme color palette
+$purple1: #6c81e8;
+$purple2: #6254a3;
+$purple3: #6264b4;
+$purple4: #951b81;
+$purple5: #6b35a6;
+$purple6: #4d226d;
+
+// default theme text color
+.main-content a,
+.main-content .feature-card a,
+.feature-card.cgvArticle a h3,
+ul.breadcrumbs>* a,
+.topic-feature .cgvBlogPost a h3,
+.pullquote,
+.desktop #blog-archive-accordion .ui-accordion-header .toggle,
+.desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle,
+.multimedia .feature-card a h3 {
+  color: $purple5;
+}
+
+// default theme link color
+.main-content p a:hover,
+a .feature-card.cgvArticle a:hover h3,
+.main-content a.title:hover,
+.card-thumbnail h3 a:focus,
+.card-thumbnail h3 a:hover,
+.topic-feature a:focus,
+.topic-feature a:hover,
+.list .title a.title:focus,
+.list .title a.title:hover,
+.list .title a:focus,
+.list .title a:hover,
+.feature-card.cgvArticle a:hover h3,
+.topic-feature .cgvBlogPost a:hover h3 {
+  color: $purple4;
+}
+
+// header
+.nci-logo-pages img {
+  width: 70%;
+}
+
+// language bar
+.columns.utility,
+.language-bar {
+  display: none;
+}
+
+// utility bar
+#microsite-a {
+  padding: 10px 0;
+  font-family: $montserrat-font-stack;
+  font-size: 20px;
+}
+
+.utility {
+  text-align: left;
+  color: #000;
+}
+
+.utility-background {
+  background-color: #77bcff;
+}
+
+.utility-background.micro-a {
+  display: block !important;
+}
+
+#microsite-a .utility {
+  text-align: left;
+}
+
+#microsite-a .nsdb-title span {
+  margin-left: 0;
+}
+
+#microsite-a .utility span {
+  margin-right: 0;
+  padding-left: 40px;
+}
+
+// menu bar
+.nav-search-bar {
+  background: $purple2;
+  background: -webkit-gradient(linear, left top, left bottom, from($purple2), to($purple3));
+  background: linear-gradient(180deg, $purple2, $purple3);
+}
+
+// mobile menu
+.mobile-menu-bar>a,
+.mobile-menu-bar>button {
+  margin: 1em 10% !important;
+}
+
+.mobile-menu-bar>a,
+.mobile-menu-bar>button {
+  width: 13% !important;
+}
+
+// mega menu
+#mega-nav .current-page {
+  background-color: $purple5;
+}
+
+#mega-nav .current-page>div .toggle[aria-expanded=true],
+#mega-nav .current-page>div[aria-expanded=true] .toggle {
+  background-color: #fff;
+  color: $purple2;
+}
+
+#mega-nav .current-page>div .toggle[aria-expanded=false],
+#mega-nav .current-page>div[aria-expanded=false] .toggle {
+  background-color: $purple2;
+  color: #fff;
+}
+
+// page options
+.page-options li {
+  background-color: $purple1;
+}
+
+.page-options li:hover {
+  background-color: $purple4;
+}
+
+// content styles
+a.arrow-link-white:hover:before,
+a.arrow-link:hover:before {
+  @include svg-sprite(chevron-circle-purple, mq);
+}
+
+.pullquote {
+  border-left-color: $purple5;
+}
+
+.micro-a.feature-primary .feature-card,
+.micro-a.feature-primary .card {
+  background-color: $purple5;
+}
+
+.micro-a.multimedia-slot {
+  background-color: $purple1;
+}
+
+.micro-a {
+  margin-top: 20px;
+}
+
+.feature-primary .feature-card.cgvArticle a h3,
+.feature-primary .feature-card.cgvArticle a:hover h3,
+.main-content .feature-card a {
+  color: #fff;
+}
+
+.main-content .guide-card a.arrow-link,
+.main-content .guide-card a.arrow-link-white,
+.main-content a.definition,
+.multimedia .feature-card a,
+#swKeyword,
+.search,
+.utility-background {
+  color: #2e2e2e;
+}
+
+// footer
+.site-footer {
+  background-color: $purple6;
+}
+
+@include break(large) {
+
+  // theme images
+  .site-footer__icons .icon.twitter {
+    @include svg-sprite(twitter-purple, mq);
+  }
+
+  .site-footer__icons .icon.govdelivery {
+    @include svg-sprite(gov-delivery-purple, mq);
+  }
+
+  .icon-exit-notification {
+    @include svg-sprite(external-link-purple, mq);
+  }
+
+  // header
+  .nci-logo-pages {
+    img {
+      width: 42%;
+    }
+
+    a {
+      padding-left: 16px !important;
+    }
+  }
+
+  //  main navigation and search
+  #swKeyword,
+  .search {
+    background-color: #fff;
+  }
+
+  #sitesearch {
+    @include svg-sprite(search-purple, mq);
+  }
+
+  #nvcgSlMainNav.searching #siteSearchForm:before {
+    width: 75% !important;
+    left: 19% !important;
+  }
+
+  #nvcgSlMainNav.searching #swKeyword {
+    left: 20% !important;
+    width: 75% !important;
+  }
+
+  #nvcgSlMainNav.searching #searchclear {
+    z-index: 80;
+  }
+
+  .section-nav .level-0>div {
+    background-color: $purple5;
+  }
+
+  #mega-nav .nav-item.contains-current>.nav-item-title>a,
+  #mega-nav .nav-item.current-page>.nav-item-title>a {
+    border-bottom-color: $purple5;
+  }
+
+  .section-nav div.current-page {
+    background-color: $purple5 !important;
+  }
+
+  .sub-nav-group-header {
+    color: $purple5;
+  }
+
+  .sub-nav-group-header:focus,
+  .sub-nav-group-header:hover {
+    color: $purple4;
+  }
+
+  .section-nav .current-page:after {
+    border-left-color: $purple5;
+  }
+
+  .section-nav .level-0>div {
+    background-color: $purple2;
+  }
+
+  .section-nav .level-1.contains-current {
+    background-color: #e9e7f7;
+  }
+
+  .page-options li,
+  .page-options li:hover {
+    background-color: transparent;
+  }
+
+  .page-options .page-options--resize a:before {
+    @include svg-sprite(font-size-purple, mq);
+  }
+
+  // desktop theme images
+  .page-options .page-options--print a:before {
+    @include svg-sprite(printer-purple, mq);
+  }
+
+  .page-options .page-options--email a:before {
+    @include svg-sprite(mail-envelope-closed-purple, mq);
+  }
+
+  .page-options .social-share--facebook a:before {
+    @include svg-sprite(facebook-purple, mq);
+  }
+
+  .page-options .social-share--twitter a:before {
+    @include svg-sprite(twitter-purple, mq);
+  }
+
+  .page-options .social-share--pinterest a:before {
+    @include svg-sprite(pinterest-purple, mq);
+  }
+
+  // desktop main menu
+  #nvcgSlMainNav.searching #siteSearchForm:before {
+    width: 75% !important;
+    left: 19% !important;
+  }
+
+  #nvcgSlMainNav.searching #swKeyword {
+    left: 20% !important;
+    width: 75% !important;
+    color: #2e2e2e;
+  }
+
+  #nvcgSlMainNav.searching #searchclear {
+    z-index: 80;
+  }
+
+  #PageOptionsControl1 {
+    display: block;
+    height: 35px;
+  }
+
+  #microsite-a .utility span {
+    display: none;
+  }
+
+}
+
+@include bp(medium) {
+  .nci-logo-pages img {
+    width: 47%;
+    min-width: initial;
+    max-width: initial;
+  }
+}

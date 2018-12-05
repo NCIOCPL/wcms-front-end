@@ -82,7 +82,7 @@
 	}
 }
 
-.cthp-body h3 {
+.cthp-body h2 {
 	margin-top: 0px;
 	float:left;
 	width: 55%;
@@ -190,7 +190,7 @@
 		display: inherit;
 	}
 
-	.cthp-intro-multimedia h3 {
+	.cthp-intro-multimedia h2 {
 		text-transform: uppercase;
 	}
 }
@@ -260,7 +260,7 @@
 .main-content a.viewAll:hover, .main-content a.viewAll:focus {
 	text-decoration: none;
 }
-.guide h3 {
+.guide h2 {
 	color: #fff;
 }
 .cthp-version-toggle {
@@ -392,7 +392,7 @@
 	min-height: 1px;
 }
 
-.cthpCard h3  {
+.cthpCard h2  {
 	color: #fff;
 	padding: 0.47em 0.6em;
 	margin: 0;
@@ -421,7 +421,7 @@
 	padding-top: 16px;
 }
 /* Format card title */
-h3.cthp-overview-title {
+h2.cthp-overview-title {
 	color: #ffffff;
 	padding: 0.47em 0.6em;
 	margin: -5px -15px 0;
@@ -481,14 +481,14 @@ h3.cthp-overview-title {
 		}
 	}
 }
-.cthpCard > .cthp-survival > h3 + div:hover {
+.cthpCard > .cthp-survival > h2 + div:hover {
 	background-color: black;
 
 	@include bp(small) {
 		background-color: white;
 	}
 }
-.cthpCard > div > h3 + div:hover img {
+.cthpCard > div > h2 + div:hover img {
 	opacity: 0.8;
 }
 /* Don't change color below multimedia figures on hover */

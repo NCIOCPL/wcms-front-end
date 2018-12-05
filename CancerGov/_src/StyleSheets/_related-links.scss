@@ -1,0 +1,59 @@
+@import './breakpoints';
+
+// Ideal markup styles
+// .relatedLinks-sidebar{
+//   padding: .9375em 0;
+// @include break(medium) {
+//   padding: .9375em 0 .9375em .9375em;
+// }
+
+//   div{
+//     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+//     border-radius: 1px;
+//     padding: .25em 1em .1em;
+//     margin-bottom: 1em;
+//   }
+//   h4 {
+//     margin-bottom: 0;
+//   }
+//   li {
+//     margin-left: 10px;
+
+//     &:first-child{
+//       margin-top: 0;
+//     }
+//   }
+// }
+
+
+// styles for actual markup from DCEG
+.genSiteRightColumn {
+  padding: .9375em 0;
+
+  .slot-item {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+    border-radius: 1px;
+    padding: .25em 1em .1em;
+    margin-bottom: 1em;
+  }
+  @include break(medium) {
+    padding: .9375em 0 .9375em .9375em;
+  }
+}
+
+.genContentBlock {
+  a:before {
+    display: block;
+    content: " ";
+  }
+  li {
+    margin-left: 10px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+}

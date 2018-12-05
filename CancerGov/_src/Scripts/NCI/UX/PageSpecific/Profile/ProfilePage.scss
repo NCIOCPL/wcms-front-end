@@ -1,0 +1,55 @@
+@import "../../../../../StyleSheets/environments/percussion";
+@import '../../../../../StyleSheets/variables';
+@import '../../../../../StyleSheets/mixins';
+@import '../../../../../StyleSheets/fonts';
+@import '../../../../../StyleSheets/breakpoints';
+@import '../../../../../StyleSheets/nci-foundation_variables';
+@import "../../../../../StyleSheets/sprites/svg-sprite";
+@import "../../../../../StyleSheets/equalheights";
+
+/*** BEGIN Profile Page Styles ***/
+
+div.profile-panel .slot-item {
+    background: #ffffff;
+    border: 1px solid #818181;
+    box-shadow: 0 0 9px 1px rgba(0, 0, 0, .15);
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 1.3em;
+    @include break(medium) {
+        flex-direction: row;
+    }
+}
+div.inst-profile-image {
+    margin: 25px 25px 0px 25px;
+    max-width: 206px;
+    @include break(medium) {
+        margin: 25px 0px 25px 25px;
+    }
+}
+div.profile-panel-content {    
+    color: #606060;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: Montserrat,Avant Garde,Arial,sans-serif;
+    line-height: 23px;
+    font-size: 16px;
+    word-wrap: break-word;
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    h1 {
+        margin-top: 0.75em;
+    }
+    .profile-title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+/*** END Profile Page Styles ***/
