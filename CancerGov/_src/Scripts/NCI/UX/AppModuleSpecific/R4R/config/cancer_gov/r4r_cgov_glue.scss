@@ -50,6 +50,14 @@
     min-width: 0;
 }
 
+.contentzone .r4r-container button {
+    background: #2a71a5;
+}
+
+.contentzone .r4r-container button:hover, .contentzone .r4r-container button:focus {
+    background: #266594;
+}
+
 .selected-filters__header {
     margin: 0;
 }
