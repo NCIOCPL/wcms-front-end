@@ -222,8 +222,8 @@ const popupFunctions = () => {
 				${term.pronunciation ? `<dd class="pronunciation"><a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a> ${term.pronunciation.key}</dd>` : ''}
 				${!!term.related.drug_summary.length ? `<dd class="info-summary"><a href="${term.related.drug_summary[0].url}"><img src="/images/btn-patient-info.gif" alt="Patient Information" title="Patient Information" width="139" height="20" hspace="12" border="0" align="absmiddle"></a></dd>` : ''}
 				${term.definition.html ? `<dd class="definition">${term.definition.html}</dd>` : ''}
-				${!!term.alias.length ? renderAliasesTable(term.alias) : ''}
-				${hasMoreInfo ? renderMoreInfo(term.related) : ''}
+				${/* !!term.alias.length ? renderAliasesTable(term.alias) : '' */''}
+				${/* hasMoreInfo ? renderMoreInfo(term.related) : ''*/''}
 				${!!term.images && !!term.images.length ? renderImages(term.images) : ''}
 				${!!term.videos && term.videos.length ? renderVideos(term.videos) : ''}
 			</dl>
