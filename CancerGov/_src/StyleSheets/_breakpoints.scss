@@ -42,7 +42,7 @@ $breakpoints: (
     @media only screen and (max-width: map-get($breakpoints, xsmall))  { @content; }
   }
 	@else {
-		@media only screen and (#{$point}) { @content; }
+		@media only screen and #{$point} { @content; }
 	}
 }
 
