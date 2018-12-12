@@ -152,6 +152,12 @@ $(document).ready(function() {
 	// Levels: 3, 4
 	function buildSectionTOC() {
 		var options = {
+				i18n: {
+					title: {
+						en: "In this section",
+						es: "En esta sección"
+					}
+				},
 				class: 'on-this-page',
 				placement: {
 					insert: 'prependTo',
@@ -183,6 +189,7 @@ $(document).ready(function() {
 
 			if($nav.children().length > 0) {
 				$nav[options.placement.insert](sectionInsertionPoint);
+				$nav.prepend($('<h6>').text(options.i18n.title[Page.lang]));
 			}
 		}
 	}
