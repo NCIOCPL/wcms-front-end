@@ -43,14 +43,9 @@ a .feature-card.cgvArticle a:hover h3,
   color: $purple4;
 }
 
-// header image
-.nci-logo-pages img {
-  width: 70%;
-}
-
 // hidden elements
 .language-bar,
-.nsdb-title .utility {
+#microsite-a .utility {
   display: none;
 }
 
@@ -61,6 +56,7 @@ a .feature-card.cgvArticle a:hover h3,
 
 #microsite-a {
   padding: 10px 0;
+  margin: 0;
   .nsdb-title {
     font-family: $montserrat-font-stack;
     font-size: 20px;
@@ -91,6 +87,7 @@ a .feature-card.cgvArticle a:hover h3,
 
 // mega menu
 #mega-nav { 
+  .nav-item.current-page > .nav-item-title > a,
   .nav-item.contains-current > .nav-item-title > a {
     border-bottom-color: $purple5;
   }
@@ -132,7 +129,6 @@ a.arrow-link:hover:before {
 }
 
 .micro-a {
-  margin-top: 20px;
   &.feature-primary {
     .card {
       background-color: $purple5;
@@ -141,13 +137,14 @@ a.arrow-link:hover:before {
   &.multimedia-slot {
     background-color: $purple1;
   }
+
+  .feature-card a, 
+  .feature-card.cgvArticle a h3,
+  .feature-card.cgvArticle a:hover h3 {
+    color: $white;
+  }
 }
 
-.feature-card.cgvArticle a h3,
-.feature-card.cgvArticle a:hover h3,
-.main-content .feature-card a {
-  color: $white;
-}
 
 .main-content .guide-card a.arrow-link,
 .main-content .guide-card a.arrow-link-white,
@@ -164,6 +161,9 @@ a.arrow-link:hover:before {
 
 // theme images
 .site-footer__icons {
+  .icon {
+    transform: translateX(1px) translateY(1px);
+  }
   .icon.twitter {
     @include svg-sprite(twitter-purple);
   }
@@ -174,16 +174,24 @@ a.arrow-link:hover:before {
 
 .icon-exit-notification {
   @include svg-sprite(external-link-purple);
+  font-size: 16px;
 }
 
 #sitesearch {
   @include svg-sprite(search-purple);
 }
 
+@include break(medium) {
+  .nci-logo-pages img {
+    min-width: 0;
+    max-width: 480px;
+  }
+}
+
 @include break(large) {
   // header
-  .nci-logo-pages img {
-    width: 42%;
+  header {
+    padding-bottom: 1.5em;
   }
 
   //  main navigation and search
@@ -246,13 +254,5 @@ a.arrow-link:hover:before {
     .social-share--pinterest a:before {
       @include svg-sprite(pinterest-purple, mq);
     }
-  }
-}
-
-@include bp(medium) {
-  .nci-logo-pages img {
-    width: 47%;
-    min-width: initial;
-    max-width: initial;
   }
 }
