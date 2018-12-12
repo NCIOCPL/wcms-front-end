@@ -1,5 +1,6 @@
 @import '../../../../../StyleSheets/breakpoints';
 @import '../../../../../StyleSheets/fonts';
+@import '../../../../../StyleSheets/colors';
 @import './images/sprites/svg-sprite-purple';
 
 // theme color palette
@@ -9,12 +10,14 @@ $purple3: #6264b4;
 $purple4: #951b81;
 $purple5: #6b35a6;
 $purple6: #4d226d;
+$purple7: #e9e7f7;
+$purple8: #77bcff;
 
 // default theme text color
 .main-content a,
 .main-content .feature-card a,
 .feature-card.cgvArticle a h3,
-ul.breadcrumbs>* a,
+ul.breadcrumbs > * a,
 .topic-feature .cgvBlogPost a h3,
 .pullquote,
 .desktop #blog-archive-accordion .ui-accordion-header .toggle,
@@ -40,131 +43,118 @@ a .feature-card.cgvArticle a:hover h3,
   color: $purple4;
 }
 
-// header
+// header image
 .nci-logo-pages img {
   width: 70%;
 }
 
-// language bar
-.columns.utility,
-.language-bar {
+// hidden elements
+.language-bar,
+.nsdb-title .utility {
   display: none;
 }
 
-// utility bar
+#nvcgSlUtilityBar {
+  display: block !important;
+  background-color: $purple8;
+}
+
 #microsite-a {
   padding: 10px 0;
-  font-family: $montserrat-font-stack;
-  font-size: 20px;
-}
-
-.utility {
-  text-align: left;
-  color: #000;
-}
-
-.utility-background {
-  background-color: #77bcff;
-}
-
-.utility-background.micro-a {
-  display: block !important;
-}
-
-#microsite-a .utility {
-  text-align: left;
-}
-
-#microsite-a .nsdb-title span {
-  margin-left: 0;
-}
-
-#microsite-a .utility span {
-  margin-right: 0;
-  padding-left: 40px;
+  .nsdb-title {
+    font-family: $montserrat-font-stack;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 5px;
+    color: $black;
+  }
 }
 
 // menu bar
 .nav-search-bar {
   background: $purple2;
-  background: -webkit-gradient(linear, left top, left bottom, from($purple2), to($purple3));
   background: linear-gradient(180deg, $purple2, $purple3);
 }
 
 // mobile menu
-.mobile-menu-bar>a,
-.mobile-menu-bar>button {
-  margin: 1em 10% !important;
-}
+.mobile-menu-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 76px;
 
-.mobile-menu-bar>a,
-.mobile-menu-bar>button {
-  width: 13% !important;
+  > a,
+  > button {
+    margin: auto !important;
+  }
 }
 
 // mega menu
-#mega-nav .current-page {
-  background-color: $purple5;
-}
+#mega-nav { 
+  .nav-item.contains-current > .nav-item-title > a {
+    border-bottom-color: $purple5;
+  }
+  .current-page {
+    background-color: $purple5;
 
-#mega-nav .current-page>div .toggle[aria-expanded=true],
-#mega-nav .current-page>div[aria-expanded=true] .toggle {
-  background-color: #fff;
-  color: $purple2;
-}
+    > div .toggle[aria-expanded=true],
+    > div[aria-expanded=true] .toggle {
+      background-color: $white;
+      color: $purple2;
+    }
 
-#mega-nav .current-page>div .toggle[aria-expanded=false],
-#mega-nav .current-page>div[aria-expanded=false] .toggle {
-  background-color: $purple2;
-  color: #fff;
+    > div .toggle[aria-expanded=false],
+    > div[aria-expanded=false] .toggle {
+      background-color: $purple2;
+      color: $white;
+    }
+  }
 }
 
 // page options
-.page-options li {
-  background-color: $purple1;
-}
-
-.page-options li:hover {
-  background-color: $purple4;
+.page-options {
+  li {
+    background-color: $purple1;
+    &:hover {
+      background-color: $purple4;
+    }
+  }
 }
 
 // content styles
 a.arrow-link-white:hover:before,
 a.arrow-link:hover:before {
-  @include svg-sprite(chevron-circle-purple, mq);
+  @include svg-sprite(chevron-circle-purple);
 }
 
 .pullquote {
   border-left-color: $purple5;
 }
 
-.micro-a.feature-primary .feature-card,
-.micro-a.feature-primary .card {
-  background-color: $purple5;
-}
-
-.micro-a.multimedia-slot {
-  background-color: $purple1;
-}
-
 .micro-a {
   margin-top: 20px;
+  &.feature-primary {
+    .card {
+      background-color: $purple5;
+    }
+  }
+  &.multimedia-slot {
+    background-color: $purple1;
+  }
 }
 
-.feature-primary .feature-card.cgvArticle a h3,
-.feature-primary .feature-card.cgvArticle a:hover h3,
+.feature-card.cgvArticle a h3,
+.feature-card.cgvArticle a:hover h3,
 .main-content .feature-card a {
-  color: #fff;
+  color: $white;
 }
 
 .main-content .guide-card a.arrow-link,
 .main-content .guide-card a.arrow-link-white,
 .main-content a.definition,
 .multimedia .feature-card a,
-#swKeyword,
-.search,
-.utility-background {
-  color: #2e2e2e;
+.search {
+  color: $default-text;
 }
 
 // footer
@@ -172,145 +162,91 @@ a.arrow-link:hover:before {
   background-color: $purple6;
 }
 
+// theme images
+.site-footer__icons {
+  .icon.twitter {
+    @include svg-sprite(twitter-purple);
+  }
+  .icon.govdelivery {
+    @include svg-sprite(gov-delivery-purple);
+  }
+}
+
+.icon-exit-notification {
+  @include svg-sprite(external-link-purple);
+}
+
+#sitesearch {
+  @include svg-sprite(search-purple);
+}
+
 @include break(large) {
-
-  // theme images
-  .site-footer__icons .icon.twitter {
-    @include svg-sprite(twitter-purple, mq);
-  }
-
-  .site-footer__icons .icon.govdelivery {
-    @include svg-sprite(gov-delivery-purple, mq);
-  }
-
-  .icon-exit-notification {
-    @include svg-sprite(external-link-purple, mq);
-  }
-
   // header
-  .nci-logo-pages {
-    img {
-      width: 42%;
-    }
-
-    a {
-      padding-left: 16px !important;
-    }
+  .nci-logo-pages img {
+    width: 42%;
   }
 
   //  main navigation and search
   #swKeyword,
   .search {
-    background-color: #fff;
-  }
-
-  #sitesearch {
-    @include svg-sprite(search-purple, mq);
-  }
-
-  #nvcgSlMainNav.searching #siteSearchForm:before {
-    width: 75% !important;
-    left: 19% !important;
-  }
-
-  #nvcgSlMainNav.searching #swKeyword {
-    left: 20% !important;
-    width: 75% !important;
-  }
-
-  #nvcgSlMainNav.searching #searchclear {
-    z-index: 80;
-  }
-
-  .section-nav .level-0>div {
-    background-color: $purple5;
-  }
-
-  #mega-nav .nav-item.contains-current>.nav-item-title>a,
-  #mega-nav .nav-item.current-page>.nav-item-title>a {
-    border-bottom-color: $purple5;
-  }
-
-  .section-nav div.current-page {
-    background-color: $purple5 !important;
+    background-color: $white;
+    color: $default-text;
   }
 
   .sub-nav-group-header {
     color: $purple5;
+
+    &:focus,
+    &:hover {
+      color: $purple4;
+    }
   }
 
-  .sub-nav-group-header:focus,
-  .sub-nav-group-header:hover {
-    color: $purple4;
+  .section-nav {
+    .level-0 > div {
+      background-color: $purple2;
+    }
+    div.current-page {
+      background-color: $purple5;
+      &:after {
+        border-left-color: $purple5;
+      }
+    }
+    .level-1.contains-current {
+      background-color: $purple7;
+    }
   }
 
-  .section-nav .current-page:after {
-    border-left-color: $purple5;
+  .page-options {
+    li,
+    li:hover {
+      background-color: transparent;
+    }
+  
+    .page-options--resize a:before {
+      @include svg-sprite(font-size-purple, mq);
+    }
+  
+    .page-options--print a:before {
+      @include svg-sprite(printer-purple, mq);
+    }
+  
+    .page-options--email a:before {
+      @include svg-sprite(mail-envelope-closed-purple, mq);
+    }
+  
+    .social-share--facebook a:before {
+      @include svg-sprite(facebook-purple, mq);
+    }
+  
+    .social-share--twitter a:before {
+      @include svg-sprite(twitter-purple, mq);
+    }
+  
+    .social-share--pinterest a:before {
+      @include svg-sprite(pinterest-purple, mq);
+    }
   }
-
-  .section-nav .level-0>div {
-    background-color: $purple2;
-  }
-
-  .section-nav .level-1.contains-current {
-    background-color: #e9e7f7;
-  }
-
-  .page-options li,
-  .page-options li:hover {
-    background-color: transparent;
-  }
-
-  .page-options .page-options--resize a:before {
-    @include svg-sprite(font-size-purple, mq);
-  }
-
-  // desktop theme images
-  .page-options .page-options--print a:before {
-    @include svg-sprite(printer-purple, mq);
-  }
-
-  .page-options .page-options--email a:before {
-    @include svg-sprite(mail-envelope-closed-purple, mq);
-  }
-
-  .page-options .social-share--facebook a:before {
-    @include svg-sprite(facebook-purple, mq);
-  }
-
-  .page-options .social-share--twitter a:before {
-    @include svg-sprite(twitter-purple, mq);
-  }
-
-  .page-options .social-share--pinterest a:before {
-    @include svg-sprite(pinterest-purple, mq);
-  }
-
-  // desktop main menu
-  #nvcgSlMainNav.searching #siteSearchForm:before {
-    width: 75% !important;
-    left: 19% !important;
-  }
-
-  #nvcgSlMainNav.searching #swKeyword {
-    left: 20% !important;
-    width: 75% !important;
-    color: #2e2e2e;
-  }
-
-  #nvcgSlMainNav.searching #searchclear {
-    z-index: 80;
-  }
-
-  #PageOptionsControl1 {
-    display: block;
-    height: 35px;
-  }
-
-  #microsite-a .utility span {
-    display: none;
-  }
-
 }
 
 @include bp(medium) {
