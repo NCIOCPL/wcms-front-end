@@ -77,11 +77,11 @@ a .feature-card.cgvArticle a:hover h3,
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 76px;
 
   > a,
   > button {
-    margin: auto !important;
+    margin: 1em auto !important;
+    top: 0;
   }
 }
 
