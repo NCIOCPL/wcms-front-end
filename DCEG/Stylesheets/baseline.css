@@ -2578,7 +2578,7 @@ table.carousel-panel-list td {
 	text-decoration: none;
 }
 
-.callout-box {
+/*.callout-box {
 	background: #E9ECF5;
 	border: 1px solid #7C7C7C;
 	border-radius: 6px 6px 6px 6px;
@@ -2588,7 +2588,19 @@ table.carousel-panel-list td {
 	font-size: 1.1em;
 	overflow: hidden;
 }
-
+*/
+.call-out-box, .callout-box { /* new 'call-out-box' class created to distinguish between old 'callout-box' layout and inline styling */
+	background-color: #E9E4DB;
+	border: 1px solid #dbdbdb;
+	padding: 1.5em;
+	overflow: hidden;
+	line-height: 16px;
+	width: 220px;
+	margin: 10px auto;
+}
+.call-out-box p, .callout-box p {
+	padding-bottom: 5px;
+}
 .left {
 	float: left;
 	margin: 0 10px 5px 0;
