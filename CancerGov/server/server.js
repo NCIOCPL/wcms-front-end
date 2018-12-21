@@ -57,7 +57,7 @@ if (env === 'development') {
 }
 
 /** Serve up static content in the public folder **/
-app.use('/PublishedContent',
+app.use('/PublishedContent/Styles',
 	function(req,res,next){
 		var extension = req.path.substring(req.path.lastIndexOf('.') >= 0 ? req.path.lastIndexOf('.') : 0).toLowerCase();
 		if(extension == ".js" || extension == ".css" || extension == ".gif" || extension == ".jpg" || extension == ".png" || extension == ".svg") {
@@ -71,7 +71,8 @@ app.use('/PublishedContent',
 		}
 		next();
 	},
-	express.static(__dirname.replace("server","_dist")) // Load from local directory
+    express.static(__dirname.replace("server","_dist")) // Load from local directory
+    //express.static(__dirname.replace("server","../DCEG/Stylesheets")) // Load from local DCEG Stylesheet directory
 );
 
 /** Proxy Content that is not found on the server to www-blue-dev.cancer.gov **/
