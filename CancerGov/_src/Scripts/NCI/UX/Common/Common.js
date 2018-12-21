@@ -23,7 +23,6 @@ popupFunctions($);
 
 import 'Common/Plugins/Enlarge';
 import 'Plugins/jquery.nci.prevent_enter';
-//require('fork-placeholders.js');
 
 import { buildOTP, makeOutline } from 'Common/Enhancements/NCI.page';
 import search from 'Modules/search/search';

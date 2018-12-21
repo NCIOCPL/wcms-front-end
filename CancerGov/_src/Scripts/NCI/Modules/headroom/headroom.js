@@ -10,6 +10,7 @@ function _initialize() {
 	 ***/
 
 	const banner = document.getElementById("nvcgSlSiteBanner");
+	if(!banner) return;
 	const header = banner.parentElement;
 
 	// set up scroll monitor listener on the header - this will trigger the fixed and unfixed positioning of the main navigation as the header enters and exits the viewport

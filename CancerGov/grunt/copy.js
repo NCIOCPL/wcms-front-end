@@ -47,6 +47,13 @@ module.exports = function (grunt, options) {
                 filter: 'isFile'
             }]
         },
+        common: {
+            nonull: true,
+            files: [{
+                src: dirs.dist.styles + 'Common.css',
+                dest: dirs.dist.styles + 'nvcg.css'
+            }]
+        },
         widget_styles: {
             nonull: true,
             files: [{

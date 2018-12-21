@@ -19,9 +19,8 @@ function _initialize() {
 			var $this = $(this);
 			var rank = $this.index('.ct-list-item a') + 1;
 			rank += ('|page ' + pn);
-				
-				var formName = "clinicaltrials_custom";
-				NCIAnalytics.CTSResultsWithFormClick($this, rank, formName);
+			var formName = "clinicaltrials_custom";
+			NCIAnalytics.CTSResultsWithFormClick($this, rank, formName);
 		});
 	});
 }
