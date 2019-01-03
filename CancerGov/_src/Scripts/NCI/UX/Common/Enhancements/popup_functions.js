@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import * as config from 'Modules/NCI.config';
 import linkAudioPlayer from 'Modules/linkAudioPlayer/linkAudioPlayer';
 import flexVideo from 'Modules/videoPlayer/flexVideo';
+import NCIModal from 'Modules/modal';
 // import imageCarousel from './image-carousel';
 
 var lang = $('html').attr('lang') || 'en';
@@ -12,6 +13,8 @@ var longLang = 'English';
 if (lang === 'es') {
 	longLang = 'Spanish';
 }
+
+let modal = new NCIModal();
 
 const popupFunctions = () => {
 	//creates appropriate pop-up window
@@ -54,7 +57,7 @@ const popupFunctions = () => {
 		} else if (type === "definition") {
 			let term = urlargs.replace(/\s/g, '+');
 			$.when(_getDefinition(term)).done(function (termObject) {
-				console.log(termObject);
+				console.log("term",termObject);
 				// if (termObject.result.length > 0) {
 				// 	console.log(termObject);
 				// 	// _render(termObject.result[0].term);
@@ -66,7 +69,7 @@ const popupFunctions = () => {
 			let params = queryString.parse(urlargs);
 			// id's are prefixed with "CDR0000" in the html but the backend service errors out if included in request
 			let id = Object.keys(params)[0].replace("CDR0000",''); 
-			console.log("params",params);
+			//console.log("params",params);
 			// Cancer.gov is not defined as a dictionary in DictionaryService so we assign it 'term'
 			let lookup = params.dictionary === 'Cancer.gov' ? 'term' : params.dictionary;
 
@@ -74,7 +77,7 @@ const popupFunctions = () => {
 			$.when(_getTerm(lookup,id)).done(function (termObject) {
 				//TODO: error returns 404 html page, not an error object
 				if (termObject.term) {
-					console.log("term",termObject.term);
+					//console.log("term",termObject.term);
 					// if we have a term in our return JSON, trigger the modal which will render the JSON data
 					triggerModal(termObject.term);
 				}
@@ -97,38 +100,46 @@ const popupFunctions = () => {
 
 	const triggerModal = (term) => {
 
+		// jQuery modal implementation
 		// check if modal exists already, else create it and kick off render
-		if ($("#modal_definition")[0]) {
-			$("#modal_definition").html(renderTerm(term)).dialog("open");
-		} else {
-			// create a new modal window
-			$('<div id="modal_definition"></div>')
-				.dialog({
-					title: config.lang.Definition_Title[lang],
-					minWidth: 620,
-					maxHeight: 800,
-					modal: true,
-					position: {
-						my: "top",
-						at: "top+10%",
-						of: window
-					},
-					resizable: false,
-					show: { effect: "fade", duration: 250 },
-					hide: { effect: "fade", duration: 250 },
-					open: function(){
-						$('.ui-widget-overlay').addClass('clickable').on('click', function (evt) {
-							$('#modal_definition').dialog("close");
-						});
-					}
-				})
-				.html(renderTerm(term));
-		}
+		// if ($("#modal_definition")[0]) {
+		// 	$("#modal_definition").html(renderTerm(term)).dialog("open");
+		// } else {
+		// 	// create a new modal window
+		// 	$('<div id="modal_definition"></div>')
+		// 		.dialog({
+		// 			title: config.lang.Definition_Title[lang],
+		// 			minWidth: 620,
+		// 			maxHeight: 800,
+		// 			modal: true,
+		// 			position: {
+		// 				my: "top",
+		// 				at: "top+10%",
+		// 				of: window
+		// 			},
+		// 			resizable: false,
+		// 			show: { effect: "fade", duration: 250 },
+		// 			hide: { effect: "fade", duration: 250 },
+		// 			open: function(){
+		// 				$('.ui-widget-overlay').addClass('clickable').on('click', function (evt) {
+		// 					$('#modal_definition').dialog("close");
+		// 				});
+		// 			}
+		// 		})
+		// 		.html(renderTerm(term));
+		// }
+
+		// console.log(NCIModal);
+
+		modal.setContent(renderTerm(term));
+		
+		modal.showModal();
 
 		// After the template has been rendered, initialize JS modules
+
 		// initialize audio player
 		if(!!term.pronunciation) {
-			linkAudioPlayer("#modal_definition .CDR_audiofile");
+			linkAudioPlayer(".modal__content .CDR_audiofile");
 		}
 
 		// initialize video player
@@ -189,14 +200,14 @@ const popupFunctions = () => {
 		const renderImages = (images) => {
 			//TODO: render as a carousel if more than two images?
 			let template = `
-				${images.map(item => `<figure style="width: 75%; margin: 0 auto"><img src="${item.ref}" alt="${item.alt}" /><figcaption><div class="caption-container">${item.caption}</div></figcaption></figure>`).join('')}
+				${images.map(item => `<figure style="width: 100%; margin: 0 auto"><img src="${item.ref}" alt="${item.alt}" /><figcaption><div class="caption-container">${item.caption}</div></figcaption></figure>`).join('')}
 			`;
 			return template
 		}
 
 		// render any videos
 		const renderVideos = (videos) => {
-			//TODO: render as a carousel if more than two images?
+			//TODO: render as a carousel if more than two videos?
 			//TODO: combine images and videos into a multimedia carousel?
 			let template = `
 				${videos.map(item => `<figure class="video center size75">
@@ -214,12 +225,15 @@ const popupFunctions = () => {
 		// this is the complete template that will be rendered to the dialog popup. It will conditionally check for data values before attempting to render anything. This way we can avoid property undefined errors and empty DOM nodes.
 		//TODO: still no info on what term.related.summary and term.related.term are used for, what their data structure is, and if they're ever populated by the service
 		let hasMoreInfo = !!term.related.external && !!term.related.external.length || !!term.related.summary && !!term.related.summary.length || !!term.related.term && !!term.related.term.length;
+		// TODO: Normalize data into a flat object
 
-		console.log(hasMoreInfo)
 		let template = `
 			<dl>
-				<dt class="term"><dfn><h4>${term.term}</h4></dfn></dt>
-				${term.pronunciation ? `<dd class="pronunciation"><a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a> ${term.pronunciation.key}</dd>` : ''}
+				<dt class="term">
+					<span>Definition:</span>
+					<dfn>${term.term}</dfn>
+					${term.pronunciation ? `<span class="pronunciation">${term.pronunciation.key} <a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a></span>` : ''}
+				</dt>
 				${!!term.related.drug_summary.length ? `<dd class="info-summary"><a href="${term.related.drug_summary[0].url}"><img src="/images/btn-patient-info.gif" alt="Patient Information" title="Patient Information" width="139" height="20" hspace="12" border="0" align="absmiddle"></a></dd>` : ''}
 				${term.definition.html ? `<dd class="definition">${term.definition.html}</dd>` : ''}
 				${/* !!term.alias.length ? renderAliasesTable(term.alias) : '' */''}

@@ -1,0 +1,166 @@
+@import "../../../../StyleSheets/colors";
+@import "../../../../StyleSheets/breakpoints";
+@import "../../../../StyleSheets/spinner";
+@import "../../../../StyleSheets/sprites/svg-sprite";
+
+/**************************\
+  Basic Modal Styles
+\**************************/
+@keyframes mmfadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes mmfadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+@keyframes mmslideIn {
+	from {
+		transform: translateY(15%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+@keyframes mmslideOut {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-10%);
+	}
+}
+.dialog {
+  position: fixed;
+  top: 50%;
+  z-index: 10;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.modal__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 50px;
+	background-color: $modal-background;
+  padding: 10px 0;
+  width: 94vw;
+  max-width: 700px;
+	max-height: 88vh;
+  box-sizing: border-box;
+  color: $white;
+  box-shadow: 0 0 9px 1px rgba($black,.15);
+}
+
+.modal__btn-close {
+  @include svg-sprite(close-lt-gray);
+  cursor: pointer;
+  font-size: 1.0625em;
+  background-color: transparent;
+  border: none;
+  min-height: 28px;
+}
+
+.modal__content {
+	margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0 20px;
+  line-height: 1.5;
+  overflow-y: auto;
+  
+  .CDR_audiofile {
+    @include svg-sprite(volume-up-white);
+    position: relative;
+    top: -1px;
+    font-size: .762em;
+  }
+
+  dl {
+    margin-bottom: 0;
+  }
+
+  dt.term {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-align: center;
+    dfn {
+      text-transform: capitalize;
+    }
+  }
+
+  .caption-container {
+    color: $black;
+  }
+}
+
+// amimations
+.modal-slide {
+	display: none;
+	.modal__container {
+		will-change: transform;
+	}
+	.modal__overlay {
+		will-change: transform;
+	}
+}
+.modal-slide.is-open {
+	display: block;
+}
+.modal-slide[aria-hidden="false"] {
+	.modal__overlay {
+		animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+	}
+	.modal__container {
+		animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+	}
+}
+.modal-slide[aria-hidden="true"] {
+	.modal__overlay {
+		animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+	}
+	.modal__container {
+		animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+	}
+}
+
+.dialog {
+  will-change: transform;
+}
+.dialog[aria-hidden="false"] {
+  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+.dialog[aria-hidden="true"] {
+  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+@include break(tablet-ls) {
+  .modal__btn-close {
+    align-self: flex-end;
+    margin-right: 10px;
+
+    &:last-child {
+      display: none;
+    }
+  }
+}
