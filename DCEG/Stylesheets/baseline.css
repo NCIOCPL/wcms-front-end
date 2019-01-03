@@ -1901,16 +1901,16 @@ body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColum
 	**/
 
 #genSlotRelatedLinks {
-	border: 1px solid #000;
-	-moz-border-radius: 6px;
+	border: 1px solid #dbdbdb;
+	/*-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 	-khtml-border-radius: 6px;
 	border-radius: 6px;
 	-moz-box-shadow: 1px 5px 5px #bbbbbb;
 	-webkit-box-shadow: 1px 5px 5px #bbbbbb;
-	box-shadow: 1px 5px 5px #bbbbbb;
+	box-shadow: 1px 5px 5px #bbbbbb; */
 	margin-bottom: 22px;
-	padding: 18px 18px 0 18px;
+	padding: 1.5em;
 }
 
 #genSlotRelatedLinks h3 {
@@ -2590,11 +2590,11 @@ table.carousel-panel-list td {
 }
 */
 .call-out-box, .callout-box { /* new 'call-out-box' class created to distinguish between old 'callout-box' layout and inline styling */
-	background-color: #E9E4DB;
+	/*background-color: #E9E4DB;*/
 	border: 1px solid #dbdbdb;
 	padding: 1.5em;
 	overflow: hidden;
-	line-height: 16px;
+	line-height: 1.375;
 	width: 220px;
 	margin: 10px auto;
 }

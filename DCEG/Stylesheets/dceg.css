@@ -275,60 +275,52 @@ figcaption p:last-child {
 .topic-feature {
 	padding: 0;
 	margin-bottom: 1em;
-	background-color: #f5fafc;
 	border: 1px solid #dbdbdb;
+	/*background-color: #f5fafc;*/
 	/*box-shadow: 0 0 9px 1px rgba(0,0,0, .15);*/
 }
 .topic-feature.card.left {
-		margin-right: 1em;
-		width: 220px;
-    }
-
+	margin-right: 1em;
+	width: 220px;
+}
 .topic-feature.card.right {
-		margin-left: 1em;
-		width: 220px;
-    }
-
+	margin-left: 1em;
+	width: 220px;
+}
 .topic-feature h3 {
-		font-size: 1.375em;
-		line-height: 1.272;
+	font-size: 1.375em;
+	line-height: 1.272;
 }
 .topic-feature a {
-		padding: 1.5em;
-		display: block;
+	padding: 1.5em;
+	display: block;
 }
 .topic-feature a:hover {
 	text-decoration: none;
 }
 .topic-feature a h3 {
-		color: #0054a6;
+	color: #0054a6;
 }
 .topic-feature a:hover h3, .topic-feature a:focus h3 {
-		color: #7F0A0C;
-		text-decoration: none;
+	color: #7F0A0C;
+	text-decoration: none;
 }
-
-.topic-feature	p {
-		margin-bottom: 0;
-		color: #2e2e2e;
-		font-size: em-calc(16px);
-		line-height: 1.167em;
+.topic-feature p {
+	margin-bottom: 0;
+	color: #000000;
+	line-height: 1.375;
 }
-.topic-feature	p:last-child {
-		padding-bottom: 0;
-
+.topic-feature p:last-child {
+	padding-bottom: 0;
 }   
 .topic-feature .feature-card div {
-		margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 .topic-feature .feature-card h3 {
-			margin-top: 0;
-			font-size: 1.1em;
-			line-height: 1.2;
+	margin-top: 0;
+	font-size: 1.1em;
+	line-height: 1.2;
 }
 .topic-feature .feature-card p {
-			line-height: 1.375;
-			font-size: 0.9em;
-			color: #757575;
+	line-height: 1.375;
 }
-
