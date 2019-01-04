@@ -7,9 +7,9 @@ import flexVideo from 'Modules/videoPlayer/flexVideo';
 import NCIModal from 'Modules/modal';
 // import imageCarousel from './image-carousel';
 
-var lang = $('html').attr('lang') || 'en';
+const lang = $('html').attr('lang') || 'en';
 // Set the language for finding the dictionary term/definition
-var longLang = 'English'; 
+let longLang = 'English'; 
 if (lang === 'es') {
 	longLang = 'Spanish';
 }
@@ -17,51 +17,39 @@ if (lang === 'es') {
 let modal = new NCIModal();
 
 const popupFunctions = () => {
-	//creates appropriate pop-up window
-	function popWindowOld(type, urlargs){
-		if (type == "privacy") {
-			window.open('/common/popUps/popPrivacy.aspx','','scrollbars=no,resizable=yes,width=300,height=300');
-		} else if (type == "livehelp") {
-			window.open('/common/popUps/popLiveHelp.aspx','LiveHelp','scrollbars=yes,resizable=yes,menubar=yes,toolbar=yes,location=yes,width=425,height=500');
-		} else if (type == "definition") {
-			urlargs = urlargs.replace(/\s/g, '+');
-			window.open('/common/popUps/popDefinition.aspx?term=' + urlargs,'','scrollbars=yes,resizable=yes,width=350,height=450');
-		} else if (type == "defbyid") {
-			window.open('/common/popUps/popDefinition.aspx?id=' + urlargs,'','scrollbars=yes,resizable=yes,width=350,height=450');
-		} else if (type == "file") {
-			window.open(urlargs, '', 'scrollbars=yes,resizable=yes,width=550,height=550');
-		} else if (type == "fullbrowser") {
-			window.open(urlargs, '', 'menubar=yes,location=yes,status=yes,toolbar=yes,titlebar=yes,scrollbars=yes,resizable=yes,width=675,height=510');
-		} else if (type == "small") {
-			window.open(urlargs, '', 'scrollbars=no,resizable=no,menubar=no,status=no,toolbar=no,titlebar=no,width=200,height=100,left=400,screenX=400,top=300,screenY=300');
-		}
-	} 
 
 	// get the full definition from the dictionary service
-	var _getDefinition = (term) => {
+	const _getDefinition = (term) => {
 		return dictionary.search('term', term, longLang, 'exact');
 	};
 	// get the full definition from the dictionary service
-	var _getTerm = (lookup,id) => {
+	const _getTerm = (lookup,id) => {
 		return dictionary.getTerm(lookup, id, longLang);
 	};
 
 	const popWindow = (type, urlargs) => {
-		let url = '';
-		if (type === "privacy") {
-			url = '/common/popUps/popPrivacy.aspx';
 			
-		} else if (type === "livehelp") {
-			url = '/common/popUps/popLiveHelp.aspx';
-			
-		} else if (type === "definition") {
+		if (type === "definition") {
 			let term = urlargs.replace(/\s/g, '+');
 			$.when(_getDefinition(term)).done(function (termObject) {
-				console.log("term",termObject);
-				// if (termObject.result.length > 0) {
-				// 	console.log(termObject);
-				// 	// _render(termObject.result[0].term);
-				// }
+				if (termObject.result && termObject.result.length > 0) {
+					// if we have a term in our return JSON, trigger the modal which will render the JSON data
+					triggerModal(termObject.result[0].term);
+				}
+			});
+
+		} else if (type === "help") {
+			const searchHelpURL = '/Common/PopUps/popHelp.html';
+
+			$.ajax({
+				url:searchHelpURL,
+				dataType: 'html',
+				success: (response) => {
+					// extract the body content from html document
+					const pattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+					const content = pattern.exec(response)[1];
+					triggerModal(content);
+				}
 			});
 			
 		} else if (type === "defbyid") {
@@ -69,7 +57,6 @@ const popupFunctions = () => {
 			let params = queryString.parse(urlargs);
 			// id's are prefixed with "CDR0000" in the html but the backend service errors out if included in request
 			let id = Object.keys(params)[0].replace("CDR0000",''); 
-			//console.log("params",params);
 			// Cancer.gov is not defined as a dictionary in DictionaryService so we assign it 'term'
 			let lookup = params.dictionary === 'Cancer.gov' ? 'term' : params.dictionary;
 
@@ -77,13 +64,12 @@ const popupFunctions = () => {
 			$.when(_getTerm(lookup,id)).done(function (termObject) {
 				//TODO: error returns 404 html page, not an error object
 				if (termObject.term) {
-					//console.log("term",termObject.term);
 					// if we have a term in our return JSON, trigger the modal which will render the JSON data
 					triggerModal(termObject.term);
 				}
-			});
-			
+			});	
 		} else {
+			// fallback?
 			window.open(urlargs, '', 'scrollbars=yes,resizable=yes,width=550,height=550');
 		}
 
@@ -100,39 +86,9 @@ const popupFunctions = () => {
 
 	const triggerModal = (term) => {
 
-		// jQuery modal implementation
-		// check if modal exists already, else create it and kick off render
-		// if ($("#modal_definition")[0]) {
-		// 	$("#modal_definition").html(renderTerm(term)).dialog("open");
-		// } else {
-		// 	// create a new modal window
-		// 	$('<div id="modal_definition"></div>')
-		// 		.dialog({
-		// 			title: config.lang.Definition_Title[lang],
-		// 			minWidth: 620,
-		// 			maxHeight: 800,
-		// 			modal: true,
-		// 			position: {
-		// 				my: "top",
-		// 				at: "top+10%",
-		// 				of: window
-		// 			},
-		// 			resizable: false,
-		// 			show: { effect: "fade", duration: 250 },
-		// 			hide: { effect: "fade", duration: 250 },
-		// 			open: function(){
-		// 				$('.ui-widget-overlay').addClass('clickable').on('click', function (evt) {
-		// 					$('#modal_definition').dialog("close");
-		// 				});
-		// 			}
-		// 		})
-		// 		.html(renderTerm(term));
-		// }
+		let content = typeof term === "object" ? renderTerm(term) : term;
 
-		// console.log(NCIModal);
-
-		modal.setContent(renderTerm(term));
-		
+		modal.setContent(content);
 		modal.showModal();
 
 		// After the template has been rendered, initialize JS modules
@@ -239,57 +195,22 @@ const popupFunctions = () => {
 				${/* !!term.alias.length ? renderAliasesTable(term.alias) : '' */''}
 				${/* hasMoreInfo ? renderMoreInfo(term.related) : ''*/''}
 				${!!term.images && !!term.images.length ? renderImages(term.images) : ''}
-				${!!term.videos && term.videos.length ? renderVideos(term.videos) : ''}
+				${/* !!term.videos && term.videos.length ? renderVideos(term.videos) : '' */''}
 			</dl>
 		`;
 
 		return template;
 	}
 
-
-
 	window.popWindow = popWindow;
 
+
 	function dynPopWindow(url, name, windowAttributes){
-		var options = '';
-		var optWidth = 'width=500';
-		var optHeight = 'height=500';
-		var optScrollbar = 'scrollbars=yes';
-		var optResizable = 'resizable=yes';
-		var optMenubar = 'menubar=yes';
-		var optLocation = 'location=yes';
-		var optStatus = 'status=yes';
-		var optToolbar = 'toolbar=yes';
-
-		var windowOptions = windowAttributes.split(',');
-
-		for(i = 0; i < windowOptions.length; i++){
-			var attribute = windowOptions[i].substring(0, windowOptions[i].indexOf('=')).toLowerCase();
-
-			if(attribute == 'width'){
-				optWidth = windowOptions[i];
-			} else if(attribute == 'height'){
-				optHeight = windowOptions[i];
-			} else if(attribute == 'scrollbars'){
-				optScrollbar = windowOptions[i];
-			} else if(attribute == 'resizable'){
-				optResizable = windowOptions[i];
-			} else if(attribute == 'menubar'){
-				optMenubar = windowOptions[i];
-			} else if(attribute == 'location'){
-				optLocation = windowOptions[i];
-			} else if(attribute == 'status'){
-				optStatus = windowOptions[i];
-			} else if(attribute == 'toolbar'){
-				optToolbar = windowOptions[i];
-			}
-		}
-
-		options = optWidth + ',' + optHeight + ',' + optScrollbar + ',' + optResizable + ',' + optMenubar + ',' + optLocation + ',' + optStatus + ',' + optToolbar;
-
-		window.open(url, name, options);
-
+		// just forwarding this hard coded method to popWindow. All instances of dynPopWindow are for Search Help currently
+		const type = url.match('Help.aspx').length ? 'help' : 'popup';
+		popWindow(type,url);
 	}
+
 	window.dynPopWindow = dynPopWindow;
 }
 

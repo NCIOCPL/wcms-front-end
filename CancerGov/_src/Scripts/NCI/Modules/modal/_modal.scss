@@ -45,6 +45,10 @@
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
 }
+.modal {
+  position: relative;
+  z-index: 1000;
+}
 .modal__overlay {
 	position: fixed;
 	top: 0;
