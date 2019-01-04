@@ -125,7 +125,7 @@ $(document).ready(function() {
 				class: 'on-this-page',
 				placement: {
 					insert: 'prependTo',
-					to: $('<div id="pdq-toc-article">').insertAfter('#pdq-toptoc')
+					to: $('.summary-sections').prepend($('<div id="pdq-toc-article">'))
 				},
 				ignore: {
 					heading: ['h6', '[do-not-show="toc"]'],
@@ -325,22 +325,22 @@ $(document).ready(function() {
 	// Creating the Section Nav in the pdq-toptoc DIV
 	// All content within the article tag is used
 	// ------------------------------------------------------------
-	buildTopTOC()
-		// add analytics
-		.on('click.NCI.toptoc', 'a', function(e) {
-			if ($(this).parent('li').hasClass('viewall')) {
-				NCIAnalytics.RightNavLink(this, 'View All Click');
-			} else {
-				NCIAnalytics.RightNavLink(this, 'Section Nav Click');
-			}
-		});
+	// buildTopTOC()
+	// 	// add analytics
+	// 	.on('click.NCI.toptoc', 'a', function(e) {
+	// 		if ($(this).parent('li').hasClass('viewall')) {
+	// 			NCIAnalytics.RightNavLink(this, 'View All Click');
+	// 		} else {
+	// 			NCIAnalytics.RightNavLink(this, 'Section Nav Click');
+	// 		}
+	// 	});
 
 	// Preparing the sections with the show/hide attributes
 	// ------------------------------------------------------------
-	showSection($('.pdq-sections:eq(0)').parent().closest('section'));
+	//showSection($('.pdq-sections:eq(0)').parent().closest('section'));
 
 	// Creating the previous/next navigation links
-	buildPrevNext();
+	//buildPrevNext();
 
 	// Creating the full-page TOC
 	buildFullTOC();

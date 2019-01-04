@@ -92,9 +92,9 @@
 		display: block;
 	}
 	// hide the individual sections' OTP
-	.pdq-sections .on-this-page {
-		display: none;
-	}
+	// .pdq-sections .on-this-page {
+	// 	display: none;
+	// }
 	
 	/*** BEGIN PDQ Styles ***/
 	.toptoc {
@@ -115,9 +115,10 @@
 	}
 	
 	/** BEGIN PDQ Styles **/
-	section.hide, div.hide {
-		display: none;
-	}
+	section.hide, div.hide,
+	// {
+	// 	display: none;
+	// }
 	section.show, div.show {
 		display: block;
 	}
