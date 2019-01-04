@@ -1911,6 +1911,7 @@ body .genSiteContentContainer.noSidebars .genSiteMainColumn .genSiteContentColum
 	box-shadow: 1px 5px 5px #bbbbbb; */
 	margin-bottom: 22px;
 	padding: 1.5em;
+	clear: both;
 }
 
 #genSlotRelatedLinks h3 {
