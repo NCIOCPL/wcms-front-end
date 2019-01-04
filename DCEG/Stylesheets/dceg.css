@@ -324,3 +324,8 @@ figcaption p:last-child {
 .topic-feature .feature-card p {
 	line-height: 1.375;
 }
+.topic-feature .feature-card img {
+	max-width: 100%;
+	height: auto;
+	-ms-interpolation-mode: bicubic;
+}
