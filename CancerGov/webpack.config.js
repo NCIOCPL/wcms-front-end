@@ -41,6 +41,7 @@ module.exports = {
 		Charts:                 './UX/Common/Enhancements/charts',
 		R4R:                    './UX/AppModuleSpecific/R4R/R4R',
 		Purple:                 './UX/Themes/purple/purple',
+		Blue:                   './UX/Themes/blue/blue',
 		ProfilePage:			      './UX/PageSpecific/Profile/ProfilePage'
 	},
 	target: 'web',
