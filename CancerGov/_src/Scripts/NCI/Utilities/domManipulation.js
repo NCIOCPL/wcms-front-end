@@ -138,3 +138,94 @@ export const pageOptionsTransporter = () => {
 	mqEventHandler(mediaQueryListener)
 
 }
+/**
+ * Wrap each element in a nodeList with a new element
+ * 
+ * @param {string} tag - type of element tag to be created
+ * @param {Object} attributes - attributes to be added to the newly created wrapping element
+ * @return {node}
+ */
+export const createEl = (tag, attributes = {}) => {
+	// create the element
+	let element = document.createElement(String(tag));
+
+	// for each attribute
+	for (const [attr, val] of Object.entries(attributes)) {
+		// assign the attribute, prefixing capital letters with dashes 
+		element.setAttribute(attr.replace(/[A-Z]/g, '-$&'), val);
+	}
+
+	return element;
+}
+
+/**
+ * Wrap each element in a nodeList with a new element. Intended to replace jQuery.wrap()
+ * 
+ * @param {string} query - CSS3 selector
+ * @param {string} tag - type of element tag to be created
+ * @param {Object} attributes - attributes to be added to the newly created wrapping element
+ */
+export const wrap = (query, tag, attributes) => {
+
+  document.querySelectorAll( query ).forEach( elem => {
+		const wrapEl = createEl(tag,attributes);
+
+    elem.parentElement.insertBefore(wrapEl, elem);
+    wrapEl.appendChild(elem);
+  });
+};
+
+/**
+ * Wrap all elements in a nodeList with a new element, grouping all the nodeList elements together as siblings. Intended to replace jQuery.wrapAll()
+ * 
+ * @param {string} query - CSS3 selector
+ * @param {string} tag - type of element tag to be created
+ * @param {Object} attributes - attributes to be added to the newly created wrapping element
+ */
+export const wrapAll = (query, tag, attributes) => {
+	const wrapEl = createEl(tag,attributes);
+	const nodeList = document.querySelectorAll( query );
+
+	nodeList[0].parentElement.insertBefore(wrapEl, nodeList[0]);
+
+  nodeList.forEach( elem => {
+    wrapEl.appendChild(elem);
+  });
+};
+
+// Fetch jQuery specific data on a DOM node, to be used by getData()
+export const expando = (item) => Object.keys(item).filter(key => key.match(/^jQuery/)).map(key => item[key]);
+
+// Get data from a DOM node that was stored using jQuery.data() method
+export const getData = (item, name) => {
+	const data = expando(item).map(el => el[convertToCamel(name)]);
+	if(data[0]){
+		return data[0]
+	}
+};
+
+// convert camelCase to camel-case
+export const convertToKebab = (string) => string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+
+// conver camel-case to camelCase or CamelCase if pascal = true
+export const convertToCamel = (string, pascal = false) => {
+	const converter = (matches) => matches[1].toUpperCase();
+	let result = string.replace(/(\-\w)/g, converter);
+
+	if ( pascal === true ) {
+		result = result.charAt(0).toUpperCase() + result.slice(1);
+	}
+
+	return result;
+}
+
+// autodetect case conversion
+export const caseConverter = (string, pascal = false) => {
+	if (string.match(/(\-\w)/)) {
+    return convertToCamel(string, pascal)
+  } else if (string.match(/([a-z])([A-Z])/g)) {
+    return convertToKebab(string)
+  } else {
+    return string;
+  }
+} 
