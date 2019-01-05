@@ -193,21 +193,45 @@ export const wrapAll = (query, tag, attributes) => {
   });
 };
 
-// Fetch jQuery specific data on a DOM node, to be used by getData()
+/**
+ * Access expando values from DOM nodes that were created by jQuery
+ * 
+ * @param {node} item - DOM node
+ * @return {Object} - key:value data object
+ */
 export const expando = (item) => Object.keys(item).filter(key => key.match(/^jQuery/)).map(key => item[key]);
 
-// Get data from a DOM node that was stored using jQuery.data() method
-export const getData = (item, name) => {
-	const data = expando(item).map(el => el[convertToCamel(name)]);
+/**
+ * Get data from a DOM node that was stored using jQuery.data() method
+ * 
+ * @param {node} elem - DOM node
+ * @param {string} name - name of data key to retrieve
+ * @return {Object} - value of data stored on the element
+ * 
+ * TODO: have not tested with a nodeList that has more than one entry in the array
+ */
+export const getData = (elem, name) => {
+	const data = expando(elem).map(el => el[convertToCamel(name)]);
 	if(data[0]){
 		return data[0]
 	}
 };
 
-// convert camelCase to camel-case
+/**
+ * Convert camel case strings to hyphenated lowercase strings
+ * 
+ * @param {string} string - camel cased string to convert
+ * @return {string}
+ */
 export const convertToKebab = (string) => string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 
-// conver camel-case to camelCase or CamelCase if pascal = true
+/**
+ * Convert hyphenated strings to camel case strings
+ * 
+ * @param {string} string - hyphenated string to convert
+ * @param {boolean} pascal - capitalize the first letter in the string
+ * @return {string}
+ */
 export const convertToCamel = (string, pascal = false) => {
 	const converter = (matches) => matches[1].toUpperCase();
 	let result = string.replace(/(\-\w)/g, converter);
@@ -219,7 +243,13 @@ export const convertToCamel = (string, pascal = false) => {
 	return result;
 }
 
-// autodetect case conversion
+/**
+ * Autodetect string conversion from camel case to hyphenated and vice versa
+ * 
+ * @param {string} string - string to convert
+ * @param {boolean} pascal - capitalize the first letter in the string
+ * @return {string}
+ */
 export const caseConverter = (string, pascal = false) => {
 	if (string.match(/(\-\w)/)) {
     return convertToCamel(string, pascal)

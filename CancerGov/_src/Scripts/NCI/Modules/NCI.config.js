@@ -1,8 +1,9 @@
 export const breakpoints = {
     small: 480,
     medium: 640,
+    tabletWide: 768,
     large: 1024,
-    xlarge: 1280,
+    xlarge: 1280
 }
 
 export const lang = {
