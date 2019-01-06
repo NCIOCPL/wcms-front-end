@@ -1,6 +1,8 @@
 .topic-feature {
 	margin-bottom: 1em;
-	background-color: $paleblue;
+	border: 1px solid $grey04;
+	background-color: $white;
+	box-shadow: 0 0 9px 1px rgba($black,.15);
 
 	&.card {
 		padding: 0;
