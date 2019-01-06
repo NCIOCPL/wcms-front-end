@@ -1,5 +1,6 @@
 @import "../../../../StyleSheets/colors";
 @import "../../../../StyleSheets/breakpoints";
+@import "../../../../StyleSheets/fonts";
 @import "../../../../StyleSheets/spinner";
 @import "../../../../StyleSheets/sprites/svg-sprite";
 
@@ -65,12 +66,12 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  top: 50px;
+  top: 20px;
 	background-color: $modal-background;
   padding: 10px 0;
   width: 94vw;
   max-width: 700px;
-	max-height: 88vh;
+	max-height: 90vh;
   box-sizing: border-box;
   color: $white;
   box-shadow: 0 0 9px 1px rgba($black,.15);
@@ -91,6 +92,7 @@
   padding: 0 20px;
   line-height: 1.5;
   overflow-y: auto;
+  font-family: $montserrat-font-stack;
   
   .CDR_audiofile {
     @include svg-sprite(volume-up-white);
@@ -156,6 +158,12 @@
 }
 .dialog[aria-hidden="true"] {
   animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+@include break(medium) {
+  .modal__content {
+    padding: 0 40px;
+  }
 }
 
 @include break(tablet-ls) {
