@@ -1,0 +1,43 @@
+@import "colors";
+
+.breadcrumbs {
+	display: block;
+	overflow: hidden;
+	list-style: none;
+	> * {
+		margin: 0;
+		float: left;
+		span {
+			color: $color-link;
+		}
+		&:before {
+			content: "\003E";
+			color: $body-font-color;
+			margin: 0 .25em;
+			position: relative;
+			top: 1px;
+		}
+		&:first-child {
+			&:before {
+				content: " ";
+				margin: 0;
+			}
+    }
+    a {
+      &:focus, &:hover {
+        text-decoration: underline;
+      }
+    }
+	}
+	> .current {
+		cursor: default;
+		color: $dgrey02;
+		a {
+			cursor: default;
+      color: $dgrey02;
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+		}
+	}
+}
