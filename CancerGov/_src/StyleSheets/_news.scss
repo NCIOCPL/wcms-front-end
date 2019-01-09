@@ -71,8 +71,29 @@ a.arrow-link.news-footer {
 	}
 }
 
-li.news-share {
-
+.news {
+	.card {
+		padding-top: 0em;
+	}
+	.list {
+		.general-list-item {
+			display: list-item;
+		}
+		li {
+			display: none;
+		}
+		// changing default behavior of list image for new landing page so that the image is 188px wide at desktop, matching the specs for thumbnail cards
+		.container {
+			&.image {
+				width: 25%;
+			}
+		}
+	}
+	// for Recent Press Releases title
+	.dynamic > .title {
+		font-size: 1.5em;
+		font-weight: bold;
+	}
 }
 
 @include bp(small){
@@ -84,33 +105,18 @@ li.news-share {
 	}
 }
 
-.news .card {
-	padding-top: 0em;
-}
-
-.news .list .general-list-item {
-	display: list-item;
-}
-
-
-.news .list li {
-	display: none;
-}
-
 @include bp(medium-up) {
-	.news .large-8.gutter {
-		width: 66%;
-	}
 
-	.news .card {
-		margin-bottom: 1em;
-		padding-left: 0.9375em;
-		padding-right: 0.9375em;
-	}
+	.news {
+		.large-8.gutter {
+			width: 66%;
+		}
+		.card {
+			margin-bottom: 1em;
+			padding-left: 0.9375em;
+			padding-right: 0.9375em;
+		}
+	} 
 }
-// for Recent Press Releases title
-.news .dynamic > .title {
-	font-size: 1.5em;
-	font-weight: bold;
-}
+
 /********** END News Page Styles ******************************************/
