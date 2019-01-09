@@ -1,23 +1,22 @@
-@import "../../../../../StyleSheets/environments/percussion";
-@import "../../../../../StyleSheets/variables";
-@import "../../../../../StyleSheets/mixins";
-@import "../../../../../StyleSheets/fonts";
-@import '../../../../../StyleSheets/breakpoints';
-@import "../../../../../StyleSheets/placeholders";
-@import "../../../../../StyleSheets/sprites/svg-sprite";
-@import "../../../../../StyleSheets/nci-foundation_mixins";
-@import "../../../../../StyleSheets/nci-foundation_variables";
-@import "../../../../../StyleSheets/topicFeature";
-@import "../../../../../StyleSheets/equalheights";
-@import "../../../../../StyleSheets/landing-thumb";
-@import "../../../../../StyleSheets/searchresults";
-@import "../../../../../StyleSheets/bodybanner";
-@import "../../../../NCI/Modules/bestBets/bestBets";
-@import "../../../../../StyleSheets/nokia-maps";
-@import "../../../../../StyleSheets/cts-listing";
-@import "../../../../../StyleSheets/directory-search";
-@import "../../../../../StyleSheets/feature_cards";
-@import "../../../../../StyleSheets/related-links";
+@import "~StyleSheets/environments/percussion";
+@import "~StyleSheets/variables";
+@import "~StyleSheets/mixins";
+@import "~StyleSheets/fonts";
+@import '~StyleSheets/breakpoints';
+@import "~StyleSheets/placeholders";
+@import "~StyleSheets/sprites/svg-sprite";
+@import "~StyleSheets/topicFeature";
+@import "~StyleSheets/equalheights";
+@import "~StyleSheets/landing-thumb";
+@import "~StyleSheets/searchresults";
+@import "~StyleSheets/bodybanner";
+@import "~Modules/bestBets/bestBets";
+@import "~StyleSheets/nokia-maps";
+@import "~StyleSheets/cts-listing";
+@import "~StyleSheets/directory-search";
+@import "~StyleSheets/feature_cards";
+@import "~StyleSheets/related-links";
+@import "~StyleSheets/image-video-carousel";
 
 // DIN Regular is currently only used in charts.js (a.k.a: Highcharts) where the font style is included in a JSON config object.
 // SASS did not see this font style being used in .scss styles so it was shaken out

@@ -7,4 +7,4 @@ $sprite-path:(
 $svg-sprite: map-merge(map-get($svg-icons, sprite),$sprite-path);
 $baseFontSize: 16px !default;
 
-@import '../../../../../../../StyleSheets/sprites/mixins';
+@import '~StyleSheets/sprites/mixins';

@@ -1,11 +1,11 @@
 
-@import "../../../../../StyleSheets/environments/percussion";
-@import "../../../../../StyleSheets/variables";
-@import "../../../../../StyleSheets/mixins";
-@import "../../../../../StyleSheets/fonts";
-@import '../../../../../StyleSheets/breakpoints';
-@import "../../../../../StyleSheets/sprites/svg-sprite";
-@import "../../../../../StyleSheets/nci-foundation_variables";
+@import "~StyleSheets/environments/percussion";
+@import '~StyleSheets/colors';
+@import "~StyleSheets/variables";
+@import "~StyleSheets/mixins";
+@import "~StyleSheets/fonts";
+@import '~StyleSheets/breakpoints';
+@import "~StyleSheets/sprites/svg-sprite";
 
 /********** BEGIN Cancer Type Home Page Styles ******************************************/
 .image-right-medium {

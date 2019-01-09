@@ -1,11 +1,10 @@
-@import "../../../../../StyleSheets/environments/percussion";
-@import '../../../../../StyleSheets/variables';
-@import '../../../../../StyleSheets/mixins';
-@import '../../../../../StyleSheets/fonts';
-@import '../../../../../StyleSheets/breakpoints';
-@import '../../../../../StyleSheets/nci-foundation_variables';
-@import "../../../../../StyleSheets/sprites/svg-sprite";
-@import "../../../../../StyleSheets/equalheights";
+@import "~StyleSheets/environments/percussion";
+@import '~StyleSheets/variables';
+@import '~StyleSheets/mixins';
+@import '~StyleSheets/fonts';
+@import '~StyleSheets/breakpoints';
+@import "~StyleSheets/sprites/svg-sprite";
+@import "~StyleSheets/equalheights";
 
 /*** BEGIN Profile Page Styles ***/
 

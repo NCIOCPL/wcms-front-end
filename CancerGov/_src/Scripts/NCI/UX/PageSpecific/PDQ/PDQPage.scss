@@ -1,13 +1,12 @@
-@import "../../../../../StyleSheets/environments/percussion";
-@import "../../../../../StyleSheets/variables";
-@import "../../../../../StyleSheets/mixins";
-@import "../../../../../StyleSheets/fonts";
-@import '../../../../../StyleSheets/breakpoints';
-@import "../../../../../StyleSheets/placeholders";
-@import "../../../../../StyleSheets/sprites/svg-sprite";
-@import "../../../../../StyleSheets/nci-foundation_mixins";
-@import "../../../../../StyleSheets/nci-foundation_variables";
-@import "../../../../../StyleSheets/equalheights";
+@import "~StyleSheets/environments/percussion";
+@import "~StyleSheets/variables";
+@import "~StyleSheets/mixins";
+@import "~StyleSheets/fonts";
+@import '~StyleSheets/breakpoints';
+@import "~StyleSheets/placeholders";
+@import "~StyleSheets/sprites/svg-sprite";
+@import "~StyleSheets/equalheights";
+@import "~Modules/tooltips/referenceTooltip";
 
 /*** BEGIN PDQ Styles ***/
 
