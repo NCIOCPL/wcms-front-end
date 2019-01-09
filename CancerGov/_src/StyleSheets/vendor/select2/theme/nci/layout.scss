@@ -5,9 +5,8 @@
   @import "single";
   @import "multiple";
 
-  ul > li:before {
-    content:'';
-    display:none !important;
+  ul {
+    @include no-bullets;
   }
 
   .select2-search {

@@ -77,8 +77,8 @@
 		margin-left: 0.75em;
 	}
 	// to get rid of bullets (can't use no-bullets because it adds annoying padding/margin)
-	ul > li:before {
-		content: none;
+	ul {
+		@include no-bullets;
 	}
 
 	.next a:after {

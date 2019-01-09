@@ -87,10 +87,15 @@ dl {
 			}
 		}
 	}
-
-	.title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus {
-		color: $lcranberry;
-		text-decoration: none;
+	
+	.title {
+		a {
+			&:hover, &:focus,
+			&.title:hover, &.title:focus {
+				color: $lcranberry;
+				text-decoration: none;
+			}
+		}
 	}
 
 	ul {
@@ -197,14 +202,81 @@ dl {
 	}
 }
 
-// changing default behavior of list image for new landing page so that the image is 188px wide at desktop, matching the specs for thumbnail cards
-.row.news .list {
-		.container {
-			&.image {
-				width: 25%;
-			}
-		}
+ul,
+.contentzone ul,
+.rawHtml ul {
+	&.no-bullets {
+		@extend %no-bullets;
 	}
+}
+ol {
+	list-style-type: decimal;
+
+	&.lower-alpha {
+		list-style-type: lower-alpha;
+	}
+	&.lower-roman {
+		list-style-type: lower-roman;
+	}
+	&.upper-alpha {
+		list-style-type: upper-alpha;
+	}
+	&.upper-roman {
+		list-style-type: upper-roman;
+	}
+}
+.contentzone ul,
+.contentzone ol,
+.rawHtml ul,
+.rawHtml ol {
+	margin-bottom: 1em;
+}
+.contentzone ol li,
+.rawHtml ol li {
+	margin-left: 38px;
+}
+.contentzone li,
+.rawHtml li {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
+	
+	li {
+		margin-left: 32px;
+	}
+}
+ul.no-bullets > li,
+ol.no-bullets > li
+{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 0;
+}
+ul.no-description > li,
+ul.no-description > li {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+.contentzone ul,
+.rawHtml ul {
+	& > li {
+		list-style-type: none;
+		// WARNING: do not add 'position: relative;' without serious testing of lists next to floated, interactive elements
+
+		&:before {
+			content: "\2022";
+			display: inline;
+			position: relative;
+			float: left; // to remove the bullet from the current stacking context, and allow block-level elements to flow up and around
+			left: -0.5em;
+			top: 0.25em; // to reposition after floating
+			margin: 0 -0.2em;
+			font-size: 1.1em;
+			line-height: (1em / 1.1);
+		}
+
+	}
+}
 
 // Dynamic List styles
 .list-item span.title a.title {
@@ -257,16 +329,12 @@ p.description.dynamic-description {
 		}
 	}
 
+
 	> ul > li {
 		font-family: $montserrat-font-stack;
 		margin-left: 0;
 		margin-right: 1em;
 		display: inline-block;
-
-		&:before {
-			content: none;
-			display: none;
-		}
 	}
 
 	&.narrow { 
@@ -313,13 +381,11 @@ p.description.dynamic-description {
 ul.cancer-list {
 	li {
 		margin-left: 0;
-
-		&:before {
-			content: none;
-		}
 	}
+
 	ul {
 		margin-bottom: 0;
+		@include no-bullets;
 
 		> li {
 			margin-left: 1em;
@@ -330,9 +396,6 @@ ul.cancer-list {
 // These styles are Cancer Types Landing Page
 .ncilandingpage ul.cancer-list {
 	padding-left: 0;
-}
-.ncilandingpage ul.cancer-list li:before {
-	content: none;
 }
 .ncilandingpage ul.cancer-list li {
 	background-image: none;

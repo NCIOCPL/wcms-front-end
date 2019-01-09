@@ -81,3 +81,12 @@
 		}
 	}
 }
+// not to be confused with %no-bullets in placeholders.scss
+%noBullets {
+	li:before {
+		display: none !important;
+	}
+}
+@mixin no-bullets {
+	@extend %noBullets;
+}
