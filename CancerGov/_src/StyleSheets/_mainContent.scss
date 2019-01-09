@@ -3,48 +3,50 @@
 .main-content {
 	padding: 0;
 	background: #f7f8f3 url($backgrounds + "hexagon_molecular_structure_body.png") no-repeat 110% 600px;
-}
+	a {
+		color: $color-link;
 
-.main-content a {
-	color: $color-link;
-}
-.main-content a:hover, .main-content a:focus {
-	text-decoration: underline;
-}
-@include bp(small) {
-	.main-content {
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+	}
+	@include bp(small) {
 		background: none;
 	}
 }
-/* h3 links should have a default of cranberry & no underline for link hovers */
+
+// h3 links should have a default of cranberry & no underline for link hovers
 #cgvBody h3 {
   a:hover, a:focus {
     text-decoration: none;
     color: #bb0e3d;
   }
 }
-/* content pages need a default of underline for link hovers */
-.general-page-body-container a:hover, .general-page-body-container a:focus {
-	text-decoration: underline;
-}
-a.definition,
-a.definition:hover, a.definition:focus {
+
+a.definition {
 	color: $body-font-color;
 	text-decoration: none;
 	border-bottom: thin dotted;
+
+	&:hover,&:focus {
+		border-bottom: thin solid;
+	}
 }
-a.definition:hover, a.definition:focus {
-	border-bottom: thin solid;
-}
+
 .general-page-body-container {
 	background: #fffffb;
 	padding-bottom: 1.5em;
 	position: relative; // #section-menu-button in nav partial is positioned relative to this container for proper alignment
 	@include box-shadow(10px 0 10px -7px rgba(0, 0, 0, 0.5), -10px 0 10px -7px rgba(0, 0, 0, 0.5));
+
 	.no-boxshadow & {
-		/* Border used here because IE8 doesn't support box-shadow */
+		// Border used here because IE8 doesn't support box-shadow
 		border-left: 1px solid #cfd0cb;
 		border-right: 1px solid #cfd0cb;
+	}
+	// content pages need a default of underline for link hovers
+	a:hover, a:focus {
+		text-decoration: underline;
 	}
 }
 
@@ -65,31 +67,28 @@ div.row > div.contentzone:first-child {
 
 /* Research Areas with Table of Contents */
 
-/*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
+// the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge.
 
 .featured-zone {
 	background-color: #14819b;
 	padding: 0 0 1.25em 1.25em;
 	overflow: hidden;
-	/*because in some pages content within box have floated elements */
+	// because in some pages content within box have floated elements
 	margin-right: -1em;
 	padding: 1em;
+
+	h1,h2,h3,h4,a {
+		color: white;
+	}
 }
-.featured-zone,
-.featured-zone h1,
-.featured-zone h2,
-.featured-zone h3,
-.featured-zone h4,
-.featured-zone a {
-	color: white;
-}
+
 .toc-container {
 	padding-right: 0;
 	margin-right: -2em;
 	padding: 1em;
 }
 @include bp(medium-down){
-	/* hide the TOC on small/medium screens. The accordion serves the same purpose */
+	// hide the TOC on small/medium screens. The accordion serves the same purpose
 	.toc-container {
 		display: none;
 	}
@@ -107,121 +106,42 @@ div.row > div.contentzone:first-child {
 	padding: 25px 0 30px 35px;
 	overflow: hidden;
 	padding-right: 0;
-}
-#my-toc h2 {
-	color: $header-font-color;
-	margin: 0 0 10px;
-	font-size: 1.5em;
-}
-/* hide default TOC header */
 
-#my-toc h4 {
-	display: none;
-}
-#my-toc ul {
-	margin: 0 1em;
-	list-style-type: disc;
-	color: $color-link;
-}
-#my-toc li {
-	padding-left: 0;
-	margin-left: 0;
-	line-height: 20px;
-	margin-bottom: 5px;
-}
-#my-toc ul a {
-	color: $color-link;
-	font-weight: bold;
-}
-
-@include bp(large-up){
-	/* large screen styles for TOC */
-	#my-toc {
+	h2 {
+		color: $header-font-color;
+		margin: 0 0 10px;
+		font-size: 1.5em;
+	}
+	//hide default TOC header
+	h4 {
+		display: none;
+	}
+	ul {
+		margin: 0 1em;
+		list-style-type: disc;
+		color: $color-link;
+	}
+	li {
+		padding-left: 0;
+		margin-left: 0;
+		line-height: 20px;
+		margin-bottom: 5px;
+		a {
+			color: $color-link;
+			font-weight: bold;
+		}
+	}
+	@include bp(large-up){
+		// large screen styles for TOC
 		margin: 10px 0 0 10px;
 	}
 }
 
+
 /* BEGIN general content page styles */
-ul,
-.contentzone ul,
-.rawHtml ul {
-	&.no-bullets {
-		@extend %no-bullets;
-	}
-}
-ol {
-	list-style-type: decimal;
 
-	&.lower-alpha {
-		list-style-type: lower-alpha;
-	}
-	&.lower-roman {
-		list-style-type: lower-roman;
-	}
-	&.upper-alpha {
-		list-style-type: upper-alpha;
-	}
-	&.upper-roman {
-		list-style-type: upper-roman;
-	}
-}
-.contentzone ul,
-.contentzone ol,
-.rawHtml ul,
-.rawHtml ol {
-	margin-bottom: 1em;
-}
-.contentzone ol li,
-.rawHtml ol li {
-	margin-left: 38px;
-}
-.contentzone li,
-.rawHtml li {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
-	
-li {
-		margin-left: 32px;
-	}
-}
-.contentzone ul.no-bullets > li,
-.contentzone ol.no-bullets > li,
-.rawHtml ul.no-bullets > li,
-.rawHtml ol.no-bullets > li {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	margin-left: 0;
-}
-.contentzone ul.no-description > li,
-.contentzone ul.no-description > li {
-	margin-top: 4px;
-	margin-bottom: 4px;
-}
-.contentzone ul,
-.rawHtml ul {
-	& > li {
-		list-style-type: none;
-		// WARNING: do not add 'position: relative;' without serious testing of lists next to floated, interactive elements
-
-		&:before {
-			content: "\2022";
-			display: inline;
-			position: relative;
-			float: left; // to remove the bullet from the current stacking context, and allow block-level elements to flow up and around
-			left: -0.5em;
-			top: 0.25em; // to reposition after floating
-			margin: 0 -0.2em;
-			font-size: 1.1em;
-			line-height: (1em / 1.1);
-		}
-
-	}
-}
-
-.toptoc ul > li:before {
-	content: none;
-	display: none;
+.toptoc ul {
+	@include no-bullets;
 }
 
 table.no-bullet-padding ul {
@@ -249,13 +169,11 @@ table.no-bullet-padding ul {
 
 .contentzone .document-dates {
 	margin-top: 1.5em;
+	@include no-bullets;
+
 	ul > li {
 		margin: 0;
 		display: block;
-		&:before {
-			content: none;
-			display: none;
-		}
 	}
 
 	&.horizontal ul > li {
@@ -384,50 +302,10 @@ hr.ps-divider {
 	@include bp(small) {
 		margin-top: 1.25em;
 	}
- 	
 }
 
 #nvcgSlPublicUse + #nvcgSlSyndication {
-     border-top: none;
+	border-top: none;
 }
 
-/* hidden elements */
-
-.hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-}
-.hide-desktop {
-	display: none;
-}
-::-webkit-input-placeholder {
-	color: #fff;
-}
-:-moz-placeholder {
-	/* Firefox 18- */
-	color: #fff;
-}
-::-moz-placeholder {
-	/* Firefox 19+ */
-	color: #fff;
-}
-:-ms-input-placeholder {
-	color: #fff;
-}
-
-.scrollable-y {
-	overflow-y: auto;
-}
-.scrollable-x {
-	overflow-x: auto;
-}
-.scrollable {
-	overflow: auto;
-}
 /********************* END Content Styles ******************************************/

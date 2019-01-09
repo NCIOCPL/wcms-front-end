@@ -1,11 +1,64 @@
 /********************* BEGIN General Styles ******************************************/
-
+// Set box-sizing globally to handle padding and border widths
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 body {
+	background: $body-bg;
+  color: $body-font-color;
+  padding: 0;
+  margin: 0;
+  font-family: $noto-font-stack;
+  font-weight: normal;
+  font-style: normal;
+  position: relative;
+  cursor: default;
 	line-height: 1.375em;
-	/* word-wrap: break-word; */
-	/* done to let long words that are bigger than container wrap within the word */
 	-webkit-font-smoothing: subpixel-antialiased;
 }
+
+a:hover { cursor: pointer; }
+
+// Grid Defaults to get images and embeds to work properly
+img { 
+	max-width: 100%; 
+	height: auto;
+	-ms-interpolation-mode: bicubic;
+	display: inline-block; // Get rid of gap under images by making them display: inline-block; by default
+  vertical-align: middle;
+}
+
+#map_canvas,
+.map_canvas {
+  img,
+  embed,
+  object { 
+		max-width: none !important;
+  }
+}
+
+// Miscellaneous useful HTML classes
+.left         { float: left !important; }
+.right        { float: right !important; }
+.text-left    { text-align: left !important; }
+.text-right   { text-align: right !important; }
+.text-center  { text-align: center !important; }
+.text-justify { text-align: justify !important; }
+.hide         { display: none; }
+
+// Font smoothing
+// Antialiased font smoothing works best for light text on a dark background.
+// Apply to single elements instead of globally to body.
+// Note this only applies to webkit-based desktop browsers on the Mac.
+.antialiased { -webkit-font-smoothing: antialiased; }
+
+// Make sure textarea takes on height automatically
+textarea { height: auto; min-height: 50px; }
+
+// Make select elements 100% width by default
+select { width: 100%; }
 
 h1,
 h2,
@@ -32,6 +85,7 @@ h6 {
 		margin-top: .58em;
 	}
 }
+
 h1 {
 	line-height: 1.1em;
 	font-size: 1.75em;    // 28px
@@ -68,13 +122,15 @@ h6 {
 .article-footer {
 	clear: both;
 }
-// mixin to create all combinations of headers
-h1, h2, h3,
-h4, h5, h6 {
-    @extend %headings !optional;
-}
+
 
 //TODO: optimize this style block. It generates way too much markup at present for a simple margin adjustment
+// mixin to create all combinations of headers
+// h1, h2, h3,
+// h4, h5, h6 {
+//     @extend %headings !optional;
+// }
+// 
 // // mixin to create all small column combinations
 // .small-1, .small-2, .small-3, .small-4, .small-5, .small-6, .small-7, .small-8, .small-9, .small-10, .small-11, .small-12 {
 //     @extend %small-columns !optional;
@@ -108,6 +164,7 @@ p {
 	line-height: 1.5em;
 	font-size: inherit;
 }
+
 h1 + p,
 h2 + p,
 h3 + p,
@@ -116,23 +173,62 @@ h5 + p,
 h6 + p {
 	margin-top: 0.5em;
 }
+
 table caption {
 	font-weight: bold;
 	text-align: left;
 	color: #000;
 	padding: 20px 0 10px;
-	/* using padding instead of margin due to problem in Safari */
+	// using padding instead of margin due to problem in Safari
 }
 
 .noMargin {
 	margin: 0;
 }
 
+.hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.hide-desktop {
+	display: none;
+}
+::-webkit-input-placeholder {
+	color: #fff;
+}
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: #fff;
+}
+::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #fff;
+}
+:-ms-input-placeholder {
+	color: #fff;
+}
+
+.scrollable-y {
+	overflow-y: auto;
+}
+.scrollable-x {
+	overflow-x: auto;
+}
+.scrollable {
+	overflow: auto;
+}
+
 .row .header	{
 	font-weight: bold;
 	font-family: $montserrat-font-stack;
 }
-/* begin add-on functionality to foundation rows */
+// begin add-on functionality to foundation rows
 .row .row.vertical-space, .row.vertical-space {
   margin-top: 1.5em;
   margin-bottom: 1.5em; }
@@ -184,84 +280,7 @@ table caption {
 	}
 }
 
-@include bp(large-up){
-	[class^='medium-'],[class*=' medium-'] {
-		position: relative;
-	}
 
-	.medium-1 {
-		width: 8.33333%;
-	}
-	.medium-2 {
-		width: 16.66667%;
-	}
-	.medium-3 {
-		width: 25%;
-	}
-	.medium-4 {
-		width: 33.33333%;
-	}
-	.medium-5 {
-		width: 41.66667%;
-	}
-	.medium-6 {
-		width: 50%;
-	}
-	.medium-7 {
-		width: 58.33333%;
-	}
-	.medium-8 {
-		width: 66.66667%;
-	}
-	.medium-9 {
-		width: 75%;
-	}
-	.medium-10 {
-		width: 83.33333%;
-	}
-	.medium-11 {
-		width: 91.66667%;
-	}
-	.medium-12 {
-		width: 100%;
-	}
-	.row .medium-offset-0 {
-		margin-left: 0%;
-	}
-	.row .medium-offset-1 {
-		margin-left: 8.33333%;
-	}
-	.row .medium-offset-2 {
-		margin-left: 16.66667%;
-	}
-	.row .medium-offset-3 {
-		margin-left: 25%;
-	}
-	.row .medium-offset-4 {
-		margin-left: 33.33333%;
-	}
-	.row .medium-offset-5 {
-		margin-left: 41.66667%;
-	}
-	.row .medium-offset-6 {
-		margin-left: 50%;
-	}
-	.row .medium-offset-7 {
-		margin-left: 58.33333%;
-	}
-	.row .medium-offset-8 {
-		margin-left: 66.66667%;
-	}
-	.row .medium-offset-9 {
-		margin-left: 75%;
-	}
-	.row .medium-offset-10 {
-		margin-left: 83.33333%;
-	}
-	.row .medium-offset-11 {
-		margin-left: 91.66667%;
-	}
-}
 @include bp(medium-down){
 	.row .row {
 		// not sure why we need to override this, however apparently we have
@@ -275,18 +294,18 @@ table caption {
 	}
 }
 
-/* style to collapse individual columns */
+// style to collapse individual columns
 .row .column.collapse,
 .row .columns.collapse {
 	padding-left: 0;
 	padding-right: 0;
 }
-/* end add-on functionality to foundation rows */
+// end add-on functionality to foundation rows
 
-/* We needed to set the min-height style so that pages without */
-/* bread crumbs create enough space so that the social media   */
-/* buttons would be displayed with the same spacing to the top */
-/* menu as those pages including bread crumbs                  */
+// We needed to set the min-height style so that pages without
+// bread crumbs create enough space so that the social media  
+// buttons would be displayed with the same spacing to the top
+// menu as those pages including bread crumbs                 
 .bcrumbs {
 	font-size: 0.8em;
 	margin-bottom: 1.25em;
@@ -318,29 +337,14 @@ table caption {
 		display: table;
 	}
 }
-/* begin images using the HTML5 figure and figcaption elements */
 
-/* add block level style to HTML5 elements, for IE */
-header,
-nav,
-article,
-footer,
-section,
-aside,
-figure,
-figcaption {
-	display: block;
-}
-
-/* The Previous/Next, Older/Newer navigation links need to be   */
-/* separated more from the content of the page                  */
+// The Previous/Next, Older/Newer navigation links need to be
+// separated more from the content of the page               
 div#cgvSlPagination, div.previous-next-links {
     margin-top: 3em  !important;
 }
-/* End Previous/Next */
 
 // New Pullquote styles
-/* Pullquotes */
 .pullquote {
 	border-left: 3px solid $jellybean;
 	margin: 40px auto;
@@ -402,12 +406,13 @@ div#cgvSlPagination, div.previous-next-links {
 	}
 	p.author {
 		margin-bottom: -1px;
-	}
-	p.author:before {
-		content: "\2014"
-	}
-	p.author:after {
-		content: none;
+
+		&:before {
+			content: "\2014"
+		}
+		&:after {
+			content: none;
+		}
 	}
 }
 
@@ -558,14 +563,16 @@ div#cgvSlPagination, div.previous-next-links {
 		margin: 1em auto;
 	}
 }
-/* prevent outlines on tab content */
+
+// prevent outlines on tab content
+// TODO: probably shouldn't be preventing outlines which are necessary for 508 accessibility
 div, p, section, h1, h2, h3, h4, h5, h6 {
 	&[tabindex]:focus{
 		outline: none;
 	}
 }
 
-/* cgh staff page styles */
+// cgh staff page styles
 .cgh-staff td {
 	vertical-align: middle;
 }
@@ -574,35 +581,34 @@ div, p, section, h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	text-align: left;
 }
-/* Begin Body by Location top Navigation */
+
+// Begin Body by Location top Navigation
 .body-location-content-nav {
 	width: 100%;
 	margin: 0 0 5px 0;
 	padding: 5px 8px;
 	background: #f5f5f3;
+	ul {
+		width: 33%;
+		float: left;
+		margin: 0;
+		padding: 0;
+		@include no-bullets;
+
+		li {
+			background: none;
+			margin: 0 0 3px 0;
+			padding: 0;
+		}
+	}
 }
-.body-location-content-nav ul {
-	width: 33%;
-	float: left;
-	margin: 0;
-	padding: 0;
-}
-.body-location-content-nav ul li {
-	background: none;
-	margin: 0 0 3px 0;
-	padding: 0;
-}
-.contentzone .body-location-content-nav ul > li:before {
-	content: none;
-	display: none;
-}
+
 @include bp(small) {
 	.body-location-content-nav ul {
 		width: 100%;
 		float: none;
 	}
 }
-/* End Body by Location top Navigation */
 
 
 @include bp(small){
