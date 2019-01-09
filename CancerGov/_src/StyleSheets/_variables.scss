@@ -1,5 +1,6 @@
-@import 'colors';
-//$ncisprite: url($icons + "nci-sprite.png");
-
 $siteSearchFormPadding: 6.5em;
 $swKeywordFontSize: 1.375em;
+$base-font-size: 100% !default;
+$em-base: 16px !default;
+$column-gutter: em-calc(30); //_general.scss
+$row-width: em-calc(1000); //_header.scss
