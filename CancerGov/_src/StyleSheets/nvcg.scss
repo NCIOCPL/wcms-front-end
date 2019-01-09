@@ -2,19 +2,17 @@
 @import "environments/percussion";
 @import "functions";
 @import "variables";
-@import "mixins";
 @import "fonts";
+@import "colors";
+@import "mixins";
 @import 'breakpoints';
-@import "placeholders";
+@import "sprites/svg-sprite"; //sprites are sometimes used in *_overrides files
 
 /****************** VENDOR LIBRARIES SECTION ********************/
 /***  BEGIN RESET STYLES ***/
 @import "reset";
 /***  END RESET STYLES ***/
 /***  BEGIN FOUNDATION STYLES ***/
-
-/****************** NCI UTILITIES ********************/
-@import "sprites/svg-sprite"; //sprites are sometimes used in *_overrides files
 
 // @import "nci-foundation";
 /* @import "grid"; */ /* using this for override of foundation media screen if necessary */
@@ -30,68 +28,64 @@
 /***  END JQUERY UI OVERRIDE STYLES ***/
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
+@import "general";
+@import "grid";
 
 /****************** NCI COMPONENTS SECTION ********************/
-// these styles override and extend Foundation SASS partials
-@import "components/global";
 // @import "components/buttons";
 // @import "components/forms";
 @import "components/icons";
+@import "placeholders";
+@import "images";
+@import "tables";
+@import "lists";
+@import "checkbox";
+@import "pagination"; // TODO: move to page specific
 
-/****************** END NCI COMPONENTS SECTION ********************/
-
-@import "general";
 @import "header";
 @import "sticky_nav";
+@import "banners";
+@import "bodybanner";
 @import "language_bar";
 @import "utilitynav";
-
+@import "nav";
 @import "~Modules/search/search";
 @import "footer";
 
 @import "mainContent";
-@import "images";
-@import "banners";
-@import "bodybanner";
-@import "~Modules/accordion/accordion";
-@import "tables";
+@import "contentTemplate";
 @import "pageOptions";
 @import "font_resizer";
+
 @import "~Modules/backToTop/backToTop";
-@import "contentTemplate";
+@import "~Modules/accordion/accordion";
 @import "onthispage";
 // @import "institutions";// Deprecated
 @import "ebookButtons"; // TODO: move to page specific
 // @import "materials_to_share"; // Deprecated
-@import "lists";
+
 @import "videos";
 @import "errorPage";
 @import "contact"; // TODO: move to page specific
-@import "nav";
-@import "pagination"; // TODO: move to page specific
+
+
 @import "~Modules/carousel/slick";
 @import "~Modules/carousel/carousel";
 
 @import "flexVideoPreview";
 @import "arrowLinks"; // TODO: move to page specific
 
-@import "checkbox";
+
 // @import "popups"; // Deprecated, replaced by modals
 @import 'tableSort';
 
-/****************** NCI ENHANCEMENTS SECTION ********************/
 @import "~Modules/liveHelpPopup/popupPartial";
 @import "AppModuleSpecific/cts/NCI.Delighters";
-/****************** END NCI ENHANCEMENTS SECTION ********************/
-
-
-/* !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!  END RESPONSIVE STYLES SECTION  !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-! */
 
 @import "~Modules/megamenu/megamenu"; // TODO: Investigate why this needs to go at the end, and if not needed here, move to a more logical place.
 
-/* PRINT STYLES --------------------------------- */
+/* PRINT STYLES */
 @import "print";
-/* END PRINT STYLES ----------------------------- */
 
 /* HACK STYLES */
 @import "hacks";
