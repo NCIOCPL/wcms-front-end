@@ -2,11 +2,11 @@
 *,
 *:before,
 *:after {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 html,
-body { font-size: $base-font-size; }
+body { font-size: 100% }
 
 // Default body styles
 body {
@@ -14,15 +14,15 @@ body {
   color: $body-font-color;
   padding: 0;
   margin: 0;
-  font-family: $body-font-family;
-  font-weight: $body-font-weight;
-  font-style: $body-font-style;
+  font-family: $noto-font-stack;
+  font-weight: normal;
+  font-style: normal;
   line-height: 1; // Set to $base-line-height to take on browser default of 150%
   position: relative;
-  cursor: $cursor-default-value;
+  cursor: default;
 }
 
-a:hover { cursor: $cursor-pointer-value; }
+a:hover { cursor: pointer; }
 
 // Grid Defaults to get images and embeds to work properly
 img { max-width: 100%; height: auto; }
