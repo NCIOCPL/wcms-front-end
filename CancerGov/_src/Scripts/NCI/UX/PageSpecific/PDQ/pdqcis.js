@@ -2,6 +2,8 @@ import { lang } from 'Modules/NCI.config';
 import * as Page from 'Common/Enhancements/NCI.page';
 import { wrapAll, createEl, getData } from 'Utilities/domManipulation';
 import { makeAllAccordions } from 'Modules/accordion/accordion';
+import 'Common/polyfills/prepend';
+
 
 const onDOMContentLoaded = () => {
 	// Fetch the article outline that was created in Common.js
