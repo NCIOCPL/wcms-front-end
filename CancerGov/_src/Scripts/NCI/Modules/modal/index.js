@@ -1,4 +1,5 @@
 /* inspiration: https://github.com/ghosh/micromodal/blob/master/src/index.js */
+import { throttle } from 'throttle-debounce';
 
 const FOCUSABLE_ELEMENTS = [
   'a[href]',
@@ -19,9 +20,6 @@ export default class Modal{
     //options
     targetModal = 'modal-1',
     modal = true,
-    modalTemplate,
-    width,
-    height,
     disableScroll = true,
     onCreate = () => {},
     onShow = () => {},
@@ -46,6 +44,9 @@ export default class Modal{
       awaitCloseAnimation, 
       content
     }
+
+    // throttle the resize event on the window for better performance
+    this.throttleResize = throttle(100,this.onResize.bind(this));
 
     // prebind functions for event listeners
     this.onClick = this.onClick.bind(this);
@@ -72,7 +73,7 @@ export default class Modal{
             <div id="${this.config.targetModal}-content" class="modal__content">
               ${this.config.content}
             </div>
-            <button class="modal__btn-close" aria-label="Close modal" data-modal-close></button>
+            <button class="modal__btn-close modal__btn-close--bottom" aria-label="Close modal" data-modal-close></button>
           </div>
         ${this.config.modal ? `</div>` : ''}
       </div>`
@@ -82,6 +83,10 @@ export default class Modal{
     this.modal = document.getElementById(this.config.targetModal);
     // save a reference to the modal content element
     this.modalContentEl = document.getElementById(this.config.targetModal + '-content');
+
+    // store reference to the bottom close button for use in resize event
+    this.bottomCloseButton = document.querySelector(`#${this.config.targetModal} .modal__btn-close--bottom`);
+    
     // create callback
     this.config.onCreate(this.modal);
     // init complete
@@ -155,18 +160,34 @@ export default class Modal{
     this.modal.addEventListener('touchstart', this.onClick);
     this.modal.addEventListener('click', this.onClick);
     document.addEventListener('keydown', this.onKeydown);
+    window.addEventListener('resize', this.throttleResize, { 
+      capture: true,
+      passive: true
+    });
   }
 
   removeEventListeners() {
     this.modal.removeEventListener('touchstart', this.onClick);
     this.modal.removeEventListener('click', this.onClick);
     document.removeEventListener('keydown', this.onKeydown);
+    window.removeEventListener('resize', this.throttleResize, { 
+      capture: true,
+      passive: true
+    });
   }
 
   onClick(event) {
     if (event.target.hasAttribute(this.config.closeTrigger)) {
       event.preventDefault();
       this.closeModal();
+    }
+  }
+
+  onResize() {
+    if(window.matchMedia("(max-width: 640px)").matches){
+      this.bottomCloseButton.removeAttribute("aria-hidden");
+    } else {
+      this.bottomCloseButton.setAttribute("aria-hidden","");
     }
   }
 

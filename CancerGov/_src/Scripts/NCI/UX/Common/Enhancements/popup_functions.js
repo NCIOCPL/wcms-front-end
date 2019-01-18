@@ -58,10 +58,16 @@ const popupFunctions = () => {
 			// id's are prefixed with "CDR0000" in the html but the backend service errors out if included in request
 			let id = Object.keys(params)[0].replace("CDR0000",''); 
 			// Cancer.gov is not defined as a dictionary in DictionaryService so we assign it 'term'
-			let lookup = params.dictionary === 'Cancer.gov' ? 'term' : params.dictionary;
+			let lookup = 'term';
+			if(params.dictionary && params.dictionary !== 'Cancer.gov') {
+				lookup = params.dictionary;
+			}
 
 			// fetch the term data from the service using ajax
-			$.when(_getTerm(lookup,id)).done(function (termObject) {
+			$.when(_getTerm(lookup,id)).catch(function(){
+				console.log(`dictionary request failed. lookup:${lookup}, id:${id}`);
+			}).done(function (termObject) {
+				console.log(termObject);
 				//TODO: error returns 404 html page, not an error object
 				if (termObject.term) {
 					// if we have a term in our return JSON, trigger the modal which will render the JSON data
@@ -190,7 +196,7 @@ const popupFunctions = () => {
 					<dfn>${term.term}</dfn>
 					${term.pronunciation ? `<span class="pronunciation">${term.pronunciation.key} <a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a></span>` : ''}
 				</dt>
-				${!!term.related.drug_summary.length ? `<dd class="info-summary"><a href="${term.related.drug_summary[0].url}"><img src="/images/btn-patient-info.gif" alt="Patient Information" title="Patient Information" width="139" height="20" hspace="12" border="0" align="absmiddle"></a></dd>` : ''}
+				${/*!!term.related.drug_summary.length ? `<dd class="info-summary"><a href="${term.related.drug_summary[0].url}"><img src="/images/btn-patient-info.gif" alt="Patient Information" title="Patient Information" width="139" height="20" hspace="12" border="0" align="absmiddle"></a></dd>` : */''}
 				${term.definition.html ? `<dd class="definition">${term.definition.html}</dd>` : ''}
 				${/* !!term.alias.length ? renderAliasesTable(term.alias) : '' */''}
 				${/* hasMoreInfo ? renderMoreInfo(term.related) : ''*/''}

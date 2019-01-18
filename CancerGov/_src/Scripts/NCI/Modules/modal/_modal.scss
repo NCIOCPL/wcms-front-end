@@ -78,9 +78,9 @@
 }
 
 .modal__btn-close {
-  @include svg-sprite(close-lt-gray);
+  @include svg-sprite(close-gray);
   cursor: pointer;
-  font-size: 1.0625em;
+  font-size: .778em;
   background-color: transparent;
   border: none;
   min-height: 28px;
@@ -112,6 +112,7 @@
     text-align: center;
     dfn {
       text-transform: capitalize;
+      text-decoration: underline;
     }
   }
 
@@ -164,13 +165,10 @@
   .modal__content {
     padding: 0 40px;
   }
-}
-
-@include break(tablet-ls) {
   .modal__btn-close {
     align-self: flex-end;
     margin-right: 10px;
-
+  
     &:last-child {
       display: none;
     }
