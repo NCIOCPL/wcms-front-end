@@ -10,13 +10,10 @@
 		white-space: nowrap;
 		display: flex;
 		align-items: center;
-	}
-	li {
-		display: inline-block;
-		margin: 0;
-		&:before {
-			content: none !important;
-			display: none !important;
+		li {
+			display: inline-block;
+			margin: 0;
+			@include no-before-bullet;
 		}
 	}
 
@@ -93,11 +90,12 @@ a.social-share--custom-tweet {
 
 		ul {
 			float: right;
+
+			li {
+				margin: 0 0 0 0.675em;
+			}
 		}
 
-		li {
-			margin: 0 0 0 0.675em;
-		}
 
 		.page-options--resize a::before {
 			@include svg-sprite(font-size-blue);
@@ -122,7 +120,7 @@ a.social-share--custom-tweet {
 	}
 
 	.page-options {
-		li {
+		ul li {
 			margin: 0 0.875em 0 0;
 			width: 35px;
 			height: 35px;

@@ -1,7 +1,23 @@
+//TODO: this needs more work and cleanup
 ul,
 ol,
 dl {
 	line-height: 1.5;
+}
+
+ul li ul, .bcrumbs ul {
+	margin: 0;
+}
+
+%customBullet {
+	content: "\2022";
+	display: inline;
+	position: relative;
+	left: -0.5em; //why?
+	margin: 0 -0.2em; //why?
+	font-size: 1.1em;
+	line-height: 0.90909em;
+	color: $default-text;
 }
 
 // Managed List styles
@@ -31,16 +47,7 @@ dl {
 			margin: 1em 0 1em 2em;
 			
 			&:before {
-				content: "\2022";
-				display: inline;
-				position: relative;
-				float: left;
-				left: -0.5em;
-				top: 0.25em;
-				margin: 0 -0.2em;
-				font-size: 1.1em;
-				line-height: 0.90909em;
-				color: $default-text;
+				@extend %customBullet;
 			}
 		}
 	}
@@ -51,16 +58,7 @@ dl {
 			margin: 0;
 			
 			&:before {
-				content: "\2022";
-				display: inline;
-				position: relative;
-				float: left;
-				left: -0.5em;
-				top: 0.25em;
-				margin: 0 -0.2em;
-				font-size: 1.1em;
-				line-height: 0.90909em;
-				color: $default-text;
+				@extend %customBullet;
 			}
 			
 			.title-and-desc {
@@ -225,57 +223,47 @@ ol {
 		list-style-type: upper-roman;
 	}
 }
-.contentzone ul,
-.contentzone ol,
-.rawHtml ul,
-.rawHtml ol {
-	margin-bottom: 1em;
-}
-.contentzone ol li,
-.rawHtml ol li {
-	margin-left: 38px;
-}
-.contentzone li,
-.rawHtml li {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-	margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
+
+.contentzone,
+.rawHtml {
+	ul {
+		& > li {
+			list-style-type: none;
+			// WARNING: do not add 'position: relative;' without serious testing of lists next to floated, interactive elements
 	
+			&:before {
+				@extend %customBullet;
+			}
+		}
+	}
+	ul, ol {
+		margin-bottom: 1em;
+	}
+	ol li {
+		margin-left: 38px;
+	}
 	li {
-		margin-left: 32px;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		margin-left: 28px; // supposed to be 16px, accounting for negative margin used on :before bullet
+
+		li {
+			margin-left: 32px;
+		}
 	}
 }
+
 ul.no-bullets > li,
-ol.no-bullets > li
-{
+ol.no-bullets > li {
 	margin-top: 30px;
 	margin-bottom: 30px;
 	margin-left: 0;
 }
+
 ul.no-description > li,
 ul.no-description > li {
 	margin-top: 4px;
 	margin-bottom: 4px;
-}
-.contentzone ul,
-.rawHtml ul {
-	& > li {
-		list-style-type: none;
-		// WARNING: do not add 'position: relative;' without serious testing of lists next to floated, interactive elements
-
-		&:before {
-			content: "\2022";
-			display: inline;
-			position: relative;
-			float: left; // to remove the bullet from the current stacking context, and allow block-level elements to flow up and around
-			left: -0.5em;
-			top: 0.25em; // to reposition after floating
-			margin: 0 -0.2em;
-			font-size: 1.1em;
-			line-height: (1em / 1.1);
-		}
-
-	}
 }
 
 // Dynamic List styles
@@ -330,11 +318,14 @@ p.description.dynamic-description {
 	}
 
 
-	> ul > li {
-		font-family: $montserrat-font-stack;
-		margin-left: 0;
-		margin-right: 1em;
-		display: inline-block;
+	> ul {
+		@extend %no-bullets;
+		& > li {
+			font-family: $montserrat-font-stack;
+			margin-left: 0;
+			margin-right: 1em;
+			display: inline-block;
+		}
 	}
 
 	&.narrow { 
@@ -352,6 +343,7 @@ p.description.dynamic-description {
 		margin: 0;
 		padding: 10px 0 10px 4px;
 		overflow: auto;
+		@extend %no-bullets;
 
 		li {
 			display: block;
@@ -360,11 +352,6 @@ p.description.dynamic-description {
 			float: left;
 			margin: 0;
 			padding: 0;
-
-			&:before {
-				content: none;
-				display: none;
-			}
 		}
 	}
 	&:after {
@@ -385,9 +372,9 @@ ul.cancer-list {
 
 	ul {
 		margin-bottom: 0;
-		@include no-bullets;
 
 		> li {
+			@include no-before-bullet;
 			margin-left: 1em;
 		}
 	}
@@ -413,9 +400,8 @@ ul.cancer-list {
 	margin-left: 0;
 	padding-left: 0;
 }
-.ncilandingpage .cancer-list ul.php > li:first-child:before {
-	content: none;
-	display: none;
+.ncilandingpage .cancer-list ul.php > li:first-child {
+	@include no-before-bullet;
 }
 .ncilandingpage .cancer-list ul.php > li:before  {
 	content: "|" !important;

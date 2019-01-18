@@ -6,8 +6,8 @@
   @import "single";
   @import "multiple";
 
-  ul {
-    @include no-bullets;
+  li {
+    @include no-before-bullet;
   }
 
   .select2-search {

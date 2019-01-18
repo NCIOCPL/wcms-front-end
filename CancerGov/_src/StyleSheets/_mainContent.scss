@@ -140,8 +140,8 @@ div.row > div.contentzone:first-child {
 
 /* BEGIN general content page styles */
 
-.toptoc ul {
-	@include no-bullets;
+.toptoc ul li {
+	@include no-before-bullet;
 }
 
 table.no-bullet-padding ul {
@@ -169,9 +169,9 @@ table.no-bullet-padding ul {
 
 .contentzone .document-dates {
 	margin-top: 1.5em;
-	@include no-bullets;
 
 	ul > li {
+		@include no-before-bullet;
 		margin: 0;
 		display: block;
 	}
@@ -188,9 +188,8 @@ table.no-bullet-padding ul {
 			margin: 0 0.4em;
 			font-size: 1em;
 		}
-		&:first-child:before {
-			content: none;
-			display: none;
+		&:first-child {
+			@include no-before-bullet;
 		}
 	}
 }
@@ -237,10 +236,7 @@ table.no-bullet-padding ul {
 	.contentzone .document-dates.horizontal {
 		ul > li {
 			display: block;
-			&:before {
-				content: none;
-				display: none;
-			}
+			@include no-before-bullet;
 		}
 	}
 }

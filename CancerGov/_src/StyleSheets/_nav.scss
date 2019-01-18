@@ -466,13 +466,6 @@
 			z-index: 80; //needs to be below the menu-btn
 			box-shadow: none;
 			background-color: transparent;
-
-			@include placeholder {
-				color: #888;
-				height: 100%;
-				position: relative;
-				display: block;
-			}
 		}
 
 		#sitesearch { // the search submit button
@@ -588,9 +581,6 @@
 				padding-top: 10px;
 				padding-bottom: 10px;
 			}
-
-			.toggle {
-			}
 		}
 		.lvl-2 { // level 1 in the mocks
 			//display: none;
@@ -602,9 +592,6 @@
 				padding-top: 11.5px;
 				padding-bottom: 11.5px;
 			}
-
-			.toggle {
-			}
 		}
 		.lvl-3 { // level 2 in the mocks
 			//display: none;
@@ -615,9 +602,6 @@
 				padding-left: 44px;
 				padding-top: 15px;
 				padding-bottom: 15px;
-			}
-
-			.toggle {
 			}
 		}
 
@@ -643,7 +627,7 @@
 		.lvl-2.contains-current .lvl-3,
 		.lvl-1.current-page .lvl-2,
 		.lvl-2.current-page .lvl-3 {
-			 display: block;
+			display: block;
 		}
 		.nav-item-title {
 			position: relative;

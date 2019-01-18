@@ -43,25 +43,12 @@
         border-radius: 0;
     }
 
-    textarea {
-        @include placeholder {
-                color: #888;
-                height: 100%;
-                position: relative;
-                display: block;
-        }
-    } 
-
     div.pending-view {
         div.spinwrap {
             min-height: 50px;
             .spinner {
                 top: 70% !important;
             }
-        }
-
-        div.pending-content {
-            
         }
     }
 }

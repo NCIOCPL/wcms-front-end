@@ -4,13 +4,6 @@
 	height: $height;
 }
 
-@mixin placeholder {
-	&:-moz-placeholder { @content; }
-	&::-moz-placeholder { @content; }
-	&:-ms-input-placeholder { @content; }
-	&::-webkit-input-placeholder { @content; }
-}
-
 @mixin transition($transitions...) {
 	-webkit-transition: $transitions;
 	-moz-transition: $transitions;
@@ -82,11 +75,8 @@
 	}
 }
 // not to be confused with %no-bullets in placeholders.scss
-%noBullets {
-	li:before {
+@mixin no-before-bullet {
+	&:before {
 		display: none !important;
 	}
-}
-@mixin no-bullets {
-	@extend %noBullets;
 }

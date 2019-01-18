@@ -38,12 +38,9 @@
 		background: none;
 		margin: 0;
 		border-bottom: 1px solid #d5d5d2;
+		@include no-before-bullet;
 
-		&:before {
-			// removes the bullets for toptoc li menu items
-			content: none;
-			display: none;
-		}
+
 		&.selected {
 			/* Convert this to a border style */
 			//background: url($backgrounds + "toptoc-active.gif") 0 0 repeat-y;
@@ -210,20 +207,20 @@ table tfoot {
 
 .pdq-hp-patient-toggle {
 
-      /* margin-top: -10px; -->  half the icon height */
-      & a:after {
-          content: "";
-		  @include svg-sprite(chevron-circle-dk-blue,$rotate:right);
-          margin-left: 10px;
-		  vertical-align: bottom;
-      }
+	/* margin-top: -10px; -->  half the icon height */
+	& a:after {
+		content: "";
+	@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+		margin-left: 10px;
+		vertical-align: bottom;
+	}
 
-      & a:hover:after, & a:focus:after {
-		  @include svg-sprite(chevron-circle-red);
-      }
-      & a:hover, & a:focus {
-          color: $lcranberry;
-      }
+	& a:hover:after, & a:focus:after {
+		@include svg-sprite(chevron-circle-red);
+	}
+	& a:hover, & a:focus {
+		color: $lcranberry;
+	}
 }
 
 ul.pdq-address-block li {
@@ -232,8 +229,8 @@ ul.pdq-address-block li {
 	padding: 0;
 	margin-bottom: 0;
 }
-.contentzone ul.pdq-address-block > li:before {
-	content: none;
+.contentzone ul.pdq-address-block > li {
+	@include no-before-bullet;
 }
 
 
