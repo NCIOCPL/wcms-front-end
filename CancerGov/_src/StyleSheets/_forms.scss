@@ -1,0 +1,242 @@
+@import "colors";
+@import "variables";
+@import "breakpoints";
+
+form {
+  margin-bottom: 1em;
+}
+
+input, textarea {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1em;
+  border: 1px solid $paleblue02;
+  padding: .5em;
+  background-color: $white04;
+  font-family: inherit;
+  font-size: 1em;
+  transition: border-color .45s ease-in-out,
+    background-color .45s ease-in-out;
+
+  &:focus {
+    border-color: $grey04;
+    background-color: $white06;
+  }
+}
+
+/* vendor specific psudo selectors can not be combined */
+input::-webkit-input-placeholder {
+  color: $dgrey00;
+  font-style: italic;
+  opacity: .6;
+}
+
+input::-moz-placeholder {
+  color: $dgrey00;
+  font-style: italic;
+  opacity: .6;
+}
+
+input:-ms-input-placeholder {
+  color: $dgrey00;
+  font-style: italic;
+  opacity: .6;
+}
+
+select {
+  font-size: inherit;
+  font-family: $noto-font-stack;
+  margin-bottom: 1em;
+  &[multiple] > option {
+    padding: .05em 1.25em .05em 1em;
+  }
+}
+
+label, .label {
+  cursor: pointer;
+  display: inline-block;
+  color: $dgrey00;
+  margin-bottom: .1875em;
+  font-size: 16px;
+  line-height: 18px;
+  font-family: $montserrat-font-stack;
+
+  &.inline {
+    // margin: 0 0 1em;
+    padding: .625em 0;
+  }
+}
+
+fieldset {
+  margin-top: 20px;
+
+  .row {
+    padding-bottom: 20px;
+  }
+
+  legend, .legend {
+    font-family: $montserrat-font-stack;
+    font-weight: bold;
+    font-size: 1.1em;
+    // line-height: 1.5625em;
+    line-height: 1.25;
+    padding: 0 .1875em;
+    color: $dgrey00;
+  }
+}
+
+.columns.legend {
+  padding-right: 15px;
+  margin-bottom: 1em;
+  display: table;
+}
+
+
+/* checkboxes and radio */
+.radio, .checkbox {
+	position: relative;
+}
+
+input[type="checkbox"],input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+
+  + label {
+    position: relative;
+    margin: 0 0 .3em 1.5em;
+    line-height: 1.2;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      left: -1.5em;
+      top: 1px;
+      width: 1em;
+      height: 1em;
+      border:2px solid $checkbox-border-color;
+
+      text-align: center;
+    }
+  }
+  &:disabled {
+    + label {
+      opacity: .6;
+
+      &:before {
+        border-color: $grey01;
+      }
+    }
+  }
+}
+
+input[type="radio"] {
+  + label:before {
+    border-radius: 50%;
+  }
+  &:checked {
+    + label:before {
+      background-color: $checkbox-border-color;
+    }
+    &:disabled + label:before {
+      background-color: $grey01;
+    }
+  }
+}
+
+span.radio + span.radio {
+  margin-left: 2em;
+}
+
+.scrolling-list {
+  overflow: auto;
+  // white-space: nowrap;
+  max-height: 200px;
+  padding: .4em 1em .4em .4em;
+}
+
+.roundy-box {
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 3px;
+}
+
+@include break(medium) {
+  fieldset .large-4 label {
+    float: right;
+    text-align: right;
+  }
+  .large-4.legend {
+    text-align: right;
+  }
+}
+
+@include break(large){
+  label, .label {
+    margin-bottom: 1em;
+    &.right {
+      float: none;
+      text-align: right;
+    }
+  }
+  .email-us-form label,
+  fieldset label.field {
+    float: right;
+    text-align: right;
+  }
+  .columns.legend {
+    text-align: right;
+  }
+  fieldset {
+    legend, .legend {
+      font-size: 1.25em;
+    }
+  }
+}
+
+
+/* specific form styles */
+
+.genetics-form {
+
+  @include bp(medium-down) {
+    .row {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      max-width: calc(100vw - 50px);
+  
+      .columns {
+        display: flex;
+        width: calc(100vw - 110px);
+        margin: 0 0 0 50px;
+        padding: 0;
+  
+        &.scrolling-list {
+          padding: .4em 1em .4em .4em;
+        }
+      }
+  
+      .legend {
+        width: 50px;
+      }
+    }
+  
+    fieldset {
+      .row:first-child{
+        flex-direction: row;
+  
+        .columns {
+          margin: 0;
+        }
+      }
+    }
+    .genetics-form__options {
+    
+      .columns {
+        flex-direction: column;
+      }
+    }
+  }
+}

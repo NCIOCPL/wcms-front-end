@@ -1,0 +1,160 @@
+@import "colors";
+@import "breakpoints";
+
+form a.button,
+form a.button:hover {
+  text-decoration: none;
+}
+
+.contentzone form button,
+.contentzone .button {
+  min-width: 130px;
+  width: auto;
+}
+
+/* standard buttons */
+
+form button,
+.button {
+  cursor: pointer;
+  appearance: none;
+  min-height: 39px;
+  margin-right: 28px;
+	padding: 5px 12px 5px;
+  
+  font-family: $montserrat-font-stack;
+  font-weight: 700;
+  font-size: 1em;
+  color: $white;
+  border: none;
+  border-radius: 2px;
+  background-color: transparent;
+  &[type=submit],
+	&.submit {
+    background-color: $submit-button-color;
+    transition: background-color .3s ease-out;
+    &:hover {
+      background-color: $submit-button-color-hover;
+    }
+  }
+  &[type=reset],
+	&.reset {
+    color: $color-link;
+    font-weight: normal;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &.action {
+    background-color: $action-button-color;
+    transition: background-color .3s ease-out;
+    &:hover {
+      background-color: $action-button-color-hover;
+    }
+  }
+  &[disabled],
+	&.disabled {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+}
+
+// if the button class is used in an anchor instead of input, it needs different padding
+a.button {
+  padding-top: 9px;
+}
+
+// The "New Search" link of the Genetics Directory result used to be styled
+// as a button but was changed to a link.  This link needs to set the 
+// font specificly
+a.search-link {
+  font-family: $montserrat-font-stack;
+}
+
+/* toggle buttons - mobile nav, section nav, accordions */
+.toggle {
+  // BEGIN reset
+	cursor: pointer;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	// END reset
+
+	position: absolute;
+  right: 0;
+  top: 0;
+	height: 100%;
+  width: 50px;
+  font-family: Arial,sans-serif;
+  font-size: 2em;
+	font-weight: bold;
+
+	&:after {
+    display: block;
+    content: "+";
+  }
+
+	&[aria-expanded="true"]:after {
+    content: "\2212"; /* "2212" is Unicode for the minus sign */
+	}
+}
+
+#mega-nav .toggle,
+.section-nav .toggle {
+	&[aria-expanded="false"] {
+    color: $white;
+    background-color: $grey01;
+	}
+	&[aria-expanded="true"] {
+    color: $grey01;
+    background-color: $white;
+	}
+}
+#mega-nav .toggle {
+  font-size: 2.5em;
+  box-shadow: inset -15px 0px 15px -15px rgba(0, 0, 0, 0.6);
+}
+
+.section-nav {
+  .contains-current {
+    [aria-expanded="false"] {
+      color: $white;
+      background-color: $lpurple;
+    }
+    [aria-expanded="true"] {
+      color: $lpurple;
+      background-color: $white;
+    }
+  }
+}
+
+.ui-accordion-header {
+  .toggle {
+    text-indent: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    background-color: $accordion-odd;
+  }
+}
+.even .toggle {
+  background-color: $accordion-even
+}
+
+@include break(large){
+  .section-nav .toggle {
+    font-size: 1.25em;
+    width: 1em;
+    right: 4%;
+
+    &[aria-expanded] {
+      background-color: transparent;
+      color: $grey27;
+    }
+    &[aria-expanded="true"] {
+      color: $dteal;
+    }
+  }
+}
