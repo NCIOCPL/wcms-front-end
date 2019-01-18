@@ -64,16 +64,16 @@ const popupFunctions = () => {
 			}
 
 			// fetch the term data from the service using ajax
-			$.when(_getTerm(lookup,id)).catch(function(){
+			$.when(_getTerm(lookup,id)).catch(function(jqXHR, textStatus, error){
 				console.log(`dictionary request failed. lookup:${lookup}, id:${id}`);
+				console.log(textStatus,error);
 			}).done(function (termObject) {
-				console.log(termObject);
 				//TODO: error returns 404 html page, not an error object
 				if (termObject.term) {
 					// if we have a term in our return JSON, trigger the modal which will render the JSON data
 					triggerModal(termObject.term);
 				}
-			});	
+			});
 		} else {
 			// fallback?
 			window.open(urlargs, '', 'scrollbars=yes,resizable=yes,width=550,height=550');
