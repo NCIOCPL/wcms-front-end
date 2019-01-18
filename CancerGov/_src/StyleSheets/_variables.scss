@@ -4,3 +4,11 @@ $base-font-size: 100% !default;
 $em-base: 16px !default;
 $column-gutter: em-calc(30); //_general.scss
 $row-width: em-calc(1000); //_header.scss
+
+// fonts
+$noto-font-stack: "Noto Sans", "Century Gothic", Arial, sans-serif;
+
+$montserrat-font-stack: Montserrat,"Avant Garde", Arial, sans-serif;
+
+$din-condensed-stack: "DIN Condensed", $montserrat-font-stack;
+$din-regular-stack: "DIN Regular", $montserrat-font-stack;

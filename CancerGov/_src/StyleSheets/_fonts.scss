@@ -5,14 +5,7 @@
 $static-font-path: "https://static.cancer.gov/fonts/";
 $percussion-font-path: "/PublishedContent/Fonts/";
 
-/* Noto Sans */
-$noto: "Noto Sans";
-$noto-font-stack: $noto, "Century Gothic", Arial, sans-serif;
-
 /* Montserrat */
-$montserrat: Montserrat;
-$montserrat-font-stack: $montserrat,"Avant Garde", Arial, sans-serif;
-
 @font-face {
 	font-family: "Montserrat";
 	src:url($percussion-font-path + "Montserrat-regular.eot?#iefix");
@@ -94,8 +87,5 @@ $din-font-path: $static-font-path + "FS-WebFonts/";
 	font-weight: normal;
 	font-style: normal;
 }
-
-$din-condensed-stack: "DIN Condensed", $montserrat-font-stack;
-$din-regular-stack: "DIN Regular", $montserrat-font-stack;
 
 /********************* END Font Declarations ******************************************/
