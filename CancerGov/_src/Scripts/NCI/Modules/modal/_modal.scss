@@ -121,6 +121,12 @@
   }
 }
 
+// style hacks for stupid IE
+_:-ms-input-placeholder, :root .modal__content {
+  width: 100%;
+  max-height: calc(80vh - 75px);
+}
+
 // amimations
 .modal-slide {
 	display: none;
