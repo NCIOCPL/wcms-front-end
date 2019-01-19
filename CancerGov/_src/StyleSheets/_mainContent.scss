@@ -23,16 +23,6 @@
   }
 }
 
-a.definition {
-	color: $body-font-color;
-	text-decoration: none;
-	border-bottom: thin dotted;
-
-	&:hover,&:focus {
-		border-bottom: thin solid;
-	}
-}
-
 .general-page-body-container {
 	background: #fffffb;
 	padding-bottom: 1.5em;
@@ -47,6 +37,18 @@ a.definition {
 	// content pages need a default of underline for link hovers
 	a:hover, a:focus {
 		text-decoration: underline;
+	}
+}
+
+a.definition {
+	color: $body-font-color;
+	text-decoration: none;
+	border-bottom: thin dotted;
+
+	&:hover,&:focus {
+		color: $body-font-color;
+		text-decoration: none;
+		border-bottom: thin solid;
 	}
 }
 

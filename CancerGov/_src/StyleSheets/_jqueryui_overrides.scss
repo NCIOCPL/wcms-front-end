@@ -283,3 +283,10 @@ $ui-selectmenu-maxitems: 7;
 	border-radius: 0;
 }
 /* end override of default location for jquery ui images */
+
+.ui-front {
+	z-index: 1001;
+}
+.ui-dialog {
+	z-index: 1002;
+}

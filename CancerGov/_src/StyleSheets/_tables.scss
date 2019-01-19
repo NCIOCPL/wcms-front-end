@@ -1,8 +1,46 @@
+@import "colors";
 /* BEGIN TABLE STYLES */
+// not nesting generic selectors so they're easy to override
+table {
+	background: $white;
+	margin-bottom: 1.25em;
+	border: 1px solid #ddd;
+}
 
-/* begin default content table styling */
+// easily overridable row striping
+tr {
+	&.alt,
+	&.even,
+	&:nth-of-type(2n) {
+		background: #f9f9f9
+	}
+}
+
 td, th {
 	vertical-align: top;
+	padding: .5625em .625em;
+	font-size: .875em;
+}
+
+tfoot, thead {
+	background: $white03;
+
+	td, th {
+		text-align: left
+	}
+}
+
+// th as a class name???
+.th {
+	line-height: 0;
+	display: inline-block;
+	border: 4px solid $white;
+	box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+	transition: all .2s ease-out
+}
+
+.th:focus,.th:hover {
+	box-shadow: 0 0 6px 1px rgba(43,166,203,.5)
 }
 
 %default-caption {
@@ -15,14 +53,13 @@ td, th {
 	/* using padding instead of margin due to problem in Safari */
 }
 
-table.table-default {
-	border-collapse: collapse;
+.table-default {
 	margin: 15px 0;
 
 	caption {
 		@extend %default-caption;
 
-		geneticsprofessional & {
+		.geneticsprofessional & {
 			/* genetics-professional-specific fix to prevent table captions from wrapping */
 			white-space: nowrap;
 		}
@@ -41,16 +78,11 @@ table.table-default {
 		font-weight: bold;
 		color: $body-font-color;
 		background-color: #d0f1f2;
-		/*text-align: left;*/
 	}
 	td, th {
-		/* both definitions are for #bgbgbg at 0.28 opacity */
-		border: 1px solid rgb(236, 236, 236);
 		border: 1px solid rgba(189, 189, 189, 0.28);
 		padding: 20px;
 		border-spacing: 0;
-		-webkit-background-clip: padding-box; /* for Safari */
-		background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 
 		p:first-child {
 			margin-top: 0;
@@ -63,10 +95,10 @@ table.table-default {
 		padding-left: 4px;
 	}
 }
-table.table-default-center-td td {
+.table-default-center-td td {
 	text-align: center;
 }
-table.table-default.complex-table tr {
+.complex-table tr {
 	background-color: #fff;
 }
 /* end default content table styling */
@@ -78,14 +110,14 @@ table.table-default.complex-table tr {
 	/* Clips the shadow created with the pseudo-element in the next rule. Not necessary for the actual scrolling. */
 }
 .scrollable.has-scroll:after {
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 100%;
 	width: 50px;
 	height: 100%;
 	border-radius: 10px 0 0 10px / 50% 0 0 50%;
-	@include box-shadow(-5px 0 10px rgba(0, 0, 0, 0.25));
-	content: '';
+	box-shadow: -5px 0 10px rgba(0, 0, 0, 0.25);
 }
 /* This is the element whose content will be scrolled if necessary */
 
@@ -93,8 +125,7 @@ table.table-default.complex-table tr {
 	overflow-x: auto;
 }
 figure.table {
-	margin: 15px 0; // same as table.table-default
-	margin-top: 0;
+	margin: 0 0 15px 0; // same as table.table-default
 
 	.table-default {
 		margin: 0;
@@ -102,12 +133,11 @@ figure.table {
 
 	figcaption, .emptyCaptionShim {
 		@extend %default-caption; // same as table.table-default caption
-			font-size: 1.25em;     // 20px
-			line-height: 1.4;
-
-		& + a.article-image-enlarge {
-			top: 10px;
-		}
+		font-size: 1.25em;     // 20px
+		line-height: 1.4;
+	}
+	.emptyCaptionShim + a.article-image-enlarge {
+		top: 10px;
 	}
 }
 
@@ -119,41 +149,27 @@ figure.table {
 		padding-right: 24px !important;
 	}
 }
-.ui-front {
-	z-index: 1001;
-}
-.ui-dialog {
-	z-index: 1002;
-}
+
 .table-enlarged .ui-dialog-titlebar {
 	display: none;
 }
-.table-enlarged .popup-close {
+.popup-close {
+	position: absolute;
+	top: 0;
+	right: 0;
 	margin: 0.3125em 2.25em 0.3125em 1em;
+	opacity: 0.9;
+	
+	a {
+		@include svg-sprite(close-blue);
+		display: inline-block;
+		position: relative;
+	}
 }
+
 /* end table enlarge styles */
 
-/* PDQ table styling */
-.pdqcancerinfosummary table thead tr th{
-	text-align: center;
-}
-
-/* Enlarge table for PDQ */
-/* now that we are not using "zebra striping" we don't need to change the color of links
-table tbody tr td a{
-	color: #2ba6cb !important;
-}
-*/
-table tbody tr td a:hover{
-	color: #2795b6;
-	text-decoration: underline;
-}
-/* ENLARGE text within table for PDQ */
-table tbody tr td figure a{
-	color: white !important;
-}
-/* End PDQ table styling */
-/* END TABLE STYLES */
+// used in highcharts tooltips
 [class^="flexTable"] {
 	display: flex;
 	flex-wrap: wrap;

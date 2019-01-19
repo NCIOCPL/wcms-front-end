@@ -145,9 +145,15 @@
 	text-align: right;
 	text-decoration: underline;
 }
+
+/* PDQ table styling */
 table .pdq-link-enlarge {
 	margin: 0;
 }
+.pdqcancerinfosummary thead th{
+	text-align: center;
+}
+
 .pdq-image-table-enlarge {
 	background: none repeat scroll 0 0 #fff;
 	@include box-shadow(0 0 5px 5px #808080);
@@ -155,28 +161,28 @@ table .pdq-link-enlarge {
 	margin-top: 20px;
 	position: absolute;
 	right: 10px;
+
+	table caption {
+		padding: 20px 0 10px 10px;
+	}
 }
-.pdq-image-table-enlarge table caption {
-	padding: 20px 0 10px 10px;
-}
-table.table-default {
-	border-collapse: collapse;
-	margin: 15px 0;
-}
+
 tfoot.pdq-footer {
 	margin: 0;
 	padding: 10px;
+
+	td {
+		background: none repeat scroll 0 0;
+		background-color: $caption-background;
+		font-size: 14px;
+		font-family: $montserrat-font-stack;
+		line-height: 1.5em;
+		border: medium none;
+		font-style: italic;
+		padding: 5px;
+	}
 }
-tfoot.pdq-footer td {
-	background: none repeat scroll 0 0;
-	background-color: $caption-background;
-	font-size: 14px;
-	font-family: $montserrat-font-stack;
-	line-height: 1.5em;
-	border: medium none;
-	font-style: italic;
-	padding: 5px;
-}
+
 table tfoot {
 	font-weight: normal;
 	background-color: $caption-background;
@@ -197,9 +203,6 @@ table tfoot {
 /* per ticket OCECREATIV-905 */
 
 /* following two classes are for lists */
-.pdq-content-list {
-
-}
 .pdq-list-title {
 	font-weight: bold;
 	font-style: italic;
@@ -210,7 +213,7 @@ table tfoot {
 	/* margin-top: -10px; -->  half the icon height */
 	& a:after {
 		content: "";
-	@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
+		@include svg-sprite(chevron-circle-dk-blue,$rotate:right);
 		margin-left: 10px;
 		vertical-align: bottom;
 	}
@@ -232,7 +235,6 @@ ul.pdq-address-block li {
 .contentzone ul.pdq-address-block > li {
 	@include no-before-bullet;
 }
-
 
 
 /* Protocol search results */
