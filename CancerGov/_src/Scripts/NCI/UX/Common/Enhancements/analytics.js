@@ -640,7 +640,7 @@ $(window).on('load',function(){
     });
 
     // Tracks clicks of "In This Section" menu items on PDQ pages
-    $('.onthispage .in-this-section a').on('click', function() {
+    $('.in-this-section a').on('click', function() {
         var pageName = 'www.cancer.gov/';
         if(typeof(s) !== 'undefined') {
             if(s.pageName) {

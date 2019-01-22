@@ -1439,7 +1439,7 @@ var NCIAnalytics = {
 
         clickParams.LogToOmniture();
     },
-    
+
     //******************************************************************************************************
     InThisSectionClick: function(sender, linkText, pageName) {
         clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'InThisSectionClick'); 
