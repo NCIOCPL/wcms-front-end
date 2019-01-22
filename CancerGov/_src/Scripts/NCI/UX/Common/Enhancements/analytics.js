@@ -638,6 +638,20 @@ $(window).on('load',function(){
         var linkText = $this.text();
         NCIAnalytics.OnThisPageClick($this, linkText, pageName);
     });
+
+    // Tracks clicks of "In This Section" menu items on PDQ pages
+    $('.onthispage .in-this-section a').on('click', function() {
+        var pageName = 'www.cancer.gov/';
+        if(typeof(s) !== 'undefined') {
+            if(s.pageName) {
+                pageName = s.pageName;
+            }
+        }
+        var $this = $(this);
+        var linkText = $this.text();
+        NCIAnalytics.InThisSectionClick($this, linkText, pageName);
+    });
+
     // Track clicks on website url of profile panel pages.
     $('div.profile-panel-content a').on("click", function(e) {
         var $this = $(this);

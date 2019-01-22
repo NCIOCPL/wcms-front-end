@@ -1439,6 +1439,19 @@ var NCIAnalytics = {
 
         clickParams.LogToOmniture();
     },
+    
+    //******************************************************************************************************
+    InThisSectionClick: function(sender, linkText, pageName) {
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'InThisSectionClick'); 
+        
+        clickParams.Props = {
+            66: "InThisSection_" + linkText,
+            67: pageName
+        };
+        clickParams.Events = [69];
+
+        clickParams.LogToOmniture();
+    },
 
     //******************************************************************************************************
     BackToTopReveal: function(sender, reveal) {
