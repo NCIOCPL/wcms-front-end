@@ -652,6 +652,13 @@ $(window).on('load',function(){
         NCIAnalytics.InThisSectionClick($this, linkText, pageName);
     });
 
+    // Tracks clicks on expand/collapse of the accordion sections within PDQ pages on mobile
+    $('.summary-sections .ui-accordion .ui-accordion-header').on('click', function() {
+        var $this = $(this);
+        var linkText = $this.text();
+        NCIAnalytics.PDQMobileClick($this, linkText, pageName);
+    });
+
     // Track clicks on website url of profile panel pages.
     $('div.profile-panel-content a').on("click", function(e) {
         var $this = $(this);

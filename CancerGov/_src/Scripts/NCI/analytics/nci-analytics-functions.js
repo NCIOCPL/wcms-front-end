@@ -1454,6 +1454,19 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    PDQMobileClick: function(sender, linkText, pageName) {
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'PDQMobileClick'); 
+        
+        clickParams.Props = {
+            66: "MobileSection_" + linkText,
+            67: pageName
+        };
+        clickParams.Events = [70];
+
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     BackToTopReveal: function(sender, reveal) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BackToTopReveal');
 
