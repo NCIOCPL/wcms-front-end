@@ -117,8 +117,8 @@
     dfn {
       display: inline-block;
       text-transform: capitalize;
-      // text-decoration: underline;
-      border-bottom: 2px solid #fff;
+      text-decoration: underline;
+      // border-bottom: 2px solid #fff; - does not work when term goes to two lines
       line-height: 1.1em;
     }
   }
