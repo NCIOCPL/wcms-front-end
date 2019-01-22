@@ -120,7 +120,17 @@
   }
 
   .caption-container {
-    color: $black;
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  figure {
+    width: 100%;
+    margin: 0 auto 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
