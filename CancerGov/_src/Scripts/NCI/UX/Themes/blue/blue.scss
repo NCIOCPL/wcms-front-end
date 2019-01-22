@@ -40,21 +40,25 @@ $main-menu-background-color: $eggshell;
 $main-menu-items-width-mobile: 28%;
 $main-search-background-color: $white;
 $main-search-text-desktop: #2e2e2e;
-$mega-menu-current-page-background: $slate;
-$mega-menu-current-page-active-expanded-color: $slate;
+$mega-menu-current-page-background: $denim;
+$mega-menu-current-page-active-expanded-color: $space;
 $mega-menu-current-page-active-expanded-background: $white;
 $mega-menu-current-page-active-not-expanded-color: $white;
-$mega-menu-current-page-active-not-expanded-background: $slate;
+$mega-menu-current-page-active-not-expanded-background: $space;
 $mega-menu-border-bottom-desktop: $denim;
 $mega-menu-group-header-desktop-color: $denim;
 $mega-menu-group-header-desktop-color-hover: $slate;
+$mobile-menu-bar-expanded-true-background: $space;
+$mobile-menu-active-link-background: $bronze;
+$mobile-menu-parent-of-current-page-color: $denim;
 $section-navigation-current-page-arrow-desktop: $denim;
 $section-navigation-top-level-background-desktop: $aegean;
 $section-navigation-level-1-background-desktop: $icicle;
 $section-navigation-is-current-page-color-desktop: $white;
 $section-navigation-is-current-page-background: $denim;
 $section-navigation-contains-current-page-color-desktop: $denim;
-$page-options-icons-background-mobile: $bronze;
+$section-nav-tongue-top-background-mobile: $aegean;
+$page-options-icons-background-mobile: $jewel;
 $page-options-icons-background-hover-mobile: $clementine;
 $page-options-icons-background-desktop: transparent;
 $site-footer-background: linear-gradient(45deg, $cobalt, $aegean);
@@ -157,10 +161,11 @@ a .feature-card.cgvArticle a:hover h3,
 }
 
 // menu bar
-.nav-item > .nav-item-title > a.active,
-.nav-item > .nav-item-title > a.open,
-.nav-item > .nav-item-title > a:focus,
-.nav-item > .nav-item-title > a,
+.menu.nav-menu > .nav-item > .nav-item-title > a.active,
+.menu.nav-menu > .nav-item > .nav-item-title > a.open,
+.menu.nav-menu > .nav-item > .nav-item-title > a:focus,
+.menu.nav-menu > .nav-item > .nav-item-title > a,
+#mega-nav .nav-menu > li.contains-current > div.nav-item-title > a,
 .mobile-menu-bar > a,
 .mobile-menu-bar > button,
 .mobile-menu-bar > a:focus,
@@ -169,6 +174,7 @@ a .feature-card.cgvArticle a:hover h3,
 .mobile-menu-bar > button:hover {
   color: $main-menu-link-color;
 }
+
 .nav-search-bar {
   background: $main-menu-background-color;
 }
@@ -197,6 +203,20 @@ button.nav-dictionary::before {
   @include svg-sprite($svg-menu-dictionary-mobile);
 }
 
+#mega-nav .lvl-1.contains-current.has-children > .nav-item-title > a,
+#mega-nav li.contains-current > div.nav-item-title > a {
+  color: $mobile-menu-parent-of-current-page-color;
+}
+
+#mega-nav .toggle[aria-expanded=true], #mega-nav[aria-expanded=true] .toggle {
+  color: $mobile-menu-bar-expanded-true-background;
+}
+
+// section navigation mobile (tongue)
+.section-nav div.current-page {
+  background: $section-nav-tongue-top-background-mobile;
+}
+
 // mega menu
 #mega-nav .current-page {
   background-color: $mega-menu-current-page-background;
@@ -212,6 +232,10 @@ button.nav-dictionary::before {
 #mega-nav .current-page > div[aria-expanded="false"] .toggle {
   background-color: $mega-menu-current-page-active-not-expanded-background;
   color: $mega-menu-current-page-active-not-expanded-color;
+}
+
+.nav-menu a:active {
+  background-color: $mobile-menu-active-link-background;
 }
 
 // page options
