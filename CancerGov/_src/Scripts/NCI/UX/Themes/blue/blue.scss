@@ -1,9 +1,10 @@
-@import '../../../../../StyleSheets/breakpoints';
-@import '../../../../../StyleSheets/fonts';
-@import './images/sprites/svg-sprite-blue';
+@import "../../../../../StyleSheets/breakpoints";
+@import "../../../../../StyleSheets/fonts";
+@import "./images/sprites/svg-sprite-blue";
 
 // theme color palette
 $denim: #00527d;
+$jewel: #008e9a;
 $cobalt: #4659a5;
 $puff: #85c8f8;
 $icicle: #ebf6f2;
@@ -12,7 +13,7 @@ $slate: #606060;
 $clementine: #f9a921;
 $key-lime: #9ee237;
 $marshmallow: #fffaf4;
-$agean: #2f779d;
+$aegean: #2f779d;
 
 // utility shades
 $eggshell: #f2f0ef;
@@ -23,6 +24,73 @@ $aqua: #c7eae8;
 $jade: #97ccc6;
 $freeze: #c2e4e0;
 $space: #023c5a;
+$bronze: #c78005;
+$white: #fff;
+
+// theme assignments
+$default-link-color: $denim;
+$default-link-hover: $bronze;
+$site-logo-width: auto;
+$site-logo-height: 50px;
+$site-logo-height-desktop: 67px;
+$utility-text: $white;
+$utility-background-color: $cobalt;
+$main-menu-link-color: $graphite;
+$main-menu-background-color: $eggshell;
+$main-menu-items-width-mobile: 28%;
+$main-search-background-color: $white;
+$main-search-text-desktop: #2e2e2e;
+$mega-menu-current-page-background: $slate;
+$mega-menu-current-page-active-expanded-color: $slate;
+$mega-menu-current-page-active-expanded-background: $white;
+$mega-menu-current-page-active-not-expanded-color: $white;
+$mega-menu-current-page-active-not-expanded-background: $slate;
+$mega-menu-border-bottom-desktop: $denim;
+$mega-menu-group-header-desktop-color: $denim;
+$mega-menu-group-header-desktop-color-hover: $slate;
+$section-navigation-current-page-arrow-desktop: $denim;
+$section-navigation-top-level-background-desktop: $aegean;
+$section-navigation-level-1-background-desktop: $icicle;
+$section-navigation-is-current-page-color-desktop: $white;
+$section-navigation-is-current-page-background: $denim;
+$section-navigation-contains-current-page-color-desktop: $denim;
+$page-options-icons-background-mobile: $bronze;
+$page-options-icons-background-hover-mobile: $clementine;
+$page-options-icons-background-desktop: transparent;
+$site-footer-background: linear-gradient(45deg, $cobalt, $aegean);
+$feature-card-background-color: $puff;
+$feature-card-link-color: $denim;
+$guide-card-arrow-link: $graphite;
+$guide-card-arrow-link-hover: $bronze;
+$multimedia-slot-background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-blue.jpg)
+  repeat;
+$pullquote-left-border: $slate;
+$accordion-odd-rows-background: $freeze;
+$accordion-toggle-odd-rows-background: $jade;
+$accordion-even-rows-background: $icicle;
+$accordion-toggle-even-rows-background: $aqua;
+$accordion-toggle-minus-odd-color: $jade;
+$accordion-toggle-minus-even-color: $aqua;
+$svg-menu-hamburger-mobile: menu-blue-palette;
+$svg-menu-info-mobile: info-blue-palette;
+$svg-menu-search-mobile: search-large-blue-palette;
+$svg-menu-dictionary-mobile: book-blue-palette;
+$svg-guide-card-circle-arrow-hover: chevron-circle-blue-palette;
+$svg-twitter: twitter-blue-palette;
+$svg-gov-delivery: gov-delivery-blue-palette;
+$svg-facebook: facebook-blue-palette;
+$svg-instagram: instagram-blue-palette;
+$svg-linkedin: linkedin-blue-palette;
+$svg-rss: rss-blue-palette;
+$svg-youtube: youtube-blue-palette;
+$svg-external-link: external-link-blue-palette;
+$svg-main-search-magnifying-glass-desktop: search-blue-palette;
+$svg-page-options-font-size-desktop: font-size-blue-palette;
+$svg-page-options-print-desktop: printer-blue-palette;
+$svg-page-options-email-desktop: mail-envelope-closed-blue-palette;
+$svg-page-options-facebook-desktop: facebook-blue-palette;
+$svg-page-options-twitter-desktop: twitter-blue-palette;
+$svg-page-options-pinterest-desktop: pinterest-blue-palette;
 
 // default theme link color
 .main-content a,
@@ -34,7 +102,7 @@ ul.breadcrumbs > * a,
 .desktop #blog-archive-accordion .ui-accordion-header .toggle,
 .desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle,
 .multimedia .feature-card a h3 {
-  color: $denim;
+  color: $default-link-color;
 }
 
 // default theme link hover/active color
@@ -51,12 +119,13 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a:hover,
 .feature-card.cgvArticle a:hover h3,
 .topic-feature .cgvBlogPost a:hover h3 {
-  color: $cocoa;
+  color: $default-link-hover;
 }
 
 // header
 .nci-logo-pages img {
-  width: 70%;
+  width: $site-logo-width;
+  height: $site-logo-height;
 }
 
 // language bar
@@ -66,6 +135,7 @@ a .feature-card.cgvArticle a:hover h3,
 }
 
 // utility bar
+// style changes because its being treated as the section title rather than utility bar
 #microsite-a {
   padding: 10px 0;
   font-family: $montserrat-font-stack;
@@ -74,28 +144,16 @@ a .feature-card.cgvArticle a:hover h3,
 
 .utility {
   text-align: left;
-  color: white;
+  color: $utility-text;
 }
 
 .utility-background {
-  background-color: $cobalt;
+  background-color: $utility-background-color;
 }
 
+// overcoming foundation class that hides utility bar for mobile
 .utility-background.micro-a {
   display: block !important;
-}
-
-#microsite-a .utility {
-  text-align: left;
-}
-
-#microsite-a .nsdb-title span {
-  margin-left: 0;
-}
-
-#microsite-a .utility span {
-  margin-right: 0;
-  padding-left: 40px;
 }
 
 // menu bar
@@ -109,93 +167,81 @@ a .feature-card.cgvArticle a:hover h3,
 .mobile-menu-bar > a:hover,
 .mobile-menu-bar > button:focus,
 .mobile-menu-bar > button:hover {
-  color: $graphite;
+  color: $main-menu-link-color;
 }
 .nav-search-bar {
-  background: $eggshell;
-  // background: -webkit-gradient(linear, left top, left bottom, from($slate), to($slate));
-  // background: linear-gradient(180deg, $slate, $slate);
+  background: $main-menu-background-color;
 }
 
 // mobile menu
+// due to changing number of items in mobile main menu on microsites
 .mobile-menu-bar > a,
 .mobile-menu-bar > button {
-  margin: 1em 10% !important;
-}
-
-.mobile-menu-bar > a,
-.mobile-menu-bar > button {
-  width: 13% !important;
+  width: $main-menu-items-width-mobile;
+  margin-left: 0;
 }
 
 .nav-header.menu-btn::before {
-  @include svg-sprite(menu-blue, mq);
+  @include svg-sprite($svg-menu-hamburger-mobile);
 }
 
 a.nav-contact::before {
-  @include svg-sprite(info-blue, mq);
+  @include svg-sprite($svg-menu-info-mobile);
 }
 
 button.nav-search::before {
-  @include svg-sprite(search-large-blue, mq);
+  @include svg-sprite($svg-menu-search-mobile);
+}
+
+button.nav-dictionary::before {
+  @include svg-sprite($svg-menu-dictionary-mobile);
 }
 
 // mega menu
 #mega-nav .current-page {
-  background-color: $slate;
+  background-color: $mega-menu-current-page-background;
 }
 
-#mega-nav .current-page > div .toggle[aria-expanded='true'],
-#mega-nav .current-page > div[aria-expanded='true'] .toggle {
-  background-color: #fff;
-  color: $slate;
+#mega-nav .current-page > div .toggle[aria-expanded="true"],
+#mega-nav .current-page > div[aria-expanded="true"] .toggle {
+  background-color: $mega-menu-current-page-active-expanded-background;
+  color: $mega-menu-current-page-active-expanded-color;
 }
 
-#mega-nav .current-page > div .toggle[aria-expanded='false'],
-#mega-nav .current-page > div[aria-expanded='false'] .toggle {
-  background-color: $slate;
-  color: #fff;
+#mega-nav .current-page > div .toggle[aria-expanded="false"],
+#mega-nav .current-page > div[aria-expanded="false"] .toggle {
+  background-color: $mega-menu-current-page-active-not-expanded-background;
+  color: $mega-menu-current-page-active-not-expanded-color;
 }
 
 // page options
 .page-options li {
-  background-color: $cocoa;
+  background-color: $page-options-icons-background-mobile;
 }
 
 .page-options li:hover {
-  background-color: $clementine;
+  background-color: $page-options-icons-background-hover-mobile;
 }
 
 // content styles
 a.arrow-link-white:hover:before,
 a.arrow-link:hover:before {
-  @include svg-sprite(chevron-circle-blue, mq);
-}
-.main-content .guide-card a.arrow-link:hover {
-  color: $cocoa;
+  @include svg-sprite($svg-guide-card-circle-arrow-hover);
 }
 
 .pullquote {
-  border-left-color: $slate;
+  border-left-color: $pullquote-left-border;
 }
 
 .micro-a.feature-primary .feature-card,
 .micro-a.feature-primary .card {
-  background-color: $puff;
-}
-
-.micro-a.multimedia-slot {
-  background-color: $slate;
-}
-
-.micro-a {
-  margin-top: 20px;
+  background-color: $feature-card-background-color;
 }
 
 .feature-primary .feature-card.cgvArticle a h3,
 .feature-primary .feature-card.cgvArticle a:hover h3,
 .main-content .feature-card a {
-  color: $denim;
+  color: $feature-card-link-color;
 }
 
 .main-content .guide-card a.arrow-link,
@@ -205,174 +251,187 @@ a.arrow-link:hover:before {
 #swKeyword,
 .search,
 .utility-background {
-  color: $graphite;
+  color: $guide-card-arrow-link;
+}
+
+.main-content .guide-card a.arrow-link:hover {
+  color: $guide-card-arrow-link-hover;
 }
 
 .multimedia-slot {
-  background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-blue.jpg) repeat;
+  background: $multimedia-slot-background;
+}
+
+.icon-exit-notification {
+  @include svg-sprite($svg-external-link);
+}
+
+// accordion
+.ui-accordion-header.odd,
+.ui-accordion-header.odd.ui-state-active {
+  background: $accordion-odd-rows-background;
+}
+.ui-accordion-header.even,
+.ui-accordion-header.even.ui-state-active {
+  background: $accordion-even-rows-background;
+}
+.ui-accordion-header.odd .toggle[aria-expanded="false"],
+.ui-accordion-header.odd[aria-expanded="false"] .toggle {
+  background: $accordion-toggle-odd-rows-background;
+}
+.ui-accordion-header.even .toggle[aria-expanded="false"],
+.ui-accordion-header.even[aria-expanded="false"] .toggle {
+  background: $accordion-toggle-even-rows-background;
+}
+.ui-accordion-header.odd .toggle[aria-expanded="true"],
+.ui-accordion-header.odd[aria-expanded="true"] .toggle {
+  color: $accordion-toggle-minus-odd-color;
+}
+.ui-accordion-header.even .toggle[aria-expanded="true"],
+.ui-accordion-header.even[aria-expanded="true"] .toggle {
+  color: $accordion-toggle-minus-even-color;
 }
 
 // footer
 .site-footer {
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    right top from($cobalt),
-    to($agean)
-  );
-  background: linear-gradient(45deg, $cobalt, $agean);
+  background: $site-footer-background;
+}
+.site-footer__icons .icon.twitter {
+  @include svg-sprite($svg-twitter);
+}
+
+.site-footer__icons .icon.govdelivery {
+  @include svg-sprite($svg-gov-delivery);
+}
+
+.site-footer__icons .icon.facebook {
+  @include svg-sprite($svg-facebook);
+}
+
+.site-footer__icons .icon.instagram {
+  @include svg-sprite($svg-instagram);
+}
+
+.site-footer__icons .icon.linkedin {
+  @include svg-sprite($svg-linkedin);
+}
+
+.site-footer__icons .icon.rss {
+  @include svg-sprite($svg-rss);
+}
+
+.site-footer__icons .icon.youtube {
+  @include svg-sprite($svg-youtube);
 }
 
 @include break(large) {
-  // theme images
-  .site-footer__icons .icon.twitter {
-    @include svg-sprite(twitter-blue, mq);
-  }
-
-  .site-footer__icons .icon.govdelivery {
-    @include svg-sprite(gov-delivery-blue, mq);
-  }
-
-  .icon-exit-notification {
-    @include svg-sprite(external-link-blue, mq);
-  }
-
   // header
   .nci-logo-pages {
     img {
-      width: 42%;
+      width: $site-logo-width;
+      height: $site-logo-height-desktop;
     }
+  }
 
-    a {
-      padding-left: 16px !important;
-    }
+  // because the language bar is turned off, there needs to be space between the utility bar and logo
+  .micro-a {
+    margin-top: 20px;
+  }
+
+  // utility
+  #microsite-a .utility span {
+    display: none;
   }
 
   //  main navigation and search
   #swKeyword,
   .search {
-    background-color: #fff;
+    background-color: $main-search-background-color;
   }
 
   #sitesearch {
-    @include svg-sprite(search-blue, mq);
-  }
-
-  #nvcgSlMainNav.searching #siteSearchForm:before {
-    width: 75% !important;
-    left: 19% !important;
-  }
-
-  #nvcgSlMainNav.searching #swKeyword {
-    left: 20% !important;
-    width: 75% !important;
-  }
-
-  #nvcgSlMainNav.searching #searchclear {
-    z-index: 80;
+    @include svg-sprite($svg-main-search-magnifying-glass-desktop, mq);
   }
 
   #mega-nav .nav-item.contains-current > .nav-item-title > a,
   #mega-nav .nav-item.current-page > .nav-item-title > a {
-    border-bottom-color: $denim;
+    border-bottom-color: $mega-menu-border-bottom-desktop;
   }
 
   a.sub-nav-group-header {
-    color: $denim;
+    color: $mega-menu-group-header-desktop-color;
   }
 
   a.sub-nav-group-header:focus,
   a.sub-nav-group-header:hover {
-    color: $slate;
+    color: $mega-menu-group-header-desktop-color-hover;
   }
 
   // Left navigation
   .section-nav {
     .current-page:after {
-      border-left-color: $denim;
+      border-left-color: $section-navigation-current-page-arrow-desktop;
     }
 
     .level-0 > div {
-      background-color: $cocoa;
+      background-color: $section-navigation-top-level-background-desktop;
     }
 
     .level-1.contains-current {
-      background-color: $icicle;
+      background-color: $section-navigation-level-1-background-desktop;
     }
 
     div.current-page {
-      background-color: $denim;
+      background-color: $section-navigation-is-current-page-background;
     }
     .contains-current.has-children {
       > div a {
-        color: $denim;
+        color: $section-navigation-contains-current-page-color-desktop;
       }
       > div.current-page a {
-        color:white;
+        color: $section-navigation-is-current-page-color-desktop;
       }
     }
   }
 
   .page-options li,
   .page-options li:hover {
-    background-color: transparent;
+    background-color: $page-options-icons-background-desktop;
   }
 
   .page-options .page-options--resize a:before {
-    @include svg-sprite(font-size-blue, mq);
+    @include svg-sprite($svg-page-options-font-size-desktop, mq);
   }
 
   // desktop theme images
   .page-options .page-options--print a:before {
-    @include svg-sprite(printer-blue, mq);
+    @include svg-sprite($svg-page-options-print-desktop, mq);
   }
 
   .page-options .page-options--email a:before {
-    @include svg-sprite(mail-envelope-closed-blue, mq);
+    @include svg-sprite($svg-page-options-email-desktop, mq);
   }
 
   .page-options .social-share--facebook a:before {
-    @include svg-sprite(facebook-blue, mq);
+    @include svg-sprite($svg-page-options-facebook-desktop, mq);
   }
 
   .page-options .social-share--twitter a:before {
-    @include svg-sprite(twitter-blue, mq);
+    @include svg-sprite($svg-page-options-twitter-desktop, mq);
   }
 
   .page-options .social-share--pinterest a:before {
-    @include svg-sprite(pinterest-blue, mq);
+    @include svg-sprite($svg-page-options-pinterest-desktop, mq);
   }
 
   // desktop main menu
-  #nvcgSlMainNav.searching #siteSearchForm:before {
-    width: 75% !important;
-    left: 19% !important;
-  }
-
-  #nvcgSlMainNav.searching #swKeyword {
-    left: 20% !important;
-    width: 75% !important;
-    color: #2e2e2e;
-  }
-
-  #nvcgSlMainNav.searching #searchclear {
-    z-index: 80;
-  }
-
-  #PageOptionsControl1 {
-    display: block;
-    height: 35px;
-  }
-
-  #microsite-a .utility span {
-    display: none;
+  #nvcgSlMainNav #swKeyword {
+    color: $main-search-text-desktop;
   }
 }
 
 @include bp(medium) {
   .nci-logo-pages img {
-    width: 47%;
-    min-width: initial;
-    max-width: initial;
+    width: $site-logo-width;
   }
 }
