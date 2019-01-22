@@ -87,6 +87,9 @@
   &:first-child {
     margin-bottom: 10px;
   }
+  &:last-child {
+    margin-top: 10px;
+  }
 }
 
 .modal__content {
