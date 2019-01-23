@@ -1454,15 +1454,17 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
-    PDQMobileClick: function(sender, linkText, pageName) {
-        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'PDQMobileClick'); 
+    PDQMobileClick: function(sender, linkText, isExpanded, pageName) {
+        var state = isExpanded?"AccordionSectionExpand_":"AccordionSectionCollapse_";
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'PDQMobileClick');
+        
+        clickParams.Events = isExpanded?[31]:[32];
         
         clickParams.Props = {
-            66: "MobileSection_" + linkText,
+            66: state + linkText,
             67: pageName
         };
-        clickParams.Events = [70];
-
+        
         clickParams.LogToOmniture();
     },
 

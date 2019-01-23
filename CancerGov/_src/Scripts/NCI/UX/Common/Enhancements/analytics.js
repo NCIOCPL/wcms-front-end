@@ -653,10 +653,11 @@ $(window).on('load',function(){
     });
 
     // Tracks clicks on expand/collapse of the accordion sections within PDQ pages on mobile
-    $('.summary-sections .ui-accordion .ui-accordion-header').on('click', function() {
+    $('.summary-sections h2.ui-accordion-header').on('click', function() {
         var $this = $(this);
         var linkText = $this.text();
-        NCIAnalytics.PDQMobileClick($this, linkText, pageName);
+        var isExpanded = $this.attr("aria-expanded") == "true";
+        NCIAnalytics.PDQMobileClick($this, linkText, isExpanded, pageName);
     });
 
     // Track clicks on website url of profile panel pages.
