@@ -97,6 +97,7 @@
   line-height: 1.5;
   overflow-y: auto;
   font-family: $montserrat-font-stack;
+  -webkit-overflow-scrolling: touch;
   
   .CDR_audiofile {
     @include svg-sprite(volume-up-white);
