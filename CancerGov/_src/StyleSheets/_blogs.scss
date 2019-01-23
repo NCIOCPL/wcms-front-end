@@ -1,3 +1,4 @@
+@import "./colors";
 /*Begin Blog Subscribe Button CSS*/
 .subscribeRSS {
 	margin-bottom: 10px;
@@ -295,7 +296,7 @@ p.blog-post-publishing-info {
 }
 
 .card.blog-feature {
-	border: 1px solid $grey04;
+	border: 1px solid $yetAnotherGrey;
 	background-color: $white;
 	box-shadow: 0 0 9px 1px rgba($black,.15);
 }
