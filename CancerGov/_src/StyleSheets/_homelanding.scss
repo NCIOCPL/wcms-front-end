@@ -228,21 +228,22 @@
 			
 		}
 
-        ul.cancer-types li {
-            background: none;
-            float: left;
-            width: 2.5em;
-            padding-right: 0;
-            margin: 0;
+		ul.cancer-types li {
+			background: none;
+			float: left;
+			width: 2.5em;
+			padding-right: 0;
+			margin: 0;
 
-            a { @extend %card-link-hover; }
-            a, span {
-                line-height: 2.046;// line height needs to be 45px
-                font-size: 22px;   // for browsers that don't know 'rem'
-                font-size: 1.375rem; }
-        }
+			a { @extend %card-link-hover; }
+			a, span {
+				line-height: 2.046;// line height needs to be 45px
+				font-size: 22px;   // for browsers that don't know 'rem'
+				font-size: 1.375rem;
+			}
+		}
 		// this was done because the columns were becoming too narrow in tablet and had to stack before they reached mobile.
-		 @include bp('(max-width: 765px)') {
+		@include bp('(max-width: 765px)') {
 			width: 100%;
 		}
 	}
