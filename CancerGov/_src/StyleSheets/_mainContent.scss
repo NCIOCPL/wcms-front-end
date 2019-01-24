@@ -154,13 +154,19 @@ table.no-bullet-padding ul {
 		padding: 0 0 0 10px;
 	}
 }
-/*the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge. */
+
 .key-facts {
 	background: #d7f9fa;
-	float: right;
-	width: 40%;
 	padding: 0 1em;
-	margin: 1em -1em 1em 1em;
+}
+
+@include break(medium) {
+	.key-facts {
+		float: right;
+		width: 40%;
+		// the -1em for right margin is due to the fact that it has to touch the edge whereas the container it is in has padding for the edge.
+		margin: 1em -1em 1em 1em;
+	}
 }
 
 /* END general content page styles */
