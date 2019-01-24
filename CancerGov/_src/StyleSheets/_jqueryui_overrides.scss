@@ -87,19 +87,11 @@
 	clear: both;
 
 	.toggle {
-	right: 0;
-	top: 0;
-	margin-top: 0;
-	font-size: 2em;
-	height: 100%;
-	width: 50px;
-
-	&:after {
-		position: absolute;
-		top: 50%;
-		margin-top: -0.5em;
+		&:after {
+			position: absolute;
+			@include vCenter;
+		}
 	}
-}
 
 	#blog-archive-accordion {
 
@@ -123,13 +115,13 @@
 			background-color: white;
 		}
 			&.ui-state-active .toggle{
-			color: #14819b;
-		}
+				color: #14819b;
+			}
 		}
 		@include bp(medium-down) {
-		.ui-accordion .ui-accordion-header{
-			margin-right: 0 !important;
-		}
+			.ui-accordion .ui-accordion-header{
+				margin-right: 0 !important;
+			}
 		}
 	}
 }

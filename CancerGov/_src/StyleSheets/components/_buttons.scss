@@ -232,7 +232,7 @@ a.search-link {
 @media only screen {
 	form button,
 	form .button {
-		@include box-shadow(0 2px 4px 0 rgba(0, 0, 0, 0.05) inset);
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05) inset;
 
 		@include single-transition(background-color);
 
@@ -301,13 +301,12 @@ $plusminus-bg-color-nav-current: #12738a;
 	margin: 0;
 	padding: 0;
 	border: 0;
-	@include box-shadow(none);
+	box-shadow: none;
 	// END reset
 
 	position: absolute;
 	right: 4%;
-	top: 50%;
-	margin-top: -0.5em;
+	@include vCenter;
 	overflow: visible;
 	font-family: Arial, sans-serif; // must be Arial for pretty +/- characters
 	font-size: 1em;
@@ -346,8 +345,7 @@ $plusminus-bg-color-nav-current: #12738a;
 
 		&:after {
 			position: absolute;
-			top: 50%;
-			margin-top: -0.5em;
+			@include vCenter;
 		}
 	}
 
@@ -362,7 +360,7 @@ $plusminus-bg-color-nav-current: #12738a;
 	// MOBILE: "hamburger" plus/minus buttons
 	#mega-nav .toggle {
 		font-size: 2.5em;
-		@include box-shadow(-15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset);
+		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 	}
 
 	#mega-nav {
