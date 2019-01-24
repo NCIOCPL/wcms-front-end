@@ -160,16 +160,10 @@ dl {
 
 
 /* Unordered Lists */
-ul {
-  // li {
-    ul,
-    ol {
-      // margin-left: 1.25em;
-      margin-bottom: 0;
-      // font-size: 1em;
-      /* Override nested font-size change */
-    }
-  // }
+ol, ul {
+  ol, ul {
+    margin-bottom: 0;
+  }
 
   &.square,
   &.circle,
@@ -198,13 +192,8 @@ ul {
 
 /* Ordered Lists */
 ol {
-  li {
-
-    ul,
-    ol {
-      margin-left: 1.25em;
-      margin-bottom: 0;
-    }
+  ol, ul {
+    margin-left: 1.25em;
   }
 }
 
@@ -249,7 +238,6 @@ blockquote {
   cite {
     display: block;
     font-size: .8125em;
-    ;
     color: #939393;
 
     &:before {
