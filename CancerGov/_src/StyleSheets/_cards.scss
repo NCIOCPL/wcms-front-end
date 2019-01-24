@@ -31,10 +31,6 @@
 	}
 	ul {
 		@extend %no-bullets;
-
-		> li {
-			margin: 0;
-		}
 	}
 }
 /* END CARDS GENERAL RULES */

@@ -151,33 +151,25 @@ code {
 ul,
 ol,
 dl {
-  font-size: 1em;
-  line-height: 1.6;
+  // font-size: 1em;
+  line-height: 1.5;
   margin-bottom: 1.25em;
-  list-style-position: outside;
-  font-family: inherit;
+  // list-style-position: outside;
+  // font-family: inherit;
 }
 
-ul,
-ol {
-  margin-left: 0;
-
-  &.no-bullet {
-    margin-left: 0;
-  }
-}
 
 /* Unordered Lists */
 ul {
-  li {
+  // li {
     ul,
     ol {
-      margin-left: 1.25em;
+      // margin-left: 1.25em;
       margin-bottom: 0;
-      font-size: 1em;
+      // font-size: 1em;
       /* Override nested font-size change */
     }
-  }
+  // }
 
   &.square,
   &.circle,

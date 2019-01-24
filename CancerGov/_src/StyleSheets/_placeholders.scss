@@ -2,13 +2,10 @@
 // These are effectively mixins that should be eventually converted to such or deprecated. Aggregated here to avoid having to 
 
 %no-bullets {
-	padding: 0;
 	& > li {
-		background: none;
-		list-style-type: none;
-		padding: 0;
+		margin: .5em 0;
 		&:before {
-			display: none;
+			display: none !important;
 		}
 	}
 	ul {
