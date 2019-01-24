@@ -10,11 +10,9 @@
 		white-space: nowrap;
 		display: flex;
 		align-items: center;
-		li {
-			display: inline-block;
-			margin: 0;
-			@include no-before-bullet;
-		}
+	}
+	li {
+		@include no-before-bullet;
 	}
 
 	a {
@@ -90,10 +88,9 @@ a.social-share--custom-tweet {
 
 		ul {
 			float: right;
-
-			li {
-				margin: 0 0 0 0.675em;
-			}
+		}
+		li {
+			margin: 0 0 0 0.675em;
 		}
 
 
@@ -120,7 +117,7 @@ a.social-share--custom-tweet {
 	}
 
 	.page-options {
-		ul li {
+		li {
 			margin: 0 0.875em 0 0;
 			width: 35px;
 			height: 35px;
