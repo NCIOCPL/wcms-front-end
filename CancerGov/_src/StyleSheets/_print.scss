@@ -41,7 +41,7 @@
 		margin-left: 0 !important; margin-right: 0 !important;
 	}
 	.general-page-body-container {
-		@include box-shadow(none);
+		box-shadow: none;
 	}
 	.cthp-content h1 {
 		color: inherit;

@@ -87,7 +87,7 @@ button.nav-search {
 		position: absolute;
 		top:2px;
 		left: 50%;
-		@include transform(translateX(-50%));
+		transform: translateX(-50%);
 	}
 }
 button.nav-header::before {

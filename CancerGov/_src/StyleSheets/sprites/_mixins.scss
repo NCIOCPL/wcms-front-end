@@ -87,7 +87,7 @@ $svg-sprite: map-get($svg-icons, sprite) !default;
 }
 
 @mixin rotate($deg) {
-  @include transform(rotate(#{$deg}deg));
+  transform: rotate(#{$deg}deg);
 }
 
 

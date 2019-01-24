@@ -167,15 +167,14 @@
 		left: 0;
 		//padding: 0.5em 1em;
 		border-bottom: 1px solid #dedede;
-		@include box-shadow(0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4));
+		box-shadow: 0 11px 15.2px 0.8px rgba(0, 0, 0, 0.4);
 		border-top: none;
 		background-color: #fff;
 		width: 100%;
 		max-height:0;
 		opacity: 0;
 		visibility: hidden;
-		//@include transform(translateY(-15px));
-		@include transition(all 500ms ease 100ms);
+		transition: all 500ms ease 100ms;
 		overflow: hidden;
 
 		/* sub-navigation panel open state */
@@ -184,7 +183,6 @@
 			opacity: 1;
 			visibility: visible;
 			transition-delay: 500ms;
-			//@include transform(translateY(0));
 		}
 	}
 	.no-csstransitions .sub-nav-mega {

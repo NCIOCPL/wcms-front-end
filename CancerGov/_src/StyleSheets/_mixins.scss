@@ -4,40 +4,6 @@
 	height: $height;
 }
 
-@mixin transition($transitions...) {
-	-webkit-transition: $transitions;
-	-moz-transition: $transitions;
-	-o-transition: $transitions;
-	transition: $transitions;
-}
-@mixin transition-delay($transition-delay) {
-	-webkit-transition-delay: $transition-delay;
-	-moz-transition-delay: $transition-delay;
-	-o-transition-delay: $transition-delay;
-	transition-delay: $transition-delay;
-}
-
-@mixin transform($transforms...) {
-	-webkit-transform: $transforms;
-	-moz-transform: $transforms;
-	-ms-transform: $transforms;
-	-o-transform: $transforms;
-	transform: $transforms;
-}
-@mixin transform-origin($transform-origin) {
-	-webkit-transform-origin: $transform-origin;
-	-moz-transform-origin: $transform-origin;
-	-ms-transform-origin: $transform-origin;
-	-o-transform-origin: $transform-origin;
-	transform-origin: $transform-origin;
-}
-
-@mixin box-shadow($shadows...) {
-	-webkit-box-shadow: $shadows;
-	-moz-box-shadow: $shadows;
-	box-shadow: $shadows;
-}
-
 @mixin hCenter {
 	left: 50%;
 	transform: translateX(-50%);
@@ -58,10 +24,10 @@
 
 	// rotate the call to action:
 	right: 0;
-	@include transform-origin(top right);
-	@include transform(
+	transform-origin: top right;
+	transform:
 		rotate(90deg)
-		translate(100%, -1px)); // -1px to fix rendering issues
+		translate(100%, -1px); // -1px to fix rendering issues
 }
 
 @mixin card-clickable {

@@ -357,7 +357,7 @@
 	#page, #mega-nav {
 		position: relative;
 		left: 0;
-		@include transition(left 500ms ease);
+		transition: left 500ms ease;
 	}
 	html.nav-open {
 		overflow: hidden;
@@ -367,7 +367,7 @@
 		}
 	}
 	.fixedtotop {
-		@include transition(left 500ms ease);
+		transition: left 500ms ease;
 	}
 
 	/* When the panel is closed, transition the page back to the left */
@@ -508,7 +508,7 @@
 		width: 80%;
 		height: 100%;
 		background-color: $beige;
-		@include box-shadow(-15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset);
+		box-shadow: -15px 0px 15px -15px rgba(0, 0, 0, 0.6) inset;
 
 		html.nav-open & {
 			visibility: visible;

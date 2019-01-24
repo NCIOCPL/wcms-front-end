@@ -156,7 +156,7 @@ table .pdq-link-enlarge {
 
 .pdq-image-table-enlarge {
 	background: none repeat scroll 0 0 #fff;
-	@include box-shadow(0 0 5px 5px #808080);
+	box-shadow: 0 0 5px 5px #808080;
 	left: 10px;
 	margin-top: 20px;
 	position: absolute;
