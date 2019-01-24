@@ -69,6 +69,7 @@ $guide-card-arrow-link-hover: $bronze;
 $multimedia-slot-background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-blue.jpg)
   repeat;
 $pullquote-left-border: $slate;
+$footer-icons-hover-opacity: 1;
 $accordion-odd-rows-background: $freeze;
 $accordion-toggle-odd-rows-background: $jade;
 $accordion-even-rows-background: $icicle;
@@ -81,12 +82,21 @@ $svg-menu-search-mobile: search-large-blue-palette;
 $svg-menu-dictionary-mobile: book-blue-palette;
 $svg-guide-card-circle-arrow-hover: chevron-circle-blue-palette;
 $svg-twitter: twitter-blue-palette;
+$svg-twitter-hover: twitter-hover-blue-palette;
 $svg-gov-delivery: gov-delivery-blue-palette;
+$svg-gov-delivery-hover: gov-delivery-hover-blue-palette;
 $svg-facebook: facebook-blue-palette;
+$svg-facebook-hover: facebook-hover-blue-palette;
 $svg-instagram: instagram-blue-palette;
+$svg-instagram-hover: instagram-hover-blue-palette;
 $svg-linkedin: linkedin-blue-palette;
+$svg-linkedin-hover: linkedin-hover-blue-palette;
 $svg-rss: rss-blue-palette;
+$svg-rss-hover: rss-hover-blue-palette;
+$svg-pinterest: pinterest-blue-palette;
+$svg-pinterest-hover: pinterest-hover-blue-palette;
 $svg-youtube: youtube-blue-palette;
+$svg-youtube-hover: youtube-hover-blue-palette;
 $svg-external-link: external-link-blue-palette;
 $svg-main-search-magnifying-glass-desktop: search-blue-palette;
 $svg-page-options-font-size-desktop: font-size-blue-palette;
@@ -320,32 +330,56 @@ a.arrow-link:hover:before {
 .site-footer {
   background: $site-footer-background;
 }
+.site-footer__icons li:hover {
+  opacity: $footer-icons-hover-opacity;
+}
 .site-footer__icons .icon.twitter {
   @include svg-sprite($svg-twitter);
+}
+.site-footer__icons .icon.twitter:hover {
+  @include svg-sprite($svg-twitter-hover);
 }
 
 .site-footer__icons .icon.govdelivery {
   @include svg-sprite($svg-gov-delivery);
 }
+.site-footer__icons .icon.govdelivery:hover {
+  @include svg-sprite($svg-gov-delivery-hover);
+}
 
 .site-footer__icons .icon.facebook {
   @include svg-sprite($svg-facebook);
+}
+.site-footer__icons .icon.facebook:hover {
+  @include svg-sprite($svg-facebook-hover);
 }
 
 .site-footer__icons .icon.instagram {
   @include svg-sprite($svg-instagram);
 }
+.site-footer__icons .icon.instagram:hover {
+  @include svg-sprite($svg-instagram-hover);
+}
 
 .site-footer__icons .icon.linkedin {
   @include svg-sprite($svg-linkedin);
+}
+.site-footer__icons .icon.linkedin:hover {
+  @include svg-sprite($svg-linkedin-hover);
 }
 
 .site-footer__icons .icon.rss {
   @include svg-sprite($svg-rss);
 }
+.site-footer__icons .icon.rss:hover {
+  @include svg-sprite($svg-rss-hover);
+}
 
 .site-footer__icons .icon.youtube {
   @include svg-sprite($svg-youtube);
+}
+.site-footer__icons .icon.youtube:hover {
+  @include svg-sprite($svg-youtube-hover);
 }
 
 @include break(large) {
