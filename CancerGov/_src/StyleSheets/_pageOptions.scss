@@ -10,9 +10,9 @@
 		white-space: nowrap;
 		display: flex;
 		align-items: center;
-	}
-	li {
-		@include no-before-bullet;
+		li {
+			@include no-before-bullet;
+		}
 	}
 
 	a {

@@ -30,7 +30,10 @@
 		color: $body-font-color;
 	}
 	ul {
-		@extend %no-bullets;
+		li {
+			@include no-before-bullet;
+			margin: 0;
+		}
 	}
 }
 /* END CARDS GENERAL RULES */

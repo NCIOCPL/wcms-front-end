@@ -124,7 +124,7 @@
 .cthp-content .cardBody {
 	padding: 0.625em 0.8em;
 	flex: 1 0 auto;
-    display: flex;
+	display: flex;
 	flex-direction: column;
 	margin-bottom: 0;
 
@@ -194,10 +194,6 @@
 		text-transform: uppercase;
 	}
 }
-.cthpCard .cardBody ul li {
-	list-style-type: none;
-	padding-left: 0.9375em;
-}
 .cthpCard .cthp-general .cardBody ul li,
 .cthpCard a + .cardBody ul li,
 .cthpCard .cardBody br + ul li {
@@ -241,19 +237,13 @@
 		margin-top: 19px;
 	}
 }
-.more-info-list ul li:before,
-.cthp-pdq-label ul li:before,
-.cardBody h4 + ul li:before,
-.cardBody p a:before  {
-	content: "\2022";
-	display: inline-block;
-	position: relative;
-	left: -.5em;
-	top: 0.1em;
-	margin: 0 -.2em;
-	font-size: 1.1em;
-	color: $default-text;
+
+.cardBody ul li,
+.cardBody p a,
+.list.more-info li {
+	@include customBullet(15px);
 }
+
 .main-content a.viewAll {
 	color: $body-font-color;
 }

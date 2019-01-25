@@ -1,3 +1,5 @@
+@import "./colors";
+
 @mixin sprite($x-coordinate: 0, $y-coordinate: 0, $width: 0, $height: 0) {
 	background: url($icons + "nci-sprite.png") no-repeat $x-coordinate $y-coordinate;
 	width: $width;
@@ -19,8 +21,8 @@
 	position: absolute;
 	z-index: 88;
 	padding: 0.62em;
-	color: #FFFFFF;
-	background-color: #403f3f;
+	color: $white;
+	background-color: $cta-background;
 
 	// rotate the call to action:
 	right: 0;
@@ -41,8 +43,35 @@
 	}
 }
 // not to be confused with %no-bullets in placeholders.scss
-@mixin no-before-bullet {
+@mixin no-before-bullet($noPadding: true) {
+	@if $noPadding {
+		padding: 0;
+	}
+
 	&:before {
 		display: none !important;
+	}
+}
+
+%relativePosition {
+	position: relative;
+}
+
+%customBullet {
+	content: "\2022";
+	display: inline-block;
+	position: absolute;
+	top: -.05em;
+	font-size: 1.1em;
+	color: $default-text;
+}
+
+@mixin customBullet($padding:28px) {
+	@extend %relativePosition;
+	padding-left: $padding;
+
+	&::before {
+		@extend %customBullet;
+		left: $padding - 11;
 	}
 }

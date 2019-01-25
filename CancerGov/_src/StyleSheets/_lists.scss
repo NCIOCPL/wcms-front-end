@@ -1,18 +1,26 @@
-//TODO: this needs more work and cleanup
-
-ul li ul, .bcrumbs ul {
+.bcrumbs ul {
 	margin: 0;
 }
 
-%customBullet {
-	content: "\2022";
-	display: inline;
-	position: relative;
-	left: -0.5em; //why?
-	margin: 0 -0.2em; //why?
-	font-size: 1.1em;
-	line-height: 0.90909em;
-	color: $default-text;
+// generic list styles in the main area
+.contentzone,
+.rawHtml {
+	ul, ol {
+		// margin-bottom: 1em;
+	}
+	ul {
+		li {
+			@include customBullet;
+		}
+	}
+	ol li {
+		margin-left: 38px;
+		padding: 0;
+	}
+	li, ul .no-bullets li {
+		margin: .5em 0 .5em 0;
+		padding-left: 28px;
+	}
 }
 
 // Managed List styles
@@ -40,10 +48,7 @@ ul li ul, .bcrumbs ul {
 	&.compact {
 		li {
 			margin: 1em 0 1em 2em;
-			
-			&:before {
-				@extend %customBullet;
-			}
+			@include customBullet;
 		}
 	}
 	
@@ -51,10 +56,7 @@ ul li ul, .bcrumbs ul {
 	&.more-info {
 		li {
 			margin: 0;
-			
-			&:before {
-				@extend %customBullet;
-			}
+			@include customBullet;
 			
 			.title-and-desc {
 				display: inline;
@@ -92,9 +94,11 @@ ul li ul, .bcrumbs ul {
 	}
 
 	ul {
+		margin-bottom: 0;
 
 		> li {
 			margin: 1.875em 0;
+			padding: 0;
 			clear: both;
 
 			&:before {
@@ -210,22 +214,7 @@ ol {
 	}
 }
 
-.contentzone,
-.rawHtml {
-	ul {
-		& > li {
-			&:before {
-				@extend %customBullet;
-			}
-		}
-	}
-	ol li {
-		margin-left: 38px;
-	}
-	li, ul .no-bullets li {
-		margin: .5em 0 .5em 28px;
-	}
-}
+
 
 ul.no-description > li,
 ul.no-description > li {
@@ -335,16 +324,15 @@ p.description.dynamic-description {
 ul.cancer-list {
 	> li {
 		margin-left: 0;
+		@include no-before-bullet;
 	}
 
 	ul {
 		margin-bottom: 0;
+		li {
+			@include no-before-bullet(false);
+		}
 	}
-
-	li {
-		@include no-before-bullet;
-	}
-
 }
 
 /* lists for Press Releases, NCI Fact Sheets */
