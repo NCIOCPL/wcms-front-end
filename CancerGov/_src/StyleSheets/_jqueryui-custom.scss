@@ -1,0 +1,28 @@
+@import "./colors";
+@import "./breakpoints";
+
+
+.ui-widget.ui-widget-content {
+  border: 1px solid #d3d3d3;
+}
+
+.ui-menu {
+  .ui-menu-item {
+    cursor: pointer;
+  }
+}
+
+/* autocomplete */
+.ui-autocomplete {
+  position: absolute;
+  cursor: default;
+  
+	.ui-menu-item {
+		background-color: rgba($beige, 1);
+    padding: 3px 1em 3px .4em;
+  }
+  .ui-state-focus {
+		color: #fff;
+		background: $navyblue;
+	}
+}
