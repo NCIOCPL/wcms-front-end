@@ -422,6 +422,7 @@ $(window).on('load',function(){
 
     // reusable pageName value for most analytic events
     var pageName = window.location.hostname + window.location.pathname;
+    var pathname = window.location.pathname;
 
     $("#nvcgSlSectionNav button.toggle").on('click.analytics',function(event){
 
@@ -472,7 +473,6 @@ $(window).on('load',function(){
     // On the /grants-training/training/contact page we want to 
     // 1. Anchor click events to each of the items in the "On This Page" section
     // 2. Anchor click events to each of the email address links within the tables.
-    var pathname = window.location.pathname;
     if(pathname.indexOf("/grants-training/training/contact") != -1){
         $('#cgvBody ul').eq(0).find('li').each(function(){
             $(this).find('a').on('click', function(){
@@ -523,7 +523,7 @@ $(window).on('load',function(){
     // Track the expand/collapse of the accordion
     $("#blog-archive-accordion").on("click", "h3, h4", function(){
         var isClosing = !$(this).hasClass('ui-state-active');
-        NCIAnalytics.BlogArchiveAccordionClick(this, window.location.hostname + window.location.pathname, isClosing);
+        NCIAnalytics.BlogArchiveAccordionClick(this, pageName, isClosing);
     });
 
     $(".blogRSS").on("click", function(){
@@ -639,6 +639,7 @@ $(window).on('load',function(){
         var href =  e.target.href;
         var isPhoneNumber = href.match(/^tel\:./i);
         var linkText = isPhoneNumber ? 'phone' : 'website';
+        var pageName = pathname.match(/([^\/]*)\/*$/)[1];
 
         NCIAnalytics.ProfilePanelLinkClick($this, linkText, pageName);
     });    
