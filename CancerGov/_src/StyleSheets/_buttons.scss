@@ -12,6 +12,13 @@ form a.button:hover {
   width: auto;
 }
 
+.dictionary-search {
+  .button {
+    min-width: 100px;
+    margin: 0;
+  }
+}
+
 /* standard buttons */
 
 form button,
@@ -21,7 +28,6 @@ form button,
   min-height: 39px;
   margin-right: 28px;
 	padding: 5px 12px 5px;
-  
   font-family: $montserrat-font-stack;
   font-weight: 700;
   font-size: 1em;
