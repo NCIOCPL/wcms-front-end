@@ -192,9 +192,8 @@ _:-ms-input-placeholder, :root .modal__content {
   .modal__btn-close {
     align-self: flex-end;
     margin-right: 10px;
-  
-    &:last-child {
-      display: none;
-    }
+  }
+  .modal__btn-close[aria-hidden] {
+    display: none;
   }
 }

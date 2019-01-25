@@ -1,7 +1,8 @@
 /* inspiration: https://github.com/ghosh/micromodal/blob/master/src/index.js */
 import { throttle } from 'throttle-debounce';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'; // works on iOS as well
 
+// elements that can have focus (tabbable) inside the modal
 const FOCUSABLE_ELEMENTS = [
   'a[href]',
   'area[href]',
@@ -103,6 +104,8 @@ export default class Modal{
     this.activeElement = document.activeElement;
 
     this.modal.setAttribute('aria-hidden', 'false');
+    // call onResize once to trigger visibility of bottom close button
+    this.onResize();
     this.modal.classList.add('is-open');
     this.modalContentEl.scrollTop = 0;
     this.setFocusToFirstNode();
@@ -141,18 +144,14 @@ export default class Modal{
   // turn scrolling off on body
   scrollBehaviour (toggle) {
     if (!this.config.disableScroll) return
-    const body = document.querySelector('body');
-    switch (toggle) {
-      case 'enable':
-        enableBodyScroll(this.modalContentEl);
-        break;
-      case 'disable':
-        disableBodyScroll(this.modalContentEl);
-        break;
-      default:
+    if(toggle === 'enable') {
+      enableBodyScroll(this.modalContentEl);
+    } else {
+      disableBodyScroll(this.modalContentEl);
     }
   }
 
+  // render the HTML content inside the modal
   setContent(content){
     this.content = content;
     this.modalContentEl.innerHTML = content;
@@ -210,7 +209,6 @@ export default class Modal{
   }
 
   maintainFocus(event) {
-    //TODO: when last button is hidden on tablet and up, focus does not loop. Need to disable the button as well with JavaScript using matchMedia
     const focusableNodes = this.getFocusableNodes();
 
     // if disableFocus is true
