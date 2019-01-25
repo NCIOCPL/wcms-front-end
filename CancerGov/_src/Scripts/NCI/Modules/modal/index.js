@@ -1,6 +1,6 @@
 /* inspiration: https://github.com/ghosh/micromodal/blob/master/src/index.js */
 import { throttle } from 'throttle-debounce';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const FOCUSABLE_ELEMENTS = [
   'a[href]',
@@ -144,12 +144,9 @@ export default class Modal{
     const body = document.querySelector('body');
     switch (toggle) {
       case 'enable':
-        Object.assign(body.style, {overflow: 'initial', height: 'initial'});
         enableBodyScroll(this.modalContentEl);
-        
         break;
       case 'disable':
-        Object.assign(body.style, {overflow: 'hidden', height: '100vh'});
         disableBodyScroll(this.modalContentEl);
         break;
       default:
