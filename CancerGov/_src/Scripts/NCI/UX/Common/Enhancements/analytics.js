@@ -230,7 +230,7 @@ $(document).ready(function() {
     $('.cthp-card-container .cthpCard').each(function (i, el) {
         $(el).on('click.analytics', 'a', function (event) {
             var $this = $(this);
-            var cardTitle = $this.closest('.cthpCard').find('h3:first').text();
+            var cardTitle = $this.closest('.cthpCard').find('h2:first').text();
             var linkText = $this.text();
             var container = 'CTHP';
             var containerIndex = i + 1;
