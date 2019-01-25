@@ -81,14 +81,6 @@ function _initialize($parent) {
 		});
 }
 
-let initialized = false;
 export default {
-	init: function(parent) {
-		if (initialized) {
-			return;
-		}
-		
-		initialized = true;
-		_initialize(parent);
-	}
+	init: _initialize
 }
