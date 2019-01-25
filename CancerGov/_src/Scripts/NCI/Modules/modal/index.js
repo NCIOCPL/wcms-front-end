@@ -188,7 +188,7 @@ export default class Modal{
     if(window.matchMedia("(max-width: 640px)").matches){
       this.bottomCloseButton.removeAttribute("aria-hidden");
     } else {
-      this.bottomCloseButton.setAttribute("aria-hidden","");
+      this.bottomCloseButton.setAttribute("aria-hidden","true");
     }
   }
 
