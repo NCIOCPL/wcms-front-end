@@ -5,9 +5,6 @@
 // generic list styles in the main area
 .contentzone,
 .rawHtml {
-	ul, ol {
-		// margin-bottom: 1em;
-	}
 	ul {
 		li {
 			@include customBullet;
