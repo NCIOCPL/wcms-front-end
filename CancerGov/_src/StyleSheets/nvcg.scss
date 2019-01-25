@@ -29,9 +29,9 @@
 /****************** END VENDOR LIBRARIES SECTION ********************/
 
 
-@import "general";
-@import "typography";
 @import "grid";
+@import "typography";
+@import "general";
 
 /****************** NCI COMPONENTS SECTION ********************/
 // @import "components/buttons";
@@ -66,7 +66,7 @@
 @import "~Modules/backToTop/backToTop";
 @import "~Modules/accordion/accordion";
 @import "onthispage";
-// @import "institutions";// Deprecated
+
 @import "ebookButtons"; // TODO: move to page specific
 // @import "materials_to_share"; // Deprecated
 

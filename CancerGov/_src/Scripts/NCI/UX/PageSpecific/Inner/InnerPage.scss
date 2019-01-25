@@ -17,6 +17,7 @@
 @import "~StyleSheets/feature_cards";
 @import "~StyleSheets/related-links";
 @import "~StyleSheets/image-video-carousel";
+@import "~StyleSheets/institutions"; // research/nci-role/cancer-centers/find
 
 // DIN Regular is currently only used in charts.js (a.k.a: Highcharts) where the font style is included in a JSON config object.
 // SASS did not see this font style being used in .scss styles so it was shaken out
