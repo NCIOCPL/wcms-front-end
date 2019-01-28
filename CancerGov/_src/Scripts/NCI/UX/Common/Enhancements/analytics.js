@@ -627,7 +627,7 @@ $(window).on('load',function(){
         userHasSorted = true;
     });
 
-    $('.on-this-page a').on('click', function() {
+    $('.summary-sections a').on('click', function() {
         var pageName = 'www.cancer.gov/';
         if(typeof(s) !== 'undefined') {
             if(s.pageName) {
@@ -653,7 +653,7 @@ $(window).on('load',function(){
     });
 
     // Tracks clicks on expand/collapse of the accordion sections within PDQ pages on mobile
-    $('.summary-sections h2.ui-accordion-header').on('click', function() {
+    $('.summary-sections ').on('click', '.ui-accordion-header', function() {
         var $this = $(this);
         var linkText = $this.text();
         var isExpanded = $this.attr("aria-expanded") == "true";
