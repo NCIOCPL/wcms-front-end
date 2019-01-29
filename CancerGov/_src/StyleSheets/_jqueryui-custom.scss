@@ -1,9 +1,38 @@
 @import "./colors";
 @import "./breakpoints";
+@import "./mixins";
 
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.ui-widget {
+	font-size: inherit;
+}
 
 .ui-widget.ui-widget-content {
   border: 1px solid #d3d3d3;
+}
+
+.ui-front {
+	z-index: 10;
+}
+
+.ui-button-icon-only {
+  overflow: hidden;
+  text-indent: -9999px;
+  white-space: nowrap;
+}
+
+.ui-dialog {
+	z-index: 11;
 }
 
 .ui-menu {
@@ -20,6 +49,8 @@
 	.ui-menu-item {
 		background-color: rgba($beige, 1);
     padding: 3px 1em 3px .4em;
+    margin: 0;
+    @include no-before-bullet(false);
   }
   .ui-state-focus {
 		color: #fff;
