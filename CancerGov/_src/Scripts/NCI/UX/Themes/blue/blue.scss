@@ -51,13 +51,17 @@ $mega-menu-group-header-desktop-color-hover: $slate;
 $mobile-menu-bar-expanded-true-background: $space;
 $mobile-menu-active-link-background: $bronze;
 $mobile-menu-parent-of-current-page-color: $denim;
+$mobile-menu-current-page-color: $white;
 $section-navigation-current-page-arrow-desktop: $denim;
 $section-navigation-top-level-background-desktop: $aegean;
 $section-navigation-level-1-background-desktop: $icicle;
 $section-navigation-is-current-page-color-desktop: $white;
 $section-navigation-is-current-page-background: $denim;
 $section-navigation-contains-current-page-color-desktop: $denim;
-$section-nav-tongue-top-background-mobile: $aegean;
+$section-nav-tongue-top-background-mobile: $denim;
+$section-nav-family-background: $icicle;
+$section-nav-plus-background: $space;
+$section-nav-minus-color: $space;
 $page-options-icons-background-mobile: $jewel;
 $page-options-icons-background-hover-mobile: $clementine;
 $page-options-icons-background-desktop: transparent;
@@ -80,7 +84,8 @@ $svg-menu-hamburger-mobile: menu-blue-palette;
 $svg-menu-info-mobile: info-blue-palette;
 $svg-menu-search-mobile: search-large-blue-palette;
 $svg-menu-dictionary-mobile: book-blue-palette;
-$svg-guide-card-circle-arrow-hover: chevron-circle-blue-palette;
+$svg-guide-card-circle-arrow: chevron-circle-blue-palette;
+$svg-guide-card-circle-arrow-hover: chevron-circle-hover-blue-palette;
 $svg-twitter: twitter-blue-palette;
 $svg-twitter-hover: twitter-hover-blue-palette;
 $svg-gov-delivery: gov-delivery-blue-palette;
@@ -132,7 +137,16 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a:focus,
 .list .title a:hover,
 .feature-card.cgvArticle a:hover h3,
-.topic-feature .cgvBlogPost a:hover h3 {
+.topic-feature .cgvBlogPost a:hover h3,
+.sub-nav-group a.sub-nav-group-header:hover,
+.card-thumbnail .card-thumbnail:hover a,
+.card-thumbnail .card-thumbnail:focus a,
+.multimedia-slot .feature-card:hover,
+.multimedia-slot .feature-card:focus,
+.multimedia-slot a:focus h3,
+.multimedia-slot a:hover h3,
+.multimedia .card:hover h3,
+.multimedia .card:focus h3  {
   color: $default-link-hover;
 }
 
@@ -214,9 +228,16 @@ button.nav-dictionary::before {
 }
 
 #mega-nav .lvl-1.contains-current.has-children > .nav-item-title > a,
-#mega-nav li.contains-current > div.nav-item-title > a {
+#mega-nav li.contains-current > div.nav-item-title > a,
+.section-nav .level-1.contains-current.has-children > div a {
   color: $mobile-menu-parent-of-current-page-color;
 }
+
+.section-nav .level-1.contains-current.has-children div.current-page a {
+  color: $mobile-menu-current-page-color;
+}
+
+
 
 #mega-nav .toggle[aria-expanded=true], #mega-nav[aria-expanded=true] .toggle {
   color: $mobile-menu-bar-expanded-true-background;
@@ -225,6 +246,18 @@ button.nav-dictionary::before {
 // section navigation mobile (tongue)
 .section-nav div.current-page {
   background: $section-nav-tongue-top-background-mobile;
+}
+
+.section-nav .level-1.contains-current {
+  background: $section-nav-family-background;
+}
+
+.section-nav .level-1.contains-current .toggle[aria-expanded=false], .section-nav .level-1.contains-current[aria-expanded=false] .toggle {
+  background-color: $section-nav-plus-background;
+}
+
+.section-nav .level-1.contains-current .toggle[aria-expanded=true], .section-nav .level-1.contains-current[aria-expanded=true] .toggle {
+  color: $section-nav-minus-color;
 }
 
 // mega menu
@@ -258,6 +291,11 @@ button.nav-dictionary::before {
 }
 
 // content styles
+a.arrow-link-white:before,
+a.arrow-link:before {
+  @include svg-sprite($svg-guide-card-circle-arrow);
+}
+
 a.arrow-link-white:hover:before,
 a.arrow-link:hover:before {
   @include svg-sprite($svg-guide-card-circle-arrow-hover);
