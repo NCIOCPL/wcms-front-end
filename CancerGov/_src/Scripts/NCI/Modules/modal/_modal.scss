@@ -96,6 +96,7 @@
   padding: 0 20px;
   line-height: 1.5;
   overflow-y: auto;
+  overflow-x: hidden;
   font-family: $montserrat-font-stack;
   -webkit-overflow-scrolling: touch;
   
@@ -135,6 +136,10 @@
     margin: 0 auto 10px;
     &:last-child {
       margin-bottom: 0;
+
+      .caption-container {
+        padding-bottom: 0;
+      }
     }
   }
 }
