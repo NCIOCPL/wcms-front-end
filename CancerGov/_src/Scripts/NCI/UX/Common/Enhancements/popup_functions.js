@@ -150,7 +150,7 @@ const popupFunctions = () => {
 					<ul class="no-bullets">
 						${items.external.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
 						${items.summary.map(item => `<li><a href="${item.url}">${item.text}</a></li>`).join('')}
-						${items.term.map(item => `<li>Definition of: <a href="/Common/PopUps/popDefinition.aspx?id=${item.id}&amp;version=healthprofessional&amp;language=English&amp;dictionary=${item.dictionary.toLowerCase()}"
+						${/* TODO: spanish translation for 'Definition of' */items.term.map(item => `<li>Definition of: <a href="/Common/PopUps/popDefinition.aspx?id=${item.id}&amp;version=healthprofessional&amp;language=English&amp;dictionary=${item.dictionary.toLowerCase()}"
 						onclick="javascript:popWindow('defbyid','CDR0000${item.id}&amp;version=healthprofessional&amp;language=English&amp;dictionary=${item.dictionary.toLowerCase()}'); return(false);">${item.text}</a></li>`).join('')}
 					</ul>
 				</div>
@@ -192,7 +192,7 @@ const popupFunctions = () => {
 		let template = `
 			<dl>
 				<dt class="term">
-					<span>Definition:</span>
+					<span>${config.lang.Definition_Title[lang]}:</span>
 					<dfn>${term.term}</dfn>
 					${term.pronunciation ? `<span class="pronunciation">${term.pronunciation.key} <a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a></span>` : ''}
 				</dt>
