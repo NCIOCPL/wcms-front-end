@@ -1,4 +1,8 @@
 @import "../../../../../StyleSheets/environments/percussion";
+<<<<<<< HEAD
+=======
+@import '../../../../../StyleSheets/colors';
+>>>>>>> FEQ-january2019-release
 @import '../../../../../StyleSheets/variables';
 @import '../../../../../StyleSheets/mixins';
 @import '../../../../../StyleSheets/fonts';
@@ -10,8 +14,13 @@
 /*** BEGIN Profile Page Styles ***/
 
 div.profile-panel .slot-item {
+<<<<<<< HEAD
     background: #ffffff;
     border: 1px solid #818181;
+=======
+    background: $white;
+    border: 1px solid $yetAnotherGrey;
+>>>>>>> FEQ-january2019-release
     box-shadow: 0 0 9px 1px rgba(0, 0, 0, .15);
     overflow: hidden;
     width: 100%;
@@ -32,7 +41,11 @@ div.inst-profile-image {
     }
 }
 div.profile-panel-content {    
+<<<<<<< HEAD
     color: #606060;
+=======
+    color: $dgrey00;
+>>>>>>> FEQ-january2019-release
     padding-left: 25px;
     padding-right: 25px;
     font-family: Montserrat,Avant Garde,Arial,sans-serif;

@@ -1835,6 +1835,20 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
     /* ********************************************************************** */
+    glossifiedTerm: function(sender, linkText, pageName){
+        var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'glossifiedTerm');
+    
+        clickParams.Props = {
+                45: "Glossified Term",
+                67: pageName,
+                50: linkText
+        };
+    
+        clickParams.Events = [56];
+    
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
     BlogRelatedLinksClick: function(sender, linkText, pageName, index){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogRelatedLinkClick');
         var prop66_String = "";
