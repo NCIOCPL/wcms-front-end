@@ -192,7 +192,7 @@ const popupFunctions = () => {
 		let template = `
 			<dl>
 				<dt class="term">
-					<span>${config.lang.Definition_Title[lang]}:</span>
+					<div class="title">${config.lang.Definition_Title[lang]}:</div>
 					<dfn>${term.term}</dfn>
 					${term.pronunciation ? `<span class="pronunciation">${term.pronunciation.key} <a href="${term.pronunciation.audio}" class="CDR_audiofile"><span class="hidden">listen</span></a></span>` : ''}
 				</dt>
