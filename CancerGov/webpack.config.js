@@ -39,14 +39,9 @@ module.exports = {
 		BlogPostPage:           './UX/PageSpecific/BlogPost/BlogPostPage',
 		BlogSeriesPage:         './UX/PageSpecific/BlogSeries/BlogSeriesPage',
 		Charts:                 './UX/Common/Enhancements/charts',
-<<<<<<< HEAD
-		R4R:					'./UX/AppModuleSpecific/R4R/R4R',
-		ProfilePage:			'./UX/PageSpecific/Profile/ProfilePage',
-=======
 		R4R:                    './UX/AppModuleSpecific/R4R/R4R',
 		Purple:                 './UX/Themes/purple/purple',
-		ProfilePage:			      './UX/PageSpecific/Profile/ProfilePage'
->>>>>>> FEQ-january2019-release
+		ProfilePage:			'./UX/PageSpecific/Profile/ProfilePage'
 	},
 	target: 'web',
 	resolve: {
