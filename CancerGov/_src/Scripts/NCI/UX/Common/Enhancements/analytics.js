@@ -530,21 +530,16 @@ $(window).on('load',function(){
         NCIAnalytics.BlogSubscribeClick(this, pageName);
     });
 
-    $('.cgvblogpost #cgvBody').on("click", "a",  function(){
+    $('.cgvblogpost #cgvBody').on("click", "a:not(.definition)",  function(){
         var $this = $(this);
         var linkText = $this.text();
-
-        if($this.hasClass('definition')){
-            NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName, true);
-        }
-        else
-            NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName);
-        
+        NCIAnalytics.BlogBodyLinkClick(this, linkText, pageName);
     });
 
     $('#cgvBody').on("click", ".definition",  function(){
         var linkText = this.innerText;
-        NCIAnalytics.glossifiedTerm(this, linkText, pageName);
+        var blogLink = $('body').hasClass('cgvblogpost') ? true : false;
+        NCIAnalytics.glossifiedTerm(this, linkText, blogLink);
     });
 
     $('#nvcgRelatedResourcesArea').on("click", "a", function(){
