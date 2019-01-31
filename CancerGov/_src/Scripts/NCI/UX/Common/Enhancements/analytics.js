@@ -628,7 +628,7 @@ $(window).on('load',function(){
         userHasSorted = true;
     });
 
-    $('.summary-sections a').on('click', function() {
+    $('.on-this-page a').on('click', function() {
         var $this = $(this);
         var linkText = $this.text();
         NCIAnalytics.OnThisPageClick($this, linkText, pageName);
