@@ -64,7 +64,7 @@ const buildInThisSection = (outline) => {
 		if($list) {
 			$nav.appendChild($list[0]);
 			document.querySelectorAll('.pdq-sections')[i].prepend($nav);
-			//document.querySelectorAll('.pdq-sections > section:first-of-type')[i].prepend($nav);
+			//document.querySelectorAll('.pdq-sections > section:last-of-type')[i].prepend($nav);
 		}
 	});
 };

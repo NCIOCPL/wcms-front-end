@@ -79,7 +79,10 @@
 	}
 }
 
-
+#_section_AboutThis_1 > nav.onthispage.in-this-section {
+	//background-color: #9cf;
+	display: none;
+}
 
 @include bp(small){
 	/* Hide 'On This Page' section on PDQ & factsheet pages */
