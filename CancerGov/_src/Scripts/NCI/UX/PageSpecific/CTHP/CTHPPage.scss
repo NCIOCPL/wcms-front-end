@@ -8,6 +8,7 @@
 @import "~StyleSheets/sprites/svg-sprite";
 
 /********** BEGIN Cancer Type Home Page Styles ******************************************/
+//TODO: cleanup this breakpoint minefield
 .image-right-medium {
 	position: relative;
 }
@@ -30,7 +31,7 @@
 .cthp-content {
 	//background: #008eb0 url($backgrounds + "hexagon_molecular_structure_light_blue.png") no-repeat 110% 350px;
 	//background: #008eb0 url($backgrounds + "hexagon_molecular_structure_footer.png") no-repeat 110% 350px;
-  
+
 
 	@include bp(small) {
 		background: white;
@@ -105,20 +106,28 @@
 		margin-left: 0;
 	}
 }
-.cthp-content h1 {
-	//color: white;
-	color: #606060;
+.cthp-content {
+	h1 {
+		//color: white;
+		color: #606060;
+		
+		@include bp(small) {
+			color: $header-font-color;
+		}
+		@include bp(large-up) {
+			min-height: 39px;
+			padding-right: 12px;
+			width: 58%;
+		}
+		@include bp(xtra-large) {
+			width: 65%;
+		}
+	}
 
-	@include bp(small) {
-		color: $header-font-color;
-	}
-	@include bp(large-up) {
-		min-height: 39px;
-		padding-right: 12px;
-		width: 58%;
-	}
-	@include bp(xtra-large) {
-		width: 65%;
+	h2 {
+		color: $white;
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 }
 .cthp-content .cardBody {
@@ -144,20 +153,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	width: 100%;
-
-	margin-left: -0.9375em;
-	margin-right: -0.9375em;
-	margin-top: 0;
-	margin-bottom: 1em;
-
-	@include bp(small) {
-		display: block;
-
-		margin-top: 0;
-		padding-left: 0.9375em;
-		padding-right: 0;
-	}
+	margin: 0 -.9375em;
+	padding: 0;
 
 	@include bp(medium) {
 		margin-left: 0;
@@ -218,8 +215,8 @@
 		margin-bottom: 20px;
 	}
 }
-.cthp-overview .ui-accordion-content .cardBody p:last-child {
-    margin-bottom: 20px;
+.cthp-overview .cardBody p:last-child {
+    margin-bottom: 1.25em;
 }
 .cthp-research .cardBody {
 	p {
@@ -357,10 +354,7 @@
 		color: $body-font-color;
 	}
 }
-.cthp-content.ui-accordion .ui-accordion-header {
-	color: white;
-	font-weight: bold;
-}
+
 @include bp(small) {
 	.cthp-card-container .cthp-mm-infographic img {
 		display: block;
@@ -381,12 +375,11 @@
 .cthpCard > .equalheight > .clearfix > div, .cthpCard > .equalheight > div {
 	min-height: 1px;
 }
-
-.cthpCard h2  {
-	color: #fff;
-	padding: 0.47em 0.6em;
-	margin: 0;
-	text-transform: uppercase;
+@include break(medium) {
+	.cthpCard h2  {
+		padding: 0.47em 0.6em;
+		margin: 0;
+	}
 }
 /** Begin CTHP Overview styling */
 /* Align top of Overview Card with top of first guide/feature card */

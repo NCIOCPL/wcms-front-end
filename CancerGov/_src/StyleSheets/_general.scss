@@ -66,11 +66,13 @@ select { width: 100%; }
 .section-nav {
 	font-family: $montserrat-font-stack;
 }
-
-.related-resources h6 {
-	@extend h4;
-	margin-top: 40px;
-	font-style: normal;
+@include break(medium) {
+	.related-resources h6 {
+		line-height: 1.333em;
+		font-size: 1.125em;
+		margin-top: 40px;
+		font-style: normal;
+	}
 }
 .article-footer h6 {
 	font-style: normal;

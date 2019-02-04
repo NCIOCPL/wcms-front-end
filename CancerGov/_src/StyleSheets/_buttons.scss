@@ -135,20 +135,6 @@ a.search-link {
   }
 }
 
-.ui-accordion-header {
-  .toggle {
-    text-indent: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    background-color: $accordion-odd;
-  }
-}
-.even .toggle {
-  background-color: $accordion-even
-}
-
 @include break(large){
   .section-nav .toggle {
     font-size: 1.25em;

@@ -120,7 +120,7 @@ export function makeAllAccordions() {
 		'.accordion' : 'h2:not([data-display-excludedevice~="mobile"] h2)',
 		'#nvcgRelatedResourcesArea' : 'h6',
 		'#cgvCitationSl' : 'h6',
-		'.cthp-content' : 'h2'
+		'.cthp-card-container' : 'h2'
 	};
 	//var targetsSelector = Object.keys(targets).join(', ');
 	var targetsBuiltAccordion = [],

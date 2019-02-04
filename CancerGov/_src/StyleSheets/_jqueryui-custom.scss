@@ -21,8 +21,17 @@
   border: 1px solid #d3d3d3;
 }
 
+.ui-widget-content {
+	background: $white;
+	color: $default-text;
+}
+
 .ui-front {
 	z-index: 10;
+}
+
+.ui-state-default {
+	font-weight: 400;
 }
 
 .ui-button-icon-only {
@@ -39,6 +48,68 @@
   .ui-menu-item {
     cursor: pointer;
   }
+}
+
+/* accordion */
+.ui-accordion {
+	div.card {
+		padding: 0;
+	}
+	.columns {
+		padding: 0;
+	}
+}
+.ui-accordion-header {
+	cursor: pointer;
+	position: relative;
+	padding: 14.5px 70px 14.5px 20px;
+	margin: 0;
+	background-color: $accordion-odd;
+	font-size: 1.125em;
+
+	.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    background-color: darken(desaturate($accordion-odd, 16.15), 13.33);
+	}
+
+	&[aria-expanded="true"] .toggle:after {
+    content: "\2212"; /* "2212" is Unicode for the minus sign */
+	}
+
+	&.even {
+		background-color: $accordion-even;
+
+		.toggle {
+			background-color: darken(desaturate($accordion-even, 16.15), 13.33);
+		}
+	}
+
+	&.ui-state-active {
+		.toggle {
+			background-color: white;
+			color: #8fd4db;
+		}
+	}
+
+}
+
+
+// removing margin from the first and last paragraphs in an accordion content area
+.ui-accordion-content {
+	padding: 10px 10px 10px 21px;
+	.location-filter {
+		margin: 1em 0 2em;	
+	}
+
+	p:first-child, h2:first-child {
+		margin-top: 0;
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 /* autocomplete */
