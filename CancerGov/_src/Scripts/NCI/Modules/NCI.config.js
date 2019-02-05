@@ -1,8 +1,9 @@
 export const breakpoints = {
     small: 480,
     medium: 640,
+    tabletWide: 768,
     large: 1024,
-    xlarge: 1280,
+    xlarge: 1280
 }
 
 export const lang = {
@@ -41,6 +42,10 @@ export const lang = {
     OnThisPage: {
         en: 'On This Page',
         es: 'En Esta Página'
+    },
+    InThisSection: {
+        en: 'In This Section',
+        es: 'En esta sección'
     },
     Search: {
         en: 'Search',
