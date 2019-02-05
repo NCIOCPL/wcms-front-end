@@ -7,3 +7,38 @@
 @import '~StyleSheets/bodybanner';
 @import '~StyleSheets/blogs';
 @import "~StyleSheets/equalheights";
+
+#blog-archive-accordion {
+  margin-left: -.9375em;
+  margin-right: -.9375em;
+
+  .ui-state-default{
+    background-image: none;
+    background-color: white;		
+  }
+  ul li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: $montserrat-font-stack;
+  }
+  .ui-accordion-content {
+    padding: 10px 20px;
+    h4 {
+      padding-left: 0;
+    }
+    ul {
+      margin-left: -.9375em;
+      margin-right: -.9375em;
+    }
+  }
+
+  .ui-accordion-header {
+    .toggle{
+      color: #454545;
+      background-color: white;
+    }
+    &.ui-state-active .toggle {
+      color: #14819b;
+    }
+  }
+}
