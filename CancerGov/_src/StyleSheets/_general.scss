@@ -348,6 +348,13 @@ div#cgvSlPagination, div.previous-next-links {
 	}
 }
 
+.panel {
+	border: 1px solid $paleblue02;
+	margin-bottom: 1.25em;
+	padding: 1.25em;
+	background: $white04;
+}
+
 // skip navigation styles
 .skip a, .skip a:hover, .skip a:visited {
 	position: absolute;
