@@ -56,6 +56,7 @@ const buildOnThisPage = (outline) => {
 // Levels: 2, 3
 const buildInThisSection = (outline) => {
 	outline.sections.map((section,i) => {
+		if(section.node.id === "_AboutThis_1") {return}
 		let $nav = createEl('nav',{class:'onthispage in-this-section',role:'navigation'});
 		$nav.innerHTML = `<h6>${lang.InThisSection[Page.lang]}</h6>`;
 		const $list = Page.parseOutline(section, 2, 3, ignoreList);
