@@ -1,10 +1,7 @@
-/********** BEGIN Blogs Styles ******************************************/
+@import "./colors";
 /*Begin Blog Subscribe Button CSS*/
 .subscribeRSS {
 	margin-bottom: 10px;
-}
-
-.subscribeRSS a.blogRSS:before {
 }
 
 .subscribeRSS a.blogRSS span {
@@ -283,8 +280,8 @@ p.blog-post-publishing-info {
 }
 
 .current-archive-link a {
-     pointer-events: none;
-     color: #2e2e2e;
+	pointer-events: none;
+	color: #2e2e2e;
 }
 
 .blog-feature {
@@ -299,9 +296,7 @@ p.blog-post-publishing-info {
 }
 
 .card.blog-feature {
-	background: #f5f5f5;
+	border: 1px solid $yetAnotherGrey;
+	background-color: $white;
+	box-shadow: 0 0 9px 1px rgba($black,.15);
 }
-
-/*end Blog Content CSS*/
-
-/********** END Blogs Styles ******************************************/

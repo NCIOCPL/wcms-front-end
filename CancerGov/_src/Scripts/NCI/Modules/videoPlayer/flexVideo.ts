@@ -78,22 +78,17 @@ const injectPreviewContents = parent => {
 	});
 	parent.addEventListener('click', injectCB, false);
 	parent.addEventListener('keydown', injectCBOnKeypress, false);
+	parent.classList.add('rendered');
 };
 
 // Inject custom video previews into any video hooks that are not a part of a carousel
 const renderPreviewThumbnails = () => {
-	const videoHooks = getNodeArray('.flex-video');
+	const videoHooks = getNodeArray('.flex-video:not(.rendered)');
 
 	// Filter out any videos that are children of a carousel to avoid overwriting carousel injection points
 	const filteredHooks = videoHooks.filter(hook => !checkNodeAncestryForClass(hook, 'yt-carousel'));
 	filteredHooks.forEach(hook => injectPreviewContents(hook));
 };
 
-let isRendered = false;
 
-export default function () {
-	if (!isRendered) {
-		renderPreviewThumbnails();
-		isRendered = true;
-	}
-}
+export default renderPreviewThumbnails
