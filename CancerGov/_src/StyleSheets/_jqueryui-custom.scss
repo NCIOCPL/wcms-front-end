@@ -128,3 +128,72 @@
 		background: $navyblue;
 	}
 }
+
+/* Select Box */
+.ui-selectmenu-menu {
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	.ui-menu {
+		overflow: auto;
+		overflow-x: hidden;
+	}
+	.ui-menu-item {
+    padding: .5em 0 .5em .5em;
+    line-height: 1;
+	}
+	.ui-menu-item-wrapper {
+    padding: 3px .5em;
+	}
+	.ui-state-focus {
+    color: #fff;
+		background: #286ea7;
+	}
+}
+
+.ui-selectmenu-open {
+	display: block;
+}
+.ui-selectmenu-text {
+	display: block;
+	padding: .5em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ui-selectmenu-button {
+	display: inline-block;
+	background-color: #f2f2f3;
+	vertical-align: middle;
+	overflow: hidden;
+
+	span.ui-icon {
+		position: relative;
+		float: right;
+		background-image: none;
+		background-color: #2b7bba;
+		top: 0;
+		right: 0;
+		margin-top: 0;
+		padding: 1em;
+
+		&::before {
+			content:'';
+			position: absolute;
+			@include svg-sprite(chevron-white);
+			top:50%;
+			left:50%;
+			transform: translateX(-50%) translateY(-50%) rotate(180deg);
+			font-size: .6em;
+		}
+	}
+	&:hover span.ui-icon,
+	&:focus span.ui-icon {
+		background-image: none;
+		background-color: #2b7bba;
+	}
+
+}
