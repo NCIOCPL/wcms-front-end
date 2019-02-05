@@ -1441,6 +1441,34 @@ var NCIAnalytics = {
     },
 
     //******************************************************************************************************
+    InThisSectionClick: function(sender, linkText, pageName) {
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'InThisSectionClick'); 
+        
+        clickParams.Props = {
+            66: "InThisSection_" + linkText,
+            67: pageName
+        };
+        clickParams.Events = [69];
+
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    PDQMobileClick: function(sender, linkText, isExpanded, pageName) {
+        var state = isExpanded?"AccordionSectionExpand_":"AccordionSectionCollapse_";
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'PDQMobileClick');
+        
+        clickParams.Events = isExpanded?[31]:[32];
+        
+        clickParams.Props = {
+            66: state + linkText,
+            67: pageName
+        };
+        
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
     BackToTopReveal: function(sender, reveal) {
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BackToTopReveal');
 

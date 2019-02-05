@@ -628,6 +628,22 @@ $(window).on('load',function(){
         var linkText = $this.text();
         NCIAnalytics.OnThisPageClick($this, linkText, pageName);
     });
+
+    // Tracks clicks of "In This Section" menu items on PDQ pages
+    $('.in-this-section a').on('click', function() {
+        var $this = $(this);
+        var linkText = $this.text();
+        NCIAnalytics.InThisSectionClick($this, linkText, pageName);
+    });
+
+    // Tracks clicks on expand/collapse of the accordion sections within PDQ pages on mobile
+    $('.summary-sections').on('click', '.ui-accordion-header', function() {
+        var $this = $(this);
+        var linkText = $this.text();
+        var isExpanded = $this.attr("aria-expanded") == "true";
+        NCIAnalytics.PDQMobileClick($this, linkText, isExpanded, pageName);
+    });
+
     // Track clicks on website url of profile panel pages.
     $('div.profile-panel-content a').on("click", function(e) {
         var $this = $(this);
