@@ -2602,6 +2602,11 @@ table.carousel-panel-list td {
 .call-out-box p, .callout-box p {
 	padding-bottom: 5px;
 }
+
+.center {
+	width: auto;
+}
+
 .left {
 	float: left;
 	margin: 0 10px 5px 0;
