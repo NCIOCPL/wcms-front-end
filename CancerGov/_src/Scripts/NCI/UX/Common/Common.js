@@ -110,29 +110,29 @@ const onDOMContentLoaded = () => {
 	/*** BEGIN form controls ***/
 	formControls();
 
-	/*** BEGIN accordionizer ***/
-	makeAllAccordions();
-
 	/*** BEGIN page outlining ***/
-	// generate the page outline -- this is used for all page-/document-level navigation
-	// set up outlines
-	$('article').each(function () {
-		var $this = $(this);
-
-		// check if there already is a built outline for this article
-		if ($this.data('nci-outline')) {
-			return;
-		}
-
-		// otherwise, build and set the outline
-		var outline = makeOutline(this);
-		$this.data('nci-outline', outline);
-	});
-
 	if ($('article').length > 0) {
+		// generate the page outline -- this is used for all page-/document-level navigation
+		// set up outlines
+		$('article').each(function () {
+			var $this = $(this);
+	
+			// check if there already is a built outline for this article
+			if ($this.data('nci-outline')) {
+				return;
+			}
+	
+			// otherwise, build and set the outline
+			var outline = makeOutline(this);
+			$this.data('nci-outline', outline);
+		});
+
 		buildOTP();
 	}
 	/*** END page outlining ***/
+
+	/*** BEGIN accordionizer ***/
+	makeAllAccordions();
 
 	/*** BEGIN HACK for Blog Series titles
 	 * TODO: remove when Blog Dynamic List Percussion template is updated

@@ -512,7 +512,7 @@ export function buildOTP() {
 	var options = {
 		class: "on-this-page hide-otp-on-collapse",
 		placement: {
-			insert: 'prependTo',
+			insert: 'insertBefore',
 			to: '[data-otp-selector]'
 		},
 		ignore: {
