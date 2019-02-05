@@ -129,6 +129,12 @@
 	}
 }
 
+/* button */
+.ui-button {
+	border: 1px solid #d3d3d3;
+	background: #e6e6e6 url($jqueryui + "ui-bg_glass_75_e6e6e6_1x400.__v15490377.png") 50% 50% repeat-x;
+}
+
 /* Select Box */
 .ui-selectmenu-menu {
 	padding: 0;
@@ -165,6 +171,7 @@
 }
 
 .ui-selectmenu-button {
+	cursor: pointer;
 	display: inline-block;
 	background-color: #f2f2f3;
 	vertical-align: middle;
