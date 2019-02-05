@@ -31,7 +31,9 @@
 		  }
 	  }
 
-	  $headers: (
+	  
+	}
+	$headers: (
 		".cthp-intro-multimedia,.cthp-overview": (
 		  //sprite: $blue-purple-circles,
 		  color: #4c34c3
@@ -72,27 +74,25 @@
 		  //sprite: $yellow-hexagons,
 		  color: #cbb218
 		)
-	  );
+	);
 
-	  @each $selector, $attributes in $headers {
-		  //$sprite: map-get($attributes, 'sprite');
-		  $activeColor: map-get($attributes, 'color');
+	@each $selector, $attributes in $headers {
+		//$sprite: map-get($attributes, 'sprite');
+		$activeColor: map-get($attributes, 'color');
 
-		  //@debug($sprite);
+		//@debug($sprite);
 
-		  #{$selector} {
-		  	h2 {
-		  		//@include img-sprite-position($sprite);
-		  		span {
-		  			background-color: $activeColor;
-		  		}
-		  		&.ui-state-active span {
-		  			color: $activeColor;
-		  		}
-		  	}
-		  }
-	  }
-  }
+		#{$selector} {
+			.ui-accordion-header {
+				.toggle {
+					background-color: $activeColor;
+				}
+				&.ui-state-active .toggle {
+					color: $activeColor;
+				}
+			}
+		}
+	}
 /* end CTHP accordion styling rules */
 	
 	/* begin accordion stretching styles */
