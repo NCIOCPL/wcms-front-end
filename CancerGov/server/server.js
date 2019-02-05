@@ -57,8 +57,9 @@ if (env === 'development') {
 }
 
 /** Serve up static content in the public folder **/
-app.use('/PublishedContent/Styles',
-	function(req,res,next){
+//app.use('/PublishedContent/Styles', //for use in DCEG dev
+app.use('/PublishedContent',
+function(req,res,next){
 		var extension = req.path.substring(req.path.lastIndexOf('.') >= 0 ? req.path.lastIndexOf('.') : 0).toLowerCase();
 		if(extension == ".js" || extension == ".css" || extension == ".gif" || extension == ".jpg" || extension == ".png" || extension == ".svg") {
 			// Rewrite request for static files to remove generated fingerprints.
