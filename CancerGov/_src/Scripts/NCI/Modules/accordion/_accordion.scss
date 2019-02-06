@@ -90,4 +90,16 @@
 		}
 	}
 }
+
+// accordion hacks for poor markup
+// elements inside the .ui-accordion that are not in the header or container element
+// (and have no business being inside an accordion at all), get their own margin for gutters
+// no need for breakpoint styles since .ui-accordion is destroyed by JavaScript breakpoint
+.ui-accordion {
+  > *:not(.ui-accordion-header):not(.ui-accordion-content) {
+    margin-left: .9375em;
+    margin-right: .9375em;
+  }
+}
+
 /* END Accordion Styles */
