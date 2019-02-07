@@ -94,6 +94,10 @@
 	.accordion > section:not(:first-of-type) {
 		margin-top: auto;
 	}
+	.summary-sections .in-this-section {
+		// hide 'In This Section' navigation on mobile
+		display: none;
+	}
 }
 
 @include bp(medium-down) {
