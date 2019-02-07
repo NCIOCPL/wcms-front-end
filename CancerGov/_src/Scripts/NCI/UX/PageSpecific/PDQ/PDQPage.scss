@@ -79,11 +79,23 @@
 	}
 }
 
+.accordion > section:not(:first-of-type) {
+	 // add top margin to all "On This Page" sections except the first
+	 margin-top: 70px;
+}
+
 @include bp(small){
 	/* Hide 'On This Page' section on PDQ & factsheet pages */
 	#pdq-toc-article nav.on-this-page, 
 	body.cgvfactsheet nav.on-this-page, 
 	.summary-sections .on-this-page {
+		display: none;
+	}
+	.accordion > section:not(:first-of-type) {
+		margin-top: auto;
+	}
+	.summary-sections .in-this-section {
+		// hide 'In This Section' navigation on mobile
 		display: none;
 	}
 }
