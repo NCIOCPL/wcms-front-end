@@ -1428,7 +1428,7 @@ var NCIAnalytics = {
         clickParams.Props = {
             4: href,
             66: linkText,
-            67: pageName
+            67: "D=pageName"
         };
         clickParams.Events = [29];
 
@@ -1446,7 +1446,7 @@ var NCIAnalytics = {
         
         clickParams.Props = {
             66: "InThisSection_" + linkText,
-            67: pageName
+            67: "D=pageName"
         };
         clickParams.Events = [69];
 
@@ -1462,7 +1462,7 @@ var NCIAnalytics = {
         
         clickParams.Props = {
             66: state + linkText,
-            67: pageName
+            67: "D=pageName"
         };
         
         clickParams.LogToOmniture();
