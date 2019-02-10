@@ -52,6 +52,7 @@ $mobile-menu-bar-expanded-true-background: $space;
 $mobile-menu-active-link-background: $bronze;
 $mobile-menu-parent-of-current-page-color: $denim;
 $mobile-menu-current-page-color: $white;
+$mobile-menu-contains-current-color: $denim;
 $section-navigation-current-page-arrow-desktop: $denim;
 $section-navigation-top-level-background-desktop: $aegean;
 $section-navigation-level-1-background-desktop: $icicle;
@@ -235,6 +236,10 @@ button.nav-dictionary::before {
 
 .section-nav .level-1.contains-current.has-children div.current-page a {
   color: $mobile-menu-current-page-color;
+}
+
+.section-nav li.contains-current > div:not(.current-page) > a {
+  color: $mobile-menu-contains-current-color;
 }
 
 
