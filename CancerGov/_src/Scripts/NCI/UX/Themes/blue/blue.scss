@@ -121,7 +121,9 @@ ul.breadcrumbs > * a,
 .pullquote,
 .desktop #blog-archive-accordion .ui-accordion-header .toggle,
 .desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle,
-.multimedia .feature-card a h3 {
+.multimedia .feature-card a h3,
+.multimedia .multimedia-feature-card a h3
+ {
   color: $default-link-color;
 }
 
