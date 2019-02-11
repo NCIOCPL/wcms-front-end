@@ -565,7 +565,7 @@ define(function(require) {
             function calcSpline () {
                 var spline = {
                     type: 'spline',
-                    name: 'Average',
+                    name: 'Average (thousands)',
                     yAxis: 2,
                     data: (function () {
                             var data = [];
