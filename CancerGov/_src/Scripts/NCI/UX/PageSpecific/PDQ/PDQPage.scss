@@ -79,10 +79,11 @@
 	}
 }
 
+// Add top margin to all "On This Page" sections except the first [WCMSFEQ-1345]
 .accordion > section:not(:first-of-type) {
-	 // add top margin to all "On This Page" sections except the first
-	 margin-top: 70px;
+	margin-top: 70px;
 }
+
 
 @include bp(small){
 	/* Hide 'On This Page' section on PDQ & factsheet pages */
