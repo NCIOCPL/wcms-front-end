@@ -79,9 +79,18 @@
 	}
 }
 
+// Add top margin to all "On This Page" sections except the first [WCMSFEQ-1345]
 .accordion > section:not(:first-of-type) {
-	 // add top margin to all "On This Page" sections except the first
-	 margin-top: 70px;
+	margin-top: 70px;
+}
+
+// Lingering clearfix spacing removal [WCMSFEQ-1344]
+@include bp(medium-up){
+	.clearfix::after, .clearfix::before, .pullquote-left::after, .pullquote-left::before, .pullquote-right::after, .pullquote-right::before, .pullquote::after, .pullquote::before
+	{
+		content: none; // setting content to none to be double-safe that a content with an empty string does not get generated
+		display: none;
+	}
 }
 
 @include bp(small){

@@ -167,12 +167,20 @@ export const createEl = (tag, attributes = {}) => {
  */
 export const wrap = (query, tag, attributes) => {
 
-  document.querySelectorAll( query ).forEach( elem => {
-		const wrapEl = createEl(tag,attributes);
+//   document.querySelectorAll( query ).forEach( elem => {
+// 		const wrapEl = createEl(tag,attributes);
 
-    elem.parentElement.insertBefore(wrapEl, elem);
-    wrapEl.appendChild(elem);
-  });
+//     elem.parentElement.insertBefore(wrapEl, elem);
+//     wrapEl.appendChild(elem);
+//   });
+
+getNodeArray(query).map( elem => {
+		const wrapEl = createEl(tag, atrributes);
+
+		elem.parentElement.insertBefore(wrapEl, elem);
+		wrapEl.appendChild(elem);
+	});
+
 };
 
 /**
@@ -184,13 +192,13 @@ export const wrap = (query, tag, attributes) => {
  */
 export const wrapAll = (query, tag, attributes) => {
 	const wrapEl = createEl(tag,attributes);
-	const nodeList = document.querySelectorAll( query );
+	const nodeList = getNodeArray( query );
 
 	nodeList[0].parentElement.insertBefore(wrapEl, nodeList[0]);
-
-  nodeList.forEach( elem => {
+	
+	nodeList.map( elem => {
     wrapEl.appendChild(elem);
-  });
+	});
 };
 
 /**
