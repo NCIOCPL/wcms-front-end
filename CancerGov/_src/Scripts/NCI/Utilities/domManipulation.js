@@ -138,3 +138,132 @@ export const pageOptionsTransporter = () => {
 	mqEventHandler(mediaQueryListener)
 
 }
+/**
+ * Wrap each element in a nodeList with a new element
+ * 
+ * @param {string} tag - type of element tag to be created
+ * @param {Object} attributes - attributes to be added to the newly created wrapping element
+ * @return {node}
+ */
+export const createEl = (tag, attributes = {}) => {
+	// create the element
+	let element = document.createElement(String(tag));
+
+	// for each attribute
+	for (const [attr, val] of Object.entries(attributes)) {
+		// assign the attribute, prefixing capital letters with dashes 
+		element.setAttribute(attr.replace(/[A-Z]/g, '-$&'), val);
+	}
+
+	return element;
+}
+
+/**
+ * Wrap each element in a nodeList with a new element. Intended to replace jQuery.wrap()
+ * 
+ * @param {string} query - CSS3 selector
+ * @param {string} tag - type of element tag to be created
+ * @param {Object} attributes - attributes to be added to the newly created wrapping element
+ */
+export const wrap = (query, tag, attributes) => {
+
+//   document.querySelectorAll( query ).forEach( elem => {
+// 		const wrapEl = createEl(tag,attributes);
+
+//     elem.parentElement.insertBefore(wrapEl, elem);
+//     wrapEl.appendChild(elem);
+//   });
+
+getNodeArray(query).map( elem => {
+		const wrapEl = createEl(tag, atrributes);
+
+		elem.parentElement.insertBefore(wrapEl, elem);
+		wrapEl.appendChild(elem);
+	});
+
+};
+
+/**
+ * Wrap all elements in a nodeList with a new element, grouping all the nodeList elements together as siblings. Intended to replace jQuery.wrapAll()
+ * 
+ * @param {string} query - CSS3 selector
+ * @param {string} tag - type of element tag to be created
+ * @param {Object} attributes - attributes to be added to the newly created wrapping element
+ */
+export const wrapAll = (query, tag, attributes) => {
+	const wrapEl = createEl(tag,attributes);
+	const nodeList = getNodeArray( query );
+
+	nodeList[0].parentElement.insertBefore(wrapEl, nodeList[0]);
+	
+	nodeList.map( elem => {
+    wrapEl.appendChild(elem);
+	});
+};
+
+/**
+ * Access expando values from DOM nodes that were created by jQuery
+ * 
+ * @param {node} item - DOM node
+ * @return {Object} - key:value data object
+ */
+export const expando = (item) => Object.keys(item).filter(key => key.match(/^jQuery/)).map(key => item[key]);
+
+/**
+ * Get data from a DOM node that was stored using jQuery.data() method
+ * 
+ * @param {node} elem - DOM node
+ * @param {string} name - name of data key to retrieve
+ * @return {Object} - value of data stored on the element
+ * 
+ * TODO: have not tested with a nodeList that has more than one entry in the array
+ */
+export const getData = (elem, name) => {
+	const data = expando(elem).map(el => el[convertToCamel(name)]);
+	if(data[0]){
+		return data[0]
+	}
+};
+
+/**
+ * Convert camel case strings to hyphenated lowercase strings
+ * 
+ * @param {string} string - camel cased string to convert
+ * @return {string}
+ */
+export const convertToKebab = (string) => string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+
+/**
+ * Convert hyphenated strings to camel case strings
+ * 
+ * @param {string} string - hyphenated string to convert
+ * @param {boolean} pascal - capitalize the first letter in the string
+ * @return {string}
+ */
+export const convertToCamel = (string, pascal = false) => {
+	const converter = (matches) => matches[1].toUpperCase();
+	let result = string.replace(/(\-\w)/g, converter);
+
+	if ( pascal === true ) {
+		result = result.charAt(0).toUpperCase() + result.slice(1);
+	}
+
+	return result;
+}
+
+/**
+ * Autodetect string conversion from camel case to hyphenated and vice versa
+ * 
+ * @param {string} string - string to convert
+ * @param {boolean} pascal - capitalize the first letter in the string
+ * @return {string}
+ */
+export const caseConverter = (string, pascal = false) => {
+	if (string.match(/(\-\w)/)) {
+    return convertToCamel(string, pascal)
+  } else if (string.match(/([a-z])([A-Z])/g)) {
+    return convertToKebab(string)
+  } else {
+    return string;
+  }
+} 

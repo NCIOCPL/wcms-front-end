@@ -1428,7 +1428,7 @@ var NCIAnalytics = {
         clickParams.Props = {
             4: href,
             66: linkText,
-            67: pageName
+            67: "D=pageName"
         };
         clickParams.Events = [29];
 
@@ -1437,6 +1437,34 @@ var NCIAnalytics = {
             clickParams.Events.push(105);
         }
 
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    InThisSectionClick: function(sender, linkText, pageName) {
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'InThisSectionClick'); 
+        
+        clickParams.Props = {
+            66: "InThisSection_" + linkText,
+            67: "D=pageName"
+        };
+        clickParams.Events = [69];
+
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    PDQMobileClick: function(sender, linkText, isExpanded, pageName) {
+        var state = isExpanded?"AccordionSectionExpand_":"AccordionSectionCollapse_";
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'PDQMobileClick');
+        
+        clickParams.Events = isExpanded?[31]:[32];
+        
+        clickParams.Props = {
+            66: state + linkText,
+            67: "D=pageName"
+        };
+        
         clickParams.LogToOmniture();
     },
 
