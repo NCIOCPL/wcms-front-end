@@ -125,12 +125,14 @@
 	.arrows-for-other-nci-sites .previous {
 		display: none;
 	}
+	/* these rules were causing the arrows to stack at tablet/mobile and don't seem to be needed	
 	.arrows-for-other-nci-sites .next {
 		position: absolute;
 		right: 20px;
 		z-index: 800;
 		top: 50%;
 	}
+	*/
 	.arrows-for-other-nci-sites .next {
 		display: none;
 	}
