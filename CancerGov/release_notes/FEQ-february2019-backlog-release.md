@@ -11,7 +11,7 @@ No content changes required
 ## [WCMSFEQ-1354] Homepage carousel arrows overlap at mobile
 ### (NO CONTENT CHANGES)
 
-The issue was being caused by absolute positioning be set to .arrows-for-other-nci-sites in carousel.scss for mobile breakpoint. I don't know if this was needed at some point, but doesn't seem to be needed now. I've commented out the code for now.
+Issue looks like it was introduced with the Modal changes which somehow affected when a sprite mixin was being generated in the css. That sprite was overwriting the display none set in mobile for these carousel arrows. We moved the modal call in nvcg.scss higher up in the list and that seems to fix this issue.
 
 # Content Changes
 No content changes required

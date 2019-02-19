@@ -52,6 +52,7 @@
 @import "../Scripts/NCI/Modules/search/search";
 @import "footer";
 
+@import "../Scripts/NCI/Modules/modal/modal";
 @import "mainContent";
 @import "images";
 @import "banners";
@@ -82,7 +83,6 @@
 @import "checkbox";
 @import "popups";
 @import 'tableSort';
-@import "../Scripts/NCI/Modules/modal/modal";
 
 /****************** NCI ENHANCEMENTS SECTION ********************/
 @import "../Scripts/NCI/Modules/liveHelpPopup/popupPartial";
