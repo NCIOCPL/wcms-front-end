@@ -7,3 +7,13 @@ Link audioplayer currently looks only at the href attribute of an anchor to dete
 
 # Content Changes
 No content changes required
+
+## [WCMSFEQ-1301] Add DLP override for C152494
+### (NO CONTENT CHANGES)
+
+Changes to CancerGov/_src/FileAssets/Configuration/clinical-trials/DynamicTrialListingFriendlyNameOverrideMapping.txt and /CancerGov/_src/FileAssets/Configuration/clinical-trials/OverrideMapping.txt. Added new item to both.
+
+To deploy update these files in Percussion at /Configuration/clinical-trials
+
+# Content Changes
+No content changes required
