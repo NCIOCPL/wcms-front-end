@@ -7,3 +7,11 @@ Link audioplayer currently looks only at the href attribute of an anchor to dete
 
 # Content Changes
 No content changes required
+
+## [WCMSFEQ-1354] Homepage carousel arrows overlap at mobile
+### (NO CONTENT CHANGES)
+
+The issue was being caused by absolute positioning be set to .arrows-for-other-nci-sites in carousel.scss for mobile breakpoint. I don't know if this was needed at some point, but doesn't seem to be needed now. I've commented out the code for now.
+
+# Content Changes
+No content changes required
