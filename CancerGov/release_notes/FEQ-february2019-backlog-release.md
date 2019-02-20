@@ -8,6 +8,11 @@ Link audioplayer currently looks only at the href attribute of an anchor to dete
 # Content Changes
 No content changes required
 
+## [WCMSFEQ-1323] Highchart label change
+### (NO CONTENT CHANGES)
+
+Changed label in charts.js from Average to Average (thousands). This changes the label in the x-axis as well as the hover over data point.
+
 ## [WCMSFEQ-1343] Remove capitalization from dictionary terms modal
 ### (NO CONTENT CHANGES)
 
