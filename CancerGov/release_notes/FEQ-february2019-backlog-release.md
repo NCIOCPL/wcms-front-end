@@ -13,5 +13,10 @@ No content changes required
 
 Changed label in charts.js from Average to Average (thousands). This changes the label in the x-axis as well as the hover over data point.
 
+## [WCMSFEQ-1343] Remove capitalization from dictionary terms modal
+### (NO CONTENT CHANGES)
+
+Removed text transform capitalize from modal.scss so that the term will show exactly as its coming from the cdr database.
+
 # Content Changes
 No content changes required
