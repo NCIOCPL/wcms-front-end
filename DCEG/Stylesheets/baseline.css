@@ -2658,19 +2658,27 @@ h3.video100title {
 .size50 {
 	width: 300px;
 	overflow: hide;
-	margin-left: 0 !important;
+	/*margin-left: 0 !important;*/
 }
 
 .size75 {
 	width: 450px;
 	overflow: hide;
-	margin-left: 0 !important;
+	/*margin-left: 0 !important;*/
 }
 
 .size100 {
 	width: 533px;
 	overflow: hide;
-	margin-left: 0 !important;
+	/*margin-left: 0 !important;*/
+}
+
+.video-rt {
+	margin-left: 41.75px;
+}
+
+.video-lft {
+	margin-right: 41.75px;
 }
 
 .media-caption {
