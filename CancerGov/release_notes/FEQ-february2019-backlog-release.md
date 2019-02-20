@@ -7,3 +7,11 @@ Link audioplayer currently looks only at the href attribute of an anchor to dete
 
 # Content Changes
 No content changes required
+
+## [WCMSFEQ-1343] Remove capitalization from dictionary terms modal
+### (NO CONTENT CHANGES)
+
+Removed text transform capitalize from modal.scss so that the term will show exactly as its coming from the cdr database.
+
+# Content Changes
+No content changes required
