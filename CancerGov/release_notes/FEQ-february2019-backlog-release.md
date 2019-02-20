@@ -5,8 +5,12 @@
 
 Link audioplayer currently looks only at the href attribute of an anchor to determine the file pathname. On the CDR, this is insufficient and the library needs to also append the search attribute as well. This change support the two methods of retrieving the path to the audiofile.
 
-# Content Changes
-No content changes required
+## [WCMSFEQ-1301] Add DLP override for C152494
+### (NO CONTENT CHANGES)
+
+Changes to CancerGov/_src/FileAssets/Configuration/clinical-trials/DynamicTrialListingFriendlyNameOverrideMapping.txt and /CancerGov/_src/FileAssets/Configuration/clinical-trials/OverrideMapping.txt. Added new item to both.
+
+To deploy update these files in Percussion at /Configuration/clinical-trials
 
 ## [WCMSFEQ-1323] Highchart label change
 ### (NO CONTENT CHANGES)
