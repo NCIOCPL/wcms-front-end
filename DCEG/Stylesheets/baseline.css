@@ -2674,11 +2674,13 @@ h3.video100title {
 }
 
 .video-rt {
-	margin-left: 41.75px;
+	float: right;
+	margin: 0 0 5px 41.75px;
 }
 
 .video-lft {
-	margin-right: 41.75px;
+	float: left;
+	margin: 0 41.75px 5px 0;
 }
 
 .video-cntr {
