@@ -2681,6 +2681,10 @@ h3.video100title {
 	margin-right: 41.75px;
 }
 
+.video-cntr {
+	margin: auto;
+}
+
 .media-caption {
 	display: block;
 	color: #666666;
