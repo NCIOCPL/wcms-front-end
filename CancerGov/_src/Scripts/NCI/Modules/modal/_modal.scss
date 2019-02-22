@@ -1,8 +1,12 @@
-@import "../../../../StyleSheets/colors";
-@import "../../../../StyleSheets/breakpoints";
-@import "../../../../StyleSheets/fonts";
+// removing partials that are available on all parent pages
+// @import "../../../../StyleSheets/colors";
+// @import "../../../../StyleSheets/breakpoints";
+// @import "../../../../StyleSheets/fonts";
+
+// importing svg-sprite here will move the svg-sprite styles down in the output file which may adversly effect the cascade
+// if modal is imported into a file then it's dependencies should be imported to the parent file as well
+// @import "../../../../StyleSheets/sprites/svg-sprite";
 @import "../../../../StyleSheets/spinner";
-@import "../../../../StyleSheets/sprites/svg-sprite";
 
 /**************************\
   Basic Modal Styles

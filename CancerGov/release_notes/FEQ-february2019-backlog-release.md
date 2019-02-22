@@ -3,7 +3,6 @@
 
 ## [WCMSFEQ-1322] [Change Request] DCEG Video Player Padding
 ### See Content Changes
-
 Inline video player on DCEG (set to left or right) had a forced zero-set left margin, so content was flush against the video player.  Created two video classes (video-lft and video-rt) to adopt the same 41.75px margins currently implemented on cancergov.  Removed the zero left margin from all three existing video size classes (.size50, .size75, and .size100).
 
 ## [WCMSFEQ-1338] Sortable Tables Header Row is Broken
@@ -19,20 +18,22 @@ Link audioplayer currently looks only at the href attribute of an anchor to dete
 
 ## [WCMSFEQ-1301] Add DLP override for C152494
 ### (NO CONTENT CHANGES)
-
 Changes to CancerGov/_src/FileAssets/Configuration/clinical-trials/DynamicTrialListingFriendlyNameOverrideMapping.txt and /CancerGov/_src/FileAssets/Configuration/clinical-trials/OverrideMapping.txt. Added new item to both.
 
 To deploy update these files in Percussion at /Configuration/clinical-trials
 
 ## [WCMSFEQ-1323] Highchart label change
 ### (NO CONTENT CHANGES)
-
 Changed label in charts.js from Average to Average (thousands). This changes the label in the x-axis as well as the hover over data point.
 
 ## [WCMSFEQ-1343] Remove capitalization from dictionary terms modal
 ### (NO CONTENT CHANGES)
-
 Removed text transform capitalize from modal.scss so that the term will show exactly as its coming from the cdr database.
+
+## [WCMSFEQ-1354] Homepage carousel arrows overlap at mobile
+### (NO CONTENT CHANGES)
+Issue looks like it was introduced with the Modal changes which somehow affected when a sprite mixin was being generated in the css. That sprite was overwriting the display none set in mobile for these carousel arrows. We moved the modal call in nvcg.scss higher up in the list and that seems to fix this issue.
+
 
 # Content Changes
 ## [WCMSFEQ-1322]
