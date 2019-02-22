@@ -2658,19 +2658,33 @@ h3.video100title {
 .size50 {
 	width: 300px;
 	overflow: hide;
-	margin-left: 0 !important;
+	/*margin-left: 0 !important;*/
 }
 
 .size75 {
 	width: 450px;
 	overflow: hide;
-	margin-left: 0 !important;
+	/*margin-left: 0 !important;*/
 }
 
 .size100 {
 	width: 533px;
 	overflow: hide;
-	margin-left: 0 !important;
+	/*margin-left: 0 !important;*/
+}
+
+.video-rt {
+	float: right;
+	margin: 0 0 5px 41.75px;
+}
+
+.video-lft {
+	float: left;
+	margin: 0 41.75px 5px 0;
+}
+
+.video-cntr {
+	margin: auto;
 }
 
 .media-caption {

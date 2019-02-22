@@ -1,6 +1,13 @@
 # FEQ February 2019 Backlog Release
 
+
+## [WCMSFEQ-1322] [Change Request] DCEG Video Player Padding
+### See Content Changes
+
+Inline video player on DCEG (set to left or right) had a forced zero-set left margin, so content was flush against the video player.  Created two video classes (video-lft and video-rt) to adopt the same 41.75px margins currently implemented on cancergov.  Removed the zero left margin from all three existing video size classes (.size50, .size75, and .size100).
+
 ## [WCMSFEQ-1338] Sortable Tables Header Row is Broken
+### See Content Changes
 The Sortable Tables header row was broken on all breakpoints due the load order of the svg-sprite. Cleaned up the sortable table styling to remove unnecessary positioning, add annotations, as well as updated the footer and mobile styles.  
 
 ## [WCMSFEQ-1303] The first column header
@@ -28,4 +35,8 @@ Changed label in charts.js from Average to Average (thousands). This changes the
 Removed text transform capitalize from modal.scss so that the term will show exactly as its coming from the cdr database.
 
 # Content Changes
+## [WCMSFEQ-1322]
+New class names will have to be applied to elements containing videos. `right` and `left` utility classes can be removed from these elements.
+
+## [WCMSFEQ-1338]
 All inline styles must be removed from any sortable table in percussion.
