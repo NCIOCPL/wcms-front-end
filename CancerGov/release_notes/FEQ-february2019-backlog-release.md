@@ -41,3 +41,6 @@ New class names will have to be applied to elements containing videos. `right` a
 
 ## [WCMSFEQ-1338]
 All inline styles must be removed from any sortable table in percussion.
+
+## [WCMSFEQ-1358]
+On https://www.cancer.gov/nci/rare-brain-spine-tumor/refer-participate/partnerships add `class="clearfix"` to this element `<h2 id="ui-id-3">Why partner with NCI-CONNECT?</h2>` to prevent lower image from getting hooked on upper image at 975px
