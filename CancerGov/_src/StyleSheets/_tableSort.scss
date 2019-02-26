@@ -1,112 +1,113 @@
 table[data-sortable] {
   border-spacing: 0;
   width: 100% !important;
-  }
 
-table[data-sortable] thead th {
-  background-color: #2b7bba;
-  font-family: Montserrat,Avant Garde,Arial,sans-serif;
-  font-size: 14px;
-  color: #fff;
-  text-align: center;
-  line-height: 1em;   
-  position: relative;
-}
+    thead th {
+      background-color: $color-link;
+      font-family: Montserrat,Avant Garde,Arial,sans-serif;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+      line-height: 1em;   
+      position: relative;
+    }
 
-table[data-sortable] thead th:before {
-    @include svg-sprite(sortable-circle-nosort);
-    content: "";
-    display: block !important;
-    margin: 10px auto 10px;
-}
+    thead th:before {
+      @include svg-sprite(sortable-circle-nosort);
+      content: "";
+      display: block !important;
+      margin: 10px auto 10px;
+    }
 
-table[data-sortable] th[data-sorted="up"]:before, table[data-sortable] th[data-sorted="down"]:before {
-  visibility: visible;
-  display: block;
+    th[data-sorted="up"]:before, th[data-sorted="down"]:before {
+      visibility: visible;
+      display: block;
+    }
+    
+    th[data-sorted="up"], th[data-sorted="down"]{
+      background-color: $endeavour;
+    }
+    
+    // sort descending
+    th[data-sorted="down"]:before {
+      @include svg-sprite(sortable-circle-descending);
+    }
+    
+    // sort ascending
+    th[data-sorted="up"]:before {
+      @include svg-sprite(sortable-circle-ascending);
+    }
+    
+    // non-sortable column
+    th[data-fixed]:before {
+      background-image: none;
+    }
+    
+    //active sorted column
+    td[data-sorted="true"]{ 
+      background-color: $white01; 
+    }  
 }
   
-table[data-sortable] th[data-sorted="up"], table[data-sortable] th[data-sorted="down"]{
-  background-color: #175E95;
-}
-
-// sort descending
-table[data-sortable] th[data-sorted="down"]:before {
-  @include svg-sprite(sortable-circle-descending);
-}
-
-// sort ascending
-table[data-sortable] th[data-sorted="up"]:before {
-  @include svg-sprite(sortable-circle-ascending);
-}
-
-// non-sortable column
-table[data-sortable] th[data-fixed]:before {
-  background-image: none;
-}
-
-//active sorted column
-table[data-sortable] td[data-sorted="true"]{ 
-  background-color: #fafafa; 
-}
 
 // mobile styling
 @include bp(small) {
 
   table[data-sortable] {
     height: 100% !important;
-  }
 
-  table[data-sortable] thead tr th:first-child {
-    //background-color: #ace;
-    height: 7.85em;
-    box-shadow: 0 2px 12px 3px rgba(0,0,0,.2);
-  }
-
-  table[data-sortable] thead tr th[data-sorted="false"] {
-    background-color: #2b7bba;
-  }
+    thead tr th:first-child {
+      //background-color: #ace;
+      height: 7.85em;
+      box-shadow: 0 0px 12px 3px rgba(0,0,0,.2);
+    }
   
-  table[data-sortable] thead tr th:first-child,
-  table[data-sortable] tbody tr td:first-child {
-    //background: #ace;
-    border-right: 1px solid #ccc;
-    border-left: 1.25px solid #ccc;
-    border-bottom: none;
-    top: auto;
-    left: 0px;
-    position: absolute !important;
-    width: 160px !important;
-    z-index: 3;
-  }
+    thead tr th[data-sorted="false"] {
+      background-color: $color-link;
+    }
+    
+    thead tr th:first-child,
+    tbody tr td:first-child {
+      //background: #ace;
+      border-right: 1px solid #ccc;
+      border-left: 1.25px solid #ccc;
+      border-bottom: none;
+      top: auto;
+      left: 0px;
+      position: absolute !important;
+      width: 160px !important;
+      z-index: 3;
+    }
+    
+    tbody tr:first-child td:nth-child(1) {
+      //background-color: #306;
+      height: calc(100% - 7.85em - 25px) !important;
+      box-shadow: 0 11px 12px 3px rgba(0,0,0,.2);
+    }
   
-  table[data-sortable] tbody tr:first-child td:nth-child(1) {
-    //background-color: #306;
-    height: calc(100% - 125px) !important;
-    box-shadow: 0 11px 12px 3px rgba(0,0,0,.2);
-  }
-
-  table[data-sortable] tbody tr td:first-child {
-    background-color: #fff;
-    line-height: 1.25em;
-  }
-
-  // to show second column behind the first
-  table[data-sortable] thead tr th:nth-child(2),
-  table[data-sortable] tbody tr td:nth-child(2) {
-    padding-left: 175px;
-  }
-
-  table[data-sortable] tbody tr td[data-sorted="true"]:first-child {
-    background-color: #fafafa;
-  }
-
-  table[data-sortable] tfoot tr td {
-    height: auto !important;
-  }
-
-  table[data-sortable] tfoot tr td:last-child {
-    padding-bottom: 20px;
-    //background-color: #ace;
+    tbody tr td:first-child {
+      background-color: $white;
+    }
+  
+    // to show second column behind the first
+    thead tr th:nth-child(2),
+    tbody tr td:nth-child(2) {
+      padding-left: 175px;
+    }
+  
+    tbody tr td[data-sorted="true"]:first-child {
+      background-color: $white01;
+    }
+  
+    tfoot tr td {
+      height: auto !important;
+    }
+  
+    tfoot tr td:last-child {
+      padding-bottom: 20px;
+      //background-color: #ace;
+    }
+    
   }
   
 }
