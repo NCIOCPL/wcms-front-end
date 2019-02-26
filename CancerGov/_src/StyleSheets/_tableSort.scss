@@ -1,16 +1,23 @@
+/* TODO: sorry for all the !important declarations but our table CSS cascade is terrible - upgrade to BEM */
+/* tables selectors like table.table-default.complex-table are overriding everything else */
 table[data-sortable] {
   border-spacing: 0;
   width: 100% !important;
 
   thead {
+    tr {
+      background-color: $color-link !important;
+    }
     th {
+      position: relative;
+      padding: 10px 10px 20px 10px;
+      border-left: none;
       background-color: $color-link;
+      color: #fff;
       font-family: Montserrat,Avant Garde,Arial,sans-serif;
       font-size: 14px;
-      color: #fff;
       text-align: center;
-      line-height: 1em;   
-      position: relative;
+      line-height: 1em;  
 
       &:before {
         @include svg-sprite(sortable-circle-nosort);
@@ -57,22 +64,23 @@ table[data-sortable] {
 // mobile styling
 @include bp(small) {
 
+  $columnOffset: 175px;
+
   table[data-sortable] {
     height: 100% !important;
 
     thead {
       tr {
         th {
+          height: 7.85em !important; //override any th cell height attributes
+          
           &:first-child {
-            //background-color: #ace;
-            height: 7.85em !important; //override any th cell height attributes
             box-shadow: 8px 0 12px -3px rgba(0,0,0,.2);
             z-index: 2;
           }
-
-          &[data-sorted="false"] {
-            background-color: $color-link;
-          }
+        }
+        th:nth-child(2) {
+          padding-left: $columnOffset;
         }
       }
     }
@@ -82,25 +90,17 @@ table[data-sortable] {
       //background: #ace;
       border-right: 1px solid #ccc;
       border-left: 1.25px solid #ccc;
-      border-bottom: none;
       top: auto;
       left: 0px;
       position: absolute !important;
       width: 160px !important;
-      z-index: 3;
-    }
-
-    // to show second column behind the first
-    thead tr th:nth-child(2),
-    tbody tr td:nth-child(2) {
-      padding-left: 175px;
     }
 
     tbody {
       tr {
         &:first-child {
           td:nth-child(1) {
-            //background-color: #306;
+            //stretch the first cell the height of the entire tbody - thead height - horizontal scrollbar
             height: calc(100% - 7.85em - 16px) !important;
             box-shadow: 8px 0 12px -3px rgba(0,0,0,.2);
           }
@@ -110,6 +110,11 @@ table[data-sortable] {
           &:first-child {
             background-color: $white;
             z-index: 1;
+            border-bottom: none;
+          }
+
+          &:nth-child(2) {
+            padding-left: $columnOffset + 10;
           }
 
           &[data-sorted="true"]:first-child {
