@@ -2,7 +2,8 @@ table[data-sortable] {
   border-spacing: 0;
   width: 100% !important;
 
-    thead th {
+  thead {
+    th {
       background-color: $color-link;
       font-family: Montserrat,Avant Garde,Arial,sans-serif;
       font-size: 14px;
@@ -10,43 +11,46 @@ table[data-sortable] {
       text-align: center;
       line-height: 1em;   
       position: relative;
-    }
 
-    thead th:before {
-      @include svg-sprite(sortable-circle-nosort);
-      content: "";
-      display: block !important;
-      margin: 10px auto 10px;
+      &:before {
+        @include svg-sprite(sortable-circle-nosort);
+        content: "";
+        display: block !important;
+        margin: 10px auto 10px;
+      }
     }
+  }
 
-    th[data-sorted="up"]:before, th[data-sorted="down"]:before {
-      visibility: visible;
-      display: block;
-    }
-    
-    th[data-sorted="up"], th[data-sorted="down"]{
+  th {
+    &[data-sorted="up"], &[data-sorted="down"] {
       background-color: $endeavour;
+
+      &:before {
+        visibility: visible;
+        display: block;
+      }
     }
-    
+
     // sort descending
-    th[data-sorted="down"]:before {
+    &[data-sorted="down"]:before {
       @include svg-sprite(sortable-circle-descending);
     }
-    
+
     // sort ascending
-    th[data-sorted="up"]:before {
+    &[data-sorted="up"]:before {
       @include svg-sprite(sortable-circle-ascending);
     }
-    
+
     // non-sortable column
-    th[data-fixed]:before {
+    &[data-fixed]:before {
       background-image: none;
     }
-    
-    //active sorted column
-    td[data-sorted="true"]{ 
-      background-color: $white01; 
-    }  
+  }
+  
+  //active sorted column
+  td[data-sorted="true"]{ 
+    background-color: $white01; 
+  }  
 }
   
 
@@ -56,14 +60,21 @@ table[data-sortable] {
   table[data-sortable] {
     height: 100% !important;
 
-    thead tr th:first-child {
-      //background-color: #ace;
-      height: 7.85em;
-      box-shadow: 0 0px 12px 3px rgba(0,0,0,.2);
-    }
-  
-    thead tr th[data-sorted="false"] {
-      background-color: $color-link;
+    thead {
+      tr {
+        th {
+          &:first-child {
+            //background-color: #ace;
+            height: 7.85em !important; //override any th cell height attributes
+            box-shadow: 8px 0 12px -3px rgba(0,0,0,.2);
+            z-index: 2;
+          }
+
+          &[data-sorted="false"] {
+            background-color: $color-link;
+          }
+        }
+      }
     }
     
     thead tr th:first-child,
@@ -78,36 +89,49 @@ table[data-sortable] {
       width: 160px !important;
       z-index: 3;
     }
-    
-    tbody tr:first-child td:nth-child(1) {
-      //background-color: #306;
-      height: calc(100% - 7.85em - 25px) !important;
-      box-shadow: 0 11px 12px 3px rgba(0,0,0,.2);
-    }
-  
-    tbody tr td:first-child {
-      background-color: $white;
-    }
-  
+
     // to show second column behind the first
     thead tr th:nth-child(2),
     tbody tr td:nth-child(2) {
       padding-left: 175px;
     }
-  
-    tbody tr td[data-sorted="true"]:first-child {
-      background-color: $white01;
+
+    tbody {
+      tr {
+        &:first-child {
+          td:nth-child(1) {
+            //background-color: #306;
+            height: calc(100% - 7.85em - 16px) !important;
+            box-shadow: 8px 0 12px -3px rgba(0,0,0,.2);
+          }
+        }
+
+        td {
+          &:first-child {
+            background-color: $white;
+            z-index: 1;
+          }
+
+          &[data-sorted="true"]:first-child {
+            background-color: $white01;
+          }
+        }
+      }
     }
   
     tfoot tr td {
       height: auto !important;
+      &:last-child {
+        padding-bottom: 20px;
+      }
     }
-  
-    tfoot tr td:last-child {
-      padding-bottom: 20px;
-      //background-color: #ace;
-    }
-    
   }
   
+}
+
+// IE11 hack to set scrollbar offset to 19px
+@media all and (-ms-high-contrast:none) and (max-width: 640px) {
+	table[data-sortable] tbody tr:first-child td:nth-child(1) {
+    height: calc(100% - 7.85em - 19px) !important; 
+	}
 }
