@@ -1428,7 +1428,7 @@ var NCIAnalytics = {
         clickParams.Props = {
             4: href,
             66: linkText,
-            67: pageName
+            67: "D=pageName"
         };
         clickParams.Events = [29];
 
@@ -1437,6 +1437,34 @@ var NCIAnalytics = {
             clickParams.Events.push(105);
         }
 
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    InThisSectionClick: function(sender, linkText, pageName) {
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'InThisSectionClick'); 
+        
+        clickParams.Props = {
+            66: "InThisSection_" + linkText,
+            67: "D=pageName"
+        };
+        clickParams.Events = [69];
+
+        clickParams.LogToOmniture();
+    },
+
+    //******************************************************************************************************
+    PDQMobileClick: function(sender, linkText, isExpanded, pageName) {
+        var state = isExpanded?"AccordionSectionExpand_":"AccordionSectionCollapse_";
+        clickParams = new NCIAnalytics.ClickParams (sender, 'nciglobal', 'o', 'PDQMobileClick');
+        
+        clickParams.Events = isExpanded?[31]:[32];
+        
+        clickParams.Props = {
+            66: state + linkText,
+            67: "D=pageName"
+        };
+        
         clickParams.LogToOmniture();
     },
 
@@ -1787,23 +1815,36 @@ var NCIAnalytics = {
         clickParams.LogToOmniture();
     },
     /* ********************************************************************** */
-    BlogBodyLinkClick: function(sender, linkText, pageName, glossifiedTerm){
+    BlogBodyLinkClick: function(sender, linkText, pageName){
         clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'BlogBodyLinkClick');
         
-        var linkType = "";
-        if(glossifiedTerm)
-            linkType = "_BodyGlossifiedTerm";
-        else
-            linkType = "_BodyLink";
-
+        var linkType = "_BodyLink";
         clickParams.Props = {
+            50: linkText,
             66: "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + linkType,
-            67: pageName,
-            50: linkText
+            67: pageName
         };
 
         clickParams.Events = [56];
 
+        clickParams.LogToOmniture();
+    },
+    /* ********************************************************************** */
+    glossifiedTerm: function(sender, linkText, blogLink){
+        var clickParams = new NCIAnalytics.ClickParams(sender, 'nciglobal', 'o', 'glossifiedTerm');
+        
+        clickParams.Props = {
+            45: "Glossified Term",
+            50: linkText,
+            67: "D=pageName"
+        };
+        
+        if(blogLink) {
+            clickParams.Props[66] = "Blog_" + s.prop44 + "_" + NCIAnalytics.blogLocation() + '_BodyGlossifiedTerm';
+        }
+
+        clickParams.Events = [56];
+    
         clickParams.LogToOmniture();
     },
     /* ********************************************************************** */

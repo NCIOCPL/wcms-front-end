@@ -70,6 +70,9 @@ module.exports = function(grunt) {
             case 'red':
                 proxy = 'www-red-dev';
                 break;
+            case 'dceg-red':
+                proxy = 'dcegpreview-red-dev';
+                break;
             case 'dev/red/preview':
             case 'preview-red-dev':
             case 'preview-red':
@@ -79,6 +82,9 @@ module.exports = function(grunt) {
             case 'pink-dev':
             case 'pink':
                 proxy = 'www-pink-dev';
+                break;
+            case 'dceg-pink':
+                proxy = 'dceg-pink-dev';
                 break;
             case 'dev/blue':
             case 'blue-dev':

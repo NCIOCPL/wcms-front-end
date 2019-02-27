@@ -1,9 +1,3 @@
-@include bp(small) {	
-	.section-nav {
-		top: 1.9375em;
-	}
-}
-
 #section-menu-button {
 	&::before {
 		content:'';
@@ -664,6 +658,13 @@
 		overflow: hidden;
 	}
 	/*** END Megamenus/Search Styles ***/
+}
+
+// small
+@include bp(small) {	
+	.section-nav {
+		top: 1.9375em;
+	}
 }
 
 // x-small

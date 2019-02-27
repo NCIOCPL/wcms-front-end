@@ -1,13 +1,11 @@
 # Institution Type Release
 
 ## [WMCMSFEQ-1193] Institution Page Style Requirements
-### CONTENT CHANGES REQUIRED!
-
 The Biography Content Type pages were in need of a facelift due to the impending DCEG migration.  In an effort not to reinvent the wheel, the look and feel originally designed for the Biography Content Type pages were used for the Institution type pages, with the exception of the page style requirements outlined in this ticket.
+### CONTENT CHANGES REQUIRED!
 
 
 ## [WMCSFEQ-1194] Analytics for Institution Content Type
-
 The analytics requested only applies to the "profile panel" section at the top of the page.  If the user selects the website, or clicks on the phone numbers listed, this data will be collected. Created a new click event called 'ProfilePanelClick' in analytics.js which targets any phone number within an href, as well as targets just the last foldername from the website path.
 
 When a user clicks on a link within the "Profile Panel" box at the top of the page, the following information is passed:
@@ -17,7 +15,6 @@ When a user clicks on a link within the "Profile Panel" box at the top of the pa
 
 
 ## [WCMSFEQ-1221] Add Paddding to Container on Mobile
-
 Missing from the Institution Page Style requirements was a request for right padding, so that the content of the profile panel does not touch the right-most edge of the box when at mobile view (or 640px or less).
 
 
