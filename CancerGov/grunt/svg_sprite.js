@@ -66,6 +66,30 @@ module.exports = function (grunt, options) {
             }
         },
 
+        blue: {
+            expand: true,
+            cwd: dirs.src.themes + "blue/images/sprites/svg/",
+            src: ['**/*.svg'],
+            dest: './',
+            options: {
+                mode: {
+                    css: {
+                        dest: './',
+                        sprite: dirs.tmp.base + 'svg-sprite-blue.svg',
+                        render: {
+                            scss: {
+                                dest: dirs.src.themes + "blue/images/sprites/_svg-sprite-map.scss",
+                                template: dirs.src.styles + 'sprites/sprite-template.scss'
+                            }
+                        },
+                        layout:"vertical",
+                        bust: false,
+                        example: false
+                    }
+                }
+            }
+        },
+
         default: {
             expand: true,
             cwd: dirs.src.sprites + "svg",
