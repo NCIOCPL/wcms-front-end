@@ -10,7 +10,9 @@ Inline video player on DCEG (set to left or right) had a forced zero-set left ma
 The Sortable Tables header row was broken on all breakpoints due the load order of the svg-sprite. Cleaned up the sortable table styling to remove unnecessary positioning, add annotations, as well as updated the footer and mobile styles.  
 
 ## [WCMSFEQ-1303] The first column header
-For sortable tables, the first column (header and corresponding table cells) were misaligned, and (in some tables) sorting the first column makes it appear as tiles.  This is a known bug (and limitation of the use of tables) and occurs when the content in some columns exceed the height of the first.  On mobile, height was set at 200px on mobile, which accomodates most content sizing.  This cannot be set as auto, or inherit, because a table row cannot inherit from the cells, since an element cannot inherit from its descendants, only from ascendants.
+For sortable tables, the first column (header and corresponding table cells) were misaligned, and (in some tables) sorting the first column makes it appear as tiles.  This occurs when the content in some columns exceed the height of the first.  On mobile, the height was set at 200px on mobile, which accomodated most content sizing, but still produced that "tiled" look. 
+
+To correct this, the height of the first cell of the table was set to 100%, less the height of the header cell and height of the horizontal scroll bar that is generated on mobile.  The fixed height of 200px was removed from the cells of the first column, and the box shadow and other styling was added to that first cell (of the first frozen column).  In order to fully implement this fix, any sortable table with a footer (which uses the ```<tfoot>``` element) must be removed from the content.  A separate ticket was submitted for this content cleanup step on production: https://tracker.nci.nih.gov/browse/CGOV-8918 
 
 ## [WCMSFEQ-1274] Get link audioplayer to work on the CDR
 ### (NO CONTENT CHANGES)
@@ -40,7 +42,7 @@ Issue looks like it was introduced with the Modal changes which somehow affected
 New class names will have to be applied to elements containing videos. `right` and `left` utility classes can be removed from these elements.
 
 ## [WCMSFEQ-1338]
-All inline styles must be removed from any sortable table in percussion.
+All inline styles must be removed from any sortable table in percussion.  All sortable tables with footers (using the ```<tfoot>``` element must be removed.  
 
 ## [WCMSFEQ-1358]
 On https://www.cancer.gov/nci/rare-brain-spine-tumor/refer-participate/partnerships add `class="clearfix"` to this element `<h2 id="ui-id-3">Why partner with NCI-CONNECT?</h2>` to prevent lower image from getting hooked on upper image at 975px
