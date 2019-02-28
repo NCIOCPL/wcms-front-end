@@ -59,8 +59,13 @@ export const attachHandlers = (selector, player) => {
             attachHandlerFlag(audiofile);
             // We don't want to prevent the default event on the <a> element because doing so would 
             // cancel the user interaction event on mobile and prevent the sound from playing,
-            // so we need to stash the url and use JavaScript to return undefined
-            audiofile.setAttribute('data-pathname',audiofile.pathname);
+            // so we need to stash the url and use JavaScript to return undefined.
+
+            // searchPath should be an empty string if it doesn't exists, but the ternary is to avoid
+            // an unintended undefined. This step is being added in to support the use of this library
+            // on the CDR, where sometimes the full path is split between a pathname and a search attribute.
+            const searchPath = audiofile.search ? audiofile.search : "";
+            audiofile.setAttribute('data-pathname', audiofile.pathname + searchPath);
             audiofile.setAttribute('href','javascript:void(0)');
 
             attachHandler(audiofile, player);
