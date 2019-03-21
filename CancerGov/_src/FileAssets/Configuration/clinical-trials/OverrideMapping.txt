@@ -13,6 +13,7 @@ C9160|Childhood Acute Myeloid Leukemia
 C7707|Adult Soft Tissue Sarcoma
 C7884|Recurrent Adult Brain Tumors
 C152494|Talazoparib Tosylate
+C156894|Glasdegib Maleate
 treatment|Treatment
 other|Other
 supportive_care|Supportive Care

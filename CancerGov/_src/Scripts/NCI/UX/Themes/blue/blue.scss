@@ -88,41 +88,48 @@ $accordion-even-rows-background: $icicle;
 $accordion-toggle-even-rows-background: $aqua;
 $accordion-toggle-minus-odd-color: $jade;
 $accordion-toggle-minus-even-color: $aqua;
-$svg-menu-hamburger-mobile: menu-blue-palette;
-$svg-menu-info-mobile: info-blue-palette;
-$svg-menu-search-mobile: search-large-blue-palette;
-$svg-menu-dictionary-mobile: book-blue-palette;
-$svg-guide-card-circle-arrow: chevron-circle-blue-palette;
-$svg-guide-card-circle-arrow-hover: chevron-circle-hover-blue-palette;
-$svg-twitter: twitter-blue-palette;
-$svg-twitter-hover: twitter-hover-blue-palette;
-$svg-gov-delivery: gov-delivery-blue-palette;
-$svg-gov-delivery-hover: gov-delivery-hover-blue-palette;
-$svg-facebook: facebook-blue-palette;
-$svg-facebook-hover: facebook-hover-blue-palette;
-$svg-instagram: instagram-blue-palette;
-$svg-instagram-hover: instagram-hover-blue-palette;
-$svg-linkedin: linkedin-blue-palette;
-$svg-linkedin-hover: linkedin-hover-blue-palette;
-$svg-rss: rss-blue-palette;
-$svg-rss-hover: rss-hover-blue-palette;
-$svg-pinterest: pinterest-blue-palette;
-$svg-pinterest-hover: pinterest-hover-blue-palette;
-$svg-youtube: youtube-blue-palette;
-$svg-youtube-hover: youtube-hover-blue-palette;
-$svg-external-link: external-link-blue-palette;
-$svg-main-search-magnifying-glass-desktop: search-blue-palette;
-$svg-page-options-font-size-desktop: font-size-blue-palette;
-$svg-page-options-print-desktop: printer-blue-palette;
-$svg-page-options-email-desktop: mail-envelope-closed-blue-palette;
-$svg-page-options-facebook-desktop: facebook-blue-palette;
-$svg-page-options-twitter-desktop: twitter-blue-palette;
-$svg-page-options-pinterest-desktop: pinterest-blue-palette;
+$form-radio-background: $cobalt;
+$form-radio-border: $cobalt;
+$form-select-box-dropdown: $cobalt;
+$form-search-button-background: $jewel;
+$form-seach-button-border: #006380;
+$form-search-button-hover-focus-color: #006380;
+$svg-menu-hamburger-mobile: menu-blue-theme;
+$svg-menu-info-mobile: info-blue-theme;
+$svg-menu-search-mobile: search-large-blue-theme;
+$svg-menu-dictionary-mobile: book-blue-theme;
+$svg-guide-card-circle-arrow: chevron-circle-blue-theme;
+$svg-guide-card-circle-arrow-hover: chevron-circle-hover-blue-theme;
+$svg-twitter: twitter-blue-theme;
+$svg-twitter-hover: twitter-hover-blue-theme;
+$svg-gov-delivery: gov-delivery-blue-theme;
+$svg-gov-delivery-hover: gov-delivery-hover-blue-theme;
+$svg-facebook: facebook-blue-theme;
+$svg-facebook-hover: facebook-hover-blue-theme;
+$svg-instagram: instagram-blue-theme;
+$svg-instagram-hover: instagram-hover-blue-theme;
+$svg-linkedin: linkedin-blue-theme;
+$svg-linkedin-hover: linkedin-hover-blue-theme;
+$svg-rss: rss-blue-theme;
+$svg-rss-hover: rss-hover-blue-theme;
+$svg-pinterest: pinterest-blue-theme;
+$svg-pinterest-hover: pinterest-hover-blue-theme;
+$svg-youtube: youtube-blue-theme;
+$svg-youtube-hover: youtube-hover-blue-theme;
+$svg-external-link: external-link-blue-theme;
+$svg-main-search-magnifying-glass-desktop: search-blue-theme;
+$svg-page-options-font-size-desktop: font-size-blue-theme;
+$svg-page-options-print-desktop: printer-blue-theme;
+$svg-page-options-email-desktop: mail-envelope-closed-blue-theme;
+$svg-page-options-facebook-desktop: facebook-blue-theme;
+$svg-page-options-twitter-desktop: twitter-blue-theme;
+$svg-page-options-pinterest-desktop: pinterest-blue-theme;
 
 // default theme link color
 .main-content a,
 .main-content .feature-card a,
 .feature-card.cgvArticle a h3,
+.feature-primary a h3,
 ul.breadcrumbs > * a,
 .topic-feature .cgvBlogPost a h3,
 .pullquote,
@@ -298,10 +305,6 @@ button.nav-dictionary::before {
   color: $mega-menu-current-page-active-not-expanded-color;
 }
 
-.nav-menu a:active {
-  background-color: $menu-active-link-background-mobile;
-}
-
 // page options
 .page-options li {
   background-color: $page-options-icons-background-mobile;
@@ -374,6 +377,25 @@ figure a.article-image-enlarge:hover {
 
 .icon-exit-notification {
   @include svg-sprite($svg-external-link);
+}
+
+// form elements
+.radio input[type=radio]:checked+label:before {
+  background-color: $form-radio-background;
+}
+
+.radio input[type=radio]+label:before {
+  border-color: $form-radio-border;
+}
+.ui-selectmenu-button span.ui-icon {
+  background-color: $form-select-box-dropdown;
+}
+.button.submit, .button[type=submit], form button.submit, form button[type=submit] {
+  background-color: $form-search-button-background;
+  border-color: $form-seach-button-border;
+}
+.button.submit:focus, .button.submit:hover, .button[type=submit]:focus, .button[type=submit]:hover, form button.submit:focus, form button.submit:hover, form button[type=submit]:focus, form button[type=submit]:hover {
+  background-color: $form-search-button-hover-focus-color;
 }
 
 // accordion
@@ -567,6 +589,9 @@ figure a.article-image-enlarge:hover {
 @include bp(medium-down) {
   .nav-search {
     float: $nav-search-float-tablet-down;
+  }
+  .nav-menu a:active {
+    background-color: $menu-active-link-background-mobile;
   }
 }
 

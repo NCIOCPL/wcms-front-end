@@ -1,7 +1,7 @@
-@import '../../../../../StyleSheets/breakpoints';
-@import '../../../../../StyleSheets/fonts';
-@import '../../../../../StyleSheets/colors';
-@import './images/sprites/svg-sprite-purple';
+@import "../../../../../StyleSheets/breakpoints";
+@import "../../../../../StyleSheets/fonts";
+@import "../../../../../StyleSheets/colors";
+@import "./images/sprites/svg-sprite-purple";
 
 // theme color palette
 $purple1: #6c81e8;
@@ -28,6 +28,7 @@ ul.breadcrumbs > * a,
 
 // default theme link color
 .main-content p a:hover,
+.main-content a:hover,
 a .feature-card.cgvArticle a:hover h3,
 .main-content a.title:hover,
 .card-thumbnail h3 a:focus,
@@ -75,18 +76,18 @@ a .feature-card.cgvArticle a:hover h3,
 // mobile menu
 .mobile-menu-bar {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+ 
 
   > a,
   > button {
-    margin: 1em auto !important;
+    margin: 1em 50px !important;
     top: 0;
   }
 }
 
 // mega menu
-#mega-nav { 
+#mega-nav {
   .nav-item.current-page > .nav-item-title > a,
   .nav-item.contains-current > .nav-item-title > a {
     border-bottom-color: $purple5;
@@ -94,14 +95,14 @@ a .feature-card.cgvArticle a:hover h3,
   .current-page {
     background-color: $purple5;
 
-    > div .toggle[aria-expanded=true],
-    > div[aria-expanded=true] .toggle {
+    > div .toggle[aria-expanded="true"],
+    > div[aria-expanded="true"] .toggle {
       background-color: $white;
       color: $purple2;
     }
 
-    > div .toggle[aria-expanded=false],
-    > div[aria-expanded=false] .toggle {
+    > div .toggle[aria-expanded="false"],
+    > div[aria-expanded="false"] .toggle {
       background-color: $purple2;
       color: $white;
     }
@@ -119,13 +120,24 @@ a .feature-card.cgvArticle a:hover h3,
 }
 
 // content styles
+.main-content {
+  background-image: none;
+  background-color: #fff;
+}
 a.arrow-link-white:hover:before,
 a.arrow-link:hover:before {
   @include svg-sprite(chevron-circle-purple);
 }
-
+a.arrow-link-white:hover:before,
+a.arrow-link:hover:before {
+  @include svg-sprite(chevron-circle-purple-hover);
+}
 .pullquote {
   border-left-color: $purple5;
+}
+.floating-delighter__link:hover,
+.floating-deligher:hover a {
+  color: #fff !important;
 }
 
 .micro-a {
@@ -138,13 +150,31 @@ a.arrow-link:hover:before {
     background-color: $purple1;
   }
 
-  .feature-card a, 
+  .feature-card a,
   .feature-card.cgvArticle a h3,
   .feature-card.cgvArticle a:hover h3 {
     color: $white;
   }
 }
+.guide-card .card {
+  background: #f5f0fd;
+}
+.multimedia-slot {
+  background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-purple.jpg) repeat;
+}
 
+.ui-accordion-header.even, .ui-accordion-header.even.ui-state-active {
+  background-color: #d4efff;
+}
+.ui-accordion-header.odd, .ui-accordion-header.odd.ui-state-active {
+  background-color: #bddeff;
+}
+.ui-accordion-header.odd .toggle[aria-expanded=false], .ui-accordion-header.odd[aria-expanded=false] .toggle {
+  background-color: #77bcff;
+}
+.ui-accordion-header.even .toggle[aria-expanded=false], .ui-accordion-header.even[aria-expanded=false] .toggle {
+  background-color: #afddf8;
+}
 
 .main-content .guide-card a.arrow-link,
 .main-content .guide-card a.arrow-link-white,
@@ -185,6 +215,9 @@ a.arrow-link:hover:before {
   .nci-logo-pages img {
     min-width: 0;
     max-width: 480px;
+  }
+  .ncilandingpage #PageOptionsControl1 ul {
+    float: left;
   }
 }
 
@@ -230,27 +263,27 @@ a.arrow-link:hover:before {
     li:hover {
       background-color: transparent;
     }
-  
+
     .page-options--resize a:before {
       @include svg-sprite(font-size-purple, mq);
     }
-  
+
     .page-options--print a:before {
       @include svg-sprite(printer-purple, mq);
     }
-  
+
     .page-options--email a:before {
       @include svg-sprite(mail-envelope-closed-purple, mq);
     }
-  
+
     .social-share--facebook a:before {
       @include svg-sprite(facebook-purple, mq);
     }
-  
+
     .social-share--twitter a:before {
       @include svg-sprite(twitter-purple, mq);
     }
-  
+
     .social-share--pinterest a:before {
       @include svg-sprite(pinterest-purple, mq);
     }
