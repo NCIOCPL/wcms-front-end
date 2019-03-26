@@ -2,6 +2,7 @@ C2955|Colorectal Cancer
 C27031|Pancreatic Islet Cell Tumors
 C7510|Thyroid Cancer
 C114812|Childhood Pineoblastoma
+C158060|Trastuzumab and Hyaluronidase-oysk
 C3168|Childhood Acute Lymphoblastic Leukemia
 C3997|Childhood Medulloblastoma
 C4967|Adult Acute Lymphoblastic Leukemia

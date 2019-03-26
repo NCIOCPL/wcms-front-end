@@ -4,26 +4,41 @@
 @import "./images/sprites/svg-sprite-purple";
 
 // theme color palette
-$purple1: #6c81e8;
-$purple2: #6254a3;
+$iris: #6254a3;
+$sangria: #951b81;
+$ultra-violet: #6b35a6;
+$azure: #1e6fd6;
+$sky-blue: #77bcff;
+$electric-lilac: #6c81e8;
+$plum: #592e6b;
+$thistle: #f6eefd;
+$raindrop: #cfeaf1; // used in svg for guide card arrow
+
+$slate: #606060;
 $purple3: #6264b4;
-$purple4: #951b81;
-$purple5: #6b35a6;
-$purple6: #4d226d;
 $purple7: #e9e7f7;
-$purple8: #77bcff;
+
+// utility shades
+$eggshell: #f2f0ef;
+$graphite: #4d4d4d;
+$storm: #666666;
+$asphalt: #2e2e2e;
+$aqua: #c7eae8;
+$jade: #97ccc6;
+$freeze: #c2e4e0;
+$space: #023c5a;
+$bronze: #c78005;
 
 // default theme text color
 .main-content a,
 .main-content .feature-card a,
 .feature-card.cgvArticle a h3,
 ul.breadcrumbs > * a,
-.topic-feature .cgvBlogPost a h3,
 .pullquote,
 .desktop #blog-archive-accordion .ui-accordion-header .toggle,
 .desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle,
 .multimedia .feature-card a h3 {
-  color: $purple5;
+  color: $ultra-violet;
 }
 
 // default theme link color
@@ -41,7 +56,7 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a:hover,
 .feature-card.cgvArticle a:hover h3,
 .topic-feature .cgvBlogPost a:hover h3 {
-  color: $purple4;
+  color: $sangria;
 }
 
 // hidden elements
@@ -52,7 +67,7 @@ a .feature-card.cgvArticle a:hover h3,
 
 #nvcgSlUtilityBar {
   display: block !important;
-  background-color: $purple8;
+  background-color: $sky-blue;
 }
 
 #microsite-a {
@@ -69,15 +84,14 @@ a .feature-card.cgvArticle a:hover h3,
 
 // menu bar
 .nav-search-bar {
-  background: $purple2;
-  background: linear-gradient(180deg, $purple2, $purple3);
+  background: $iris;
+  background: linear-gradient(180deg, $iris, $purple3);
 }
 
 // mobile menu
 .mobile-menu-bar {
   display: flex;
   justify-content: space-between;
- 
 
   > a,
   > button {
@@ -90,20 +104,20 @@ a .feature-card.cgvArticle a:hover h3,
 #mega-nav {
   .nav-item.current-page > .nav-item-title > a,
   .nav-item.contains-current > .nav-item-title > a {
-    border-bottom-color: $purple5;
+    border-bottom-color: $ultra-violet;
   }
   .current-page {
-    background-color: $purple5;
+    background-color: $ultra-violet;
 
     > div .toggle[aria-expanded="true"],
     > div[aria-expanded="true"] .toggle {
       background-color: $white;
-      color: $purple2;
+      color: $iris;
     }
 
     > div .toggle[aria-expanded="false"],
     > div[aria-expanded="false"] .toggle {
-      background-color: $purple2;
+      background-color: $iris;
       color: $white;
     }
   }
@@ -112,9 +126,9 @@ a .feature-card.cgvArticle a:hover h3,
 // page options
 .page-options {
   li {
-    background-color: $purple1;
+    background-color: $electric-lilac;
     &:hover {
-      background-color: $purple4;
+      background-color: $sangria;
     }
   }
 }
@@ -133,7 +147,7 @@ a.arrow-link:hover:before {
   @include svg-sprite(chevron-circle-purple-hover);
 }
 .pullquote {
-  border-left-color: $purple5;
+  border-left-color: $ultra-violet;
 }
 .floating-delighter__link:hover,
 .floating-deligher:hover a {
@@ -143,11 +157,11 @@ a.arrow-link:hover:before {
 .micro-a {
   &.feature-primary {
     .card {
-      background-color: $purple5;
+      background-color: $ultra-violet;
     }
   }
   &.multimedia-slot {
-    background-color: $purple1;
+    background-color: $electric-lilac;
   }
 
   .feature-card a,
@@ -159,20 +173,39 @@ a.arrow-link:hover:before {
 .guide-card .card {
   background: #f5f0fd;
 }
+.main-content .guide-card a.arrow-link:hover,
+.multimedia .card:hover h3,
+.card-thumbnail .card-thumbnail:hover a {
+  color: $sangria;
+}
 .multimedia-slot {
-  background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-purple.jpg) repeat;
+  background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-purple.jpg)
+    repeat;
 }
 
-.ui-accordion-header.even, .ui-accordion-header.even.ui-state-active {
+figure a.article-image-enlarge {
+  background-color: $azure;
+
+  &:hover {
+    background-color: $sangria;
+    color: #fff;
+  }
+}
+
+.ui-accordion-header.even,
+.ui-accordion-header.even.ui-state-active {
   background-color: #d4efff;
 }
-.ui-accordion-header.odd, .ui-accordion-header.odd.ui-state-active {
+.ui-accordion-header.odd,
+.ui-accordion-header.odd.ui-state-active {
   background-color: #bddeff;
 }
-.ui-accordion-header.odd .toggle[aria-expanded=false], .ui-accordion-header.odd[aria-expanded=false] .toggle {
+.ui-accordion-header.odd .toggle[aria-expanded="false"],
+.ui-accordion-header.odd[aria-expanded="false"] .toggle {
   background-color: #77bcff;
 }
-.ui-accordion-header.even .toggle[aria-expanded=false], .ui-accordion-header.even[aria-expanded=false] .toggle {
+.ui-accordion-header.even .toggle[aria-expanded="false"],
+.ui-accordion-header.even[aria-expanded="false"] .toggle {
   background-color: #afddf8;
 }
 
@@ -184,9 +217,40 @@ a.arrow-link:hover:before {
   color: $default-text;
 }
 
+// form elements
+.radio input[type="radio"]:checked + label:before {
+  background-color: $electric-lilac;
+}
+
+.radio input[type="radio"] + label:before {
+  border-color: $electric-lilac;
+}
+.ui-selectmenu-button span.ui-icon {
+  background-color: $electric-lilac;
+}
+.button.submit,
+.button[type="submit"],
+form button.submit,
+form button[type="submit"] {
+  background-color: $sangria;
+  border-color: $plum;
+}
+.button.submit:focus,
+.button.submit:hover,
+.button[type="submit"]:focus,
+.button[type="submit"]:hover,
+form button.submit:focus,
+form button.submit:hover,
+form button[type="submit"]:focus,
+form button[type="submit"]:hover {
+  background-color: $plum;
+}
+
 // footer
 .site-footer {
-  background-color: $purple6;
+  background: url(/publishedcontent/images/images/design-elements/background-graphics/hexagon_molecular_structure_footer.png)
+      no-repeat 130% 00px,
+    linear-gradient(45deg, $ultra-violet, #6251c0);
 }
 
 // theme images
@@ -216,9 +280,48 @@ a.arrow-link:hover:before {
     min-width: 0;
     max-width: 480px;
   }
-  .ncilandingpage #PageOptionsControl1 ul {
-    float: left;
+}
+
+@include bp(medium) {
+  .page-options-container #PageOptionsControl1 ul {
+    float: none;
   }
+}
+
+@include bp(medium-down) {
+  #section-menu-button {
+    background-color: $iris;
+  }
+  #mega-nav li.contains-current>div.nav-item-title>a {
+    color: $iris;
+}
+#mega-nav .toggle[aria-expanded=false], #mega-nav[aria-expanded=false] .toggle {
+  background-color: $plum;
+}
+#mega-nav .toggle[aria-expanded=true], #mega-nav[aria-expanded=true] .toggle {
+  color: $electric-lilac;
+}
+.nav-menu a:active {
+  background-color: $sangria;
+}
+.section-nav {
+  background: $eggshell;
+}
+.section-nav .level-0>div {
+  background-color: $iris;
+}
+.section-nav div.current-page {
+  background: $ultra-violet;
+}
+.section-nav div:active {
+  background: $sangria;
+}
+.section-nav .toggle[aria-expanded=false], .section-nav[aria-expanded=false] .toggle {
+  background-color: $sangria;
+}
+.section-nav .toggle[aria-expanded=true], .section-nav[aria-expanded=true] .toggle {
+  color: $electric-lilac;
+}
 }
 
 @include break(large) {
@@ -231,26 +334,26 @@ a.arrow-link:hover:before {
   #swKeyword,
   .search {
     background-color: $white;
-    color: $default-text;
+    color: $graphite;
   }
 
   .sub-nav-group-header {
-    color: $purple5;
+    color: $ultra-violet;
 
     &:focus,
     &:hover {
-      color: $purple4;
+      color: $sangria;
     }
   }
 
   .section-nav {
     .level-0 > div {
-      background-color: $purple2;
+      background-color: $iris;
     }
     div.current-page {
-      background-color: $purple5;
+      background-color: $ultra-violet;
       &:after {
-        border-left-color: $purple5;
+        border-left-color: $ultra-violet;
       }
     }
     .level-1.contains-current {

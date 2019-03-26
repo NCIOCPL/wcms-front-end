@@ -153,7 +153,6 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a:focus,
 .list .title a:hover,
 .feature-card.cgvArticle a:hover h3,
-.topic-feature .cgvBlogPost a:hover h3,
 .sub-nav-group a.sub-nav-group-header:hover,
 .card-thumbnail .card-thumbnail:hover a,
 .card-thumbnail .card-thumbnail:focus a,
@@ -600,7 +599,7 @@ figure a.article-image-enlarge:hover {
     width: $site-logo-width;
   }
 
-  .ncilandingpage #PageOptionsControl1 ul {
+#PageOptionsControl1 ul {
     float: left;
   }
   .hero-text {

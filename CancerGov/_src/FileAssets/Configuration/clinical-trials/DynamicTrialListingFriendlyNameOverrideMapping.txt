@@ -11,6 +11,7 @@ C4914|skin-cancer
 C7510|thyroid-cancer
 C9231|merkel-cell
 C114812|child-pineoblastoma
+C158060|trastuzumab-and-hyaluronidase-oysk
 C3168|child-all
 C3997|child-medulloblastoma
 C4967|adult-all
