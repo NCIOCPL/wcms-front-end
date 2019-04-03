@@ -13,10 +13,8 @@ $electric-lilac: #6c81e8;
 $plum: #592e6b;
 $thistle: #f6eefd;
 $raindrop: #cfeaf1; // used in svg for guide card arrow
-
 $slate: #606060;
-$purple3: #6264b4;
-$purple7: #e9e7f7;
+
 
 // utility shades
 $eggshell: #f2f0ef;
@@ -29,7 +27,7 @@ $freeze: #c2e4e0;
 $space: #023c5a;
 $bronze: #c78005;
 
-// default theme text color
+// default theme link color
 .main-content a,
 .main-content .feature-card a,
 .feature-card.cgvArticle a h3,
@@ -37,11 +35,14 @@ ul.breadcrumbs > * a,
 .pullquote,
 .desktop #blog-archive-accordion .ui-accordion-header .toggle,
 .desktop #blog-archive-accordion .ui-accordion-header.ui-state-active .toggle,
-.multimedia .feature-card a h3 {
+.multimedia .feature-card a h3,
+.topic-feature a h3,
+table tbody tr td a,
+li a {
   color: $ultra-violet;
 }
 
-// default theme link color
+// default theme link hover color
 .main-content p a:hover,
 .main-content a:hover,
 a .feature-card.cgvArticle a:hover h3,
@@ -55,7 +56,10 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a:focus,
 .list .title a:hover,
 .feature-card.cgvArticle a:hover h3,
-.topic-feature .cgvBlogPost a:hover h3 {
+.topic-feature .cgvBlogPost a:hover h3,
+.topic-feature a:hover h3,
+table tbody tr td a:hover,
+li a:hover {
   color: $sangria;
 }
 
@@ -78,25 +82,25 @@ a .feature-card.cgvArticle a:hover h3,
     font-size: 20px;
     text-align: left;
     padding-left: 5px;
-    color: $black;
+    color: $asphalt;
   }
 }
 
 // menu bar
 .nav-search-bar {
   background: $iris;
-  background: linear-gradient(180deg, $iris, $purple3);
 }
 
 // mobile menu
 .mobile-menu-bar {
-  display: flex;
-  justify-content: space-between;
 
   > a,
   > button {
-    margin: 1em 50px !important;
-    top: 0;
+    width: 28%;
+    margin-left: 0;
+  }
+  .nav-search {
+    float: right;
   }
 }
 
@@ -112,12 +116,12 @@ a .feature-card.cgvArticle a:hover h3,
     > div .toggle[aria-expanded="true"],
     > div[aria-expanded="true"] .toggle {
       background-color: $white;
-      color: $iris;
+      color: $plum;
     }
 
     > div .toggle[aria-expanded="false"],
     > div[aria-expanded="false"] .toggle {
-      background-color: $iris;
+      background-color: $plum;
       color: $white;
     }
   }
@@ -261,8 +265,18 @@ form button[type="submit"]:hover {
   .icon.twitter {
     @include svg-sprite(twitter-purple);
   }
+  
   .icon.govdelivery {
     @include svg-sprite(gov-delivery-purple);
+  }
+  li:hover {
+    opacity: 1;
+  }
+  .twitter:hover {
+    @include svg-sprite(twitter-purple-hover);
+  }
+  .icon.govdelivery:hover {
+    @include svg-sprite(gov-delivery-purple-hover);
   }
 }
 
@@ -301,6 +315,10 @@ form button[type="submit"]:hover {
 #mega-nav .toggle[aria-expanded=true], #mega-nav[aria-expanded=true] .toggle {
   color: $electric-lilac;
 }
+#mega-nav,
+#mega-nav li {
+  background-color: $eggshell;
+}
 .nav-menu a:active {
   background-color: $sangria;
 }
@@ -316,12 +334,29 @@ form button[type="submit"]:hover {
 .section-nav div:active {
   background: $sangria;
 }
+.section-nav div:active a {
+  color: $white;
+}
 .section-nav .toggle[aria-expanded=false], .section-nav[aria-expanded=false] .toggle {
-  background-color: $sangria;
+  background-color: $plum;
 }
 .section-nav .toggle[aria-expanded=true], .section-nav[aria-expanded=true] .toggle {
   color: $electric-lilac;
 }
+
+.section-nav .contains-current>div a {
+  color: $iris;
+}
+
+
+.section-nav div.current-page>a {
+  color: #fff;
+}
+
+.hero-text {
+  background: #32115b;
+}
+
 }
 
 @include break(large) {
@@ -356,8 +391,12 @@ form button[type="submit"]:hover {
         border-left-color: $ultra-violet;
       }
     }
-    .level-1.contains-current {
-      background-color: $purple7;
+    .contains-current {
+      background: $thistle;
+
+      .current-page {
+        background: $ultra-violet;
+      }
     }
   }
 
@@ -391,4 +430,10 @@ form button[type="submit"]:hover {
       @include svg-sprite(pinterest-purple, mq);
     }
   }
+  .section-nav .contains-current>div a {
+    color: $iris;
+}
+.section-nav div.current-page>a {
+  color: #fff;
+}
 }
