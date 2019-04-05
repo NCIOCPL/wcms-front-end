@@ -29,6 +29,8 @@ $bronze: #c78005;
 
 // default theme link color
 .main-content a,
+#cgvBody h2 a, #cgvBody h3 a, #cgvBody h4 a, #cgvBody h5 a, #cgvBody h6 a,
+.contentzone h2 a, .contentzone  h3 a, .contentzone  h4 a, .contentzone  h5 a, .contentzone  h6 a,
 .main-content .feature-card a,
 .feature-card.cgvArticle a h3,
 ul.breadcrumbs > * a,
@@ -42,24 +44,26 @@ li a {
   color: $ultra-violet;
 }
 
-// default theme link hover color
-.main-content p a:hover,
-.main-content a:hover,
+// default theme link hover/active color (for items that change color rather than get underlined)
+#cgvBody h2 a:focus, #cgvBody h2 a:hover, #cgvBody h3 a:focus, #cgvBody h3 a:hover, #cgvBody h4 a:focus, #cgvBody h4 a:hover, #cgvBody h5 a:focus, #cgvBody h5 a:hover, #cgvBody h6 a:focus, #cgvBody h6 a:hover,
+.contentzone h2 a:focus, .contentzone h2 a:hover, .contentzone h3 a:focus, .contentzone h3 a:hover, .contentzone h4 a:focus, .contentzone h4 a:hover, .contentzoneh5 a:focus, .contentzone h5 a:hover, .contentzone h6 a:focus, .contentzone h6 a:hover,
 a .feature-card.cgvArticle a:hover h3,
 .main-content a.title:hover,
-.card-thumbnail h3 a:focus,
-.card-thumbnail h3 a:hover,
-.topic-feature a:focus,
-.topic-feature a:hover,
-.list .title a.title:focus,
-.list .title a.title:hover,
-.list .title a:focus,
-.list .title a:hover,
+.card-thumbnail h3 a:hover, .card-thumbnail h3 a:focus,
+.topic-feature a:hover, .topic-feature a:focus,
+.list .title a.title:hover, .list .title a.title:focus,
+.list .title a:hover, .list .title a:focus,
 .feature-card.cgvArticle a:hover h3,
 .topic-feature .cgvBlogPost a:hover h3,
 .topic-feature a:hover h3,
-table tbody tr td a:hover,
-li a:hover {
+.post-title a:hover, .post-title a:focus,
+.feature-secondary a:hover, .feature-secondary a:focus,
+.blog-feature a:hover h3, .blog-feature a:focus h3,
+.multimedia-slot a:hover h3, .multimedia-slot a:focus h3,
+.landing-thumb-text h3 a:hover, .landing-thumb-text h3 a:focus,
+.title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus,
+.page-options li a:hover, .page-options li a:focus,
+.card-thumbnail .card-thumbnail:hover a, .card-thumbnail .card-thumbnail:focus a {
   color: $sangria;
 }
 
@@ -116,7 +120,7 @@ li a:hover {
     > div .toggle[aria-expanded="true"],
     > div[aria-expanded="true"] .toggle {
       background-color: $white;
-      color: $plum;
+      color: $electric-lilac;
     }
 
     > div .toggle[aria-expanded="false"],
@@ -177,11 +181,6 @@ a.arrow-link:hover:before {
 .guide-card .card {
   background: #f5f0fd;
 }
-.main-content .guide-card a.arrow-link:hover,
-.multimedia .card:hover h3,
-.card-thumbnail .card-thumbnail:hover a {
-  color: $sangria;
-}
 .multimedia-slot {
   background: url(/publishedcontent/images/images/design-elements/background-graphics/multimedia-background-purple.jpg)
     repeat;
@@ -232,6 +231,13 @@ figure a.article-image-enlarge {
 .ui-selectmenu-button span.ui-icon {
   background-color: $electric-lilac;
 }
+.ui-selectmenu-button:focus span.ui-icon, .ui-selectmenu-button:hover span.ui-icon {
+  background-color: #586fbf	;
+}
+.ui-selectmenu-menu .ui-state-focus {
+  background: $sangria;
+}
+
 .button.submit,
 .button[type="submit"],
 form button.submit,
@@ -309,10 +315,14 @@ form button[type="submit"]:hover {
   #mega-nav li.contains-current>div.nav-item-title>a {
     color: $iris;
 }
-#mega-nav .toggle[aria-expanded=false], #mega-nav[aria-expanded=false] .toggle {
+#mega-nav .toggle[aria-expanded=false], 
+#mega-nav[aria-expanded=false] .toggle,
+.section-nav .has-children>.current-page .toggle[aria-expanded=false] {
   background-color: $plum;
 }
-#mega-nav .toggle[aria-expanded=true], #mega-nav[aria-expanded=true] .toggle {
+#mega-nav .toggle[aria-expanded=true], 
+#mega-nav[aria-expanded=true] .toggle, 
+.section-nav .has-children>.current-page .toggle[aria-expanded=true] {
   color: $electric-lilac;
 }
 #mega-nav,
@@ -333,6 +343,10 @@ form button[type="submit"]:hover {
 }
 .section-nav div:active {
   background: $sangria;
+}
+.section-nav .contains-current > div:active a,
+.section-nav div:active a {
+  color: $white;
 }
 .section-nav div:active a {
   color: $white;
@@ -391,7 +405,7 @@ form button[type="submit"]:hover {
         border-left-color: $ultra-violet;
       }
     }
-    .contains-current {
+    .level-1.contains-current {
       background: $thistle;
 
       .current-page {
