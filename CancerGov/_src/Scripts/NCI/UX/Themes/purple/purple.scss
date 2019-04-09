@@ -320,14 +320,19 @@ form button[type="submit"]:hover {
   #mega-nav li.contains-current>div.nav-item-title>a {
     color: $iris;
 }
+
 #mega-nav .toggle[aria-expanded=false], 
 #mega-nav[aria-expanded=false] .toggle,
-.section-nav .has-children>.current-page .toggle[aria-expanded=false] {
+.section-nav .has-children>.current-page .toggle[aria-expanded=false],
+.section-nav .level-1.contains-current .toggle[aria-expanded=false],
+.section-nav .toggle[aria-expanded=false], .section-nav[aria-expanded=false] .toggle {
   background-color: $plum;
 }
 #mega-nav .toggle[aria-expanded=true], 
 #mega-nav[aria-expanded=true] .toggle, 
-.section-nav .has-children>.current-page .toggle[aria-expanded=true] {
+.section-nav .has-children>.current-page .toggle[aria-expanded=true],
+.section-nav .level-1.contains-current .toggle[aria-expanded=true],
+.section-nav .toggle[aria-expanded=true], .section-nav[aria-expanded=true] .toggle {
   color: $electric-lilac;
 }
 #mega-nav,
@@ -355,15 +360,8 @@ form button[type="submit"]:hover {
 .section-nav div.current-page {
   background: $ultra-violet;
 }
-.section-nav .contains-current > div:active a {
-  color: $white;
-}
-.section-nav .toggle[aria-expanded=false], .section-nav[aria-expanded=false] .toggle {
-  background-color: $plum;
-}
-.section-nav .toggle[aria-expanded=true], .section-nav[aria-expanded=true] .toggle {
-  color: $electric-lilac;
-}
+
+
 
 .section-nav .contains-current>div a {
   color: $iris;
