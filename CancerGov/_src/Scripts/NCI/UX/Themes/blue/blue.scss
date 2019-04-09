@@ -67,7 +67,6 @@ $hamburger-menu-mobile-tablet-not-current-page-plus-background: $space;
 $hamburger-menu-mobile-tablet-not-current-page-plus-color: $white;
 $hamburger-menu-mobile-tablet-not-current-page-minus-color: $space;
 $hamburger-menu-mobile-tablet-not-current-page-minus-background: $white;
-$section-menu-desktop-mobile-tablet-parent-item-color: $denim;
 $section-menu-mobile-tablet-current-page-color: $white;
 $section-menu-mobile-tablet-current-page-background: $denim;
 $section-menu-mobile-tablet-family-background: $icicle;
@@ -75,10 +74,10 @@ $section-menu-mobile-tablet-current-page-plus-background: $space;
 $section-menu-mobile-tablet-current-page-plus-color: $white;
 $section-menu-mobile-tablet-current-page-minus-color: $space;
 $section-menu-mobile-tablet-current-page-minus-background: $white;
-$section-menu-mobile-tablet-not-current-page-plus-background: default;  // this is not a valid css value, but will produce bad css rule and will result in defaulting to cancer.gov style
-$section-menu-mobile-tablet-not-current-page-plus-color: default;
-$section-menu-mobile-tablet-not-current-page-minus-color: default;
-$section-menu-mobile-tablet-not-current-page-minus-background: default;
+$section-menu-mobile-tablet-not-current-page-plus-background: $space;  // this is not a valid css value, but will produce bad css rule and will result in defaulting to cancer.gov style
+$section-menu-mobile-tablet-not-current-page-plus-color: $white;
+$section-menu-mobile-tablet-not-current-page-minus-color: $space;
+$section-menu-mobile-tablet-not-current-page-minus-background: $white;
 $page-options-mobile-tablet-background: $jewel;
 $page-options-mobile-tablet-hover-background: $clementine;
 $page-options-desktop-background: transparent;
@@ -162,12 +161,12 @@ li a {
 .contentzone h2 a:focus, .contentzone h2 a:hover, .contentzone h3 a:focus, .contentzone h3 a:hover, .contentzone h4 a:focus, .contentzone h4 a:hover, .contentzoneh5 a:focus, .contentzone h5 a:hover, .contentzone h6 a:focus, .contentzone h6 a:hover,
 a .feature-card.cgvArticle a:hover h3,
 .main-content a.title:hover,
-.card-thumbnail h3 a:hover, .card-thumbnail h3 a:focus,
+.card-thumbnail .card-thumbnail:hover a, .card-thumbnail .card-thumbnail:focus a,
 .topic-feature a:hover, .topic-feature a:focus,
 .list .title a.title:hover, .list .title a.title:focus,
 .list .title a:hover, .list .title a:focus,
 .feature-card.cgvArticle a:hover h3,
-.sub-nav-group a.sub-nav-group-header:hover,
+.sub-nav-group a.sub-nav-group-header:hover, .sub-nav-group a.sub-nav-group-header:focus,
 .card-thumbnail .card-thumbnail:hover a, .card-thumbnail .card-thumbnail:focus a,
 .multimedia-slot .feature-card:hover, .multimedia-slot .feature-card:focus,
 .multimedia-slot a:hover h3, .multimedia-slot a:focus h3,
@@ -179,11 +178,10 @@ a .feature-card.cgvArticle a:hover h3,
 .post-title a:hover, .post-title a:focus,
 .feature-secondary a:hover, .feature-secondary a:focus,
 .blog-feature a:hover h3, .blog-feature a:focus h3,
-.multimedia-slot a:hover h3, .multimedia-slot a:focus h3,
 .landing-thumb-text h3 a:hover, .landing-thumb-text h3 a:focus,
 .title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus,
 .page-options li a:hover, .page-options li a:focus,
-.card-thumbnail .card-thumbnail:hover a, .card-thumbnail .card-thumbnail:focus a {
+.contentzone table tbody tr td a:hover, .contentzone table tbody tr td a:focus {
   color: $default-link-color-hover;
 }
 
@@ -286,10 +284,6 @@ button.nav-dictionary::before {
 
 .section-nav .level-1.contains-current.has-children div.current-page a {
   color: $section-menu-mobile-tablet-current-page-color;
-}
-// Parent color of active menu item
-.section-nav .contains-current > div a {
-  color: $section-menu-desktop-mobile-tablet-parent-item-color;
 }
 
 #mega-nav .toggle[aria-expanded="true"],
@@ -514,6 +508,9 @@ figure a.article-image-enlarge:hover {
 }
 
 @include break(large) {
+
+  
+  
   // header
   .nci-logo-pages {
     img {
@@ -554,6 +551,13 @@ figure a.article-image-enlarge:hover {
 #mega-nav,
 #mega-nav li {
   background: none;
+}
+
+// overwriting hamburger menu style rules
+#mega-nav .lvl-1.contains-current.has-children > .nav-item-title > a,
+#mega-nav li.contains-current > div.nav-item-title > a,
+.section-nav .level-1.contains-current.has-children > div a {
+  color: initial;
 }
 
   // Left navigation

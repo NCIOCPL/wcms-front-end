@@ -3,7 +3,7 @@
 @import "../../../../../StyleSheets/colors";
 @import "./images/sprites/svg-sprite-purple";
 
-// theme color palette
+// theme color palettef
 $iris: #6254a3;
 $sangria: #951b81;
 $ultra-violet: #6b35a6;
@@ -54,16 +54,21 @@ a .feature-card.cgvArticle a:hover h3,
 .list .title a.title:hover, .list .title a.title:focus,
 .list .title a:hover, .list .title a:focus,
 .feature-card.cgvArticle a:hover h3,
+.sub-nav-group a.sub-nav-group-header:hover, .sub-nav-group a.sub-nav-group-header:focus,
+.main-content .guide-card a.arrow-link:hover,
+.main-content .guide-card a.arrow-link:focus,
 .topic-feature .cgvBlogPost a:hover h3,
 .topic-feature a:hover h3,
 .post-title a:hover, .post-title a:focus,
 .feature-secondary a:hover, .feature-secondary a:focus,
 .blog-feature a:hover h3, .blog-feature a:focus h3,
 .multimedia-slot a:hover h3, .multimedia-slot a:focus h3,
+.multimedia .card:hover h3, .multimedia .card:focus h3,
 .landing-thumb-text h3 a:hover, .landing-thumb-text h3 a:focus,
 .title a.title:hover, .title a.title:focus, .title a:hover, .title a:focus,
 .page-options li a:hover, .page-options li a:focus,
-.card-thumbnail .card-thumbnail:hover a, .card-thumbnail .card-thumbnail:focus a {
+.card-thumbnail .card-thumbnail:hover a, .card-thumbnail .card-thumbnail:focus a,
+.contentzone table tbody tr td a:hover, .contentzone table tbody tr td a:focus  {
   color: $sangria;
 }
 
@@ -189,7 +194,7 @@ a.arrow-link:hover:before {
 figure a.article-image-enlarge {
   background-color: $azure;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: $sangria;
     color: #fff;
   }
@@ -334,21 +339,23 @@ form button[type="submit"]:hover {
 }
 .section-nav {
   background: $eggshell;
+
+  .level-1.contains-current {
+    background: $thistle;
+  
+    .current-page {
+      background: $ultra-violet;
+    }
+  }
 }
+
 .section-nav .level-0>div {
   background-color: $iris;
 }
 .section-nav div.current-page {
   background: $ultra-violet;
 }
-.section-nav div:active {
-  background: $sangria;
-}
-.section-nav .contains-current > div:active a,
-.section-nav div:active a {
-  color: $white;
-}
-.section-nav div:active a {
+.section-nav .contains-current > div:active a {
   color: $white;
 }
 .section-nav .toggle[aria-expanded=false], .section-nav[aria-expanded=false] .toggle {
@@ -361,7 +368,6 @@ form button[type="submit"]:hover {
 .section-nav .contains-current>div a {
   color: $iris;
 }
-
 
 .section-nav div.current-page>a {
   color: #fff;
