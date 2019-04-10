@@ -1,6 +1,7 @@
 import './blue.scss';
 
 const onDOMContentLoaded = () => {
+// this was pulled from a Raw HTML block. It does DOM manipulation, mostly adding classes. The CSS classes, particularly micro-a, are used in the themes. A dev did it for Nano, the original theme, and its been copied over to all the themes.
 var micrositeSnippet = function(i) {
   function e() {
     var i = $("#microsite-a");
