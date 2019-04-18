@@ -190,7 +190,7 @@ a .feature-card.cgvArticle a:hover h3,
 
 // default header colors
 h1, h2, h3, h4, h5, h6 {
-  color: $storm;
+  color: $default-header-colors;
 }
 
 // header
@@ -674,7 +674,7 @@ figure a.article-image-enlarge:hover {
     background: $landing-page-hero-text-tablet-background;
   }
   // trying to limit rule for this to landing pages and not article pages, where it shouldn't float
-  .row > .page-options-container .page-options ul {
+  .row > div:first-child .page-options ul {
     float: left !important;
   }
 }
