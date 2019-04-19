@@ -67,8 +67,6 @@ $hamburger-menu-mobile-tablet-not-current-page-plus-background: $space;
 $hamburger-menu-mobile-tablet-not-current-page-plus-color: $white;
 $hamburger-menu-mobile-tablet-not-current-page-minus-color: $space;
 $hamburger-menu-mobile-tablet-not-current-page-minus-background: $white;
-$section-menu-mobile-tablet-button-background: aegean;
-$section-menu-mobile-tablet-title-background: aegean;
 $section-menu-mobile-tablet-current-page-color: $white;
 $section-menu-mobile-tablet-current-page-background: $denim;
 $section-menu-mobile-tablet-family-background: $icicle;
@@ -190,7 +188,7 @@ a .feature-card.cgvArticle a:hover h3,
 
 // default header colors
 h1, h2, h3, h4, h5, h6 {
-  color: $default-header-colors;
+  color: $storm;
 }
 
 // header
@@ -632,10 +630,10 @@ figure a.article-image-enlarge:hover {
   }
   // section navigation mobile (tongue)
   #section-menu-button {
-   background-color: $section-menu-mobile-tablet-button-background;
+   background-color: $aegean;
   }
   .section-nav .level-0>div {
-    background: $section-menu-mobile-tablet-title-background;
+    background: $aegean;
   }
 .section-nav div.current-page {
   background: $section-menu-mobile-tablet-current-page-background;
@@ -674,7 +672,7 @@ figure a.article-image-enlarge:hover {
     background: $landing-page-hero-text-tablet-background;
   }
   // trying to limit rule for this to landing pages and not article pages, where it shouldn't float
-  .row > div:first-child .page-options ul {
+  .row > .page-options-container .page-options ul {
     float: left !important;
   }
 }

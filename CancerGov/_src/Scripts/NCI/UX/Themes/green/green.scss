@@ -282,7 +282,8 @@ button.nav-dictionary::before {
 
 #mega-nav .lvl-1.contains-current.has-children > .nav-item-title > a,
 #mega-nav li.contains-current > div.nav-item-title > a,
-.section-nav .level-1.contains-current.has-children > div a {
+.section-nav .level-1.contains-current.has-children > div a,
+.contains-current.has-children > div > a {
   color: $hamburger-section-menu-parent-item-link-color;
 }
 
