@@ -42,6 +42,7 @@ module.exports = {
 		R4R:                    './UX/AppModuleSpecific/R4R/R4R',
 		Purple:                 './UX/Themes/purple/purple',
 		Blue:                   './UX/Themes/blue/blue',
+		Green:                  './UX/Themes/green/green',
 		ProfilePage:			      './UX/PageSpecific/Profile/ProfilePage'
 	},
 	target: 'web',

@@ -11,6 +11,7 @@ C4914|skin-cancer
 C7510|thyroid-cancer
 C9231|merkel-cell
 C114812|child-pineoblastoma
+C158060|trastuzumab-and-hyaluronidase-oysk
 C3168|child-all
 C3997|child-medulloblastoma
 C4967|adult-all
@@ -25,6 +26,7 @@ C4699|gestational-trophoblastic-disease
 C3918|extragonadal-germ-cell-tumors
 C4345|myloproliferative-neoplasm
 C152494|talazoparib-tosylate
+C156894|glasdegib-maleate
 supportive_care|supportive-care
 basic_science|basic-science
 health_services_research|health-services-research
